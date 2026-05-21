@@ -152,10 +152,16 @@
 </section>
 
 <style>
-  /* Hero image overrides — remove white glow, recenter, drop the rounded clip */
-  .hero .media { position: relative !important; right: auto !important; top: auto !important; transform: none !important; display: flex; align-items: center; justify-content: center; padding: 20px 0; }
-  .hero .media > img { box-shadow: none !important; border-radius: 0 !important; max-width: 100% !important; width: 100%; height: auto; }
+  /* Hero overrides — solid dark background, bigger image, no white glow */
+  .hero { background: #060914 !important; }
+  .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) !important; gap: 30px !important; align-items: center !important; }
+  .hero .media { position: relative !important; right: auto !important; top: auto !important; transform: none !important; display: flex; align-items: center; justify-content: center; padding: 0; }
+  .hero .media > img { box-shadow: none !important; border-radius: 0 !important; max-width: none !important; width: 115%; height: auto; margin-left: -7%; }
   .hero .media > p { display: none !important; }
+  @media (max-width: 900px) {
+    .hero__inner { grid-template-columns: 1fr !important; }
+    .hero .media > img { width: 100%; margin-left: 0; }
+  }
 
   .two-paths { position: relative; padding-block: 100px; background:#060914; }
   .two-paths__head { max-width: 1100px; margin: 0 auto 60px; padding: 0 30px; }
