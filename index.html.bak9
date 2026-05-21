@@ -1174,24 +1174,21 @@
     container.style.cssText = 'display:flex !important;flex-wrap:nowrap !important;gap:18px !important;max-width:none !important;width:auto !important;';
     var cards = container.querySelectorAll('.card');
     cards.forEach(function(c){
-      c.style.cssText = 'width:300px !important;min-width:300px !important;max-width:300px !important;flex:0 0 300px !important;padding:24px 22px !important;box-sizing:border-box !important;background:hsla(0,0%,100%,0.04);border:1px solid hsla(0,0%,100%,0.1);border-radius:16px;backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:20px;';
+      c.style.cssText = 'width:280px !important;min-width:280px !important;max-width:280px !important;flex:0 0 280px !important;padding:24px 22px !important;box-sizing:border-box !important;background:hsla(0,0%,100%,0.04);border:1px solid hsla(0,0%,100%,0.1);border-radius:16px;backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:20px;';
       var p = c.querySelector('p');
-      if (p) {
-        /* Force fix: rewrite innerHTML to wrap contact info in nowrap spans, removing stray spaces around @ */
-        var html = p.innerHTML;
-        /* Collapse any "support@ TradeFundrr.com" with spaces back into a single token wrapped in nowrap */
-        html = html.replace(/(<strong[^>]*>)?\s*support\s*@\s*TradeFundrr\.com(\s*<\/strong>)?/gi,
-          '<span style="white-space:nowrap;font-weight:600;">support@TradeFundrr.com</span>');
-        html = html.replace(/(<strong[^>]*>)?\s*\+1\s*\(877\)\s*799-8198(\s*<\/strong>)?/gi,
-          '<span style="white-space:nowrap;font-weight:600;">+1 (877) 799-8198</span>');
-        p.innerHTML = html;
-        p.style.cssText = 'color:#fff !important;font-size:13px !important;line-height:1.55 !important;letter-spacing:-0.3px !important;word-break:normal !important;overflow-wrap:normal !important;margin:0 !important;display:block !important;';
-      }
+      if (p) p.style.cssText = 'color:#fff !important;font-size:13px !important;line-height:1.55 !important;letter-spacing:-0.3px !important;word-break:normal !important;overflow-wrap:normal !important;margin:0 !important;display:block !important;';
+      var strongs = c.querySelectorAll('p strong');
+      strongs.forEach(function(s){ s.style.whiteSpace = 'nowrap'; });
     });
+    /* Also unconstrain the parent column if present */
     var parent = container.parentElement;
     if (parent) {
       parent.style.maxWidth = 'none';
       parent.style.flex = '1 1 auto';
+      var grandparent = parent.parentElement;
+      if (grandparent && grandparent.classList.contains('real-support__inner')) {
+        grandparent.style.gap = '40px';
+      }
     }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', widen);
