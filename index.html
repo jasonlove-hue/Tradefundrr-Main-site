@@ -327,13 +327,19 @@
 
 <style>
   /* Restore how-it-works section to flow normally (was sized by the removed SVG image) */
-  .how-it-works { overflow: visible !important; padding: 80px 0 100px !important; }
+  .how-it-works { overflow: visible !important; padding: 100px 0 110px !important; }
   .how-it-works > .container { position: relative !important; height: auto !important; left: auto !important; transform: none !important; max-width: 1240px !important; margin: 0 auto !important; }
-  .how-it-works__head { max-width: 830px !important; margin: 0 auto 50px !important; text-align: center !important; }
+  .how-it-works__head { display: none !important; }
 
-  /* Animated 4-step How It Works cycler */
-  .hiw-cycler { max-width: 1000px; margin: 30px auto 30px; padding: 0 20px; position: relative; clear: both; }
-  .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/240; max-height: 320px; margin-bottom: 24px; }
+  /* Two-column How It Works cycler: heading left, graph right */
+  .hiw-cycler { max-width: 1200px; margin: 0 auto 30px; padding: 0 30px; position: relative; clear: both; }
+  .hiw-top { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: center; margin-bottom: 28px; }
+  .hiw-head { text-align: left; }
+  .hiw-eyebrow { font-family: "Geist Mono", "IBM Plex Mono", monospace; font-size: 14px; letter-spacing: 1.6px; text-transform: uppercase; color: #22d3a8; margin: 0 0 18px; }
+  .hiw-title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 48px; color: #fff; margin: 0 0 18px; line-height: 1.05; letter-spacing: -1.4px; }
+  .hiw-title .accent { color: #ffc107; }
+  .hiw-kicker { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.55; margin: 0; max-width: 480px; }
+  .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/280; }
   .hiw-rail svg { width: 100%; height: 100%; display: block; }
   .hiw-grid line { stroke: rgba(255,255,255,0.05); stroke-width: 1; }
   .hiw-grid .axis { stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
@@ -363,11 +369,17 @@
 
   #hiw-confetti { position: absolute; inset: 0; pointer-events: none; z-index: 10; width: 100%; height: 100%; }
 
+  @media (max-width: 900px) {
+    .hiw-top { grid-template-columns: 1fr; gap: 28px; }
+    .hiw-kicker { max-width: none; }
+    .hiw-title { font-size: 36px; letter-spacing: -1px; }
+  }
   @media (max-width: 700px) {
     .hiw-circle { width: 44px; height: 44px; font-size: 15px; }
     .hiw-step-label { font-size: 9px; }
     .hiw-content h3 { font-size: 18px; }
     .hiw-content p { font-size: 14px; }
+    .hiw-title { font-size: 30px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hiw-circle, .hiw-path-fill, .hiw-content__inner { transition: none !important; }
@@ -377,41 +389,44 @@
 
 <section class="how-it-works" id="how-it-works">
   <div class="container">
-    <div class="how-it-works__head">
-      <p class="eyebrow">how it works</p>
-      <h2 class="how-it-works__title h2"><span style="color:#fc0">With TradeFundrr</span> Getting Funded Is Easier Than You Think</h2>
-    </div>
-
     <div class="hiw-cycler">
-      <div class="hiw-rail">
-        <svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="hiw-area-grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.35"/>
-              <stop offset="60%" stop-color="#22d3a8" stop-opacity="0.10"/>
-              <stop offset="100%" stop-color="#22d3a8" stop-opacity="0"/>
-            </linearGradient>
-            <clipPath id="hiw-area-clip">
-              <rect class="hiw-clip-rect" id="hiw-clip-rect" x="0" y="0" width="0" height="240"/>
-            </clipPath>
-          </defs>
-          <g class="hiw-grid">
-            <line x1="0" y1="48" x2="600" y2="48"/>
-            <line x1="0" y1="96" x2="600" y2="96"/>
-            <line x1="0" y1="144" x2="600" y2="144"/>
-            <line x1="0" y1="192" x2="600" y2="192"/>
-            <line class="axis" x1="0" y1="240" x2="600" y2="240"/>
-            <line class="axis" x1="0" y1="0" x2="0" y2="240"/>
-          </g>
-          <path class="hiw-path-area" id="hiw-path-area" d="M 50 210 C 150 200, 200 170, 220 150 C 260 110, 320 100, 370 90 C 420 80, 480 50, 550 30 L 550 240 L 50 240 Z" fill="url(#hiw-area-grad)" clip-path="url(#hiw-area-clip)"/>
-          <path class="hiw-path-bg" d="M 50 210 C 150 200, 200 170, 220 150 C 260 110, 320 100, 370 90 C 420 80, 480 50, 550 30"/>
-          <path class="hiw-path-fill" id="hiw-path" d="M 50 210 C 150 200, 200 170, 220 150 C 260 110, 320 100, 370 90 C 420 80, 480 50, 550 30"/>
-        </svg>
-        <div class="hiw-step is-active" data-step="0" style="left: 8.3%; top: 87.5%;"><div class="hiw-circle">1</div><div class="hiw-step-label">STEP 01</div></div>
-        <div class="hiw-step" data-step="1" style="left: 36.7%; top: 62.5%;"><div class="hiw-circle">2</div><div class="hiw-step-label">STEP 02</div></div>
-        <div class="hiw-step" data-step="2" style="left: 61.7%; top: 37.5%;"><div class="hiw-circle">3</div><div class="hiw-step-label">STEP 03</div></div>
-        <div class="hiw-step" data-step="3" style="left: 91.7%; top: 12.5%;"><div class="hiw-circle">4</div><div class="hiw-step-label">STEP 04</div></div>
-        <canvas id="hiw-confetti"></canvas>
+      <div class="hiw-top">
+        <div class="hiw-head">
+          <p class="hiw-eyebrow">How It Works</p>
+          <h2 class="hiw-title"><span class="accent">With TradeFundrr</span><br/>Getting Funded Is Easier Than You Think</h2>
+          <p class="hiw-kicker">Four clear steps from program selection to live capital — each one defined, transparent, and earned by performance.</p>
+        </div>
+
+        <div class="hiw-rail">
+          <svg viewBox="0 0 600 280" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="hiw-area-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.35"/>
+                <stop offset="60%" stop-color="#22d3a8" stop-opacity="0.10"/>
+                <stop offset="100%" stop-color="#22d3a8" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="hiw-area-clip">
+                <rect class="hiw-clip-rect" id="hiw-clip-rect" x="0" y="0" width="0" height="280"/>
+              </clipPath>
+            </defs>
+            <g class="hiw-grid">
+              <line x1="0" y1="56" x2="600" y2="56"/>
+              <line x1="0" y1="112" x2="600" y2="112"/>
+              <line x1="0" y1="168" x2="600" y2="168"/>
+              <line x1="0" y1="224" x2="600" y2="224"/>
+              <line class="axis" x1="0" y1="280" x2="600" y2="280"/>
+              <line class="axis" x1="0" y1="0" x2="0" y2="280"/>
+            </g>
+            <path class="hiw-path-area" id="hiw-path-area" d="M 50 244 C 150 234, 200 198, 220 175 C 260 130, 320 118, 370 105 C 420 92, 480 58, 550 35 L 550 280 L 50 280 Z" fill="url(#hiw-area-grad)" clip-path="url(#hiw-area-clip)"/>
+            <path class="hiw-path-bg" d="M 50 244 C 150 234, 200 198, 220 175 C 260 130, 320 118, 370 105 C 420 92, 480 58, 550 35"/>
+            <path class="hiw-path-fill" id="hiw-path" d="M 50 244 C 150 234, 200 198, 220 175 C 260 130, 320 118, 370 105 C 420 92, 480 58, 550 35"/>
+          </svg>
+          <div class="hiw-step is-active" data-step="0" style="left: 8.3%; top: 87%;"><div class="hiw-circle">1</div><div class="hiw-step-label">STEP 01</div></div>
+          <div class="hiw-step" data-step="1" style="left: 36.7%; top: 62%;"><div class="hiw-circle">2</div><div class="hiw-step-label">STEP 02</div></div>
+          <div class="hiw-step" data-step="2" style="left: 61.7%; top: 37%;"><div class="hiw-circle">3</div><div class="hiw-step-label">STEP 03</div></div>
+          <div class="hiw-step" data-step="3" style="left: 91.7%; top: 12%;"><div class="hiw-circle">4</div><div class="hiw-step-label">STEP 04</div></div>
+          <canvas id="hiw-confetti"></canvas>
+        </div>
       </div>
 
       <div class="hiw-content" id="hiw-content">
@@ -432,7 +447,7 @@
   </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
 <script>
 (function(){
   function init() {
