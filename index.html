@@ -328,10 +328,11 @@
 <style>
   /* Restore how-it-works section to flow normally (was sized by the removed SVG image) */
   .how-it-works { overflow: visible !important; padding: 80px 0 100px !important; }
-  .how-it-works > .container { position: relative !important; height: auto !important; }
+  .how-it-works > .container { position: relative !important; height: auto !important; left: auto !important; transform: none !important; max-width: 1240px !important; margin: 0 auto !important; }
+  .how-it-works__head { max-width: 830px !important; margin: 0 auto 50px !important; text-align: center !important; }
 
   /* Animated 4-step How It Works cycler */
-  .hiw-cycler { max-width: 1000px; margin: 40px auto 30px; padding: 0 20px; position: relative; }
+  .hiw-cycler { max-width: 1000px; margin: 30px auto 30px; padding: 0 20px; position: relative; clear: both; }
   .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/240; max-height: 320px; margin-bottom: 24px; }
   .hiw-rail svg { width: 100%; height: 100%; display: block; }
   .hiw-grid line { stroke: rgba(255,255,255,0.05); stroke-width: 1; }
@@ -384,6 +385,16 @@
     <div class="hiw-cycler">
       <div class="hiw-rail">
         <svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="hiw-area-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.35"/>
+              <stop offset="60%" stop-color="#22d3a8" stop-opacity="0.10"/>
+              <stop offset="100%" stop-color="#22d3a8" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="hiw-area-clip">
+              <rect class="hiw-clip-rect" id="hiw-clip-rect" x="0" y="0" width="0" height="240"/>
+            </clipPath>
+          </defs>
           <g class="hiw-grid">
             <line x1="0" y1="48" x2="600" y2="48"/>
             <line x1="0" y1="96" x2="600" y2="96"/>
@@ -392,6 +403,7 @@
             <line class="axis" x1="0" y1="240" x2="600" y2="240"/>
             <line class="axis" x1="0" y1="0" x2="0" y2="240"/>
           </g>
+          <path class="hiw-path-area" id="hiw-path-area" d="M 50 210 C 150 200, 200 170, 220 150 C 260 110, 320 100, 370 90 C 420 80, 480 50, 550 30 L 550 240 L 50 240 Z" fill="url(#hiw-area-grad)" clip-path="url(#hiw-area-clip)"/>
           <path class="hiw-path-bg" d="M 50 210 C 150 200, 200 170, 220 150 C 260 110, 320 100, 370 90 C 420 80, 480 50, 550 30"/>
           <path class="hiw-path-fill" id="hiw-path" d="M 50 210 C 150 200, 200 170, 220 150 C 260 110, 320 100, 370 90 C 420 80, 480 50, 550 30"/>
         </svg>
@@ -466,22 +478,32 @@
       setTimeout(() => c({ particleCount: 60, spread: 110, startVelocity: 25, origin: { x: 0.92, y: 0.15 }, colors: ['#22d3a8','#ffc107','#ffffff'] }), 220);
     }
 
+    const clipRect = document.getElementById('hiw-clip-rect');
+    if (clipRect) clipRect.style.transition = 'width 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
+    const areaEl = document.getElementById('hiw-path-area');
+    if (areaEl) areaEl.style.transition = 'opacity 0.4s ease';
+
     function setActive(idx, isLoopReset) {
       active = idx;
       stepEls.forEach((el, i) => {
         el.classList.toggle('is-active', i === idx);
         el.classList.toggle('is-done', i < idx);
       });
+      const fillRatio = idx / (steps.length - 1);
       if (isLoopReset) {
-        // Fade the line out, then reset to start, then continue
         pathEl.style.opacity = '0';
+        if (areaEl) areaEl.style.opacity = '0';
         setTimeout(() => {
           pathEl.style.strokeDashoffset = totalLength;
-          setTimeout(() => { pathEl.style.opacity = '1'; }, 50);
+          if (clipRect) clipRect.setAttribute('width', '0');
+          setTimeout(() => {
+            pathEl.style.opacity = '1';
+            if (areaEl) areaEl.style.opacity = '1';
+          }, 50);
         }, 380);
       } else {
-        const fillRatio = idx / (steps.length - 1);
         pathEl.style.strokeDashoffset = totalLength * (1 - fillRatio);
+        if (clipRect) clipRect.setAttribute('width', String(50 + (550 - 50) * fillRatio));
       }
       contentEl.classList.add('is-swapping');
       setTimeout(() => {
@@ -490,7 +512,16 @@
         contentEl.classList.remove('is-swapping');
       }, 280);
       if (idx === steps.length - 1) {
-        setTimeout(fireConfetti, 400);
+        setTimeout(tryFireConfetti, 400);
+      }
+    }
+
+    function tryFireConfetti(attempt) {
+      attempt = attempt || 0;
+      if (window.confetti) {
+        fireConfetti();
+      } else if (attempt < 20) {
+        setTimeout(() => tryFireConfetti(attempt + 1), 100);
       }
     }
 
