@@ -331,15 +331,14 @@
   .how-it-works > .container { position: relative !important; height: auto !important; left: auto !important; transform: none !important; max-width: 1240px !important; margin: 0 auto !important; }
   .how-it-works__head { display: none !important; }
 
-  /* Two-column How It Works cycler: heading left, graph right */
-  .hiw-cycler { max-width: 1200px; margin: 0 auto 30px; padding: 0 30px; position: relative; clear: both; }
-  .hiw-top { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px; align-items: center; margin-bottom: 28px; }
-  .hiw-head { text-align: left; }
-  .hiw-eyebrow { font-family: "Geist Mono", "IBM Plex Mono", monospace; font-size: 14px; letter-spacing: 1.6px; text-transform: uppercase; color: #22d3a8; margin: 0 0 18px; }
-  .hiw-title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 64px; color: #fff; margin: 0 0 22px; line-height: 1; letter-spacing: -2px; }
+  /* How It Works cycler: heading above, chart below, card and CTA centered */
+  .hiw-cycler { max-width: 1100px; margin: 0 auto 30px; padding: 0 30px; position: relative; clear: both; }
+  .hiw-head { text-align: center; max-width: 900px; margin: 0 auto 36px; }
+  .hiw-eyebrow { font-family: "Geist Mono", "IBM Plex Mono", monospace; font-size: 14px; letter-spacing: 1.8px; text-transform: uppercase; color: #22d3a8; margin: 0 0 18px; }
+  .hiw-title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 56px; color: #fff; margin: 0 0 18px; line-height: 1; letter-spacing: -1.8px; }
   .hiw-title .accent { color: #ffc107; }
-  .hiw-kicker { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0; max-width: 500px; }
-  .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/280; }
+  .hiw-kicker { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0 auto; max-width: 640px; }
+  .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/280; max-width: 1000px; margin: 0 auto 44px; }
   .hiw-rail svg { width: 100%; height: 100%; display: block; }
   .hiw-grid line { stroke: rgba(255,255,255,0.05); stroke-width: 1; }
   .hiw-grid .axis { stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
@@ -355,7 +354,9 @@
   .hiw-step.is-active .hiw-step-label { color: #22d3a8; }
   @keyframes hiw-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.1); } }
 
-  .hiw-content { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 26px 32px; max-width: 720px; margin: 0 auto 18px; min-height: 140px; }
+  .hiw-content { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 26px 32px; max-width: 880px; margin: 0 auto 32px; min-height: 130px; }
+  .hiw-cta-wrap { text-align: center; }
+  .hiw-cta-wrap .btn { display: inline-flex; }
   .hiw-content__inner { transition: opacity 0.3s ease, transform 0.3s ease; }
   .hiw-content.is-swapping .hiw-content__inner { opacity: 0; transform: translateY(8px); }
   .hiw-content h3 { font-family: Inter, sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 10px; line-height: 1.2; letter-spacing: -0.3px; }
@@ -370,16 +371,15 @@
   #hiw-confetti { position: absolute; inset: 0; pointer-events: none; z-index: 10; width: 100%; height: 100%; }
 
   @media (max-width: 900px) {
-    .hiw-top { grid-template-columns: 1fr; gap: 28px; }
-    .hiw-kicker { max-width: none; }
-    .hiw-title { font-size: 44px; letter-spacing: -1.2px; }
+    .hiw-title { font-size: 40px; letter-spacing: -1.2px; }
+    .hiw-kicker { font-size: 16px; }
   }
   @media (max-width: 700px) {
     .hiw-circle { width: 44px; height: 44px; font-size: 15px; }
     .hiw-step-label { font-size: 9px; }
     .hiw-content h3 { font-size: 18px; }
     .hiw-content p { font-size: 14px; }
-    .hiw-title { font-size: 36px; letter-spacing: -1px; }
+    .hiw-title { font-size: 32px; letter-spacing: -1px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hiw-circle, .hiw-path-fill, .hiw-content__inner { transition: none !important; }
@@ -390,14 +390,13 @@
 <section class="how-it-works" id="how-it-works">
   <div class="container">
     <div class="hiw-cycler">
-      <div class="hiw-top">
-        <div class="hiw-head">
-          <p class="hiw-eyebrow">How It Works</p>
-          <h2 class="hiw-title"><span class="accent">With TradeFundrr</span><br/>Getting Funded Is Easier Than You Think</h2>
-          <p class="hiw-kicker">Four clear steps from program selection to live capital. Each one defined, transparent, and earned by performance.</p>
-        </div>
+      <div class="hiw-head">
+        <p class="hiw-eyebrow">How It Works</p>
+        <h2 class="hiw-title"><span class="accent">With TradeFundrr</span> Getting Funded Is Easier Than You Think</h2>
+        <p class="hiw-kicker">Four clear steps from program selection to live capital. Each one defined, transparent, and earned by performance.</p>
+      </div>
 
-        <div class="hiw-rail">
+      <div class="hiw-rail">
           <svg viewBox="0 0 600 280" preserveAspectRatio="none" aria-hidden="true">
             <defs>
               <linearGradient id="hiw-area-grad" x1="0" y1="0" x2="0" y2="1">
@@ -424,8 +423,7 @@
           <div class="hiw-step is-active" data-step="0" style="left: 8.3%; top: 87%;"><div class="hiw-circle">1</div><div class="hiw-step-label">STEP 01</div></div>
           <div class="hiw-step" data-step="1" style="left: 36.7%; top: 62%;"><div class="hiw-circle">2</div><div class="hiw-step-label">STEP 02</div></div>
           <div class="hiw-step" data-step="2" style="left: 61.7%; top: 37%;"><div class="hiw-circle">3</div><div class="hiw-step-label">STEP 03</div></div>
-          <div class="hiw-step" data-step="3" style="left: 91.7%; top: 12%;"><div class="hiw-circle">4</div><div class="hiw-step-label">STEP 04</div></div>
-        </div>
+        <div class="hiw-step" data-step="3" style="left: 91.7%; top: 12%;"><div class="hiw-circle">4</div><div class="hiw-step-label">STEP 04</div></div>
       </div>
 
       <div class="hiw-content" id="hiw-content">
@@ -435,10 +433,9 @@
         </div>
       </div>
 
-    </div>
-
-    <div style="text-align: center; margin-top: 30px;">
-      <a href="pages/pricing.html" class="btn">View Plans and Pricing <span class="arrow"><img src="assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+      <div class="hiw-cta-wrap">
+        <a href="pages/pricing.html" class="btn btn--primary">View Plans and Pricing <span class="arrow"><img src="assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+      </div>
     </div>
   </div>
 </section>
