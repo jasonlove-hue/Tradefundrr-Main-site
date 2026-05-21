@@ -93,60 +93,38 @@
   </div>
 </section>
 
+<style>
+  /* Credibility ticker — replaces static reassurance grid */
+  .tf-ticker { position: relative; width: 100%; overflow: hidden; padding: 28px 0; }
+  .tf-ticker__track { display: flex; gap: 56px; width: max-content; animation: tf-scroll 45s linear infinite; }
+  .tf-ticker:hover .tf-ticker__track { animation-play-state: paused; }
+  .tf-ticker__item { display: inline-flex; align-items: center; gap: 12px; color: #fff; font-size: 15px; white-space: nowrap; opacity: 0.92; }
+  .tf-ticker__item img { width: 24px; height: 24px; flex-shrink: 0; }
+  .tf-ticker::before, .tf-ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; pointer-events: none; z-index: 2; }
+  .tf-ticker::before { left: 0; background: linear-gradient(to right, #060914, transparent); }
+  .tf-ticker::after { right: 0; background: linear-gradient(to left, #060914, transparent); }
+  @keyframes tf-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .tf-ticker__track { animation: none; flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+
 <section class="reassurance">
-  <div class="container">
-    <div class="reassurance__grid">
-      <div class="reassurance__item">
-        <span class="ic" aria-hidden="true">
-          <img src="assets/images/list-icon-1.svg" alt="list-icon">
-        </span>
-        <div>
-          <div class="label">A Growing Community of Funded Traders</div>
-        </div>
-      </div>
-      <div class="reassurance__item">
-        <span class="ic" aria-hidden="true">
-          <img src="assets/images/list-icon-2.svg" alt="list-icon">
-        </span>
-        <div>
-          <div class="label">Consistent Trader Payouts Since 2024</div>
-        </div>
-      </div>
-      <div class="reassurance__item">
-        <span class="ic" aria-hidden="true">
-          <img src="assets/images/list-icon-3.svg" alt="list-icon">
-        </span>
-        <div>
-          <div class="label">Scalable to $1M+ in Live Funded Accounts</div>
-        </div>
-      </div>
+  <div class="tf-ticker" aria-label="TradeFundrr credibility highlights">
+    <div class="tf-ticker__track">
+      <span class="tf-ticker__item"><img src="assets/images/list-icon-1.svg" alt="">A Growing Community of Funded Traders</span>
+      <span class="tf-ticker__item"><img src="assets/images/list-icon-2.svg" alt="">Consistent Trader Payouts Since 2024</span>
+      <span class="tf-ticker__item"><img src="assets/images/list-icon-3.svg" alt="">Scalable to $1M+ in Live Funded Accounts</span>
+      <span class="tf-ticker__item"><img src="assets/images/list-icon-4.svg" alt="">T3 Global - Partnered with TradeFundrr</span>
+      <span class="tf-ticker__item"><img src="assets/images/list-icon-5.svg" alt="">Weekly Payout Cycle - Every Week, on Time</span>
+      <span class="tf-ticker__item"><img src="assets/images/list-icon-6.svg" alt="">Access to Multiple Trading Markets</span>
 
-      <div class="reassurance__item">
-        <span class="ic" aria-hidden="true">
-          <img src="assets/images/list-icon-4.svg" alt="list-icon">
-        </span>
-        <div>
-          <div class="label">T3 Global - Partnered with TradeFundrr</div>
-        </div>
-      </div>
-
-      <div class="reassurance__item">
-        <span class="ic" aria-hidden="true">
-          <img src="assets/images/list-icon-5.svg" alt="list-icon">
-        </span>
-        <div>
-          <div class="label">Weekly Payout Cycle - Every Week, on Time</div>
-        </div>
-      </div>
-
-      <div class="reassurance__item">
-        <span class="ic" aria-hidden="true">
-          <img src="assets/images/list-icon-6.svg" alt="list-icon">
-        </span>
-        <div>
-          <div class="label">Access to Multiple Trading Markets</div>
-        </div>
-      </div>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="assets/images/list-icon-1.svg" alt="">A Growing Community of Funded Traders</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="assets/images/list-icon-2.svg" alt="">Consistent Trader Payouts Since 2024</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="assets/images/list-icon-3.svg" alt="">Scalable to $1M+ in Live Funded Accounts</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="assets/images/list-icon-4.svg" alt="">T3 Global - Partnered with TradeFundrr</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="assets/images/list-icon-5.svg" alt="">Weekly Payout Cycle - Every Week, on Time</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="assets/images/list-icon-6.svg" alt="">Access to Multiple Trading Markets</span>
     </div>
   </div>
 </section>
