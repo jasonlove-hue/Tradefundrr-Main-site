@@ -443,7 +443,6 @@
   </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
 <script>
 (function(){
   function init() {
@@ -475,17 +474,42 @@
     const pauseEl = document.getElementById('hiw-pause');
     if (!stepEls.length || !contentEl || !hEl || !pEl) return;
     function fireConfetti() {
-      if (!window.confetti) return;
-      // Compute origin in viewport coords so confetti fires from step 4's actual screen position
       const step4 = document.querySelector('.hiw-step[data-step="3"]');
-      let originX = 0.85, originY = 0.4;
-      if (step4) {
-        const r = step4.getBoundingClientRect();
-        originX = (r.left + r.width / 2) / window.innerWidth;
-        originY = (r.top + r.height / 2) / window.innerHeight;
+      const rect = step4 ? step4.getBoundingClientRect() : { left: window.innerWidth * 0.85, top: window.innerHeight * 0.4, width: 50, height: 50 };
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+      const colors = ['#22d3a8', '#ffc107', '#ffffff', '#5dcaa5'];
+      const container = document.createElement('div');
+      container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:99999;overflow:hidden;';
+      document.body.appendChild(container);
+      const count = 120;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        const angle = (Math.random() * 2 - 1) * Math.PI; // any direction
+        const speed = 250 + Math.random() * 350;
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed - 300; // strong upward bias
+        const size = 6 + Math.random() * 7;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const isCircle = Math.random() > 0.5;
+        p.style.cssText = 'position:absolute;left:' + originX + 'px;top:' + originY + 'px;width:' + size + 'px;height:' + size + 'px;background:' + color + ';border-radius:' + (isCircle ? '50%' : '2px') + ';opacity:1;transform:translate(-50%,-50%);will-change:transform,opacity;';
+        container.appendChild(p);
+        const startTime = performance.now();
+        const duration = 1800 + Math.random() * 1200;
+        const totalRot = (Math.random() - 0.5) * 720;
+        function animate(now) {
+          const elapsed = now - startTime;
+          const t = elapsed / duration;
+          if (t >= 1) { p.remove(); return; }
+          const x = vx * t;
+          const y = vy * t + 0.5 * 1100 * t * t; // gravity
+          p.style.transform = 'translate(calc(-50% + ' + x + 'px), calc(-50% + ' + y + 'px)) rotate(' + (totalRot * t) + 'deg)';
+          p.style.opacity = String(Math.max(0, 1 - t * 1.1));
+          requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
       }
-      window.confetti({ particleCount: 100, spread: 80, startVelocity: 45, origin: { x: originX, y: originY }, colors: ['#22d3a8','#ffc107','#ffffff','#5dcaa5'], zIndex: 9999 });
-      setTimeout(() => window.confetti({ particleCount: 70, spread: 120, startVelocity: 30, origin: { x: originX, y: originY }, colors: ['#22d3a8','#ffc107','#ffffff'], zIndex: 9999 }), 220);
+      setTimeout(() => container.remove(), 4000);
     }
 
     const clipRect = document.getElementById('hiw-clip-rect');
@@ -522,16 +546,7 @@
         contentEl.classList.remove('is-swapping');
       }, 280);
       if (idx === steps.length - 1) {
-        setTimeout(tryFireConfetti, 400);
-      }
-    }
-
-    function tryFireConfetti(attempt) {
-      attempt = attempt || 0;
-      if (window.confetti) {
-        fireConfetti();
-      } else if (attempt < 20) {
-        setTimeout(() => tryFireConfetti(attempt + 1), 100);
+        setTimeout(fireConfetti, 400);
       }
     }
 
