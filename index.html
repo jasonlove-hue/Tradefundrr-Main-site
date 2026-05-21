@@ -155,8 +155,8 @@
   }
 
   /* Navbar scrolls away with the page (NOT sticky) */
-  .site-header { position: absolute !important; transition: opacity 0.25s ease, transform 0.25s ease; }
-  .site-header.is-hidden { opacity: 0 !important; transform: translateY(-100%) !important; pointer-events: none !important; }
+  .site-header { position: absolute !important; transition: opacity 0.2s ease; }
+  .site-header.is-hidden, .site-header.is-hidden * { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 
   /* Align pill rows across market cards (push pills to bottom of each card body) */
   .markets__card .body { height: 100% !important; }
