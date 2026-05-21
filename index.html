@@ -152,50 +152,72 @@
   </div>
 </section>
 
-<section class="comparison">
-  <div class="bg-stars"></div>
-  <div class="container">
-    <div class="comparison__head">
-      <p class="eyebrow">The Industry Problem</p>
-      <h2 class="h2">Most Prop Firms Aren’t <span style="color:#fc0"> What <br> They Say They Are</span></h2>
-      <p class="lead">
-        The difference between advancing to real money funding and staying in a simulated account isn&#39;t just technical; it determines whether you actually get paid. Here&#39;s how TradeFundrr is different...
-      </p>
-    </div>
+<style>
+  .two-paths { position: relative; padding-block: 100px; background:#060914; }
+  .two-paths__head { max-width: 1100px; margin: 0 auto 60px; padding: 0 30px; }
+  .two-paths__eyebrow {
+    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase;
+    color: #fb923c; margin-bottom: 18px;
+  }
+  .two-paths__title { font-family: Inter, system-ui, sans-serif; font-size: 56px; line-height: 1.05; letter-spacing: -1.6px; font-weight: 700; color:#fff; margin-bottom: 18px; }
+  .two-paths__title .accent-mint { color:#22d3a8; }
+  .two-paths__sub { color: hsla(0,0%,100%,0.6); font-size: 16px; line-height: 1.45; max-width: 720px; }
 
-    <div class="comparison__cards smaller">
-      <div class="comparison__card">
-        <div class="head">
-          <span class="label mono">Typical Prop Firms</span>
-          <span class="amount">$25K</span>
-        </div>
-        <p class="desc">What retail accounts give you</p>
-        <ul class="comparison__list comparison__list--bad">
-          <li><span><img src="assets/images/grey-close.svg" alt="grey-close"></span>Simulated accounts dressed up as real funding</li>
-          <li><span><img src="assets/images/grey-close.svg" alt="grey-close"></span>Rules designed to make you fail, not succeed</li>
-          <li><span><img src="assets/images/grey-close.svg" alt="grey-close"></span>Payouts delayed, disputed, or quietly denied</li>
-          <li><span><img src="assets/images/grey-close.svg" alt="grey-close"></span>Limited transparency around how performance is evaluated</li>
-          <li><span><img src="assets/images/grey-close.svg" alt="grey-close"></span>Automated support that never actually helps</li>
-        </ul>
-      </div>
+  .two-paths__grid { display:grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1240px; margin: 0 auto; padding: 0 30px; }
+  @media (max-width: 900px) { .two-paths__grid { grid-template-columns: 1fr; } .two-paths__title { font-size: 36px; } }
 
-      <div class="comparison__card comparison__card--good">
-        <div class="head">
-          <img src="assets/images/logo-colored.svg" alt="logo-colored">
-           <span class="amount">$25K-$1M+</span>
-        </div>
-        <p class="desc">What TradeFundrr funded traders access</p>
-        <ul class="comparison__list comparison__list--good">
-          <li><span><img src="assets/images/green-check.svg" alt="green-check"></span>Built around a clearly defined simulated trading environment</li>
-          <li><span><img src="assets/images/green-check.svg" alt="green-check"></span>Rules you can red, understand, and follow before committing</li>
-          <li><span><img src="assets/images/green-check.svg" alt="green-check"></span>Weekly payouts processed on time with no hidden conditions</li>
-          <li><span><img src="assets/images/green-check.svg" alt="green-check"></span>Partnered with T3 Global</li>
-          <li><span><img src="assets/images/green-check.svg" alt="green-check"></span>Real traders here to support you via phone or email</li>
-        </ul>
-      </div>
-    </div>
+  .path-card { position: relative; background:#0b1320; border:1px solid hsla(0,0%,100%,0.08); border-radius: 20px; padding: 36px; display:flex; flex-direction:column; }
+  .path-card--earned { border:1px solid rgba(34,211,168,0.55); box-shadow: 0 0 0 1px rgba(34,211,168,0.15) inset, 0 24px 60px -30px rgba(34,211,168,0.45); }
+  .path-card__badge { position:absolute; top:24px; right:24px; font-family:"Geist Mono",monospace; font-size:11px; letter-spacing:1.2px; padding:6px 12px; border-radius:999px; background: rgba(34,211,168,0.12); color:#22d3a8; border:1px solid rgba(34,211,168,0.4); }
+  .path-card__eyebrow { font-family:"Geist Mono",monospace; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; margin-bottom:18px; }
+  .path-card--start .path-card__eyebrow { color:#fb923c; }
+  .path-card--earned .path-card__eyebrow { color:#22d3a8; }
+  .path-card__title { font-family: Inter, system-ui, sans-serif; font-size: 36px; line-height:1.1; letter-spacing:-1px; font-weight: 700; color:#fff; margin-bottom: 16px; }
+  .path-card__desc { color: hsla(0,0%,100%,0.62); font-size: 15px; line-height:1.5; margin-bottom: 22px; }
+  .path-card__list { list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:14px; }
+  .path-card__list li { display:flex; gap:12px; align-items:flex-start; color:#fff; font-size:15px; line-height:1.4; }
+  .path-card__list li::before { content:""; flex:0 0 18px; height:18px; margin-top:1px; background: url("assets/images/green-check.svg") center/contain no-repeat; }
+  .path-card__cta { display:flex; align-items:center; justify-content:center; gap:10px; padding:18px 28px; background:#22d3a8; color:#06181a; font-family:Inter,sans-serif; font-weight:700; font-size:15px; letter-spacing:0.5px; text-transform:uppercase; border-radius:10px; text-decoration:none; margin-top:auto; transition: filter .2s ease; }
+  .path-card__cta:hover { filter:brightness(1.08); }
+  .path-card__footnote { background: rgba(255,255,255,0.03); border:1px solid hsla(0,0%,100%,0.07); border-radius: 12px; padding:16px 18px; color: hsla(0,0%,100%,0.55); font-size:14px; line-height:1.45; font-style: italic; margin-top:auto; }
+  .path-card__footnote strong { color:#fff; font-style: normal; font-weight: 600; }
+</style>
 
-    <a href="#how-it-works" class="btn">Learn how it works <span class="arrow"><img src="assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+<section class="two-paths">
+  <div class="two-paths__head">
+    <p class="two-paths__eyebrow">Two Paths · One Promise</p>
+    <h2 class="two-paths__title">Most prop firms run sim only and call it live. <span class="accent-mint">We split it honestly.</span></h2>
+    <p class="two-paths__sub">Start in sim. The top performers graduate. It's not the default — it's what you earn.</p>
+  </div>
+
+  <div class="two-paths__grid">
+    <article class="path-card path-card--start">
+      <p class="path-card__eyebrow">Path 01 · Where Everyone Starts</p>
+      <h3 class="path-card__title">Sim Eval &amp; Funded</h3>
+      <p class="path-card__desc">Transparent rules. Pay for the eval, hit performance targets, get paid out from sim. Same shape the eval traders already know — just without the gotchas.</p>
+      <ul class="path-card__list">
+        <li>Open enrollment — start any time</li>
+        <li>Rules published before you buy</li>
+        <li>Fast payouts — see the feed</li>
+        <li>No hidden rule changes</li>
+      </ul>
+      <a href="pages/pricing.html" class="path-card__cta">Start the Eval →</a>
+    </article>
+
+    <article class="path-card path-card--earned">
+      <span class="path-card__badge">Earned</span>
+      <p class="path-card__eyebrow">Path 02 · What You Can Earn</p>
+      <h3 class="path-card__title">T3 Global Live Capital</h3>
+      <p class="path-card__desc">Top sim performers graduate to real money through institutional broker infrastructure. Not the default. Not auto-promoted. The reward for proving you can do it twice.</p>
+      <ul class="path-card__list">
+        <li>Real broker, real fills</li>
+        <li>Institutional-grade capital</li>
+        <li>By performance — not by default</li>
+        <li>T3 Global partnership</li>
+      </ul>
+      <p class="path-card__footnote">TradeFundrr's live capital tier is operated in partnership with T3 Global, an institutional prop firm. <strong>Sim is sim. Live is live.</strong></p>
+    </article>
   </div>
 </section>
 
