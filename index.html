@@ -338,7 +338,7 @@
   .hiw-title { font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 56px; color: #fff; margin: 0 0 18px; line-height: 1; letter-spacing: -1.8px; }
   .hiw-title .accent { color: #ffc107; }
   .hiw-kicker { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0 auto; max-width: 640px; }
-  .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/280; max-width: 1000px; margin: 0 auto 44px; }
+  .hiw-rail { position: relative; width: 100%; aspect-ratio: 600/360; max-width: 1100px; margin: 0 auto 50px; }
   .hiw-rail svg { width: 100%; height: 100%; display: block; }
   .hiw-grid line { stroke: rgba(255,255,255,0.05); stroke-width: 1; }
   .hiw-grid .axis { stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
@@ -353,6 +353,15 @@
   .hiw-step-label { font-family: "Geist Mono", monospace; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 1.2px; margin-top: 10px; transition: color 0.4s; white-space: nowrap; }
   .hiw-step.is-active .hiw-step-label { color: #22d3a8; }
   @keyframes hiw-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.1); } }
+
+  /* Per-step callouts hovering above each step circle */
+  .hiw-callout { position: absolute; transform: translateX(-50%); width: 200px; background: rgba(11,19,32,0.92); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 12px 14px; z-index: 3; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(8px); }
+  .hiw-callout::after { content: ""; position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%) rotate(45deg); width: 10px; height: 10px; background: inherit; border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .hiw-callout.is-active { background: rgba(34,211,168,0.12); border-color: rgba(34,211,168,0.55); box-shadow: 0 0 24px rgba(34,211,168,0.25); transform: translateX(-50%) translateY(-4px); }
+  .hiw-callout.is-active::after { border-right-color: rgba(34,211,168,0.55); border-bottom-color: rgba(34,211,168,0.55); }
+  .hiw-callout__title { font-family: Inter, sans-serif; font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 4px; line-height: 1.2; letter-spacing: -0.2px; }
+  .hiw-callout.is-active .hiw-callout__title { color: #22d3a8; }
+  .hiw-callout__desc { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4; margin: 0; }
 
   .hiw-content { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 26px 32px; max-width: 880px; margin: 0 auto 32px; min-height: 130px; }
   .hiw-cta-wrap { width: 100% !important; text-align: center !important; display: block !important; clear: both; padding: 0 !important; margin: 0 !important; }
@@ -404,40 +413,50 @@
       </div>
 
       <div class="hiw-rail">
-          <svg viewBox="0 0 600 280" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="hiw-area-grad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.35"/>
-                <stop offset="60%" stop-color="#22d3a8" stop-opacity="0.10"/>
-                <stop offset="100%" stop-color="#22d3a8" stop-opacity="0"/>
-              </linearGradient>
-              <clipPath id="hiw-area-clip">
-                <rect class="hiw-clip-rect" id="hiw-clip-rect" x="0" y="0" width="0" height="280"/>
-              </clipPath>
-            </defs>
-            <g class="hiw-grid">
-              <line x1="0" y1="56" x2="600" y2="56"/>
-              <line x1="0" y1="112" x2="600" y2="112"/>
-              <line x1="0" y1="168" x2="600" y2="168"/>
-              <line x1="0" y1="224" x2="600" y2="224"/>
-              <line class="axis" x1="0" y1="280" x2="600" y2="280"/>
-              <line class="axis" x1="0" y1="0" x2="0" y2="280"/>
-            </g>
-            <path class="hiw-path-area" id="hiw-path-area" d="M 50 244 C 150 234, 200 198, 220 175 C 260 130, 320 118, 370 105 C 420 92, 480 58, 550 35 L 550 280 L 50 280 Z" fill="url(#hiw-area-grad)" clip-path="url(#hiw-area-clip)"/>
-            <path class="hiw-path-bg" d="M 50 244 C 150 234, 200 198, 220 175 C 260 130, 320 118, 370 105 C 420 92, 480 58, 550 35"/>
-            <path class="hiw-path-fill" id="hiw-path" d="M 50 244 C 150 234, 200 198, 220 175 C 260 130, 320 118, 370 105 C 420 92, 480 58, 550 35"/>
-          </svg>
-          <div class="hiw-step is-active" data-step="0" style="left: 8.3%; top: 87%;"><div class="hiw-circle">1</div><div class="hiw-step-label">STEP 01</div></div>
-          <div class="hiw-step" data-step="1" style="left: 36.7%; top: 62%;"><div class="hiw-circle">2</div><div class="hiw-step-label">STEP 02</div></div>
-          <div class="hiw-step" data-step="2" style="left: 61.7%; top: 37%;"><div class="hiw-circle">3</div><div class="hiw-step-label">STEP 03</div></div>
-        <div class="hiw-step" data-step="3" style="left: 91.7%; top: 12%;"><div class="hiw-circle">4</div><div class="hiw-step-label">STEP 04</div></div>
-      </div>
+        <svg viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="hiw-area-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.32"/>
+              <stop offset="100%" stop-color="#22d3a8" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="hiw-area-clip">
+              <rect class="hiw-clip-rect" id="hiw-clip-rect" x="0" y="0" width="0" height="360"/>
+            </clipPath>
+          </defs>
+          <g class="hiw-grid">
+            <line x1="0" y1="72" x2="600" y2="72"/>
+            <line x1="0" y1="144" x2="600" y2="144"/>
+            <line x1="0" y1="216" x2="600" y2="216"/>
+            <line x1="0" y1="288" x2="600" y2="288"/>
+            <line class="axis" x1="0" y1="360" x2="600" y2="360"/>
+            <line class="axis" x1="0" y1="0" x2="0" y2="360"/>
+          </g>
+          <path class="hiw-path-area" id="hiw-path-area" d="M 50 320 C 150 305, 200 270, 220 240 C 260 195, 320 175, 370 155 C 420 135, 480 95, 550 75 L 550 360 L 50 360 Z" fill="url(#hiw-area-grad)" clip-path="url(#hiw-area-clip)"/>
+          <path class="hiw-path-bg" d="M 50 320 C 150 305, 200 270, 220 240 C 260 195, 320 175, 370 155 C 420 135, 480 95, 550 75"/>
+          <path class="hiw-path-fill" id="hiw-path" d="M 50 320 C 150 305, 200 270, 220 240 C 260 195, 320 175, 370 155 C 420 135, 480 95, 550 75"/>
+        </svg>
 
-      <div class="hiw-content" id="hiw-content">
-        <div class="hiw-content__inner">
-          <h3 id="hiw-h">Choose Your Program</h3>
-          <p id="hiw-p">Pick your asset class and account size based on your trading style. Whether you choose Express Funding or a structured evaluation path, every program has clearly defined rules you can review before getting started.</p>
+        <div class="hiw-callout" data-callout="0" style="left: 8.3%; bottom: 22%;">
+          <p class="hiw-callout__title">Choose Your Program</p>
+          <p class="hiw-callout__desc">Pick your asset class and account size based on your trading style.</p>
         </div>
+        <div class="hiw-callout" data-callout="1" style="left: 36.7%; bottom: 49%;">
+          <p class="hiw-callout__title">Trade in Your Evaluation</p>
+          <p class="hiw-callout__desc">Execute trades in a simulated environment with clear rules and no moving goalposts.</p>
+        </div>
+        <div class="hiw-callout" data-callout="2" style="left: 61.7%; bottom: 76%;">
+          <p class="hiw-callout__title">Prove Consistency. Earn Payouts.</p>
+          <p class="hiw-callout__desc">Pass the eval and start earning weekly payouts on your simulated profits.</p>
+        </div>
+        <div class="hiw-callout" data-callout="3" style="left: 91.7%; bottom: 95%;">
+          <p class="hiw-callout__title">Move to a Live Funded Account</p>
+          <p class="hiw-callout__desc">Top performers graduate to real money through T3 Global. Earned by performance.</p>
+        </div>
+
+        <div class="hiw-step is-active" data-step="0" style="left: 8.3%; top: 90%;"><div class="hiw-circle">1</div><div class="hiw-step-label">STEP 01</div></div>
+        <div class="hiw-step" data-step="1" style="left: 36.7%; top: 63%;"><div class="hiw-circle">2</div><div class="hiw-step-label">STEP 02</div></div>
+        <div class="hiw-step" data-step="2" style="left: 61.7%; top: 36%;"><div class="hiw-circle">3</div><div class="hiw-step-label">STEP 03</div></div>
+        <div class="hiw-step" data-step="3" style="left: 91.7%; top: 16%;"><div class="hiw-circle">4</div><div class="hiw-step-label">STEP 04</div></div>
       </div>
 
       <div class="hiw-cta-wrap">
@@ -470,13 +489,13 @@
     let last = performance.now();
 
     const stepEls = document.querySelectorAll('.hiw-step');
-    const contentEl = document.getElementById('hiw-content');
-    const hEl = document.getElementById('hiw-h');
-    const pEl = document.getElementById('hiw-p');
+    const calloutEls = document.querySelectorAll('.hiw-callout');
     const progEl = document.getElementById('hiw-prog');
     const statusEl = document.getElementById('hiw-status');
     const pauseEl = document.getElementById('hiw-pause');
-    if (!stepEls.length || !contentEl || !hEl || !pEl) return;
+    if (!stepEls.length) return;
+    // Set first callout active on load
+    if (calloutEls[0]) calloutEls[0].classList.add('is-active');
     function fireConfetti() {
       const step4 = document.querySelector('.hiw-step[data-step="3"]');
       const rect = step4 ? step4.getBoundingClientRect() : { left: window.innerWidth * 0.85, top: window.innerHeight * 0.4, width: 50, height: 50 };
@@ -527,6 +546,9 @@
         el.classList.toggle('is-active', i === idx);
         el.classList.toggle('is-done', i < idx);
       });
+      calloutEls.forEach((el, i) => {
+        el.classList.toggle('is-active', i === idx);
+      });
       const fillRatio = idx / (steps.length - 1);
       if (isLoopReset) {
         pathEl.style.opacity = '0';
@@ -543,12 +565,6 @@
         pathEl.style.strokeDashoffset = totalLength * (1 - fillRatio);
         if (clipRect) clipRect.setAttribute('width', String(50 + (550 - 50) * fillRatio));
       }
-      contentEl.classList.add('is-swapping');
-      setTimeout(() => {
-        hEl.textContent = steps[idx].h;
-        pEl.textContent = steps[idx].p;
-        contentEl.classList.remove('is-swapping');
-      }, 280);
       if (idx === steps.length - 1) {
         setTimeout(fireConfetti, 400);
       }
