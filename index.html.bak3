@@ -817,21 +817,21 @@
           </p>
         </div>
         <div class="real-support__cards">
-          <div class="card opened">
+          <div class="card">
             <div class="icon">
               <span><img src="assets/images/ic-1.svg" alt="ic-1"></span>
-              <span class="symbol">-</span>
+              <span class="symbol">+</span>
             </div>
             <h4>Phone Support</h4>
-            <p style="word-break: break-word; overflow-wrap: anywhere;; display: block;">Call directly and speak with a member of the team who knows the platform, the rules, and your account at <strong>+1 (877) 799-8198</strong>.</p>
+            <p style="word-break: break-word; overflow-wrap: anywhere;">Call directly and speak with a member of the team who knows the platform, the rules, and your account at <strong>+1 (877) 799-8198</strong>.</p>
           </div>
-          <div class="card opened">
+          <div class="card">
             <div class="icon">
               <span><img src="assets/images/ic-2.svg" alt="ic-1"></span>
-              <span class="symbol">-</span>
+              <span class="symbol">+</span>
             </div>
             <h4>Email Support</h4>
-            <p style="word-break: break-word; overflow-wrap: anywhere;; display: block;">Send a message to <strong>support@TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
+            <p style="word-break: break-word; overflow-wrap: anywhere;">Send a message to <strong>support@TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
           </div>
         </div>
       </div>
