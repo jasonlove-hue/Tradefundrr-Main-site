@@ -35,12 +35,6 @@
     .numbers, .numbers .bg { animation: none !important; background-position: center 0 !important; opacity: 1 !important; transform: none !important; }
   }
 </style>
-<style>
-  /* Make support cards wide enough to fit the email and phone without breaking */
-  .real-support__cards { gap: 16px !important; }
-  .real-support__cards .card { width: 240px !important; padding: 22px 18px !important; }
-  .real-support__cards .card p { word-break: normal !important; overflow-wrap: normal !important; hyphens: none !important; }
-</style>
 </head>
 <body>
 
@@ -829,7 +823,7 @@
               <span class="symbol">-</span>
             </div>
             <h4>Phone Support</h4>
-            <p style="overflow-wrap: normal;; display: block;">Call directly and speak with a member of the team who knows the platform, the rules, and your account at <strong style="white-space: nowrap;">+1 (877) 799-8198</strong>.</p>
+            <p style="word-break: break-word; overflow-wrap: anywhere;; display: block;">Call directly and speak with a member of the team who knows the platform, the rules, and your account at <strong>+1 (877) 799-8198</strong>.</p>
           </div>
           <div class="card opened">
             <div class="icon">
@@ -837,7 +831,7 @@
               <span class="symbol">-</span>
             </div>
             <h4>Email Support</h4>
-            <p style="overflow-wrap: normal;; display: block;">Send a message to <strong style="white-space: nowrap;">support@TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
+            <p style="word-break: break-word; overflow-wrap: anywhere;; display: block;">Send a message to <strong>support@TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
           </div>
         </div>
       </div>
