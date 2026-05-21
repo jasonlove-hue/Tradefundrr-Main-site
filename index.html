@@ -473,6 +473,7 @@
     const progEl = document.getElementById('hiw-prog');
     const statusEl = document.getElementById('hiw-status');
     const pauseEl = document.getElementById('hiw-pause');
+    if (!stepEls.length || !contentEl || !hEl || !pEl) return;
     function fireConfetti() {
       if (!window.confetti) return;
       // Compute origin in viewport coords so confetti fires from step 4's actual screen position
@@ -538,7 +539,7 @@
       const dt = now - last; last = now;
       if (!paused) {
         progress += dt;
-        progEl.style.width = Math.min(100, progress / cycleMs * 100) + '%';
+        if (progEl) progEl.style.width = Math.min(100, progress / cycleMs * 100) + '%';
         if (progress >= cycleMs) {
           progress = 0;
           const nextIdx = (active + 1) % steps.length;
@@ -550,11 +551,13 @@
     requestAnimationFrame(tick);
 
     stepEls.forEach((el, i) => { el.addEventListener('click', () => { progress = 0; setActive(i, false); }); });
-    pauseEl.addEventListener('click', () => {
-      paused = !paused;
-      pauseEl.textContent = paused ? '▶ play' : '⏸ pause';
-      statusEl.textContent = paused ? 'Paused' : 'Auto-cycling';
-    });
+    if (pauseEl) {
+      pauseEl.addEventListener('click', () => {
+        paused = !paused;
+        pauseEl.textContent = paused ? '▶ play' : '⏸ pause';
+        if (statusEl) statusEl.textContent = paused ? 'Paused' : 'Auto-cycling';
+      });
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
