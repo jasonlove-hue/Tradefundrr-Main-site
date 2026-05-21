@@ -154,16 +154,8 @@
     .hero .media > img { width: 100%; margin-left: 0; }
   }
 
-  /* Shrink-on-scroll navbar */
-  .site-header { transition: inset 0.3s ease; }
-  .site-header.is-scrolled { inset: 8px 0 auto !important; }
-  .site-header.is-scrolled .navbar { padding: 8px 16px 8px 22px !important; gap: 36px !important; transition: padding 0.3s ease, gap 0.3s ease; }
-  .site-header.is-scrolled .navbar__logo { font-size: 18px !important; transition: font-size 0.3s ease; }
-  .site-header.is-scrolled .navbar__logo .mark, .site-header.is-scrolled .navbar__logo img { width: 26px !important; height: 26px !important; transition: width 0.3s ease, height 0.3s ease; }
-  .site-header.is-scrolled .navbar__cta .btn, .site-header.is-scrolled .navbar .btn { padding: 10px 18px !important; font-size: 13px !important; transition: padding 0.3s ease, font-size 0.3s ease; }
-  .navbar { transition: padding 0.3s ease, gap 0.3s ease; }
-  .navbar__logo { transition: font-size 0.3s ease; }
-  .navbar__logo .mark, .navbar__logo img { transition: width 0.3s ease, height 0.3s ease; }
+  /* Make navbar non-sticky — scrolls away with the page */
+  .site-header { position: absolute !important; }
 
   .two-paths { position: relative; padding: 30px 0 100px; background:#060914; }
   .two-paths__head { max-width: 1100px; margin: 0 auto 60px; padding: 0 30px; }
@@ -338,7 +330,7 @@
 
 <style>
   /* Restore how-it-works section to flow normally (was sized by the removed SVG image) */
-  .how-it-works { overflow: visible !important; padding: 140px 0 110px !important; scroll-margin-top: 120px; }
+  .how-it-works { overflow: visible !important; padding: 100px 0 110px !important; }
   .how-it-works > .container { position: relative !important; height: auto !important; left: auto !important; transform: none !important; max-width: 1240px !important; margin: 0 auto !important; }
   .how-it-works__head { display: none !important; }
 
@@ -375,7 +367,7 @@
   .hiw-callout__desc { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4; margin: 0; }
 
   .hiw-content { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 26px 32px; max-width: 880px; margin: 0 auto 32px; min-height: 130px; }
-  .hiw-cta-wrap { width: 100% !important; text-align: center !important; display: block !important; clear: both; padding: 80px 0 0 0 !important; margin: 0 auto !important; position: relative !important; z-index: 5; }
+  .hiw-cta-wrap { width: 100% !important; text-align: center !important; display: block !important; clear: both; padding: 140px 0 40px 0 !important; margin: 0 auto !important; position: relative !important; z-index: 5; }
   .hiw-cta-wrap .btn { float: none !important; position: relative !important; }
   .hiw-content__inner { transition: opacity 0.3s ease, transform 0.3s ease; }
   .hiw-content.is-swapping .hiw-content__inner { opacity: 0; transform: translateY(8px); }
@@ -609,21 +601,6 @@
   else init();
 })();
 
-// Shrink navbar on scroll
-(function(){
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-  let ticking = false;
-  function update() {
-    if (window.scrollY > 60) header.classList.add('is-scrolled');
-    else header.classList.remove('is-scrolled');
-    ticking = false;
-  }
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
-  update();
-})();
 </script>
 
 <section class="trader-payouts">
