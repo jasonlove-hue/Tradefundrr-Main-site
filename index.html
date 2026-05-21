@@ -155,7 +155,8 @@
   }
 
   /* Navbar scrolls away with the page (NOT sticky) */
-  .site-header { position: absolute !important; }
+  .site-header { position: absolute !important; transition: opacity 0.25s ease, transform 0.25s ease; }
+  .site-header.is-hidden { opacity: 0 !important; transform: translateY(-100%) !important; pointer-events: none !important; }
 
   /* Align pill rows across market cards (push pills to bottom of each card body) */
   .markets__card .body { height: 100% !important; }
@@ -605,6 +606,25 @@
   else init();
 })();
 
+// Force-hide the navbar past the hero
+(function(){
+  function bind(){
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    let ticking = false;
+    function update(){
+      if (window.scrollY > 120) header.classList.add('is-hidden');
+      else header.classList.remove('is-hidden');
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+  else bind();
+})();
 </script>
 
 <section class="trader-payouts">
