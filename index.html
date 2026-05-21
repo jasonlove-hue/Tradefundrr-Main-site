@@ -88,7 +88,6 @@
     </div>
 
     <div class="media">
-      <p><span><img src="assets/images/sec-grey.svg" alt="sec-grey"></span> Institutional-grade trading technology</p>
       <img src="assets/images/hero-image.webp" alt="hero-side">
     </div>
   </div>
@@ -153,6 +152,11 @@
 </section>
 
 <style>
+  /* Hero image overrides — remove white glow, recenter, drop the rounded clip */
+  .hero .media { position: relative !important; right: auto !important; top: auto !important; transform: none !important; display: flex; align-items: center; justify-content: center; padding: 20px 0; }
+  .hero .media > img { box-shadow: none !important; border-radius: 0 !important; max-width: 100% !important; width: 100%; height: auto; }
+  .hero .media > p { display: none !important; }
+
   .two-paths { position: relative; padding-block: 100px; background:#060914; }
   .two-paths__head { max-width: 1100px; margin: 0 auto 60px; padding: 0 30px; }
   .two-paths__eyebrow {
