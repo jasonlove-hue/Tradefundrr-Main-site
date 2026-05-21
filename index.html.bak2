@@ -10,31 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
-<style>
-  /* Falling certificates animation for the .numbers section */
-  .numbers {
-    animation: numbers-cards-fall 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-    animation-play-state: paused;
-  }
-  .numbers.is-in-view { animation-play-state: running; }
-  @keyframes numbers-cards-fall {
-    0%   { background-position: center -300px; opacity: 0; }
-    60%  { opacity: 1; }
-    100% { background-position: center 0;       opacity: 1; }
-  }
-  .numbers .bg {
-    animation: numbers-bg-fade 1.4s ease 0.2s both;
-    animation-play-state: paused;
-  }
-  .numbers.is-in-view .bg { animation-play-state: running; }
-  @keyframes numbers-bg-fade {
-    0%   { opacity: 0; transform: translateY(-40px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .numbers, .numbers .bg { animation: none !important; background-position: center 0 !important; opacity: 1 !important; transform: none !important; }
-  }
-</style>
 </head>
 <body>
 
@@ -946,10 +921,10 @@
   <div class="container" style="position:relative;z-index:1">
     <p class="numbers__lead">TradeFundrr is also</p>
     <div class="numbers__stack">
-      <p><span class="num">Trusted</span> by Funded Traders Worldwide</p>
-      <p><span class="num">Structured</span> Weekly Payout Cycles</p>
-      <p><span class="num">Built</span> for Long-Term Trader Growth</p>
-      <p><span class="num">Opportunities</span> to Scale Over Time</p>
+      <p><span class="num">285,000</span> Payouts Issued</p>
+      <p><span class="num">3,800+</span> Active Funded Traders</p>
+      <p><span class="num">100%</span> On-Time Weekly Payout</p>
+      <p><span class="num">$1M+</span> Maximum Funding</p>
     </div>
   </div>
 </section>
@@ -1137,26 +1112,5 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/main.js"></script>
-<script>
-/* Trigger falling-cards animation when .numbers enters viewport */
-(function(){
-  function init(){
-    var n = document.querySelector('.numbers');
-    if (!n) return;
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) { e.target.classList.add('is-in-view'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.2 });
-      io.observe(n);
-    } else {
-      n.classList.add('is-in-view');
-    }
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
 </body>
 </html>
