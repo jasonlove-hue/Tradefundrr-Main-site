@@ -35,11 +35,11 @@
     .numbers, .numbers .bg { animation: none !important; background-position: center 0 !important; opacity: 1 !important; transform: none !important; }
   }
 </style>
-
 <style>
-  /* Make support card descriptions slightly smaller so phone/email fit cleanly */
-  .real-support__cards .card p { font-size: 12.5px !important; line-height: 1.4 !important; word-break: keep-all !important; overflow-wrap: break-word !important; }
-  .real-support__cards .card p strong { font-size: 13px !important; }
+  /* Support cards: wide enough for contact info, flex layout that won't overlap */
+  .real-support__cards { display: flex !important; flex-wrap: wrap !important; gap: 16px !important; justify-content: flex-start !important; }
+  .real-support__cards .card { width: 220px !important; flex: 0 0 220px !important; padding: 22px 18px !important; box-sizing: border-box !important; }
+  .real-support__cards .card p { word-break: normal !important; overflow-wrap: normal !important; hyphens: none !important; font-size: 13px !important; line-height: 1.4 !important; }
 </style>
 </head>
 <body>
@@ -829,7 +829,7 @@
               <span class="symbol">-</span>
             </div>
             <h4>Phone Support</h4>
-            <p style="overflow-wrap: normal;; display: block;">Call directly and speak with a member of the team who knows the platform, the rules, and your account at <strong>+1 (877) 799-8198</strong>.</p>
+            <p style="overflow-wrap: normal;; display: block;">Call directly and speak with a member of the team who knows the platform, the rules, and your account at <strong style="white-space: nowrap;">+1 (877) 799-8198</strong>.</p>
           </div>
           <div class="card opened">
             <div class="icon">
@@ -837,7 +837,7 @@
               <span class="symbol">-</span>
             </div>
             <h4>Email Support</h4>
-            <p style="overflow-wrap: normal;; display: block;">Send a message to <strong>support@<wbr>TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
+            <p style="overflow-wrap: normal;; display: block;">Send a message to <strong style="white-space: nowrap;">support@TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
           </div>
         </div>
       </div>
