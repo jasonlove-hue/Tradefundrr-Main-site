@@ -14,19 +14,26 @@
 <body>
 
 <script>
-/* Navbar scroll-away: runs immediately, before any other JS can fail */
+/* Navbar scroll-away — body is the actual scroll container, not window */
 (function(){
   function bindNav(){
     var h = document.querySelector('.site-header');
     if (!h) { setTimeout(bindNav, 50); return; }
+    function getScroll(){
+      return document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+    }
     function upd(){
-      if (window.pageYOffset > 100) {
+      if (getScroll() > 100) {
         h.style.cssText = 'display:none !important;visibility:hidden !important;';
       } else {
         h.style.cssText = '';
       }
     }
-    window.addEventListener('scroll', upd, { passive: true });
+    // Listen on every plausible scroll source
+    window.addEventListener('scroll', upd, { passive: true, capture: true });
+    document.addEventListener('scroll', upd, { passive: true, capture: true });
+    document.body.addEventListener('scroll', upd, { passive: true });
+    document.documentElement.addEventListener('scroll', upd, { passive: true });
     upd();
   }
   bindNav();
