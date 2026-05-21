@@ -1164,46 +1164,38 @@
   else init();
 })();
 </script>
-
 <script>
-/* Definitive support-card rebuild: find each card by its h4 title,
-   replace its description <p> with a clean version, force widths inline. */
+/* Force widen the Phone/Email Support cards via inline style.cssText
+   (CSS-level overrides were losing the specificity battle with main.css) */
 (function(){
-  function rebuild(){
+  function widen(){
     var container = document.querySelector('.real-support__cards');
-    if (!container) { setTimeout(rebuild, 100); return; }
-
-    // Force container layout
-    container.style.cssText = 'display:flex !important;flex-wrap:nowrap !important;gap:18px !important;max-width:none !important;width:auto !important;justify-content:flex-start !important;';
-
-    // Force the parent column to not constrain children
-    var parent = container.parentElement;
-    if (parent) { parent.style.maxWidth = 'none'; parent.style.flex = '1 1 auto'; }
-
-    var phoneHTML = 'Call directly and speak with a member of the team who knows the platform, the rules, and your account at <span style="white-space:nowrap;font-weight:600;">+1 (877) 799-8198</span>.';
-    var emailHTML = 'Send a message to <span style="white-space:nowrap;font-weight:600;">support@TradeFundrr.com</span> and get a response from a real person, not an AI reply, not a 3-day wait.';
-
+    if (!container) { setTimeout(widen, 100); return; }
+    container.style.cssText = 'display:flex !important;flex-wrap:nowrap !important;gap:18px !important;max-width:none !important;width:auto !important;';
     var cards = container.querySelectorAll('.card');
     cards.forEach(function(c){
-      // Force card width/styling
-      c.style.cssText = 'width:320px !important;min-width:320px !important;max-width:320px !important;flex:0 0 320px !important;padding:24px 22px !important;box-sizing:border-box !important;background:hsla(0,0%,100%,0.04);border:1px solid hsla(0,0%,100%,0.1);border-radius:16px;backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:20px;';
-
-      // Identify which card by h4 text
-      var h4 = c.querySelector('h4');
+      c.style.cssText = 'width:300px !important;min-width:300px !important;max-width:300px !important;flex:0 0 300px !important;padding:24px 22px !important;box-sizing:border-box !important;background:hsla(0,0%,100%,0.04);border:1px solid hsla(0,0%,100%,0.1);border-radius:16px;backdrop-filter:blur(10px);display:flex;flex-direction:column;gap:20px;';
       var p = c.querySelector('p');
-      if (!h4 || !p) return;
-      var title = (h4.textContent || '').toLowerCase();
-
-      if (title.indexOf('phone') !== -1) {
-        p.innerHTML = phoneHTML;
-      } else if (title.indexOf('email') !== -1) {
-        p.innerHTML = emailHTML;
+      if (p) {
+        /* Force fix: rewrite innerHTML to wrap contact info in nowrap spans, removing stray spaces around @ */
+        var html = p.innerHTML;
+        /* Collapse any "support@ TradeFundrr.com" with spaces back into a single token wrapped in nowrap */
+        html = html.replace(/(<strong[^>]*>)?\s*support\s*@\s*TradeFundrr\.com(\s*<\/strong>)?/gi,
+          '<span style="white-space:nowrap;font-weight:600;">support@TradeFundrr.com</span>');
+        html = html.replace(/(<strong[^>]*>)?\s*\+1\s*\(877\)\s*799-8198(\s*<\/strong>)?/gi,
+          '<span style="white-space:nowrap;font-weight:600;">+1 (877) 799-8198</span>');
+        p.innerHTML = html;
+        p.style.cssText = 'color:#fff !important;font-size:13px !important;line-height:1.55 !important;letter-spacing:-0.3px !important;word-break:normal !important;overflow-wrap:normal !important;margin:0 !important;display:block !important;';
       }
-      p.style.cssText = 'color:#fff !important;font-size:13px !important;line-height:1.55 !important;letter-spacing:-0.3px !important;word-break:normal !important;overflow-wrap:normal !important;margin:0 !important;display:block !important;';
     });
+    var parent = container.parentElement;
+    if (parent) {
+      parent.style.maxWidth = 'none';
+      parent.style.flex = '1 1 auto';
+    }
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', rebuild);
-  else rebuild();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', widen);
+  else widen();
 })();
 </script>
 </body>
