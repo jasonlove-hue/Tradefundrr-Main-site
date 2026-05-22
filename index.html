@@ -600,6 +600,11 @@
     box-shadow: none !important;
     border-radius: 0 !important;
   }
+  /* Video element specifically — disable picture-in-picture controls and ensure rendering hint */
+  video.vault-hero__img {
+    object-fit: contain;
+    will-change: transform; /* hint compositor for smoother playback */
+  }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
 
   /* Particle stream — 150 elongated comet-streak particles flowing left -> right, CONVERGING
@@ -1735,6 +1740,27 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 <script src="js/slick.min.js" defer></script>
 <script src="js/main.js" defer></script>
+
+<!-- Force-resume the vault hero video if browser/CSS pauses it. Some browsers stop autoplay
+     when mix-blend-mode + mask-image is applied to a video; this watchdog keeps it playing. -->
+<script>
+(function(){
+  function init(){
+    var v = document.querySelector('video.vault-hero__img');
+    if (!v) return;
+    var resume = function(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
+    v.addEventListener('pause', function(){ if (!v.ended) setTimeout(resume, 50); });
+    v.addEventListener('canplay', resume);
+    v.addEventListener('loadeddata', resume);
+    // Periodic safety check — if video is paused but should be playing, kick it
+    setInterval(function(){
+      if (v.paused && !v.ended && document.visibilityState === 'visible') resume();
+    }, 1000);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 
 <section class="get-started cta-block">
   <div class="container">
