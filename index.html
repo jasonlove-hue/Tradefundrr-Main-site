@@ -624,9 +624,10 @@
       85%  { opacity: var(--opacity, 1); }
       100% { transform: translate(var(--travel), calc(var(--cy, 0vh) + 6vh)); opacity: 0; }
     }
-    /* animation-direction: reverse — particles now EXPLODE OUTWARD from the vault
-       (start at the keyframe's END position which is vault center, animate back to start) */
-    .hero__particles span { animation: streamToVault var(--dur, 12s) linear infinite reverse; animation-delay: calc(-1 * var(--delay, 0s)); }
+    /* animation-direction: reverse — particles EXPLODE OUTWARD from the vault.
+       ease-out timing means particles linger near the vault (slow start = dense cluster
+       at emission point) and accelerate as they fly outward (sparser the further out). */
+    .hero__particles span { animation: streamToVault var(--dur, 12s) ease-out infinite reverse; animation-delay: calc(-1 * var(--delay, 0s)); }
   }
   @media (max-width: 767px) {
     .hero__particles { --travel: 60vw; }
