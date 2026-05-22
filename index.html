@@ -723,6 +723,94 @@
     .hero .media > img { width: 100%; margin-left: 0; }
   }
 
+  /* ============================================================
+     COMPREHENSIVE MOBILE OPTIMIZATION — 2026-05-22
+     Cascades from tablet down to small mobile. Each breakpoint
+     overrides the previous, scoped to .hero for safety.
+     ============================================================ */
+
+  /* Tablet landscape (≤1100px) — keep side-by-side but shrink */
+  @media (max-width: 1100px) {
+    .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) !important; gap: 24px !important; padding-top: 160px !important; }
+    .hero .media {
+      width: 55vw !important; max-width: 580px !important;
+      left: 60% !important; top: 55% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+    .hero__entry-glow { left: 60% !important; top: 62% !important; width: 280px !important; height: 280px !important; }
+    .hero__particles { --travel: 50vw !important; }
+    .hero__title { font-size: 56px !important; }
+  }
+
+  /* Tablet portrait (≤900px) — stack vault BELOW text */
+  @media (max-width: 900px) {
+    .hero__inner {
+      grid-template-columns: 1fr !important;
+      padding-top: 120px !important; padding-bottom: 50px !important;
+      gap: 28px !important;
+    }
+    .hero__text { max-width: 100% !important; }
+    .hero__title { font-size: 44px !important; line-height: 1.1 !important; }
+    .hero__sub { max-width: 100% !important; font-size: 15px !important; }
+    .hero .media {
+      position: relative !important;
+      left: auto !important; right: auto !important; top: auto !important;
+      transform: none !important;
+      width: 100% !important; max-width: 560px !important;
+      margin: 0 auto !important;
+    }
+    .vault-hero__img { max-width: 100% !important; width: 100% !important; }
+    /* Move glow to overlay the stacked vault */
+    .hero__entry-glow {
+      left: 50% !important; top: auto !important; bottom: 12% !important;
+      transform: translateX(-50%) !important;
+      width: 260px !important; height: 260px !important;
+      opacity: 0.65 !important;
+    }
+    @keyframes entryGlowPulseMobile {
+      0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
+      50%      { opacity: 0.85; transform: translateX(-50%) scale(1.08); }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero__entry-glow { animation: entryGlowPulseMobile 6.5s ease-in-out infinite !important; }
+    }
+    .hero__floor { height: 28% !important; opacity: 0.5 !important; }
+    .hero__floor-tiles { background-size: 56px 56px !important; }
+    .hero__sparkles span:nth-child(2n) { display: none !important; }
+    .hero__particles span:nth-child(2n) { display: none !important; }
+    .hero__vignette { height: 38% !important; }
+  }
+
+  /* Mobile portrait (≤600px) */
+  @media (max-width: 600px) {
+    .hero__inner {
+      padding-top: 100px !important; padding-bottom: 40px !important;
+      gap: 22px !important;
+    }
+    .hero__title { font-size: 34px !important; }
+    .hero__sub { font-size: 14px !important; }
+    .hero .media { max-width: 380px !important; }
+    .hero__entry-glow {
+      width: 180px !important; height: 180px !important;
+      bottom: 18% !important;
+    }
+    .hero__floor { height: 22% !important; opacity: 0.4 !important; }
+    .hero__floor-tiles { background-size: 40px 40px !important; }
+    .hero__particles { --travel: 90vw !important; }
+    .hero__particles span:nth-child(3n) { display: none !important; }
+    .hero__sparkles span:nth-child(3n+1) { display: none !important; }
+    .hero .tick-row { gap: 12px !important; flex-wrap: wrap !important; }
+  }
+
+  /* Small mobile (≤380px) */
+  @media (max-width: 380px) {
+    .hero__title { font-size: 28px !important; }
+    .hero .media { max-width: 320px !important; }
+    .hero__entry-glow { width: 140px !important; height: 140px !important; }
+    .hero .btn-row { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+    .hero .btn--primary { width: 100% !important; justify-content: center !important; }
+  }
+
   /* Navbar scrolls away with the page (NOT sticky) */
   .site-header { position: absolute !important; transition: opacity 0.2s ease; }
   .site-header.is-hidden, .site-header.is-hidden * { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
