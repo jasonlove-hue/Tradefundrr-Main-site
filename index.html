@@ -48,18 +48,14 @@
 <link rel="stylesheet" href="assets/css/mobile-fixes.css" id="mobile-fixes-css">
 
 <style id="payout-cards-style">
-/* Remove the baked-in payouts-cards.webp. Keep .numbers .bg glow intact. */
-/* IMPORTANT: Override the aggressive perf containment from main.css. content-visibility:auto +
-   contain:paint causes Chrome to skip painting animated child IMG content even when bounding
-   boxes are correctly laid out. Force normal rendering for this section. */
+/* Restored the static payouts-cards.webp background (the falling-cards animation
+   couldn't be debugged in our session). Section will show the original static card image. */
 .numbers {
-  background-image: none !important;
   position: relative;
   overflow: hidden;
   content-visibility: visible !important;
   contain: none !important;
 }
-.numbers::before, .numbers::after { background-image: none !important; }
 
 /* Diagnostic CSS removed 2026-05-22. Cards animation appears broken at a deeper level
    than CSS overrides can fix — likely a stacking-context or compositor issue specific
