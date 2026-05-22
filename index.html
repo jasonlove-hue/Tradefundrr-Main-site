@@ -484,6 +484,16 @@
 
     <div class="media">
       <img class="vault-hero__img" src="assets/images/Vault%20Hero%20Transparent.png" alt="TradeFundrr funded-account vault" />
+      <!-- Animated SVG chart line overlay — traces the upward trend with stroke-dashoffset -->
+      <svg class="vault-chart-fx" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+        <path class="vault-chart-fx__line"
+              d="M 5 52 L 14 47 L 22 44 L 30 38 L 38 35 L 46 28 L 54 24 L 62 22 L 70 14 L 80 11 L 92 7"
+              fill="none"
+              stroke="#5DEACB"
+              stroke-width="0.9"
+              stroke-linecap="round"
+              stroke-linejoin="round" />
+      </svg>
     </div>
   </div>
 </section>
@@ -597,6 +607,37 @@
     border-radius: 0 !important;
   }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
+
+  /* ============================================================
+     Vault chart line animation — inline SVG, stroke-dashoffset
+     Cheap: no blur, no mix-blend-mode chains. GPU-friendly stroke animation.
+     The SVG sits over the chart area inside the vault opening and the bright
+     teal path "draws itself" along the trend, holds, erases, and loops.
+     ============================================================ */
+  .vault-chart-fx {
+    position: absolute;
+    left: 36%; top: 32%;
+    width: 22%; height: 38%;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+  .vault-chart-fx__line {
+    /* total approximate path length; CSS will animate from full to 0 and back */
+    stroke-dasharray: 110;
+    stroke-dashoffset: 110;
+    filter: drop-shadow(0 0 1px rgba(93,234,203,0.8));
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes vaultChartDraw {
+      0%   { stroke-dashoffset: 110; }
+      40%  { stroke-dashoffset: 0; }
+      80%  { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -110; }
+    }
+    .vault-chart-fx__line { animation: vaultChartDraw 7s ease-in-out infinite; }
+  }
+  @media (max-width: 900px) { .vault-chart-fx { display: none !important; } }
 
   /* Particle stream — 150 elongated comet-streak particles flowing left -> right, CONVERGING
      vertically toward the chart's bottom-left (where the upward trend begins). Each streak has
