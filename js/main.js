@@ -43,6 +43,18 @@ $(document).ready(function(){
     }
   });
 
+  /* FAQ section tabs (Option C — added 2026-05-22) */
+  $('.faq__tabs > .faq__tab').on('click', function(e){
+    e.preventDefault();
+    if (!$(this).hasClass('active')) {
+      $(this).closest('.faq__tabs').find('.faq__tab').removeClass('active').attr('aria-selected', 'false');
+      $(this).addClass('active').attr('aria-selected', 'true');
+      var target = $(this).attr('data-tab');
+      $(this).closest('.faq').find('.faq__panel').removeClass('active').hide();
+      $(this).closest('.faq').find('.faq__panel[data-panel="' + target + '"]').addClass('active').fadeIn(200);
+    }
+  });
+
   $('.programs-tabs__nav>button').on('click' ,function(e){
     e.preventDefault();
     if (!$(this).hasClass('is-active')) {

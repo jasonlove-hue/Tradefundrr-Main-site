@@ -1643,6 +1643,68 @@ h6 {
     line-height: 1.4;
     letter-spacing: -0.64px;
 }
+
+/* ===== FAQ tabs (Option C — added 2026-05-22) ===== */
+.faq__tabs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 40px;
+}
+.faq__tab {
+	background: hsla(0, 0%, 100%, 0.04);
+	border: 1px solid hsla(0, 0%, 100%, 0.1);
+	color: hsla(0, 0%, 100%, 0.85);
+	font-family: inherit;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 12px 22px;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+	backdrop-filter: blur(10px);
+	line-height: 1;
+}
+.faq__tab:hover {
+	background: hsla(0, 0%, 100%, 0.08);
+	color: #fff;
+}
+.faq__tab:active {
+	transform: scale(0.98);
+}
+.faq__tab.active {
+	background: #05C4A1;
+	color: #051815;
+	border-color: #05C4A1;
+}
+.faq__tab-count {
+	display: inline-block;
+	margin-left: 8px;
+	font-size: 12px;
+	font-weight: 600;
+	opacity: 0.55;
+}
+.faq__tab.active .faq__tab-count {
+	opacity: 0.85;
+	color: rgba(0, 0, 0, 0.55);
+}
+.faq__panel {
+	display: none;
+}
+.faq__panel.active {
+	display: block;
+}
+@media (max-width: 640px) {
+	.faq__tabs {
+		gap: 6px;
+		margin-bottom: 30px;
+	}
+	.faq__tab {
+		font-size: 13px;
+		padding: 10px 16px;
+	}
+}
 .site-footer {
     position: relative;
     background: #03050b;
