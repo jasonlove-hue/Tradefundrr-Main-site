@@ -354,3 +354,52 @@
   .trader-payouts { padding-top: 40px !important; }
 }
 /* === HIW GAP PATCH END === */
+
+/* === GET STARTED IMAGE PATCH START === */
+/* Force two-column layout for "You've Done The Research" CTA section.
+   The .get-started__media element already exists in markup but layout was
+   collapsing to single column on desktop. */
+.get-started.cta-block .container {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 40px !important;
+  align-items: center !important;
+  max-width: 1280px !important;
+}
+.get-started.cta-block .cta-block__inner {
+  max-width: 600px !important;
+  text-align: left !important;
+}
+.get-started__media {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.get-started__media img {
+  width: 100% !important;
+  max-width: 620px !important;
+  height: auto !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Tablet and below: stack vertically */
+@media (max-width: 900px) {
+  .get-started.cta-block .container {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .get-started.cta-block .cta-block__inner {
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+  .get-started__media { order: -1 !important; }
+  .get-started__media img { max-width: 480px !important; margin: 0 auto !important; }
+  .get-started.cta-block .btn-row,
+  .get-started.cta-block .tick-row { justify-content: center !important; }
+}
+/* === GET STARTED IMAGE PATCH END === */
