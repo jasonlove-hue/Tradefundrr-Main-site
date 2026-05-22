@@ -483,11 +483,7 @@
     </div>
 
     <div class="media">
-      <video class="vault-hero__img"
-             src="assets/videos/vault-hero.mp4"
-             poster="assets/images/Vault%20Hero%20Transparent.png"
-             autoplay muted loop playsinline preload="metadata"
-             aria-label="Animated vault with growing trading chart"></video>
+      <img class="vault-hero__img" src="assets/images/Vault%20Hero%20New.png" alt="TradeFundrr funded-account vault with growing trading chart" />
     </div>
   </div>
 </section>
@@ -599,17 +595,6 @@
     mask-image: radial-gradient(ellipse 88% 82% at 55% 50%, #000 50%, transparent 100%) !important;
     box-shadow: none !important;
     border-radius: 0 !important;
-  }
-  /* Video element specifically — must NOT use mix-blend-mode or mask-image because
-     Chrome halts video decoding when those are applied (known compositor bug).
-     Compensate with stronger filter contrast to crush the dark backdrop. */
-  video.vault-hero__img {
-    object-fit: contain;
-    will-change: transform;
-    mix-blend-mode: normal !important;
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-    filter: contrast(1.35) brightness(1.08) saturate(1.15) !important;
   }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
 
@@ -1747,26 +1732,6 @@
 <script src="js/slick.min.js" defer></script>
 <script src="js/main.js" defer></script>
 
-<!-- Force-resume the vault hero video if browser/CSS pauses it. Some browsers stop autoplay
-     when mix-blend-mode + mask-image is applied to a video; this watchdog keeps it playing. -->
-<script>
-(function(){
-  function init(){
-    var v = document.querySelector('video.vault-hero__img');
-    if (!v) return;
-    var resume = function(){ var p = v.play(); if (p && p.catch) p.catch(function(){}); };
-    v.addEventListener('pause', function(){ if (!v.ended) setTimeout(resume, 50); });
-    v.addEventListener('canplay', resume);
-    v.addEventListener('loadeddata', resume);
-    // Periodic safety check — if video is paused but should be playing, kick it
-    setInterval(function(){
-      if (v.paused && !v.ended && document.visibilityState === 'visible') resume();
-    }, 1000);
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
 
 <section class="get-started cta-block">
   <div class="container">
