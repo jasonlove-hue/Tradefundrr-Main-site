@@ -484,6 +484,23 @@
 
     <div class="media">
       <img class="vault-hero__img" src="assets/images/Vault%20Hero%20Transparent.png" alt="TradeFundrr funded-account vault" />
+      <!-- CSS overlay animations layered on top of the static vault PNG -->
+      <div class="vault-fx" aria-hidden="true">
+        <div class="vault-fx__halo"></div>
+        <div class="vault-fx__scan"></div>
+        <div class="vault-fx__sparkles">
+          <span style="--top:32%;--left:38%;--delay:0s"></span>
+          <span style="--top:42%;--left:46%;--delay:1.4s"></span>
+          <span style="--top:55%;--left:40%;--delay:0.7s"></span>
+          <span style="--top:48%;--left:52%;--delay:2.1s"></span>
+          <span style="--top:38%;--left:50%;--delay:1.1s"></span>
+          <span style="--top:62%;--left:44%;--delay:0.3s"></span>
+          <span style="--top:35%;--left:43%;--delay:1.8s"></span>
+          <span style="--top:58%;--left:48%;--delay:2.4s"></span>
+          <span style="--top:45%;--left:42%;--delay:0.9s"></span>
+          <span style="--top:50%;--left:54%;--delay:1.6s"></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -597,6 +614,83 @@
     border-radius: 0 !important;
   }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
+
+  /* ============================================================
+     Vault FX — CSS overlay animations on top of the static PNG
+     Three layers: halo (pulsing teal glow), scan (line sweep), sparkles (twinkle)
+     All positioned relative to the .media container, which holds the vault image.
+     ============================================================ */
+  .vault-fx {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  /* HALO: pulsing teal glow centered on the vault's chart opening */
+  .vault-fx__halo {
+    position: absolute;
+    left: 45%; top: 50%;
+    width: 28%; height: 48%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse at center, rgba(20,220,200,0.4) 0%, rgba(20,220,200,0.12) 45%, transparent 70%);
+    filter: blur(18px);
+    mix-blend-mode: screen;
+    opacity: 0.85;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes vaultHaloPulse {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.10); }
+    }
+    .vault-fx__halo { animation: vaultHaloPulse 4.5s ease-in-out infinite; }
+  }
+
+  /* SCAN: horizontal line sweep across the chart area, top to bottom */
+  .vault-fx__scan {
+    position: absolute;
+    left: 33%; top: 30%;
+    width: 24%; height: 2px;
+    background: linear-gradient(to right, transparent 0%, rgba(93,234,203,0.85) 50%, transparent 100%);
+    filter: blur(1.5px);
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes vaultScanSweep {
+      0%   { transform: translateY(0);   opacity: 0; }
+      8%   { opacity: 1; }
+      85%  { opacity: 0.8; }
+      100% { transform: translateY(180px); opacity: 0; }
+    }
+    .vault-fx__scan { animation: vaultScanSweep 6s linear infinite; }
+  }
+
+  /* SPARKLES: 10 small teal dots inside the vault opening, twinkling at staggered times */
+  .vault-fx__sparkles span {
+    position: absolute;
+    top: var(--top); left: var(--left);
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: rgba(180,255,230,1);
+    box-shadow: 0 0 6px rgba(93,234,203,0.95), 0 0 14px rgba(20,220,200,0.5);
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes vaultSparkleTwinkle {
+      0%, 100% { opacity: 0;   transform: scale(0.5); }
+      50%      { opacity: 1;   transform: scale(1.4); }
+    }
+    .vault-fx__sparkles span {
+      animation: vaultSparkleTwinkle 2.8s ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+  }
+
+  /* Hide all vault FX on mobile (vault itself is hidden there) */
+  @media (max-width: 900px) {
+    .vault-fx { display: none !important; }
+  }
 
   /* Particle stream — 150 elongated comet-streak particles flowing left -> right, CONVERGING
      vertically toward the chart's bottom-left (where the upward trend begins). Each streak has
