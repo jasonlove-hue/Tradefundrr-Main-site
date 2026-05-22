@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <link rel="stylesheet" href="assets/css/main.css">
 <style>
   /* REMOVED: broken fade-in animation that left .numbers and .numbers .bg at opacity:0
@@ -674,6 +675,37 @@
     border-radius: 0 !important;
   }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
+
+  /* ============================================================
+     Trader payouts carousel — Swiper "cards" 3D stack effect.
+     Each slide is a payout certificate image from the library (1-21.png).
+     ============================================================ */
+  .trader-payouts .trader-swiper {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    overflow: visible;
+  }
+  .trader-payouts .swiper-slide {
+    border-radius: 16px;
+    overflow: hidden;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .trader-payouts .payout-cert-card {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  @media (max-width: 900px) {
+    .trader-payouts .trader-swiper { max-width: 360px; }
+  }
 
   /* ============================================================
      Leak sparkles — small dots drifting OUTWARD from the vault in
@@ -1375,90 +1407,27 @@
 
       <div class="swiper trader-swiper">
         <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <article class="trader-card">
-            <div class="trader-card__head">
-              <span class="avatar"></span>
-              <span class="name">Trader name</span>
-            </div>
-            <div class="trader-card__amount"><span class="sign">$</span><span class="value">10,000</span></div>
-            <p class="trader-card__program">Program name TBD</p>
-            <p class="trader-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."</p>
-            <div class="trader-card__stars">
-              <span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="trader-card">
-            <div class="trader-card__head">
-              <span class="avatar"></span>
-              <span class="name">Trader name</span>
-            </div>
-            <div class="trader-card__amount"><span class="sign">$</span><span class="value">10,000</span></div>
-            <p class="trader-card__program">Program name TBD</p>
-            <p class="trader-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."</p>
-            <div class="trader-card__stars">
-              <span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="trader-card">
-            <div class="trader-card__head">
-              <span class="avatar"></span>
-              <span class="name">Trader name</span>
-            </div>
-            <div class="trader-card__amount"><span class="sign">$</span><span class="value">10,000</span></div>
-            <p class="trader-card__program">Program name TBD</p>
-            <p class="trader-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."</p>
-            <div class="trader-card__stars">
-              <span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="trader-card">
-            <div class="trader-card__head">
-              <span class="avatar"></span>
-              <span class="name">Trader name</span>
-            </div>
-            <div class="trader-card__amount"><span class="sign">$</span><span class="value">10,000</span></div>
-            <p class="trader-card__program">Program name TBD</p>
-            <p class="trader-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."</p>
-            <div class="trader-card__stars">
-              <span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="trader-card">
-            <div class="trader-card__head">
-              <span class="avatar"></span>
-              <span class="name">Trader name</span>
-            </div>
-            <div class="trader-card__amount"><span class="sign">$</span><span class="value">10,000</span></div>
-            <p class="trader-card__program">Program name TBD</p>
-            <p class="trader-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."</p>
-            <div class="trader-card__stars">
-              <span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span>
-            </div>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="trader-card">
-            <div class="trader-card__head">
-              <span class="avatar"></span>
-              <span class="name">Trader name</span>
-            </div>
-            <div class="trader-card__amount"><span class="sign">$</span><span class="value">10,000</span></div>
-            <p class="trader-card__program">Program name TBD</p>
-            <p class="trader-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."</p>
-            <div class="trader-card__stars">
-              <span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span><span><img src="assets/images/star-green.svg" alt="star-green"></span>
-            </div>
-          </article>
-        </div>
+        <div class="swiper-slide"><img src="assets/images/1.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/2.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/3.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/4.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/5.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/6.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/7.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/8.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/9.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/10.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/11.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/12.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/13.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/14.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/15.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/16.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/17.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/18.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/19.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/20.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="assets/images/21.png" alt="Payout certificate" class="payout-cert-card" loading="lazy" /></div>
         </div>
       </div>
 
@@ -1727,4 +1696,4 @@
           </div>
           <div class="qa">
             <div class="head"><p>Do you offer real trader support?</p><span class="chev-arrow"><img src="assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
-            <div class="qa__body"><p>Yes. TradeFundrr provides onboarding resources, platform setup guides, dashboard access, and responsive customer support to help traders throughout their journey.</p></d
+            <div class="qa__body"><p>Yes. TradeFundrr provides onboarding resources, platform setup guides, dashboard access, and responsive customer support to help traders throughout their journey.</p></d                                                                                                                                                                                                                        
