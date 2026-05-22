@@ -742,42 +742,39 @@
     .hero__title { font-size: 56px !important; }
   }
 
-  /* Tablet portrait (≤900px) — stack vault BELOW text */
+  /* Tablet portrait + mobile (≤900px) — text-focused. Vault, particles, and entry glow
+     are hidden. Cosmic backdrop, sparkles (boosted), floor grid, and vignette remain. */
   @media (max-width: 900px) {
+    /* Hide animated/heavy elements */
+    .hero .media { display: none !important; }
+    .hero__particles { display: none !important; }
+    .hero__entry-glow { display: none !important; }
+
+    /* Force the hero to stay tall enough that sparkles have space to populate */
+    .hero { min-height: 700px !important; }
+
+    /* Layout: single text column, generous breathing room */
     .hero__inner {
       grid-template-columns: 1fr !important;
-      padding-top: 120px !important; padding-bottom: 50px !important;
+      padding-top: 130px !important; padding-bottom: 80px !important;
       gap: 28px !important;
     }
     .hero__text { max-width: 100% !important; }
     .hero__title { font-size: 44px !important; line-height: 1.1 !important; }
     .hero__sub { max-width: 100% !important; font-size: 15px !important; }
-    .hero .media {
-      position: relative !important;
-      left: auto !important; right: auto !important; top: auto !important;
-      transform: none !important;
-      width: 100% !important; max-width: 560px !important;
-      margin: 0 auto !important;
+
+    /* SPARKLES — boosted on mobile since they're the only atmospheric layer left.
+       Keep all 45 (no culling), bigger size, brighter opacity, stronger glow. */
+    .hero__sparkles span {
+      width: calc(var(--size) * 1.6) !important;
+      height: calc(var(--size) * 1.6) !important;
+      opacity: var(--o) !important;
+      box-shadow: 0 0 6px rgba(93,234,203,0.9) !important;
     }
-    .vault-hero__img { max-width: 100% !important; width: 100% !important; }
-    /* Move glow to overlay the stacked vault */
-    .hero__entry-glow {
-      left: 50% !important; top: auto !important; bottom: 12% !important;
-      transform: translateX(-50%) !important;
-      width: 260px !important; height: 260px !important;
-      opacity: 0.65 !important;
-    }
-    @keyframes entryGlowPulseMobile {
-      0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
-      50%      { opacity: 0.85; transform: translateX(-50%) scale(1.08); }
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      .hero__entry-glow { animation: entryGlowPulseMobile 6.5s ease-in-out infinite !important; }
-    }
+
+    /* Keep the atmospheric backdrop but tone it down for mobile perf */
     .hero__floor { height: 28% !important; opacity: 0.5 !important; }
     .hero__floor-tiles { background-size: 56px 56px !important; }
-    .hero__sparkles span:nth-child(2n) { display: none !important; }
-    .hero__particles span:nth-child(2n) { display: none !important; }
     .hero__vignette { height: 38% !important; }
   }
 
@@ -796,9 +793,8 @@
     }
     .hero__floor { height: 22% !important; opacity: 0.4 !important; }
     .hero__floor-tiles { background-size: 40px 40px !important; }
-    .hero__particles { --travel: 90vw !important; }
-    .hero__particles span:nth-child(3n) { display: none !important; }
-    .hero__sparkles span:nth-child(3n+1) { display: none !important; }
+    /* particles already hidden at ≤900px, no further rules needed */
+    /* sparkles stay at full density on phones — they're the main atmospheric element */
     .hero .tick-row { gap: 12px !important; flex-wrap: wrap !important; }
   }
 
