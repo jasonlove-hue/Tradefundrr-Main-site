@@ -1747,7 +1747,10 @@
   </div>
 </section>
 
-<!-- Site JavaScript — was missing, breaking the hamburger menu + other nav interactions -->
+<!-- Site JavaScript — jQuery MUST load before main.js (main.js uses $ jQuery syntax).
+     Without jQuery, main.js throws "$ is not defined" on line 1 and ALL nav interactions break. -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+<script src="js/slick.min.js" defer></script>
 <script src="js/main.js" defer></script>
 
 <section class="get-started cta-block">
