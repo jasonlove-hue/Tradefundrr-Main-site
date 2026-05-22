@@ -1460,6 +1460,32 @@
   </div>
 </section>
 
+<script id="payout-cards-js">
+/* Falling payout cards — IntersectionObserver flips animation play-state when .numbers
+   enters the viewport. Without this, cards stay at opacity:0 and the section reads empty. */
+(function(){
+  function init(){
+    var section = document.querySelector('.numbers');
+    if (!section) { setTimeout(init, 100); return; }
+    if (section.dataset.cardsInit) return;
+    section.dataset.cardsInit = '1';
+    if (!('IntersectionObserver' in window)) {
+      section.classList.add('is-cards-falling');
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) section.classList.add('is-cards-falling');
+        else section.classList.remove('is-cards-falling');
+      });
+    }, { threshold: 0.1 });
+    io.observe(section);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
 <section class="faq">
   <div class="container">
     <h2 class="faq__title">Your Questions, Answered Directly.</h2>
