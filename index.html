@@ -763,14 +763,21 @@
     .hero__title { font-size: 44px !important; line-height: 1.1 !important; }
     .hero__sub { max-width: 100% !important; font-size: 15px !important; }
 
-    /* SPARKLES — boosted on mobile since they're the only atmospheric layer left.
-       Keep all 45 (no culling), bigger size, brighter opacity, stronger glow. */
+    /* SPARKLES — boosted on mobile (the only atmospheric layer left), but with the
+       twinkle animation DISABLED so sparkles are static, no "popping" effect. */
     .hero__sparkles span {
-      width: calc(var(--size) * 1.6) !important;
-      height: calc(var(--size) * 1.6) !important;
-      opacity: var(--o) !important;
-      box-shadow: 0 0 6px rgba(93,234,203,0.9) !important;
+      width: calc(var(--size) * 1.3) !important;
+      height: calc(var(--size) * 1.3) !important;
+      opacity: calc(var(--o) * 0.85) !important;
+      box-shadow: 0 0 5px rgba(93,234,203,0.7) !important;
     }
+    /* Kill the twinkle animation on mobile — fixes the "confetti popping" effect */
+    .hero__sparkles span.tw { animation: none !important; }
+    /* Hide a few sparkles in the top-left quadrant to thin out the cluster */
+    .hero__sparkles span:nth-child(1),
+    .hero__sparkles span:nth-child(2),
+    .hero__sparkles span:nth-child(3),
+    .hero__sparkles span:nth-child(6) { display: none !important; }
 
     /* Keep the atmospheric backdrop but tone it down for mobile perf */
     .hero__floor { height: 28% !important; opacity: 0.5 !important; }
@@ -1158,6 +1165,9 @@
     // Set first callout active on load
     if (calloutEls[0]) calloutEls[0].classList.add('is-active');
     function fireConfetti() {
+      // Skip confetti entirely on mobile (≤900px) — the layout stacks vertically and the
+      // step4 element ends up in the top-left, causing the burst to fire from a weird spot.
+      if (window.innerWidth <= 900) return;
       const step4 = document.querySelector('.hiw-step[data-step="3"]');
       const rect = step4 ? step4.getBoundingClientRect() : { left: window.innerWidth * 0.85, top: window.innerHeight * 0.4, width: 50, height: 50 };
       const originX = rect.left + rect.width / 2;
