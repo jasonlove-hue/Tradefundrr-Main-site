@@ -600,10 +600,16 @@
     box-shadow: none !important;
     border-radius: 0 !important;
   }
-  /* Video element specifically — disable picture-in-picture controls and ensure rendering hint */
+  /* Video element specifically — must NOT use mix-blend-mode or mask-image because
+     Chrome halts video decoding when those are applied (known compositor bug).
+     Compensate with stronger filter contrast to crush the dark backdrop. */
   video.vault-hero__img {
     object-fit: contain;
-    will-change: transform; /* hint compositor for smoother playback */
+    will-change: transform;
+    mix-blend-mode: normal !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    filter: contrast(1.35) brightness(1.08) saturate(1.15) !important;
   }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
 
