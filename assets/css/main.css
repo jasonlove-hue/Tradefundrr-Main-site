@@ -725,7 +725,7 @@ h6 {
     color: #fff;
 }
 .hero__title .accent {
-    color: #fc0;
+    color: #5DEACB;
 }
 .hero__sub {
     color: #fff;
@@ -2668,6 +2668,45 @@ footer.site-footer{
 	margin-right: auto;
 	margin-left: 0px;
 	text-align: left;
+}
+/* ===== Get-started CTA: side-by-side text + image (added 2026-05-22) ===== */
+.get-started.cta-block .container{
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 40px;
+	align-items: center;
+}
+.get-started.cta-block .cta-block__inner{
+	max-width: 600px;
+}
+.get-started__media{
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.get-started__media img{
+	width: 100%;
+	max-width: 620px;
+	height: auto;
+	display: block;
+}
+@media (max-width: 900px){
+	.get-started.cta-block .container{
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+	.get-started.cta-block .cta-block__inner{
+		max-width: 100%;
+	}
+	.get-started__media{
+		order: -1;
+	}
+	.get-started__media img{
+		max-width: 480px;
+		margin: 0 auto;
+	}
 }
 .get-started.cta-block .eyebrow{
 	margin-bottom: 40px;
