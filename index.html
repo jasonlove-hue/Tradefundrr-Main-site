@@ -750,13 +750,14 @@
     .hero__particles { display: none !important; }
     .hero__entry-glow { display: none !important; }
 
-    /* Force the hero to stay tall enough that sparkles have space to populate */
-    .hero { min-height: 700px !important; }
+    /* Hero sizes to content on mobile — no min-height, no big padding-bottom.
+       Keeps the hero tight to the ticker below. */
+    .hero { min-height: auto !important; }
 
-    /* Layout: single text column, generous breathing room */
+    /* Layout: single text column, tight bottom spacing */
     .hero__inner {
       grid-template-columns: 1fr !important;
-      padding-top: 130px !important; padding-bottom: 80px !important;
+      padding-top: 130px !important; padding-bottom: 30px !important;
       gap: 28px !important;
     }
     .hero__text { max-width: 100% !important; }
@@ -1167,7 +1168,11 @@
     function fireConfetti() {
       // Skip confetti entirely on mobile (≤900px) — the layout stacks vertically and the
       // step4 element ends up in the top-left, causing the burst to fire from a weird spot.
-      if (window.innerWidth <= 900) return;
+      console.log('[confetti] fireConfetti called. innerWidth=' + window.innerWidth);
+      if (window.innerWidth <= 900) {
+        console.log('[confetti] BLOCKED on mobile');
+        return;
+      }
       const step4 = document.querySelector('.hiw-step[data-step="3"]');
       const rect = step4 ? step4.getBoundingClientRect() : { left: window.innerWidth * 0.85, top: window.innerHeight * 0.4, width: 50, height: 50 };
       const originX = rect.left + rect.width / 2;
@@ -1236,7 +1241,7 @@
         pathEl.style.strokeDashoffset = totalLength * (1 - fillRatio);
         if (clipRect) clipRect.setAttribute('width', String(50 + (550 - 50) * fillRatio));
       }
-      if (idx === steps.length - 1) {
+      if (idx === steps.length - 1 && window.innerWidth > 900) {
         setTimeout(fireConfetti, 400);
       }
     }
@@ -1741,6 +1746,9 @@
     </div>
   </div>
 </section>
+
+<!-- Site JavaScript — was missing, breaking the hamburger menu + other nav interactions -->
+<script src="js/main.js" defer></script>
 
 <section class="get-started cta-block">
   <div class="container">
