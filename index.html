@@ -608,7 +608,8 @@
     position: absolute; left: 0; top: var(--top, 50%);
     width: calc(var(--size, 2px) * 5); height: 2px;
     border-radius: 1.5px;
-    background: linear-gradient(to right, transparent 0%, rgba(20,220,200,0.35) 30%, #5DEACB 80%, #FFFFFF 100%);
+    /* Gradient flipped: bright leading edge now on the LEFT (direction of motion when reversed) */
+    background: linear-gradient(to left, transparent 0%, rgba(20,220,200,0.35) 30%, #5DEACB 80%, #FFFFFF 100%);
     box-shadow: 0 0 6px rgba(20,220,200,0.75), 0 0 12px rgba(93,234,203,0.3);
     opacity: 0;
   }
@@ -623,7 +624,9 @@
       85%  { opacity: var(--opacity, 1); }
       100% { transform: translate(var(--travel), calc(var(--cy, 0vh) + 6vh)); opacity: 0; }
     }
-    .hero__particles span { animation: streamToVault var(--dur, 12s) linear infinite; animation-delay: calc(-1 * var(--delay, 0s)); }
+    /* animation-direction: reverse — particles now EXPLODE OUTWARD from the vault
+       (start at the keyframe's END position which is vault center, animate back to start) */
+    .hero__particles span { animation: streamToVault var(--dur, 12s) linear infinite reverse; animation-delay: calc(-1 * var(--delay, 0s)); }
   }
   @media (max-width: 767px) {
     .hero__particles { --travel: 60vw; }
