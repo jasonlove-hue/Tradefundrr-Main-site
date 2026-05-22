@@ -331,3 +331,26 @@
 }
 
 /* === V3 PATCH END === */
+
+/* === HIW GAP PATCH START === */
+/* Tighten the dead space between How It Works CTA and the next section.
+   Was: HIW pb 110 + cta-wrap pb 40 + trader-payouts pt 100 = ~250px gap.
+   Now: HIW pb 30 + cta-wrap pb 16 + trader-payouts pt 60 = ~106px gap. */
+.how-it-works,
+.how-it-works.complex {
+  padding-bottom: 30px !important;
+}
+.hiw-cta-wrap {
+  padding-bottom: 16px !important;
+  padding-top: 24px !important;
+}
+.trader-payouts {
+  padding-top: 60px !important;
+}
+@media (max-width: 768px) {
+  .how-it-works,
+  .how-it-works.complex { padding-bottom: 20px !important; }
+  .hiw-cta-wrap { padding-bottom: 12px !important; padding-top: 16px !important; }
+  .trader-payouts { padding-top: 40px !important; }
+}
+/* === HIW GAP PATCH END === */
