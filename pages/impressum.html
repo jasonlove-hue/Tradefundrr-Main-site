@@ -15,7 +15,7 @@
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/inter-600.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/inter-700.woff2) format('woff2'); }
     @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/geist-mono-400.woff2) format('woff2'); }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #060914; color: #fff; margin: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #000000; color: #fff; margin: 0; }
   </style>
   <style id="impressum-styles">
     /* Hero block */
@@ -26,8 +26,11 @@
     .impressum-hero .sub { color: hsla(0, 0%, 100%, 0.7); font-size: 16px; max-width: 640px; margin: 18px auto 0; line-height: 1.55; }
 
     /* Termly embed container - dark theme overrides for Termly's default styles */
-    .impressum-content { background: #060914; padding: 40px 0 80px; }
+    /* Section bg matches the iframe's post-invert color (#fff inverted = #000)
+       so there's no visible boundary between iframe and surrounding section. */
+    .impressum-content { background: #000000; padding: 40px 0 80px; }
     .impressum-content .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .impressum-hero { background: #000000 !important; }
     /* Termly renders its content inside a cross-origin iframe, so CSS rules
        on inner elements can't reach inside. Invert the iframe + hue-rotate
        180deg to flip light-mode content to dark mode while keeping chromatic
@@ -37,7 +40,9 @@
       width: 100%;
       min-height: 800px;
       border: 0;
-      background: #fff;
+      /* Pre-invert bg #EBEFF9 produces #060914 after invert(1) + hue-rotate(180deg),
+         matching the page background. */
+      background: #EBEFF9;
     }
     .impressum-content [name="termly-embed"] > *:not(iframe) { display: none; }
 

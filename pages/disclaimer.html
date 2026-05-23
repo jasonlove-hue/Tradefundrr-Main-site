@@ -15,7 +15,10 @@
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/inter-600.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/inter-700.woff2) format('woff2'); }
     @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/geist-mono-400.woff2) format('woff2'); }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #060914; color: #fff; margin: 0; }
+    /* Body bg matches the iframe's post-invert black so there's no color
+       boundary anywhere on the page (hero + content + iframe all read as
+       one continuous near-black panel). */
+    body { font-family: 'Inter', system-ui, sans-serif; background: #000000; color: #fff; margin: 0; }
   </style>
   <style id="disclaimer-styles">
     .disclaimer-hero { padding: 150px 0 40px; text-align: center; background: #060914; }
@@ -24,8 +27,12 @@
     .disclaimer-hero h1 .accent { color: #ffc107; }
     .disclaimer-hero .sub { color: hsla(0, 0%, 100%, 0.7); font-size: 16px; max-width: 640px; margin: 18px auto 0; line-height: 1.55; }
 
-    .disclaimer-content { background: #060914; padding: 40px 0 80px; }
+    /* Section bg matches the iframe's post-invert color (#fff inverted = #000)
+       so there's no visible boundary between iframe and surrounding section. */
+    .disclaimer-content { background: #000000; padding: 40px 0 80px; }
     .disclaimer-content .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    /* Same for the hero above it so the whole page reads as one continuous panel */
+    .disclaimer-hero { background: #000000 !important; }
     /* Termly renders its content inside a cross-origin iframe, so CSS rules
        on inner elements can't reach inside. To flip the light-mode iframe
        content to dark mode, invert the whole iframe + hue-rotate 180deg
@@ -35,7 +42,10 @@
       width: 100%;
       min-height: 800px;
       border: 0;
-      background: #fff; /* white bg so invert turns it black under our section */
+      /* Pre-invert bg #EBEFF9 produces #060914 after invert(1) + hue-rotate(180deg),
+         matching the page background. Math: invert turns #EBEFF9 to #14100C,
+         then hue-rotate 180deg rotates hue from 36deg back to 216deg = #060914. */
+      background: #EBEFF9;
     }
     /* Hide the fallback text in the embed wrapper before the iframe loads */
     .disclaimer-content [name="termly-embed"] > *:not(iframe) { display: none; }
