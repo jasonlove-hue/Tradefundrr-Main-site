@@ -473,7 +473,7 @@
   <div class="container">
     <div class="real-support__inner">
       <div class="small-support-media">
-        <img src="../assets/images/human-support.webp?v=202605230759" alt="human-support" width="1352" height="1082" decoding="async">
+        <img src="../assets/images/human-support.webp" alt="human-support" width="1352" height="1082" decoding="async">
       </div>
       <div>
         <div class="real-support__head">

@@ -88,7 +88,7 @@
       </div>
     </div>
   </div>
-  <img src="../assets/images/funnels-back.webp?v=202605230759" alt="about-hero" class="float-image" width="1119" height="1226" decoding="async">
+  <img src="../assets/images/funnels-back.webp" alt="about-hero" class="float-image" width="1119" height="1226" decoding="async">
 </section>
 
 <section class="reassurance">
@@ -590,7 +590,7 @@
 
 
 <div class="newsletter__wrapper">
-  <img src="../assets/images/coinsimage.webp?v=202605230759" alt="rocket-image" width="1352" height="1053" decoding="async">
+  <img src="../assets/images/coinsimage.webp" alt="rocket-image" width="1352" height="1053" decoding="async">
   <div class="container">
     <div class="outer__newsletter">
       <span>crypto funded accounts</span>
