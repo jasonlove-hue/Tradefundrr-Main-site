@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cookie Policy — TradeFundrr</title>
   <meta name="description" content="TradeFundrr Cookie Policy — how we use cookies and similar technologies on our website.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/mobile-fixes.css" id="mobile-fixes-css">
 
@@ -54,11 +57,6 @@
       .cookie-card__row { grid-template-columns: 80px 1fr; font-size: 12.5px; }
     }
   </style>
-<!-- FONTS_BLOCK_START -->
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-700.woff2">
-<link rel="stylesheet" href="../assets/css/fonts.css?v=202605230800">
-<!-- FONTS_BLOCK_END -->
 </head>
 <body>
 
