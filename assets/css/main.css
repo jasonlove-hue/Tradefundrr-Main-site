@@ -1,4 +1,15 @@
-﻿*,
+﻿/* GEIST_MONO_FALLBACK_START - metrics-adjusted monospace fallback */
+@font-face {
+  font-family: 'Geist Mono Fallback';
+  src: local('Courier New'), local('Menlo'), local('Monaco'), local('Consolas');
+  size-adjust: 92%;
+  ascent-override: 78%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+/* GEIST_MONO_FALLBACK_END */
+
+*,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -67,7 +78,7 @@ h6 {
     color: #000;
 }
 .eyebrow {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: -0.56px;
@@ -116,7 +127,7 @@ h6 {
     color: hsla(0, 0%, 100%, 0.5);
 }
 .mono {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
 }
 .container {
     width: min(100% - 60px, 1240px);
@@ -354,7 +365,7 @@ h6 {
     left: 30px;
     background: linear-gradient(180deg, #05c4a1 0%, #027cc4 100%);
     color: #000;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.8px;
@@ -407,7 +418,7 @@ h6 {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 12px;
     letter-spacing: 0.6px;
     padding: 6px 10px;
@@ -516,7 +527,7 @@ h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 700;
     font-size: 18px;
     color: #03050b;
@@ -656,7 +667,7 @@ h6 {
     gap: 10px;
 }
 .navbar .has-sub .dropdown a .title {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: -0.56px;
@@ -770,7 +781,7 @@ h6 {
     align-items: center;
     gap: 10px;
     color: #fff;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: -0.64px;
@@ -850,7 +861,7 @@ h6 {
     gap: 20px;
 }
 .comparison__card .head .label {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     color: #fff;
     letter-spacing: -0.56px;
@@ -962,7 +973,7 @@ h6 {
     justify-content: space-between;
 }
 .markets__card .top .tag {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: -0.56px;
@@ -1047,7 +1058,7 @@ h6 {
     justify-content: center;
     border: 1px solid hsla(0, 0%, 100%, 0.1);
     background: #03050b;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 500;
     color: #fff;
     font-size: 24px;
@@ -1144,7 +1155,7 @@ h6 {
     background: linear-gradient(180deg, #05c4a1 0%, #027cc4 100%);
 }
 .payouts__card .head .name {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
 }
@@ -1275,12 +1286,12 @@ h6 {
     justify-content: center;
     color: #05c4a1;
     margin-bottom: 20px;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 700;
     font-size: 20px;
 }
 .institutional__card .label {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: -0.56px;
@@ -1403,7 +1414,7 @@ h6 {
 }
 .plans__card .tag {
     align-self: flex-start;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
     color: #05c4a1;
@@ -1760,7 +1771,7 @@ h6 {
     display: block;
 }
 .site-footer__col h5 {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.1;
@@ -1891,7 +1902,7 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 500;
     font-size: 20px;
     color: #fff;
@@ -1945,7 +1956,7 @@ h6 {
     border-top: 1px solid hsla(0, 0%, 100%, 0.1);
 }
 .programs-tabs__panel .key-rules .label {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
     text-transform: uppercase;
@@ -2112,7 +2123,7 @@ h6 {
     color: #fff;
 }
 .reviews__card .head .who .meta .name {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
 }
@@ -2124,7 +2135,7 @@ h6 {
 .reviews__card .verified {
     padding: 5px 10px;
     border-radius: 8px;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
     color: #fff;
@@ -2238,7 +2249,7 @@ h6 {
     color: #fff;
 }
 .help-choose .question .label .num {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 18px;
     letter-spacing: -0.72px;
 }
@@ -2298,7 +2309,7 @@ h6 {
     display: inline-flex;
     padding: 5px 10px;
     border-radius: 8px;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
     color: #fff;
@@ -2359,7 +2370,7 @@ h6 {
     gap: 30px;
 }
 .value-asym__big .label {
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-size: 14px;
     letter-spacing: -0.56px;
     text-transform: uppercase;
@@ -2581,7 +2592,7 @@ footer.site-footer{
 	display:block;
 	font-size: 14px;
 	line-height: 110%;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: -0.04em;
@@ -2919,7 +2930,7 @@ footer.site-footer{
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color:rgba(255,255,255,.4);
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
 }
 .plans__card .includes .features li:before{
     content:none;
@@ -2946,7 +2957,7 @@ footer.site-footer{
     letter-spacing: -0.04em;
     line-height: 130%;
     border-radius: 8px;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     padding:5px 10px;
     border:1px solid rgba(4,159,180,.8);    
     background-color:rgba(4,159,180,.4);
@@ -3257,7 +3268,7 @@ footer.site-footer{
     padding-top: 10px;
     line-height: 130%;
     letter-spacing: -0.04em;
-    font-family:"Geist Mono" ,sans-serif;
+    font-family:"Geist Mono", "Geist Mono Fallback" ,sans-serif;
 }
 .markets__card .top>a{
     min-height: 48px;
@@ -3443,7 +3454,7 @@ footer.site-footer{
     opacity:.35;
     line-height: 110%;
     letter-spacing: -0.04em;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     position: absolute;
     left:30px;
     bottom:30px;
@@ -3659,7 +3670,7 @@ footer.site-footer{
     padding-bottom: 35px;
     font-size: 14px;
     line-height: 17px;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     text-transform: uppercase;
     letter-spacing: -0.04em;
     font-weight: 400;
@@ -3865,7 +3876,7 @@ footer.site-footer{
     line-height: 130%;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     opacity:.4;
 }
 .platforms .double__box .box{
@@ -4129,7 +4140,7 @@ footer.site-footer{
     font-size: 14px;
     line-height: 130%;
     letter-spacing: -0.04em;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     text-transform: uppercase;
     color:rgba(255,255,255,.4);
 }
@@ -4295,7 +4306,7 @@ footer.site-footer{
     border-radius: 250px;
     font-size: 20px;
     line-height: 110%;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 500;
 }
 .programs-tabs__panel .steps .col-body .step h4.is-muted{
@@ -4632,7 +4643,7 @@ footer.site-footer{
     display: block;
     font-size: 14px;
     line-height: 130%;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     color:rgba(255,255,255,.4);
     text-transform: uppercase;
 }
@@ -5189,7 +5200,7 @@ footer.site-footer{
     font-size: 14px;
     line-height: 110%;
     letter-spacing: -0.04em;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
 }
 .rules .box{
     width: 100%;
@@ -5336,7 +5347,7 @@ footer.site-footer{
     font-size: 14px;
     line-height: 130%;
     color:#FFFFFF;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     letter-spacing: -0.04em;
 }
 .reviews__slider .head>.top .left .desc{
@@ -5396,7 +5407,7 @@ footer.site-footer{
     line-height: 130%;
     letter-spacing: -0.04em;
     color:#FFFFFF;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     background-color:rgba(4,159,180,.4);
     border:1px solid rgba(4,159,180,.8);
     border-radius: 8px;
@@ -5546,7 +5557,7 @@ section.platforms{
     margin-bottom: 25px;
     font-size: 14px;
     line-height: 110%;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     color:rgba(255,255,255,.4);
     text-transform: uppercase;
 }
@@ -6048,7 +6059,7 @@ section.platforms{
     font-size: 14px;
     line-height: 130%;
     letter-spacing: -0.04em;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     text-transform: uppercase;
     color:#05C4A1;
     opacity:.7;
@@ -6123,7 +6134,7 @@ section.platforms{
     line-height: 110%;
     letter-spacing: -0.04em;
     color:rgba(255,255,255,.4);
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     font-weight: 400;
 }
 .help__me--choose .form__box .step .pick-one.grid>a.current , .help__me--choose .form__box .step .pick-one.plates>a.current{
@@ -6278,7 +6289,7 @@ section.platforms{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: "Geist Mono", "IBM Plex Mono", ui-monospace, monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback", "IBM Plex Mono", ui-monospace, monospace;
     border-radius: 8px;
     margin-bottom: 30px;
     min-height: 28px;
@@ -6329,7 +6340,7 @@ section.platforms{
 }
 .trader-payouts__head .eyebrow {
     display: block;
-    font-family: "Geist Mono","IBM Plex Mono",ui-monospace,monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback","IBM Plex Mono",ui-monospace,monospace;
     font-size: 14px;
     letter-spacing: -0.04em;
     text-transform: uppercase;
@@ -6465,7 +6476,7 @@ section.platforms{
     flex-shrink: 0;
 }
 .trader-card__head .name {
-    font-family: "Geist Mono","IBM Plex Mono",ui-monospace,monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback","IBM Plex Mono",ui-monospace,monospace;
     font-size: 15px;
     color: #fff;
     letter-spacing: -0.02em;
@@ -6481,7 +6492,7 @@ section.platforms{
 }
 .trader-card__amount .sign { color: #05c4a1; }
 .trader-card__program {
-    font-family: "Geist Mono","IBM Plex Mono",ui-monospace,monospace;
+    font-family: "Geist Mono", "Geist Mono Fallback","IBM Plex Mono",ui-monospace,monospace;
     font-size: 13px;
     color: rgba(255,255,255,.5);
     margin: 0;
