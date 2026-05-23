@@ -316,20 +316,21 @@
     width: 100% !important;
   }
 
-  /* Widget itself: fill the wider container, give it the height set in HTML.
-     The Trustpilot Grid template auto-flows into more columns when given more
-     horizontal space, so widening alone gets us to a 4-5 column layout. */
+  /* Widget itself: fill the wider container, ~3 rows visible (900px), the
+     widget handles internal scrolling for the rest. The Trustpilot Grid
+     template auto-flows into more columns when given more horizontal space,
+     so widening alone gets us to a 4-5 column layout. */
   .trader-payouts .trustpilot-widget {
     width: 100% !important;
     max-width: 100% !important;
     display: block !important;
-    min-height: 1400px !important;
+    min-height: 900px !important;
   }
 
-  /* Mobile: keep the widget compact, fewer columns naturally with narrower
-     viewport. Reduce min-height so phones aren't a tall wall of reviews. */
+  /* Mobile: shorter widget (fewer columns naturally fit fewer reviews per row,
+     so 3 rows is even more compact). */
   @media (max-width: 767px) {
-    .trader-payouts .trustpilot-widget { min-height: 800px !important; }
+    .trader-payouts .trustpilot-widget { min-height: 600px !important; }
   }
 
   /* Star color shift â€” hue-rotate the iframe so Trustpilot green moves toward
@@ -1580,15 +1581,11 @@
 
       <!-- TRUSTPILOT_WIDGET_START -->
       <!-- TrustBox widget - Grid -->
-      <div class="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="1400px" data-style-width="100%" data-theme="dark" data-token="1137af76-74e0-4401-8359-bf740e749359" data-stars="5" data-review-languages="en" data-review-disclaimer="true">
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="900px" data-style-width="100%" data-theme="dark" data-token="1137af76-74e0-4401-8359-bf740e749359" data-stars="5" data-review-languages="en" data-review-disclaimer="true">
         <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener">Trustpilot</a>
       </div>
       <!-- End TrustBox widget -->
       <!-- TRUSTPILOT_WIDGET_END -->
-
-      <div class="trader-payouts__controls">
-          <a href="pages/why-us.html" class="trader-payouts__cta">Read More Trader Stories <span class="arrow"><img src="assets/images/btn-arrow.svg" alt="arrow"></span></a>
-        </div>
     </div>
   </div>
 </section>
