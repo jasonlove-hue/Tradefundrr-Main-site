@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — TradeFundrr</title>
   <meta name="description" content="Built by traders who got tired of the industry's broken promises — partnered with T3 Global for institutional-grade trading technology.">
-  <link rel="stylesheet" href="../assets/css/main.css?v=202605230817">
-<link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605230817" id="mobile-fixes-css">
+  <link rel="stylesheet" href="../assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/mobile-fixes.css" id="mobile-fixes-css">
 <!-- FONTS_BLOCK_START -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-700.woff2">
