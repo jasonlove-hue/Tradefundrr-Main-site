@@ -44,10 +44,40 @@
     .impressum-content [data-custom-class='link'] * { color: #05C4A1 !important; text-decoration: underline !important; word-break: break-word !important; }
     .impressum-content a { color: #05C4A1 !important; }
     .impressum-content a:hover { opacity: 0.85; }
+    .impressum-content strong, .impressum-content b,
+    .impressum-content strong *, .impressum-content b * { color: #ffffff !important; }
+
+    /* Catch all headings (h1-h6) regardless of class */
+    .impressum-content h1, .impressum-content h2, .impressum-content h3,
+    .impressum-content h4, .impressum-content h5, .impressum-content h6,
+    .impressum-content h1 *, .impressum-content h2 *, .impressum-content h3 *,
+    .impressum-content h4 *, .impressum-content h5 *, .impressum-content h6 * { color: #ffffff !important; }
+
+    /* Override Termly's dark inline color styles */
+    .impressum-content [style*="color: rgb(0, 0, 0)"],
+    .impressum-content [style*="color:rgb(0,0,0)"],
+    .impressum-content [style*="color: #000"],
+    .impressum-content [style*="color: black"],
+    .impressum-content [style*="color: rgb(35, 35, 35)"],
+    .impressum-content [style*="color: rgb(38, 38, 38)"],
+    .impressum-content [style*="color: rgb(48, 48, 48)"],
+    .impressum-content [style*="color: rgb(60, 60, 60)"],
+    .impressum-content [style*="color: rgb(75, 75, 75)"],
+    .impressum-content [style*="color: rgb(89, 89, 89)"],
+    .impressum-content [style*="color: rgb(102, 102, 102)"],
+    .impressum-content [style*="color: rgb(127, 127, 127)"] { color: hsla(0,0%,100%,0.72) !important; }
+
+    .impressum-content strong[style*="color: rgb"],
+    .impressum-content b[style*="color: rgb"] { color: #ffffff !important; }
+
+    /* Nuclear fallback: force light text on paragraph/div/span/li */
+    .impressum-content p,
+    .impressum-content div:not([data-custom-class]),
+    .impressum-content li,
+    .impressum-content span:not([style*="rgb(5,"]):not([style*="rgb(0, 196,"]) { color: hsla(0,0%,100%,0.78); }
+    .impressum-content h1, .impressum-content h2, .impressum-content h3,
+    .impressum-content h4, .impressum-content h5, .impressum-content h6,
     .impressum-content strong, .impressum-content b { color: #ffffff !important; }
-    .impressum-content span[style*="color: rgb(0, 0, 0)"],
-    .impressum-content span[style*="color: rgb(127, 127, 127)"],
-    .impressum-content span[style*="color: rgb(89, 89, 89)"] { color: hsla(0,0%,100%,0.72) !important; }
 
     @media (max-width: 768px) {
       .impressum-hero { padding: 110px 0 30px; }

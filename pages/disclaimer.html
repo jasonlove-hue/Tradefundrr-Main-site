@@ -42,10 +42,42 @@
     .disclaimer-content [data-custom-class='link'] * { color: #05C4A1 !important; text-decoration: underline !important; word-break: break-word !important; }
     .disclaimer-content a { color: #05C4A1 !important; }
     .disclaimer-content a:hover { opacity: 0.85; }
+    .disclaimer-content strong, .disclaimer-content b,
+    .disclaimer-content strong *, .disclaimer-content b * { color: #ffffff !important; }
+
+    /* Catch all headings (h1-h6) regardless of class */
+    .disclaimer-content h1, .disclaimer-content h2, .disclaimer-content h3,
+    .disclaimer-content h4, .disclaimer-content h5, .disclaimer-content h6,
+    .disclaimer-content h1 *, .disclaimer-content h2 *, .disclaimer-content h3 *,
+    .disclaimer-content h4 *, .disclaimer-content h5 *, .disclaimer-content h6 * { color: #ffffff !important; }
+
+    /* Override Termly's dark inline color styles - catch any element with dark color */
+    .disclaimer-content [style*="color: rgb(0, 0, 0)"],
+    .disclaimer-content [style*="color:rgb(0,0,0)"],
+    .disclaimer-content [style*="color: #000"],
+    .disclaimer-content [style*="color: black"],
+    .disclaimer-content [style*="color: rgb(35, 35, 35)"],
+    .disclaimer-content [style*="color: rgb(38, 38, 38)"],
+    .disclaimer-content [style*="color: rgb(48, 48, 48)"],
+    .disclaimer-content [style*="color: rgb(60, 60, 60)"],
+    .disclaimer-content [style*="color: rgb(75, 75, 75)"],
+    .disclaimer-content [style*="color: rgb(89, 89, 89)"],
+    .disclaimer-content [style*="color: rgb(102, 102, 102)"],
+    .disclaimer-content [style*="color: rgb(127, 127, 127)"] { color: hsla(0,0%,100%,0.72) !important; }
+
+    /* Bold elements with dark inline color = white */
+    .disclaimer-content strong[style*="color: rgb"],
+    .disclaimer-content b[style*="color: rgb"] { color: #ffffff !important; }
+
+    /* Nuclear fallback: force light text on all paragraph/div/span/li */
+    .disclaimer-content p,
+    .disclaimer-content div:not([data-custom-class]),
+    .disclaimer-content li,
+    .disclaimer-content span:not([style*="rgb(5,"]):not([style*="rgb(0, 196,"]) { color: hsla(0,0%,100%,0.78); }
+    /* But re-assert headings/bold are pure white */
+    .disclaimer-content h1, .disclaimer-content h2, .disclaimer-content h3,
+    .disclaimer-content h4, .disclaimer-content h5, .disclaimer-content h6,
     .disclaimer-content strong, .disclaimer-content b { color: #ffffff !important; }
-    .disclaimer-content span[style*="color: rgb(0, 0, 0)"],
-    .disclaimer-content span[style*="color: rgb(127, 127, 127)"],
-    .disclaimer-content span[style*="color: rgb(89, 89, 89)"] { color: hsla(0,0%,100%,0.72) !important; }
 
     @media (max-width: 768px) {
       .disclaimer-hero { padding: 110px 0 30px; }
