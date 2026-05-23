@@ -578,9 +578,9 @@
 /* === PRO SUB NAV CSS END === */
 
 /* === BLACKBOOK CSS START === */
-/* Funded Trader Blackbook lead magnet section. Replaces the old newsletter
-   block on index.html and pages/about.html. Two-column on desktop, stacks
-   on mobile. */
+/* Funded Trader Blackbook lead magnet. Two-column on desktop, stacks on mobile.
+   IMAGE on LEFT = cropped 3D book mockup (taller portrait aspect).
+   CONTENT on RIGHT = eyebrow + headline + tagline + copy + 3 feature pills + form. */
 .blackbook {
   padding: 90px 0;
   background: linear-gradient(180deg, #060914 0%, #0a0e1c 50%, #060914 100%);
@@ -591,7 +591,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255, 193, 7, 0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255, 193, 7, 0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 .blackbook .container {
@@ -603,20 +603,25 @@
 }
 .blackbook__grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
   align-items: center;
 }
+/* Book visual */
 .blackbook__visual {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .blackbook__visual img {
   width: 100%;
+  max-width: 460px;
   height: auto;
   display: block;
-  border-radius: 14px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(255, 193, 7, 0.08);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 70px rgba(255, 193, 7, 0.15));
 }
+/* Right column content */
 .blackbook__eyebrow {
   color: #ffc107;
   font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
@@ -630,26 +635,82 @@
 .blackbook__title {
   font-family: 'Inter', 'Inter Fallback', sans-serif;
   font-weight: 700;
-  font-size: 42px;
-  line-height: 1.1;
-  letter-spacing: -1.2px;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -1.3px;
   color: #fff;
-  margin: 0 0 22px;
+  margin: 0 0 10px;
 }
-.blackbook__title .accent {
-  color: #ffc107;
+.blackbook__title .accent { color: #ffc107; }
+.blackbook__tagline {
+  color: hsla(0, 0%, 100%, 0.6);
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 22px;
 }
 .blackbook__lead {
   color: hsla(0, 0%, 100%, 0.78);
   font-size: 15.5px;
   line-height: 1.65;
   margin: 0 0 28px;
+  max-width: 600px;
 }
+/* 3 feature pills */
+.blackbook__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 28px;
+  max-width: 540px;
+}
+.blackbook__feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 10px;
+  background: hsla(0, 0%, 100%, 0.04);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 12px;
+  transition: border-color .15s ease, background .15s ease;
+}
+.blackbook__feature:hover {
+  background: hsla(0, 0%, 100%, 0.06);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+.blackbook__feature-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 193, 7, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #ffc107;
+}
+.blackbook__feature-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.blackbook__feature-label {
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+/* Form */
 .blackbook__form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 460px;
+  max-width: 540px;
 }
 .blackbook__field input {
   width: 100%;
@@ -663,9 +724,7 @@
   box-sizing: border-box;
   transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
 }
-.blackbook__field input::placeholder {
-  color: hsla(0, 0%, 100%, 0.45);
-}
+.blackbook__field input::placeholder { color: hsla(0, 0%, 100%, 0.45); }
 .blackbook__field input:focus {
   outline: none;
   border-color: #ffc107;
@@ -683,16 +742,13 @@
   font-size: 15.5px;
   font-weight: 700;
 }
-.blackbook__note {
-  color: hsla(0, 0%, 100%, 0.5);
-  font-size: 13px;
-  margin: 14px 0 0;
-}
+.blackbook__note { color: hsla(0, 0%, 100%, 0.5); font-size: 13px; margin: 14px 0 0; }
 
 /* Tablet */
 @media (max-width: 1024px) {
   .blackbook__grid { gap: 40px; }
   .blackbook__title { font-size: 36px; }
+  .blackbook__visual img { max-width: 360px; }
 }
 /* Mobile */
 @media (max-width: 768px) {
@@ -702,9 +758,18 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .blackbook__visual { order: -1; max-width: 520px; margin: 0 auto; }
+  .blackbook__visual { order: -1; }
+  .blackbook__visual img { max-width: 280px; }
   .blackbook__title { font-size: 30px; letter-spacing: -0.8px; }
   .blackbook__lead { font-size: 15px; }
-  .blackbook__form { max-width: none; }
+  .blackbook__form, .blackbook__features { max-width: none; }
+  .blackbook__features { gap: 8px; }
+  .blackbook__feature { padding: 12px 8px; }
+  .blackbook__feature-label { font-size: 10.5px; }
+}
+@media (max-width: 480px) {
+  .blackbook__features { grid-template-columns: 1fr; gap: 10px; }
+  .blackbook__feature { flex-direction: row; gap: 12px; justify-content: flex-start; text-align: left; }
+  .blackbook__feature-icon { margin-bottom: 0; flex-shrink: 0; }
 }
 /* === BLACKBOOK CSS END === */
