@@ -7,6 +7,65 @@
   <meta name="description" content="TradeFundrr Impressum — legal information and company details.">
   <link rel="stylesheet" href="../assets/css/main.css?v=202605230840">
   <link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605230840" id="mobile-fixes-css">
+
+  <!-- Dark-theme overrides for Termly policy content (matches privacy-policy.html) -->
+  <style>
+    .policy-page { background: #060914; padding: 60px 0 80px 0; }
+    .policy-page .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .policy-page__lead { color: hsla(0,0%,100%,0.6); font-size: 14px; margin: 8px 0 32px 0; }
+    .policy-content { color: hsla(0,0%,100%,0.78); font-size: 14.5px; line-height: 1.7; }
+
+    /* Override Termly's light-mode colors for dark theme.
+       These work ONLY on inline Termly HTML. If using the iframe embed below,
+       the iframe gets the invert filter as a fallback. */
+    .policy-content [data-custom-class='body'],
+    .policy-content [data-custom-class='body'] * { background: transparent !important; font-family: "Inter", "Inter Fallback", Arial, sans-serif !important; }
+    .policy-content [data-custom-class='title'],
+    .policy-content [data-custom-class='title'] * { color: #ffffff !important; font-size: 32px !important; font-weight: 700 !important; letter-spacing: -0.5px !important; }
+    .policy-content [data-custom-class='subtitle'],
+    .policy-content [data-custom-class='subtitle'] * { color: hsla(0,0%,100%,0.55) !important; font-size: 13px !important; }
+    .policy-content [data-custom-class='heading_1'],
+    .policy-content [data-custom-class='heading_1'] * { color: #ffffff !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.2px !important; margin-top: 8px !important; }
+    .policy-content [data-custom-class='heading_2'],
+    .policy-content [data-custom-class='heading_2'] * { color: #ffffff !important; font-size: 17px !important; font-weight: 600 !important; }
+    .policy-content [data-custom-class='body_text'],
+    .policy-content [data-custom-class='body_text'] * { color: hsla(0,0%,100%,0.72) !important; font-size: 14.5px !important; line-height: 1.7 !important; }
+    .policy-content [data-custom-class='link'],
+    .policy-content [data-custom-class='link'] * { color: #05C4A1 !important; font-size: 14.5px !important; word-break: break-word !important; text-decoration: underline !important; }
+    .policy-content a { color: #05C4A1 !important; }
+    .policy-content a:hover { opacity: 0.85; }
+    .policy-content strong, .policy-content b { color: #ffffff !important; }
+    .policy-content em, .policy-content i { color: hsla(0,0%,100%,0.78) !important; }
+    .policy-content span[style*="color: rgb(0, 0, 0)"],
+    .policy-content span[style*="color: rgb(127, 127, 127)"],
+    .policy-content span[style*="color: rgb(89, 89, 89)"] { color: hsla(0,0%,100%,0.72) !important; }
+    .policy-content span[style*="color: rgb(0, 58, 250)"] { color: #05C4A1 !important; }
+    .policy-content ul { padding-left: 22px; margin: 8px 0 16px 0; }
+    .policy-content ul li { margin: 6px 0; }
+    .policy-content table { border-collapse: collapse; margin: 14px 0; width: 100%; }
+    .policy-content table td { border-color: hsla(0,0%,100%,0.15) !important; color: hsla(0,0%,100%,0.72) !important; padding: 10px 12px !important; font-size: 13.5px !important; vertical-align: top; }
+    .policy-content table td span,
+    .policy-content table td strong { color: #ffffff !important; }
+    .policy-content hr { border: none; border-top: 1px solid hsla(0,0%,100%,0.1); margin: 24px 0; }
+    .policy-content bdt:empty { display: none; }
+
+    /* Fallback for iframe embed (used until inline HTML is pasted) */
+    .policy-content iframe {
+      filter: invert(1) hue-rotate(180deg);
+      width: 100%; min-height: 800px; border: 0; background: #fff;
+    }
+    .policy-content [name="termly-embed"] > *:not(iframe) { display: none; }
+
+    @media (max-width: 575px) {
+      .policy-page { padding: 40px 0 60px 0; }
+      .policy-page .container { padding: 0 16px; }
+      .policy-content [data-custom-class='title'] * { font-size: 26px !important; }
+      .policy-content [data-custom-class='heading_1'] * { font-size: 18px !important; }
+      .policy-content [data-custom-class='heading_2'] * { font-size: 16px !important; }
+      .policy-content [data-custom-class='body_text'] * { font-size: 14px !important; }
+    }
+  </style>
+
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-400.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-700.woff2">
   <style id="tf-fonts">
@@ -15,42 +74,7 @@
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/inter-600.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/inter-700.woff2) format('woff2'); }
     @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/geist-mono-400.woff2) format('woff2'); }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #000000; color: #fff; margin: 0; }
-  </style>
-  <style id="impressum-styles">
-    /* Hero block */
-    .impressum-hero { padding: 150px 0 40px; text-align: center; background: #060914; }
-    .impressum-hero .eyebrow { color: #5DEACB; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; display: inline-block; margin: 0 0 16px; }
-    .impressum-hero h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 46px; letter-spacing: -1.5px; color: #fff; margin: 0; }
-    .impressum-hero h1 .accent { color: #ffc107; }
-    .impressum-hero .sub { color: hsla(0, 0%, 100%, 0.7); font-size: 16px; max-width: 640px; margin: 18px auto 0; line-height: 1.55; }
-
-    /* Termly embed container - dark theme overrides for Termly's default styles */
-    /* Section bg matches the iframe's post-invert color (#fff inverted = #000)
-       so there's no visible boundary between iframe and surrounding section. */
-    .impressum-content { background: #000000; padding: 40px 0 80px; }
-    .impressum-content .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-    .impressum-hero { background: #000000 !important; }
-    /* Termly renders its content inside a cross-origin iframe, so CSS rules
-       on inner elements can't reach inside. Invert the iframe + hue-rotate
-       180deg to flip light-mode content to dark mode while keeping chromatic
-       colors approximately correct. */
-    .impressum-content iframe {
-      filter: invert(1) hue-rotate(180deg);
-      width: 100%;
-      min-height: 800px;
-      border: 0;
-      /* Pre-invert bg #EBEFF9 produces #060914 after invert(1) + hue-rotate(180deg),
-         matching the page background. */
-      background: #EBEFF9;
-    }
-    .impressum-content [name="termly-embed"] > *:not(iframe) { display: none; }
-
-    @media (max-width: 768px) {
-      .impressum-hero { padding: 110px 0 30px; }
-      .impressum-hero h1 { font-size: 34px; }
-      .impressum-content .container { padding: 0 16px; }
-    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #060914; color: #fff; margin: 0; }
   </style>
 </head>
 <body>
@@ -63,7 +87,7 @@
       <span class="has-sub" tabindex="0" aria-haspopup="true">
         Products
         <span class="arrow"><img src="../assets/images/down-arrow.svg" alt="down-arrow"></span>
-        <div class="dropdown" role="menu" >
+        <div class="dropdown" role="menu">
           <a href="stocks.html" data-cat="stocks"><span class="thumb"><img src="../assets/images/dropdown-1.png" alt="dropdown" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span><span class="desc">Funded stock trading accounts with $25K+ in institutional capital</span></span></a>
           <a href="stocks-pro-funding.html" class="dropdown__pro-sub" data-cat="stocks-pro"><span class="dropdown__pro-sub-arrow">&#8627;</span><span class="dropdown__pro-sub-text"><span class="dropdown__pro-sub-label">Pro Funding</span><span class="dropdown__pro-sub-desc">$5M-$20M+ buying power, no evaluations</span></span><span class="dropdown__pro-sub-chev">&rsaquo;</span></a>
           <a href="options.html" data-cat="options"><span class="thumb"><img src="../assets/images/dropdown-2.png" alt="dropdown" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span><span class="desc">Funded options accounts</span></span></a>
@@ -82,25 +106,41 @@
   </nav>
 </header>
 
-<section class="impressum-hero">
-  <div class="container">
-    <span class="eyebrow">Legal</span>
-    <h1><span class="accent">Impressum</span></h1>
-    <p class="sub">Legal information and company disclosures for TradeFundrr.</p>
+<section class="hero secondary" style="min-height:auto;padding:80px 0 30px 0;">
+  <div class="container hero__inner" style="grid-template-columns:1fr;text-align:center;">
+    <div class="hero__text" style="max-width:780px;margin:0 auto;">
+      <p class="eyebrow">legal</p>
+      <h1 class="hero__title smaller"><span class="accent">Impressum</span></h1>
+      <p class="hero__sub">Legal information and company details for TradeFundrr.</p>
+    </div>
   </div>
 </section>
 
-<section class="impressum-content">
+<section class="policy-page">
   <div class="container">
-    <!-- Termly embed - loads the Impressum content dynamically -->
-    <div name="termly-embed" data-id="58e1396f-9a08-43c5-a944-f27272e2d1dd"></div>
-    <script type="text/javascript">(function(d, s, id) {
-      var js, tjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://app.termly.io/embed-policy.min.js";
-      tjs.parentNode.insertBefore(js, tjs);
-    }(document, 'script', 'termly-jssdk'));</script>
+    <div class="policy-content">
+      <!--
+        TO GET PROPER DARK-THEME STYLING:
+        Replace the <div name="termly-embed">...</div> + <script> block below with
+        the inline HTML rendered by Termly. Steps:
+          1. Open the policy in your Termly dashboard.
+          2. Use Termly's "Embed" -> "Code" or "Preview source" to copy the full HTML.
+          3. Paste that HTML in place of the embed block below.
+        The CSS overrides above target Termly's [data-custom-class] selectors in inline
+        HTML and will style headings/body/links correctly for dark mode.
+
+        Until then, the iframe embed below renders the policy via Termly's CDN with a
+        CSS invert filter as a stopgap (text becomes readable but colors are approximate).
+      -->
+      <div name="termly-embed" data-id="58e1396f-9a08-43c5-a944-f27272e2d1dd"></div>
+      <script type="text/javascript">(function(d, s, id) {
+        var js, tjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://app.termly.io/embed-policy.min.js";
+        tjs.parentNode.insertBefore(js, tjs);
+      }(document, 'script', 'termly-jssdk'));</script>
+    </div>
   </div>
 </section>
 
@@ -165,7 +205,7 @@
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
           <li><a href="cookie-policy.html">Cookie Policy</a></li>
           <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
         </ul>
       </div>
     </div>
@@ -176,6 +216,5 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="../js/main.js?v=202605230840"></script>
-
 </body>
 </html>
