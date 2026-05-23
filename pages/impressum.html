@@ -49,17 +49,6 @@
     .policy-content hr { border: none; border-top: 1px solid hsla(0,0%,100%,0.1); margin: 24px 0; }
     .policy-content bdt:empty { display: none; }
 
-    /* Fallback for iframe embed (used until inline HTML is pasted).
-       Pre-invert bg #EBEFF9 produces #060914 after invert(1) + hue-rotate(180deg),
-       so the iframe blends seamlessly with the page background — no visible "box". */
-    .policy-content iframe {
-      filter: invert(1) hue-rotate(180deg);
-      width: 100%; min-height: 800px; border: 0; background: #EBEFF9;
-      display: block;
-    }
-    .policy-content [name="termly-embed"] { background: transparent; }
-    .policy-content [name="termly-embed"] > *:not(iframe) { display: none; }
-
     @media (max-width: 575px) {
       .policy-page { padding: 40px 0 60px 0; }
       .policy-page .container { padding: 0 16px; }
@@ -123,27 +112,30 @@
 <section class="policy-page">
   <div class="container">
     <div class="policy-content">
-      <!--
-        TO GET PROPER DARK-THEME STYLING:
-        Replace the <div name="termly-embed">...</div> + <script> block below with
-        the inline HTML rendered by Termly. Steps:
-          1. Open the policy in your Termly dashboard.
-          2. Use Termly's "Embed" -> "Code" or "Preview source" to copy the full HTML.
-          3. Paste that HTML in place of the embed block below.
-        The CSS overrides above target Termly's [data-custom-class] selectors in inline
-        HTML and will style headings/body/links correctly for dark mode.
-
-        Until then, the iframe embed below renders the policy via Termly's CDN with a
-        CSS invert filter as a stopgap (text becomes readable but colors are approximate).
-      -->
-      <div name="termly-embed" data-id="58e1396f-9a08-43c5-a944-f27272e2d1dd"></div>
-      <script type="text/javascript">(function(d, s, id) {
-        var js, tjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://app.termly.io/embed-policy.min.js";
-        tjs.parentNode.insertBefore(js, tjs);
-      }(document, 'script', 'termly-jssdk'));</script>
+<style>
+  [data-custom-class='body'], [data-custom-class='body'] * {
+    background: transparent !important;
+  }
+</style>
+<div data-custom-class="body">
+<div data-custom-class="title" style="line-height: 1.5;"><span style="font-size: 19px;"><strong>IMPRESSUM</strong></span></div>
+<div style="line-height: 1.5;"><br></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">TradeFundrr, LLC</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">88 Pine St.</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">10005 New York</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">United States</span></div>
+<div style="line-height: 1.5;"><span style="font-size: 15px;"><br></span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;"><strong>Kontaktinformationen:</strong>&nbsp;</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">Telefon: (+1) 877 799 8198</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">E-mail: <a target="_blank" data-custom-class="link" href="mailto:Support@tradefundrr.com">Support@tradefundrr.com</a></span></div>
+<div style="line-height: 1.5;"><span style="font-size: 15px;"><br></span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><strong><span style="font-size: 15px;">Bevollm&auml;chtigte Vertreter</span></strong><span style="font-size: 15px;"><strong>:</strong></span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">Jason Love</span></div>
+<div style="line-height: 1.5;"><span style="font-size: 15px;"><br></span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">Eingetragener Sitz: United States</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">Registergericht: Delaware Secretary of State</span></div>
+<div data-custom-class="body_text" style="line-height: 1.5;"><span style="font-size: 15px;">Handelsregisternummer: 6114148</span></div>
+</div>
     </div>
   </div>
 </section>
