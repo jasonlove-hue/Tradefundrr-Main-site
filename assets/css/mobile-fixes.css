@@ -480,23 +480,26 @@
 
 /* === HIW NUMBERS GAP PATCH START === */
 /* Reduce the vertical dead-space between the "View Plans and Pricing" CTA
-   (bottom of .how-it-works) and the next section (.numbers) by ~55%.
-   Original: 40 + 110 + 200 = 350px. New: 18 + 50 + 90 = 158px. */
+   (bottom of .how-it-works) and the next section (.numbers).
+   Cumulative trim across two rounds:
+     Original:  40 + 110 + 200 = 350px
+     Round 1:   18 +  50 +  90 = 158px  (-55%)
+     Round 2:    9 +  25 +  45 =  79px  (-50% more) <- current */
 .hiw-cta-wrap {
-  padding-bottom: 18px !important;
+  padding-bottom: 9px !important;
 }
 .how-it-works {
-  padding-bottom: 50px !important;
+  padding-bottom: 25px !important;
 }
 .numbers {
-  padding-top: 90px !important;
+  padding-top: 45px !important;
 }
 
 /* Mobile: scale down further so phones don't end up with proportionally
    huge gaps. */
 @media (max-width: 767px) {
-  .hiw-cta-wrap   { padding-bottom: 10px !important; }
-  .how-it-works   { padding-bottom: 30px !important; }
-  .numbers        { padding-top: 50px !important; }
+  .hiw-cta-wrap   { padding-bottom: 5px !important; }
+  .how-it-works   { padding-bottom: 15px !important; }
+  .numbers        { padding-top: 25px !important; }
 }
 /* === HIW NUMBERS GAP PATCH END === */
