@@ -299,6 +299,48 @@
 <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 <!-- End TrustBox script -->
 <!-- TRUSTPILOT_HEAD_END -->
+<!-- TRUSTPILOT_TUNE_CSS_START -->
+<style>
+  /* ========================================================================
+     Trustpilot Grid widget tuning
+     ======================================================================== */
+
+  /* Widen the .trader-payouts container so the widget has room for ~5 columns.
+     Default site .container is constrained for readable text width; the widget
+     benefits from much more horizontal space. */
+  .trader-payouts .container {
+    max-width: 1600px !important;
+  }
+  .trader-payouts .trader-payouts__row {
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  /* Widget itself: fill the wider container, give it the height set in HTML.
+     The Trustpilot Grid template auto-flows into more columns when given more
+     horizontal space, so widening alone gets us to a 4-5 column layout. */
+  .trader-payouts .trustpilot-widget {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    min-height: 1400px !important;
+  }
+
+  /* Mobile: keep the widget compact, fewer columns naturally with narrower
+     viewport. Reduce min-height so phones aren't a tall wall of reviews. */
+  @media (max-width: 767px) {
+    .trader-payouts .trustpilot-widget { min-height: 800px !important; }
+  }
+
+  /* Star color shift â€” hue-rotate the iframe so Trustpilot green moves toward
+     brand teal. Limitation: this affects ALL colors inside the widget, not
+     just stars. A small rotation keeps text legible while shifting the green.
+     Tune the degree value if you want more or less shift. */
+  .trader-payouts .trustpilot-widget iframe {
+    filter: hue-rotate(12deg) saturate(0.85) !important;
+  }
+</style>
+<!-- TRUSTPILOT_TUNE_CSS_END -->
 </head>
 <body>
 
@@ -1538,7 +1580,7 @@
 
       <!-- TRUSTPILOT_WIDGET_START -->
       <!-- TrustBox widget - Grid -->
-      <div class="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="520px" data-style-width="100%" data-theme="dark" data-token="1137af76-74e0-4401-8359-bf740e749359" data-stars="5" data-review-languages="en" data-review-disclaimer="true">
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="1400px" data-style-width="100%" data-theme="dark" data-token="1137af76-74e0-4401-8359-bf740e749359" data-stars="5" data-review-languages="en" data-review-disclaimer="true">
         <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener">Trustpilot</a>
       </div>
       <!-- End TrustBox widget -->
@@ -1546,11 +1588,6 @@
 
       <div class="trader-payouts__controls">
           <a href="pages/why-us.html" class="trader-payouts__cta">Read More Trader Stories <span class="arrow"><img src="assets/images/btn-arrow.svg" alt="arrow"></span></a>
-          <a href="#" class="trader-payouts__rating">
-            <span class="score">4.8</span>
-            <span>Rating on</span>
-            <span class="logo"><img src="assets/images/trustpilot.svg" alt="Trustpilot"></span>
-          </a>
         </div>
     </div>
   </div>
