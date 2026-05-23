@@ -18,7 +18,7 @@
 .pf-section__head .lead { font-size: 17px; color: hsla(0, 0%, 100%, 0.7); line-height: 1.5; max-width: 720px; margin: 0 auto; }
 
 /* ----- HERO -------------------------------------------------------------- */
-.pf-hero { padding: 180px 0 60px; position: relative; overflow: hidden; }
+.pf-hero { padding: 180px 0 60px; position: relative; overflow: hidden; background: #060914; }
 .pf-hero__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 .pf-hero__text .eyebrow { color: #5DEACB; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; margin: 0 0 18px; display: block; }
 .pf-hero__text h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -2px; color: #fff; margin: 0 0 22px; }
