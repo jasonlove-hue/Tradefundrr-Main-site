@@ -49,11 +49,15 @@
     .policy-content hr { border: none; border-top: 1px solid hsla(0,0%,100%,0.1); margin: 24px 0; }
     .policy-content bdt:empty { display: none; }
 
-    /* Fallback for iframe embed (used until inline HTML is pasted) */
+    /* Fallback for iframe embed (used until inline HTML is pasted).
+       Pre-invert bg #EBEFF9 produces #060914 after invert(1) + hue-rotate(180deg),
+       so the iframe blends seamlessly with the page background — no visible "box". */
     .policy-content iframe {
       filter: invert(1) hue-rotate(180deg);
-      width: 100%; min-height: 800px; border: 0; background: #fff;
+      width: 100%; min-height: 800px; border: 0; background: #EBEFF9;
+      display: block;
     }
+    .policy-content [name="termly-embed"] { background: transparent; }
     .policy-content [name="termly-embed"] > *:not(iframe) { display: none; }
 
     @media (max-width: 575px) {
