@@ -1,0 +1,158 @@
+/* ============================================================================
+   pro-funding.css
+   Section styles for the Pro Funding pages (Stocks/Options/Futures Pro).
+   Loaded only on /pages/*-pro-funding.html — not on the rest of the site.
+
+   Class prefix: .pf-  (Pro Funding)
+   Relies on main.css for typography, colors, buttons, .container, .eyebrow,
+   .accent, etc. Inter + Geist Mono fonts already loaded from the page head.
+   ============================================================================ */
+
+/* ----- Section spacing rhythm ------------------------------------------- */
+.pf-section { padding: 80px 0; position: relative; }
+.pf-section--tight { padding: 56px 0; }
+.pf-section--bg { background: hsla(0, 0%, 100%, 0.02); }
+.pf-section__head { text-align: center; max-width: 900px; margin: 0 auto 48px; }
+.pf-section__head h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -1.2px; color: #fff; margin: 0 0 18px; }
+.pf-section__head h2 .accent { color: #ffc107; }
+.pf-section__head .lead { font-size: 17px; color: hsla(0, 0%, 100%, 0.7); line-height: 1.5; max-width: 720px; margin: 0 auto; }
+
+/* ----- HERO -------------------------------------------------------------- */
+.pf-hero { padding: 120px 0 60px; position: relative; overflow: hidden; }
+.pf-hero__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.pf-hero__text .eyebrow { color: #5DEACB; font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; margin: 0 0 18px; display: block; }
+.pf-hero__text h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 56px; line-height: 1.05; letter-spacing: -2px; color: #fff; margin: 0 0 22px; }
+.pf-hero__text h1 .accent { color: #ffc107; }
+.pf-hero__sub { font-size: 17px; color: hsla(0, 0%, 100%, 0.78); line-height: 1.55; max-width: 560px; margin: 0 0 28px; }
+.pf-hero__bullets { list-style: none; padding: 0; margin: 0 0 32px; }
+.pf-hero__bullets li { color: #fff; font-size: 16px; padding: 8px 0 8px 28px; position: relative; }
+.pf-hero__bullets li::before { content: ""; position: absolute; left: 0; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle, #05c4a1 0% 35%, transparent 36%), rgba(5, 196, 160, 0.18); }
+.pf-hero__media { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 16/10; background: hsla(0, 0%, 100%, 0.04); border: 1px solid hsla(0, 0%, 100%, 0.1); }
+.pf-hero__media video,
+.pf-hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ----- BENEFITS (5-icon grid) ------------------------------------------- */
+.pf-benefits { padding: 80px 0; }
+.pf-benefits__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.pf-benefit { text-align: center; padding: 24px 16px; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0, 0%, 100%, 0.08); border-radius: 14px; transition: border-color .2s ease, background .2s ease; }
+.pf-benefit:hover { background: hsla(0, 0%, 100%, 0.05); border-color: hsla(178, 65%, 50%, 0.3); }
+.pf-benefit img { width: 64px; height: 64px; object-fit: contain; margin: 0 auto 14px; display: block; }
+.pf-benefit p { color: hsla(0, 0%, 100%, 0.82); font-size: 14px; line-height: 1.4; margin: 0; }
+
+/* ----- NARRATIVE BLOCK (text + side image) ------------------------------ */
+.pf-narrative { padding: 80px 0; }
+.pf-narrative__grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.pf-narrative--reverse .pf-narrative__grid { grid-template-columns: 1fr 1.3fr; }
+.pf-narrative--reverse .pf-narrative__text { order: 2; }
+.pf-narrative--reverse .pf-narrative__media { order: 1; }
+.pf-narrative__text h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.15; letter-spacing: -1px; color: #fff; margin: 0 0 22px; }
+.pf-narrative__text h2 .accent { color: #ffc107; }
+.pf-narrative__text p { color: hsla(0, 0%, 100%, 0.75); font-size: 16px; line-height: 1.6; margin: 0 0 16px; }
+.pf-narrative__text p strong { color: #fff; font-weight: 600; }
+.pf-narrative__media { text-align: center; }
+.pf-narrative__media img { max-width: 100%; height: auto; display: inline-block; }
+
+/* ----- T3 PARTNERSHIP (dual logos + body) ------------------------------- */
+.pf-t3 { padding: 80px 0; text-align: center; }
+.pf-t3 h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.15; letter-spacing: -1px; color: #fff; margin: 0 auto 22px; max-width: 900px; }
+.pf-t3 h2 .accent { color: #ffc107; }
+.pf-t3 p { color: hsla(0, 0%, 100%, 0.75); font-size: 16px; line-height: 1.65; margin: 0 auto 32px; max-width: 880px; }
+.pf-t3 p strong { color: #fff; font-weight: 600; }
+.pf-t3__logos { display: flex; gap: 56px; justify-content: center; align-items: center; margin: 40px 0 8px; flex-wrap: wrap; }
+.pf-t3__logos img { max-width: 200px; height: auto; opacity: 0.95; }
+
+/* ----- PERSONAS (2-column cards with images) ---------------------------- */
+.pf-personas { padding: 80px 0; }
+.pf-personas__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.pf-persona { background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0, 0%, 100%, 0.1); border-radius: 16px; padding: 28px; }
+.pf-persona__image { border-radius: 10px; overflow: hidden; margin-bottom: 22px; aspect-ratio: 383/235; background: hsla(0, 0%, 100%, 0.04); }
+.pf-persona__image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pf-persona h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.3; color: #fff; margin: 0 0 12px; }
+.pf-persona p { color: hsla(0, 0%, 100%, 0.72); font-size: 15px; line-height: 1.55; margin: 0; }
+
+/* ----- PROCESS (3 numbered steps) --------------------------------------- */
+.pf-process { padding: 80px 0; }
+.pf-process__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.pf-process__step { background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0, 0%, 100%, 0.1); border-radius: 16px; padding: 32px 28px; position: relative; }
+.pf-process__num { font-family: 'Geist Mono', monospace; font-size: 13px; color: #5DEACB; letter-spacing: 1.5px; margin-bottom: 8px; display: block; text-transform: uppercase; }
+.pf-process__step h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; color: #fff; margin: 0 0 14px; line-height: 1.25; letter-spacing: -0.4px; }
+.pf-process__step p { color: hsla(0, 0%, 100%, 0.72); font-size: 14.5px; line-height: 1.55; margin: 0; }
+
+/* ----- APPLY-IF (3 icon callouts) --------------------------------------- */
+.pf-apply-if { padding: 60px 0 80px; }
+.pf-apply-if__intro { text-align: center; color: hsla(0, 0%, 100%, 0.85); font-size: 18px; font-weight: 600; margin: 0 0 36px; letter-spacing: 0.2px; }
+.pf-apply-if__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.pf-apply-if__card { text-align: center; padding: 20px 16px; }
+.pf-apply-if__card img { width: 56px; height: 56px; object-fit: contain; margin: 0 auto 18px; display: block; filter: brightness(1.1); }
+.pf-apply-if__card p { color: hsla(0, 0%, 100%, 0.78); font-size: 15px; line-height: 1.55; margin: 0; }
+
+/* ----- FUNDING TIERS TABLE ---------------------------------------------- */
+.pf-tiers { padding: 80px 0; }
+.pf-tiers__wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.pf-tiers__intro { color: hsla(0, 0%, 100%, 0.78); font-size: 16px; line-height: 1.65; margin: 0 0 32px; max-width: 900px; }
+.pf-tiers__intro p { margin: 0 0 14px; }
+.pf-tiers__table { width: 100%; border-collapse: collapse; background: hsla(0, 0%, 100%, 0.03); border: 1px solid hsla(0, 0%, 100%, 0.1); border-radius: 14px; overflow: hidden; }
+.pf-tiers__table th,
+.pf-tiers__table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid hsla(0, 0%, 100%, 0.08); }
+.pf-tiers__table thead th { background: hsla(178, 65%, 50%, 0.1); color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13.5px; letter-spacing: 0.3px; text-transform: uppercase; }
+.pf-tiers__table tbody td { color: hsla(0, 0%, 100%, 0.85); font-size: 16px; }
+.pf-tiers__table tbody td:first-child { color: #fff; font-weight: 600; }
+.pf-tiers__table tbody td.pf-tiers__bp { color: #5DEACB; font-weight: 700; font-size: 17px; }
+.pf-tiers__table tbody tr:last-child td { border-bottom: 0; }
+
+/* ----- IMPORTANT DETAILS (legal-ish bullets) ---------------------------- */
+.pf-details { padding: 40px 0 80px; }
+.pf-details__wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.pf-details h3 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: #fff; margin: 0 0 20px; }
+.pf-details ul { list-style: none; padding: 0; margin: 0; }
+.pf-details li { color: hsla(0, 0%, 100%, 0.6); font-size: 13.5px; line-height: 1.65; padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid hsla(0, 0%, 100%, 0.05); }
+.pf-details li::before { content: ""; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; background: #5DEACB; border-radius: 50%; opacity: 0.7; }
+.pf-details li:last-child { border-bottom: 0; }
+
+/* ----- FINAL CTA (apply now) -------------------------------------------- */
+.pf-cta { padding: 100px 0; text-align: center; background: linear-gradient(180deg, transparent 0%, hsla(178, 65%, 50%, 0.04) 60%, transparent 100%); }
+.pf-cta h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.15; letter-spacing: -1px; color: #fff; margin: 0 auto 22px; max-width: 980px; padding: 0 32px; }
+.pf-cta h2 .accent { color: #ffc107; }
+.pf-cta p { color: hsla(0, 0%, 100%, 0.72); font-size: 16px; line-height: 1.6; margin: 0 auto 34px; max-width: 760px; padding: 0 32px; }
+.pf-cta .btn { padding: 18px 38px; font-size: 17px; }
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+@media (max-width: 1100px) {
+  .pf-benefits__grid { grid-template-columns: repeat(3, 1fr); }
+  .pf-hero__text h1 { font-size: 46px; }
+}
+
+@media (max-width: 900px) {
+  .pf-hero__grid { grid-template-columns: 1fr; gap: 36px; }
+  .pf-hero__text h1 { font-size: 40px; }
+  .pf-narrative__grid,
+  .pf-narrative--reverse .pf-narrative__grid { grid-template-columns: 1fr; gap: 32px; }
+  .pf-narrative--reverse .pf-narrative__text { order: 1; }
+  .pf-narrative--reverse .pf-narrative__media { order: 2; }
+  .pf-process__steps { grid-template-columns: 1fr; }
+  .pf-personas__grid { grid-template-columns: 1fr; }
+  .pf-apply-if__grid { grid-template-columns: 1fr; gap: 24px; }
+  .pf-section__head h2 { font-size: 32px; }
+  .pf-t3 h2,
+  .pf-cta h2,
+  .pf-narrative__text h2 { font-size: 30px; }
+}
+
+@media (max-width: 700px) {
+  .pf-benefits__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .pf-hero { padding: 80px 0 40px; }
+  .pf-hero__text h1 { font-size: 32px; letter-spacing: -1px; }
+  .pf-section { padding: 56px 0; }
+  .pf-tiers__table th,
+  .pf-tiers__table td { padding: 12px 14px; font-size: 14px; }
+  .pf-tiers__table tbody td.pf-tiers__bp { font-size: 15px; }
+  .pf-t3__logos { gap: 32px; }
+  .pf-t3__logos img { max-width: 140px; }
+  .pf-cta { padding: 60px 0; }
+}
+
+@media (max-width: 480px) {
+  .pf-benefits__grid { grid-template-columns: 1fr; }
+}
