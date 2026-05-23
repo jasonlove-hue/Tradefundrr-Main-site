@@ -625,12 +625,9 @@
   max-width: 460px;
   height: auto;
   display: block;
-  /* Soft elliptical alpha mask: image center stays fully visible, edges fade
-     out so the rectangular image boundary dissolves into the section bg. */
-  -webkit-mask-image: radial-gradient(ellipse 78% 92% at 50% 50%, #000 55%, transparent 100%);
-          mask-image: radial-gradient(ellipse 78% 92% at 50% 50%, #000 55%, transparent 100%);
-  /* Gold glow halo. drop-shadow respects the mask, so the halo follows the
-     faded silhouette instead of the original rectangle. */
+  /* The PNG itself has a soft elliptical alpha fade baked in (corners fully
+     transparent), so no CSS mask needed. drop-shadow follows the alpha
+     silhouette, producing a natural gold halo around the faded book shape. */
   filter: drop-shadow(0 0 70px rgba(255, 193, 7, 0.18));
 }
 /* Right column content */
