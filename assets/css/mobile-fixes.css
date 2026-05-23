@@ -625,12 +625,10 @@
   max-width: 460px;
   height: auto;
   display: block;
-  /* Soft amber glow biased to the right to feather the sharp right edge of
-     the book. drop-shadow follows the alpha silhouette so the glow wraps
-     the book + chart shape, not a rectangle. */
-  filter:
-    drop-shadow(6px 0 22px rgba(255, 193, 7, 0.22))
-    drop-shadow(0 0 16px rgba(255, 193, 7, 0.12));
+  /* Subtle dark ambient shadow for depth - softens the hard right edge
+     without adding any color halo. Reads as "book sits in the space" not
+     "book is glowing." */
+  filter: drop-shadow(8px 4px 24px rgba(0, 0, 0, 0.6));
 }
 /* Right column content */
 .blackbook__eyebrow {
