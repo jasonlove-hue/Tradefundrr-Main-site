@@ -447,10 +447,12 @@
   }
 
   /* --- Polish pass tightening --- */
-  /* Card title: 28px -> 22px so "Funded Stock Trading" fits on one line */
+  /* Card title: shrunk to 18px + nowrap so "Funded Stock/Options/Futures/Crypto
+     Trading" all fit on a single line at the new narrower card width. */
   .markets__card .body h3 {
-    font-size: 22px !important;
-    letter-spacing: -0.8px !important;
+    font-size: 18px !important;
+    letter-spacing: -0.6px !important;
+    white-space: nowrap !important;
   }
   /* Body description: 16px -> 14px for tighter feel at narrower card width */
   .markets__card .body p {
