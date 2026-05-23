@@ -424,3 +424,24 @@
   .two-paths .path-card { min-height: 520px; }
 }
 /* TWO_PATHS_CLS_END */
+
+/* === MARKETS 4-ACROSS PATCH START === */
+/* Force the four market cards (Stocks / Options / Futures / Crypto) onto a
+   single row at large-desktop widths. Smaller screens keep the existing 2-up
+   (or 1-up on mobile) layout. */
+@media (min-width: 1200px) {
+  .markets__grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    max-width: 1400px !important;
+    gap: 20px !important;
+    margin: 0 auto !important;
+    justify-content: stretch !important;
+  }
+  .markets__card {
+    height: auto !important;       /* let card size to content at narrower width */
+    min-height: 460px !important;  /* keep a consistent minimum so all 4 align */
+  }
+  /* The decorative border that wraps .markets__grid (::before pseudo) still
+     works automatically since it uses calc(100% + 40px) - just bigger now. */
+}
+/* === MARKETS 4-ACROSS PATCH END === */
