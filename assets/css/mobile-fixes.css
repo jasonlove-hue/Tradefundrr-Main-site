@@ -477,3 +477,26 @@
      works automatically since it uses calc(100% + 40px) - just bigger now. */
 }
 /* === MARKETS 4-ACROSS PATCH END === */
+
+/* === HIW NUMBERS GAP PATCH START === */
+/* Reduce the vertical dead-space between the "View Plans and Pricing" CTA
+   (bottom of .how-it-works) and the next section (.numbers) by ~55%.
+   Original: 40 + 110 + 200 = 350px. New: 18 + 50 + 90 = 158px. */
+.hiw-cta-wrap {
+  padding-bottom: 18px !important;
+}
+.how-it-works {
+  padding-bottom: 50px !important;
+}
+.numbers {
+  padding-top: 90px !important;
+}
+
+/* Mobile: scale down further so phones don't end up with proportionally
+   huge gaps. */
+@media (max-width: 767px) {
+  .hiw-cta-wrap   { padding-bottom: 10px !important; }
+  .how-it-works   { padding-bottom: 30px !important; }
+  .numbers        { padding-top: 50px !important; }
+}
+/* === HIW NUMBERS GAP PATCH END === */
