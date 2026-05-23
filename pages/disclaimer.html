@@ -26,58 +26,19 @@
 
     .disclaimer-content { background: #060914; padding: 40px 0 80px; }
     .disclaimer-content .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-    .disclaimer-content [data-custom-class='body'],
-    .disclaimer-content [data-custom-class='body'] * { background: transparent !important; font-family: 'Inter', 'Inter Fallback', Arial, sans-serif !important; }
-    .disclaimer-content [data-custom-class='title'],
-    .disclaimer-content [data-custom-class='title'] * { color: #ffffff !important; font-size: 32px !important; font-weight: 700 !important; letter-spacing: -0.5px !important; }
-    .disclaimer-content [data-custom-class='subtitle'],
-    .disclaimer-content [data-custom-class='subtitle'] * { color: hsla(0,0%,100%,0.55) !important; font-size: 13px !important; }
-    .disclaimer-content [data-custom-class='heading_1'],
-    .disclaimer-content [data-custom-class='heading_1'] * { color: #ffffff !important; font-size: 20px !important; font-weight: 700 !important; letter-spacing: -0.2px !important; }
-    .disclaimer-content [data-custom-class='heading_2'],
-    .disclaimer-content [data-custom-class='heading_2'] * { color: #ffffff !important; font-size: 17px !important; font-weight: 600 !important; }
-    .disclaimer-content [data-custom-class='body_text'],
-    .disclaimer-content [data-custom-class='body_text'] * { color: hsla(0,0%,100%,0.72) !important; font-size: 14.5px !important; line-height: 1.7 !important; }
-    .disclaimer-content [data-custom-class='link'],
-    .disclaimer-content [data-custom-class='link'] * { color: #05C4A1 !important; text-decoration: underline !important; word-break: break-word !important; }
-    .disclaimer-content a { color: #05C4A1 !important; }
-    .disclaimer-content a:hover { opacity: 0.85; }
-    .disclaimer-content strong, .disclaimer-content b,
-    .disclaimer-content strong *, .disclaimer-content b * { color: #ffffff !important; }
-
-    /* Catch all headings (h1-h6) regardless of class */
-    .disclaimer-content h1, .disclaimer-content h2, .disclaimer-content h3,
-    .disclaimer-content h4, .disclaimer-content h5, .disclaimer-content h6,
-    .disclaimer-content h1 *, .disclaimer-content h2 *, .disclaimer-content h3 *,
-    .disclaimer-content h4 *, .disclaimer-content h5 *, .disclaimer-content h6 * { color: #ffffff !important; }
-
-    /* Override Termly's dark inline color styles - catch any element with dark color */
-    .disclaimer-content [style*="color: rgb(0, 0, 0)"],
-    .disclaimer-content [style*="color:rgb(0,0,0)"],
-    .disclaimer-content [style*="color: #000"],
-    .disclaimer-content [style*="color: black"],
-    .disclaimer-content [style*="color: rgb(35, 35, 35)"],
-    .disclaimer-content [style*="color: rgb(38, 38, 38)"],
-    .disclaimer-content [style*="color: rgb(48, 48, 48)"],
-    .disclaimer-content [style*="color: rgb(60, 60, 60)"],
-    .disclaimer-content [style*="color: rgb(75, 75, 75)"],
-    .disclaimer-content [style*="color: rgb(89, 89, 89)"],
-    .disclaimer-content [style*="color: rgb(102, 102, 102)"],
-    .disclaimer-content [style*="color: rgb(127, 127, 127)"] { color: hsla(0,0%,100%,0.72) !important; }
-
-    /* Bold elements with dark inline color = white */
-    .disclaimer-content strong[style*="color: rgb"],
-    .disclaimer-content b[style*="color: rgb"] { color: #ffffff !important; }
-
-    /* Nuclear fallback: force light text on all paragraph/div/span/li */
-    .disclaimer-content p,
-    .disclaimer-content div:not([data-custom-class]),
-    .disclaimer-content li,
-    .disclaimer-content span:not([style*="rgb(5,"]):not([style*="rgb(0, 196,"]) { color: hsla(0,0%,100%,0.78); }
-    /* But re-assert headings/bold are pure white */
-    .disclaimer-content h1, .disclaimer-content h2, .disclaimer-content h3,
-    .disclaimer-content h4, .disclaimer-content h5, .disclaimer-content h6,
-    .disclaimer-content strong, .disclaimer-content b { color: #ffffff !important; }
+    /* Termly renders its content inside a cross-origin iframe, so CSS rules
+       on inner elements can't reach inside. To flip the light-mode iframe
+       content to dark mode, invert the whole iframe + hue-rotate 180deg
+       to keep chromatic colors approximately correct. */
+    .disclaimer-content iframe {
+      filter: invert(1) hue-rotate(180deg);
+      width: 100%;
+      min-height: 800px;
+      border: 0;
+      background: #fff; /* white bg so invert turns it black under our section */
+    }
+    /* Hide the fallback text in the embed wrapper before the iframe loads */
+    .disclaimer-content [name="termly-embed"] > *:not(iframe) { display: none; }
 
     @media (max-width: 768px) {
       .disclaimer-hero { padding: 110px 0 30px; }
