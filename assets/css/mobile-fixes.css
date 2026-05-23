@@ -583,7 +583,8 @@
    CONTENT on RIGHT = eyebrow + headline + tagline + copy + 3 feature pills + form. */
 .blackbook {
   padding: 90px 0;
-  background: linear-gradient(180deg, #060914 0%, #0a0e1c 50%, #060914 100%);
+  /* Near-black to match the book cover background (neutral, not blue-tinted) */
+  background: #0a0a0a;
   position: relative;
   overflow: hidden;
 }
@@ -591,7 +592,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(255, 193, 7, 0.05) 0%, transparent 70%);
+  /* Golden glow centered behind the content. Boosted opacity since the
+     darker section background needs a slightly stronger gold to read. */
+  background:
+    radial-gradient(ellipse 55% 70% at 70% 50%, rgba(255, 193, 7, 0.10) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 55% at 30% 50%, rgba(255, 193, 7, 0.05) 0%, transparent 60%);
   pointer-events: none;
 }
 .blackbook .container {
