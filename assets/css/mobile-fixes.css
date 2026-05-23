@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    TradeFundrr Mobile Fixes
    Targets: 320px, 375px, 414px viewports
    Loaded after main.css and inline <style> blocks
@@ -403,3 +403,27 @@
   .get-started.cta-block .tick-row { justify-content: center !important; }
 }
 /* === GET STARTED IMAGE PATCH END === */
+
+/* TWO_PATHS_CLS_START - reserve vertical space to prevent layout shift */
+.two-paths {
+  /* Isolate any internal reflow so it can't push siblings around */
+  contain: layout style;
+  /* Reserve the measured rendered height so font-swap can't shrink the box */
+  min-height: 880px;
+}
+@media (max-width: 991px) {
+  .two-paths { min-height: 920px; }
+}
+@media (max-width: 575px) {
+  .two-paths { min-height: 1040px; }
+}
+/* Lock each card's height so card titles can re-flow inside without
+   changing the section's outer dimensions */
+.two-paths .path-card {
+  min-height: 320px;
+  contain: layout style;
+}
+@media (max-width: 768px) {
+  .two-paths .path-card { min-height: 280px; }
+}
+/* TWO_PATHS_CLS_END */
