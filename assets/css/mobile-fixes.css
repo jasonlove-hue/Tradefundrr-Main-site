@@ -503,3 +503,76 @@
   .numbers        { padding-top: 25px !important; }
 }
 /* === HIW NUMBERS GAP PATCH END === */
+
+/* === PRO SUB NAV CSS START === */
+/* Inline sub-link for Pro Funding pages, nested visually under each parent
+   entry (Stocks/Options/Futures) in the Products dropdown.
+   Sits as a sibling <a> after the parent <a> (HTML rule: no <a> inside <a>),
+   styled to read as an indented secondary link. */
+.dropdown .dropdown__pro-sub {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 9px 18px 9px 76px !important; /* left padding aligns under parent's thumbnail */
+  margin: -8px 0 4px 0 !important;       /* pull up close to parent */
+  background: transparent !important;
+  border-top: 1px dashed hsla(178, 65%, 50%, 0.15) !important;
+  text-decoration: none !important;
+  color: hsla(0, 0%, 100%, 0.72) !important;
+  font-size: 12.5px !important;
+  line-height: 1.35 !important;
+  transition: background .15s ease, color .15s ease !important;
+  position: relative !important;
+}
+.dropdown .dropdown__pro-sub:hover {
+  background: hsla(178, 65%, 50%, 0.06) !important;
+  color: #fff !important;
+}
+.dropdown .dropdown__pro-sub-arrow {
+  color: #5DEACB !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+  margin-left: -22px !important;        /* hang the arrow into the left padding */
+  font-family: 'Geist Mono', monospace !important;
+  opacity: 0.8 !important;
+}
+.dropdown .dropdown__pro-sub-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1px !important;
+  flex: 1 !important;
+}
+.dropdown .dropdown__pro-sub-label {
+  font-weight: 600 !important;
+  color: #5DEACB !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.2px !important;
+  text-transform: uppercase !important;
+}
+.dropdown .dropdown__pro-sub-desc {
+  color: hsla(0, 0%, 100%, 0.55) !important;
+  font-size: 11.5px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.dropdown .dropdown__pro-sub-chev {
+  color: hsla(0, 0%, 100%, 0.4) !important;
+  font-size: 18px !important;
+  margin-left: auto !important;
+  transition: transform .15s ease, color .15s ease !important;
+}
+.dropdown .dropdown__pro-sub:hover .dropdown__pro-sub-chev {
+  color: #5DEACB !important;
+  transform: translateX(2px) !important;
+}
+
+/* Mobile: tighter padding so the sub-link doesn't crowd narrow dropdown */
+@media (max-width: 768px) {
+  .dropdown .dropdown__pro-sub {
+    padding: 8px 16px 8px 48px !important;
+    margin-top: -4px !important;
+  }
+  .dropdown .dropdown__pro-sub-arrow { margin-left: -16px !important; }
+}
+/* === PRO SUB NAV CSS END === */
