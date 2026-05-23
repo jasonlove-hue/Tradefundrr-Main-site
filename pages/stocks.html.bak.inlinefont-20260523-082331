@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Options — TradeFundrr</title>
-  <meta name="description" content="Funded options trading on real institutional capital — multi-leg strategies, weekly payouts, no PDT.">
+  <title>Stocks — TradeFundrr</title>
+  <meta name="description" content="Funded stocks trading on real institutional capital — no PDT, weekly payouts, real fills.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="../assets/css/main.css?v=202605230823">
-<link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605230823" id="mobile-fixes-css">
+  <link rel="stylesheet" href="../assets/css/main.css?v=202605230817">
+<link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605230817" id="mobile-fixes-css">
 <!-- FONTS_BLOCK_START -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-700.woff2">
@@ -177,29 +177,27 @@
 </header>
 
 <section class="hero">
+  <div class="bg-stage"></div>
+  <div class="bg-stars"></div>
   <div class="container hero__inner">
     <div class="hero__text">
-      <p class="eyebrow">Options Funding Partnered With t3 Global</p>
-      <h1 class="hero__title smaller">
-        <span class="accent">Funded Options Trading At $25K,</span> Most Strategies Permitted, Weekly Payouts & A Platform Built For How You Trade...
-      </h1>
-      <p class="hero__sub">
-        $25K in funded options capital on DXTrade, built by the TastyWorks and ThinkOrSwim developers. Most strategy types permitted, weekly payouts, 80% profit split, and partnership with T3 Global…
-      </p>
+      <p class="eyebrow">Funded stock Trading - Partnered With T3 Global</p>
+      <h1 class="hero__title smaller"><span class="accent">$100K in Buying Power & Weekly Payouts</span> This Is What Funded Stock Trading Actually Looks Like</h1>
+      <p class="hero__sub">TradeFundrr gives stocks traders a $100,000 funded account with weekly payout eligibility. Partnered with T3 Global.</p>
       <div class="btn-row">
-        <a href="pricing.html" class="btn btn--primary">See Options Programs <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn"></span></a>
-        <a href="#how-it-works" class="btn btn--glass">See all programs</a>
+        <a href="pricing.html" class="btn btn--primary">Get Your Stocks Funded Account <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+        <a href="pricing.html" class="btn btn--glass">See all programs</a>
       </div>
       <div class="tick-row">
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span> Spreads, Multi-Leg &amp; Complex Strategies Allowed</span>
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Paid Every Week</span>
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Built on DXTrade</span>
+        <span class="tick"><span><img src="../assets/images/check-green-light.svg" alt="check-green-light"></span>Trade Every Day</span>
+        <span class="tick"><span><img src="../assets/images/check-green-light.svg" alt="check-green-light"></span>$100K In Buying Power</span>
+        <span class="tick"><span><img src="../assets/images/check-green-light.svg" alt="check-green-light"></span>Paid Every Week</span>
       </div>
     </div>
 
     <div class="media">
-      <p><span><img src="../assets/images/sec-grey.svg" alt="sec-grey"></span> In Partnership With T3 Global</p>
-      <img src="../assets/images/hero-options.webp" alt="hero-side" width="862" height="825" decoding="async">
+      <p><span><img src="../assets/images/sec-grey.svg" alt="sec-grey"></span> SEC Registered Broker-Dealer</p>
+      <img src="../assets/images/stocks-hero-image.webp" alt="hero-side">
     </div>
   </div>
 </section>
@@ -212,24 +210,23 @@
           <img src="../assets/images/list-icon-1.svg" alt="list-icon">
         </span>
         <div>
-          <div class="label">600+ Funded Options Traders</div>
-
+          <div class="label">600+ Funded Stocks Traders</div>
         </div>
       </div>
       <div class="reassurance__item">
         <span class="ic" aria-hidden="true">
-          <img src="../assets/images/icon-6.svg" alt="list-icon">
+          <img src="../assets/images/pdt-icon.svg" alt="list-icon">
         </span>
         <div>
-          <div class="label">In Partnership With T3 Global</div>
+          <div class="label">Trade Daily Without A Personal Account Minimum</div>
         </div>
       </div>
       <div class="reassurance__item">
         <span class="ic" aria-hidden="true">
-          <img src="../assets/images/dx-trade.svg" alt="list-icon">
+          <img src="../assets/images/pc-icon.svg" alt="list-icon">
         </span>
         <div>
-          <div class="label">Spreads, Multi-Leg, Defined Risk, No Restrictions</div>
+          <div class="label">Trading on TradeFundrr Trader</div>
         </div>
       </div>
 
@@ -238,118 +235,124 @@
           <img src="../assets/images/list-icon-4.svg" alt="list-icon">
         </span>
         <div>
-          <div class="label">Weekly Payouts Processed On Time, Every Time</div>
+          <div class="label">In Partnership With T3 Global</div>
         </div>
       </div>
 
       <div class="reassurance__item">
         <span class="ic" aria-hidden="true">
-          <img src="../assets/images/list-icon-5.svg" alt="list-icon">
+          <img src="../assets/images/graph-icon.svg" alt="list-icon">
         </span>
         <div>
-          <div class="label">Access The DXTrade Platform</div>
+          <div class="label">$100K Account From Day One</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
 <section class="comparison">
+  <div class="bg-stars"></div>
   <div class="container">
-    <div class="comparison__head longer">
-      <p class="eyebrow">How Limited Capital Is Holding Your Options Trading Back...</p>
-      <h2 class="h2">You’ve Got The Strategy.  <br>
-      You’ve Got The Edge. <br>
-      <span class="accent">Retail Capital Is What’s Holding You Back.</span>
-      </h2>
-      <p class="lead">
-        Every options trader knows the feeling: a high-probability setup, a clear thesis, and an account too small to size into it properly. Here's how TradeFundrr changes that…
+    <div class="comparison__head">
+      <p class="eyebrow">the retail stocks problem</p>
+      <h2 class="h2"><span class="accent">Retail Stock Trading Has Major Problems.</span> Here's How TradeFundrr Solves Them For You…</h2>
+      <p class="lead longer">
+        Most stocks traders are executing the right strategies on the wrong account size. Limited buying power is the problem TradeFundrr was built to solve…
       </p>
     </div>
 
     <div class="comparison__cards">
       <div class="comparison__card">
         <div class="head">
-          <span class="label mono">Retail Options Trading</span>
+          <span class="label mono">Retail Stock Trading</span>
           <span class="amount">$25K</span>
         </div>
-        <p class="desc">Typical retail starting capital</p>
+        <p class="desc">Personal capital required just to avoid the PDT rule</p>
         <ul class="comparison__list comparison__list--bad">
-          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Personal capital on the line with every single options position you take</li>
-          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Retail account size means you're constantly forced to undersize high-conviction set ups.</li>
-          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Multi-Leg strategies demand margin that a retail account can't absorb without over-concentrating risk</li>
-          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Platform limitations mean complex order types require workarounds that cost time and execution quality</li>
-          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>A losing streak doesn't just hurt your P&amp;L, it reduces the buying power you need to recover</li>
+          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Personal capital only, with retail margin restrictions that add complexity without meaningful buying power</li>
+          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Every trade risks your own money, so a bad run hits your account directly and permanently</li>
+          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Consumer-grade platforms are not built for the execution speed, routing, and data depth professional trading requires</li>
+          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>No institutional infrastructure behind you, just one retail trader competing against the full market</li>
+          <li><span><img src="../assets/images/grey-close.svg" alt="grey-close"></span>Limited access to the tools, capital, and support structure serious traders need to scale</li>
         </ul>
       </div>
 
       <div class="comparison__card comparison__card--good">
         <div class="head">
           <img src="../assets/images/logo-colored.svg" alt="logo-colored">
-           <span class="amount">$25,000</span>
+           <span class="amount">$25,000 x 4x</span>
         </div>
-        <p class="desc">Real institutional capital behind every trade</p>
+        <p class="desc">Real institutional buying power from day one</p>
         <ul class="comparison__list comparison__list--good">
-          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>$25K in institutional options capital with your personal account completely protected</li>
-          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Execute your highest conviction set ups at the position size your strategy actually requires</li>
-          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Vertical spreads, iron condors, straddles, strangles: all permitted with no restrictions</li>
-          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>DXTrade, the platform built by the TastyWorks and ThinkOrSwim developers, purpose-built for options</li>
-          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Payout eligibility every week, processed on time, partnered with T3 Global.</li>
+          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Access $100K in buying power from day one, without needing to fund a personal trading account</li>
+          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Trade simulated capital, so a losing position hits the firm's risk parameters, not your personal savings</li>
+          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>TradeFundrr Trader with real-time dxFeed market data included</li>
+          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Institutional execution infrastructure from day one</li>
+          <li><span><img src="../assets/images/green-check.svg" alt="green-check"></span>Weekly payouts when you hit your targets, partnered with T3 Global</li>
         </ul>
       </div>
     </div>
 
-    <a href="#how-it-works" class="btn smaller">Read more about TradeFundrr Options Funding.<span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+    <div class="buying__power">
+      <img src="../assets/images/blurred-circle.svg" alt="blurred-circle">
+      <span>$25K + 4x</span>
+      <div class="power">
+        <span>$100,000</span>
+        <p>Buying Power</p>
+      </div>
+      <div class="after">
+        <p>Real institutional buying power from day one</p>
+      </div>
+    </div>
+    <a href="#how-it-works" class="btn">Learn More About How TradeFundrr Works... <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
   </div>
 </section>
-
 
 <section class="why__us">
   <div class="container">
     <p class="eyebrow">why tradefundrr</p>
-    <h2 class="h2">The Six Reasons  <span class="accent">TradeFundrr is <br> The #1 Choice For Options Traders.</span></h2>
+    <h2 class="h2">Everything A Stocks Trader Needs <br> In A Funded Account. <br> <span class="accent">Here's Why TradeFundrr Delivers It.</span></h2>
 
     <div class="grid">
       <div class="elem">
         <span class="icon"><img src="../assets/images/gl-1.svg" alt="gl"></span>
         <p>Partnership Backing</p>
         <span class="small-desc">
-          TradeFundrr is partnered with T3 Global, with years of operating experience. For options traders who have been burned by unregulated firms before, this is the structural difference that changes the conversation. The capital behind your account is connected to an established institutional partner, not an unverified business making promises it can't keep.
+          The capital behind your TradeFundrr stocks account is supported through our partnership with T3 Global. An established institutional partner with years of operating experience behind every account. Most funded stocks firms have nothing like this behind them. TradeFundrr does.
         </span>
       </div>
 
       <div class="elem">
-        <span class="icon"><img src="../assets/images/gl-2.svg" alt="gl"></span>
-        <p>No Strategy Restrictions</p>
+        <span class="icon"><img src="../assets/images/ilc-2.svg" alt="gl"></span>
+        <p>$100K Effective Buying Power</p>
         <span class="small-desc">
-          TradeFundrr places no restrictions on how you trade options. Vertical spreads, iron condors, calendar spreads, straddles, strangles, multi-leg defined-risk structures. Every strategy serious options traders use is fully supported on the TradeFundrr platform.
+          $100K funded account. That's what TradeFundrr gives stocks traders from the moment their account is active. No personal margin requirements or retail account restrictions. You get capital sized for the way serious traders actually trade.
         </span>
       </div>
 
       <div class="elem">
-        <span class="icon"><img src="../assets/images/gl-3.svg" alt="gl"></span>
-        <p>DXTrade - Built for Options Traders</p>
-        <span class="small-desc">
-          DXTrade comes from the same developers as TastyWorks and ThinkOrSwim, the two platforms that set the standard for professional options trading. TradeFundrr's options accounts run on DXTrade as standard, giving funded traders the platform architecture that serious options strategies actually require.
-        </span>
-      </div>
-
-      <div class="elem">
-        <span class="icon"><img src="../assets/images/gl-4.svg" alt="gl"></span>
+        <span class="icon"><img src="../assets/images/ilc-3.svg" alt="gl"></span>
         <p>Weekly Payouts</p>
         <span class="small-desc">
-          Payout eligibility opens as soon as you hit your profit target within the program rules. With Express, payout eligibility opens after 5 trading days. With our Growth Account, in as few as10 trading days. Payouts run on a weekly cycle, partnered with T3 Global.
+          Payout eligibility opens as soon as you hit your profit target within the program rules. With the Express program, payout eligibility opens after 5 trading days. Payouts run on a weekly cycle, partnered with T3 Global, with years of operating experience paying traders on time.
+        </span>
+      </div>
+
+      <div class="elem">
+        <span class="icon"><img src="../assets/images/ilc-4.svg" alt="gl"></span>
+        <p>Platforms</p>
+        <span class="small-desc">
+          TradeFundrr stocks accounts run on TradeFundrr Trader, with real-time market data powered by dxFeed included as standard. Professional-grade data infrastructure included with every account, no separate subscription required. No additional license fees, no separate data subscription.
         </span>
       </div>
 
 
-      <div class="elem">
-        <span class="icon"><img src="../assets/images/gl-5.svg" alt="gl"></span>
-        <p>Transparent Rules</p>
+      <!-- <div class="elem">
+        <span class="icon"><img src="../assets/images/ilc-6.svg" alt="gl"></span>
+        <p>Weekly Payouts — No Delays</p>
         <span class="small-desc">
-          Before you purchase a TradeFundrr options account, every single rule is visible on the program page. No conditions appear after funding, no restrictions are introduced mid-evaluation. The rules you read before you buy are the rules you trade under. That's it.
+          Stocks funded accounts are payout-eligible in as few as 5 days on Instant Funding. Every payout runs on the weekly cycle, every week — no held-back balances, no delayed processing, backed by T3 Global.
         </span>
       </div>
 
@@ -357,9 +360,9 @@
         <span class="icon"><img src="../assets/images/gl-6.svg" alt="gl"></span>
         <p>Path to 100% Profit Split</p>
         <span class="small-desc">
-          TradeFundrr options traders keep 80% of their profits from their very first payout.The progression is built around consistency because consistent options traders are exactly the profile our institutional partnership with T3 Global is designed to identify and back with live capital.
+          The profit split escalates across 6 consecutive payout cycles. Consistent stocks traders who prove disciplined performance are reviewed for the 100% split — and for the path to live T3 institutional capital.
         </span>
-      </div>
+      </div> -->
     </div>
 
   </div>
@@ -369,13 +372,13 @@
 <section class="plans bigger">
   <div class="container">
     <div class="plans__head">
-      <p class="eyebrow">Compare Every TradeFundrr Options Program Side By Side…</p>
+      <p class="eyebrow">Our Three Stocks Programs, Every Spec Visible Before You Buy…</p>
       <h2 class="plans__title h2">
-        <span class="accent">Growth Account, Express Funding, Or Pro Trader.</span>
-        Here’s Everything you Need to Choose
+        <span class="accent">Growth Account, Express, Or Pro Trader.</span>
+        Here’s Everything You Need to Choose...
       </h2>
       <p class="lead">
-        No mystery, no hidden conditions. Every TradeFundrr options program is laid out below so you can compare and decide with full information…
+        No mystery, no hidden conditions. Every TradeFundrr stocks program is laid out below so you can compare and decide with full information…
       </p>
     </div>
 
@@ -383,30 +386,30 @@
       <article class="plans__card">
         <span class="tag">best value</span>
         <h3>Growth Account</h3>
-        <span class="small-desc">$25,000 • Best for options traders who prefer a structured route to funding at the most accessible price point</span>
+        <span class="small-desc">$100,000 • Best for stocks traders who want to demonstrate consistent performance through a defined evaluation</span>
         <div class="price"><span class="amt">TBD</span><span class="per"> /first month</span></div>
         <div class="btn-box">
-          <a href="options.html" class="btn btn--glass">Choose The Growth Account<span><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+          <a href="options.html" class="btn btn--glass">Choose The Growth Account <span><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
         </div>
         <div class="spacer"></div>
         <div class="includes">
           <div class="details">
             <span>details</span>
             <div class="row">
-              <span>Step 1 target</span>
-              <p>$3,000 profit before $2,000 loss</p>
+              <span>Account size</span>
+              <p>$25,000 · 4x leverage</p>
             </div>
             <div class="row">
-              <span>minimum days</span>
-              <p>5 profitable days • $250/day</p>
+              <span>evaluation</span>
+              <p>[Step parameters — TBD from Jason]</p>
             </div>
             <div class="row">
-              <span>phase 2 payout</span>
-              <p>Up to 50% or $5,000 on completion</p>
+              <span>daily loss limit</span>
+              <p>TBD</p>
             </div>
             <div class="row">
               <span>earliest payout</span>
-              <p>11 days</p>
+              <p>TBD days</p>
             </div>
             <div class="row">
               <span>platform</span>
@@ -414,8 +417,8 @@
             </div>
           </div>
           <ul class="features">
-            <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>All strategies permitted</li>
-            <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>Weekly payouts</li>
+            <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>Weekly Payouts</li>
+            <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>Trade Daily Without A Personal Minimum</li>
           </ul>
         </div>
         
@@ -424,25 +427,25 @@
       <article class="plans__card is-featured">
         <div class="popular static">Most Popular</div>
         <h3>Express Funding</h3>
-        <span class="small-desc">$25,000 • Best for traders who don't want to wait through an evaluation and are confident in their ability to hit profit targets from day one</span>
+        <span class="small-desc">$25,000 • Best for experienced stocks day traders who are ready to trade $100K in power immediately and want the fastest possible path to their first payout…</span>
         <div class="price"><span class="amt">TBD</span><span class="per"> /first month</span></div>
         <div class="btn-box">
-          <a href="stocks.html" class="btn btn--primary btn--block">Get Instant Options Funding<span><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+          <a href="stocks.html" class="btn btn--primary btn--block">Choose Express Funding <span><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
         </div>
         <div class="spacer"></div>
         <div class="includes">
           <div class="details">
             <span>details</span>
             <div class="row">
-              <span>profit traget</span>
+              <span>account size</span>
               <p>$1,250</p>
             </div>
             <div class="row">
-              <span>Daily loss limit</span>
+              <span>profit target</span>
               <p>$1,000</p>
             </div>
             <div class="row">
-              <span>Max drawdown</span>
+              <span>max drawdown</span>
               <p>$2,500</p>
             </div>
             <div class="row">
@@ -457,6 +460,7 @@
           <ul class="features">
             <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>No evaluation</li>
             <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>Start trading today</li>
+            <li><span><img src="../assets/images/include-check.svg" alt="include-check"></span>$100K buying power</li>
           </ul>
         </div>
         
@@ -465,10 +469,10 @@
       <article class="plans__card">
         <span class="tag">advanced</span>
         <h3>Pro Trader</h3>
-        <span class="small-desc">TBD • Best for high-performance options traders seeking advanced capital allocation, escalating splits, and a structured path to live institutional trading through our partnership with T3 Global</span>
+        <span class="small-desc">TBD • Best for experienced stocks traders who have proven consistent performance and are ready for the advanced program structure and live funding pathway…</span>
         <div class="price"><span class="amt">TBD</span><span class="per"> /first month</span></div>
         <div class="btn-box">
-          <a href="pricing.html" class="btn btn--glass">Choose The Pro Trader Program <span><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+          <a href="pricing.html" class="btn btn--glass">Start With Pro Trader <span><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
         </div>
         <div class="spacer"></div>
         <div class="includes">
@@ -496,8 +500,8 @@
     </div>
 
     <div class="dbl">
-      <a href="pricing.html" class="btn after-btn">Got a question? Get a straight answers from our team<span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
-      <a href="pricing.html" class="btn after-btn square">View full options pricing <span class="arrow"><img src="../assets/images/external.svg" alt="btn-arrow"></span></a>
+      <a href="pricing.html" class="btn after-btn">Not sure which program fits you? Talk to our team <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+      <a href="pricing.html" class="btn after-btn square">See full stocks pricing <span class="arrow"><img src="../assets/images/external.svg" alt="btn-arrow"></span></a>
     </div>
   </div>
 </section>
@@ -505,29 +509,62 @@
 
 
 
-<section class="article">
+<section class="platforms__articles">
   <div class="container">
-    <div class="media">
-      <div class="float">
-        <img src="../assets/images/platform-sticks.svg" alt="platform-sticks">
-      </div>
-      <img src="../assets/images/article-media.webp" alt="article-media" width="806" height="675" decoding="async">
-      <ul>
-        <li><span><img src="../assets/images/colored-check.svg" alt="colored"></span><p><span>Live options chain with real-time Delta, Gamma, Theta, and Vega</span></p></li>
-        <li><span><img src="../assets/images/colored-check.svg" alt="colored"></span><p><span>Multi-Leg Order Entry: Spreads, condors, straddles, and complex structures entered in one single ticket</span></p></li>
-        <li><span><img src="../assets/images/colored-check.svg" alt="colored"></span><p><span>P&amp;L visualisation designed for complex options positions</span></p></li>
-        <li><span><img src="../assets/images/colored-check.svg" alt="colored"></span><p><span>Institutional execution speed across all order types</span></p></li>
-      </ul>
-    </div>
-    <div class="desc">
-      <p class="eyebrow">the platform Built for Serious Options Traders</p>
-      <h2 class="h2"><span class="accent">DXTrade.</span><br> The platform Behind Every TradeFundrr Options Account
+    <p class="eyebrow">The Platform Serious Stocks Traders Need. Here's What You Get…</p>
+      <h2 class="plans__title h2">
+        <span class="accent">Execution on TradeFundrr <br> Trader. </span>Here’s What That Looks <br>
+        Like For Your Trading
       </h2>
-      <p>DXTrade was built by Devexperts, the same development team behind TastyWorks and ThinkOrSwim, the two platforms that set the standard for professional options trading. For options traders, the developer lineage isn't a marketing claim. It's a guarantee of the platform's underlying options architecture, built from the ground up for the way serious options traders actually work. The practical difference shows up in the details that options traders notice immediately. Real-time Greeks display across the full chain. Native multi-leg order entry for every strategy type. P&amp;L visualization that accounts for the complexity of multi-leg positions correctly. Institutional-grade execution speed. These aren't add-on features on DXTrade. They're what the platform was built to deliver.</p>
 
+    <div class="double">
+      <div class="elem">
+        <img src="../assets/images/st1.svg" alt="st">
+        <div class="media">
+          <img src="../assets/images/article-image.webp" alt="article-image" width="806" height="675" decoding="async">
+        </div>
+        <div class="desc">
+          <div class="top">
+            <p>DXTrade</p>
+            <div class="logo"><img src="../assets/images/ll-1.svg" alt="ll1"></div>
+          </div>
+          <span>stocks, options</span>
+          <p>DXTrade was built by the same development team as TastyWorks and ThinkOrSwim — institutional execution infrastructure from a team that defines professional trading platforms. For stocks traders, that means real-time Level 2 data, professional charting, and execution speed that retail brokerage platforms don't match.</p>
+          <ul>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Institutional Execution Speed</span> — Real-time order routing built for professional trading workflows</p></li>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Real-Time Level 2 Data</span> — Full order book depth visible on every trade</p></li>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Professional Charting</span> — Full technical analysis toolkit, not a retail charting afterthought</p></li>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Built on TastyWorks / ThinkOrSwim Architecture</span> — Developer lineage that experienced traders recognize immediately</p></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="elem">
+         <img src="../assets/images/st1.svg" alt="st">
+        <div class="media">
+          <img src="../assets/images/article-image2.webp" alt="article-image" width="806" height="675" decoding="async">
+        </div>
+        <div class="desc">
+          <div class="top">
+            <p>Sterling Trader Pro</p>
+            <div class="logo"><img src="../assets/images/ll-2.svg" alt="ll1"></div>
+          </div>
+          <span>stocks - direct access</span>
+          <p>Sterling Trader Pro is the direct-access equities platform used at live institutional trading desks — including T3 Trading Group's own desk. For traders who require market maker routing, Level 2 DOM, and hot-key execution at professional scale, Sterling is the platform that professionals actually use.</p>
+          <p>If you've used direct-access before, you know what this means. If you haven't, DXTrade is likely the better starting point.</p>
+          <ul>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Direct-Access Market Routing</span> — Route orders directly to specific market makers and ECNs</p></li>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Full Level 2 DOM</span> — Complete depth of market visibility at institutional scale</p></li>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Hot-Key Customization</span> — Fully configurable keyboard shortcuts for professional execution speed</p></li>
+            <li><span><img src="../assets/images/check-green.svg" alt="check-green"></span><p><span>Used at T3's Live Trading Desk</span> — The same platform running at the institutional desk backing TradeFundrr</p></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
 
 
 <section class="how-it-works complex long" id="how-it-works">
@@ -537,9 +574,10 @@
   </div>
   <div class="container">
     <div class="how-it-works__head">
-      <p class="eyebrow">Your Profit Split At TradeFundrr</p>
-      <h2 class="how-it-works__title h2">Trade Consistently With TradeFundrr? <br><span class="accent">Earn 80% Payout Splits Across All Payouts</span>
-      <p class="lead">TradeFundrr's profit split is built around the traders our partnership with T3 Global wants to identify and send with live capital: consistent, disciplined options traders who perform across multiple payout cycles…</p>
+      <p class="eyebrow">The TradeFundrr Profit Split Track For Stocks Traders…</p>
+      <h2 class="how-it-works__title h2"><span class="accent">Earn 80% Profit Splits</span> In Your TradeFundrr
+      Stocks Evaluations</h2>
+      <p class="lead">The 80% profit split isn’t a loyalty reward. It’s evidence of aligned incentives. A stocks trader who has generated consistent returns across 6 payout cycles is exactly the performance profile our partnership with T3 Global was built to identify and give live institutional capital.</p>
     </div>
 
     <div class="bottom__float">
@@ -548,7 +586,7 @@
         <p>Consistent performers have the chance to reach live trading with our partner T3 Global</p>
       </div>
       <div class="desc">
-        <p>The split progression isn't a loyalty reward. It's evidence of aligned incentives. An options trader who has generated consistent returns across 6 payout cycles is exactly the performance profile our partnership with T3 Global was built to identify and back with live institutional capital.</p>
+        <p>TradeFundrr's profit split is built around the traders our partnership with T3 Global wants to identify and send with live capital: consistent, disciplined options traders who perform across multiple payout cycles…</p>
       </div>
     </div>
   </div>
@@ -559,7 +597,7 @@
         <p>Consistent performers have the chance to reach live trading with our partner T3 Global</p>
       </div>
       <div class="desc">
-        <p>The split progression isn't a loyalty reward. It's evidence of aligned incentives. An options trader who has generated consistent returns across 6 payout cycles is exactly the performance profile our partnership with T3 Global was built to identify and back with live institutional capital.</p>
+        <p>TradeFundrr's profit split is built around the traders our partnership with T3 Global wants to identify and send with live capital: consistent, disciplined options traders who perform across multiple payout cycles…</p>
       </div>
     </div>
 </section>
@@ -570,10 +608,11 @@
   <div class="container">
     <div class="trader-payouts__row">
       <div class="trader-payouts__head">
-        <span class="eyebrow">real options traders</span>
-        <h2 class="h2">Options traders getting Funded <br>
-        <span class="accent">and getting paid.</span></h2>
-        <p class="lead">Real names, real payout amounts, real options accounts. No AI photos, and no anonymous testimonials…</p>
+        <span class="eyebrow">real stocks traders</span>
+        <h2 class="h2">What Funded Stock Traders Who
+        Got Paid & Came Back For More
+        <span class="accent">are Saying.</span></h2>
+        <p class="lead">These aren't made-up quotes. These are real TradeFundrr stocks traders who got funded and got paid…</p>
         
       </div>
 
@@ -667,7 +706,7 @@
       </div>
 
       <div class="trader-payouts__controls">
-          <a href="pages/why-us.html" class="trader-payouts__cta">See More Trader Results<span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="arrow"></span></a>
+          <a href="pages/why-us.html" class="trader-payouts__cta">See More Trader Results <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="arrow"></span></a>
           <a href="#" class="trader-payouts__rating">
             <span class="score">4.8</span>
             <span>Rating on</span>
@@ -682,16 +721,16 @@
   <div class="container">
     <div class="cta-block__inner">
       <h2 class="cta-block__title">
-        You've seen what funded options trading looks like. <span class="accent">Here's how to get started.</span>
+       Ready to trade <span class="accent">with $100K in buying power</span> instead of Your Retail Account?
       </h2>
       <p class="cta-block__sub longer">
-        All options programs, full specs, and pricing are on the next page. Head there now and choose your path…
+        All stocks programs, full specs, and pricing are on the next page. Head there now and choose your path…
       </p>
       <div class="btn-row">
-        <a href="pricing.html" class="btn btn--primary">Get Your Options Funded Account<span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+        <a href="pricing.html" class="btn btn--primary">Get Your Stocks Funded Account <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
         <div class="tick-row">
-          <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span> Paid Every Week</span>
-          <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span> Spreads, Multi-Leg &amp; Complex Strategies Allowed</span>
+          <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Trade Every Day</span>
+          <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Paid Every Week</span>
         </div>
       </div>
       
@@ -700,40 +739,39 @@
 </section>
 
 
-
 <section class="faq">
   <div class="container">
-    <h2 class="faq__title">Questions Options Traders Ask Before They Buy. Answered Right Here</h2>
+    <h2 class="faq__title">Stocks traders ask. Straight answers below.</h2>
     <div class="faq__grid">
       <div class="faq__col">
         <div class="qa opened">
-          <div class="head"><p>What options strategies are permitted? Specifically, are spreads, multi-leg, and complex defined-risk structures allowed?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
-          <div class="qa__body" style="display:block;"><p>Yes, most of them. Vertical spreads, iron condors, debit and credit spreads, straddles, strangles, calendar spreads, and multi-leg defined-risk structures are all permitted on TradeFundrr options accounts. For the full list of permitted strategies, visit our Options Trading Offer Page.</p></div>
-        </div>
-        <div class="qa">
-          <div class="head"><p>Can I hold options positions overnight, through earnings, or to expiration?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
-          <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
-        </div>
-        <div class="qa">
-          <div class="head"><p>How does the profit target work for options?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
-          <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
+          <div class="head"><p>What is the difference between Growth Funding and the Express Account?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
+          <div class="qa__body" style="display:block;"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
         </div>
         <div class="qa">
           <div class="head"><p>Is my personal capital at risk?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
           <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
         </div>
-      </div>
-      <div class="faq__col">
+        <div class="qa">
+          <div class="head"><p>Can I hold positions overnight or short sell?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
+          <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
+        </div>
         <div class="qa">
           <div class="head"><p>How do payouts work?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
           <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
         </div>
+      </div>
+      <div class="faq__col">
         <div class="qa">
-          <div class="head"><p>Which program is better for options traders — Growth Account or Express Funding?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
+          <div class="head"><p>What is the Pro Trader account, and how do I qualify?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
           <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
         </div>
         <div class="qa">
-          <div class="head"><p>What is the Pro Trader account, and how do I qualify?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
+          <div class="head"><p>Can I trade with my existing strategy on a TradeFundrr account?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
+          <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
+        </div>
+        <div class="qa">
+          <div class="head"><p>Is my money safe — what if TradeFundrr closes?</p><span class="chev-arrow"><img src="../assets/images/faq-arrow.svg" alt="faq-arrow"></span></div>
           <div class="qa__body"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa.</p></div>
         </div>
         <div class="qa">
@@ -745,25 +783,26 @@
   </div>
 </section>
 
+
 <section class="get-started cta-block">
   <div class="container">
-    <div class="cta-block__inner">
+    <div class="cta-block__inner longer">
       <p class="eyebrow">get started</p>
       <h2 class="cta-block__title">
-        <span>Real funded options trading.</span> <br>
-        <span class="accent">With Weekly payouts, Everytime.</span>
+        <span class="accent">$100K buying power.</span><br>
+        Weekly payouts. <span>You’ve Seen It All. <br> TradeFundrr Is The Only One That holds Up...</span>
       </h2>
       <p class="cta-block__sub">
-        View every options program, every rule, and every price on the Options Trading program page. Everything you need to decide is there, with no hidden conditions and no surprises…
+        Our Stocks Trading Offer Page has the complete program specs, full rule sets, and pricing for every stocks account. Partnered with T3 Global, with years of operating experience, with $100K in buying power
       </p>
       <div class="btn-row">
-        <a href="pricing.html" class="btn btn--primary">Get Your Options Funded Account<span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
-        <a href="#" class="btn btn--glass">Compare all options programs</a>
+        <a href="pricing.html" class="btn btn--primary">Get Your Stocks Funded Account <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+        <a href="#" class="btn btn--glass">View all stocks programs</a>
       </div>
       <div class="tick-row">
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Most Options Strategies Permitted</span>
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Weekly Payout Eligibility</span>
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Real Support From Real Traders</span>
+        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Trade Every Day</span>
+        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>$100K in Buying Power</span>
+        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Weekly payouts</span>
       </div>
       <div class="broker-desc">
         <p><span><img src="../assets/images/broker-image.svg" alt="broker-image"></span>The Prop Firm Partnered With T3 Global</p>
@@ -771,6 +810,7 @@
     </div>
   </div>
 </section>
+
 
 
 

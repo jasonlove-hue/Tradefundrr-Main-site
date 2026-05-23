@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Notice — TradeFundrr</title>
   <meta name="description" content="TradeFundrr Privacy Notice — how we collect, use, and protect your personal information.">
-  <link rel="stylesheet" href="../assets/css/main.css?v=202605230823">
-  <link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605230823" id="mobile-fixes-css">
+  <link rel="stylesheet" href="../assets/css/main.css?v=202605230817">
+  <link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605230817" id="mobile-fixes-css">
 
   <!-- Dark-theme overrides for Termly policy content -->
   <style>
@@ -19,7 +19,7 @@
     .policy-content [data-custom-class='body'],
     .policy-content [data-custom-class='body'] * {
       background: transparent !important;
-      font-family: "Inter", "Inter Fallback", Arial, sans-serif !important;
+      font-family: 'Inter', Arial, sans-serif !important;
     }
     .policy-content [data-custom-class='title'],
     .policy-content [data-custom-class='title'] * {
