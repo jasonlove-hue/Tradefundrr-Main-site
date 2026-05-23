@@ -109,12 +109,31 @@
 .pf-details li::before { content: ""; position: absolute; left: 0; top: 16px; width: 6px; height: 6px; background: #5DEACB; border-radius: 50%; opacity: 0.7; }
 .pf-details li:last-child { border-bottom: 0; }
 
-/* ----- FINAL CTA (apply now) -------------------------------------------- */
-.pf-cta { padding: 100px 0; text-align: center; background: linear-gradient(180deg, transparent 0%, hsla(178, 65%, 50%, 0.04) 60%, transparent 100%); }
-.pf-cta h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.15; letter-spacing: -1px; color: #fff; margin: 0 auto 22px; max-width: 980px; padding: 0 32px; }
-.pf-cta h2 .accent { color: #ffc107; }
-.pf-cta p { color: hsla(0, 0%, 100%, 0.72); font-size: 16px; line-height: 1.6; margin: 0 auto 34px; max-width: 760px; padding: 0 32px; }
-.pf-cta .btn { padding: 18px 38px; font-size: 17px; }
+/* ----- APPLICATION FORM (HubSpot embed) --------------------------------- */
+.pf-apply { padding: 80px 0 100px; background: linear-gradient(180deg, transparent 0%, hsla(178, 65%, 50%, 0.04) 60%, transparent 100%); }
+.pf-apply__wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+.pf-apply h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -1px; color: #fff; margin: 0 0 22px; text-align: center; }
+.pf-apply h2 .accent { color: #ffc107; }
+.pf-apply__intro { color: hsla(0, 0%, 100%, 0.72); font-size: 16px; line-height: 1.6; margin: 0 0 40px; text-align: center; }
+
+/* HubSpot form container - dark gray panel matching the live page styling */
+.pf-apply__form { background: hsla(0, 0%, 100%, 0.04); border: 1px solid hsla(0, 0%, 100%, 0.1); border-radius: 16px; padding: 36px 32px; }
+
+/* HubSpot injected form theming - override their defaults for dark mode */
+.pf-apply__form .hs-form-field { margin-bottom: 18px; }
+.pf-apply__form .hs-form-field > label { display: block; color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; margin-bottom: 8px; line-height: 1.35; }
+.pf-apply__form .hs-form-required { color: #ff5e5e; margin-left: 4px; }
+.pf-apply__form .hs-input { width: 100%; padding: 12px 16px; background: hsla(0, 0%, 100%, 0.95); border: 1px solid hsla(0, 0%, 100%, 0.15); border-radius: 999px; font-family: 'Inter', sans-serif; font-size: 14.5px; color: #0a0e18; box-sizing: border-box; transition: border-color .15s ease, box-shadow .15s ease; }
+.pf-apply__form textarea.hs-input { border-radius: 16px; min-height: 60px; resize: vertical; }
+.pf-apply__form .hs-input:focus { outline: none; border-color: #05c4a1; box-shadow: 0 0 0 3px hsla(178, 95%, 39%, 0.2); }
+.pf-apply__form .hs-error-msgs { list-style: none; padding: 0; margin: 6px 0 0; }
+.pf-apply__form .hs-error-msg,
+.pf-apply__form .hs-error-msgs label { color: #ff7676 !important; font-size: 12.5px; font-weight: 500; }
+.pf-apply__form .hs-submit { margin-top: 12px; text-align: center; }
+.pf-apply__form .hs-button { background: linear-gradient(180deg, #1de9c0 0%, #05c4a1 100%); color: #06181a; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 38px; border: 0; border-radius: 999px; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+.pf-apply__form .hs-button:hover { transform: translateY(-1px); box-shadow: 0 12px 30px hsla(178, 95%, 39%, 0.25); }
+.pf-apply__form .legal-consent-container { color: hsla(0, 0%, 100%, 0.6); font-size: 12.5px; line-height: 1.5; margin-top: 16px; }
+.pf-apply__form .legal-consent-container a { color: #5DEACB; text-decoration: underline; }
 
 /* ============================================================================
    RESPONSIVE
@@ -136,7 +155,7 @@
   .pf-apply-if__grid { grid-template-columns: 1fr; gap: 24px; }
   .pf-section__head h2 { font-size: 32px; }
   .pf-t3 h2,
-  .pf-cta h2,
+  .pf-apply h2,
   .pf-narrative__text h2 { font-size: 30px; }
 }
 
@@ -150,7 +169,8 @@
   .pf-tiers__table tbody td.pf-tiers__bp { font-size: 15px; }
   .pf-t3__logos { gap: 32px; }
   .pf-t3__logos img { max-width: 140px; }
-  .pf-cta { padding: 60px 0; }
+  .pf-apply { padding: 56px 0 80px; }
+  .pf-apply__form { padding: 24px 18px; }
 }
 
 @media (max-width: 480px) {
