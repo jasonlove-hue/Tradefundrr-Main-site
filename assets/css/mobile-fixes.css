@@ -625,8 +625,12 @@
   max-width: 460px;
   height: auto;
   display: block;
-  /* PNG already has transparent edges baked in. No glow, no border, no filter -
-     just show the image as-is. */
+  /* Soft amber glow biased to the right to feather the sharp right edge of
+     the book. drop-shadow follows the alpha silhouette so the glow wraps
+     the book + chart shape, not a rectangle. */
+  filter:
+    drop-shadow(6px 0 22px rgba(255, 193, 7, 0.22))
+    drop-shadow(0 0 16px rgba(255, 193, 7, 0.12));
 }
 /* Right column content */
 .blackbook__eyebrow {
