@@ -428,8 +428,12 @@
 /* === MARKETS 4-ACROSS PATCH START === */
 /* Force the four market cards (Stocks / Options / Futures / Crypto) onto a
    single row at large-desktop widths. Smaller screens keep the existing 2-up
-   (or 1-up on mobile) layout. */
+   (or 1-up on mobile) layout.
+
+   Also tightens the in-card typography so titles fit on one line and pills
+   fit on one row, since cards are narrower in 4-across mode. */
 @media (min-width: 1200px) {
+  /* --- Grid layout --- */
   .markets__grid {
     grid-template-columns: repeat(4, 1fr) !important;
     max-width: 1400px !important;
@@ -441,6 +445,32 @@
     height: auto !important;       /* let card size to content at narrower width */
     min-height: 460px !important;  /* keep a consistent minimum so all 4 align */
   }
+
+  /* --- Polish pass tightening --- */
+  /* Card title: 28px -> 22px so "Funded Stock Trading" fits on one line */
+  .markets__card .body h3 {
+    font-size: 22px !important;
+    letter-spacing: -0.8px !important;
+  }
+  /* Body description: 16px -> 14px for tighter feel at narrower card width */
+  .markets__card .body p {
+    font-size: 14px !important;
+    letter-spacing: -0.4px !important;
+    line-height: 1.35 !important;
+  }
+  /* Pills: smaller font + tighter gap so all 3 pills fit on one row */
+  .markets__card .body .pills {
+    gap: 6px 10px !important;
+  }
+  .markets__card .body .pills .pill {
+    font-size: 11px !important;
+    letter-spacing: -0.3px !important;
+  }
+  /* Slightly tighter section gap inside card body */
+  .markets__card .body {
+    gap: 14px !important;
+  }
+
   /* The decorative border that wraps .markets__grid (::before pseudo) still
      works automatically since it uses calc(100% + 40px) - just bigger now. */
 }
