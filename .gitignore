@@ -1,4 +1,4 @@
-node_modules/
+﻿node_modules/
 .DS_Store
 Thumbs.db
 .vercel
@@ -7,3 +7,10 @@ Thumbs.db
 .idea/
 .vscode/
 *.log
+
+# Perf-script backups (kept locally for rollback safety, not for the CDN)
+*.bak
+*.bak.*
+**/_originals_png/
+**/_originals_webp/
+.tools/
