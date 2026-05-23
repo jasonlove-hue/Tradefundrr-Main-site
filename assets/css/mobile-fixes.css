@@ -583,8 +583,9 @@
    CONTENT on RIGHT = eyebrow + headline + tagline + copy + 3 feature pills + form. */
 .blackbook {
   padding: 90px 0;
-  /* Near-black to match the book cover background (neutral, not blue-tinted) */
-  background: #0a0a0a;
+  /* Pure black matches the image's dominant corner color (#000000), so the
+     image edges disappear into the section background. */
+  background: #000000;
   position: relative;
   overflow: hidden;
 }
@@ -624,7 +625,13 @@
   max-width: 460px;
   height: auto;
   display: block;
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 70px rgba(255, 193, 7, 0.15));
+  /* Soft elliptical alpha mask: image center stays fully visible, edges fade
+     out so the rectangular image boundary dissolves into the section bg. */
+  -webkit-mask-image: radial-gradient(ellipse 78% 92% at 50% 50%, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse 78% 92% at 50% 50%, #000 55%, transparent 100%);
+  /* Gold glow halo. drop-shadow respects the mask, so the halo follows the
+     faded silhouette instead of the original rectangle. */
+  filter: drop-shadow(0 0 70px rgba(255, 193, 7, 0.18));
 }
 /* Right column content */
 .blackbook__eyebrow {
