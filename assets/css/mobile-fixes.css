@@ -576,3 +576,135 @@
   .dropdown .dropdown__pro-sub-arrow { margin-left: -16px !important; }
 }
 /* === PRO SUB NAV CSS END === */
+
+/* === BLACKBOOK CSS START === */
+/* Funded Trader Blackbook lead magnet section. Replaces the old newsletter
+   block on index.html and pages/about.html. Two-column on desktop, stacks
+   on mobile. */
+.blackbook {
+  padding: 90px 0;
+  background: linear-gradient(180deg, #060914 0%, #0a0e1c 50%, #060914 100%);
+  position: relative;
+  overflow: hidden;
+}
+.blackbook::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255, 193, 7, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.blackbook .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.blackbook__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+.blackbook__visual {
+  position: relative;
+}
+.blackbook__visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 80px rgba(255, 193, 7, 0.08);
+}
+.blackbook__eyebrow {
+  color: #ffc107;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+  font-weight: 600;
+}
+.blackbook__title {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.1;
+  letter-spacing: -1.2px;
+  color: #fff;
+  margin: 0 0 22px;
+}
+.blackbook__title .accent {
+  color: #ffc107;
+}
+.blackbook__lead {
+  color: hsla(0, 0%, 100%, 0.78);
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+.blackbook__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 460px;
+}
+.blackbook__field input {
+  width: 100%;
+  padding: 14px 20px;
+  background: hsla(0, 0%, 100%, 0.05);
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
+  border-radius: 999px;
+  color: #fff;
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-size: 14.5px;
+  box-sizing: border-box;
+  transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.blackbook__field input::placeholder {
+  color: hsla(0, 0%, 100%, 0.45);
+}
+.blackbook__field input:focus {
+  outline: none;
+  border-color: #ffc107;
+  background: hsla(0, 0%, 100%, 0.08);
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.15);
+}
+.blackbook__submit {
+  width: 100%;
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-size: 15.5px;
+  font-weight: 700;
+}
+.blackbook__note {
+  color: hsla(0, 0%, 100%, 0.5);
+  font-size: 13px;
+  margin: 14px 0 0;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .blackbook__grid { gap: 40px; }
+  .blackbook__title { font-size: 36px; }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .blackbook { padding: 60px 0; }
+  .blackbook .container { padding: 0 20px; }
+  .blackbook__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .blackbook__visual { order: -1; max-width: 520px; margin: 0 auto; }
+  .blackbook__title { font-size: 30px; letter-spacing: -0.8px; }
+  .blackbook__lead { font-size: 15px; }
+  .blackbook__form { max-width: none; }
+}
+/* === BLACKBOOK CSS END === */
