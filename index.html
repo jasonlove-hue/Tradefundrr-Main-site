@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605241841" id="mobile-fixes-css">
+<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605241850" id="mobile-fixes-css">
 
 <style id="payout-cards-style">
 /* No static background image, only the falling cards animation should be visible. */
@@ -1721,6 +1721,31 @@
       </p>
     </div>
 
+    <!-- GUARANTEE_BANNER_START -->
+    <!-- ============================================================================
+         CONDITIONAL: This guarantee block is built to be removable. To strip it,
+         delete everything between GUARANTEE_BANNER_START and GUARANTEE_BANNER_END,
+         then delete the per-card badges (search for GUARANTEE_BADGE_START), and
+         delete the CSS block in mobile-fixes.css between
+         /* === GUARANTEE START === */ and /* === GUARANTEE END === */.
+         See HANDOFF-2026-05-24.md for full removal notes.
+         ============================================================================ -->
+    <div class="guarantee">
+      <span class="guarantee__badge">The Payout Guarantee</span>
+      <h3 class="guarantee__headline">
+        Hit your first payout. <span class="accent">Get your eval fee back.</span>
+      </h3>
+      <p class="guarantee__sub">
+        Pass the evaluation, earn a qualifying payout, and we refund your full evaluation fee with that payout. Success pays for your start.
+      </p>
+      <ul class="guarantee__points">
+        <li>No hidden conditions</li>
+        <li>No time limit to qualify</li>
+        <li>Available on all instant funding plans</li>
+      </ul>
+    </div>
+    <!-- GUARANTEE_BANNER_END -->
+
     <div class="plans__grid stack-grid">
 
       <!-- CARD 1: Options Instant -->
@@ -1750,6 +1775,7 @@
           <div class="stack-card__price-label">Yours for</div>
           <div class="stack-card__price">$899</div>
           <div class="stack-card__price-sub">one-time + $99/month</div>
+          <!-- GUARANTEE_BADGE_START --><span class="stack-card__guarantee">Refunded with first payout</span><!-- GUARANTEE_BADGE_END -->
         </div>
 
         <a href="pages/options.html" class="btn btn--glass stack-card__cta">Get Options Funding <span><img src="assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
@@ -1783,6 +1809,7 @@
           <div class="stack-card__price-label">Yours for</div>
           <div class="stack-card__price">$899</div>
           <div class="stack-card__price-sub">one-time + $99/month</div>
+          <!-- GUARANTEE_BADGE_START --><span class="stack-card__guarantee">Refunded with first payout</span><!-- GUARANTEE_BADGE_END -->
         </div>
 
         <a href="pages/stocks.html" class="btn btn--primary btn--block stack-card__cta">Get Stocks Funding <span><img src="assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
@@ -1815,6 +1842,7 @@
           <div class="stack-card__price-label">Yours for</div>
           <div class="stack-card__price">$179</div>
           <div class="stack-card__price-sub">one-time, then $129 activation</div>
+          <!-- GUARANTEE_BADGE_START --><span class="stack-card__guarantee">Refunded with first payout</span><!-- GUARANTEE_BADGE_END -->
         </div>
 
         <a href="pages/pricing.html" class="btn btn--glass stack-card__cta">Get Futures Funding <span><img src="assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>

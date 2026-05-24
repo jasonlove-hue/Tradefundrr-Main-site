@@ -1501,6 +1501,99 @@
 .plans > .container { position: relative; z-index: 1; }
 /* === PLANS SECTION BACKGROUND OVERRIDE END === */
 
+/* === GUARANTEE START === */
+/* CONDITIONAL: The "Hit your first payout, get your eval fee back" guarantee
+   block + per-card badges. Built to be removable. To strip the guarantee:
+     1) Delete this entire CSS block (between GUARANTEE START and END markers)
+     2) Delete the HTML between <!-- GUARANTEE_BANNER_START --> and
+        <!-- GUARANTEE_BANNER_END --> in index.html (inside <section class="plans">)
+     3) Delete the three per-card badge spans wrapped in
+        <!-- GUARANTEE_BADGE_START --> markers
+   See HANDOFF-2026-05-24.md for full notes. */
+
+/* Primary guarantee banner above the pricing cards */
+.guarantee {
+  position: relative;
+  margin: 0 auto 48px;
+  max-width: 940px;
+  padding: 32px 36px 28px;
+  background: linear-gradient(180deg, rgba(34, 211, 168, 0.10) 0%, rgba(34, 211, 168, 0.04) 100%);
+  border: 1px solid rgba(34, 211, 168, 0.5);
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(34, 211, 168, 0.12);
+}
+.guarantee__badge {
+  display: inline-block;
+  background: #22d3a8;
+  color: #06181a;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11.5px; font-weight: 700;
+  letter-spacing: 1.8px; text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.guarantee__headline {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 32px; line-height: 1.15; letter-spacing: -0.7px;
+  color: #fff; margin: 0 0 14px;
+}
+.guarantee__headline .accent { color: #22d3a8; }
+.guarantee__sub {
+  color: hsla(0, 0%, 100%, 0.85); font-size: 16px; line-height: 1.55;
+  margin: 0 auto 22px;
+  max-width: 720px;
+}
+.guarantee__points {
+  display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+  margin: 0; padding: 16px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(34, 211, 168, 0.18);
+}
+.guarantee__points li {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: hsla(0, 0%, 100%, 0.78);
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 12px; letter-spacing: 1.2px;
+  text-transform: uppercase; font-weight: 500;
+}
+.guarantee__points li::before {
+  content: ""; width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(34, 211, 168, 0.2);
+  border: 1px solid #22d3a8;
+  background-image:
+    linear-gradient(45deg, transparent 45%, #22d3a8 47%, #22d3a8 52%, transparent 54%),
+    linear-gradient(-45deg, transparent 55%, #22d3a8 57%, #22d3a8 62%, transparent 64%);
+  background-position: 2px 3px, 4px 3px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* Per-card mini-badge near the price */
+.stack-card__guarantee {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 11px;
+  background: rgba(34, 211, 168, 0.12);
+  border: 1px solid rgba(34, 211, 168, 0.4);
+  border-radius: 999px;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 10.5px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600;
+}
+.stack-card__guarantee::before { content: "\2713\00a0"; }
+
+@media (max-width: 900px) {
+  .guarantee { padding: 26px 22px 22px; }
+  .guarantee__headline { font-size: 24px; }
+  .guarantee__sub { font-size: 14.5px; }
+  .guarantee__points { gap: 16px; }
+}
+/* === GUARANTEE END === */
+
+
 
 /* === NUMBERS SECTION LEAD: LOGO + "is also" === */
 /* Inline logo replaces the "TradeFundrr" word in the lead-in above the
