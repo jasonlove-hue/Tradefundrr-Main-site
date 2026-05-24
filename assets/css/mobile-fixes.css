@@ -1249,7 +1249,7 @@
 }
 .avatar-segments {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 .avatar-segment {
   padding: 30px 26px 28px;
