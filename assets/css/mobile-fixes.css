@@ -1656,11 +1656,14 @@
    To remove: delete this block and the PATH_CONTRAST_01/02 markers in index.html. */
 .path-card__contrast {
   margin-top: 22px;
+  margin-bottom: 26px;
   border-top: 1px solid hsla(0,0%,100%,0.08);
-  padding-top: 16px;
+  padding-top: 18px;
   display: grid;
-  gap: 10px;
+  gap: 14px;
 }
+.path-card__contrast + .path-card__footnote,
+.path-card__contrast + .path-card__cta { margin-top: 4px; }
 .contrast-row {
   display: grid;
   grid-template-columns: 56px 1fr;
@@ -1700,3 +1703,189 @@
   .contrast-label { font-size: 10px; padding: 2px 5px; }
 }
 /* === PATH CONTRAST ROWS END === */
+
+/* === FAQ WHICH-MEANS START === */
+/* Benefit-restating clause appended to high-stakes FAQ answers. Reframes each
+   answer back to a benefit so the FAQ block re-sells instead of just hedging.
+   To remove: delete this block and unwrap the <strong class="faq__means"> spans
+   in index.html (or simply leave them; the strong text just falls back to bold). */
+.faq__means {
+  display: block;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(34, 211, 168, 0.28);
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.faq__means::before {
+  content: "";
+}
+/* === FAQ WHICH-MEANS END === */
+
+/* === TRUSTPILOT STATIC HEADER START === */
+/* Static stars + number block above the lazy-loaded Trustpilot widget. Ensures
+   the section reads as social proof even if the widget loads slow or empty.
+   To remove: delete this block and the HTML between TRUSTPILOT_HEADER_START
+   and TRUSTPILOT_HEADER_END in index.html. */
+.trustpilot-header {
+  text-align: center;
+  margin: 0 auto 28px auto;
+  max-width: 720px;
+}
+.trustpilot-header__stars {
+  color: #22d3a8;
+  font-size: 30px;
+  letter-spacing: 6px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.trustpilot-header__line {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+.trustpilot-header__line strong {
+  font-weight: 700;
+}
+.trustpilot-header__sub {
+  color: hsla(0, 0%, 100%, 0.6);
+  font-size: 14px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .trustpilot-header__stars { font-size: 24px; letter-spacing: 5px; }
+  .trustpilot-header__line { font-size: 17px; }
+  .trustpilot-header__sub { font-size: 13px; }
+}
+/* === TRUSTPILOT STATIC HEADER END === */
+
+/* === LOSS AVERSION (COST OF WAITING) START === */
+/* Cost-of-inaction section between Journey end and Mid-CTA. The only section
+   on the page that punishes the visitor for staying put. Pairs a "trading your
+   own $5K" ceiling card against a "trading firm capital" card to anchor the
+   loss-aversion math right before the close.
+   To remove: delete this block and the HTML between LOSS_AVERSION_START and
+   LOSS_AVERSION_END in index.html. */
+.cost-of-waiting {
+  padding: 96px 0;
+  background: #0a0a0a;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.06);
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.06);
+}
+.cost-of-waiting .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.cost-of-waiting__eyebrow {
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 14px 0;
+}
+.cost-of-waiting__headline {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.15;
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto 50px auto;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+.cost-of-waiting__headline .accent { color: #22d3a8; }
+.cost-of-waiting__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 880px;
+  margin: 0 auto 40px auto;
+}
+.cost-card {
+  position: relative;
+  padding: 36px 28px;
+  border-radius: 14px;
+  background: hsla(0, 0%, 100%, 0.03);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  text-align: center;
+}
+.cost-card--us {
+  background: linear-gradient(180deg, rgba(34, 211, 168, 0.06), rgba(34, 211, 168, 0.02));
+  border-color: rgba(34, 211, 168, 0.3);
+}
+.cost-card__label {
+  display: block;
+  color: hsla(0, 0%, 100%, 0.55);
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.cost-card__value {
+  display: block;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+.cost-card--us .cost-card__value { color: #22d3a8; }
+.cost-card__unit {
+  display: block;
+  font-size: 14px;
+  color: hsla(0, 0%, 100%, 0.5);
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+.cost-card--us .cost-card__unit { color: hsla(0, 0%, 100%, 0.6); }
+.cost-card__sub {
+  display: block;
+  color: hsla(0, 0%, 100%, 0.65);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cost-card__badge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: #22d3a8;
+  color: #04150f;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 4px;
+}
+.cost-of-waiting__close {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0.92;
+  max-width: 640px;
+  line-height: 1.45;
+}
+.cost-of-waiting__close .accent { color: #22d3a8; }
+@media (max-width: 700px) {
+  .cost-of-waiting { padding: 72px 0; }
+  .cost-of-waiting__grid { grid-template-columns: 1fr; gap: 18px; }
+  .cost-card { padding: 28px 22px; }
+  .cost-card__value { font-size: 36px; }
+  .cost-of-waiting__close { font-size: 16.5px; }
+}
+/* === LOSS AVERSION (COST OF WAITING) END === */
