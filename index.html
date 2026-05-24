@@ -593,7 +593,10 @@
   /* Hero overrides, text on the left in the container, vault positioned absolutely on the right
      so it can break out of the container width and extend toward the viewport edge for true 2x scale. */
   .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 0.4fr) !important; gap: 40px !important; align-items: center !important; padding-top: 180px !important; padding-bottom: 100px !important; }
-  .hero__text { max-width: 600px; position: relative; z-index: 10; }
+  .hero__text { max-width: 720px; position: relative; z-index: 10; }
+  /* Headline scaled up for the shorter 2-line "Risk your edge. Not your savings."
+     wording, so the left column has the visual weight to balance the vault image. */
+  .hero__title { font-size: 96px !important; letter-spacing: -3.8px !important; line-height: 1.05 !important; }
   .hero__sub { max-width: 520px !important; }
   /* Vault container, anchored by the CHART POSITION (left: 63%) instead of the right edge.
      This way the chart bottom-left stays at viewport x=63% no matter how big the vault grows,
