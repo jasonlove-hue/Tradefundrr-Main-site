@@ -1891,18 +1891,56 @@
 /* === LOSS AVERSION (COST OF WAITING) END === */
 
 /* === FEATURED REVIEWS START === */
-/* Three verbatim 5-star Trustpilot review cards above the lazy-loaded widget.
-   Verified payouts only. To remove: delete this block and the HTML between
-   FEATURED_REVIEWS_START and FEATURED_REVIEWS_END in index.html. */
+/* Six verbatim 5-star Trustpilot review cards. Replaces the Trustpilot iframe
+   widget entirely for faster load + brand-consistent rendering. The summary
+   stat block at the top anchors the cards before they are read.
+   To remove: delete this block and the HTML between FEATURED_REVIEWS_START
+   and FEATURED_REVIEWS_END in index.html. */
 .featured-reviews {
-  margin: 0 0 40px 0;
+  margin: 0;
+}
+.featured-reviews__summary {
+  text-align: center;
+  margin: 0 auto 36px auto;
+  padding: 24px 28px;
+  max-width: 560px;
+  background: hsla(0, 0%, 100%, 0.03);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 14px;
+}
+.featured-reviews__summary-stars {
+  color: #22d3a8;
+  font-size: 26px;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.featured-reviews__summary-rating {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 0 4px 0;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.featured-reviews__summary-rating strong {
+  font-weight: 700;
+}
+.featured-reviews__summary-brand {
+  color: hsla(0, 0%, 100%, 0.55);
+  font-size: 13px;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+.featured-reviews__summary-brand a {
+  color: hsla(0, 0%, 100%, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.featured-reviews__summary-brand a:hover {
+  color: #22d3a8;
 }
 .featured-reviews__label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  display: block;
   color: #22d3a8;
   font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
   font-size: 12px;
@@ -1910,23 +1948,13 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
-  margin: 0 0 28px 0;
-}
-.featured-reviews__verified {
-  display: inline-block;
-  color: hsla(0, 0%, 100%, 0.55);
-  font-size: 10.5px;
-  letter-spacing: 1.4px;
-  padding: 4px 10px;
-  background: hsla(0, 0%, 100%, 0.04);
-  border: 1px solid hsla(0, 0%, 100%, 0.08);
-  border-radius: 999px;
+  margin: 0 0 24px 0;
 }
 .featured-reviews__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-  margin-bottom: 22px;
+  margin-bottom: 26px;
 }
 .featured-review {
   position: relative;

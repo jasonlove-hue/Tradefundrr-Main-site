@@ -27,7 +27,7 @@
 
 
 
-<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605242315" id="mobile-fixes-css">
+<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605242345" id="mobile-fixes-css">
 
 <style id="payout-cards-style">
 /* No static background image, only the falling cards animation should be visible. */
@@ -1474,13 +1474,23 @@
       </div>
 
       <!-- FEATURED_REVIEWS_START -->
-      <!-- Three featured 5-star payout-related Trustpilot reviews. Pulled verbatim
-           from the live Trustpilot page on 2026-05-24. To refresh: re-fetch from
+      <!-- Six verbatim 5-star Trustpilot reviews. Pulled from the live Trustpilot
+           page on 2026-05-24. Replaces the iframe widget entirely for faster load
+           and brand-consistent rendering. To refresh: re-fetch from
            https://www.trustpilot.com/review/tradefundrr.com?stars=5 and update
-           the three .featured-review cards below. To remove the whole block,
-           delete everything between FEATURED_REVIEWS_START and FEATURED_REVIEWS_END. -->
+           the .featured-review cards + the .featured-reviews__summary block.
+           To remove the whole block: delete everything between
+           FEATURED_REVIEWS_START and FEATURED_REVIEWS_END. -->
       <div class="featured-reviews">
-        <p class="featured-reviews__label">Featured Payout Stories <span class="featured-reviews__verified">Verified on Trustpilot</span></p>
+
+        <div class="featured-reviews__summary">
+          <div class="featured-reviews__summary-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="featured-reviews__summary-rating"><strong>4.2 / 5</strong> across <strong>66+ verified reviews</strong></p>
+          <p class="featured-reviews__summary-brand">on <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener">Trustpilot</a></p>
+        </div>
+
+        <p class="featured-reviews__label">Verified Payout Stories</p>
+
         <div class="featured-reviews__grid">
 
           <article class="featured-review">
@@ -1504,18 +1514,31 @@
             <p class="featured-review__attrib"><strong>Parker B.</strong> &middot; United States &middot; Dec 23, 2025</p>
           </article>
 
+          <article class="featured-review">
+            <div class="featured-review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="featured-review__title">I received my payout today</h3>
+            <p class="featured-review__body">&ldquo;<strong>I received my payout today, it is the 3rd great experience so far.</strong> Other tickers are still good and we have the choice among ETFs and Stocks, nothing to complain about so far. I recommend. Customer services reply fast and not AI agents which is great.&rdquo;</p>
+            <p class="featured-review__attrib"><strong>MOHAMED EL-BRAHMI</strong> &middot; France &middot; Apr 11, 2026</p>
+          </article>
+
+          <article class="featured-review">
+            <div class="featured-review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="featured-review__title">A very good experience with TradeFundrr</h3>
+            <p class="featured-review__body">&ldquo;I&rsquo;ve had a very good experience with TradeFundrr so far. It really helps teach discipline and consistency in trading rather than rushing into things unprepared. <strong>I&rsquo;m also very satisfied with their payout service. It has been reliable and smooth, which builds a lot of trust in the platform.</strong>&rdquo;</p>
+            <p class="featured-review__attrib"><strong>Kajal Prakash</strong> &middot; United States &middot; Apr 4, 2026</p>
+          </article>
+
+          <article class="featured-review">
+            <div class="featured-review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <h3 class="featured-review__title">TradeFundrr Review - after several months</h3>
+            <p class="featured-review__body">&ldquo;I have been a member of TradeFundrr for several months and have been happy throughout. In my opinion, they are in the top two in the sim stock world and <strong>I give them the #1 spot because of their straight-to-funded option.</strong> (I&rsquo;ve tried 5 sim stock firms to-date... TTP, PST, Imperial, Vantage and TF.)&rdquo;</p>
+            <p class="featured-review__attrib"><strong>Eric</strong> &middot; United States &middot; Apr 30, 2026</p>
+          </article>
+
         </div>
         <p class="featured-reviews__cta"><a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener">Read all 66+ verified reviews on Trustpilot &rarr;</a></p>
       </div>
       <!-- FEATURED_REVIEWS_END -->
-
-      <!-- TRUSTPILOT_WIDGET_START -->
-      <!-- TrustBox widget - Grid -->
-      <div class="trustpilot-widget" data-locale="en-US" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="900px" data-style-width="100%" data-theme="dark" data-token="1137af76-74e0-4401-8359-bf740e749359" data-stars="5" data-review-languages="en" data-review-disclaimer="true">
-        <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener">Trustpilot</a>
-      </div>
-      <!-- End TrustBox widget -->
-      <!-- TRUSTPILOT_WIDGET_END -->
     </div>
   </div>
 </section>
