@@ -2098,34 +2098,34 @@
 /* === FEATURED REVIEWS END === */
 
 /* === SUPPORT DAWSON START === */
-/* Replaces the stock support photo with a real team member portrait
-   (Dawson, Trader Support). Matches the founders-portrait visual treatment:
-   4:5 rectangle, teal frame offset, rounded corners + a name caption below.
-   To remove: delete this block and revert the HTML between SUPPORT_DAWSON_START
-   and SUPPORT_DAWSON_END in index.html to the original human-support.webp img. */
+/* Real team member portrait (Dawson, Trader Success Specialist).
+   Faded-edge treatment: photo dissolves into the dark page background
+   via a radial-gradient mask. No hard frame or rectangle. Replaces the
+   stock background image of the woman in a headset.
+   To remove: delete this block, revert the HTML between SUPPORT_DAWSON_START
+   and SUPPORT_DAWSON_END in index.html to the original human-support.webp img,
+   and remove the .real-support background override above. */
+
+/* Kill the stock background image on .real-support set by main.css line 3014 */
+.real-support {
+  background: none !important;
+  background-image: none !important;
+}
+
 .support-portrait {
-  display: block !important;  /* override main.css's .small-support-media { display: none } in mobile contexts */
+  display: block !important;
   position: relative;
   max-width: 420px;
+  margin: 0 auto;
 }
 .support-portrait__inner {
   position: relative;
   aspect-ratio: 4 / 5;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid hsla(0, 0%, 100%, 0.08);
-  background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.02);
-}
-.support-portrait__inner::before {
-  /* Offset teal frame behind the portrait, mirrors the founders treatment */
-  content: "";
-  position: absolute;
-  inset: 18px 18px -18px -18px;
-  border: 1px solid rgba(34, 211, 168, 0.35);
-  border-radius: 18px;
-  pointer-events: none;
-  z-index: -1;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
 }
 .support-portrait__inner img {
   width: 100% !important;
@@ -2135,13 +2135,18 @@
   object-position: center top;
   display: block;
   border-radius: 0;
+  /* Soft radial mask so all four edges of the photo fade into the page
+     background instead of having a hard rectangular border. Center of mask
+     biased slightly upward so the face stays fully visible while the
+     chest/shoulders blend down into the dark. */
+  -webkit-mask-image: radial-gradient(ellipse 80% 75% at center 38%, #000 45%, rgba(0,0,0,0.85) 65%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 75% at center 38%, #000 45%, rgba(0,0,0,0.85) 65%, transparent 100%);
 }
 .support-portrait__attrib {
-  margin: 28px 0 0 0;
-  padding-top: 18px;
-  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
-  text-align: left;
-  max-width: 420px;
+  margin: 18px 0 0 0;
+  padding-top: 0;
+  border-top: none;
+  text-align: center;
 }
 .support-portrait__attrib strong {
   display: block;
@@ -2160,8 +2165,7 @@
   text-transform: uppercase;
 }
 @media (max-width: 900px) {
-  .support-portrait { max-width: 320px; margin: 0 auto; }
-  .support-portrait__attrib { max-width: 320px; text-align: center; }
+  .support-portrait { max-width: 320px; }
 }
 /* === SUPPORT DAWSON END === */
 /* === TWO-PATHS TITLE TWO-LINE LOCK === */
