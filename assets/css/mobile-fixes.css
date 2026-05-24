@@ -974,3 +974,11 @@
   display: block;
 }
 /* === T3 PARTNERSHIP SECTION OVERRIDES END === */
+
+/* === ACCENT COLOR CONSISTENCY OVERRIDES === */
+/* main.css uses yellow (#ffcc00 / #fc0) on a handful of H2 accents — bring
+   them in line with the rest of the site, where teal (#22d3a8) is the
+   primary brand accent. Exception: the Blackbook section keeps its gold
+   accent because that color is tied to the book image itself. */
+.trader-payouts__head .h2 .accent { color: #22d3a8 !important; }
+/* === ACCENT COLOR CONSISTENCY OVERRIDES END === */
