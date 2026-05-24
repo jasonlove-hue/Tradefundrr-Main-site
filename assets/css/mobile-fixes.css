@@ -782,3 +782,169 @@
   .blackbook__feature-icon { margin-bottom: 0; flex-shrink: 0; }
 }
 /* === BLACKBOOK CSS END === */
+
+/* === FOUNDERS CSS START === */
+/* Single-founder leadership section. Centered header + side-by-side portrait/bio.
+   Sits between the institutional (T3) section and the real-support section.
+   Uses .accent for teal highlight (already defined in main.css). */
+.founders {
+  position: relative;
+  padding: 110px 0;
+  background: #060914;
+  overflow: hidden;
+}
+.founders::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 30% 40%, rgba(34, 211, 168, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 55% at 75% 70%, rgba(34, 211, 168, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.founders .container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.founders__header { text-align: center; margin: 0 auto 64px; max-width: 780px; }
+.founders__eyebrow {
+  display: inline-block;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.founders__title {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.founders__title .accent { color: #22d3a8; }
+.founders__lead {
+  color: hsla(0, 0%, 100%, 0.72);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+}
+.founders__body {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.founders__portrait-wrap { position: relative; }
+.founders__portrait-wrap::before {
+  /* Offset teal frame behind the portrait, lower-right shifted. */
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1px solid rgba(34, 211, 168, 0.35);
+  border-radius: 18px;
+  pointer-events: none;
+}
+.founders__portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+.founders__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.founders__portrait-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(11, 19, 32, 0.85);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid hsla(0, 0%, 100%, 0.12);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.founders__bio { padding: 4px 0; }
+.founders__name {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.12;
+  letter-spacing: -0.8px;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.founders__bio-text {
+  color: hsla(0, 0%, 100%, 0.78);
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin: 0 0 28px;
+  max-width: 580px;
+}
+.founders__creds {
+  list-style: none;
+  margin: 0;
+  padding: 22px 0 0;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.08);
+  display: grid;
+  gap: 12px;
+}
+.founders__creds li {
+  color: hsla(0, 0%, 100%, 0.7);
+  font-size: 14.5px;
+  line-height: 1.5;
+  padding-left: 22px;
+  position: relative;
+}
+.founders__creds li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  background: #22d3a8;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(34, 211, 168, 0.5);
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .founders__title { font-size: 38px; }
+  .founders__body { grid-template-columns: 360px 1fr; gap: 40px; }
+  .founders__name { font-size: 30px; }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  .founders { padding: 70px 0; }
+  .founders .container { padding: 0 20px; }
+  .founders__header { margin-bottom: 44px; }
+  .founders__title { font-size: 30px; letter-spacing: -0.8px; }
+  .founders__lead { font-size: 15.5px; }
+  .founders__body { grid-template-columns: 1fr; gap: 36px; }
+  .founders__portrait-wrap { max-width: 320px; margin: 0 auto; }
+  .founders__portrait-wrap::before { inset: 12px -12px -12px 12px; }
+  .founders__name { font-size: 26px; }
+  .founders__bio-text { font-size: 15.5px; }
+}
+/* === FOUNDERS CSS END === */
