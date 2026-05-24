@@ -2107,11 +2107,13 @@
    and remove the .real-support background override above. */
 
 /* Kill the stock background image on .real-support set by main.css line 3014.
-   Use #051B26 — a dark teal-tinted shade that subtly carries the brand
-   accent into the section background without breaking the dark palette. */
+   Background mirrors the founder-quote-card treatment: a subtle teal-tinted
+   gradient over the dark page so the section reads as part of the same
+   visual family as Christian's quote card. */
 .real-support {
-  background: #051B26 !important;
-  background-image: none !important;
+  background: linear-gradient(180deg, rgba(34, 211, 168, 0.06) 0%, rgba(34, 211, 168, 0.01) 100%), #060914 !important;
+  background-image: linear-gradient(180deg, rgba(34, 211, 168, 0.06) 0%, rgba(34, 211, 168, 0.01) 100%) !important;
+  background-color: #060914 !important;
   border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
   border-bottom: 2px solid hsla(0, 0%, 100%, 0.08) !important;
   position: relative;
@@ -2162,14 +2164,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* Framed portrait treatment — matches Christian's founder-quote-card portrait:
+   rounded corners, subtle border, dark gradient backdrop, drop shadow.
+   Replaces the radial-mask faded-edge approach with a clean framed photo. */
 .support-portrait__inner {
   position: relative;
   aspect-ratio: 820 / 657;
-  background: none;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  overflow: visible;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 .support-portrait__inner img {
   width: 100% !important;
@@ -2179,12 +2184,10 @@
   object-position: center 30%;
   display: block;
   border-radius: 0;
-  /* Aggressive radial mask so all four edges of the photo blur softly into
-     the section background. Solid only in the central 30% of the ellipse,
-     then fades through 65% to transparent at 95%. Creates the soft-edge
-     blended look. */
-  -webkit-mask-image: radial-gradient(ellipse 72% 68% at center 42%, #000 30%, rgba(0,0,0,0.7) 60%, transparent 95%);
-  mask-image: radial-gradient(ellipse 72% 68% at center 42%, #000 30%, rgba(0,0,0,0.7) 60%, transparent 95%);
+  /* Mask removed — the framed portrait treatment above (rounded corners +
+     dark gradient backdrop + border) is now the edge treatment. */
+  -webkit-mask-image: none;
+  mask-image: none;
 }
 /* Caption overlay in the bottom-RIGHT of the photo (was bottom-left). Sits
    over Dawson's jacket area rather than his face/shoulder for a cleaner
