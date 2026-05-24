@@ -2102,14 +2102,14 @@
   text-align: center;
 }
 .founder-quote-card__portrait {
-  width: 112px;
-  height: 112px;
-  margin: 0 auto 22px;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(34, 211, 168, 0.4);
+  border: 2px solid rgba(34, 211, 168, 0.42);
   background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
-  box-shadow: 0 0 0 6px hsla(0, 0%, 100%, 0.02), 0 12px 32px -10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 8px hsla(0, 0%, 100%, 0.02), 0 18px 44px -12px rgba(0, 0, 0, 0.65);
 }
 .founder-quote-card__portrait img {
   width: 100%;
@@ -2173,7 +2173,7 @@
 }
 @media (max-width: 900px) {
   .founder-quote-card__inner { max-width: 100%; padding: 32px 26px 26px; margin-top: 24px; }
-  .founder-quote-card__portrait { width: 92px; height: 92px; margin-bottom: 18px; }
+  .founder-quote-card__portrait { width: 124px; height: 124px; margin-bottom: 20px; }
   .founder-quote-card__quote p { font-size: 17px; }
   .founder-quote-card__mark { font-size: 64px; top: -22px; }
 }
