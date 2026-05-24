@@ -2107,14 +2107,13 @@
    and remove the .real-support background override above. */
 
 /* Kill the stock background image on .real-support set by main.css line 3014.
-   Replace with a distinctly different navy shade so the section visibly
-   stands apart from the neighboring founders (above) and journey (below)
-   sections. */
+   Use the same flat dark navy as the testimonials section (#060914) for
+   visual consistency across "dark content" sections. */
 .real-support {
-  background: #0d1733 !important;
+  background: #060914 !important;
   background-image: none !important;
-  border-top: 1px solid hsla(0, 0%, 100%, 0.1) !important;
-  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1) !important;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
+  border-bottom: 2px solid hsla(0, 0%, 100%, 0.08) !important;
   position: relative;
   padding-block: 100px !important;
 }
@@ -2187,13 +2186,13 @@
   -webkit-mask-image: radial-gradient(ellipse 72% 68% at center 42%, #000 30%, rgba(0,0,0,0.7) 60%, transparent 95%);
   mask-image: radial-gradient(ellipse 72% 68% at center 42%, #000 30%, rgba(0,0,0,0.7) 60%, transparent 95%);
 }
-/* Caption is now an OVERLAY badge in the bottom-left of the photo, matching
-   the founders-portrait "CO-FOUNDER · TRADEFUNDRR" badge treatment. Always
-   visible regardless of section height. */
+/* Caption overlay in the bottom-RIGHT of the photo (was bottom-left). Sits
+   over Dawson's jacket area rather than his face/shoulder for a cleaner
+   composition that doesn't break the portrait. */
 .support-portrait__badge {
   position: absolute;
   bottom: 14%;
-  left: 8%;
+  right: 8%;
   z-index: 2;
   padding: 12px 18px;
   background: rgba(11, 19, 32, 0.88);
