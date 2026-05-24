@@ -1006,3 +1006,172 @@
   color: #22d3a8 !important;
 }
 /* === ACCENT COLOR CONSISTENCY OVERRIDES END === */
+
+/* === JOURNEY / TIMELINE SECTION === */
+/* Data-rich timeline of the funded-trader trajectory. Sits between the Human
+   Support section and the Mid-page CTA, serving as the "specific timeline"
+   reassurance right before the pricing block. */
+.journey {
+  position: relative;
+  padding: 110px 0;
+  background: #060914;
+  overflow: hidden;
+}
+.journey::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(34, 211, 168, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 85% 70%, rgba(34, 211, 168, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.journey .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+.journey__header {
+  text-align: center;
+  margin: 0 auto 70px;
+  max-width: 800px;
+}
+.journey__eyebrow {
+  display: inline-block;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.journey__title {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  color: #fff;
+  margin: 0 0 18px;
+}
+.journey__title .accent { color: #22d3a8; }
+.journey__lead {
+  color: hsla(0, 0%, 100%, 0.72);
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+}
+.journey__rail {
+  position: relative;
+  height: 56px;
+  margin: 0 32px 24px;
+}
+.journey__rail-line {
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    hsla(0, 0%, 100%, 0.08) 0%,
+    rgba(34, 211, 168, 0.4) 25%,
+    rgba(34, 211, 168, 0.4) 75%,
+    hsla(0, 0%, 100%, 0.08) 100%);
+  transform: translateY(-1px);
+}
+.journey__rail-marker {
+  position: absolute;
+  top: 50%; transform: translate(-50%, -50%);
+  width: 12px; height: 12px;
+  background: #060914;
+  border: 2px solid #22d3a8;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(34, 211, 168, 0.5);
+}
+.journey__rail-label {
+  position: absolute;
+  top: calc(50% - 30px);
+  transform: translateX(-50%);
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.journey__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.journey-card {
+  position: relative;
+  padding: 28px 24px 26px;
+  background: hsla(0, 0%, 100%, 0.03);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 18px;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+.journey-card:hover {
+  border-color: rgba(34, 211, 168, 0.3);
+  background: hsla(0, 0%, 100%, 0.05);
+  transform: translateY(-2px);
+}
+.journey-card__month {
+  display: inline-block;
+  color: hsla(0, 0%, 100%, 0.55);
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.journey-card__title {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.4px;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.journey-card__stat {
+  display: block;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  line-height: 1.35;
+  padding: 10px 12px;
+  background: rgba(34, 211, 168, 0.08);
+  border-left: 2px solid #22d3a8;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 16px;
+}
+.journey-card__detail {
+  color: hsla(0, 0%, 100%, 0.7);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+}
+/* Tablet */
+@media (max-width: 1024px) {
+  .journey__title { font-size: 38px; }
+  .journey__grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .journey__rail { display: none; }
+}
+/* Mobile */
+@media (max-width: 640px) {
+  .journey { padding: 70px 0; }
+  .journey .container { padding: 0 20px; }
+  .journey__title { font-size: 30px; letter-spacing: -0.8px; }
+  .journey__lead { font-size: 15.5px; }
+  .journey__grid { grid-template-columns: 1fr; gap: 14px; }
+  .journey-card { padding: 24px 20px; }
+  .journey-card__title { font-size: 20px; }
+}
+/* === JOURNEY / TIMELINE SECTION END === */
+

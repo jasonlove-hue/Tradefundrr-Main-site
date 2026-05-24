@@ -24,7 +24,7 @@
 
 
 
-<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605241545" id="mobile-fixes-css">
+<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605241627" id="mobile-fixes-css">
 
 <style id="payout-cards-style">
 /* No static background image, only the falling cards animation should be visible. */
@@ -438,7 +438,7 @@
             <span class="thumb"><img src="assets/images/dropdown-3.webp?v=202605240300" alt="dropdown" width="120" height="105" decoding="async"></span>
             <span class="body">
               <span class="row"><span class="title">futures</span><span class="arrow-right"><img src="assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
-              <span class="desc">Trade futures with up to $200K in simulated funding capital</span>
+              <span class="desc">Trade futures with up to $100K in simulated funding capital</span>
             </span>
           </a>
           <!-- PRO_SUB_FUTURES_START -->
@@ -452,7 +452,7 @@
             <span class="thumb"><img src="assets/images/dropdown-4.webp?v=202605240300" alt="dropdown" width="120" height="105" decoding="async"></span>
             <span class="body">
               <span class="row"><span class="title">crypto</span><span class="arrow-right"><img src="assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
-              <span class="desc">Trade crypto with up to $200K in simulated funding capital, competitive splits</span>
+              <span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span>
             </span>
           </a>
 
@@ -1108,6 +1108,21 @@
   .hiw-callout__title { font-family: "Inter", "Inter Fallback", sans-serif; font-size: 13px; font-weight: 700; color: #fff; margin: 0 0 4px; line-height: 1.2; letter-spacing: -0.2px; }
   .hiw-callout.is-active .hiw-callout__title { color: #22d3a8; }
   .hiw-callout__desc { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4; margin: 0; }
+  .hiw-callout__stat {
+    display: inline-block;
+    font-family: "Geist Mono", "Geist Mono Fallback", monospace;
+    font-size: 9.5px;
+    font-weight: 500;
+    color: #22d3a8;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: rgba(34, 211, 168, 0.12);
+    border: 1px solid rgba(34, 211, 168, 0.3);
+    border-radius: 4px;
+    margin: 5px 0 7px;
+    line-height: 1.3;
+  }
 
   .hiw-content { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 26px 32px; max-width: 880px; margin: 0 auto 32px; min-height: 130px; }
   .hiw-cta-wrap { width: 100% !important; text-align: center !important; display: block !important; clear: both; padding: 140px 0 40px 0 !important; margin: 0 auto !important; position: relative !important; z-index: 5; }
@@ -1154,8 +1169,8 @@
     <div class="hiw-cycler">
       <div class="hiw-head">
         <p class="hiw-eyebrow">How It Works</p>
-        <h2 class="hiw-title"><span class="accent">With TradeFundrr</span> Getting Funded Is Easier Than You Think</h2>
-        <p class="hiw-kicker">Four clear steps from program selection to live capital. Each one defined, transparent, and earned by performance.</p>
+        <h2 class="hiw-title">From Eval to <span class="accent">T3 Desk.</span></h2>
+        <p class="hiw-kicker">Four steps. Real timelines. Most traders don&rsquo;t reach the final stage.</p>
       </div>
 
       <div class="hiw-rail">
@@ -1184,19 +1199,23 @@
 
         <div class="hiw-callout" data-callout="0" style="left: 8.3%; bottom: 22%;">
           <p class="hiw-callout__title">Choose Your Program</p>
+          <span class="hiw-callout__stat">$25K to $100K accounts</span>
           <p class="hiw-callout__desc">Pick your asset class and account size based on your trading style.</p>
         </div>
         <div class="hiw-callout" data-callout="1" style="left: 36.7%; bottom: 49%;">
-          <p class="hiw-callout__title">Trade in Your Evaluation</p>
-          <p class="hiw-callout__desc">Execute trades in a simulated environment with clear rules and no moving goalposts.</p>
+          <p class="hiw-callout__title">Trade Your Evaluation</p>
+          <span class="hiw-callout__stat">5 trading days to eligible</span>
+          <p class="hiw-callout__desc">Trade in sim with transparent rules. No moving goalposts.</p>
         </div>
         <div class="hiw-callout" data-callout="2" style="left: 61.7%; bottom: 76%;">
           <p class="hiw-callout__title">Prove Consistency. Earn Payouts.</p>
-          <p class="hiw-callout__desc">Pass the eval and start earning weekly payouts on your simulated profits.</p>
+          <span class="hiw-callout__stat">Every Friday, from sim</span>
+          <p class="hiw-callout__desc">Hit qualifying trades and earn payouts every Friday.</p>
         </div>
         <div class="hiw-callout" data-callout="3" style="left: 91.7%; bottom: 95%;">
-          <p class="hiw-callout__title">Move to a Live Funded Account</p>
-          <p class="hiw-callout__desc">Top performers graduate to real money through T3 Global. Earned by performance.</p>
+          <p class="hiw-callout__title">Live Capital. Then The Desk.</p>
+          <span class="hiw-callout__stat">1&ndash;2 months &middot; selective</span>
+          <p class="hiw-callout__desc">Consistent profitability unlocks live capital. The very best audition for T3 Global&rsquo;s institutional desks.</p>
         </div>
 
         <div class="hiw-step is-active" data-step="0" style="left: 8.3%; top: 90%;"><div class="hiw-circle">1</div><div class="hiw-step-label">STEP 01</div></div>
@@ -1518,6 +1537,75 @@
     </div>
   </div>
 </section>
+
+<!-- JOURNEY_SECTION_START -->
+<section class="journey">
+  <div class="container">
+
+    <div class="journey__header">
+      <span class="journey__eyebrow">Real Timelines</span>
+      <h2 class="journey__title">
+        The Path. <span class="accent">In Real Days.</span>
+      </h2>
+      <p class="journey__lead">
+        Specific days. Specific milestones. No &ldquo;soon&rdquo; or &ldquo;eventually.&rdquo;
+      </p>
+    </div>
+
+    <div class="journey__rail" aria-hidden="true">
+      <div class="journey__rail-line"></div>
+      <div class="journey__rail-marker" style="left: 12.5%;"></div>
+      <div class="journey__rail-label" style="left: 12.5%;">Week 1</div>
+      <div class="journey__rail-marker" style="left: 37.5%;"></div>
+      <div class="journey__rail-label" style="left: 37.5%;">Weekly</div>
+      <div class="journey__rail-marker" style="left: 62.5%;"></div>
+      <div class="journey__rail-label" style="left: 62.5%;">Months 1&ndash;2</div>
+      <div class="journey__rail-marker" style="left: 87.5%;"></div>
+      <div class="journey__rail-label" style="left: 87.5%;">Earned</div>
+    </div>
+
+    <div class="journey__grid">
+
+      <article class="journey-card">
+        <span class="journey-card__month">Week 1</span>
+        <h3 class="journey-card__title">Pass the Eval. Get Funded.</h3>
+        <span class="journey-card__stat">5 trading days minimum &middot; Mon start, Fri eligible</span>
+        <p class="journey-card__detail">
+          Buy the eval, trade with transparent rules. Start Monday, hit a qualifying trade, you&rsquo;re payout-eligible by Friday. Five trading days is the floor, your consistency sets the ceiling.
+        </p>
+      </article>
+
+      <article class="journey-card">
+        <span class="journey-card__month">Weekly</span>
+        <h3 class="journey-card__title">Earn Weekly Payouts.</h3>
+        <span class="journey-card__stat">Every Friday &middot; from sim profits</span>
+        <p class="journey-card__detail">
+          Once eligible, payouts run weekly on Fridays. Paid out from your simulated profits. No 30-day waiting periods, no batch processing.
+        </p>
+      </article>
+
+      <article class="journey-card">
+        <span class="journey-card__month">Months 1&ndash;2</span>
+        <h3 class="journey-card__title">Graduate to Live Capital.</h3>
+        <span class="journey-card__stat">1&ndash;2 months &middot; manual review &middot; selective</span>
+        <p class="journey-card__detail">
+          Consistent profitable trading unlocks T3 Global live capital. Manual review by our team: Sharpe ratio plus sustained performance. Most traders don&rsquo;t qualify. Discipline is the gate.
+        </p>
+      </article>
+
+      <article class="journey-card">
+        <span class="journey-card__month">Earned</span>
+        <h3 class="journey-card__title">Audition for the T3 Desk.</h3>
+        <span class="journey-card__stat">Codified path &middot; sustained profitability</span>
+        <p class="journey-card__detail">
+          A real, codified pathway: top performers audition for a seat on T3 Global&rsquo;s institutional trading desks. Earned by sustained profitable trading. No other funded-trader program offers this.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- JOURNEY_SECTION_END -->
 
 <section class="cta-block middle rays" style="background:url('assets/images/back-rays.webp')">
   <div class="container">
