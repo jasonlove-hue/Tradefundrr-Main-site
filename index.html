@@ -5,10 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TradeFundrr, Funded Trading Accounts, Real Institutional Capital</title>
   <meta name="description" content="Institutional-grade trading technology from $25K to $1M+, partnered with T3 Global. Weekly payouts. Real rules. Real humans.">
-  <link rel="icon" type="image/png" href="assets/images/tf-icon-light.png?v=202605241702" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" href="assets/images/tf-icon-dark.png?v=202605241702">
-  <link rel="shortcut icon" type="image/png" href="assets/images/tf-icon-dark.png?v=202605241702">
-  <link rel="apple-touch-icon" href="assets/images/tf-icon-dark.png?v=202605241702">
+  <link rel="icon" type="image/png" id="favicon-icon" href="assets/images/tf-icon-dark.png?v=202605241710">
+  <link rel="shortcut icon" type="image/png" id="favicon-shortcut" href="assets/images/tf-icon-dark.png?v=202605241710">
+  <link rel="apple-touch-icon" href="assets/images/tf-icon-dark.png?v=202605241710">
+  <script>
+    /* Favicon color-scheme swap. Chrome/Edge ignore the media attribute on
+       link[rel=icon], so detect the scheme in JS and rewrite the href.
+       Listens for OS-level theme changes too, so the favicon updates live. */
+    (function () {
+      function setFavicon() {
+        var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var path = 'assets/images/' + (isDark ? 'tf-icon-light' : 'tf-icon-dark') + '.png?v=202605241710';
+        var icon = document.getElementById('favicon-icon');
+        var shortcut = document.getElementById('favicon-shortcut');
+        if (icon) icon.href = path;
+        if (shortcut) shortcut.href = path;
+      }
+      setFavicon();
+      if (window.matchMedia) {
+        try {
+          window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
+        } catch (e) { /* older browsers — addEventListener may not exist on MQL */ }
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <link rel="stylesheet" href="assets/css/main.css?v=202605230840">
@@ -1158,8 +1178,8 @@
     <div class="hiw-cycler">
       <div class="hiw-head">
         <p class="hiw-eyebrow">How It Works</p>
-        <h2 class="hiw-title">From Eval to <span class="accent">T3 Desk.</span></h2>
-        <p class="hiw-kicker">Four steps. Earned by performance. Only the most disciplined reach the final stage.</p>
+        <h2 class="hiw-title">From Eval to <span class="accent">Funded Trader.</span></h2>
+        <p class="hiw-kicker">Four steps. Earned by performance. Disciplined traders only.</p>
       </div>
 
       <div class="hiw-rail">
@@ -1199,7 +1219,7 @@
           <p class="hiw-callout__desc">Hit qualifying trades and earn payouts every Friday.</p>
         </div>
         <div class="hiw-callout" data-callout="3" style="left: 91.7%; bottom: 95%;">
-          <p class="hiw-callout__title">Live Capital. Then The Desk.</p>
+          <p class="hiw-callout__title">Earn Live Capital.</p>
           <p class="hiw-callout__desc">Consistent profitability unlocks live capital. The very best audition for T3 Global&rsquo;s institutional desks.</p>
         </div>
 
