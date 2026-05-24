@@ -2130,17 +2130,18 @@
   pointer-events: none;
 }
 
-/* Dawson is absolute-positioned to match the ORIGINAL stock-photo placement:
-   top-left of the .real-support section, sized to the original 820x657
-   footprint via the same aspect ratio. This replicates the original
-   background-image behavior (background-position: top left, contain). */
+/* Dawson is absolute-positioned WITHIN the grid inner (not the section), so
+   his left edge anchors to the container's left edge rather than the viewport
+   edge. This brings him off the left side of the page and naturally closer
+   to the text column on the right. */
 .real-support { position: relative; }
+.real-support__inner { position: relative; }
 .support-portrait {
   display: block !important;
   position: absolute;
-  top: 80px;                 /* lift the photo up off the bottom divider */
-  left: 0;
-  width: min(720px, 46%);    /* slightly smaller than 820 to leave breathing room */
+  top: -20px;                /* slight upward bias so photo sits centered vertically vs the text */
+  left: 0;                   /* container left edge, NOT viewport edge */
+  width: min(720px, 56%);    /* fits within col 1 + part of the gap */
   max-width: 720px;
   margin: 0;
   z-index: 1;
