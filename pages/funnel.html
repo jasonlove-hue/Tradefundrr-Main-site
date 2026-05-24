@@ -3,30 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" id="favicon-icon" href="../assets/images/tf-icon-dark.png?v=202605241710">
-  <link rel="shortcut icon" type="image/png" id="favicon-shortcut" href="../assets/images/tf-icon-dark.png?v=202605241710">
-  <link rel="apple-touch-icon" href="../assets/images/tf-icon-dark.png?v=202605241710">
-  <script>
-    /* Favicon color-scheme swap. Chrome/Edge ignore the media attribute on
-       link[rel=icon], so detect the scheme in JS and rewrite the href.
-       Listens for OS-level theme changes too, so the favicon updates live. */
-    (function () {
-      function setFavicon() {
-        var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var path = '../assets/images/' + (isDark ? 'tf-icon-light' : 'tf-icon-dark') + '.png?v=202605241710';
-        var icon = document.getElementById('favicon-icon');
-        var shortcut = document.getElementById('favicon-shortcut');
-        if (icon) icon.href = path;
-        if (shortcut) shortcut.href = path;
-      }
-      setFavicon();
-      if (window.matchMedia) {
-        try {
-          window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
-        } catch (e) { /* older browsers */ }
-      }
-    })();
-  </script>
+  <link rel="icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="shortcut icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="../assets/images/tf-icon-dark.png?v=202605241720">
   <title>Get Funded, TradeFundrr</title>
   <meta name="description" content="Real funded trading accounts. Backed by T3 Global. Weekly payouts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
