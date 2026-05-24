@@ -2097,6 +2097,73 @@
 }
 /* === FEATURED REVIEWS END === */
 
+/* === SUPPORT DAWSON START === */
+/* Replaces the stock support photo with a real team member portrait
+   (Dawson, Trader Support). Matches the founders-portrait visual treatment:
+   4:5 rectangle, teal frame offset, rounded corners + a name caption below.
+   To remove: delete this block and revert the HTML between SUPPORT_DAWSON_START
+   and SUPPORT_DAWSON_END in index.html to the original human-support.webp img. */
+.support-portrait {
+  display: block !important;  /* override main.css's .small-support-media { display: none } in mobile contexts */
+  position: relative;
+  max-width: 420px;
+}
+.support-portrait__inner {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+.support-portrait__inner::before {
+  /* Offset teal frame behind the portrait, mirrors the founders treatment */
+  content: "";
+  position: absolute;
+  inset: 18px 18px -18px -18px;
+  border: 1px solid rgba(34, 211, 168, 0.35);
+  border-radius: 18px;
+  pointer-events: none;
+  z-index: -1;
+}
+.support-portrait__inner img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 0;
+}
+.support-portrait__attrib {
+  margin: 28px 0 0 0;
+  padding-top: 18px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  text-align: left;
+  max-width: 420px;
+}
+.support-portrait__attrib strong {
+  display: block;
+  color: #fff;
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+  margin-bottom: 4px;
+}
+.support-portrait__role {
+  color: hsla(0, 0%, 100%, 0.55);
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+@media (max-width: 900px) {
+  .support-portrait { max-width: 320px; margin: 0 auto; }
+  .support-portrait__attrib { max-width: 320px; text-align: center; }
+}
+/* === SUPPORT DAWSON END === */
 /* === TWO-PATHS TITLE TWO-LINE LOCK === */
 /* Force the two-paths headline to render as exactly 2 lines:
    Line 1: "Most prop firms run sim only and call it live."
