@@ -2131,8 +2131,10 @@
   display: block !important;
   position: relative;
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 560px;
+  /* Left-aligned in the column (matches the original stock photo placement
+     which was a left-anchored background image filling the column). */
+  margin: 0;
   box-sizing: border-box;
 }
 .support-portrait__inner {
@@ -2165,6 +2167,7 @@
   border-top: none;
   text-align: center;
   width: 100%;
+  max-width: 560px;
 }
 .support-portrait__attrib strong {
   display: block;
@@ -2193,8 +2196,15 @@
   letter-spacing: 1.6px;
   margin-top: 2px;
 }
+/* Vertically center the right-column text so it aligns with the middle of
+   Dawson's taller portrait. Without this, the headline sits at the top of
+   the row while Dawson's photo extends well below it (visual imbalance). */
+.real-support__inner {
+  align-items: center !important;
+}
 @media (max-width: 900px) {
-  .support-portrait { max-width: 320px; }
+  .support-portrait { max-width: 320px; margin: 0 auto; }
+  .support-portrait__attrib { max-width: 320px; }
 }
 /* === SUPPORT DAWSON END === */
 /* === TWO-PATHS TITLE TWO-LINE LOCK === */
