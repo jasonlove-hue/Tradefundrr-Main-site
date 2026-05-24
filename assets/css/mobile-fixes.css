@@ -1615,5 +1615,13 @@
 }
 /* === NUMBERS SECTION LEAD END === */
 
+/* === NUMBERS SECTION CARDS OPACITY === */
+/* Slightly reduce the falling payout-card animation opacity so the headline
+   text overlays cleanly. Cards still provide social-proof texture but no
+   longer compete visually with the four stacked phrases. */
+.payout-cards-layer .payout-card { opacity: 0.55 !important; }
+/* === NUMBERS SECTION CARDS OPACITY END === */
+
+
 
 
