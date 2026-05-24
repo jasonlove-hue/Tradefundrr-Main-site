@@ -950,3 +950,20 @@
   .founders__bio-text { font-size: 15.5px; }
 }
 /* === FOUNDERS CSS END === */
+
+/* === T3 PARTNERSHIP SECTION OVERRIDES === */
+/* main.css line 1267 sets .institutional__title .accent to yellow (#fc0).
+   The rest of the site uses teal as the primary accent — bring this section
+   in line with the brand color for visual consistency. */
+.institutional__title .accent { color: #22d3a8 !important; }
+
+/* T3 Global logo is in brand maroon/purple. On the dark card background it
+   washes out. Inverting to pure white renders it as a high-contrast monochrome
+   mark that matches the dark theme. Trade-off: loses the T3 brand color; gains
+   legibility. If T3 has a dark-mode logo we can swap to, drop this filter. */
+.institutional__card > span img[src*="t3_global_logo"] {
+  filter: brightness(0) invert(1);
+  max-width: 220px;
+  height: auto;
+}
+/* === T3 PARTNERSHIP SECTION OVERRIDES END === */
