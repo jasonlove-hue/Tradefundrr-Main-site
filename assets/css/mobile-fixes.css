@@ -957,13 +957,20 @@
    in line with the brand color for visual consistency. */
 .institutional__title .accent { color: #22d3a8 !important; }
 
-/* T3 Global logo is in brand maroon/purple. On the dark card background it
-   washes out. Inverting to pure white renders it as a high-contrast monochrome
-   mark that matches the dark theme. Trade-off: loses the T3 brand color; gains
-   legibility. If T3 has a dark-mode logo we can swap to, drop this filter. */
+/* T3 Global logo container + image: expand the span to fill the card width so
+   the logo reads as the primary visual statement at the top of the card.
+   The inverted (brightness(0) invert(1)) filter renders the brand maroon as
+   pure white for legibility on the dark card. */
+.institutional__card > span {
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 22px !important;
+}
 .institutional__card > span img[src*="t3_global_logo"] {
   filter: brightness(0) invert(1);
-  max-width: 220px;
+  width: 100%;
+  max-width: none;
   height: auto;
+  display: block;
 }
 /* === T3 PARTNERSHIP SECTION OVERRIDES END === */
