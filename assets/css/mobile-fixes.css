@@ -2107,10 +2107,10 @@
    and remove the .real-support background override above. */
 
 /* Kill the stock background image on .real-support set by main.css line 3014.
-   Use the same flat dark navy as the testimonials section (#060914) for
-   visual consistency across "dark content" sections. */
+   Use #051B26 — a dark teal-tinted shade that subtly carries the brand
+   accent into the section background without breaking the dark palette. */
 .real-support {
-  background: #060914 !important;
+  background: #051B26 !important;
   background-image: none !important;
   border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
   border-bottom: 2px solid hsla(0, 0%, 100%, 0.08) !important;
