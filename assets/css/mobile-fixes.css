@@ -1447,4 +1447,25 @@
 }
 /* === PRICING STACK CARDS END === */
 
+/* === NUMBERS SECTION LEAD: LOGO + "is also" === */
+/* Inline logo replaces the "TradeFundrr" word in the lead-in above the
+   stacked phrases. Gives the section header brand weight instead of text. */
+.numbers__lead {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+}
+.numbers__logo {
+  height: 32px;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .numbers__logo { height: 26px; }
+}
+/* === NUMBERS SECTION LEAD END === */
+
+
 
