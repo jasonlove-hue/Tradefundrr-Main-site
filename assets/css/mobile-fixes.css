@@ -976,9 +976,33 @@
 /* === T3 PARTNERSHIP SECTION OVERRIDES END === */
 
 /* === ACCENT COLOR CONSISTENCY OVERRIDES === */
-/* main.css uses yellow (#ffcc00 / #fc0) on a handful of H2 accents — bring
-   them in line with the rest of the site, where teal (#22d3a8) is the
-   primary brand accent. Exception: the Blackbook section keeps its gold
-   accent because that color is tied to the book image itself. */
-.trader-payouts__head .h2 .accent { color: #22d3a8 !important; }
+/* main.css applies yellow (#fc0 / #ffcc00) to many section-specific H2 .accent
+   spans. Standardize on teal (#22d3a8) sitewide for visual consistency.
+   The Blackbook section keeps its gold accent because that color is tied
+   directly to the book image and has an in-section visual justification. */
+.h1 .accent,
+.markets__title .accent,
+.how-it-works__title .accent,
+.payouts__title .accent,
+.real-support__head .accent,
+.cta-block__title .accent,
+.plans__title .accent,
+.trader-payouts__head .h2 .accent,
+.help-choose__title .accent,
+.value-asym__title .accent,
+.story__title .accent,
+.rules .h2 .accent,
+.programs-section .h2 .accent,
+.platforms .h2 .accent,
+.comparison .accent,
+.why__us .h2 .accent,
+.article .container .desc > .h2 .accent,
+.platforms__articles .plans__title .accent,
+.verified__viewers .h2 .accent,
+.payout__proof .h2 span.accent,
+.plan__box .h2 .accent,
+.value .h2 .accent,
+.help__me--choose h2.h2 span.accent {
+  color: #22d3a8 !important;
+}
 /* === ACCENT COLOR CONSISTENCY OVERRIDES END === */
