@@ -2107,15 +2107,15 @@
    and remove the .real-support background override above. */
 
 /* Kill the stock background image on .real-support set by main.css line 3014.
-   Background mirrors the founder-quote-card treatment: a subtle teal-tinted
-   gradient over the dark page so the section reads as part of the same
-   visual family as Christian's quote card. */
+   Strong flat teal-dark background — visibly tinted so the section reads as
+   a distinct teal zone (like the founder-card area but at full-section scale,
+   which requires more saturation than a small card's border-emphasized tint). */
 .real-support {
-  background: linear-gradient(180deg, rgba(34, 211, 168, 0.06) 0%, rgba(34, 211, 168, 0.01) 100%), #060914 !important;
-  background-image: linear-gradient(180deg, rgba(34, 211, 168, 0.06) 0%, rgba(34, 211, 168, 0.01) 100%) !important;
-  background-color: #060914 !important;
-  border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
-  border-bottom: 2px solid hsla(0, 0%, 100%, 0.08) !important;
+  background: #0a1f28 !important;
+  background-image: linear-gradient(180deg, rgba(34, 211, 168, 0.12) 0%, transparent 100%) !important;
+  background-color: #0a1f28 !important;
+  border-top: 1px solid rgba(34, 211, 168, 0.18) !important;
+  border-bottom: 1px solid rgba(34, 211, 168, 0.18) !important;
   position: relative;
   padding-block: 100px !important;
 }
