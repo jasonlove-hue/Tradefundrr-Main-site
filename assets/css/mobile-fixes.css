@@ -1379,9 +1379,9 @@
 .tier--tooling .tier__label { color: hsla(0, 0%, 100%, 0.6); }
 .stack-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
 .stack-list li {
-  display: grid; grid-template-columns: 16px 1fr auto; gap: 10px;
+  display: grid; grid-template-columns: 16px 1fr; gap: 10px;
   align-items: baseline;
-  color: hsla(0, 0%, 100%, 0.85); font-size: 13.5px; line-height: 1.4;
+  color: hsla(0, 0%, 100%, 0.85); font-size: 14px; line-height: 1.4;
 }
 .stack-list li::before {
   content: ""; width: 14px; height: 14px; margin-top: 4px;
@@ -1395,35 +1395,32 @@
   background-size: 6px 6px;
   background-repeat: no-repeat;
 }
-.stack-list li .v {
-  color: #22d3a8;
-  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
-  font-size: 11.5px; font-weight: 500; letter-spacing: 0.4px;
-  white-space: nowrap;
-}
-.stack-list li .v--intangible { color: hsla(0, 0%, 100%, 0.4); font-style: italic; }
 .stack-list li strong { color: #fff; font-weight: 600; }
-.stack-card__totals {
-  margin: auto 0 18px; padding: 14px 0 14px;
-  border-top: 1px dashed hsla(0, 0%, 100%, 0.12);
-  border-bottom: 1px dashed hsla(0, 0%, 100%, 0.12);
+
+/* Single value anchor at the bottom of each card. Replaces the old per-line
+   dollar values + .stack-card__totals approach (which created confusion).
+   Now: one clear comparison sentence about what the visitor would need to
+   put up themselves, framed as capital they don't have to commit. */
+.stack-card__anchor {
+  margin: auto 0 18px;
+  padding: 16px 18px;
+  background: rgba(34, 211, 168, 0.08);
+  border: 1px solid rgba(34, 211, 168, 0.3);
+  border-radius: 12px;
+  text-align: center;
 }
-.stack-card__total-row {
-  display: flex; justify-content: space-between; align-items: baseline;
-  font-size: 13px; color: hsla(0, 0%, 100%, 0.7); margin-bottom: 5px;
+.stack-card__anchor-compare {
+  color: hsla(0, 0%, 100%, 0.78);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
 }
-.stack-card__total-row:last-child { margin-bottom: 0; }
-.stack-card__total-row .v-anchor {
+.stack-card__anchor-compare strong {
   color: #22d3a8;
-  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
-  font-weight: 700; font-size: 14px;
+  font-weight: 600;
 }
-.stack-card__total-row .v-intangible {
-  color: hsla(0, 0%, 100%, 0.7);
-  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
-  font-size: 12px; font-style: italic;
-}
-.stack-card__price-block { margin-bottom: 20px; }
+
+.stack-card__price-block { margin-bottom: 20px; text-align: center; }
 .stack-card__price-label {
   color: hsla(0, 0%, 100%, 0.55);
   font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
@@ -1432,11 +1429,19 @@
 }
 .stack-card__price {
   font-family: 'Inter', 'Inter Fallback', sans-serif;
-  font-weight: 700; font-size: 38px;
-  color: #fff; line-height: 1; letter-spacing: -1px;
+  font-weight: 700; font-size: 44px;
+  color: #fff; line-height: 1; letter-spacing: -1.2px;
   margin-bottom: 6px;
 }
 .stack-card__price-sub { color: hsla(0, 0%, 100%, 0.55); font-size: 12.5px; }
+.stack-card__price-included {
+  display: inline-block;
+  margin-top: 8px;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11px;
+  letter-spacing: 1px; text-transform: uppercase; font-weight: 500;
+}
 .stack-card__cta {
   display: flex !important; align-items: center; justify-content: center; gap: 8px;
   width: 100%;
