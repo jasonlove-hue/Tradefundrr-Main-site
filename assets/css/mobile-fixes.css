@@ -1615,6 +1615,26 @@
 }
 /* === NUMBERS SECTION LEAD END === */
 
+/* === NUMBERS STACK FULL OPACITY === */
+/* Override the cascading opacity fade on the four stacked phrases (main.css
+   1523-1540 fades them from 100% → 70% → 40% → 20%). All four lines now
+   render at full white + full teal accent so the messaging reads with
+   consistent visual weight, not as decoration. */
+.numbers__stack p,
+.numbers__stack p:nth-child(2),
+.numbers__stack p:nth-child(3),
+.numbers__stack p:nth-child(4) {
+  color: #fff !important;
+}
+.numbers__stack p .num,
+.numbers__stack p:nth-child(2) .num,
+.numbers__stack p:nth-child(3) .num,
+.numbers__stack p:nth-child(4) .num {
+  color: #22d3a8 !important;
+}
+/* === NUMBERS STACK FULL OPACITY END === */
+
+
 
 
 
