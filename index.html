@@ -1091,7 +1091,7 @@
   .hiw-circle { width: 56px; height: 56px; border-radius: 50%; background: #0b1320; border: 2px solid rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-family: "Inter", "Inter Fallback", sans-serif; font-weight: 500; font-size: 18px; color: rgba(255,255,255,0.5); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
   .hiw-circle::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; background: rgba(34,211,168,0.25); opacity: 0; z-index: -1; filter: blur(8px); }
   .hiw-step.is-active .hiw-circle { background: #0b1320; border-color: #22d3a8; color: #22d3a8; transform: scale(1.15); box-shadow: 0 0 24px rgba(34,211,168,0.5); }
-  .hiw-step.is-active .hiw-circle::after { opacity: 1; animation: hiw-pulse 1.8s ease-in-out infinite; }
+  .hiw-step.is-active .hiw-circle::after { opacity: 1; animation: hiw-pulse 1.2s ease-out 1 both; }
   .hiw-step.is-done .hiw-circle { background: #22d3a8; border-color: #22d3a8; color: #06181a; }
   .hiw-step-label { font-family: "Geist Mono", "Geist Mono Fallback", monospace; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1.2px; margin-top: 10px; transition: color 0.4s; white-space: nowrap; background: #060914; padding: 3px 8px; border-radius: 4px; position: relative; z-index: 3; }
   .hiw-step.is-active .hiw-step-label { color: #22d3a8; }
@@ -1227,7 +1227,7 @@
 
     let active = 0;
     let paused = false;
-    const cycleMs = 4500;
+    const cycleMs = 2750;
     let progress = 0;
     let last = performance.now();
 
@@ -1300,21 +1300,12 @@
         el.classList.toggle('is-active', i === idx);
       });
       const fillRatio = idx / (steps.length - 1);
-      if (isLoopReset) {
-        pathEl.style.opacity = '0';
-        if (areaEl) areaEl.style.opacity = '0';
-        setTimeout(() => {
-          pathEl.style.strokeDashoffset = totalLength;
-          if (clipRect) clipRect.setAttribute('width', '0');
-          setTimeout(() => {
-            pathEl.style.opacity = '1';
-            if (areaEl) areaEl.style.opacity = '1';
-          }, 50);
-        }, 380);
-      } else {
-        pathEl.style.strokeDashoffset = totalLength * (1 - fillRatio);
-        if (clipRect) clipRect.setAttribute('width', String(50 + (550 - 50) * fillRatio));
-      }
+      // For all transitions (including the loop reset from step 4 → step 1) let the
+      // existing 0.7s CSS transition on stroke-dashoffset + the 0.7s transition on
+      // clipRect width animate the line back. The previous fade-out/snap workaround
+      // hid the retract — we want it visible.
+      pathEl.style.strokeDashoffset = totalLength * (1 - fillRatio);
+      if (clipRect) clipRect.setAttribute('width', String(50 + (550 - 50) * fillRatio));
       if (idx === steps.length - 1 && window.innerWidth > 900) {
         setTimeout(fireConfetti, 400);
       }
