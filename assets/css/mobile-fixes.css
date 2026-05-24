@@ -2107,13 +2107,16 @@
    and remove the .real-support background override above. */
 
 /* Kill the stock background image on .real-support set by main.css line 3014.
-   Also add a visible top divider so the human-support section feels distinct
-   from the founders section above it (no more bleeding into each other). */
+   Replace with a subtle gradient that differentiates this section from the
+   neighbors (founders above, journey below) without breaking the brand palette.
+   Add visible top divider so the section feels distinct. */
 .real-support {
-  background: none !important;
-  background-image: none !important;
+  background: linear-gradient(180deg, #07091a 0%, #0a0e22 50%, #07091a 100%) !important;
+  background-image: none, linear-gradient(180deg, #07091a 0%, #0a0e22 50%, #07091a 100%) !important;
   border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
   position: relative;
+  padding-block: 120px !important;
+  min-height: 760px;
 }
 .real-support::before {
   content: "";
@@ -2135,17 +2138,17 @@
 .support-portrait {
   display: block !important;
   position: absolute;
-  top: 100px;                /* matches section padding-block: 100px */
+  top: 80px;                 /* lift the photo up off the bottom divider */
   left: 0;
-  width: min(820px, 50%);
-  max-width: 820px;
+  width: min(720px, 46%);    /* slightly smaller than 820 to leave breathing room */
+  max-width: 720px;
   margin: 0;
   z-index: 1;
   box-sizing: border-box;
 }
 .support-portrait__inner {
   position: relative;
-  aspect-ratio: 820 / 657;   /* matches the original stock photo dimensions */
+  aspect-ratio: 820 / 657;   /* matches the original stock photo proportions */
   background: none;
   border: none;
   box-shadow: none;
@@ -2163,16 +2166,55 @@
   height: 100% !important;
   max-width: none !important;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
   display: block;
   border-radius: 0;
-  /* Soft radial mask so all four edges of the photo fade into the page
-     background instead of having a hard rectangular border. Center of mask
-     biased slightly upward so the face stays fully visible while the
-     chest/shoulders blend down into the dark. */
-  -webkit-mask-image: radial-gradient(ellipse 80% 75% at center 38%, #000 45%, rgba(0,0,0,0.85) 65%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 75% at center 38%, #000 45%, rgba(0,0,0,0.85) 65%, transparent 100%);
+  /* Aggressive radial mask so all four edges of the photo blur softly into
+     the section background. Solid only in the central 30% of the ellipse,
+     then fades through 65% to transparent at 95%. Creates the soft-edge
+     blended look. */
+  -webkit-mask-image: radial-gradient(ellipse 72% 68% at center 42%, #000 30%, rgba(0,0,0,0.7) 60%, transparent 95%);
+  mask-image: radial-gradient(ellipse 72% 68% at center 42%, #000 30%, rgba(0,0,0,0.7) 60%, transparent 95%);
 }
+/* Caption is now an OVERLAY badge in the bottom-left of the photo, matching
+   the founders-portrait "CO-FOUNDER · TRADEFUNDRR" badge treatment. Always
+   visible regardless of section height. */
+.support-portrait__badge {
+  position: absolute;
+  bottom: 14%;
+  left: 8%;
+  z-index: 2;
+  padding: 12px 18px;
+  background: rgba(11, 19, 32, 0.88);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 211, 168, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.5);
+}
+.support-portrait__badge strong {
+  display: block;
+  color: #fff;
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+.support-portrait__badge-role {
+  display: block;
+  color: #22d3a8;
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 10.5px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Legacy attribution rules (kept for backwards compatibility if the old
+   markup is ever swapped back in). */
 .support-portrait__attrib {
   margin: 18px 0 0 0;
   padding-top: 0;
