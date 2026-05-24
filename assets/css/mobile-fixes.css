@@ -2037,3 +2037,21 @@
   .featured-review__body { font-size: 13.5px; }
 }
 /* === FEATURED REVIEWS END === */
+
+/* === TWO-PATHS TITLE TWO-LINE LOCK === */
+/* Force the two-paths headline to render as exactly 2 lines:
+   Line 1: "Most prop firms run sim only and call it live."
+   Line 2 (teal): "We split it honestly."
+   Default behavior wrapped the first sentence into 2 lines on most desktop
+   widths because the headline font is large. Solution: keep the first sentence
+   on one line via nowrap on desktop, and slightly scale the font size down at
+   wider breakpoints so it actually fits.
+   To remove: delete this block. The headline will revert to wrapping naturally. */
+.two-paths__title-first {
+  display: inline-block;
+}
+@media (min-width: 769px) {
+  .two-paths__title { font-size: clamp(36px, 4.2vw, 50px) !important; line-height: 1.12 !important; letter-spacing: -0.6px !important; }
+  .two-paths__title-first { white-space: nowrap; }
+}
+/* === TWO-PATHS TITLE TWO-LINE LOCK END === */
