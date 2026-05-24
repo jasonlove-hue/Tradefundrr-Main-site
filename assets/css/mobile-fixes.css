@@ -2106,17 +2106,34 @@
    and SUPPORT_DAWSON_END in index.html to the original human-support.webp img,
    and remove the .real-support background override above. */
 
-/* Kill the stock background image on .real-support set by main.css line 3014 */
+/* Kill the stock background image on .real-support set by main.css line 3014.
+   Also add a visible top divider so the human-support section feels distinct
+   from the founders section above it (no more bleeding into each other). */
 .real-support {
   background: none !important;
   background-image: none !important;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
+  position: relative;
+}
+.real-support::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 60%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(34, 211, 168, 0.5) 50%, transparent 100%);
+  pointer-events: none;
 }
 
 .support-portrait {
   display: block !important;
   position: relative;
+  width: 100%;
   max-width: 420px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 .support-portrait__inner {
   position: relative;
@@ -2147,6 +2164,7 @@
   padding-top: 0;
   border-top: none;
   text-align: center;
+  width: 100%;
 }
 .support-portrait__attrib strong {
   display: block;
@@ -2155,14 +2173,25 @@
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.2px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  white-space: nowrap;
 }
-.support-portrait__role {
+.support-portrait__role,
+.support-portrait__org {
+  display: block;
   color: hsla(0, 0%, 100%, 0.55);
   font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
-  font-size: 11.5px;
-  letter-spacing: 1.5px;
+  font-size: 11px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.support-portrait__org {
+  color: hsla(0, 0%, 100%, 0.35);
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  margin-top: 2px;
 }
 @media (max-width: 900px) {
   .support-portrait { max-width: 320px; }
