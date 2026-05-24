@@ -2125,12 +2125,20 @@
   max-width: 1380px !important;
 }
 /* Reset the grid for this section so column 1 (Dawson) is sized explicitly
-   to ~720px, column 2 (text) takes the rest. */
+   to ~720px, column 2 (text) takes the rest.
+   IMPORTANT: main.css line 7115 sets max-width: 480px and margin-left: auto
+   on .real-support__inner — those have to be overridden or the grid gets
+   squeezed to 480px wide and column 1 collapses to 0. */
 .real-support__inner {
   position: relative;
+  display: grid !important;
   grid-template-columns: minmax(0, 720px) 1fr !important;
   gap: 60px !important;
   align-items: center !important;
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 .real-support::before {
   content: "";
