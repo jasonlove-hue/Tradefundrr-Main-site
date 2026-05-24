@@ -2063,18 +2063,18 @@
    HTML between NUMBERS_BRAND_MARK_START and NUMBERS_BRAND_MARK_END. */
 .numbers__brand-mark {
   text-align: center;
-  margin: 0 auto 28px auto;
+  margin: 0 auto 32px auto;
   line-height: 0;
 }
 .numbers__brand-mark img {
-  width: 72px;
+  width: 240px;
   height: auto;
   display: inline-block;
   opacity: 0.95;
-  filter: drop-shadow(0 4px 18px rgba(34, 211, 168, 0.35));
+  filter: drop-shadow(0 4px 22px rgba(34, 211, 168, 0.28));
 }
 @media (max-width: 768px) {
-  .numbers__brand-mark img { width: 52px; }
-  .numbers__brand-mark { margin-bottom: 20px; }
+  .numbers__brand-mark img { width: 180px; }
+  .numbers__brand-mark { margin-bottom: 22px; }
 }
 /* === NUMBERS BRAND MARK END === */
