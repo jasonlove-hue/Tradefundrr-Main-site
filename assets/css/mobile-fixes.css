@@ -1248,7 +1248,7 @@
   color: hsla(0, 0%, 100%, 0.72); font-size: 17px; line-height: 1.55; margin: 0;
 }
 .avatar-segments {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
   margin-bottom: 40px;
 }
 .avatar-segment {
@@ -1295,13 +1295,18 @@
   color: hsla(0, 0%, 100%, 0.88); font-size: 16.5px; line-height: 1.55; margin: 0;
 }
 .avatar__closer strong { color: #22d3a8; font-weight: 600; }
+@media (max-width: 1199px) {
+  .avatar-segments { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
 @media (max-width: 900px) {
   .avatar { padding: 70px 0; }
   .avatar .container { padding: 0 20px; }
   .avatar__title { font-size: 32px; letter-spacing: -0.8px; }
   .avatar__lead { font-size: 15.5px; }
-  .avatar-segments { grid-template-columns: 1fr; gap: 14px; }
   .avatar-segment { padding: 24px 22px; }
+}
+@media (max-width: 600px) {
+  .avatar-segments { grid-template-columns: 1fr; gap: 14px; }
 }
 /* === AVATAR SECTION END === */
 
