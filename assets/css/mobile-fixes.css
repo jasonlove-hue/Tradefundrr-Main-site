@@ -2107,16 +2107,30 @@
    and remove the .real-support background override above. */
 
 /* Kill the stock background image on .real-support set by main.css line 3014.
-   Replace with a subtle gradient that differentiates this section from the
-   neighbors (founders above, journey below) without breaking the brand palette.
-   Add visible top divider so the section feels distinct. */
+   Replace with a distinctly different navy shade so the section visibly
+   stands apart from the neighboring founders (above) and journey (below)
+   sections. */
 .real-support {
-  background: linear-gradient(180deg, #07091a 0%, #0a0e22 50%, #07091a 100%) !important;
-  background-image: none, linear-gradient(180deg, #07091a 0%, #0a0e22 50%, #07091a 100%) !important;
-  border-top: 1px solid hsla(0, 0%, 100%, 0.08) !important;
+  background: #0d1733 !important;
+  background-image: none !important;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1) !important;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1) !important;
   position: relative;
-  padding-block: 120px !important;
-  min-height: 760px;
+  padding-block: 100px !important;
+}
+/* Widen the container for this section specifically so Dawson + text both
+   fit at their desired sizes (Dawson 720 + gap 60 + text 600 = 1380). */
+.real-support > .container {
+  width: min(100% - 60px, 1380px) !important;
+  max-width: 1380px !important;
+}
+/* Reset the grid for this section so column 1 (Dawson) is sized explicitly
+   to ~720px, column 2 (text) takes the rest. */
+.real-support__inner {
+  position: relative;
+  grid-template-columns: minmax(0, 720px) 1fr !important;
+  gap: 60px !important;
+  align-items: center !important;
 }
 .real-support::before {
   content: "";
@@ -2130,37 +2144,25 @@
   pointer-events: none;
 }
 
-/* Dawson is absolute-positioned WITHIN the grid inner (not the section), so
-   his left edge anchors to the container's left edge rather than the viewport
-   edge. This brings him off the left side of the page and naturally closer
-   to the text column on the right. */
-.real-support { position: relative; }
-.real-support__inner { position: relative; }
+/* Dawson is now a regular grid item filling column 1 (which is fixed at
+   ~720px above). NO absolute positioning — that was breaking the grid
+   layout. Photo sits in column 1, text in column 2, 60px gap between. */
 .support-portrait {
   display: block !important;
-  position: absolute;
-  top: -20px;                /* slight upward bias so photo sits centered vertically vs the text */
-  left: 0;                   /* container left edge, NOT viewport edge */
-  width: min(720px, 56%);    /* fits within col 1 + part of the gap */
+  position: relative;
+  width: 100%;
   max-width: 720px;
   margin: 0;
-  z-index: 1;
   box-sizing: border-box;
 }
 .support-portrait__inner {
   position: relative;
-  aspect-ratio: 820 / 657;   /* matches the original stock photo proportions */
+  aspect-ratio: 820 / 657;
   background: none;
   border: none;
   box-shadow: none;
   border-radius: 0;
   overflow: visible;
-}
-/* Text column sits above Dawson where they overlap (the photo's faded right
-   edge naturally extends past where the text begins). */
-.real-support__inner > *:not(.support-portrait) {
-  position: relative;
-  z-index: 2;
 }
 .support-portrait__inner img {
   width: 100% !important;
@@ -2251,16 +2253,16 @@
   letter-spacing: 1.6px;
   margin-top: 2px;
 }
-/* On mobile (< 900px), revert Dawson to normal flow above the text (instead
-   of absolute positioning, which would overlap badly on narrow screens). */
+/* Mobile (< 900px): stack vertically with Dawson centered above the text */
 @media (max-width: 900px) {
-  .support-portrait {
-    position: static;
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto 24px;
+  .real-support__inner {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
-  .real-support__inner > *:not(.support-portrait) { z-index: auto; }
+  .support-portrait {
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }
 /* === SUPPORT DAWSON END === */
 /* === TWO-PATHS TITLE TWO-LINE LOCK === */
