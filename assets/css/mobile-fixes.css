@@ -2169,8 +2169,90 @@
   pointer-events: none;
 }
 
-/* Dawson sits in column 1, scaled to match Christian's founder-portrait size
-   (~360px wide). Centered within the column so it doesn't hang off the left. */
+/* === SUPPORT QUOTE CARD (Dawson) === */
+/* Mirrors the .founder-quote-card structure used for Christian — teal-bordered
+   outer frame + framed portrait + quote + attribution. Sits in column 1 of
+   .real-support__inner (left side of section). */
+.support-quote-card {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.support-quote-card__inner {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  padding: 40px 36px 32px;
+  background: linear-gradient(180deg, rgba(34, 211, 168, 0.05), rgba(34, 211, 168, 0.01));
+  border: 1px solid rgba(34, 211, 168, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.55), 0 0 0 1px hsla(0, 0%, 100%, 0.02);
+  text-align: center;
+}
+.support-quote-card__portrait {
+  width: 220px;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto 24px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
+  box-shadow: 0 18px 44px -16px rgba(0, 0, 0, 0.5);
+}
+.support-quote-card__portrait img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 0;
+}
+.support-quote-card__quote {
+  position: relative;
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+}
+.support-quote-card__quote p {
+  margin: 0;
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-size: 19px;
+  line-height: 1.45;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+.support-quote-card__quote p strong {
+  color: #22d3a8;
+  font-weight: 600;
+}
+.support-quote-card__attrib {
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.support-quote-card__name {
+  color: #fff;
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+.support-quote-card__role {
+  color: hsla(0, 0%, 100%, 0.55);
+  font-family: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+/* === SUPPORT QUOTE CARD END === */
+
+/* Legacy .support-portrait styles kept for backwards compatibility, but the
+   new HTML uses .support-quote-card instead. */
 .support-portrait {
   display: block !important;
   position: relative;
