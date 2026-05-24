@@ -1591,6 +1591,14 @@
   .guarantee__sub { font-size: 14.5px; }
   .guarantee__points { gap: 16px; }
 }
+.guarantee__footnote {
+  color: hsla(0, 0%, 100%, 0.45);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 14px auto 0;
+  max-width: 720px;
+  text-align: center;
+}
 /* === GUARANTEE END === */
 
 
