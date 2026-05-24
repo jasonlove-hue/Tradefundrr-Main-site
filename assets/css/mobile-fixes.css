@@ -2108,18 +2108,21 @@
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid rgba(34, 211, 168, 0.42);
-  /* Solid backdrop that doesn't read as a void where the PNG goes transparent
-     at the bottom edge. Slight teal tint blends with the surrounding card. */
   background: #0a1a26;
   box-shadow: 0 18px 44px -16px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 .founder-quote-card__portrait img {
-  width: 130%;
-  height: 130%;
-  object-fit: cover;
-  object-position: center 22%;
+  /* The PNG has transparent padding around Christian. Use absolute positioning
+     + transform scale to zoom in past 100% so his head and shoulders fill the
+     circle, with empty padding pushed outside the visible circle. */
+  position: absolute;
+  width: 145%;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
   display: block;
-  margin: -15% 0 0 -15%;
 }
 .founder-quote-card__quote {
   position: relative;
