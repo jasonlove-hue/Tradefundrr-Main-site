@@ -1711,16 +1711,16 @@
    in index.html (or simply leave them; the strong text just falls back to bold). */
 .faq__means {
   display: block;
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px dashed rgba(34, 211, 168, 0.28);
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: rgba(34, 211, 168, 0.08);
+  border-left: 3px solid #22d3a8;
+  border-radius: 0 8px 8px 0;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
-  line-height: 1.5;
-}
-.faq__means::before {
-  content: "";
+  line-height: 1.55;
+  letter-spacing: 0.1px;
 }
 /* === FAQ WHICH-MEANS END === */
 
