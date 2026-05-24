@@ -837,16 +837,18 @@
 }
 .founders__body {
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: 1fr 420px;
   gap: 56px;
   align-items: center;
 }
-.founders__portrait-wrap { position: relative; }
+.founders__portrait-wrap { position: relative; order: 2; }
 .founders__portrait-wrap::before {
-  /* Offset teal frame behind the portrait, lower-right shifted. */
+  /* Offset teal frame behind the portrait, lower-LEFT shifted (mirrors original
+     direction now that the portrait sits on the right side of the page; the
+     frame extends INTO the page content rather than off the viewport edge). */
   content: "";
   position: absolute;
-  inset: 18px -18px -18px 18px;
+  inset: 18px 18px -18px -18px;
   border: 1px solid rgba(34, 211, 168, 0.35);
   border-radius: 18px;
   pointer-events: none;
@@ -885,7 +887,7 @@
   text-transform: uppercase;
   font-weight: 500;
 }
-.founders__bio { padding: 4px 0; }
+.founders__bio { padding: 4px 0; order: 1; }
 .founders__name {
   font-family: 'Inter', 'Inter Fallback', sans-serif;
   font-weight: 700;
@@ -931,7 +933,7 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .founders__title { font-size: 38px; }
-  .founders__body { grid-template-columns: 360px 1fr; gap: 40px; }
+  .founders__body { grid-template-columns: 1fr 360px; gap: 40px; }
   .founders__name { font-size: 30px; }
 }
 /* Mobile */
@@ -942,7 +944,7 @@
   .founders__title { font-size: 30px; letter-spacing: -0.8px; }
   .founders__lead { font-size: 15.5px; }
   .founders__body { grid-template-columns: 1fr; gap: 36px; }
-  .founders__portrait-wrap { max-width: 320px; margin: 0 auto; }
+  .founders__portrait-wrap { max-width: 320px; margin: 0 auto; order: 1; }
   .founders__portrait-wrap::before { inset: 12px -12px -12px 12px; }
   .founders__name { font-size: 26px; }
   .founders__bio-text { font-size: 15.5px; }
