@@ -1615,16 +1615,6 @@
 }
 /* === NUMBERS SECTION LEAD END === */
 
-/* === NUMBERS SECTION CARDS OPACITY === */
-/* Darken the falling payout-card animation so it doesn't compete with the
-   headline text, while keeping the cards structurally visible (Jason
-   explicitly didn't want them minimized further). Combined opacity +
-   brightness filter makes the cards present-but-quiet. */
-.payout-cards-layer .payout-card {
-  opacity: 0.55 !important;
-  filter: brightness(0.5) !important;
-}
-/* === NUMBERS SECTION CARDS OPACITY END === */
 
 
 
