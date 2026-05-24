@@ -1196,11 +1196,14 @@
 /* === AVATAR SECTION === */
 /* Three-segment avatar section: sits between the credibility ticker and the
    Two Paths section. Names the three best-fit traders (stocks/options/futures)
-   so the visitor sees themselves before they have to pick a path. */
+   so the visitor sees themselves before they have to pick a path.
+   Background is slightly lifted from #060914 to create visual separation from
+   the surrounding sections; ::after draws a soft teal hairline at the bottom
+   edge as an explicit section divider. */
 .avatar {
   position: relative;
   padding: 100px 0;
-  background: #060914;
+  background: #0a101e;
   overflow: hidden;
 }
 .avatar::before {
@@ -1209,6 +1212,14 @@
   background:
     radial-gradient(ellipse 55% 60% at 70% 40%, rgba(34, 211, 168, 0.07) 0%, transparent 60%),
     radial-gradient(ellipse 40% 60% at 25% 65%, rgba(34, 211, 168, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(34, 211, 168, 0.35) 50%, transparent 100%);
   pointer-events: none;
 }
 .avatar .container {
