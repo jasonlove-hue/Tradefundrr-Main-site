@@ -1647,3 +1647,56 @@
 
 
 
+
+/* === PATH CONTRAST ROWS START === */
+/* THEM/US contrast block added inside both Two-Paths cards. Pairs the headline
+   promise ("most prop firms run sim only and call it live, we split it honestly")
+   with a visible side-by-side. The strikethrough on the "them" row is the
+   visual that earns the headline.
+   To remove: delete this block and the PATH_CONTRAST_01/02 markers in index.html. */
+.path-card__contrast {
+  margin-top: 22px;
+  border-top: 1px solid hsla(0,0%,100%,0.08);
+  padding-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+.contrast-row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 12px;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.contrast-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 3px 6px;
+  border-radius: 3px;
+  text-align: center;
+  align-self: start;
+}
+.contrast-row--them .contrast-label {
+  background: hsla(0,0%,100%,0.06);
+  color: hsla(0,0%,100%,0.5);
+}
+.contrast-row--us .contrast-label {
+  background: rgba(34,211,168,0.18);
+  color: #22d3a8;
+}
+.contrast-row--them .contrast-text {
+  color: hsla(0,0%,100%,0.55);
+  text-decoration: line-through;
+  text-decoration-color: hsla(0,0%,100%,0.25);
+}
+.contrast-row--us .contrast-text {
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .contrast-row { grid-template-columns: 48px 1fr; gap: 10px; font-size: 13px; }
+  .contrast-label { font-size: 10px; padding: 2px 5px; }
+}
+/* === PATH CONTRAST ROWS END === */
