@@ -1377,7 +1377,33 @@
   margin-bottom: 10px;
 }
 .tier--tooling .tier__label { color: hsla(0, 0%, 100%, 0.6); }
-.stack-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+/* Hero claim block: single centered line of the most important fact about
+   this plan. Sits between the title block and the feature list. Replaces
+   the older 3-tier structure that was too visually busy. */
+.stack-card__hero {
+  text-align: center;
+  padding: 18px 14px;
+  margin: 0 0 22px;
+  border-top: 1px solid hsla(0,0%,100%,0.08);
+  border-bottom: 1px solid hsla(0,0%,100%,0.08);
+}
+.stack-card__claim {
+  font-size: 15px;
+  font-weight: 500;
+  color: hsla(0,0%,100%,0.85);
+  line-height: 1.4;
+  margin: 0;
+}
+.stack-card__claim strong {
+  color: #22d3a8;
+  font-weight: 700;
+  display: block;
+  font-size: 17.5px;
+  letter-spacing: -0.2px;
+  margin-bottom: 4px;
+}
+
+.stack-list { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 9px; }
 .stack-list li {
   display: grid; grid-template-columns: 16px 1fr; gap: 10px;
   align-items: baseline;
