@@ -1088,6 +1088,13 @@
   border: 2px solid #22d3a8;
   border-radius: 50%;
   box-shadow: 0 0 12px rgba(34, 211, 168, 0.5);
+  transition: width .3s ease, height .3s ease, box-shadow .3s ease, background .3s ease;
+}
+.journey__rail-marker.is-active {
+  width: 18px;
+  height: 18px;
+  background: #22d3a8;
+  box-shadow: 0 0 22px rgba(34, 211, 168, 0.85);
 }
 .journey__rail-label {
   position: absolute;
@@ -1111,12 +1118,23 @@
   background: hsla(0, 0%, 100%, 0.03);
   border: 1px solid hsla(0, 0%, 100%, 0.08);
   border-radius: 18px;
-  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+  transition: border-color .4s ease, background .4s ease, transform .4s ease, box-shadow .4s ease;
 }
 .journey-card:hover {
   border-color: rgba(34, 211, 168, 0.3);
   background: hsla(0, 0%, 100%, 0.05);
   transform: translateY(-2px);
+}
+/* Active state set by JS as the cycle advances. Stronger than hover so the
+   currently-spotlighted card reads clearly. */
+.journey-card.is-active {
+  border-color: rgba(34, 211, 168, 0.55);
+  background: hsla(0, 0%, 100%, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 0 32px rgba(34, 211, 168, 0.22);
+}
+.journey-card.is-active .journey-card__month {
+  color: #22d3a8;
 }
 .journey-card__month {
   display: inline-block;

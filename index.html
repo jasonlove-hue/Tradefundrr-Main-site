@@ -24,7 +24,7 @@
 
 
 
-<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605241627" id="mobile-fixes-css">
+<link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605241631" id="mobile-fixes-css">
 
 <style id="payout-cards-style">
 /* No static background image, only the falling cards animation should be visible. */
@@ -1571,7 +1571,7 @@
         <h3 class="journey-card__title">Pass the Eval. Get Funded.</h3>
         <span class="journey-card__stat">5 trading days minimum &middot; Mon start, Fri eligible</span>
         <p class="journey-card__detail">
-          Buy the eval, trade with transparent rules. Start Monday, hit a qualifying trade, you&rsquo;re payout-eligible by Friday. Five trading days is the floor, your consistency sets the ceiling.
+          Buy the eval, trade with transparent rules. Start Monday, complete qualifying trades across five trading days, and you&rsquo;re payout-eligible by Friday. Five days is the floor, your consistency sets the ceiling.
         </p>
       </article>
 
@@ -1605,6 +1605,40 @@
     </div>
   </div>
 </section>
+<script>
+/* Journey section: cycle active state across the 4 cards + rail markers.
+   Pauses on hover so visitors can read a specific card. Matches HIW's 2.75s
+   per-step cadence for visual rhythm consistency. */
+(function () {
+  function init() {
+    var cards = document.querySelectorAll('.journey-card');
+    var markers = document.querySelectorAll('.journey__rail-marker');
+    var section = document.querySelector('.journey');
+    if (!cards.length || !section) return;
+    var active = 0;
+    var paused = false;
+    var cycleMs = 2750;
+    function activate(idx) {
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].classList.toggle('is-active', i === idx);
+      }
+      for (var j = 0; j < markers.length; j++) {
+        markers[j].classList.toggle('is-active', j === idx);
+      }
+    }
+    section.addEventListener('mouseenter', function () { paused = true; });
+    section.addEventListener('mouseleave', function () { paused = false; });
+    activate(0);
+    setInterval(function () {
+      if (paused) return;
+      active = (active + 1) % cards.length;
+      activate(active);
+    }, cycleMs);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 <!-- JOURNEY_SECTION_END -->
 
 <section class="cta-block middle rays" style="background:url('assets/images/back-rays.webp')">
