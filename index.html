@@ -1875,7 +1875,7 @@
     var paused = false;
     var started = false;
     var intervalId = null;
-    var cycleMs = 900;
+    var cycleMs = 1500;
     function activate(idx) {
       for (var i = 0; i < cards.length; i++) {
         cards[i].classList.toggle('is-active', i === idx);
@@ -1894,14 +1894,16 @@
       started = true;
       active = 0;
       activate(0);
-      /* CRITICAL: schedule the regular cycle UNCONDITIONALLY. tick() itself
-         checks `paused` and exits early on hover, so the interval is safe
-         to leave running. */
+      /* Schedule the regular cycle UNCONDITIONALLY. tick() checks `paused`
+         and exits early on hover, so the interval is safe to leave running.
+         Cadence: card 1 stays lit for cycleMs (1500ms), then each subsequent
+         card holds for cycleMs. Consistent rhythm, no jarring fast-then-slow. */
       intervalId = setInterval(tick, cycleMs);
-      /* Kick the second card immediately on viewport entry so the user sees
-         motion within ~250ms instead of having to wait a full cycleMs. */
-      setTimeout(function () { if (!paused) tick(); }, 250);
     }
+    /* Safety: if IntersectionObserver hasn't fired within 3 seconds of init
+       (rare, but possible if the section is already in view and IO has a
+       browser quirk), kick the animation off manually. */
+    setTimeout(function () { start(); }, 3000);
     section.addEventListener('mouseenter', function () { paused = true; });
     section.addEventListener('mouseleave', function () { paused = false; });
     /* Pre-set card 1 as active so it doesn't pop in. */
@@ -2284,7 +2286,7 @@
      Without jQuery, main.js throws "$ is not defined" on line 1 and ALL nav interactions break. -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 <script src="js/slick.min.js" defer></script>
-<script src="js/main.js?v=202605260301" defer></script>
+<script src="js/main.js?v=202605260501" defer></script>
 
 <section class="get-started cta-block">
   <div class="container">
