@@ -683,10 +683,17 @@
     .stx-empathy__col p { color: var(--white-72); font-size: 16px; line-height: 1.65; margin: 0 0 14px; }
     .stx-empathy__col p:last-child { margin-bottom: 0; }
     .stx-empathy__col p strong { color: #fff; font-weight: 600; }
-    @media (max-width: 768px) {
-      .stx-empathy { padding: 70px 0; }
-      .stx-empathy__grid { grid-template-columns: 1fr; gap: 40px; }
-      .stx-empathy__col h3 { font-size: 24px; }
+    @media (max-width: 991px) {
+      .stx-empathy { padding: 80px 0; }
+      .stx-empathy__grid { grid-template-columns: 1fr; gap: 44px; padding: 0 24px; }
+      .stx-empathy__col h3 { font-size: 26px; }
+    }
+    @media (max-width: 480px) {
+      .stx-empathy { padding: 60px 0; }
+      .stx-empathy__grid { gap: 36px; padding: 0 18px; }
+      .stx-empathy__col h3 { font-size: 22px; letter-spacing: -0.4px; line-height: 1.2; }
+      .stx-empathy__col p { font-size: 15px; line-height: 1.6; }
+      .stx-empathy__col .stx-eyebrow { font-size: 10.5px; letter-spacing: 1.4px; }
     }
 
     /* ============================================
@@ -714,10 +721,17 @@
     .stx-didyou__copy { color: #fff; font-size: 19px; line-height: 1.55; margin: 0; font-weight: 500; letter-spacing: -0.2px; }
     .stx-didyou__copy strong { color: var(--teal); }
     .stx-didyou__copy .closer { display: block; margin-top: 14px; color: var(--white-72); font-size: 15px; font-style: italic; font-weight: 400; }
-    @media (max-width: 768px) {
-      .stx-didyou { padding: 40px 16px 70px; }
-      .stx-didyou__box { padding: 28px 24px; }
-      .stx-didyou__copy { font-size: 16px; }
+    @media (max-width: 991px) {
+      .stx-didyou { padding: 50px 20px 80px; }
+      .stx-didyou__box { padding: 30px 26px; }
+      .stx-didyou__copy { font-size: 17px; }
+    }
+    @media (max-width: 480px) {
+      .stx-didyou { padding: 36px 14px 60px; }
+      .stx-didyou__box { padding: 24px 20px; border-radius: 12px; }
+      .stx-didyou__copy { font-size: 15.5px; line-height: 1.5; }
+      .stx-didyou__copy .closer { font-size: 13.5px; margin-top: 12px; }
+      .stx-didyou__label { font-size: 10.5px; letter-spacing: 1.4px; }
     }
 
     /* ============================================
@@ -749,8 +763,23 @@
     .stx-morethan__closer { text-align: center; font-size: 24px; font-weight: 700; letter-spacing: -0.6px; color: #fff; margin: 0; }
     .stx-morethan__closer .accent { color: var(--teal); }
     @media (max-width: 991px) {
-      .stx-morethan__grid { grid-template-columns: 1fr; }
-      .stx-morethan__head h2 { font-size: 30px; }
+      .stx-morethan { padding: 80px 0; }
+      .stx-morethan__head { padding: 0 24px; margin-bottom: 38px; }
+      .stx-morethan__head h2 { font-size: 30px; letter-spacing: -0.8px; }
+      .stx-morethan__grid { grid-template-columns: 1fr; gap: 16px; padding: 0 18px; margin-bottom: 30px; }
+      .stx-morethan-card { padding: 26px 22px; }
+      .stx-morethan-card__lead { font-size: 19px; }
+      .stx-morethan__closer { font-size: 20px; padding: 0 24px; }
+    }
+    @media (max-width: 480px) {
+      .stx-morethan { padding: 60px 0; }
+      .stx-morethan__head h2 { font-size: 26px; letter-spacing: -0.5px; line-height: 1.15; }
+      .stx-morethan__grid { padding: 0 14px; gap: 14px; }
+      .stx-morethan-card { padding: 22px 18px; border-radius: 12px; }
+      .stx-morethan-card__lead { font-size: 18px; letter-spacing: -0.4px; }
+      .stx-morethan-card__desc { font-size: 14px; }
+      .stx-morethan__closer { font-size: 18px; }
+      .stx-morethan__head .stx-eyebrow { font-size: 10.5px; letter-spacing: 1.4px; }
     }
 
   </style>
