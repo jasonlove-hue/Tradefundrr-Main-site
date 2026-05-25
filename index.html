@@ -1853,13 +1853,16 @@
       started = true;
       active = 0;
       activate(0);
-      /* Fast first transition (500ms) so motion is obvious immediately when
-         the user lands on the section. After that, settle into cycleMs. */
+      /* CRITICAL: schedule the regular cycle UNCONDITIONALLY. tick() itself
+         checks `paused` and exits early on hover, so the interval is safe
+         to leave running. The previous version bailed out of this entire
+         block if `paused` was true at the 500ms mark, killing the animation
+         forever if the user happened to be hovering the section. */
+      intervalId = setInterval(tick, cycleMs);
+      /* Fast first transition (500ms) so motion is obvious immediately. */
       setTimeout(function () {
         if (paused) return;
-        active = 1;
-        activate(active);
-        intervalId = setInterval(tick, cycleMs);
+        tick();
       }, 500);
     }
     section.addEventListener('mouseenter', function () { paused = true; });
