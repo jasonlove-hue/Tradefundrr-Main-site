@@ -12,7 +12,13 @@
   <link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605252700" id="mobile-fixes-css">
   <link rel="stylesheet" href="assets/css/pro-funding.css?v=202605231200">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-400.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-500.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-600.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/geist-mono-400.woff2">
+  <!-- Preconnect to HubSpot so the form (lazy-loaded below) has warm DNS/TLS when it loads -->
+  <link rel="preconnect" href="https://js.hsforms.net" crossorigin>
+  <link rel="preconnect" href="https://forms.hsforms.com" crossorigin>
   <style id="tf-fonts">
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/inter-400.woff2) format('woff2'); }
     @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/inter-500.woff2) format('woff2'); }
@@ -617,13 +623,48 @@
     <h2>Could an additional $5,000,000 to $20,000,000+<sup class="pf-disc">*</sup> in real-money buying power make an <span class="accent">immediate difference</span> for you?</h2>
     <p class="pf-apply__intro">If so, tell us about the professional trader funding you're looking for.</p>
     <div class="pf-apply__form">
-      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+      <!-- HubSpot form lazy-loaded on viewport entry. Saves ~197 KiB on initial
+           load + removes a chained critical request from the network tree. -->
+      <div id="pf-hsform-target" data-hs-portal="39875218" data-hs-form="f6155cff-359c-4e83-baa9-3740ae7e891f" data-hs-region="na1">
+        <p style="color:hsla(0,0%,100%,0.55);font-size:14px;text-align:center;padding:32px 0;">Loading application form…</p>
+      </div>
       <script>
-        hbspt.forms.create({
-          portalId: "39875218",
-          formId: "f6155cff-359c-4e83-baa9-3740ae7e891f",
-          region: "na1"
-        });
+        (function () {
+          var target = document.getElementById('pf-hsform-target');
+          if (!target) return;
+          var loaded = false;
+          function loadHubSpot() {
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://js.hsforms.net/forms/embed/v2.js';
+            s.async = true;
+            s.charset = 'utf-8';
+            s.onload = function () {
+              if (!window.hbspt || !window.hbspt.forms) return;
+              window.hbspt.forms.create({
+                portalId: target.dataset.hsPortal,
+                formId:   target.dataset.hsForm,
+                region:   target.dataset.hsRegion,
+                target:   '#pf-hsform-target'
+              });
+              // Clear the "Loading…" placeholder once HubSpot replaces with the real form
+              var placeholder = target.querySelector('p');
+              if (placeholder) placeholder.remove();
+            };
+            document.head.appendChild(s);
+          }
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+              for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) { loadHubSpot(); io.disconnect(); return; }
+              }
+            }, { rootMargin: '400px 0px' });
+            io.observe(target);
+          } else {
+            loadHubSpot();
+          }
+        })();
       </script>
     </div>
     <p class="pf-outcome-note"><sup>*</sup>Buying power tiers are subject to capital contribution requirements, T3 Global review, and onboarding terms. Final amounts determined during discovery and onboarding.</p>
