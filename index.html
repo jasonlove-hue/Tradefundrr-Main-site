@@ -1862,70 +1862,51 @@
 </section>
 <script>
 /* Journey section: cycle active state across the 4 cards + rail markers.
-   Starts only when the section enters the viewport (so visitors always see
-   card 1 first, never midway through). Pauses on hover so visitors can read
-   a specific card. */
+   SIMPLE version — animation starts on DOMContentLoaded, no IntersectionObserver.
+   This is intentional: the previous IO approach was producing "10s to start"
+   reports. Cycling pre-emptively means motion is always alive by the time the
+   user scrolls to the section. Pauses on hover so visitors can read. */
 (function () {
   function init() {
-    var cards = document.querySelectorAll('.journey-card');
-    var markers = document.querySelectorAll('.journey__rail-marker');
-    var section = document.querySelector('.journey');
-    if (!cards.length || !section) return;
-    var active = 0;
-    var paused = false;
-    var started = false;
-    var intervalId = null;
-    var cycleMs = 1500;
-    function activate(idx) {
-      for (var i = 0; i < cards.length; i++) {
-        cards[i].classList.toggle('is-active', i === idx);
+    try {
+      var cards = document.querySelectorAll('.journey-card');
+      var markers = document.querySelectorAll('.journey__rail-marker');
+      var section = document.querySelector('.journey');
+      if (!cards.length || !section) {
+        window.__tfJourneyDebug = 'no-elements';
+        return;
       }
-      for (var j = 0; j < markers.length; j++) {
-        markers[j].classList.toggle('is-active', j === idx);
-      }
-    }
-    function tick() {
-      if (paused) return;
-      active = (active + 1) % cards.length;
-      activate(active);
-    }
-    function start() {
-      if (started) return;
-      started = true;
-      active = 0;
-      activate(0);
-      /* Schedule the regular cycle UNCONDITIONALLY. tick() checks `paused`
-         and exits early on hover, so the interval is safe to leave running.
-         Cadence: card 1 stays lit for cycleMs (1500ms), then each subsequent
-         card holds for cycleMs. Consistent rhythm, no jarring fast-then-slow. */
-      intervalId = setInterval(tick, cycleMs);
-    }
-    /* Safety: if IntersectionObserver hasn't fired within 3 seconds of init
-       (rare, but possible if the section is already in view and IO has a
-       browser quirk), kick the animation off manually. */
-    setTimeout(function () { start(); }, 3000);
-    section.addEventListener('mouseenter', function () { paused = true; });
-    section.addEventListener('mouseleave', function () { paused = false; });
-    /* Pre-set card 1 as active so it doesn't pop in. */
-    activate(0);
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        for (var i = 0; i < entries.length; i++) {
-          if (entries[i].isIntersecting) {
-            start();
-            io.disconnect();
-            return;
-          }
+      var active = 0;
+      var paused = false;
+      var cycleMs = 1500;
+      function activate(idx) {
+        for (var i = 0; i < cards.length; i++) {
+          cards[i].classList.toggle('is-active', i === idx);
         }
-      }, { threshold: 0.1, rootMargin: '150px 0px' });
-      io.observe(section);
-    } else {
-      /* Fallback: start immediately if IO is unavailable. */
-      start();
+        for (var j = 0; j < markers.length; j++) {
+          markers[j].classList.toggle('is-active', j === idx);
+        }
+      }
+      function tick() {
+        if (paused) return;
+        active = (active + 1) % cards.length;
+        activate(active);
+      }
+      section.addEventListener('mouseenter', function () { paused = true; });
+      section.addEventListener('mouseleave', function () { paused = false; });
+      activate(0);
+      setInterval(tick, cycleMs);
+      window.__tfJourneyDebug = 'running:' + cycleMs + 'ms';
+    } catch (err) {
+      console.error('[journey] init failed:', err);
+      window.__tfJourneyDebug = 'error:' + (err && err.message);
     }
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
 <!-- JOURNEY_SECTION_END -->
