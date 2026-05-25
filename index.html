@@ -439,7 +439,7 @@
           </a>
           <!-- PRO_FUNDING_NAV_START -->
           <a href="pages/pro-funding.html" data-cat="pro-funding">
-            <span class="thumb"><img src="assets/images/tf-icon-dark.png?v=202605241720" alt="Pro Funding" width="120" height="105" decoding="async"></span>
+            <span class="thumb"><img src="assets/images/t3-pro-funding-thumb.png?v=202605252600" alt="Pro Funding" width="120" height="105" decoding="async"></span>
             <span class="body">
               <span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
               <span class="desc">$5M-$20M+ in real-money buying power for proven traders, no evaluations</span>
@@ -620,6 +620,27 @@
     mask-image: radial-gradient(ellipse 88% 82% at 55% 50%, #000 50%, transparent 100%) !important;
     box-shadow: none !important;
     border-radius: 0 !important;
+  }
+
+  /* Dark cast shadow underneath the vault. Lives on the parent .media
+     container as a pseudo-element so it is NOT affected by the image's
+     mix-blend-mode: screen (which would render dark shadows invisible). */
+  .hero .media { position: relative; }
+  .hero .media::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 70px;
+    background: radial-gradient(ellipse at center,
+                  rgba(0,0,0,0.55) 0%,
+                  rgba(0,0,0,0.35) 40%,
+                  transparent 75%);
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: 2;
   }
   @media (max-width: 1100px) { .vault-hero__img { max-width: 600px; } }
 
