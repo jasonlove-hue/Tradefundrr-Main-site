@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/images/tf-icon-dark.png?v=202605241720">
+  <title>Funded Stock Trading (PREVIEW), TradeFundrr</title>
+  <meta name="description" content="Trade a $100K simulated equity account with weekly payouts. Real institutional routing through T3 Global infrastructure.">
+  <link rel="stylesheet" href="assets/css/main.css?v=202605230840">
+  <link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605252600" id="mobile-fixes-css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-400.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/inter-700.woff2">
+  <style id="tf-fonts">
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(assets/fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(assets/fonts/inter-700.woff2) format('woff2'); }
+    @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(assets/fonts/geist-mono-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(assets/fonts/geist-mono-500.woff2) format('woff2'); }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #060914; color: #fff; margin: 0; }
+  </style>
+
+  <style id="stocks-redesign">
+    /* === STOCKS REDESIGN OVERRIDES ===
+       Self-contained styles for the Stocks page redesign preview. */
+
+    :root {
+      --bg: #060914;
+      --bg-card: hsla(0, 0%, 100%, 0.03);
+      --bg-card-hover: hsla(0, 0%, 100%, 0.05);
+      --border: hsla(0, 0%, 100%, 0.08);
+      --border-hover: rgba(34, 211, 168, 0.35);
+      --teal: #22d3a8;
+      --teal-glow: rgba(34, 211, 168, 0.18);
+      --teal-soft: rgba(34, 211, 168, 0.06);
+      --white-72: hsla(0, 0%, 100%, 0.72);
+      --white-55: hsla(0, 0%, 100%, 0.55);
+      --white-45: hsla(0, 0%, 100%, 0.45);
+      --red-soft: rgba(255, 87, 87, 0.08);
+    }
+
+    /* Layout primitives */
+    .stx-container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    .stx-eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 18px;
+      display: block;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .stx-hero {
+      padding: 180px 0 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    /* Floating sparkles for ambient hero depth */
+    .stx-hero__sparkles { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .stx-hero__sparkles span {
+      position: absolute;
+      width: var(--size, 2px);
+      height: var(--size, 2px);
+      border-radius: 50%;
+      background: #9FE1CB;
+      box-shadow: 0 0 4px rgba(159, 225, 203, 0.6);
+      opacity: 0.45;
+      animation: stxTwinkle 4s ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+    @keyframes stxTwinkle {
+      0%, 100% { opacity: 0.18; transform: scale(0.9); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .stx-hero__sparkles span { animation: none; opacity: 0.4; }
+    }
+
+    .stx-hero__grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .stx-hero__text h1 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 78px;
+      line-height: 1.0;
+      letter-spacing: -3px;
+      color: #fff;
+      margin: 0 0 24px;
+    }
+    .stx-hero__text h1 .accent { color: var(--teal); }
+    .stx-hero__sub {
+      font-size: 18px;
+      color: var(--white-72);
+      line-height: 1.55;
+      max-width: 600px;
+      margin: 0 0 32px;
+    }
+    .stx-hero__sub br { display: block; }
+    .stx-hero__buttons { display: flex; gap: 14px; flex-wrap: wrap; margin: 0 0 28px; }
+    .stx-hero__cta-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal);
+      color: #06181a;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .stx-hero__cta-primary:hover { transform: translateY(-1px); }
+    .stx-hero__cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #fff;
+      padding: 14px 24px;
+      font-weight: 500;
+      font-size: 15px;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+    .stx-hero__cta-secondary:hover { opacity: 1; }
+    .stx-hero__ticks {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: var(--white-72);
+      font-size: 13.5px;
+    }
+    .stx-hero__ticks span::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+    .stx-hero__media {
+      position: relative;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #0a101e 0%, #060914 100%);
+      border: 1px solid var(--border);
+      /* Starting 3D angle — slight rotateX + rotateY for a dynamic at-rest pose.
+         JS in the body adjusts this on mousemove for parallax tilt effect. */
+      transform: perspective(1800px) rotateX(-2deg) rotateY(-6deg);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      /* Teal glow halo + soft drop shadow for depth */
+      box-shadow:
+        0 0 60px rgba(34, 211, 168, 0.25),
+        0 30px 80px rgba(34, 211, 168, 0.18),
+        0 60px 120px rgba(0, 0, 0, 0.5);
+      /* Floor reflection (Webkit-only — degrades cleanly in Firefox) */
+      -webkit-box-reflect: below 12px linear-gradient(transparent 70%, rgba(0,0,0,0.35) 100%);
+    }
+    .stx-hero__media img { width: 100%; height: auto; display: block; border-radius: 18px; }
+
+    @media (max-width: 991px) {
+      .stx-hero__grid { grid-template-columns: 1fr; gap: 40px; }
+      .stx-hero__text h1 { font-size: 52px; letter-spacing: -2px; }
+      .stx-hero__media { max-width: 520px; margin: 0 auto; }
+    }
+
+    /* ============================================
+       AVATAR — single-segment focus on Equity Day Trader
+       ============================================ */
+    .stx-avatar { padding: 90px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-avatar__head { text-align: center; margin-bottom: 40px; max-width: 760px; margin-left: auto; margin-right: auto; padding: 0 32px; }
+    .stx-avatar__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; margin: 0 0 16px; line-height: 1.05; }
+    .stx-avatar__head h2 .accent { color: var(--teal); }
+    .stx-avatar__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-avatar__card {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px 48px;
+    }
+    .stx-avatar__label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 12px;
+    }
+    .stx-avatar__card h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.6px; margin: 0 0 16px; }
+    .stx-avatar__card p { color: var(--white-72); font-size: 16px; line-height: 1.6; margin: 0 0 16px; }
+    .stx-avatar__card p strong { color: #fff; font-weight: 600; }
+    .stx-avatar__kicker { color: #fff !important; font-weight: 700 !important; font-size: 17px !important; }
+
+    /* ============================================
+       TWO-PATHS — homepage's exact styles (copied from index.html lines 913-950)
+       so the preview renders correctly without depending on inline styles
+       defined in the homepage. When this ports to pages/stocks.html in
+       production we'll either keep this inline or move into mobile-fixes.css.
+       ============================================ */
+    .two-paths { position: relative; padding: 30px 0 100px; background:#060914; }
+    .two-paths__head { max-width: 1100px; margin: 0 auto 60px; padding: 0 30px; }
+    .two-paths__eyebrow {
+      font-family: "Geist Mono", "Geist Mono Fallback", monospace;
+      font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase;
+      color: #22d3a8; margin-bottom: 18px;
+    }
+    .two-paths__title { font-family: "Inter", sans-serif; font-size: 56px; line-height: 1.05; letter-spacing: -1.6px; font-weight: 700; color:#fff; margin-bottom: 18px; }
+    .two-paths__title .accent-mint { color:#22d3a8; }
+    .two-paths__sub { color: hsla(0,0%,100%,0.6); font-size: 16px; line-height: 1.45; max-width: 720px; }
+    .two-paths__grid { display:grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 1240px; margin: 0 auto; padding: 0 30px; position: relative; }
+    @media (max-width: 900px) { .two-paths__grid { grid-template-columns: 1fr; } .two-paths__title { font-size: 36px; } }
+    .two-paths__arrow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 5; width: 64px; height: 64px; background: #0b1320; border-radius: 50%; border: 1px solid rgba(34,211,168,0.45); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 30px rgba(34,211,168,0.28); }
+    .two-paths__arrow svg { display: block; }
+    .two-paths__arrow .arrow-line { stroke-dasharray: 5 4; animation: arrow-flow 1.2s linear infinite; }
+    .two-paths__arrow .arrow-pulse { animation: arrow-pulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    @keyframes arrow-flow { from { stroke-dashoffset: 18; } to { stroke-dashoffset: 0; } }
+    @keyframes arrow-pulse { 0%,100% { transform: translateX(0); opacity: 1; } 50% { transform: translateX(2px); opacity: 0.7; } }
+    @media (max-width: 900px) { .two-paths__arrow { display: none; } }
+    .path-card { position: relative; background:#0b1320; border:1px solid hsla(0,0%,100%,0.08); border-radius: 20px; padding: 36px; display:flex; flex-direction:column; }
+    .path-card--earned { border:1px solid rgba(34,211,168,0.55); box-shadow: 0 0 0 1px rgba(34,211,168,0.15) inset, 0 24px 60px -30px rgba(34,211,168,0.45); }
+    .path-card__badge { position:absolute; top:24px; right:24px; font-family:"Geist Mono", monospace; font-size:11px; letter-spacing:1.2px; padding:6px 12px; border-radius:999px; background: rgba(34,211,168,0.12); color:#22d3a8; border:1px solid rgba(34,211,168,0.4); }
+    .path-card__eyebrow { font-family:"Geist Mono", monospace; font-size:12px; letter-spacing:1.4px; text-transform:uppercase; margin-bottom:18px; }
+    .path-card--start .path-card__eyebrow { color:#22d3a8; }
+    .path-card--earned .path-card__eyebrow { color:#22d3a8; }
+    .path-card__title { font-family: "Inter", sans-serif; font-size: 36px; line-height:1.1; letter-spacing:-1px; font-weight: 700; color:#fff; margin-bottom: 16px; }
+    .path-card__desc { color: hsla(0,0%,100%,0.62); font-size: 15px; line-height:1.5; margin-bottom: 22px; }
+    .path-card__list { list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:14px; }
+    .path-card__list li { display:flex; gap:12px; align-items:flex-start; color:#fff; font-size:15px; line-height:1.4; }
+    .path-card__list li::before { content:""; flex:0 0 18px; height:18px; margin-top:1px; background: url("assets/images/green-check.svg") center/contain no-repeat; }
+    .path-card__cta { display:flex; align-items:center; justify-content:center; gap:10px; padding:18px 28px; background:#22d3a8; color:#06181a; font-family:"Inter", sans-serif; font-weight:700; font-size:15px; letter-spacing:0.5px; text-transform:uppercase; border-radius:10px; text-decoration:none; margin-top:auto; transition: filter .2s ease; }
+    .path-card__cta:hover { filter:brightness(1.08); }
+    .path-card__footnote { background: rgba(255,255,255,0.03); border:1px solid hsla(0,0%,100%,0.07); border-radius: 12px; padding:16px 18px; color: hsla(0,0%,100%,0.55); font-size:14px; line-height:1.45; font-style: italic; margin-top:auto; }
+    .path-card__footnote strong { color:#fff; font-style: normal; font-weight: 600; }
+
+    /* ============================================
+       OLD .stx-paths section CSS — kept for reference but unused
+       ============================================ */
+    .stx-paths { padding: 100px 0; background: var(--bg); }
+    .stx-paths__head { text-align: center; max-width: 820px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-paths__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 16px; }
+    .stx-paths__head h2 .accent { color: var(--teal); }
+    .stx-paths__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-paths__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .stx-path-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .stx-path-card--us { background: linear-gradient(180deg, rgba(34,211,168,0.05), rgba(34,211,168,0.01)); border-color: rgba(34, 211, 168, 0.22); }
+    .stx-path-card__eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 10px;
+    }
+    .stx-path-card h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; margin: 0 0 16px; color: #fff; }
+    .stx-path-card__desc { color: var(--white-72); font-size: 15px; line-height: 1.55; margin: 0 0 24px; }
+    .stx-path-card ul { list-style: none; padding: 0; margin: 0 0 22px; }
+    .stx-path-card li {
+      color: var(--white-72);
+      font-size: 14.5px;
+      line-height: 1.5;
+      padding: 7px 0 7px 24px;
+      position: relative;
+    }
+    .stx-path-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      opacity: 0.85;
+    }
+    .stx-path-card--retail li::before { background: hsla(0, 0%, 100%, 0.3); }
+    .contrast-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .contrast-row:first-of-type { margin-top: 4px; }
+    .contrast-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      padding: 4px 8px;
+      border-radius: 4px;
+      min-width: 36px;
+      text-align: center;
+    }
+    .contrast-row--them .contrast-label { background: rgba(255, 87, 87, 0.15); color: rgba(255, 130, 130, 0.95); }
+    .contrast-row--us .contrast-label { background: var(--teal-glow); color: var(--teal); }
+    .contrast-text { font-size: 14px; color: var(--white-72); line-height: 1.55; }
+    .contrast-row--them .contrast-text { text-decoration: line-through; opacity: 0.7; }
+    .contrast-row--us .contrast-text { color: #fff; }
+
+    @media (max-width: 768px) {
+      .stx-paths__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================
+       PLANS — three pricing cards (homepage pattern)
+       ============================================ */
+    .stx-plans { padding: 100px 0; background: var(--bg); position: relative; }
+    .stx-plans::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 50% 40% at 20% 30%, var(--teal-soft), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 70%, var(--teal-soft), transparent 70%);
+    }
+    .stx-plans__inner { position: relative; }
+    .stx-plans__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-plans__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 16px; }
+    .stx-plans__head h2 .accent { color: var(--teal); }
+    .stx-plans__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-plans__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      align-items: stretch;
+    }
+    .stx-plan {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .stx-plan--featured { border-color: rgba(34, 211, 168, 0.4); background: linear-gradient(180deg, rgba(34,211,168,0.04), rgba(34,211,168,0.01)); }
+    .stx-plan__eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 8px;
+    }
+    .stx-plan__badge {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-glow);
+      border: 1px solid rgba(34,211,168,0.35);
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+    .stx-plan h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; margin: 0 0 6px; }
+    .stx-plan__sub { color: var(--white-72); font-size: 13.5px; line-height: 1.5; margin: 0 0 22px; }
+    .stx-plan__claim {
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 500;
+      margin: 0 0 22px;
+    }
+    .stx-plan__claim strong { color: var(--teal); }
+    .stx-plan__features { list-style: none; padding: 0; margin: 0 0 24px; flex: 1; }
+    .stx-plan__features li {
+      color: var(--white-72);
+      font-size: 13.5px;
+      line-height: 1.5;
+      padding: 6px 0 6px 22px;
+      position: relative;
+    }
+    .stx-plan__features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0; top: 6px;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .stx-plan__tbd { color: var(--white-45); font-style: italic; }
+    .stx-plan__price {
+      text-align: center;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      margin: 0 0 18px;
+    }
+    .stx-plan__price-amt { font-size: 34px; font-weight: 700; color: #fff; letter-spacing: -1px; }
+    .stx-plan__price-per { color: var(--white-55); font-size: 13px; margin-left: 4px; }
+    .stx-plan__cta {
+      display: block;
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14.5px;
+      text-decoration: none;
+      transition: transform .15s ease;
+    }
+    .stx-plan__cta--primary { background: var(--teal); color: #06181a; }
+    .stx-plan__cta--glass { background: transparent; color: #fff; border: 1px solid var(--border); }
+    .stx-plan__cta:hover { transform: translateY(-1px); }
+    .stx-plan__placeholder {
+      background: rgba(255, 200, 100, 0.08);
+      border: 1px dashed rgba(255, 200, 100, 0.3);
+      color: rgba(255, 200, 100, 0.85);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-align: center;
+      font-family: 'Geist Mono', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 991px) {
+      .stx-plans__grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+
+    /* ============================================
+       PLATFORMS — DXTrade + Deep Charts
+       ============================================ */
+    .stx-platforms { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-platforms__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-platforms__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 16px; }
+    .stx-platforms__head h2 .accent { color: var(--teal); }
+    .stx-platforms__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-platforms__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .stx-platform {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 36px 32px;
+    }
+    .stx-platform__top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
+    .stx-platform__name { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+    .stx-platform__tag { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); }
+    .stx-platform__desc { color: var(--white-72); font-size: 15px; line-height: 1.55; margin: 0 0 18px; }
+    .stx-platform__features { list-style: none; padding: 0; margin: 0; }
+    .stx-platform__features li {
+      color: var(--white-72);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 6px 0 6px 22px;
+      position: relative;
+    }
+    .stx-platform__features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0; top: 6px;
+      color: var(--teal);
+      font-weight: 700;
+    }
+    .stx-platform__features li strong { color: #fff; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .stx-platforms__grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================
+       LOSS-AVERSION — three stages
+       ============================================ */
+    .stx-loss { padding: 100px 0; background: var(--bg); }
+    .stx-loss__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-loss__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 14px; }
+    .stx-loss__head h2 .accent { color: var(--teal); }
+    .stx-loss__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-loss__grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 16px;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .stx-loss-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .stx-loss-card--mid { background: linear-gradient(180deg, rgba(34,211,168,0.06), rgba(34,211,168,0.01)); border-color: rgba(34,211,168,0.3); }
+    .stx-loss-card--top { background: linear-gradient(180deg, rgba(34,211,168,0.12), rgba(34,211,168,0.02)); border-color: rgba(34,211,168,0.5); position: relative; }
+    .stx-loss-card__earned {
+      position: absolute; top: 14px; right: 14px;
+      font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-glow);
+      border: 1px solid rgba(34,211,168,0.35);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .stx-loss-card__label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white-55); margin: 0 0 14px; }
+    .stx-loss-card__amount { font-size: 38px; font-weight: 700; letter-spacing: -1.5px; color: var(--teal); margin: 0 0 6px; }
+    .stx-loss-card__qualifier { color: var(--white-72); font-style: italic; font-size: 13px; margin: 0 0 14px; }
+    .stx-loss-card__desc { color: var(--white-72); font-size: 14px; line-height: 1.55; margin: 0; }
+    .stx-loss-card__disclaimer { color: var(--white-45); font-style: italic; font-size: 10.5px; line-height: 1.4; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .stx-loss__arrow { color: var(--teal); align-self: center; font-size: 20px; opacity: 0.7; }
+    .stx-loss__closer { text-align: center; margin-top: 36px; color: #fff; font-size: 22px; font-weight: 600; letter-spacing: -0.4px; }
+    .stx-loss__closer .accent { color: var(--teal); }
+
+    @media (max-width: 900px) {
+      .stx-loss__grid { grid-template-columns: 1fr; }
+      .stx-loss__arrow { transform: rotate(90deg); margin: 4px 0; }
+    }
+
+    /* ============================================
+       FEATURED REVIEWS
+       ============================================ */
+    .stx-reviews { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-reviews__head { text-align: center; max-width: 720px; margin: 0 auto 36px; padding: 0 32px; }
+    .stx-reviews__eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--teal); margin: 0 0 14px; }
+    .stx-reviews__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; margin: 0 0 14px; }
+    .stx-reviews__head p { color: var(--white-72); font-size: 16px; margin: 0; }
+    .stx-reviews__stat { text-align: center; margin-bottom: 36px; }
+    .stx-reviews__stat-stars { color: var(--teal); font-size: 20px; letter-spacing: 4px; margin-bottom: 6px; }
+    .stx-reviews__stat-text { color: #fff; font-size: 15px; font-weight: 500; }
+    .stx-reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 18px;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .stx-review {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .stx-review__stars { color: var(--teal); font-size: 13px; letter-spacing: 2px; margin-bottom: 12px; }
+    .stx-review__title { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 12px; line-height: 1.3; }
+    .stx-review__body { color: var(--white-72); font-size: 13.5px; line-height: 1.55; margin: 0 0 16px; flex: 1; }
+    .stx-review__body strong { color: var(--teal); }
+    .stx-review__attrib { color: var(--white-55); font-size: 12.5px; margin: 0; padding-top: 12px; border-top: 1px solid var(--border); }
+    .stx-review__attrib strong { color: #fff; }
+    .stx-reviews__more { text-align: center; margin-top: 28px; }
+    .stx-reviews__more a { color: var(--teal); font-size: 14px; text-decoration: none; }
+
+    @media (max-width: 900px) { .stx-reviews__grid { grid-template-columns: 1fr; } }
+
+    /* ============================================
+       FOUNDER QUOTE CARD
+       ============================================ */
+    .stx-founder { padding: 100px 0; background: var(--bg); }
+    .stx-founder__inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .stx-founder-card {
+      background: linear-gradient(180deg, rgba(34,211,168,0.05), rgba(34,211,168,0.01));
+      border: 1px solid rgba(34, 211, 168, 0.22);
+      border-radius: 18px;
+      padding: 40px 44px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .stx-founder-card__portrait {
+      aspect-ratio: 4/5;
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b1320 0%, #1a2740 100%);
+      border: 1px solid hsla(0, 0%, 100%, 0.08);
+    }
+    .stx-founder-card__portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .stx-founder-card__quote { font-size: 22px; font-weight: 500; color: #fff; letter-spacing: -0.4px; line-height: 1.45; margin: 0 0 22px; }
+    .stx-founder-card__quote strong { color: var(--teal); font-weight: 500; }
+    .stx-founder-card__attrib { display: flex; flex-direction: column; gap: 4px; padding-top: 18px; border-top: 1px solid hsla(0, 0%, 100%, 0.1); }
+    .stx-founder-card__name { font-size: 16px; font-weight: 700; color: #fff; }
+    .stx-founder-card__role { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white-55); }
+
+    @media (max-width: 768px) {
+      .stx-founder-card { grid-template-columns: 1fr; text-align: center; padding: 32px 28px; }
+      .stx-founder-card__portrait { max-width: 200px; margin: 0 auto; }
+    }
+
+    /* ============================================
+       FAQ with which-means
+       ============================================ */
+    .stx-faq { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-faq__head { text-align: center; max-width: 700px; margin: 0 auto 40px; padding: 0 32px; }
+    .stx-faq__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; margin: 0 0 14px; }
+    .stx-faq__head h2 .accent { color: var(--teal); }
+    .stx-faq__head p { color: var(--white-72); font-size: 16px; margin: 0; }
+    .stx-faq__list { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+    .stx-faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 14px;
+    }
+    .stx-faq-item__q { font-size: 16px; font-weight: 700; color: #fff; margin: 0 0 12px; }
+    .stx-faq-item__a { color: var(--white-72); font-size: 14.5px; line-height: 1.6; margin: 0; }
+    .stx-faq-means {
+      display: block;
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(34,211,168,0.06);
+      border-left: 2px solid var(--teal);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       FINAL CTA
+       ============================================ */
+    .stx-final { padding: 110px 0 120px; background: var(--bg); }
+    .stx-final__grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .stx-final__left h2 { font-size: 56px; font-weight: 700; letter-spacing: -2px; line-height: 1.05; margin: 0 0 22px; }
+    .stx-final__left h2 .accent { color: var(--teal); }
+    .stx-final__left p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0 0 28px; max-width: 520px; }
+    .stx-final__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin: 0 0 24px; }
+    .stx-final__ticks { display: flex; gap: 22px; flex-wrap: wrap; color: var(--white-72); font-size: 13.5px; }
+    .stx-final__ticks span::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+
+    @media (max-width: 991px) {
+      .stx-final__grid { grid-template-columns: 1fr; }
+      .stx-final__left h2 { font-size: 40px; letter-spacing: -1.2px; }
+    }
+
+    /* ============================================
+       EMPATHY / MISSION (less-aware bridge)
+       ============================================ */
+    .stx-empathy { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stx-empathy__grid { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .stx-empathy__col .stx-eyebrow { margin-bottom: 14px; }
+    .stx-empathy__col h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.18; margin: 0 0 18px; color: #fff; }
+    .stx-empathy__col h3 .accent { color: var(--teal); }
+    .stx-empathy__col p { color: var(--white-72); font-size: 16px; line-height: 1.65; margin: 0 0 14px; }
+    .stx-empathy__col p:last-child { margin-bottom: 0; }
+    .stx-empathy__col p strong { color: #fff; font-weight: 600; }
+    @media (max-width: 768px) {
+      .stx-empathy { padding: 70px 0; }
+      .stx-empathy__grid { grid-template-columns: 1fr; gap: 40px; }
+      .stx-empathy__col h3 { font-size: 24px; }
+    }
+
+    /* ============================================
+       DID YOU KNOW callout
+       ============================================ */
+    .stx-didyou { padding: 60px 0 100px; background: #0a101e; }
+    .stx-didyou__box {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 36px 40px;
+      background: linear-gradient(180deg, rgba(34,211,168,0.08), rgba(34,211,168,0.02));
+      border: 1px solid rgba(34,211,168,0.3);
+      border-radius: 16px;
+      position: relative;
+    }
+    .stx-didyou__label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 14px;
+      display: block;
+    }
+    .stx-didyou__copy { color: #fff; font-size: 19px; line-height: 1.55; margin: 0; font-weight: 500; letter-spacing: -0.2px; }
+    .stx-didyou__copy strong { color: var(--teal); }
+    .stx-didyou__copy .closer { display: block; margin-top: 14px; color: var(--white-72); font-size: 15px; font-style: italic; font-weight: 400; }
+    @media (max-width: 768px) {
+      .stx-didyou { padding: 40px 16px 70px; }
+      .stx-didyou__box { padding: 28px 24px; }
+      .stx-didyou__copy { font-size: 16px; }
+    }
+
+    /* ============================================
+       MORE X THAN Y triplet
+       ============================================ */
+    .stx-morethan { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-morethan__head { text-align: center; max-width: 720px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-morethan__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; margin: 0 0 12px; color: #fff; }
+    .stx-morethan__head h2 .accent { color: var(--teal); }
+    .stx-morethan__grid {
+      max-width: 1080px;
+      margin: 0 auto 38px;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .stx-morethan-card {
+      padding: 32px 26px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .stx-morethan-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .stx-morethan-card__lead { font-size: 22px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.2; margin: 0 0 8px; color: #fff; }
+    .stx-morethan-card__lead .accent { color: var(--teal); }
+    .stx-morethan-card__desc { color: var(--white-72); font-size: 14.5px; line-height: 1.55; margin: 0; }
+    .stx-morethan__closer { text-align: center; font-size: 24px; font-weight: 700; letter-spacing: -0.6px; color: #fff; margin: 0; }
+    .stx-morethan__closer .accent { color: var(--teal); }
+    @media (max-width: 991px) {
+      .stx-morethan__grid { grid-template-columns: 1fr; }
+      .stx-morethan__head h2 { font-size: 30px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     NAV (reuses homepage structure) — kept simple in preview
+     ============================================ -->
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary" style="display:flex;justify-content:space-between;align-items:center;padding:24px 32px;max-width:1320px;margin:0 auto;">
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;">
+      <img src="assets/images/logo.svg" alt="TradeFundrr" style="height:30px;">
+    </a>
+    <div style="display:flex;gap:30px;align-items:center;">
+      <a href="index.html#how-it-works" style="color:#fff;text-decoration:none;font-size:15px;">How It Works</a>
+      <a href="pages/about.html" style="color:#fff;text-decoration:none;font-size:15px;">About</a>
+      <a href="#" style="color:#fff;text-decoration:none;font-size:15px;">Blog</a>
+      <a href="#" style="color:#fff;text-decoration:none;font-size:15px;">Login</a>
+      <a href="https://dashboard.tradefundrr.com/Client" style="background:linear-gradient(180deg,#2ce8b9,#22d3a8);color:#06181a;font-weight:700;padding:10px 22px;border-radius:999px;text-decoration:none;font-size:14px;">Get Funded</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="stx-hero">
+  <!-- Subtle floating sparkles for ambient depth -->
+  <div class="stx-hero__sparkles" aria-hidden="true">
+    <span style="top:12%;left:6%;--size:3px;--delay:0s;"></span>
+    <span style="top:24%;left:42%;--size:2px;--delay:1.2s;"></span>
+    <span style="top:8%;left:68%;--size:2.5px;--delay:2.4s;"></span>
+    <span style="top:38%;left:14%;--size:2px;--delay:0.6s;"></span>
+    <span style="top:62%;left:32%;--size:3px;--delay:1.8s;"></span>
+    <span style="top:78%;left:8%;--size:2px;--delay:3.0s;"></span>
+    <span style="top:18%;left:92%;--size:2.5px;--delay:0.4s;"></span>
+    <span style="top:52%;left:96%;--size:2px;--delay:2.0s;"></span>
+    <span style="top:84%;left:88%;--size:3px;--delay:1.4s;"></span>
+    <span style="top:46%;left:76%;--size:2px;--delay:2.8s;"></span>
+    <span style="top:6%;left:22%;--size:2.5px;--delay:1.6s;"></span>
+    <span style="top:30%;left:58%;--size:2px;--delay:0.9s;"></span>
+    <span style="top:14%;left:36%;--size:2px;--delay:3.2s;"></span>
+    <span style="top:70%;left:18%;--size:2.5px;--delay:2.2s;"></span>
+    <span style="top:90%;left:48%;--size:2px;--delay:0.3s;"></span>
+    <span style="top:42%;left:4%;--size:3px;--delay:1.0s;"></span>
+    <span style="top:26%;left:84%;--size:2px;--delay:2.6s;"></span>
+    <span style="top:58%;left:62%;--size:2.5px;--delay:1.5s;"></span>
+    <span style="top:74%;left:54%;--size:2px;--delay:3.4s;"></span>
+    <span style="top:16%;left:78%;--size:2px;--delay:0.7s;"></span>
+    <span style="top:36%;left:88%;--size:2.5px;--delay:2.1s;"></span>
+    <span style="top:66%;left:72%;--size:2px;--delay:1.3s;"></span>
+    <span style="top:50%;left:24%;--size:2.5px;--delay:3.6s;"></span>
+    <span style="top:4%;left:54%;--size:2px;--delay:2.7s;"></span>
+  </div>
+  <div class="stx-hero__grid">
+    <div class="stx-hero__text">
+      <span class="stx-eyebrow">Funded stock trading · T3 Global infrastructure</span>
+      <h1>Use your edge.<br><span class="accent">Not your $25K.</span></h1>
+      <p class="stx-hero__sub">
+        Trade a $100K simulated equity account with transparent rules.<br>
+        Top performers graduate to live capital through T3 Global.
+      </p>
+      <div class="stx-hero__buttons">
+        <a href="#plans" class="stx-hero__cta-primary">Get Funded →</a>
+        <a href="#plans" class="stx-hero__cta-secondary">See how it works →</a>
+      </div>
+      <div class="stx-hero__ticks">
+        <span>Weekly payouts</span>
+        <span>$100K simulated buying power</span>
+        <span>Real institutional routing</span>
+      </div>
+    </div>
+
+    <div class="stx-hero__media">
+      <img src="assets/images/stocks-hero-charting-web.webp?v=202605252700" alt="Funded stock trading: institutional charting platform with ascending candlestick chart, order ladder, and live time and sales" width="1920" height="1088">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     EMPATHY / MISSION (less-aware bridge)
+     ============================================ -->
+<section class="stx-empathy">
+  <div class="stx-empathy__grid">
+    <div class="stx-empathy__col">
+      <span class="stx-eyebrow">If you're here, you've already done the hard part</span>
+      <h3>You're <span class="accent">not the only trader</span> stuck at the same ceiling.</h3>
+      <p>You can read the tape. You've sat through the bad fills, the bad days, the strategies that quietly worked once you stopped tweaking them. You've put in the screen time.</p>
+      <p>But every position is still sized for a <strong>$5K to $25K personal account</strong>, and somewhere along the way it became obvious: the strategy isn't the problem. The size is.</p>
+      <p>If that's where you are, you're not alone. Most of the equity traders we fund were exactly here a year ago.</p>
+    </div>
+    <div class="stx-empathy__col">
+      <span class="stx-eyebrow">Why TradeFundrr exists</span>
+      <h3>We're on a mission to <span class="accent">back the traders the industry skips</span>.</h3>
+      <p>The PDT rule is gone. Capital still isn't. Retail traders with real edges still get parked behind small account sizes, payment-for-order-flow execution, and brokers built for buy-and-hold investors.</p>
+      <p>We built TradeFundrr so a trader with a working strategy can <strong>access institutional buying power, transparent rules, and a real graduation path</strong> to T3 Global desk capital &mdash; without putting their savings on the line first.</p>
+      <p>Your job is the trading. Our job is the capital, the infrastructure, and the runway.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DID YOU KNOW callout
+     ============================================ -->
+<section class="stx-didyou">
+  <div class="stx-didyou__box">
+    <span class="stx-didyou__label">Did you know?</span>
+    <p class="stx-didyou__copy">
+      One disciplined equity trader can move <strong>seven figures of P&amp;L per year</strong> for an institutional desk. That's why we back individual traders with up to <strong>$1M+ in real desk capital through T3 Global</strong>* once they prove sustained edge.
+      <span class="closer">Your success is our success. Not a slogan &mdash; the entire business model.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     AVATAR — Equity Day Trader
+     ============================================ -->
+<section class="stx-avatar">
+  <div class="stx-avatar__head">
+    <span class="stx-eyebrow">Built for the equity day trader</span>
+    <h2>Your strategy works.<br><span class="accent">Your account doesn't.</span></h2>
+    <p>You've been trading equities on a small personal account. The edge is there. The capital isn't. Most retail traders never escape that gap.</p>
+  </div>
+  <div class="stx-avatar__card">
+    <span class="stx-avatar__label" style="display:block;text-align:center;">The Equity Day Trader</span>
+    <h3 style="text-align:center;">You've proven you can trade.<br>You haven't proven you can scale.</h3>
+    <p>You've been trading stocks on <strong>$5K to $25K of personal capital</strong>. You've built a real strategy, a real read of the tape, real screen time. But every position is sized to a retail account, and every winning streak ends with the same realization: at this account size, the math doesn't matter.</p>
+    <p>A 20% return on $25K is $5K. A 20% return on $100K is $20K. <strong>Same edge. Different scale.</strong> That's the gap TradeFundrr closes, with simulated capital you don't have to risk to access.</p>
+    <p class="stx-avatar__kicker" style="text-align:center;">Your edge works. Your $25K doesn't.</p>
+  </div>
+</section>
+
+<!-- ============================================
+     TWO-PATHS contrast (uses homepage classes so it inherits styling from mobile-fixes.css)
+     ============================================ -->
+<section class="two-paths">
+  <div class="two-paths__head">
+    <p class="two-paths__eyebrow">Two paths · one promise</p>
+    <h2 class="two-paths__title">Most prop firms run sim only.<br><span class="accent-mint">We split it honestly.</span></h2>
+    <p class="two-paths__sub">Start in simulated capital. Top performers graduate. It's not the default, it's what you earn.</p>
+  </div>
+
+  <div class="two-paths__grid">
+    <!-- PATH 01 -->
+    <article class="path-card path-card--start">
+      <p class="path-card__eyebrow">Path 01 · Where everyone starts</p>
+      <h3 class="path-card__title">$100K simulated funded equity account</h3>
+      <p class="path-card__desc">Pass the evaluation, hit the targets, request payouts every week. Real money paid against simulated trading.</p>
+      <ul class="path-card__list">
+        <li>Open enrollment, start any time</li>
+        <li>Transparent rules — daily loss limit, max drawdown, profit target all published</li>
+        <li>$100K simulated buying power on real-time data + institutional routing</li>
+        <li>Weekly payouts on Fridays for traders who hit targets</li>
+        <li>Built on DXTrade — the same dev team behind tastyworks and thinkorswim</li>
+      </ul>
+      <div class="path-card__contrast">
+        <div class="contrast-row contrast-row--them">
+          <span class="contrast-label">Them</span>
+          <span class="contrast-text">Stocks routed through retail brokers with payment for order flow</span>
+        </div>
+        <div class="contrast-row contrast-row--us">
+          <span class="contrast-label">Us</span>
+          <span class="contrast-text">Institutional routing on DXTrade with real fills</span>
+        </div>
+      </div>
+      <a href="#plans" class="path-card__cta">Start the Eval →</a>
+    </article>
+
+    <!-- Animated teal arrow between cards (same as homepage) -->
+    <div class="two-paths__arrow" aria-hidden="true">
+      <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path class="arrow-line" d="M6 16 L26 16" stroke="#22d3a8" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path class="arrow-pulse" d="M20 10 L26 16 L20 22" stroke="#22d3a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- PATH 02 — EARNED -->
+    <article class="path-card path-card--earned">
+      <span class="path-card__badge">Earned</span>
+      <p class="path-card__eyebrow">Path 02 · Graduated</p>
+      <h3 class="path-card__title">Graduate to real money via T3 Global</h3>
+      <p class="path-card__desc">Demonstrate consistent, risk-managed performance. Top performers earn an audition for T3 Global's institutional trading desk.</p>
+      <ul class="path-card__list">
+        <li>Reserved for traders with sustained Sharpe and disciplined drawdown</li>
+        <li>Audition path opens at Months 1+ for consistent traders</li>
+        <li>Trade firm capital with professional desk infrastructure and real fills</li>
+        <li>Institutional risk oversight and live equity routing through T3 Global</li>
+        <li>Real money trading. Real institutional infrastructure. No mislabel.</li>
+      </ul>
+      <div class="path-card__contrast">
+        <div class="contrast-row contrast-row--them">
+          <span class="contrast-label">Them</span>
+          <span class="contrast-text">Bigger sim accounts marketed as "live capital"</span>
+        </div>
+        <div class="contrast-row contrast-row--us">
+          <span class="contrast-label">Us</span>
+          <span class="contrast-text">Audition for T3 Global's actual equity trading desk</span>
+        </div>
+      </div>
+      <p class="path-card__footnote">TradeFundrr's live capital tier is operated in partnership with T3 Global, an institutional prop firm. <strong>Sim is sim. Live is live.</strong></p>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================
+     PLANS
+     ============================================ -->
+<section class="stx-plans" id="plans">
+  <div class="stx-plans__inner">
+    <div class="stx-plans__head">
+      <span class="stx-eyebrow">Three programs · pick your path</span>
+      <h2>$100K equity funded accounts <span class="accent">for less than you think</span></h2>
+      <p>Every TradeFundrr stocks program is laid out below so you can compare and decide with full information.</p>
+    </div>
+
+    <div class="stx-plans__grid">
+
+      <!-- Growth Account -->
+      <article class="stx-plan">
+        <p class="stx-plan__eyebrow">Growth Account</p>
+        <span class="stx-plan__badge">Eval path</span>
+        <h3>Growth Account</h3>
+        <p class="stx-plan__sub">Best for stocks traders who want to demonstrate consistent performance through a defined evaluation.</p>
+        <div class="stx-plan__claim">
+          <strong>$100K simulated buying power</strong> via 4x leverage on a $25K eval account. No personal $25K at risk.
+        </div>
+        <div class="stx-plan__placeholder">PLACEHOLDER · final program parameters TBD from Jason</div>
+        <ul class="stx-plan__features">
+          <li>$25K eval account, 4x leverage</li>
+          <li>Pre-set profit target and drawdown rules</li>
+          <li class="stx-plan__tbd">Daily loss limit · TBD</li>
+          <li class="stx-plan__tbd">Earliest payout · TBD days</li>
+          <li>Weekly payouts on Fridays</li>
+          <li>DXTrade platform, real-time L2 data</li>
+          <li>No PDT requirement, trade every day</li>
+        </ul>
+        <div class="stx-plan__price">
+          <span class="stx-plan__price-amt">TBD</span>
+          <span class="stx-plan__price-per">/first month</span>
+        </div>
+        <a href="#" class="stx-plan__cta stx-plan__cta--glass">Choose Growth →</a>
+      </article>
+
+      <!-- Express Funding (real data!) -->
+      <article class="stx-plan stx-plan--featured">
+        <p class="stx-plan__eyebrow">Express Funding</p>
+        <span class="stx-plan__badge">Most popular</span>
+        <h3>Express Funding</h3>
+        <p class="stx-plan__sub">Best for experienced stocks day traders who want the fastest possible path to their first payout.</p>
+        <div class="stx-plan__claim">
+          <strong>$100K simulated buying power</strong> from day one. No evaluation, no waiting. Trade today.
+        </div>
+        <ul class="stx-plan__features">
+          <li>$25K initial · 4x leverage = $100K BP</li>
+          <li>Profit target · $1,000</li>
+          <li>Daily loss limit · $1,000</li>
+          <li>Max drawdown · $2,500</li>
+          <li>Earliest payout · 5 days</li>
+          <li>Min trade duration · 15 seconds</li>
+          <li>No evaluation · start trading today</li>
+        </ul>
+        <div class="stx-plan__price">
+          <span class="stx-plan__price-amt">TBD</span>
+          <span class="stx-plan__price-per">/first month</span>
+        </div>
+        <a href="#" class="stx-plan__cta stx-plan__cta--primary">Choose Express →</a>
+      </article>
+
+      <!-- Pro Trader -->
+      <article class="stx-plan">
+        <p class="stx-plan__eyebrow">Pro Trader</p>
+        <span class="stx-plan__badge">Advanced</span>
+        <h3>Pro Trader</h3>
+        <p class="stx-plan__sub">Best for experienced stocks traders ready for advanced program structure and the T3 Global audition path.</p>
+        <div class="stx-plan__claim">
+          <strong>Custom buying power</strong> with the live capital pathway through T3 Global for sustained top performers.
+        </div>
+        <div class="stx-plan__placeholder">PLACEHOLDER · final program parameters TBD from Jason</div>
+        <ul class="stx-plan__features">
+          <li class="stx-plan__tbd">Account structure · TBD</li>
+          <li class="stx-plan__tbd">Profit target / drawdown · TBD</li>
+          <li class="stx-plan__tbd">Profit split · TBD</li>
+          <li class="stx-plan__tbd">Earliest payout · TBD</li>
+          <li>Pro-level capital access</li>
+          <li>T3 Global audition path</li>
+          <li>Deep Charts available</li>
+        </ul>
+        <div class="stx-plan__price">
+          <span class="stx-plan__price-amt">TBD</span>
+          <span class="stx-plan__price-per">/first month</span>
+        </div>
+        <a href="#" class="stx-plan__cta stx-plan__cta--glass">Choose Pro →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     PLATFORMS
+     ============================================ -->
+<section class="stx-platforms" id="how-it-works">
+  <div class="stx-platforms__head">
+    <span class="stx-eyebrow">Platforms · professional execution</span>
+    <h2>Two platforms. <span class="accent">Both institutional.</span></h2>
+    <p>The same execution stack a professional desk uses. Pick the one that matches how you trade.</p>
+  </div>
+  <div class="stx-platforms__grid">
+    <article class="stx-platform">
+      <div class="stx-platform__top">
+        <span class="stx-platform__name">DXTrade</span>
+        <span class="stx-platform__tag">stocks · options</span>
+      </div>
+      <p class="stx-platform__desc">Built by the same development team as tastyworks and thinkorswim. Institutional execution infrastructure from a team that defines professional trading platforms.</p>
+      <ul class="stx-platform__features">
+        <li><strong>Institutional execution speed.</strong> Real-time order routing built for professional workflows.</li>
+        <li><strong>Real-time Level 2 data.</strong> Full order book depth visible on every trade.</li>
+        <li><strong>Professional charting.</strong> Full technical analysis toolkit, not a retail afterthought.</li>
+        <li><strong>Built on proven architecture.</strong> Developer lineage experienced traders recognize.</li>
+      </ul>
+    </article>
+
+    <article class="stx-platform">
+      <div class="stx-platform__top">
+        <span class="stx-platform__name">Deep Charts</span>
+        <span class="stx-platform__tag">stocks · charting</span>
+      </div>
+      <p class="stx-platform__desc">Professional charting and technical analysis built for serious equity traders. Multi-timeframe analysis, advanced studies, and one-click execution from the chart.</p>
+      <ul class="stx-platform__features">
+        <li><strong>Multi-timeframe charting.</strong> Stack any timeframe, side-by-side or linked, with persistent layouts.</li>
+        <li><strong>100+ technical indicators.</strong> Full studies library plus custom scripting for advanced setups.</li>
+        <li><strong>Pattern + price-action tools.</strong> Trendline, Fib, harmonic, and structure tools built for active traders.</li>
+        <li><strong>Chart-to-trade execution.</strong> Place, modify, and close orders directly from the chart with hot-keys.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================
+     LOSS-AVERSION three-stage
+     ============================================ -->
+<section class="stx-loss">
+  <div class="stx-loss__head">
+    <span class="stx-eyebrow">The math of staying small</span>
+    <h2>Your edge has one ceiling.<br><span class="accent">We move it. Twice.</span></h2>
+    <p>The same trading strategy at three different account sizes. Same edge. Wildly different math.</p>
+  </div>
+  <div class="stx-loss__grid">
+    <div class="stx-loss-card">
+      <div class="stx-loss-card__label">Trading your own money</div>
+      <div class="stx-loss-card__amount">$25,000</div>
+      <p class="stx-loss-card__qualifier">your ceiling</p>
+      <p class="stx-loss-card__desc">Every loss is your money. Every win is capped by your account size. PDT rule no longer applies, but the capital math hasn't changed.</p>
+    </div>
+    <div class="stx-loss__arrow">→</div>
+    <div class="stx-loss-card stx-loss-card--mid">
+      <div class="stx-loss-card__label">Funded equity account</div>
+      <div class="stx-loss-card__amount">$100,000</div>
+      <p class="stx-loss-card__qualifier">simulated capital</p>
+      <p class="stx-loss-card__desc">Simulated funded account. Keep up to 80% of what you make. No personal $25K at risk.</p>
+    </div>
+    <div class="stx-loss__arrow">→</div>
+    <div class="stx-loss-card stx-loss-card--top">
+      <span class="stx-loss-card__earned">Earned</span>
+      <div class="stx-loss-card__label">T3 Global desk</div>
+      <div class="stx-loss-card__amount">$1M+<sup style="font-size:0.5em;color:var(--teal);">*</sup></div>
+      <p class="stx-loss-card__qualifier">desk capital</p>
+      <p class="stx-loss-card__desc">Top performers earn a seat. Institutional infrastructure. Real fills.</p>
+      <p class="stx-loss-card__disclaimer">*Reserved for top-performing traders. Subject to T3 Global review and audition. Not all traders qualify.</p>
+    </div>
+  </div>
+  <p class="stx-loss__closer">Start at $100K. <span class="accent">Earn your way to $1M+.</span></p>
+</section>
+
+<!-- ============================================
+     FEATURED REVIEWS (Stocks-relevant, verbatim from Trustpilot)
+     ============================================ -->
+<section class="stx-reviews">
+  <div class="stx-reviews__head">
+    <span class="stx-reviews__eyebrow">Real traders · real reviews</span>
+    <h2>What TradeFundrr traders are saying</h2>
+    <p>Real names. Real reviews. No anonymous testimonials.</p>
+  </div>
+  <div class="stx-reviews__stat">
+    <div class="stx-reviews__stat-stars">★★★★★</div>
+    <div class="stx-reviews__stat-text">4.2 / 5 across 66+ verified reviews on Trustpilot</div>
+  </div>
+  <div class="stx-reviews__grid">
+    <article class="stx-review">
+      <div class="stx-review__stars">★★★★★</div>
+      <h3 class="stx-review__title">So glad I took the chance</h3>
+      <p class="stx-review__body">"I was skeptical at first about funded trading, but TradeFundrr proved me wrong. <strong>Got my first payout on schedule</strong>, support was responsive, and the platform actually works the way they say it does."</p>
+      <p class="stx-review__attrib"><strong>Chad Tillbrook</strong> · US · Jan 12, 2026</p>
+    </article>
+    <article class="stx-review">
+      <div class="stx-review__stars">★★★★★</div>
+      <h3 class="stx-review__title">One of the best prop firms I've worked with</h3>
+      <p class="stx-review__body">"I've tried five prop firms over the past two years. <strong>TradeFundrr is the only one that paid on time, every time</strong>, with no runaround. The rules are clear and the platform is institutional grade."</p>
+      <p class="stx-review__attrib"><strong>Parker B.</strong> · US · Dec 23, 2025</p>
+    </article>
+    <article class="stx-review">
+      <div class="stx-review__stars">★★★★★</div>
+      <h3 class="stx-review__title">TradeFundrr Review — after several months</h3>
+      <p class="stx-review__body">"I've compared five firms now over a year of trading. <strong>TradeFundrr is ranked #1 on my list</strong>. The execution speed and the payout reliability are what separate them from the others I've tried."</p>
+      <p class="stx-review__attrib"><strong>Eric</strong> · US · Apr 30, 2026</p>
+    </article>
+  </div>
+  <div class="stx-reviews__more">
+    <a href="#">Read all 66+ verified reviews on Trustpilot →</a>
+  </div>
+</section>
+
+<!-- ============================================
+     FOUNDER QUOTE CARD
+     ============================================ -->
+<section class="stx-founder">
+  <div class="stx-founder__inner">
+    <div class="stx-founder-card">
+      <div class="stx-founder-card__portrait">
+        <img src="assets/images/christian_headshot.png" alt="Christian Bose, Co-Founder of TradeFundrr">
+      </div>
+      <div>
+        <p class="stx-founder-card__quote">&ldquo;Your edge got you here. <strong>Our job is to make sure your account size doesn't stop you.</strong>&rdquo;</p>
+        <div class="stx-founder-card__attrib">
+          <span class="stx-founder-card__name">Christian Bose</span>
+          <span class="stx-founder-card__role">Co-founder · TradeFundrr</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FAQ with which-means
+     ============================================ -->
+<section class="stx-faq">
+  <div class="stx-faq__head">
+    <span class="stx-eyebrow">Stocks-trader FAQ</span>
+    <h2>Questions stocks traders ask. <span class="accent">Straight answers below.</span></h2>
+    <p>The 6 questions equity day traders ask before they buy. No spin.</p>
+  </div>
+  <div class="stx-faq__list">
+    <div class="stx-faq-item">
+      <p class="stx-faq-item__q">Is the $100K real money or simulated capital?</p>
+      <p class="stx-faq-item__a">The funded account is simulated capital. The payouts are real money paid against simulated trading performance. Top performers earn live capital through T3 Global routing. <strong class="stx-faq-means">Which means: you trade $100K of buying power without risking your own savings to access it, and real payouts hit your Rise account weekly when you hit targets.</strong></p>
+    </div>
+    <div class="stx-faq-item">
+      <p class="stx-faq-item__q">Does the PDT rule still apply?</p>
+      <p class="stx-faq-item__a">No. The Pattern Day Trader rule was repealed and no longer restricts day trading frequency on TradeFundrr funded accounts. <strong class="stx-faq-means">Which means: you can trade every day without worrying about the old four-day-rolling-window restriction that capped retail stock day traders.</strong></p>
+    </div>
+    <div class="stx-faq-item">
+      <p class="stx-faq-item__q">When do I get paid?</p>
+      <p class="stx-faq-item__a">Payouts run weekly. Once you're eligible, request a payout and approved requests process on Fridays. Earliest payout on Express Funding is 5 days from start. <strong class="stx-faq-means">Which means: weekly payout windows, paid direct to your Rise account, performance-based not on-demand.</strong></p>
+    </div>
+    <div class="stx-faq-item">
+      <p class="stx-faq-item__q">What if I blow the account?</p>
+      <p class="stx-faq-item__a">If you exceed the drawdown limit, the account is suspended per the published program rules. You can purchase another evaluation or Express account to restart. <strong class="stx-faq-means">Which means: the cost of failure is the eval fee, not your savings.</strong></p>
+    </div>
+    <div class="stx-faq-item">
+      <p class="stx-faq-item__q">What platforms can I trade on?</p>
+      <p class="stx-faq-item__a">DXTrade for most traders (built by the same team behind tastyworks and thinkorswim). Deep Charts for traders who want professional charting and one-click execution from the chart. <strong class="stx-faq-means">Which means: the execution stack matches what a professional desk runs, not a retail brokerage.</strong></p>
+    </div>
+    <div class="stx-faq-item">
+      <p class="stx-faq-item__q">Can I really graduate to live capital?</p>
+      <p class="stx-faq-item__a">Yes, but it's earned. Top-performing traders with sustained Sharpe and risk discipline audition for T3 Global's institutional trading desk. Not all traders qualify; the path is documented and open to those who demonstrate consistency. <strong class="stx-faq-means">Which means: this isn't a marketing promise. There is a real audition path to real desk capital at T3 Global for traders who earn it.</strong></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================
+     MORE X THAN Y triplet
+     ============================================ -->
+<section class="stx-morethan">
+  <div class="stx-morethan__head">
+    <span class="stx-eyebrow">What we're not</span>
+    <h2>More <span class="accent">substance</span>. Less marketing.</h2>
+  </div>
+  <div class="stx-morethan__grid">
+    <article class="stx-morethan-card">
+      <h3 class="stx-morethan-card__lead">More <span class="accent">transparency</span> than promises.</h3>
+      <p class="stx-morethan-card__desc">Rules published up front. Drawdown math you can verify. No mystery clauses that change after you pass.</p>
+    </article>
+    <article class="stx-morethan-card">
+      <h3 class="stx-morethan-card__lead">More <span class="accent">institutional routing</span> than retail PFOF.</h3>
+      <p class="stx-morethan-card__desc">Top performers route through T3 Global's institutional desk infrastructure. Not a retail broker pocketing the spread.</p>
+    </article>
+    <article class="stx-morethan-card">
+      <h3 class="stx-morethan-card__lead">More <span class="accent">buying power</span> than your $25K can hold.</h3>
+      <p class="stx-morethan-card__desc">$100K simulated equity buying power. Real payouts on real performance. Earn your way to $1M+ desk capital.</p>
+    </article>
+  </div>
+  <p class="stx-morethan__closer">It's time for <span class="accent">TradeFundrr</span>.</p>
+</section>
+
+<!-- ============================================
+     FINAL CTA
+     ============================================ -->
+<section class="stx-final">
+  <div class="stx-final__grid">
+    <div class="stx-final__left">
+      <span class="stx-eyebrow">Stop watching. Start trading.</span>
+      <h2>Your edge isn't the problem.<br><span class="accent">Your $25K is.</span></h2>
+      <p>Trade $100K of simulated buying power. Keep up to 80% of what you make. Pass once, earn back your eval fee. Top performers graduate to live capital through T3 Global.</p>
+      <div class="stx-final__ctas">
+        <a href="#plans" class="stx-hero__cta-primary">Stop Risking Your Savings &rarr;</a>
+        <a href="#" class="stx-hero__cta-secondary">Talk to our team &rarr;</a>
+      </div>
+      <div class="stx-final__ticks">
+        <span>Weekly payouts</span>
+        <span>Upfront rules</span>
+        <span>Phone &amp; email support</span>
+      </div>
+    </div>
+    <div>
+      <div class="stx-founder-card" style="grid-template-columns: 160px 1fr; padding: 32px 28px;">
+        <div class="stx-founder-card__portrait" style="aspect-ratio:4/5;">
+          <img src="assets/images/christian_headshot.png" alt="Christian Bose">
+        </div>
+        <div>
+          <p class="stx-founder-card__quote" style="font-size:17px;">&ldquo;Your edge got you here. <strong>Our job is to make sure your account size doesn't stop you.</strong>&rdquo;</p>
+          <div class="stx-founder-card__attrib">
+            <span class="stx-founder-card__name">Christian Bose</span>
+            <span class="stx-founder-card__role">Co-founder &middot; TradeFundrr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#060914;border-top:1px solid var(--border);padding:60px 32px 40px;color:var(--white-72);">
+  <div style="max-width:1240px;margin:0 auto;text-align:center;font-size:13px;">
+    <p style="margin:0 0 12px;">This is a preview file. Full footer + legal disclosures will be ported from the live homepage when this redesign ships to pages/stocks.html.</p>
+    <p style="margin:0;color:var(--white-45);font-size:12px;">&copy; 2026 TradeFundrr &middot; Preview build</p>
+  </div>
+</footer>
+
+<!-- Mouse-follow 3D tilt on hero image. Gracefully degrades on touch/no-pointer. -->
+<script>
+(function () {
+  function init() {
+    var media = document.querySelector('.stx-hero__media');
+    if (!media) return;
+    var defaultTransform = 'perspective(1800px) rotateX(-2deg) rotateY(-6deg)';
+    var maxTiltY = 10;
+    var maxTiltX = 7;
+    var moving = false;
+
+    media.addEventListener('mousemove', function (e) {
+      var rect = media.getBoundingClientRect();
+      var nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      var ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+      var ry = nx * maxTiltY;
+      var rx = -ny * maxTiltX;
+      if (!moving) {
+        media.style.transition = 'transform 0.08s linear';
+        moving = true;
+      }
+      media.style.transform = 'perspective(1800px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+    });
+
+    media.addEventListener('mouseleave', function () {
+      media.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      media.style.transform = defaultTransform;
+      moving = false;
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+
+</body>
+</html>
