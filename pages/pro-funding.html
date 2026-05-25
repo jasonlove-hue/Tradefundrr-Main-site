@@ -79,12 +79,30 @@
       margin-bottom: 18px;
     }
 
-    /* Hero: text + animated visual on the right */
-    .pf-hero__media img { width: 100%; height: auto; max-width: 520px; display: block; margin: 0 auto; }
+    /* Hero: text + animated visual on the right.
+       Override pro-funding.css's 16:10 card + object-fit: cover so the GIF
+       is centered (not pinned to the top of a 16:10 box). The card hugs
+       the GIF's natural height with light padding for breathing room. */
+    .pf-hero__media {
+      aspect-ratio: auto !important;
+      padding: 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .pf-hero__media img,
+    .pf-hero__media video {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 520px !important;
+      object-fit: contain !important;
+      display: block !important;
+      margin: 0 !important;
+    }
     @media (max-width: 991px) {
       .pf-hero__grid { grid-template-columns: 1fr !important; }
-      .pf-hero__media { display: flex; justify-content: center; margin-top: 28px; }
-      .pf-hero__media img { max-width: 360px; }
+      .pf-hero__media { margin-top: 28px; }
+      .pf-hero__media img { max-width: 360px !important; }
     }
 
     /* Narrative sections become full-width text where the image was dropped */
