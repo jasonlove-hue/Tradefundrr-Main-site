@@ -1853,7 +1853,14 @@
       started = true;
       active = 0;
       activate(0);
-      intervalId = setInterval(tick, cycleMs);
+      /* Fast first transition (500ms) so motion is obvious immediately when
+         the user lands on the section. After that, settle into cycleMs. */
+      setTimeout(function () {
+        if (paused) return;
+        active = 1;
+        activate(active);
+        intervalId = setInterval(tick, cycleMs);
+      }, 500);
     }
     section.addEventListener('mouseenter', function () { paused = true; });
     section.addEventListener('mouseleave', function () { paused = false; });
@@ -1868,7 +1875,7 @@
             return;
           }
         }
-      }, { threshold: 0.25 });
+      }, { threshold: 0.1, rootMargin: '150px 0px' });
       io.observe(section);
     } else {
       /* Fallback: start immediately if IO is unavailable. */
