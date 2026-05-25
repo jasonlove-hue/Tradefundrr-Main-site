@@ -102,7 +102,8 @@
     @media (max-width: 991px) {
       .pf-hero__grid { grid-template-columns: 1fr !important; }
       .pf-hero__media { margin-top: 28px; }
-      .pf-hero__media img { max-width: 360px !important; }
+      .pf-hero__media img,
+      .pf-hero__media video { max-width: 360px !important; }
     }
 
     /* Narrative sections become full-width text where the image was dropped */
@@ -262,8 +263,17 @@
       <p class="pf-outcome-note"><sup>*</sup>Outcome-dependent. Reserved for qualifying applicants meeting capital contribution requirements and sustained performance standards. Subject to T3 Global review and approval. Not all traders reach these income levels.</p>
     </div>
     <div class="pf-hero__media">
-      <!-- TODO: download this asset to assets/images/pro-funding-hero.gif and swap the URL when convenient. -->
-      <img src="https://tradefundrr.com/wp-content/uploads/2024/09/futures_pro_animation_v2.gif" alt="Pro Trader Funding setup animation" loading="eager">
+      <video class="pf-hero-video"
+             autoplay loop muted playsinline preload="auto"
+             fetchpriority="high"
+             width="1000" height="563"
+             poster="../assets/images/futures_pro_animation_v2-poster.webp?v=202605260401"
+             aria-label="Pro Trader Funding setup animation">
+        <source src="../assets/images/futures_pro_animation_v2.webm?v=202605260401" type="video/webm">
+        <source src="../assets/images/futures_pro_animation_v2.mp4?v=202605260401"  type="video/mp4">
+        <!-- Last-ditch fallback for browsers that can't play either source -->
+        <img src="../assets/images/futures_pro_animation_v2.gif?v=202605260401" alt="Pro Trader Funding setup animation" loading="eager" width="1000" height="563">
+      </video>
     </div>
   </div>
 </section>
