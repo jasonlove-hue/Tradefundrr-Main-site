@@ -1088,7 +1088,7 @@
   border: 2px solid #22d3a8;
   border-radius: 50%;
   box-shadow: 0 0 12px rgba(34, 211, 168, 0.5);
-  transition: width .3s ease, height .3s ease, box-shadow .3s ease, background .3s ease;
+  transition: width .22s ease, height .22s ease, box-shadow .22s ease, background .22s ease;
 }
 .journey__rail-marker.is-active {
   width: 18px;
@@ -1118,7 +1118,7 @@
   background: hsla(0, 0%, 100%, 0.03);
   border: 1px solid hsla(0, 0%, 100%, 0.08);
   border-radius: 18px;
-  transition: border-color .4s ease, background .4s ease, transform .4s ease, box-shadow .4s ease;
+  transition: border-color .25s ease, background .25s ease, transform .25s ease, box-shadow .25s ease;
 }
 .journey-card:hover {
   border-color: rgba(34, 211, 168, 0.3);
