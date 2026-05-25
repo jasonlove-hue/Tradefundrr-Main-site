@@ -759,6 +759,204 @@
     }
     /* === END MOBILE OPTIMIZATIONS === */
 
+    /* ============================================
+       EMPATHY / MISSION (less-aware bridge)
+       ============================================ */
+    .stx-empathy { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stx-empathy__grid { max-width: 1080px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .stx-empathy__col .stx-eyebrow { margin-bottom: 14px; }
+    .stx-empathy__col h3 { font-size: 28px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.18; margin: 0 0 18px; color: #fff; }
+    .stx-empathy__col h3 .accent { color: var(--teal); }
+    .stx-empathy__col p { color: var(--white-72); font-size: 16px; line-height: 1.65; margin: 0 0 14px; }
+    .stx-empathy__col p:last-child { margin-bottom: 0; }
+    .stx-empathy__col p strong { color: #fff; font-weight: 600; }
+    @media (max-width: 991px) {
+      .stx-empathy { padding: 80px 0; }
+      .stx-empathy__grid { grid-template-columns: 1fr; gap: 44px; padding: 0 24px; }
+      .stx-empathy__col h3 { font-size: 26px; }
+    }
+    @media (max-width: 480px) {
+      .stx-empathy { padding: 60px 0; }
+      .stx-empathy__grid { gap: 36px; padding: 0 18px; }
+      .stx-empathy__col h3 { font-size: 22px; letter-spacing: -0.4px; line-height: 1.2; }
+      .stx-empathy__col p { font-size: 15px; line-height: 1.6; }
+      .stx-empathy__col .stx-eyebrow { font-size: 10.5px; letter-spacing: 1.4px; }
+    }
+
+    /* ============================================
+       DID YOU KNOW callout
+       ============================================ */
+    .stx-didyou { padding: 60px 0 100px; background: #0a101e; }
+    .stx-didyou__box {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 36px 40px;
+      background: linear-gradient(180deg, rgba(34,211,168,0.08), rgba(34,211,168,0.02));
+      border: 1px solid rgba(34,211,168,0.3);
+      border-radius: 16px;
+      position: relative;
+    }
+    .stx-didyou__label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 0 0 14px;
+      display: block;
+    }
+    .stx-didyou__copy { color: #fff; font-size: 19px; line-height: 1.55; margin: 0; font-weight: 500; letter-spacing: -0.2px; }
+    .stx-didyou__copy strong { color: var(--teal); }
+    .stx-didyou__copy .closer { display: block; margin-top: 14px; color: var(--white-72); font-size: 15px; font-style: italic; font-weight: 400; }
+    @media (max-width: 991px) {
+      .stx-didyou { padding: 50px 20px 80px; }
+      .stx-didyou__box { padding: 30px 26px; }
+      .stx-didyou__copy { font-size: 17px; }
+    }
+    @media (max-width: 480px) {
+      .stx-didyou { padding: 36px 14px 60px; }
+      .stx-didyou__box { padding: 24px 20px; border-radius: 12px; }
+      .stx-didyou__copy { font-size: 15.5px; line-height: 1.5; }
+      .stx-didyou__copy .closer { font-size: 13.5px; margin-top: 12px; }
+      .stx-didyou__label { font-size: 10.5px; letter-spacing: 1.4px; }
+    }
+
+    /* ============================================
+       ACCOUNT DETAILS accordion (Express Funding rules)
+       ============================================ */
+    .stx-rules { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-rules__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-rules__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-rules__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 14px; color: var(--teal); }
+    .stx-rules__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-rules__list { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .stx-rules-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .stx-rules-item:hover { border-color: var(--border-hover); }
+    .stx-rules-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      user-select: none;
+    }
+    .stx-rules-item > summary::-webkit-details-marker { display: none; }
+    .stx-rules-item > summary::marker { content: ""; }
+    .stx-rules-item__chevron {
+      color: var(--teal);
+      font-size: 14px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      width: 14px;
+      text-align: center;
+    }
+    .stx-rules-item[open] .stx-rules-item__chevron { transform: rotate(0deg); }
+    .stx-rules-item:not([open]) .stx-rules-item__chevron { transform: rotate(-90deg); }
+    .stx-rules-item__label { color: #fff; }
+    .stx-rules-item__value { color: var(--teal); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .stx-rules-item__body {
+      padding: 18px 22px 20px;
+      color: var(--white-72);
+      font-size: 14.5px;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      background: hsla(0, 0%, 100%, 0.015);
+    }
+    .stx-rules-item__body p { margin: 0 0 12px; }
+    .stx-rules-item__body p:last-child { margin-bottom: 0; }
+    .stx-rules-item__body strong { color: #fff; font-weight: 600; }
+    .stx-rules-item__body em { color: var(--teal); font-style: normal; font-weight: 600; }
+    .stx-rules__footnote {
+      max-width: 920px;
+      margin: 24px auto 0;
+      padding: 0 32px;
+      color: var(--white-45);
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 991px) {
+      .stx-rules { padding: 80px 0; }
+      .stx-rules__head { padding: 0 24px; margin-bottom: 40px; }
+      .stx-rules__head h2 { font-size: 32px; letter-spacing: -0.9px; }
+      .stx-rules__head p { font-size: 15.5px; }
+      .stx-rules__list { padding: 0 18px; }
+      .stx-rules-item > summary { padding: 16px 18px; font-size: 15px; gap: 12px; }
+      .stx-rules-item__body { padding: 16px 18px 18px; font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .stx-rules { padding: 60px 0; }
+      .stx-rules__head h2 { font-size: 26px; letter-spacing: -0.6px; }
+      .stx-rules__head p { font-size: 14.5px; }
+      .stx-rules__list { padding: 0 14px; }
+      .stx-rules-item { border-radius: 8px; margin-bottom: 10px; }
+      .stx-rules-item > summary { padding: 14px 16px; font-size: 14px; gap: 10px; }
+      .stx-rules-item__value { font-size: 14px; }
+      .stx-rules-item__body { padding: 14px 16px 16px; font-size: 13.5px; line-height: 1.55; }
+      .stx-rules__footnote { font-size: 11.5px; padding: 0 18px; }
+    }
+
+    /* ============================================
+       MORE X THAN Y triplet
+       ============================================ */
+    .stx-morethan { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-morethan__head { text-align: center; max-width: 720px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-morethan__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; margin: 0 0 12px; color: #fff; }
+    .stx-morethan__head h2 .accent { color: var(--teal); }
+    .stx-morethan__grid {
+      max-width: 1080px;
+      margin: 0 auto 38px;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .stx-morethan-card {
+      padding: 32px 26px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .stx-morethan-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .stx-morethan-card__lead { font-size: 22px; font-weight: 700; letter-spacing: -0.6px; line-height: 1.2; margin: 0 0 8px; color: #fff; }
+    .stx-morethan-card__lead .accent { color: var(--teal); }
+    .stx-morethan-card__desc { color: var(--white-72); font-size: 14.5px; line-height: 1.55; margin: 0; }
+    .stx-morethan__closer { text-align: center; font-size: 24px; font-weight: 700; letter-spacing: -0.6px; color: #fff; margin: 0; }
+    .stx-morethan__closer .accent { color: var(--teal); }
+    @media (max-width: 991px) {
+      .stx-morethan { padding: 80px 0; }
+      .stx-morethan__head { padding: 0 24px; margin-bottom: 38px; }
+      .stx-morethan__head h2 { font-size: 30px; letter-spacing: -0.8px; }
+      .stx-morethan__grid { grid-template-columns: 1fr; gap: 16px; padding: 0 18px; margin-bottom: 30px; }
+      .stx-morethan-card { padding: 26px 22px; }
+      .stx-morethan-card__lead { font-size: 19px; }
+      .stx-morethan__closer { font-size: 20px; padding: 0 24px; }
+    }
+    @media (max-width: 480px) {
+      .stx-morethan { padding: 60px 0; }
+      .stx-morethan__head h2 { font-size: 26px; letter-spacing: -0.5px; line-height: 1.15; }
+      .stx-morethan__grid { padding: 0 14px; gap: 14px; }
+      .stx-morethan-card { padding: 22px 18px; border-radius: 12px; }
+      .stx-morethan-card__lead { font-size: 18px; letter-spacing: -0.4px; }
+      .stx-morethan-card__desc { font-size: 14px; }
+      .stx-morethan__closer { font-size: 18px; }
+      .stx-morethan__head .stx-eyebrow { font-size: 10.5px; letter-spacing: 1.4px; }
+    }
+
   </style>
 </head>
 <body>
@@ -841,6 +1039,20 @@
     <span style="top:52%;left:96%;--size:2px;--delay:2.0s;"></span>
     <span style="top:84%;left:88%;--size:3px;--delay:1.4s;"></span>
     <span style="top:46%;left:76%;--size:2px;--delay:2.8s;"></span>
+    <span style="top:6%;left:22%;--size:2.5px;--delay:1.6s;"></span>
+    <span style="top:30%;left:58%;--size:2px;--delay:0.9s;"></span>
+    <span style="top:14%;left:36%;--size:2px;--delay:3.2s;"></span>
+    <span style="top:70%;left:18%;--size:2.5px;--delay:2.2s;"></span>
+    <span style="top:90%;left:48%;--size:2px;--delay:0.3s;"></span>
+    <span style="top:42%;left:4%;--size:3px;--delay:1.0s;"></span>
+    <span style="top:26%;left:84%;--size:2px;--delay:2.6s;"></span>
+    <span style="top:58%;left:62%;--size:2.5px;--delay:1.5s;"></span>
+    <span style="top:74%;left:54%;--size:2px;--delay:3.4s;"></span>
+    <span style="top:16%;left:78%;--size:2px;--delay:0.7s;"></span>
+    <span style="top:36%;left:88%;--size:2.5px;--delay:2.1s;"></span>
+    <span style="top:66%;left:72%;--size:2px;--delay:1.3s;"></span>
+    <span style="top:50%;left:24%;--size:2.5px;--delay:3.6s;"></span>
+    <span style="top:4%;left:54%;--size:2px;--delay:2.7s;"></span>
   </div>
   <div class="stx-hero__grid">
     <div class="stx-hero__text">
@@ -910,6 +1122,41 @@
   </div>
 </section>
 
+
+<!-- ============================================
+     EMPATHY / MISSION (less-aware bridge)
+     ============================================ -->
+<section class="stx-empathy">
+  <div class="stx-empathy__grid">
+    <div class="stx-empathy__col">
+      <span class="stx-eyebrow">If you're here, you've already done the hard part</span>
+      <h3>You're <span class="accent">not the only trader</span> stuck at the same ceiling.</h3>
+      <p>You can read the tape. You've sat through the bad fills, the bad days, the strategies that quietly worked once you stopped tweaking them. You've put in the screen time.</p>
+      <p>But every position is still sized for a <strong>$5K to $25K personal account</strong>, and somewhere along the way it became obvious: the strategy isn't the problem. The size is.</p>
+      <p>If that's where you are, you're not alone. Most of the equity traders we fund were exactly here a year ago.</p>
+    </div>
+    <div class="stx-empathy__col">
+      <span class="stx-eyebrow">Why TradeFundrr exists</span>
+      <h3>We're on a mission to <span class="accent">back the traders the industry skips</span>.</h3>
+      <p>The PDT rule is gone. Capital still isn't. Retail traders with real edges still get parked behind small account sizes, payment-for-order-flow execution, and brokers built for buy-and-hold investors.</p>
+      <p>We built TradeFundrr so a trader with a working strategy can <strong>access institutional buying power, transparent rules, and a real graduation path</strong> to T3 Global desk capital &mdash; without putting their savings on the line first.</p>
+      <p>Your job is the trading. Our job is the capital, the infrastructure, and the runway.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     DID YOU KNOW callout
+     ============================================ -->
+<section class="stx-didyou">
+  <div class="stx-didyou__box">
+    <span class="stx-didyou__label">Did you know?</span>
+    <p class="stx-didyou__copy">
+      One disciplined equity trader can move <strong>seven figures of P&amp;L per year</strong> for an institutional desk. That's why we back individual traders with up to <strong>$1M+ in real desk capital through T3 Global</strong>* once they prove sustained edge.
+      <span class="closer">Your success is our success. Not a slogan &mdash; the entire business model.</span>
+    </p>
+  </div>
+</section>
 
 <!-- ============================================
      AVATAR — Equity Day Trader
@@ -1096,6 +1343,149 @@
 </section>
 
 <!-- ============================================
+     ACCOUNT DETAILS — Express Funding rules
+     ============================================ -->
+<section class="stx-rules">
+  <div class="stx-rules__head">
+    <span class="stx-eyebrow">Express Funding &middot; the full breakdown</span>
+    <h2>Your Express Funding Account Details</h2>
+    <p>Simple. Transparent. No hidden rules. No hidden fees.</p>
+  </div>
+
+  <div class="stx-rules__list">
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Account Size</span>
+        <span class="stx-rules-item__value">$25,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Get instant access to a $25,000 funded account, offering immediate trading power and flexibility to capitalize on market opportunities.</p>
+        <p><strong class="stx-faq-means">Which means: you start with a $25,000 funded account size, with a path to scale up through performance &mdash; no waiting on slow evals.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Intraday Buying-Power</span>
+        <span class="stx-rules-item__value">$100,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Intraday buying-power is 4&times; the account balance. Example: if your account balance is $25,000, you can trade shares worth $100,000.</p>
+        <p><strong>Symbol/Ticker Limit:</strong> you are not allowed to use more than 25% of your account's buying-power in one symbol/ticker at a time. Example: even though you have $100,000 intraday buying-power, you can only trade a maximum of $25,000 worth of one symbol/ticker at any given time.</p>
+        <p><strong class="stx-faq-means">Which means: you can put $100,000 of stock to work intraday on $25K of account, but no single ticker can absorb more than $25K of that buying power.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Daily Loss Limit</span>
+        <span class="stx-rules-item__value">$1,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Maximum amount you are allowed to lose in one trading day. This is a soft breach and will disable your account for the duration of the session.</p>
+        <p><strong class="stx-faq-means">Which means: one rough day won't blow the whole account. If you hit -$1,000 in a session, the rest of the day is paused; you reset for the next.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Max End of Day Drawdown</span>
+        <span class="stx-rules-item__value">$3,750</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>The maximum amount you are allowed to lose from your peak account equity. Calculated at the end of each trading day.</p>
+        <p><strong class="stx-faq-means">Which means: your account is protected by a trailing drawdown calculated on your highest end-of-day equity. Keep your peak-to-trough swing inside $3,750 and you keep trading.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Weekly Payouts Unlocked At Profit Target</span>
+        <span class="stx-rules-item__value">$1,250</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p><strong>Unlock your payout privileges to start requesting weekly payouts from your Express Funding account.</strong></p>
+        <p>To unlock your payout privilege you need to reach the profit target of your account, while showing consistent profit-taking skills on 5 trading days (non-consecutive) with a minimum daily profit of $250 on each of the 5 days.</p>
+        <p>As soon as your payout privileges are unlocked you can request an immediate payout of 50% of your profits.</p>
+        <p>To unlock permanent unlimited 100% profit payouts you need to complete 6 payout cycles (each cycle requires 5 non-consecutive trading days of $250 or more, and that the profit target has been reached).</p>
+        <p><strong>Once your 100% profit payouts are unlocked, you keep this privilege and can request 100% payouts of your profits on a weekly basis.</strong></p>
+        <p><strong>Keep in mind:</strong> we aim to move traders to our live pro trade desk as soon as we observe strong performance and risk-management skills. <em>Once you are moved to our live desk, all payout restrictions are removed, and you can request 100% of your profit share without limitations.</em></p>
+        <p><strong class="stx-faq-means">Which means: you don't have to hit some massive target before getting paid. $1,250 of profit plus 5 disciplined trading days unlocks your first 50% payout; six clean cycles unlock unlimited 100%.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Drawdown High Water Mark</span>
+        <span class="stx-rules-item__value">$25,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Once your trailing drawdown matches your initial balance, it will no longer trail and will be locked in at that level for the duration of the evaluation. This allows you to establish a cushion and enjoy a higher maximum drawdown, providing greater flexibility in managing your trades.</p>
+        <p><strong class="stx-faq-means">Which means: once your trailing drawdown reaches your starting balance, it locks. Every dollar of profit after that becomes additional cushion, not pressure.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Profit Split</span>
+        <span class="stx-rules-item__value">80/20</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>You keep 80 percent of the earnings, we keep 20 percent. The profit split is the same across all of TradeFundrr's accounts (Growth, Express, Pro).</p>
+        <p><strong class="stx-faq-means">Which means: you keep 80 cents of every dollar of profit. No tiered scale, no qualifications &mdash; same split on Growth, Express, and Pro.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Payout Cycle</span>
+        <span class="stx-rules-item__value">Weekly</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>As soon as you're eligible for payouts, you can request weekly payouts of your profit split.</p>
+        <p><strong class="stx-faq-means">Which means: weekly payout requests, paid against simulated trading performance, deposited to your Rise account.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Min Payout Amount</span>
+        <span class="stx-rules-item__value">$250</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>$250 is the minimum payout you can request at any weekly payout cycle.</p>
+        <p><strong class="stx-faq-means">Which means: as soon as you've earned $250 of payout-eligible profit, you can request it. No “wait until $5K” cliff.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Max Payout Amount</span>
+        <span class="stx-rules-item__value">$15,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>The maximum payout per user is $15,000. That said, traders who demonstrate consistent, high-level performance may be considered for referral to select professional trading firms within our broader network. While we are not directly affiliated with these firms, we maintain relationships with established players in the proprietary trading space &mdash; such as <strong>T3 Global</strong> and <strong>T3 Trading Group</strong> &mdash; who serve institutional and licensed traders with substantial buying power, advanced infrastructure, and professional-grade tools. When appropriate, we may facilitate introductions that could open the door to expanded opportunities and long-term career advancement in professional trading.</p>
+        <p><strong class="stx-faq-means">Which means: a single payout caps at $15,000 &mdash; but sustained top performers don't actually hit this ceiling because they get moved onto the T3 desk path, where caps don't apply.</strong></p>
+      </div>
+    </details>
+
+  </div>
+
+  <p class="stx-rules__footnote">Account parameters apply to the Express Funding simulated account. Top performers may graduate to live capital through T3 Global per the published audition path. Sim is sim. Live is live.</p>
+</section>
+
+<!-- ============================================
      PLATFORMS
      ============================================ -->
 <section class="stx-platforms" id="how-it-works">
@@ -1264,6 +1654,32 @@
       <p class="stx-faq-item__a">Yes, but it's earned. Top-performing traders with sustained Sharpe and risk discipline audition for T3 Global's institutional trading desk. Not all traders qualify; the path is documented and open to those who demonstrate consistency. <strong class="stx-faq-means">Which means: this isn't a marketing promise. There is a real audition path to real desk capital at T3 Global for traders who earn it.</strong></p>
     </div>
   </div>
+</section>
+
+
+<!-- ============================================
+     MORE X THAN Y triplet
+     ============================================ -->
+<section class="stx-morethan">
+  <div class="stx-morethan__head">
+    <span class="stx-eyebrow">What we're not</span>
+    <h2>More <span class="accent">substance</span>. Less marketing.</h2>
+  </div>
+  <div class="stx-morethan__grid">
+    <article class="stx-morethan-card">
+      <h3 class="stx-morethan-card__lead">More <span class="accent">transparency</span> than promises.</h3>
+      <p class="stx-morethan-card__desc">Rules published up front. Drawdown math you can verify. No mystery clauses that change after you pass.</p>
+    </article>
+    <article class="stx-morethan-card">
+      <h3 class="stx-morethan-card__lead">More <span class="accent">institutional routing</span> than retail PFOF.</h3>
+      <p class="stx-morethan-card__desc">Top performers route through T3 Global's institutional desk infrastructure. Not a retail broker pocketing the spread.</p>
+    </article>
+    <article class="stx-morethan-card">
+      <h3 class="stx-morethan-card__lead">More <span class="accent">buying power</span> than your $25K can hold.</h3>
+      <p class="stx-morethan-card__desc">$100K simulated equity buying power. Real payouts on real performance. Earn your way to $1M+ desk capital.</p>
+    </article>
+  </div>
+  <p class="stx-morethan__closer">It's time for <span class="accent">TradeFundrr</span>.</p>
 </section>
 
 <!-- ============================================

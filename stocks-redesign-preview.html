@@ -782,6 +782,94 @@
       .stx-morethan__head .stx-eyebrow { font-size: 10.5px; letter-spacing: 1.4px; }
     }
 
+    /* ============================================
+       ACCOUNT DETAILS accordion (Express Funding rules)
+       ============================================ */
+    .stx-rules { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-rules__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-rules__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-rules__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 14px; color: var(--teal); }
+    .stx-rules__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-rules__list { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .stx-rules-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .stx-rules-item:hover { border-color: var(--border-hover); }
+    .stx-rules-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      user-select: none;
+    }
+    .stx-rules-item > summary::-webkit-details-marker { display: none; }
+    .stx-rules-item > summary::marker { content: ""; }
+    .stx-rules-item__chevron {
+      color: var(--teal);
+      font-size: 14px;
+      transition: transform 0.2s ease;
+      display: inline-block;
+      width: 14px;
+      text-align: center;
+    }
+    .stx-rules-item[open] .stx-rules-item__chevron { transform: rotate(0deg); }
+    .stx-rules-item:not([open]) .stx-rules-item__chevron { transform: rotate(-90deg); }
+    .stx-rules-item__label { color: #fff; }
+    .stx-rules-item__value { color: var(--teal); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .stx-rules-item__body {
+      padding: 18px 22px 20px;
+      color: var(--white-72);
+      font-size: 14.5px;
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      background: hsla(0, 0%, 100%, 0.015);
+    }
+    .stx-rules-item__body p { margin: 0 0 12px; }
+    .stx-rules-item__body p:last-child { margin-bottom: 0; }
+    .stx-rules-item__body strong { color: #fff; font-weight: 600; }
+    .stx-rules-item__body em { color: var(--teal); font-style: normal; font-weight: 600; }
+    .stx-rules__footnote {
+      max-width: 920px;
+      margin: 24px auto 0;
+      padding: 0 32px;
+      color: var(--white-45);
+      font-size: 12px;
+      font-style: italic;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 991px) {
+      .stx-rules { padding: 80px 0; }
+      .stx-rules__head { padding: 0 24px; margin-bottom: 40px; }
+      .stx-rules__head h2 { font-size: 32px; letter-spacing: -0.9px; }
+      .stx-rules__head p { font-size: 15.5px; }
+      .stx-rules__list { padding: 0 18px; }
+      .stx-rules-item > summary { padding: 16px 18px; font-size: 15px; gap: 12px; }
+      .stx-rules-item__body { padding: 16px 18px 18px; font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .stx-rules { padding: 60px 0; }
+      .stx-rules__head h2 { font-size: 26px; letter-spacing: -0.6px; }
+      .stx-rules__head p { font-size: 14.5px; }
+      .stx-rules__list { padding: 0 14px; }
+      .stx-rules-item { border-radius: 8px; margin-bottom: 10px; }
+      .stx-rules-item > summary { padding: 14px 16px; font-size: 14px; gap: 10px; }
+      .stx-rules-item__value { font-size: 14px; }
+      .stx-rules-item__body { padding: 14px 16px 16px; font-size: 13.5px; line-height: 1.55; }
+      .stx-rules__footnote { font-size: 11.5px; padding: 0 18px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1077,6 +1165,159 @@
 
     </div>
   </div>
+</section>
+
+<!-- ============================================
+     ACCOUNT DETAILS — Express Funding rules
+     ============================================ -->
+<section class="stx-rules">
+  <div class="stx-rules__head">
+    <span class="stx-eyebrow">Express Funding · the full breakdown</span>
+    <h2>Your Express Funding Account Details</h2>
+    <p>Simple. Transparent. No hidden rules. No hidden fees.</p>
+  </div>
+
+  <div class="stx-rules__list">
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Account Size</span>
+        <span class="stx-rules-item__value">$25,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Get instant access to a $25,000 funded account, offering immediate trading power and flexibility to capitalize on market opportunities.</p>
+      
+        <p><strong class="stx-faq-means">Which means: you start with a $25,000 funded account size, with a path to scale up through performance &mdash; no waiting on slow evals.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Intraday Buying-Power</span>
+        <span class="stx-rules-item__value">$100,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Intraday buying-power is 4&times; the account balance. Example: if your account balance is $25,000, you can trade shares worth $100,000.</p>
+        <p><strong>Symbol/Ticker Limit:</strong> you are not allowed to use more than 25% of your account's buying-power in one symbol/ticker at a time. Example: even though you have $100,000 intraday buying-power, you can only trade a maximum of $25,000 worth of one symbol/ticker at any given time.</p>
+      
+        <p><strong class="stx-faq-means">Which means: you can put $100,000 of stock to work intraday on $25K of account, but no single ticker can absorb more than $25K of that buying power.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Daily Loss Limit</span>
+        <span class="stx-rules-item__value">$1,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Maximum amount you are allowed to lose in one trading day. This is a soft breach and will disable your account for the duration of the session.</p>
+      
+        <p><strong class="stx-faq-means">Which means: one rough day won't blow the whole account. If you hit -$1,000 in a session, the rest of the day is paused; you reset for the next.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Max End of Day Drawdown</span>
+        <span class="stx-rules-item__value">$3,750</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>The maximum amount you are allowed to lose from your peak account equity. Calculated at the end of each trading day.</p>
+      
+        <p><strong class="stx-faq-means">Which means: your account is protected by a trailing drawdown calculated on your highest end-of-day equity. Keep your peak-to-trough swing inside $3,750 and you keep trading.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Weekly Payouts Unlocked At Profit Target</span>
+        <span class="stx-rules-item__value">$1,250</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p><strong>Unlock your payout privileges to start requesting weekly payouts from your Express Funding account.</strong></p>
+        <p>To unlock your payout privilege you need to reach the profit target of your account, while showing consistent profit-taking skills on 5 trading days (non-consecutive) with a minimum daily profit of $250 on each of the 5 days.</p>
+        <p>As soon as your payout privileges are unlocked you can request an immediate payout of 50% of your profits.</p>
+        <p>To unlock permanent unlimited 100% profit payouts you need to complete 6 payout cycles (each cycle requires 5 non-consecutive trading days of $250 or more, and that the profit target has been reached).</p>
+        <p><strong>Once your 100% profit payouts are unlocked, you keep this privilege and can request 100% payouts of your profits on a weekly basis.</strong></p>
+        <p><strong>Keep in mind:</strong> we aim to move traders to our live pro trade desk as soon as we observe strong performance and risk-management skills. <em>Once you are moved to our live desk, all payout restrictions are removed, and you can request 100% of your profit share without limitations.</em></p>
+      
+        <p><strong class="stx-faq-means">Which means: you don't have to hit some massive target before getting paid. $1,250 of profit plus 5 disciplined trading days unlocks your first 50% payout; six clean cycles unlock unlimited 100%.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Drawdown High Water Mark</span>
+        <span class="stx-rules-item__value">$25,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>Once your trailing drawdown matches your initial balance, it will no longer trail and will be locked in at that level for the duration of the evaluation. This allows you to establish a cushion and enjoy a higher maximum drawdown, providing greater flexibility in managing your trades.</p>
+      
+        <p><strong class="stx-faq-means">Which means: once your trailing drawdown reaches your starting balance, it locks. Every dollar of profit after that becomes additional cushion, not pressure.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Profit Split</span>
+        <span class="stx-rules-item__value">80/20</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>You keep 80 percent of the earnings, we keep 20 percent. The profit split is the same across all of TradeFundrr's accounts (Growth, Express, Pro).</p>
+      
+        <p><strong class="stx-faq-means">Which means: you keep 80 cents of every dollar of profit. No tiered scale, no qualifications &mdash; same split on Growth, Express, and Pro.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Payout Cycle</span>
+        <span class="stx-rules-item__value">Weekly</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>As soon as you're eligible for payouts, you can request weekly payouts of your profit split.</p>
+      
+        <p><strong class="stx-faq-means">Which means: weekly payout requests, paid against simulated trading performance, deposited to your Rise account.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Min Payout Amount</span>
+        <span class="stx-rules-item__value">$250</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>$250 is the minimum payout you can request at any weekly payout cycle.</p>
+      
+        <p><strong class="stx-faq-means">Which means: as soon as you've earned $250 of payout-eligible profit, you can request it. No “wait until $5K” cliff.</strong></p>
+      </div>
+    </details>
+
+    <details class="stx-rules-item" open>
+      <summary>
+        <span class="stx-rules-item__chevron">&#x25BE;</span>
+        <span class="stx-rules-item__label">Max Payout Amount</span>
+        <span class="stx-rules-item__value">$15,000</span>
+      </summary>
+      <div class="stx-rules-item__body">
+        <p>The maximum payout per user is $15,000. That said, traders who demonstrate consistent, high-level performance may be considered for referral to select professional trading firms within our broader network. While we are not directly affiliated with these firms, we maintain relationships with established players in the proprietary trading space &mdash; such as <strong>T3 Global</strong> and <strong>T3 Trading Group</strong> &mdash; who serve institutional and licensed traders with substantial buying power, advanced infrastructure, and professional-grade tools. When appropriate, we may facilitate introductions that could open the door to expanded opportunities and long-term career advancement in professional trading.</p>
+      
+        <p><strong class="stx-faq-means">Which means: a single payout caps at $15,000 &mdash; but sustained top performers don't actually hit this ceiling because they get moved onto the T3 desk path, where caps don't apply.</strong></p>
+      </div>
+    </details>
+
+  </div>
+
+  <p class="stx-rules__footnote">Account parameters apply to the Express Funding simulated account. Top performers may graduate to live capital through T3 Global per the published audition path. Sim is sim. Live is live.</p>
 </section>
 
 <!-- ============================================
