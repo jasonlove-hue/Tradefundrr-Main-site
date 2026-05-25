@@ -760,6 +760,297 @@
     /* === END MOBILE OPTIMIZATIONS === */
 
     /* ============================================
+       NEW: WHAT IS FUNDED TRADING (orientation panel)
+       ============================================ */
+    .stx-explain { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-explain__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-explain__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-explain__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+    .stx-explain__head h2 .accent { color: var(--teal); }
+    .stx-explain__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-explain__grid { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .stx-explain-card {
+      padding: 36px 28px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; position: relative; transition: border-color 0.2s, background 0.2s;
+    }
+    .stx-explain-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .stx-explain-card__num {
+      font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 1.5px;
+      color: var(--teal); margin-bottom: 14px; display: block; font-weight: 600;
+    }
+    .stx-explain-card h3 {
+      font-size: 21px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.25;
+      margin: 0 0 14px; color: #fff;
+    }
+    .stx-explain-card p { color: var(--white-72); font-size: 15px; line-height: 1.6; margin: 0; }
+    .stx-explain__closer {
+      max-width: 880px; margin: 40px auto 0; padding: 0 32px;
+      text-align: center; font-size: 18px; color: #fff; line-height: 1.5;
+    }
+    .stx-explain__closer strong { color: var(--teal); font-weight: 600; }
+    @media (max-width: 991px) {
+      .stx-explain { padding: 80px 0; }
+      .stx-explain__head h2 { font-size: 32px; letter-spacing: -0.9px; }
+      .stx-explain__grid { grid-template-columns: 1fr; padding: 0 18px; gap: 16px; }
+      .stx-explain-card { padding: 28px 22px; }
+      .stx-explain-card h3 { font-size: 19px; }
+      .stx-explain__closer { font-size: 16px; }
+    }
+
+    /* ============================================
+       NEW: WHERE THE MONEY COMES FROM
+       ============================================ */
+    .stx-econ { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-econ__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-econ__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-econ__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+    .stx-econ__head h2 .accent { color: var(--teal); }
+    .stx-econ__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-econ__grid { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 22px; align-items: stretch; }
+    .stx-econ-card {
+      padding: 32px 28px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; transition: border-color 0.2s, background 0.2s;
+    }
+    .stx-econ-card--featured {
+      background: linear-gradient(180deg, rgba(34,211,168,0.08), rgba(34,211,168,0.02));
+      border-color: rgba(34,211,168,0.35);
+    }
+    .stx-econ-card__label {
+      font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+      color: var(--teal); margin: 0 0 12px; display: block; text-transform: uppercase;
+    }
+    .stx-econ-card h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.25; margin: 0 0 14px; color: #fff; }
+    .stx-econ-card p { color: var(--white-72); font-size: 15px; line-height: 1.6; margin: 0; }
+    .stx-econ__closer {
+      max-width: 880px; margin: 40px auto 0; padding: 0 32px;
+      text-align: center; font-size: 18px; color: #fff; line-height: 1.5;
+    }
+    .stx-econ__closer strong { color: var(--teal); font-weight: 600; }
+    @media (max-width: 991px) {
+      .stx-econ__head h2 { font-size: 30px; }
+      .stx-econ__grid { grid-template-columns: 1fr; padding: 0 18px; gap: 16px; }
+      .stx-econ-card { padding: 26px 22px; }
+      .stx-econ-card h3 { font-size: 20px; }
+      .stx-econ__closer { font-size: 16px; }
+    }
+
+    /* ============================================
+       NEW: HOW IT WORKS - 3 STEP
+       ============================================ */
+    .stx-hiw3 { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-hiw3__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-hiw3__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-hiw3__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+    .stx-hiw3__head h2 .accent { color: var(--teal); }
+    .stx-hiw3__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-hiw3__steps {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 16px; align-items: stretch;
+    }
+    .stx-hiw3-step {
+      padding: 32px 26px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; transition: border-color 0.2s, background 0.2s;
+    }
+    .stx-hiw3-step:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .stx-hiw3-step__num {
+      font-family: 'Geist Mono', monospace; font-size: 32px; font-weight: 700;
+      color: var(--teal); margin-bottom: 12px; display: block; line-height: 1;
+    }
+    .stx-hiw3-step h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; line-height: 1.25; margin: 0 0 12px; color: #fff; }
+    .stx-hiw3-step p { color: var(--white-72); font-size: 14.5px; line-height: 1.6; margin: 0; }
+    .stx-hiw3__arrow { color: var(--teal); align-self: center; font-size: 24px; opacity: 0.6; }
+    .stx-hiw3__closer {
+      max-width: 880px; margin: 40px auto 0; padding: 0 32px;
+      text-align: center; font-size: 18px; color: #fff; line-height: 1.5;
+    }
+    .stx-hiw3__closer strong { color: var(--teal); font-weight: 600; }
+    @media (max-width: 991px) {
+      .stx-hiw3__head h2 { font-size: 30px; }
+      .stx-hiw3__steps { grid-template-columns: 1fr; padding: 0 18px; gap: 14px; }
+      .stx-hiw3__arrow { transform: rotate(90deg); margin: 0 auto; }
+      .stx-hiw3-step { padding: 26px 22px; }
+      .stx-hiw3-step h3 { font-size: 18px; }
+      .stx-hiw3__closer { font-size: 16px; }
+    }
+
+    /* ============================================
+       T3 GLOBAL trust panel (uses homepage content)
+       ============================================ */
+    .stx-t3 { padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-t3__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-t3__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-t3__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+    .stx-t3__head h2 .accent { color: var(--teal); }
+    .stx-t3__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-t3__grid {
+      max-width: 1180px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: stretch;
+    }
+    .stx-t3__copy { display: flex; flex-direction: column; justify-content: center; }
+    .stx-t3__copy p { color: var(--white-72); font-size: 16px; line-height: 1.65; margin: 0 0 16px; }
+    .stx-t3__copy p:last-child { margin-bottom: 0; }
+    .stx-t3__copy strong { color: #fff; font-weight: 600; }
+    .stx-t3__card {
+      padding: 36px 32px;
+      background: linear-gradient(180deg, rgba(34,211,168,0.08), rgba(34,211,168,0.01));
+      border: 1px solid rgba(34,211,168,0.3); border-radius: 16px;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .stx-t3__card-logo {
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px 16px; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: 10px;
+      min-height: 110px;
+    }
+    .stx-t3__card-logo img { max-width: 180px; height: auto; opacity: 0.95; }
+    .stx-t3__card-label {
+      font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.6px;
+      text-transform: uppercase; color: var(--teal); text-align: center; margin: 0;
+    }
+    .stx-t3__card-points { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .stx-t3__card-points li {
+      color: var(--white-72); font-size: 14.5px; line-height: 1.5;
+      padding-left: 24px; position: relative;
+    }
+    .stx-t3__card-points li::before {
+      content: "✓"; position: absolute; left: 0; top: 0;
+      color: var(--teal); font-weight: 700;
+    }
+    .stx-t3__footnote {
+      max-width: 1180px; margin: 30px auto 0; padding: 0 32px;
+      color: var(--white-45); font-style: italic; font-size: 12px;
+      line-height: 1.5; text-align: center;
+    }
+    @media (max-width: 991px) {
+      .stx-t3__head h2 { font-size: 30px; }
+      .stx-t3__grid { grid-template-columns: 1fr; padding: 0 20px; gap: 28px; }
+      .stx-t3__card { padding: 28px 22px; }
+    }
+
+    /* ============================================
+       TRUSTPILOT summary panel (uses homepage block)
+       ============================================ */
+    .stx-tp { padding: 80px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-tp__inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center;
+    }
+    .stx-tp__copy h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.9px; line-height: 1.15; margin: 0 0 14px; color: #fff; }
+    .stx-tp__copy .stx-eyebrow { margin-bottom: 14px; }
+    .stx-tp__copy p { color: var(--white-72); font-size: 16px; line-height: 1.55; margin: 0; }
+    .stx-tp__summary {
+      padding: 36px 32px;
+      background: linear-gradient(180deg, rgba(34,211,168,0.08), rgba(34,211,168,0.02));
+      border: 1px solid rgba(34,211,168,0.3); border-radius: 16px;
+      text-align: center;
+    }
+    .stx-tp__stars {
+      color: #ffc828; font-size: 30px; letter-spacing: 4px; line-height: 1; margin: 0 0 14px;
+      filter: drop-shadow(0 0 12px rgba(255,200,40,0.35));
+    }
+    .stx-tp__rating { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: -0.4px; margin: 0 0 6px; }
+    .stx-tp__rating strong { color: var(--teal); }
+    .stx-tp__count { color: var(--white-72); font-size: 14px; margin: 0 0 18px; }
+    .stx-tp__count strong { color: #fff; font-weight: 600; }
+    .stx-tp__cta {
+      display: inline-block;
+      background: linear-gradient(180deg, #2ce8b9, #22d3a8);
+      color: #06181a; font-weight: 700; font-size: 14px;
+      padding: 12px 22px; border-radius: 999px; text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .stx-tp__cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(34,211,168,0.25); }
+    .stx-tp__brand { display: block; color: var(--white-55); font-size: 12px; margin-top: 14px; font-style: italic; }
+    @media (max-width: 991px) {
+      .stx-tp__inner { grid-template-columns: 1fr; padding: 0 20px; gap: 24px; }
+      .stx-tp__copy h2 { font-size: 26px; }
+      .stx-tp__summary { padding: 28px 22px; }
+      .stx-tp__rating { font-size: 20px; }
+    }
+
+    /* ============================================
+       GLOSSARY (collapsible, defaults to all-closed)
+       ============================================ */
+    .stx-gloss { padding: 80px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-gloss__head { text-align: center; max-width: 760px; margin: 0 auto 40px; padding: 0 32px; }
+    .stx-gloss__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-gloss__head h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.9px; line-height: 1.15; margin: 0 0 12px; color: #fff; }
+    .stx-gloss__head p { color: var(--white-72); font-size: 15.5px; line-height: 1.5; margin: 0; }
+    .stx-gloss__list { max-width: 900px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stx-gloss-item {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .stx-gloss-item:hover { border-color: var(--border-hover); }
+    .stx-gloss-item > summary {
+      list-style: none; cursor: pointer; padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      color: #fff; font-weight: 600; font-size: 14.5px;
+    }
+    .stx-gloss-item > summary::-webkit-details-marker { display: none; }
+    .stx-gloss-item > summary::marker { content: ""; }
+    .stx-gloss-item__chev { color: var(--teal); font-size: 12px; transition: transform 0.2s ease; }
+    .stx-gloss-item[open] .stx-gloss-item__chev { transform: rotate(180deg); }
+    .stx-gloss-item__term { color: var(--teal); }
+    .stx-gloss-item__body {
+      padding: 0 18px 16px; color: var(--white-72); font-size: 13.5px; line-height: 1.6;
+    }
+    @media (max-width: 991px) {
+      .stx-gloss__list { grid-template-columns: 1fr; padding: 0 18px; }
+      .stx-gloss__head h2 { font-size: 26px; }
+    }
+
+    /* ============================================
+       FAQ collapsible variant
+       ============================================ */
+    details.stx-faq-item { display: block; padding: 0; cursor: default; }
+    details.stx-faq-item > summary {
+      list-style: none; cursor: pointer;
+      padding: 22px 26px;
+      display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center;
+      color: #fff; font-weight: 700; font-size: 16px; line-height: 1.4;
+    }
+    details.stx-faq-item > summary::-webkit-details-marker { display: none; }
+    details.stx-faq-item > summary::marker { content: ""; }
+    details.stx-faq-item summary .stx-faq-chev {
+      color: var(--teal); font-size: 14px; transition: transform 0.2s ease;
+      display: inline-block; flex-shrink: 0;
+    }
+    details.stx-faq-item[open] summary .stx-faq-chev { transform: rotate(180deg); }
+    details.stx-faq-item .stx-faq-item__body {
+      padding: 0 26px 24px; color: var(--white-72); font-size: 14.5px; line-height: 1.6;
+    }
+    details.stx-faq-item .stx-faq-item__body p { margin: 0 0 12px; }
+    details.stx-faq-item .stx-faq-item__body p:last-child { margin-bottom: 0; }
+    @media (max-width: 768px) {
+      details.stx-faq-item > summary { padding: 18px 20px; font-size: 15px; }
+      details.stx-faq-item .stx-faq-item__body { padding: 0 20px 20px; font-size: 14px; }
+    }
+
+    /* Hero "worst case" reassurance line */
+    .stx-hero__worstcase {
+      margin-top: 14px;
+      color: var(--white-55);
+      font-size: 13px;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .stx-hero__worstcase strong { color: var(--white-72); font-style: normal; font-weight: 600; }
+
+    /* Avatar "just exploring" link */
+    .stx-avatar__exploring {
+      display: block;
+      margin-top: 12px;
+      color: var(--teal);
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .stx-avatar__exploring:hover { text-decoration: underline; }
+
+
+    /* ============================================
        EMPATHY / MISSION (less-aware bridge)
        ============================================ */
     .stx-empathy { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -1074,13 +1365,14 @@
       </p>
       <div class="stx-hero__buttons">
         <a href="#plans" class="stx-hero__cta-primary">Get Funded →</a>
-        <a href="#plans" class="stx-hero__cta-secondary">See how it works →</a>
+        <a href="#how-it-works-3step" class="stx-hero__cta-secondary">See how it works →</a>
       </div>
       <div class="stx-hero__ticks">
         <span>Weekly payouts</span>
         <span>$100K simulated buying power</span>
         <span>Real institutional routing</span>
       </div>
+      <p class="stx-hero__worstcase"><strong>Worst case:</strong> you lose the eval fee. Never your savings.</p>
     </div>
 
     <div class="stx-hero__media">
@@ -1134,6 +1426,35 @@
 
 
 <!-- ============================================
+     WHAT IS FUNDED TRADING - orientation panel
+     ============================================ -->
+<section class="stx-explain" id="stx-explain">
+  <div class="stx-explain__head">
+    <span class="stx-eyebrow">New here? Start with this.</span>
+    <h2>What <span class="accent">"funded trading"</span> actually means.</h2>
+    <p>If you've only traded your own brokerage account, this is the part most prop firms don't bother to explain. Three plain-English sentences:</p>
+  </div>
+  <div class="stx-explain__grid">
+    <article class="stx-explain-card">
+      <span class="stx-explain-card__num">01</span>
+      <h3>You trade a $100K simulated account.</h3>
+      <p>It looks and behaves like a real brokerage screen, with live market data and institutional fills. The capital itself is simulated, so you're not risking your own savings to access it.</p>
+    </article>
+    <article class="stx-explain-card">
+      <span class="stx-explain-card__num">02</span>
+      <h3>The payouts are real money.</h3>
+      <p>Hit the published profit target without breaking the loss limits, and you can request a real-money payout against your simulated P&amp;L. Up to 80% of profits, paid to your Rise account weekly.</p>
+    </article>
+    <article class="stx-explain-card">
+      <span class="stx-explain-card__num">03</span>
+      <h3>Top performers earn real desk capital.</h3>
+      <p>Sustained, risk-managed performance earns a path to T3 Global, a real institutional desk where you trade real firm capital with real fills. Audition-based. Not the default.</p>
+    </article>
+  </div>
+  <p class="stx-explain__closer">The point: <strong>you prove you can trade with someone else's risk, then we put real firm capital behind you when you do.</strong></p>
+</section>
+
+<!-- ============================================
      EMPATHY / MISSION (less-aware bridge)
      ============================================ -->
 <section class="stx-empathy">
@@ -1148,7 +1469,7 @@
     <div class="stx-empathy__col">
       <span class="stx-eyebrow">Why TradeFundrr exists</span>
       <h3>We're on a mission to <span class="accent">back the traders the industry skips</span>.</h3>
-      <p>The PDT rule is gone. Capital still isn't. Retail traders with real edges still get parked behind small account sizes, payment-for-order-flow execution, and brokers built for buy-and-hold investors.</p>
+      <p>The PDT rule, the old $25,000 minimum required to day-trade more than three times a week, was repealed. But capital still isn't free. Retail traders with real edges still get parked behind small account sizes, payment-for-order-flow execution, and brokers built for buy-and-hold investors.</p>
       <p>We built TradeFundrr so a trader with a working strategy can <strong>access institutional buying power, transparent rules, and a real graduation path</strong> to T3 Global desk capital, without putting their savings on the line first.</p>
       <p>Your job is the trading. Our job is the capital, the infrastructure, and the runway.</p>
     </div>
@@ -1169,6 +1490,31 @@
   </div>
 </section>
 
+
+<!-- ============================================
+     WHERE THE MONEY COMES FROM
+     ============================================ -->
+<section class="stx-econ">
+  <div class="stx-econ__head">
+    <span class="stx-eyebrow">The business model · transparent on purpose</span>
+    <h2>Where the payouts <span class="accent">actually come from</span>.</h2>
+    <p>If we're paying real money against simulated trading, where's it coming from? The honest answer is two parts:</p>
+  </div>
+  <div class="stx-econ__grid">
+    <div class="stx-econ-card">
+      <span class="stx-econ-card__label">Part 1 · The eval fee</span>
+      <h3>You pay an evaluation fee to participate.</h3>
+      <p>Most traders pay an eval fee and don't make it through to live payouts. The aggregate eval fees fund the infrastructure: platform licenses, market data, support, and the payouts going out to the winners.</p>
+    </div>
+    <div class="stx-econ-card stx-econ-card--featured">
+      <span class="stx-econ-card__label">Part 2 · The graduation bet</span>
+      <h3>Our real business is graduating top performers to T3 Global.</h3>
+      <p>When a trader proves sustained edge and earns a T3 Global desk seat, they trade real firm capital, and we share in the long-term performance. That's why one good trader is genuinely worth more to us than ten unsuccessful evals.</p>
+    </div>
+  </div>
+  <p class="stx-econ__closer">Plain version: <strong>we win when you win, scaled to a real desk.</strong> That's why the rules are published, the math is verifiable, and there's a real audition path on the other side.</p>
+</section>
+
 <!-- ============================================
      AVATAR — Equity Day Trader
      ============================================ -->
@@ -1177,6 +1523,7 @@
     <span class="stx-eyebrow">Built for the equity day trader</span>
     <h2>Your strategy works.<br><span class="accent">Your account doesn't.</span></h2>
     <p>You've been trading equities on a small personal account. The edge is there. The capital isn't. Most retail traders never escape that gap.</p>
+    <a href="#stx-explain" class="stx-avatar__exploring">Just exploring? Start with what funded trading actually means &rarr;</a>
   </div>
   <div class="stx-avatar__card">
     <span class="stx-avatar__label" style="display:block;text-align:center;">The Equity Day Trader</span>
@@ -1185,6 +1532,38 @@
     <p>A 20% return on $25K is $5K. A 20% return on $100K is $20K. <strong>Same edge. Different scale.</strong> That's the gap TradeFundrr closes, with simulated capital you don't have to risk to access.</p>
     <p class="stx-avatar__kicker" style="text-align:center;">Your edge works. Your $25K doesn't.</p>
   </div>
+</section>
+
+
+<!-- ============================================
+     HOW IT WORKS - 3 STEP
+     ============================================ -->
+<section class="stx-hiw3" id="how-it-works-3step">
+  <div class="stx-hiw3__head">
+    <span class="stx-eyebrow">How it works · 3 steps</span>
+    <h2>The whole flow, <span class="accent">start to finish</span>.</h2>
+    <p>From the moment you decide to start, to the moment you're requesting weekly payouts.</p>
+  </div>
+  <div class="stx-hiw3__steps">
+    <article class="stx-hiw3-step">
+      <span class="stx-hiw3-step__num">01</span>
+      <h3>Pick a plan and start.</h3>
+      <p>Choose Growth, Express, or Pro below. Express skips the evaluation phase and starts you trading on day one. All pricing and rules are published before you pay, no fine print waiting after.</p>
+    </article>
+    <div class="stx-hiw3__arrow" aria-hidden="true">→</div>
+    <article class="stx-hiw3-step">
+      <span class="stx-hiw3-step__num">02</span>
+      <h3>Trade the funded account under our rules.</h3>
+      <p>$100K of simulated buying power. Daily loss limit, max drawdown, and profit target all published up front. Trade on DXTrade or Deep Charts, the same execution stack a professional desk runs.</p>
+    </article>
+    <div class="stx-hiw3__arrow" aria-hidden="true">→</div>
+    <article class="stx-hiw3-step">
+      <span class="stx-hiw3-step__num">03</span>
+      <h3>Get paid weekly. Earn the T3 path.</h3>
+      <p>Hit the targets, request a payout, paid Friday. Sustained performance unlocks the audition path to T3 Global's institutional desk, where real firm capital and real institutional infrastructure replace the sim.</p>
+    </article>
+  </div>
+  <p class="stx-hiw3__closer">No hidden steps. No "wait 60 days for approval." Just <strong>pick &rarr; trade &rarr; get paid &rarr; graduate</strong>.</p>
 </section>
 
 <!-- ============================================
@@ -1360,7 +1739,7 @@
   <div class="stx-rules__head">
     <span class="stx-eyebrow">Express Funding &middot; the full breakdown</span>
     <h2>Your Express Funding Account Details</h2>
-    <p>Simple. Transparent. No hidden rules. No hidden fees.</p>
+    <p>Simple. Transparent. No hidden rules. No hidden fees. <span style="color:var(--white-55);font-size:14px;">Click any row to expand. First row is open by default.</span></p>
   </div>
 
   <div class="stx-rules__list">
@@ -1377,7 +1756,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Intraday Buying-Power</span>
@@ -1390,7 +1769,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Daily Loss Limit</span>
@@ -1402,7 +1781,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Max End of Day Drawdown</span>
@@ -1414,7 +1793,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Weekly Payouts Unlocked At Profit Target</span>
@@ -1431,7 +1810,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Drawdown High Water Mark</span>
@@ -1443,7 +1822,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Profit Split</span>
@@ -1455,7 +1834,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Payout Cycle</span>
@@ -1467,7 +1846,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Min Payout Amount</span>
@@ -1479,7 +1858,7 @@
       </div>
     </details>
 
-    <details class="stx-rules-item" open>
+    <details class="stx-rules-item">
       <summary>
         <span class="stx-rules-item__chevron">&#x25BE;</span>
         <span class="stx-rules-item__label">Max Payout Amount</span>
@@ -1572,6 +1951,37 @@
   <p class="stx-loss__closer">Start at $100K. <span class="accent">Earn your way to $1M+.</span></p>
 </section>
 
+
+<!-- ============================================
+     T3 GLOBAL trust panel (homepage content)
+     ============================================ -->
+<section class="stx-t3">
+  <div class="stx-t3__head">
+    <span class="stx-eyebrow">The institutional partner · T3 Global</span>
+    <h2>Built on <span class="accent">professional trading infrastructure</span>.</h2>
+    <p>"Earn your way to a T3 Global seat" only matters if you know who T3 Global is.</p>
+  </div>
+  <div class="stx-t3__grid">
+    <div class="stx-t3__copy">
+      <p>TradeFundrr is partnered with <strong>T3 Global</strong>, an institutional trading firm operating within the T3 group of companies. Member firms include a <strong>regulated SEC broker-dealer and FINRA/SIPC member</strong>. Most funded-trader programs can't say that.</p>
+      <p>When a TradeFundrr trader demonstrates sustained Sharpe and disciplined drawdown, they audition for a seat on T3 Global's desk: <strong>real firm capital, real institutional routing, real fills, real desk oversight.</strong> That's the live capital path our top performers earn.</p>
+      <p><strong>Sim is sim. Live is live. T3 is live.</strong></p>
+    </div>
+    <div class="stx-t3__card">
+      <div class="stx-t3__card-logo">
+        <img src="../assets/images/t3_global_logo.png?v=202605241500" alt="T3 Global logo">
+      </div>
+      <p class="stx-t3__card-label">Partnered with T3 Global</p>
+      <ul class="stx-t3__card-points">
+        <li>Experienced operational support</li>
+        <li>Professional trading technology and infrastructure</li>
+        <li>Structured processes designed for trader accountability</li>
+      </ul>
+    </div>
+  </div>
+  <p class="stx-t3__footnote">*Reserved for top-performing traders. Subject to T3 Global review and audition. Not all traders qualify.</p>
+</section>
+
 <!-- ============================================
      FEATURED REVIEWS (Stocks-relevant, verbatim from Trustpilot)
      ============================================ -->
@@ -1613,6 +2023,27 @@
 <!-- ============================================
      FOUNDER QUOTE CARD
      ============================================ -->
+
+<!-- ============================================
+     TRUSTPILOT summary panel
+     ============================================ -->
+<section class="stx-tp">
+  <div class="stx-tp__inner">
+    <div class="stx-tp__copy">
+      <span class="stx-eyebrow">Independent reviews</span>
+      <h2>Read the full review history on <span class="accent" style="color:var(--teal);">Trustpilot</span>.</h2>
+      <p>Every review on this page is pulled verbatim from Trustpilot. Read all of them, including any not-so-great ones, at the source.</p>
+    </div>
+    <div class="stx-tp__summary">
+      <div class="stx-tp__stars" aria-hidden="true">★★★★★</div>
+      <p class="stx-tp__rating"><strong>4.2 / 5</strong></p>
+      <p class="stx-tp__count">across <strong>66+ verified reviews</strong></p>
+      <a class="stx-tp__cta" href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener">Read all 66+ reviews →</a>
+      <span class="stx-tp__brand">on Trustpilot</span>
+    </div>
+  </div>
+</section>
+
 <section class="stx-founder">
   <div class="stx-founder__inner">
     <div class="stx-founder-card">
@@ -1633,6 +2064,66 @@
 <!-- ============================================
      FAQ with which-means
      ============================================ -->
+
+<!-- ============================================
+     GLOSSARY (collapsible)
+     ============================================ -->
+<section class="stx-gloss">
+  <div class="stx-gloss__head">
+    <span class="stx-eyebrow">New to funded trading? Start here.</span>
+    <h2>The trader's dictionary.</h2>
+    <p>Plain-English definitions for every term used on this page. Click any term to expand:</p>
+  </div>
+  <div class="stx-gloss__list">
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Eval / Evaluation</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">A paid trial period. You buy access to a simulated account, trade under published rules, and "pass" the evaluation by hitting the profit target without violating the loss limits. Express Funding skips the eval, you start trading day one.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Simulated capital</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">The $100K in the account is simulated, so you're not risking your savings to access it. The payouts earned against that simulated trading are real money, paid weekly to your Rise account.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Drawdown / Max drawdown</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">The peak-to-trough loss in your account. Max drawdown is the largest loss allowed before the account is suspended. The trailing drawdown adjusts upward as you earn; once it reaches the high-water mark, it locks at your starting balance.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">PDT rule (Pattern Day Trader)</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">The old SEC rule requiring $25,000 minimum equity to day-trade four or more round trips in a five-business-day rolling window. It has since been repealed and no longer restricts retail or funded day trading.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">PFOF (Payment for Order Flow)</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">When a retail broker sells your order flow to a market maker, who pays the broker for it. The market maker fills your order, often with a spread slightly worse than direct institutional routing. Most retail commission-free brokers use PFOF; TradeFundrr's funded accounts don't.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Sharpe ratio</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">A measure of risk-adjusted return. A high Sharpe means strong returns relative to volatility, i.e. the trader makes money without huge swings. T3 Global considers Sharpe (alongside other metrics) when reviewing TradeFundrr graduates for live capital.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Profit split</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">The percentage of profits you keep. TradeFundrr's split is 80/20: you keep 80%, the firm keeps 20%. Same across Growth, Express, and Pro.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Buying power</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">The dollar value of stock you can hold intraday. A $25,000 account balance with 4&times; leverage gives you $100,000 of intraday buying power. Capped at 25% per single ticker.</div>
+    </details>
+
+    <details class="stx-gloss-item">
+      <summary><span class="stx-gloss-item__term">Audition path / Graduation</span><span class="stx-gloss-item__chev">▾</span></summary>
+      <div class="stx-gloss-item__body">The process by which a TradeFundrr trader earns a real-capital seat at T3 Global. Triggered by sustained Sharpe, disciplined drawdown, and consistent profitability over multiple months. Not automatic; reviewed and approved on a case-by-case basis.</div>
+    </details>
+
+  </div>
+</section>
+
 <section class="stx-faq">
   <div class="stx-faq__head">
     <span class="stx-eyebrow">Stocks-trader FAQ</span>
@@ -1640,30 +2131,30 @@
     <p>The 6 questions equity day traders ask before they buy. No spin.</p>
   </div>
   <div class="stx-faq__list">
-    <div class="stx-faq-item">
-      <p class="stx-faq-item__q">Is the $100K real money or simulated capital?</p>
-      <p class="stx-faq-item__a">The funded account is simulated capital. The payouts are real money paid against simulated trading performance. Top performers earn live capital through T3 Global routing. <strong class="stx-faq-means">Which means: you trade $100K of buying power without risking your own savings to access it, and real payouts hit your Rise account weekly when you hit targets.</strong></p>
-    </div>
-    <div class="stx-faq-item">
-      <p class="stx-faq-item__q">Does the PDT rule still apply?</p>
-      <p class="stx-faq-item__a">No. The Pattern Day Trader rule was repealed and no longer restricts day trading frequency on TradeFundrr funded accounts. <strong class="stx-faq-means">Which means: you can trade every day without worrying about the old four-day-rolling-window restriction that capped retail stock day traders.</strong></p>
-    </div>
-    <div class="stx-faq-item">
-      <p class="stx-faq-item__q">When do I get paid?</p>
-      <p class="stx-faq-item__a">Payouts run weekly. Once you're eligible, request a payout and approved requests process on Fridays. Earliest payout on Express Funding is 5 days from start. <strong class="stx-faq-means">Which means: weekly payout windows, paid direct to your Rise account, performance-based not on-demand.</strong></p>
-    </div>
-    <div class="stx-faq-item">
-      <p class="stx-faq-item__q">What if I blow the account?</p>
-      <p class="stx-faq-item__a">If you exceed the drawdown limit, the account is suspended per the published program rules. You can purchase another evaluation or Express account to restart. <strong class="stx-faq-means">Which means: the cost of failure is the eval fee, not your savings.</strong></p>
-    </div>
-    <div class="stx-faq-item">
-      <p class="stx-faq-item__q">What platforms can I trade on?</p>
-      <p class="stx-faq-item__a">DXTrade for most traders (built by the same team behind tastyworks and thinkorswim). Deep Charts for traders who want professional charting and one-click execution from the chart. <strong class="stx-faq-means">Which means: the execution stack matches what a professional desk runs, not a retail brokerage.</strong></p>
-    </div>
-    <div class="stx-faq-item">
-      <p class="stx-faq-item__q">Can I really graduate to live capital?</p>
-      <p class="stx-faq-item__a">Yes, but it's earned. Top-performing traders with sustained Sharpe and risk discipline audition for T3 Global's institutional trading desk. Not all traders qualify; the path is documented and open to those who demonstrate consistency. <strong class="stx-faq-means">Which means: this isn't a marketing promise. There is a real audition path to real desk capital at T3 Global for traders who earn it.</strong></p>
-    </div>
+    <details class="stx-faq-item">
+      <summary>Is the $100K real money or simulated capital?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>The funded account is simulated capital. The payouts are real money paid against simulated trading performance. Top performers earn live capital through T3 Global routing. <strong class="stx-faq-means">Which means: you trade $100K of buying power without risking your own savings to access it, and real payouts hit your Rise account weekly when you hit targets.</strong></p></div>
+    </details>
+    <details class="stx-faq-item">
+      <summary>Does the PDT rule still apply?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>No. The Pattern Day Trader rule was repealed and no longer restricts day trading frequency on TradeFundrr funded accounts. <strong class="stx-faq-means">Which means: you can trade every day without worrying about the old four-day-rolling-window restriction that capped retail stock day traders.</strong></p></div>
+    </details>
+    <details class="stx-faq-item">
+      <summary>When do I get paid?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>Payouts run weekly. Once you're eligible, request a payout and approved requests process on Fridays. Earliest payout on Express Funding is 5 days from start. <strong class="stx-faq-means">Which means: weekly payout windows, paid direct to your Rise account, performance-based not on-demand.</strong></p></div>
+    </details>
+    <details class="stx-faq-item">
+      <summary>What if I blow the account?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>If you exceed the drawdown limit, the account is suspended per the published program rules. You can purchase another evaluation or Express account to restart. <strong class="stx-faq-means">Which means: the cost of failure is the eval fee, not your savings.</strong></p></div>
+    </details>
+    <details class="stx-faq-item">
+      <summary>What platforms can I trade on?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>DXTrade for most traders (built by the same team behind tastyworks and thinkorswim). Deep Charts for traders who want professional charting and one-click execution from the chart. <strong class="stx-faq-means">Which means: the execution stack matches what a professional desk runs, not a retail brokerage.</strong></p></div>
+    </details>
+    <details class="stx-faq-item">
+      <summary>Can I really graduate to live capital?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>Yes, but it's earned. Top-performing traders with sustained Sharpe and risk discipline audition for T3 Global's institutional trading desk. Not all traders qualify; the path is documented and open to those who demonstrate consistency. <strong class="stx-faq-means">Which means: this isn't a marketing promise. There is a real audition path to real desk capital at T3 Global for traders who earn it.</strong></p></div>
+    </details>
   </div>
 </section>
 
@@ -1673,21 +2164,21 @@
      ============================================ -->
 <section class="stx-morethan">
   <div class="stx-morethan__head">
-    <span class="stx-eyebrow">What we're not</span>
-    <h2>More <span class="accent">substance</span>. Less marketing.</h2>
+    <span class="stx-eyebrow">What separates TradeFundrr</span>
+    <h2>Built on <span class="accent">substance</span>. Not marketing.</h2>
   </div>
   <div class="stx-morethan__grid">
     <article class="stx-morethan-card">
-      <h3 class="stx-morethan-card__lead">More <span class="accent">transparency</span> than promises.</h3>
-      <p class="stx-morethan-card__desc">Rules published up front. Drawdown math you can verify. No mystery clauses that change after you pass.</p>
+      <h3 class="stx-morethan-card__lead"><span class="accent">Real rules.</span><br>Not vague promises.</h3>
+      <p class="stx-morethan-card__desc">Drawdown limits, profit targets, and payout cycles all published before you pay. The rules don't change after you pass.</p>
     </article>
     <article class="stx-morethan-card">
-      <h3 class="stx-morethan-card__lead">More <span class="accent">institutional routing</span> than retail PFOF.</h3>
-      <p class="stx-morethan-card__desc">Top performers route through T3 Global's institutional desk infrastructure. Not a retail broker pocketing the spread.</p>
+      <h3 class="stx-morethan-card__lead"><span class="accent">Real fills.</span><br>Not retail PFOF.</h3>
+      <p class="stx-morethan-card__desc">Top performers route through T3 Global's institutional desk infrastructure. Not a retail broker pocketing the spread on every trade.</p>
     </article>
     <article class="stx-morethan-card">
-      <h3 class="stx-morethan-card__lead">More <span class="accent">buying power</span> than your $25K can hold.</h3>
-      <p class="stx-morethan-card__desc">$100K simulated equity buying power. Real payouts on real performance. Earn your way to $1M+ desk capital.</p>
+      <h3 class="stx-morethan-card__lead"><span class="accent">Real desk capital.</span><br>Not a bigger sim.</h3>
+      <p class="stx-morethan-card__desc">Earn your way and you trade real firm capital at T3 Global. Other prop firms call sim "live capital." We don't. Sim is sim. Live is live.</p>
     </article>
   </div>
   <p class="stx-morethan__closer">It's time for <span class="accent">TradeFundrr</span>.</p>
