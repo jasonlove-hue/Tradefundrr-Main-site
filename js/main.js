@@ -76,42 +76,46 @@ $(document).ready(function(){
   });
 
   // Trader-payouts deck — Swiper "cards" effect handles the 3D stack.
-  // The "See all" button advances to the next card.
-  $('.trader-payouts').each(function(){
-    var section = this;
-    var $cta = $(section).find('.trader-payouts__cta');
-    var swiperEl = section.querySelector('.trader-swiper');
-    if (!swiperEl || typeof window.Swiper === 'undefined') return;
-    var instance = new window.Swiper(swiperEl, {
-      effect: 'cards',
-      grabCursor: true,
-      loop: true,
-      speed: 600,
-      longSwipes: false,
-      longSwipesRatio: 0.25,
-      shortSwipes: true,
-      threshold: 6,
-      followFinger: true,
-      resistanceRatio: 0.85,
-      cardsEffect: {
-        slideShadows: false,
-        perSlideOffset: 12,
-        perSlideRotate: 0
-      }
+  // Refactored as a re-callable, idempotent function so the lazy-loader in
+  // index.html can re-trigger init AFTER Swiper has finished loading. The
+  // first call from $(document).ready may no-op if Swiper isn't loaded yet;
+  // the lazy-loader's onload calls this function again once Swiper is ready.
+  window.__initTraderPayouts = function () {
+    if (typeof window.Swiper === 'undefined') return;
+    $('.trader-payouts').each(function(){
+      var section = this;
+      var $cta = $(section).find('.trader-payouts__cta');
+      var swiperEl = section.querySelector('.trader-swiper');
+      if (!swiperEl) return;
+      if (swiperEl._tfSwiperInited) return;  // idempotent guard
+      swiperEl._tfSwiperInited = true;
+      var instance = new window.Swiper(swiperEl, {
+        effect: 'cards',
+        grabCursor: true,
+        loop: true,
+        speed: 600,
+        longSwipes: false,
+        longSwipesRatio: 0.25,
+        shortSwipes: true,
+        threshold: 6,
+        followFinger: true,
+        resistanceRatio: 0.85,
+        cardsEffect: {
+          slideShadows: false,
+          perSlideOffset: 12,
+          perSlideRotate: 0
+        }
+      });
+      instance.on('touchEnd', function () { this.params.speed = 600; });
+      instance.on('slideChangeTransitionStart', function () { this.params.speed = 600; });
+      $cta.on('click', function(e){
+        e.preventDefault();
+        instance.slideNext();
+      });
     });
-    // Ensure every swipe-end snap uses the full `speed` duration so quick
-    // flicks don't skip the animation.
-    instance.on('touchEnd', function () {
-      this.params.speed = 600;
-    });
-    instance.on('slideChangeTransitionStart', function () {
-      this.params.speed = 600;
-    });
-    $cta.on('click', function(e){
-      e.preventDefault();
-      instance.slideNext();
-    });
-  });
+  };
+  // Try once now (no-op if Swiper isn't loaded yet — lazy-loader will retry).
+  window.__initTraderPayouts();
 
   $('.help__me--choose .form__box .pick-one > a').on('click' ,function(e){
     e.preventDefault();
