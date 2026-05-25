@@ -1821,8 +1821,9 @@
 </section>
 <script>
 /* Journey section: cycle active state across the 4 cards + rail markers.
-   Pauses on hover so visitors can read a specific card. Matches HIW's 2.75s
-   per-step cadence for visual rhythm consistency. */
+   Starts only when the section enters the viewport (so visitors always see
+   card 1 first, never midway through). Pauses on hover so visitors can read
+   a specific card. */
 (function () {
   function init() {
     var cards = document.querySelectorAll('.journey-card');
@@ -1831,7 +1832,9 @@
     if (!cards.length || !section) return;
     var active = 0;
     var paused = false;
-    var cycleMs = 2250;
+    var started = false;
+    var intervalId = null;
+    var cycleMs = 1800;
     function activate(idx) {
       for (var i = 0; i < cards.length; i++) {
         cards[i].classList.toggle('is-active', i === idx);
@@ -1840,14 +1843,37 @@
         markers[j].classList.toggle('is-active', j === idx);
       }
     }
-    section.addEventListener('mouseenter', function () { paused = true; });
-    section.addEventListener('mouseleave', function () { paused = false; });
-    activate(0);
-    setInterval(function () {
+    function tick() {
       if (paused) return;
       active = (active + 1) % cards.length;
       activate(active);
-    }, cycleMs);
+    }
+    function start() {
+      if (started) return;
+      started = true;
+      active = 0;
+      activate(0);
+      intervalId = setInterval(tick, cycleMs);
+    }
+    section.addEventListener('mouseenter', function () { paused = true; });
+    section.addEventListener('mouseleave', function () { paused = false; });
+    /* Pre-set card 1 as active so it doesn't pop in. */
+    activate(0);
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            start();
+            io.disconnect();
+            return;
+          }
+        }
+      }, { threshold: 0.25 });
+      io.observe(section);
+    } else {
+      /* Fallback: start immediately if IO is unavailable. */
+      start();
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
