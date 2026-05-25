@@ -2547,12 +2547,12 @@
 /* === FOUNDER QUOTE CARD END === */
 
 /* === MARKETS CARD IMAGE FEATHER START ===
-   Feathers the edges of Markets card images so they blend into the card body.
-   Invisible on AI-rendered cards (already dark at edges) but softens any image
-   with bright edges (e.g. stock photos). Uses a radial gradient mask. */
+   Feathers the top and bottom edges of Markets card images so they blend into
+   the card body and page background. Aggressive on top/bottom (the visible
+   boundaries), gentler on left/right (which sit at card edges). */
 .markets__card > img {
-  -webkit-mask-image: radial-gradient(ellipse 100% 110% at center 45%, #000 50%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.4) 92%, transparent 100%);
-          mask-image: radial-gradient(ellipse 100% 110% at center 45%, #000 50%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.4) 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
   -webkit-mask-mode: alpha;
           mask-mode: alpha;
 }
