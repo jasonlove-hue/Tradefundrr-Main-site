@@ -650,6 +650,94 @@
       .stx-final__grid { grid-template-columns: 1fr; }
       .stx-final__left h2 { font-size: 40px; letter-spacing: -1.2px; }
     }
+  
+
+    /* === MOBILE OPTIMIZATIONS === */
+    @media (max-width: 768px) {
+      /* Hero — disable mouse tilt on touch */
+      .stx-hero { padding: 80px 0 50px; }
+      .stx-hero__text h1 { font-size: 40px !important; letter-spacing: -1.5px !important; line-height: 1.04 !important; }
+      .stx-hero__sub { font-size: 16px; }
+      .stx-hero__media {
+        transform: none !important;
+        max-width: 100% !important;
+        box-shadow: 0 0 30px rgba(34, 211, 168, 0.18), 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+      .stx-hero__media img { border-radius: 12px; }
+      .stx-hero__ticks { font-size: 12.5px; gap: 14px; }
+      .stx-hero__cta-primary, .stx-hero__cta-secondary { font-size: 14px; padding: 12px 22px; }
+
+      /* Avatar */
+      .stx-avatar { padding: 56px 0; }
+      .stx-avatar__head h2 { font-size: 30px; letter-spacing: -0.8px; }
+      .stx-avatar__head p { font-size: 15px; }
+      .stx-avatar__card { padding: 28px 22px; }
+      .stx-avatar__card h3 { font-size: 22px; }
+      .stx-avatar__card p { font-size: 15px; }
+      .stx-avatar__kicker { font-size: 15px !important; }
+
+      /* Plans */
+      .stx-plans { padding: 60px 0; }
+      .stx-plans__head h2 { font-size: 28px; letter-spacing: -0.8px; }
+      .stx-plan { padding: 24px 22px; }
+      .stx-plan h3 { font-size: 21px; }
+
+      /* Platforms */
+      .stx-platforms { padding: 56px 0; }
+      .stx-platforms__head h2 { font-size: 28px; letter-spacing: -0.8px; }
+      .stx-platform { padding: 24px 22px; }
+
+      /* Loss aversion */
+      .stx-loss { padding: 56px 0; }
+      .stx-loss__head h2 { font-size: 28px; letter-spacing: -0.8px; }
+      .stx-loss-card { padding: 22px 18px; }
+      .stx-loss-card__amount { font-size: 30px; }
+      .stx-loss__closer { font-size: 18px; }
+
+      /* Featured reviews */
+      .stx-reviews { padding: 56px 0; }
+      .stx-reviews__head h2 { font-size: 26px; letter-spacing: -0.8px; }
+      .stx-reviews__stat-text { font-size: 13.5px; }
+      .stx-review { padding: 20px 18px; }
+
+      /* Founder card */
+      .stx-founder { padding: 56px 0; }
+      .stx-founder-card { grid-template-columns: 1fr !important; padding: 28px 22px; text-align: center; }
+      .stx-founder-card__portrait { max-width: 180px; margin: 0 auto; }
+      .stx-founder-card__quote { font-size: 17px; }
+
+      /* FAQ */
+      .stx-faq { padding: 56px 0; }
+      .stx-faq__head h2 { font-size: 26px; letter-spacing: -0.8px; }
+      .stx-faq-item { padding: 18px 20px; }
+      .stx-faq-item__q { font-size: 15px; }
+      .stx-faq-item__a { font-size: 13.5px; }
+      .stx-faq-means { font-size: 13px; padding: 10px 14px; }
+
+      /* Final CTA */
+      .stx-final { padding: 60px 0 70px; }
+      .stx-final__left h2 { font-size: 32px; letter-spacing: -1px; }
+      .stx-final__left p { font-size: 15px; }
+    }
+
+    @media (max-width: 480px) {
+      .stx-hero { padding: 64px 0 40px; }
+      .stx-hero__text h1 { font-size: 34px !important; letter-spacing: -1.2px !important; }
+      .stx-hero__ticks { font-size: 12px; }
+      .stx-eyebrow { font-size: 11px; letter-spacing: 1.5px; }
+      .stx-hero__buttons { width: 100%; flex-direction: column; align-items: stretch; }
+      .stx-hero__cta-primary, .stx-hero__cta-secondary { justify-content: center; }
+    }
+
+    /* Disable mouse-tilt on touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .stx-hero__media {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+    /* === END MOBILE OPTIMIZATIONS === */
+
   </style>
 </head>
 <body>
@@ -744,6 +832,50 @@
     </div>
   </div>
 </section>
+
+<!-- ============================================
+     TRUST TICKER (credibility ribbon, ported from homepage)
+     ============================================ -->
+<style id="stocks-ticker">
+  .reassurance { padding-block: 0 !important; background: #060914; }
+  .tf-ticker { position: relative; width: 100%; overflow: hidden; padding: 24px 0; }
+  .tf-ticker__track { display: flex; gap: 56px; width: max-content; animation: tf-scroll 45s linear infinite; }
+  .tf-ticker:hover .tf-ticker__track { animation-play-state: paused; }
+  .tf-ticker__item { display: inline-flex; align-items: center; gap: 12px; color: #fff; font-size: 15px; white-space: nowrap; opacity: 0.92; }
+  .tf-ticker__item img { width: 24px; height: 24px; flex-shrink: 0; filter: brightness(1.45) saturate(1.25); opacity: 0.95; }
+  .tf-ticker::before, .tf-ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; pointer-events: none; z-index: 2; }
+  .tf-ticker::before { left: 0; background: linear-gradient(to right, #060914, transparent); }
+  .tf-ticker::after { right: 0; background: linear-gradient(to left, #060914, transparent); }
+  @keyframes tf-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .tf-ticker__track { animation: none; flex-wrap: wrap; justify-content: center; }
+  }
+  @media (max-width: 768px) {
+    .tf-ticker__item { font-size: 13px; gap: 8px; }
+    .tf-ticker__item img { width: 18px; height: 18px; }
+    .tf-ticker__track { gap: 36px; }
+  }
+</style>
+
+<section class="reassurance">
+  <div class="tf-ticker" aria-label="TradeFundrr credibility highlights">
+    <div class="tf-ticker__track">
+      <span class="tf-ticker__item"><img src="../assets/images/list-icon-1.svg" alt="">A Growing Community of Funded Traders</span>
+      <span class="tf-ticker__item"><img src="../assets/images/list-icon-2.svg" alt="">Consistent Trader Payouts Since 2024</span>
+      <span class="tf-ticker__item"><img src="../assets/images/list-icon-3.svg" alt="">Scalable to $1M+ in Live Funded Accounts</span>
+      <span class="tf-ticker__item"><img src="../assets/images/list-icon-4.svg" alt="">T3 Global - Partnered with TradeFundrr</span>
+      <span class="tf-ticker__item"><img src="../assets/images/list-icon-5.svg" alt="">Weekly Payout Cycle - Every Week, on Time</span>
+      <span class="tf-ticker__item"><img src="../assets/images/list-icon-6.svg" alt="">Access to Multiple Trading Markets</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="../assets/images/list-icon-1.svg" alt="">A Growing Community of Funded Traders</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="../assets/images/list-icon-2.svg" alt="">Consistent Trader Payouts Since 2024</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="../assets/images/list-icon-3.svg" alt="">Scalable to $1M+ in Live Funded Accounts</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="../assets/images/list-icon-4.svg" alt="">T3 Global - Partnered with TradeFundrr</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="../assets/images/list-icon-5.svg" alt="">Weekly Payout Cycle - Every Week, on Time</span>
+      <span class="tf-ticker__item" aria-hidden="true"><img src="../assets/images/list-icon-6.svg" alt="">Access to Multiple Trading Markets</span>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============================================
      AVATAR — Equity Day Trader
