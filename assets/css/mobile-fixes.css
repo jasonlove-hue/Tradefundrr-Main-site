@@ -1547,10 +1547,17 @@
   max-width: 720px;
 }
 .guarantee__points {
-  display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+  /* 3-column grid prevents the awkward 2+1 wrap when badge text grows */
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: 28px;
   margin: 0; padding: 16px 0 0;
   list-style: none;
   border-top: 1px solid rgba(34, 211, 168, 0.18);
+}
+@media (max-width: 920px) {
+  .guarantee__points { grid-template-columns: 1fr; gap: 12px; justify-items: center; }
 }
 .guarantee__points li {
   display: inline-flex; align-items: center; gap: 7px;
