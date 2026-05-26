@@ -923,6 +923,86 @@
     @media (max-width: 768px) {
       .stx-rules__tab { font-size: 13px; padding: 10px 16px; }
     }
+
+    /* ============================================
+       YOUR DOWNSIDE, CAPPED — loss-aversion reframe
+       ============================================ */
+    .stx-cap { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-cap__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-cap__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-cap__head h2 { font-size: 44px; font-weight: 700; letter-spacing: -1.4px; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+    .stx-cap__head h2 .accent { color: var(--teal); }
+    .stx-cap__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-cap__grid {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+    }
+    .stx-cap-card {
+      padding: 36px 32px;
+      border-radius: 16px;
+      display: flex; flex-direction: column;
+    }
+    .stx-cap-card--risk {
+      background: linear-gradient(180deg, rgba(255,87,87,0.10), rgba(255,87,87,0.02));
+      border: 1px solid rgba(255,87,87,0.30);
+    }
+    .stx-cap-card--cap {
+      background: linear-gradient(180deg, rgba(34,211,168,0.10), rgba(34,211,168,0.02));
+      border: 1px solid rgba(34,211,168,0.35);
+    }
+    .stx-cap-card__label {
+      font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; margin: 0 0 14px; display: block;
+    }
+    .stx-cap-card--risk .stx-cap-card__label { color: #ff8a8a; }
+    .stx-cap-card--cap  .stx-cap-card__label { color: var(--teal); }
+    .stx-cap-card__amount {
+      font-size: 56px; font-weight: 700; letter-spacing: -2.5px;
+      margin: 0 0 6px; line-height: 1; font-variant-numeric: tabular-nums;
+    }
+    .stx-cap-card--risk .stx-cap-card__amount { color: #ff8a8a; }
+    .stx-cap-card--cap  .stx-cap-card__amount { color: var(--teal); }
+    .stx-cap-card__sub { color: var(--white-72); font-size: 14px; margin: 0 0 22px; font-style: italic; }
+    .stx-cap-card__points { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .stx-cap-card__points li {
+      color: var(--white-72); font-size: 14.5px; line-height: 1.55;
+      padding-left: 22px; position: relative;
+    }
+    .stx-cap-card__points li::before { content: "·"; position: absolute; left: 0; top: 0; font-weight: 700; font-size: 22px; line-height: 1; }
+    .stx-cap-card--risk .stx-cap-card__points li::before { color: #ff8a8a; }
+    .stx-cap-card--cap  .stx-cap-card__points li::before { color: var(--teal); }
+    .stx-cap-card__points li strong { color: #fff; font-weight: 600; }
+    .stx-cap__growth-note {
+      max-width: 1100px; margin: 28px auto 0; padding: 0 32px; text-align: center;
+    }
+    .stx-cap__growth-note p {
+      display: inline-block; padding: 14px 22px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 999px;
+      color: var(--white-72); font-size: 14.5px; line-height: 1.5; margin: 0;
+    }
+    .stx-cap__growth-note strong { color: var(--teal); font-weight: 600; }
+    .stx-cap__closer {
+      max-width: 880px; margin: 36px auto 0; padding: 0 32px; text-align: center;
+    }
+    .stx-cap__closer p {
+      color: #fff; font-size: 22px; font-weight: 600; letter-spacing: -0.4px;
+      line-height: 1.35; margin: 0;
+    }
+    .stx-cap__closer strong { color: var(--teal); }
+    .stx-cap__footnote {
+      max-width: 880px; margin: 24px auto 0; padding: 0 32px;
+      color: var(--white-55); font-size: 12px; line-height: 1.5;
+      text-align: center; font-style: italic;
+    }
+    .stx-cap__footnote a { color: var(--teal); text-decoration: underline; }
+    @media (max-width: 991px) {
+      .stx-cap__head h2 { font-size: 32px; letter-spacing: -0.9px; }
+      .stx-cap__grid { grid-template-columns: 1fr; padding: 0 20px; }
+      .stx-cap-card { padding: 28px 24px; }
+      .stx-cap-card__amount { font-size: 44px; }
+      .stx-cap__closer p { font-size: 18px; }
+    }
+
     /* === END MOBILE OPTIMIZATIONS === */
 
     /* ============================================
@@ -2001,6 +2081,53 @@
     <strong>*</strong> Growth activation fee is charged after passing the evaluation phase, before the funded account goes live.
     &nbsp;&nbsp;<strong>**</strong> Consistency rule (30%): your largest single-session profit can't exceed 30% of your profit target. If you exceed it, the profit target adjusts upward so that session counts as 30%. Prevents passing on a single lucky day.
     &nbsp;&nbsp;<strong>Reset fee</strong>: applies only to Growth. If you fail Stage 1 or Stage 2, $99 lets you restart the evaluation from Stage 1 (earned progress doesn't carry over). Express has no reset because there are no stages, you trade the funded account from day one.
+  </p>
+</section>
+
+<section class="stx-cap">
+  <div class="stx-cap__head">
+    <span class="stx-eyebrow">Risk math, plain</span>
+    <h2>Your downside, <span class="accent">capped</span>.</h2>
+    <p>The honest question isn't "what could I make?", it's "what's the most I can lose?" Here's the answer for both paths, side by side.</p>
+  </div>
+  <div class="stx-cap__grid">
+
+    <article class="stx-cap-card stx-cap-card--risk">
+      <span class="stx-cap-card__label">Trading your own $25K</span>
+      <h3 class="stx-cap-card__amount">$25,000</h3>
+      <p class="stx-cap-card__sub">at risk going in</p>
+      <ul class="stx-cap-card__points">
+        <li>The full account balance is exposed to position losses</li>
+        <li>One bad week can take meaningful chunks out of your capital</li>
+        <li>Losses come straight out of your savings, no refund mechanism exists</li>
+        <li>PDT rule is gone, but capital math hasn't changed</li>
+      </ul>
+    </article>
+
+    <article class="stx-cap-card stx-cap-card--cap">
+      <span class="stx-cap-card__label">Express Funding eval</span>
+      <h3 class="stx-cap-card__amount">$899</h3>
+      <p class="stx-cap-card__sub">your upfront cost, that's the ceiling</p>
+      <ul class="stx-cap-card__points">
+        <li>Your upfront commitment is the eval fee, full stop</li>
+        <li>$800 of that is <strong>refunded with your first qualifying payout</strong></li>
+        <li>Net upfront cost after refund: <strong>$99</strong> (+ $99/mo while the account is live)</li>
+        <li>Your personal savings stay where they are</li>
+      </ul>
+    </article>
+
+  </div>
+
+  <div class="stx-cap__growth-note">
+    <p>Prefer the lower-cost entry? <strong>Growth</strong> caps your upfront at <strong>$399</strong>, with a <strong>$99 reset</strong> if you don't pass a stage on the first try.</p>
+  </div>
+
+  <div class="stx-cap__closer">
+    <p>Capped upfront cost. Refundable on first payout. <strong>Your savings stay where they are.</strong></p>
+  </div>
+
+  <p class="stx-cap__footnote">
+    Refund applies to the evaluation-fee portion of your signup only. Monthly fees and the $99 first-month data access fee are not refunded. See the <a href="#plans">Plans</a> for full pricing and the Account Details accordion for the full rules.
   </p>
 </section>
 
