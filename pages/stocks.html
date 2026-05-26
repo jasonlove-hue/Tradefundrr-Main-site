@@ -806,14 +806,28 @@
     .stx-compare__table {
       display: grid;
       grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
+      gap: 12px;
+      padding: 18px 0 4px;
+      background: transparent;
+      border: none;
+      align-items: stretch;
+    }
+    .stx-compare__col {
+      background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 14px;
+      display: flex; flex-direction: column;
       overflow: hidden;
     }
-    .stx-compare__col { background: var(--bg); display: flex; flex-direction: column; }
-    .stx-compare__col--featured { background: linear-gradient(180deg, rgba(34,211,168,0.06), rgba(34,211,168,0.01)); position: relative; }
+    .stx-compare__col--featured {
+      background: linear-gradient(180deg, rgba(34,211,168,0.07), rgba(34,211,168,0.01));
+      border: 1px solid rgba(34,211,168,0.40);
+      transform: translateY(-14px);
+      box-shadow:
+        0 22px 48px -12px rgba(34,211,168,0.28),
+        0 8px 20px -6px rgba(0,0,0,0.45);
+      position: relative; z-index: 2;
+    }
     .stx-compare__col--featured::before {
       content: "MOST POPULAR";
       position: absolute; top: 14px; right: 14px;
@@ -824,6 +838,7 @@
     .stx-compare__col-head {
       padding: 30px 22px 18px;
       border-bottom: 1px solid var(--border);
+      min-height: 132px;
     }
     .stx-compare__col-eyebrow {
       font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px;
@@ -836,12 +851,16 @@
     }
     .stx-compare__cell {
       padding: 14px 18px;
-      background: var(--bg);
+      background: transparent;
       color: var(--white-72);
       font-size: 14px;
       line-height: 1.45;
       border-bottom: 1px solid var(--border);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
     }
+    .stx-compare__col > .stx-compare__cell:last-of-type { border-bottom: none; }
     .stx-compare__col--featured .stx-compare__cell { background: rgba(34,211,168,0.025); }
     .stx-compare__cell--label {
       font-family: 'Geist Mono', monospace; font-size: 11.5px; letter-spacing: 1.2px;
@@ -878,14 +897,19 @@
       .stx-compare__table {
         grid-template-columns: 1fr;
         gap: 12px;
-        background: transparent;
-        border: none;
+        padding: 0;
       }
       .stx-compare__col {
         border: 1px solid var(--border);
         border-radius: 14px;
       }
-      .stx-compare__col--featured { border-color: rgba(34,211,168,0.35); }
+      .stx-compare__col--featured {
+        border-color: rgba(34,211,168,0.40);
+        transform: none;
+        box-shadow: 0 8px 24px -6px rgba(34,211,168,0.20);
+      }
+      .stx-compare__cell { min-height: auto; }
+      .stx-compare__col-head { min-height: auto; }
       .stx-compare__cell--label::before {
         content: attr(data-label) ": ";
         color: var(--white-45); text-transform: none; letter-spacing: 0; font-family: 'Inter', sans-serif;
@@ -1001,6 +1025,56 @@
       .stx-cap-card { padding: 28px 24px; }
       .stx-cap-card__amount { font-size: 44px; }
       .stx-cap__closer p { font-size: 18px; }
+    }
+
+
+    /* ============================================
+       PLAN REFUND INDICATORS + EXPLAINER
+       ============================================ */
+    .stx-plan__refund {
+      font-size: 13px; padding: 10px 14px; border-radius: 8px;
+      margin: 18px 0 14px;
+      display: flex; align-items: center; gap: 10px; line-height: 1.4;
+    }
+    .stx-plan__refund--no  { background: rgba(255,87,87,0.08);  border: 1px solid rgba(255,87,87,0.25);  color: hsla(0,0%,100%,0.85); }
+    .stx-plan__refund--yes { background: rgba(34,211,168,0.10); border: 1px solid rgba(34,211,168,0.30); color: hsla(0,0%,100%,0.92); font-weight: 500; }
+    .stx-plan__refund--na  { background: hsla(0,0%,100%,0.04);  border: 1px solid var(--border);         color: var(--white-72); }
+    .stx-plan__refund-icon { font-weight: 700; flex-shrink: 0; font-size: 16px; line-height: 1; }
+    .stx-plan__refund--no  .stx-plan__refund-icon { color: #ff8a8a; }
+    .stx-plan__refund--yes .stx-plan__refund-icon { color: var(--teal); }
+    .stx-plan__refund--na  .stx-plan__refund-icon { color: var(--white-55); }
+
+    .stx-plans__refund-explainer {
+      max-width: 1100px; margin: 50px auto 0; padding: 28px 32px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    }
+    .stx-plans__refund-explainer h3 {
+      color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+      margin: 0 0 18px;
+    }
+    .stx-plans__refund-explainer ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .stx-plans__refund-explainer li {
+      display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start;
+    }
+    .stx-plans__refund-explainer .refund-mark {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; line-height: 1;
+    }
+    .stx-plans__refund-explainer .refund-mark--yes { background: rgba(34,211,168,0.18); color: var(--teal); border: 1px solid rgba(34,211,168,0.40); }
+    .stx-plans__refund-explainer .refund-mark--no  { background: rgba(255,87,87,0.15);  color: #ff8a8a;     border: 1px solid rgba(255,87,87,0.35); }
+    .stx-plans__refund-explainer .refund-mark--na  { background: hsla(0,0%,100%,0.06);  color: var(--white-55); border: 1px solid var(--border); }
+    .stx-plans__refund-explainer li > div {
+      color: var(--white-72); font-size: 14.5px; line-height: 1.6;
+    }
+    .stx-plans__refund-explainer li > div strong { color: #fff; font-weight: 600; }
+    @media (max-width: 768px) {
+      .stx-plans__refund-explainer { padding: 24px 20px; margin: 36px 16px 0; }
+      .stx-plans__refund-explainer li { gap: 10px; }
+      .stx-plans__refund-explainer li > div { font-size: 13.5px; }
     }
 
     /* === END MOBILE OPTIMIZATIONS === */
@@ -1929,6 +2003,10 @@
           <li><strong>$99 reset fee</strong> if you fail an eval stage</li>
           <li>80/20 split &middot; weekly payouts</li>
         </ul>
+        <div class="stx-plan__refund stx-plan__refund--no">
+          <span class="stx-plan__refund-icon">&#10007;</span>
+          <span>Eval fee non-refundable</span>
+        </div>
         <div class="stx-plan__price">
           <span class="stx-plan__price-amt">$399</span>
           <span class="stx-plan__price-per">+ $99/mo + $149 activation</span>
@@ -1954,9 +2032,13 @@
           <li>Earliest payout &middot; 5 days</li>
           <li>80/20 split &middot; weekly payouts</li>
         </ul>
+        <div class="stx-plan__refund stx-plan__refund--yes">
+          <span class="stx-plan__refund-icon">&#10003;</span>
+          <span>$800 of $899 refunded on first payout</span>
+        </div>
         <div class="stx-plan__price">
           <span class="stx-plan__price-amt">$899</span>
-          <span class="stx-plan__price-per">+ $99/mo (eval fee refunded on 1st payout)</span>
+          <span class="stx-plan__price-per">+ $99/mo</span>
         </div>
         <a href="#plans" class="stx-plan__cta stx-plan__cta--primary">Choose Express &rarr;</a>
       </article>
@@ -1979,6 +2061,10 @@
           <li>Custom tailored rules per trader</li>
           <li>Available across stocks, options, and futures</li>
         </ul>
+        <div class="stx-plan__refund stx-plan__refund--na">
+          <span class="stx-plan__refund-icon">&#9866;</span>
+          <span>Real capital model, no refund mechanism</span>
+        </div>
         <div class="stx-plan__price">
           <span class="stx-plan__price-amt">From $250K</span>
           <span class="stx-plan__price-per">/capital contribution</span>
@@ -1987,6 +2073,31 @@
       </article>
 
     </div>
+
+    <div class="stx-plans__refund-explainer">
+      <h3>About the refunds, in plain terms</h3>
+      <ul>
+        <li>
+          <span class="refund-mark refund-mark--yes">&#10003;</span>
+          <div>
+            <strong>Express Funding:</strong> $800 of your $899 signup is refunded with your first qualifying payout. The $99 first-month data access fee (included in the $899) is <strong>not</strong> refunded. Ongoing monthly platform fees ($99/mo) are <strong>not</strong> refunded.
+          </div>
+        </li>
+        <li>
+          <span class="refund-mark refund-mark--no">&#10007;</span>
+          <div>
+            <strong>Growth Account:</strong> The $399 eval fee is <strong>not</strong> refundable. If you fail a stage, the $99 reset fee lets you restart from Stage 1 (the reset is a re-entry, not a refund). The $149 activation fee (charged after passing the eval) and monthly fees ($99 + $99) are also <strong>not</strong> refunded.
+          </div>
+        </li>
+        <li>
+          <span class="refund-mark refund-mark--na">&#9866;</span>
+          <div>
+            <strong>Pro Trader Funding:</strong> Real-money trading via capital contribution. There is no eval fee, so no refund mechanism applies. Your contributed capital remains your capital, subject to trading P&amp;L per the desk agreement.
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
