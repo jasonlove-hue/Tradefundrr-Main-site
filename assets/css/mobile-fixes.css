@@ -1599,12 +1599,18 @@
   .guarantee__points { gap: 16px; }
 }
 .guarantee__footnote {
-  color: hsla(0, 0%, 100%, 0.45);
-  font-size: 11px;
-  line-height: 1.5;
+  color: hsla(0, 0%, 100%, 0.65);
+  font-size: 12px;
+  line-height: 1.55;
   margin: 14px auto 0;
   max-width: 720px;
   text-align: center;
+}
+.guarantee__footnote strong {
+  /* Key dollar figures + cap clause read brighter than surrounding fine print
+     so users can scan the math at a glance. */
+  color: hsla(0, 0%, 100%, 0.92);
+  font-weight: 600;
 }
 /* === GUARANTEE END === */
 
