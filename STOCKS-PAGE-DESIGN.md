@@ -2,9 +2,35 @@
 
 **Lives at:** `pages/stocks.html` (production) and `stocks-redesign-preview.html` (preview)
 **Deployed:** `https://tradefundrr-main-site.vercel.app/pages/stocks`
-**Companion docs:** `HOMEPAGE-DESIGN-MESSAGING.md` (homepage), `HANDOFF-2026-05-25.md` (session notes)
+**Companion docs:** `HOMEPAGE-DESIGN-MESSAGING.md` (homepage), `OPTIONS-PAGE-DESIGN.md` (options sibling), `HANDOFF-2026-05-26.md` (latest session notes)
 **Built:** 2026-05-24 → 2026-05-25
+**Last updated:** 2026-05-26
 **Sections:** 22 (Hero → Trust Ticker → Empathy → Did You Know → Avatar → Two Paths → Plans → Account Details → Platforms → Loss Aversion → T3 Trust → Reviews → Trustpilot → Founder → Glossary → FAQ → More-X-Than-Y → Final CTA → Legal Disclosure)
+
+---
+
+## CHANGELOG
+
+### 2026-05-26 — Refund → Rebate language migration
+
+To align with the homepage's new First-Payout Rebate framing (Nadav 2026-05-26 gap #4, legal cleanup), all visible "refund" language on this page was replaced with "rebate."
+
+- **"About the refunds, in plain terms"** explainer section heading → **"About the rebate, in plain terms"** (singular — only Express has a rebate)
+- **Express Funding bullet** now leads with *"Eligible for the **$800 first-payout rebate**"* and ends with the non-guarantee disclaimer: *"Earning a qualifying payout depends on your trading performance and is not guaranteed."*
+- **Growth Account bullet fee itemization corrected.** Old version said "monthly fees ($99 + $99)" which incorrectly lumped the $99 reset fee (one-time-on-failure) with the $99/month platform fee (recurring). Now reads: *"The $149 activation fee (charged after passing the eval) and the **$99/month platform fee** are also **not** rebated."* The $99 reset is called out separately in the prior sentence as a re-entry.
+- **Pro Trader Funding bullet:** "no refund mechanism applies" → "no rebate mechanism applies"
+- **Plan-card mini-badges** updated: was "Refunded with first payout" → now "$800 rebate on first payout*"
+- **"Your downside, capped" section** bullets, closer line, and footnote all swapped to rebate language with non-guarantee context
+- **Account Details accordion** Express signup-cost row description: "(refundable with your first qualifying payout)" → "(rebated with your first qualifying payout)"
+- **FAQ Growth-vs-Express answer** updated: "Express ($899, fee largely refunded on first payout)" → "Express ($899, $800 rebated on first qualifying payout)"
+
+**CSS class names preserved** — `.refund-mark--yes/no/na` and `.stx-plans__refund-explainer` stay as-is to avoid breaking existing styling.
+
+**Sitewide link hygiene also applied to this page:** Login button + Funding Dashboard Login point at `https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient` with `target="_blank" rel="noopener"`. All navigation links open in new tab. In-page scroll anchors (`href="#plans"` etc.) properly excluded. See `HANDOFF-2026-05-26.md` for the full sweep.
+
+### 2026-05-25 — Initial build
+
+Captured in `HANDOFF-2026-05-25.md`. The stocks page was built from scratch this date: 22 sections with low-awareness onboarding arc (orientation, business-model explainer, 3-step "how it works", T3 trust panel, Trustpilot summary, glossary), plus the structured Plans cards / Comparison table / Account Details accordion / collapsible FAQ / "More X. Not Y." triplet / Final CTA.
 
 ---
 

@@ -3,6 +3,51 @@
 **Purpose:** Reference document for building other pages (stocks.html, options.html, futures.html, why-us.html, pricing.html, etc.) so they match the homepage's visual and copy conventions.
 **Source of truth:** `index.html` and `assets/css/mobile-fixes.css` in the main-site repo.
 **Live URL:** https://tradefundrr-main-site.vercel.app/
+**Last updated:** 2026-05-26
+
+---
+
+## CHANGELOG
+
+### 2026-05-26 — Nadav iteration (post weekly sync)
+
+**Christian section (v3)** — Reworked to stop "forcing away from Bose."
+
+- **Lead under heading** rewritten: was *"The credibility behind the operation doesn't come from his resume. It comes from the institutional partnerships listed below."* → now *"Christian Bose built TradeFundrr. The name on the offer, the operator behind the partnerships, the founder who put the team in place. The infrastructure that backs him is listed below."*
+- **Bio** rewritten: was *"...the human voice behind it. The credibility on the offer isn't his alone..."* → now *"Christian set the T3 partnership, hired the operators, and put the offer in place. The structure behind TradeFundrr came from his work, not handed to him, not licensed in. Built."*
+- **No customer-support claims** — Christian doesn't take tickets or calls; the bio doesn't claim he does.
+- **Partner bullets reordered + retitled:**
+  1. **T3 Trading Group** — *Part of the T3 group of companies.* **Regulated SEC broker-dealer · FINRA/SIPC member.**
+  2. **T3 Global** — Trading infrastructure and trader routing. Where TradeFundrr's funded accounts run.
+  3. **Deeply experienced operators** — The team behind risk, technology, and back-office spans decades of broker-dealer, derivatives, and trading infrastructure work.
+
+**T3 attribution corrected sitewide.** T3 Trading Group is the FINRA/SIPC regulated broker-dealer (regulatory backbone). T3 Global is the operational/routing entity (where live-capital actually runs). Earlier copy had these swapped.
+
+**T3 trust panel paragraph rewritten** to reflect the corrected attribution:
+> TradeFundrr is partnered with **T3 Global**, an institutional trading firm within the T3 group of companies. The group's broker-dealer, **T3 Trading Group**, is a regulated SEC broker-dealer and FINRA/SIPC member and **one of the largest** active-trader institutional desks in the U.S. The live-capital path for top-performing TradeFundrr traders runs through **T3 Global's institutional infrastructure**.
+
+**Payout Guarantee → First-Payout Rebate** (Nadav 2026-05-26 gap #4, legal cleanup).
+
+- **Eyebrow badge:** "The Payout Guarantee" → "First-Payout Rebate"
+- **Headline retained** (per Jason — marketing punch): "Hit your first payout. **Get your eval fee back.**"
+- **Sub** rewritten with short-sentence rhythm: *"Pass the eval. Earn a qualifying payout. The eval fee comes back with it. You deliver the performance, we deliver the rebate."*
+- **Points (vertical stack, active voice):** Paid out with your first qualifying payout / No time limit to qualify / Options, Stocks, and Futures Express
+- **Footnote restructured** to 4 stacked label-on-own-line rows on a dark inner panel: **Rebate amounts** / **Not rebated** / **One rebate per customer** / **Earning a qualifying payout depends on your trading performance and is not guaranteed**
+- **Per-card mini-badges** show plan-specific rebate amounts: $800 (Options/Stocks Express on $899), $179 (Futures Express on $179)
+- **Mechanic unchanged** — automatic rebate paid with qualifying first payout, no mail-in form
+
+**CSS additions to `.guarantee__points` and `.guarantee__footnote`** in `mobile-fixes.css`:
+- `.guarantee__points` switched from 3-column grid to vertical flex stack (so longest bullet no longer wraps)
+- `.guarantee__footnote` switched to flex column with `gap: 20px`, body color receded to 45% white, bold labels at 72% white, dark inner panel (`background: rgba(0,0,0,0.20)`, `border-radius: 10px`, `padding: 18px 22px`)
+- Older `.guarantee__footnote strong` override that forced 92%/600 weight was resolved to inherit the new 72%/500 scheme
+
+**Sitewide link hygiene:**
+- All Login + Funding Dashboard Login buttons now point to `https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient` with `target="_blank" rel="noopener"`
+- All navigation links open in new tab by default. In-page scroll anchors (`href="#..."`), `mailto:`/`tel:`/`javascript:` properly excluded
+
+### 2026-05-25 — Stocks page redesign + performance pass
+
+Captured in `HANDOFF-2026-05-25.md`. Highlights: stocks page redesign shipped with 22 sections, sitewide image optimization, Swiper lazy-load, pro-funding hero GIF → MP4/WebM, homepage navbar made sticky.
 
 ---
 
