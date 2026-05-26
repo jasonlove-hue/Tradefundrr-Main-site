@@ -760,6 +760,169 @@
         transition: none !important;
       }
     }
+
+
+    /* ============================================
+       NEW: GLOSSARY (collapsible, defaults to all-closed)
+       ============================================ */
+    .stx-gloss { padding: 80px 0; background: var(--bg); border-top: 1px solid var(--border); }
+    .stx-gloss__head { text-align: center; max-width: 760px; margin: 0 auto 40px; padding: 0 32px; }
+    .stx-gloss__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-gloss__head h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.9px; line-height: 1.15; margin: 0 0 12px; color: #fff; }
+    .stx-gloss__head p { color: var(--white-72); font-size: 15.5px; line-height: 1.5; margin: 0; }
+    .stx-gloss__list { max-width: 900px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stx-gloss-item {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .stx-gloss-item:hover { border-color: var(--border-hover); }
+    .stx-gloss-item > summary {
+      list-style: none; cursor: pointer; padding: 14px 18px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      color: #fff; font-weight: 600; font-size: 14.5px;
+    }
+    .stx-gloss-item > summary::-webkit-details-marker { display: none; }
+    .stx-gloss-item > summary::marker { content: ""; }
+    .stx-gloss-item__chev { color: var(--teal); font-size: 12px; transition: transform 0.2s ease; }
+    .stx-gloss-item[open] .stx-gloss-item__chev { transform: rotate(180deg); }
+    .stx-gloss-item__term { color: var(--teal); }
+    .stx-gloss-item__body {
+      padding: 0 18px 16px; color: var(--white-72); font-size: 13.5px; line-height: 1.6;
+    }
+    @media (max-width: 991px) {
+      .stx-gloss__list { grid-template-columns: 1fr; padding: 0 18px; }
+      .stx-gloss__head h2 { font-size: 26px; }
+    }
+/* ============================================
+       COMPARISON TABLE
+       ============================================ */
+    .stx-compare { padding: 100px 0; background: #0a101e; border-top: 1px solid var(--border); }
+    .stx-compare__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 32px; }
+    .stx-compare__head .stx-eyebrow { margin-bottom: 14px; }
+    .stx-compare__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; margin: 0 0 14px; color: #fff; }
+    .stx-compare__head h2 .accent { color: var(--teal); }
+    .stx-compare__head p { color: var(--white-72); font-size: 17px; line-height: 1.5; margin: 0; }
+    .stx-compare__wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+    .stx-compare__table {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .stx-compare__col { background: var(--bg); display: flex; flex-direction: column; }
+    .stx-compare__col--featured { background: linear-gradient(180deg, rgba(34,211,168,0.06), rgba(34,211,168,0.01)); position: relative; }
+    .stx-compare__col--featured::before {
+      content: "MOST POPULAR";
+      position: absolute; top: 14px; right: 14px;
+      background: var(--teal); color: #06181a;
+      font-family: 'Geist Mono', monospace; font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; padding: 4px 10px; border-radius: 999px; z-index: 1;
+    }
+    .stx-compare__col-head {
+      padding: 30px 22px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .stx-compare__col-eyebrow {
+      font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--teal); margin: 0 0 6px; display: block;
+    }
+    .stx-compare__col-name { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: #fff; margin: 0 0 8px; line-height: 1.15; }
+    .stx-compare__col-tag { color: var(--white-72); font-size: 13px; line-height: 1.45; margin: 0; }
+    .stx-compare__row {
+      display: contents;
+    }
+    .stx-compare__cell {
+      padding: 14px 18px;
+      background: var(--bg);
+      color: var(--white-72);
+      font-size: 14px;
+      line-height: 1.45;
+      border-bottom: 1px solid var(--border);
+    }
+    .stx-compare__col--featured .stx-compare__cell { background: rgba(34,211,168,0.025); }
+    .stx-compare__cell--label {
+      font-family: 'Geist Mono', monospace; font-size: 11.5px; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--white-55);
+      background: hsla(0,0%,100%,0.02);
+    }
+    .stx-compare__cell--strong { color: #fff; font-weight: 600; font-size: 15px; }
+    .stx-compare__cell--teal { color: var(--teal); font-weight: 600; font-size: 15px; }
+    .stx-compare__cell--red { color: #ff8a8a; font-weight: 600; }
+    .stx-compare__cell--good { color: var(--teal); font-weight: 600; }
+    .stx-compare__cta {
+      padding: 24px 18px;
+      display: flex; align-items: stretch; justify-content: center;
+      border-bottom: none;
+    }
+    .stx-compare__cta a {
+      width: 100%; text-align: center;
+      padding: 12px 16px; border-radius: 999px;
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+    .stx-compare__cta a:hover { transform: translateY(-1px); }
+    .stx-compare__cta--primary { background: linear-gradient(180deg, #2ce8b9, #22d3a8); color: #06181a; }
+    .stx-compare__cta--glass { background: transparent; color: #fff; border: 1px solid var(--border-hover); }
+    .stx-compare__footnote {
+      max-width: 1240px; margin: 24px auto 0; padding: 0 32px;
+      color: var(--white-55); font-size: 12.5px; line-height: 1.55; font-style: italic;
+      text-align: center;
+    }
+    .stx-compare__footnote strong { color: var(--white-72); font-style: normal; }
+    @media (max-width: 991px) {
+      .stx-compare__head h2 { font-size: 30px; }
+      .stx-compare__wrap { padding: 0 16px; }
+      .stx-compare__table {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        background: transparent;
+        border: none;
+      }
+      .stx-compare__col {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+      .stx-compare__col--featured { border-color: rgba(34,211,168,0.35); }
+      .stx-compare__cell--label::before {
+        content: attr(data-label) ": ";
+        color: var(--white-45); text-transform: none; letter-spacing: 0; font-family: 'Inter', sans-serif;
+      }
+    }
+
+    /* ============================================
+
+    /* ============================================
+       TABBED ACCOUNT DETAILS (3-plan)
+       ============================================ */
+    .stx-rules__tabs {
+      display: flex; justify-content: center; gap: 8px; max-width: 920px;
+      margin: 0 auto 28px; padding: 0 32px; flex-wrap: wrap;
+    }
+    .stx-rules__tab {
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--white-72); padding: 12px 22px; border-radius: 999px;
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .stx-rules__tab:hover { color: #fff; border-color: var(--border-hover); }
+    .stx-rules__tab.is-active {
+      background: linear-gradient(180deg, rgba(34,211,168,0.18), rgba(34,211,168,0.08));
+      border-color: rgba(34,211,168,0.6);
+      color: #fff;
+    }
+    .stx-rules__panel { display: none; }
+    .stx-rules__panel.is-active { display: block; }
+    .stx-rules__panel-intro {
+      max-width: 920px; margin: 0 auto 24px; padding: 0 32px;
+      color: var(--white-72); font-size: 14.5px; line-height: 1.55; text-align: center;
+    }
+    .stx-rules__panel-intro strong { color: var(--teal); font-weight: 600; }
+    @media (max-width: 768px) {
+      .stx-rules__tab { font-size: 13px; padding: 10px 16px; }
+    }
     /* === END MOBILE OPTIMIZATIONS === */
 
     /* ============================================
@@ -1668,55 +1831,54 @@
 
     <div class="stx-plans__grid">
 
-      <!-- Growth Account -->
+      <!-- Growth Account (real values from program parameters) -->
       <article class="stx-plan">
         <p class="stx-plan__eyebrow">Growth Account</p>
         <span class="stx-plan__badge">Eval path</span>
         <h3>Growth Account</h3>
-        <p class="stx-plan__sub">Best for stocks traders who want to demonstrate consistent performance through a defined evaluation.</p>
+        <p class="stx-plan__sub">Best for stocks traders who want to prove themselves through a structured 2-stage evaluation at the lowest upfront cost.</p>
         <div class="stx-plan__claim">
-          <strong>$100K simulated buying power</strong> via 4x leverage on a $25K eval account. No personal $25K at risk.
+          <strong>$100K simulated buying power</strong> via 4&times; leverage on a $25K eval account. Hard breach on daily loss, $99 reset if you fail.
         </div>
-        <div class="stx-plan__placeholder">PLACEHOLDER · final program parameters TBD from Jason</div>
         <ul class="stx-plan__features">
-          <li>$25K eval account, 4x leverage</li>
-          <li>Pre-set profit target and drawdown rules</li>
-          <li class="stx-plan__tbd">Daily loss limit · TBD</li>
-          <li class="stx-plan__tbd">Earliest payout · TBD days</li>
-          <li>Weekly payouts on Fridays</li>
-          <li>DXTrade platform, real-time L2 data</li>
-          <li>No PDT requirement, trade every day</li>
+          <li>$25K eval account &middot; 4&times; leverage = $100K BP</li>
+          <li>2-stage evaluation: Stage 1 &rarr; Stage 2 &rarr; Funded</li>
+          <li>Profit target &middot; <strong>$1,250</strong></li>
+          <li>Daily loss limit &middot; $1,000 (<strong>hard</strong> breach)</li>
+          <li>Max drawdown &middot; $3,000 EOD</li>
+          <li><strong>$99 reset fee</strong> if you fail an eval stage</li>
+          <li>80/20 split &middot; weekly payouts</li>
         </ul>
         <div class="stx-plan__price">
-          <span class="stx-plan__price-amt">TBD</span>
-          <span class="stx-plan__price-per">/first month</span>
+          <span class="stx-plan__price-amt">$399</span>
+          <span class="stx-plan__price-per">+ $99/mo + $149 activation</span>
         </div>
-        <a href="#" class="stx-plan__cta stx-plan__cta--glass">Choose Growth →</a>
+        <a href="#plans" class="stx-plan__cta stx-plan__cta--glass">Choose Growth &rarr;</a>
       </article>
 
-      <!-- Express Funding (real data!) -->
+      <!-- Express Funding (corrected values from program parameters) -->
       <article class="stx-plan stx-plan--featured">
         <p class="stx-plan__eyebrow">Express Funding</p>
         <span class="stx-plan__badge">Most popular</span>
         <h3>Express Funding</h3>
-        <p class="stx-plan__sub">Best for experienced stocks day traders who want the fastest possible path to their first payout.</p>
+        <p class="stx-plan__sub">Skip the evaluation entirely. Trade the funded account from day one, with a softer safety net on rough days.</p>
         <div class="stx-plan__claim">
-          <strong>$100K simulated buying power</strong> from day one. No evaluation, no waiting. Trade today.
+          <strong>$100K simulated buying power</strong> from day one. Soft breach on daily loss &mdash; rough days pause the session, not the account.
         </div>
         <ul class="stx-plan__features">
-          <li>$25K initial · 4x leverage = $100K BP</li>
-          <li>Profit target · $1,000</li>
-          <li>Daily loss limit · $1,000</li>
-          <li>Max drawdown · $2,500</li>
-          <li>Earliest payout · 5 days</li>
-          <li>Min trade duration · 15 seconds</li>
-          <li>No evaluation · start trading today</li>
+          <li>$25K initial &middot; 4&times; leverage = $100K BP</li>
+          <li>No evaluation &middot; trade day one</li>
+          <li>Profit target &middot; <strong>$1,250</strong></li>
+          <li>Daily loss limit &middot; $1,000 (<strong>soft</strong> breach)</li>
+          <li>Max drawdown &middot; $3,000 EOD</li>
+          <li>Earliest payout &middot; 5 days</li>
+          <li>80/20 split &middot; weekly payouts</li>
         </ul>
         <div class="stx-plan__price">
-          <span class="stx-plan__price-amt">TBD</span>
-          <span class="stx-plan__price-per">/first month</span>
+          <span class="stx-plan__price-amt">$899</span>
+          <span class="stx-plan__price-per">+ $99/mo (eval fee refunded on 1st payout)</span>
         </div>
-        <a href="#" class="stx-plan__cta stx-plan__cta--primary">Choose Express →</a>
+        <a href="#plans" class="stx-plan__cta stx-plan__cta--primary">Choose Express &rarr;</a>
       </article>
 
       <!-- Pro Trader Funding (real Pro Funding details) -->
@@ -1751,144 +1913,347 @@
 <!-- ============================================
      ACCOUNT DETAILS — Express Funding rules
      ============================================ -->
+<section class="stx-compare">
+  <div class="stx-compare__head">
+    <span class="stx-eyebrow">Side by side</span>
+    <h2>Compare <span class="accent">Growth</span> and <span class="accent">Express</span></h2>
+    <p>The two simulated-funded paths, side by side. Pro Trader Funding is a different product class &mdash; see its card above or the <a href="pro-funding.html" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">dedicated page &rarr;</a></p>
+  </div>
+  <div class="stx-compare__wrap">
+    <div class="stx-compare__table">
+
+      <!-- Column header row (4 cols: label spacer + 3 plans) -->
+      <div class="stx-compare__col">
+        <div class="stx-compare__col-head">
+          <span class="stx-compare__col-eyebrow">&nbsp;</span>
+          <h3 class="stx-compare__col-name">&nbsp;</h3>
+          <p class="stx-compare__col-tag">&nbsp;</p>
+        </div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Path</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Signup cost</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Monthly fees</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Reset fee</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Buying power</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Daily loss limit</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Breach type</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Max drawdown</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Min trade duration</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Profit target</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Consistency rule</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Profit split</div>
+        <div class="stx-compare__cell stx-compare__cell--label" data-label="Section">Payout caps</div>
+        <div class="stx-compare__cta">&nbsp;</div>
+      </div>
+
+      <!-- GROWTH -->
+      <div class="stx-compare__col">
+        <div class="stx-compare__col-head">
+          <span class="stx-compare__col-eyebrow">Growth Account</span>
+          <h3 class="stx-compare__col-name">Growth</h3>
+          <p class="stx-compare__col-tag">Lower entry cost, proves you out through an evaluation</p>
+        </div>
+        <div class="stx-compare__cell" data-label="Path">Evaluation</div>
+        <div class="stx-compare__cell stx-compare__cell--strong" data-label="Signup">$399</div>
+        <div class="stx-compare__cell" data-label="Monthly">$99/month (platform + data)</div>
+        <div class="stx-compare__cell" data-label="Reset">$99 to restart from Stage 1</div>
+        <div class="stx-compare__cell stx-compare__cell--strong" data-label="BP">$100,000</div>
+        <div class="stx-compare__cell" data-label="Daily loss">$1,000</div>
+        <div class="stx-compare__cell stx-compare__cell--red" data-label="Breach">Hard breach</div>
+        <div class="stx-compare__cell" data-label="Drawdown">$3,000 EOD</div>
+        <div class="stx-compare__cell" data-label="Min hold">15 seconds</div>
+        <div class="stx-compare__cell" data-label="Target">$1,250</div>
+        <div class="stx-compare__cell" data-label="Consistency">30%**</div>
+        <div class="stx-compare__cell stx-compare__cell--good" data-label="Split">80 / 20</div>
+        <div class="stx-compare__cell" data-label="Payouts">$1,000 → $1,500 → $2,000 → up to $25,000</div>
+        <div class="stx-compare__cta">
+          <a href="#plans" class="stx-compare__cta--glass">Choose Growth &rarr;</a>
+        </div>
+      </div>
+
+      <!-- EXPRESS (featured) -->
+      <div class="stx-compare__col stx-compare__col--featured">
+        <div class="stx-compare__col-head">
+          <span class="stx-compare__col-eyebrow">Express Funding</span>
+          <h3 class="stx-compare__col-name">Express</h3>
+          <p class="stx-compare__col-tag">Skip the eval entirely. Start trading day one.</p>
+        </div>
+        <div class="stx-compare__cell" data-label="Path">Direct funded</div>
+        <div class="stx-compare__cell stx-compare__cell--strong" data-label="Signup">$899</div>
+        <div class="stx-compare__cell" data-label="Monthly">$99/month (platform + data)</div>
+        <div class="stx-compare__cell" data-label="Reset">No reset (direct funded, no stages)</div>
+        <div class="stx-compare__cell stx-compare__cell--strong" data-label="BP">$100,000</div>
+        <div class="stx-compare__cell" data-label="Daily loss">$1,000</div>
+        <div class="stx-compare__cell stx-compare__cell--good" data-label="Breach">Soft breach</div>
+        <div class="stx-compare__cell" data-label="Drawdown">$3,000 EOD</div>
+        <div class="stx-compare__cell" data-label="Min hold">15 seconds</div>
+        <div class="stx-compare__cell" data-label="Target">$1,250</div>
+        <div class="stx-compare__cell" data-label="Consistency">30%**</div>
+        <div class="stx-compare__cell stx-compare__cell--good" data-label="Split">80 / 20</div>
+        <div class="stx-compare__cell" data-label="Payouts">$2,000 → $2,500 → $3,500 → up to $25,000</div>
+        <div class="stx-compare__cta">
+          <a href="#plans" class="stx-compare__cta--primary">Choose Express &rarr;</a>
+        </div>
+      </div>
+
+</div>
+  </div>
+  <p class="stx-compare__footnote">
+    <strong>*</strong> Growth activation fee is charged after passing the evaluation phase, before the funded account goes live.
+    &nbsp;&nbsp;<strong>**</strong> Consistency rule (30%): your largest single-session profit can't exceed 30% of your profit target. If you exceed it, the profit target adjusts upward so that session counts as 30%. Prevents passing on a single lucky day.
+    &nbsp;&nbsp;<strong>Reset fee</strong>: applies only to Growth. If you fail Stage 1 or Stage 2, $99 lets you restart the evaluation from Stage 1 (earned progress doesn't carry over). Express has no reset because there are no stages &mdash; you trade the funded account from day one.
+  </p>
+</section>
+
 <section class="stx-rules">
   <div class="stx-rules__head">
-    <span class="stx-eyebrow">Express Funding &middot; the full breakdown</span>
-    <h2>Your Express Funding Account Details</h2>
-    <p>Simple. Transparent. No hidden rules. No hidden fees. <span style="color:var(--white-55);font-size:14px;">Click any row to expand. First row is open by default.</span></p>
+    <span class="stx-eyebrow">Full rules breakdown · per plan</span>
+    <h2>Every rule, in plain English</h2>
+    <p>Pick your plan to see exactly what you're signing up for. No fine print waiting after you pay.</p>
   </div>
 
-  <div class="stx-rules__list">
-
-    <details class="stx-rules-item" open>
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Account Size</span>
-        <span class="stx-rules-item__value">$25,000</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>Get instant access to a $25,000 funded account, offering immediate trading power and flexibility to capitalize on market opportunities.</p>
-        <p><strong class="stx-faq-means">Which means: you start with a $25,000 funded account size, with a path to scale up through performance. No waiting on slow evals.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Intraday Buying-Power</span>
-        <span class="stx-rules-item__value">$100,000</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>Intraday buying-power is 4&times; the account balance. Example: if your account balance is $25,000, you can trade shares worth $100,000.</p>
-        <p><strong>Symbol/Ticker Limit:</strong> you are not allowed to use more than 25% of your account's buying-power in one symbol/ticker at a time. Example: even though you have $100,000 intraday buying-power, you can only trade a maximum of $25,000 worth of one symbol/ticker at any given time.</p>
-        <p><strong class="stx-faq-means">Which means: you can put $100,000 of stock to work intraday on $25K of account, but no single ticker can absorb more than $25K of that buying power.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Daily Loss Limit</span>
-        <span class="stx-rules-item__value">$1,000</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>Maximum amount you are allowed to lose in one trading day. This is a soft breach and will disable your account for the duration of the session.</p>
-        <p><strong class="stx-faq-means">Which means: one rough day won't blow the whole account. If you hit -$1,000 in a session, the rest of the day is paused; you reset for the next.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Max End of Day Drawdown</span>
-        <span class="stx-rules-item__value">$3,750</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>The maximum amount you are allowed to lose from your peak account equity. Calculated at the end of each trading day.</p>
-        <p><strong class="stx-faq-means">Which means: your account is protected by a trailing drawdown calculated on your highest end-of-day equity. Keep your peak-to-trough swing inside $3,750 and you keep trading.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Weekly Payouts Unlocked At Profit Target</span>
-        <span class="stx-rules-item__value">$1,250</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p><strong>Unlock your payout privileges to start requesting weekly payouts from your Express Funding account.</strong></p>
-        <p>To unlock your payout privilege you need to reach the profit target of your account, while showing consistent profit-taking skills on 5 trading days (non-consecutive) with a minimum daily profit of $250 on each of the 5 days.</p>
-        <p>As soon as your payout privileges are unlocked you can request an immediate payout of 50% of your profits.</p>
-        <p>To unlock permanent unlimited 100% profit payouts you need to complete 6 payout cycles (each cycle requires 5 non-consecutive trading days of $250 or more, and that the profit target has been reached).</p>
-        <p><strong>Once your 100% profit payouts are unlocked, you keep this privilege and can request 100% payouts of your profits on a weekly basis.</strong></p>
-        <p><strong>Keep in mind:</strong> we aim to move traders to our live pro trade desk as soon as we observe strong performance and risk-management skills. <em>Once you are moved to our live desk, all payout restrictions are removed, and you can request 100% of your profit share without limitations.</em></p>
-        <p><strong class="stx-faq-means">Which means: you don't have to hit some massive target before getting paid. $1,250 of profit plus 5 disciplined trading days unlocks your first 50% payout; six clean cycles unlock unlimited 100%.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Drawdown High Water Mark</span>
-        <span class="stx-rules-item__value">$25,000</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>Once your trailing drawdown matches your initial balance, it will no longer trail and will be locked in at that level for the duration of the evaluation. This allows you to establish a cushion and enjoy a higher maximum drawdown, providing greater flexibility in managing your trades.</p>
-        <p><strong class="stx-faq-means">Which means: once your trailing drawdown reaches your starting balance, it locks. Every dollar of profit after that becomes additional cushion, not pressure.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Profit Split</span>
-        <span class="stx-rules-item__value">80/20</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>You keep 80 percent of the earnings, we keep 20 percent. The profit split is the same across all of TradeFundrr's accounts (Growth, Express, Pro).</p>
-        <p><strong class="stx-faq-means">Which means: you keep 80 cents of every dollar of profit. No tiered scale, no qualifications. Same split on Growth, Express, and Pro.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Payout Cycle</span>
-        <span class="stx-rules-item__value">Weekly</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>As soon as you're eligible for payouts, you can request weekly payouts of your profit split.</p>
-        <p><strong class="stx-faq-means">Which means: weekly payout requests, paid against simulated trading performance, deposited to your Rise account.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Min Payout Amount</span>
-        <span class="stx-rules-item__value">$250</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>$250 is the minimum payout you can request at any weekly payout cycle.</p>
-        <p><strong class="stx-faq-means">Which means: as soon as you've earned $250 of payout-eligible profit, you can request it. No “wait until $5K” cliff.</strong></p>
-      </div>
-    </details>
-
-    <details class="stx-rules-item">
-      <summary>
-        <span class="stx-rules-item__chevron">&#x25BE;</span>
-        <span class="stx-rules-item__label">Max Payout Amount</span>
-        <span class="stx-rules-item__value">$15,000</span>
-      </summary>
-      <div class="stx-rules-item__body">
-        <p>The maximum payout per user is $15,000. That said, traders who demonstrate consistent, high-level performance may be considered for referral to select professional trading firms within our broader network. While we are not directly affiliated with these firms, we maintain relationships with established players in the proprietary trading space, such as <strong>T3 Global</strong> and <strong>T3 Trading Group</strong>, who serve institutional and licensed traders with substantial buying power, advanced infrastructure, and professional-grade tools. When appropriate, we may facilitate introductions that could open the door to expanded opportunities and long-term career advancement in professional trading.</p>
-        <p><strong class="stx-faq-means">Which means: a single payout caps at $15,000. But sustained top performers don't actually hit this ceiling because they get moved onto the T3 desk path, where caps don't apply.</strong></p>
-      </div>
-    </details>
-
+  <div class="stx-rules__tabs" role="tablist">
+    <button class="stx-rules__tab" data-plan="growth" role="tab" aria-selected="false">Growth Account</button>
+    <button class="stx-rules__tab is-active" data-plan="express" role="tab" aria-selected="true">Express Funding</button>
+    <button class="stx-rules__tab" data-plan="pro" role="tab" aria-selected="false">Pro Trader Funding</button>
   </div>
 
-  <p class="stx-rules__footnote">Account parameters apply to the Express Funding simulated account. Top performers may graduate to live capital through T3 Global per the published audition path. Sim is sim. Live is live.</p>
+  <!-- GROWTH panel -->
+  <div class="stx-rules__panel" data-panel="growth" role="tabpanel">
+    <p class="stx-rules__panel-intro">Growth runs through an <strong>evaluation phase</strong> first. Pass the eval, the account activates as a funded account. Lower upfront cost, hard breach on the daily loss limit, the same $100K simulated buying power as Express.</p>
+    <div class="stx-rules__list">
+
+      <details class="stx-rules-item" open>
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Signup cost</span><span class="stx-rules-item__value">$399</span></summary>
+        <div class="stx-rules-item__body"><p>One-time evaluation fee at signup.</p><p><strong class="stx-faq-means">Which means: lowest upfront cost of the three plans. You pay $399 to start the evaluation; if you pass, the account activates (separate $149 activation fee applies at that point).</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Monthly fees</span><span class="stx-rules-item__value">$99</span></summary>
+        <div class="stx-rules-item__body"><p>$99 per month covers platform access plus market data.</p><p><strong class="stx-faq-means">Which means: one flat recurring fee while your Growth account is live. Same monthly fee as Express.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Activation fee</span><span class="stx-rules-item__value">$149</span></summary>
+        <div class="stx-rules-item__body"><p>One-time activation fee charged after you pass the evaluation, before the funded account goes live.</p><p><strong class="stx-faq-means">Which means: passing the eval isn't the end of signup &mdash; you pay $149 to actually start trading the funded account. Express has no activation fee because there's no eval phase.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Evaluation stages</span><span class="stx-rules-item__value">Stage 1 &rarr; Stage 2 &rarr; Funded</span></summary>
+        <div class="stx-rules-item__body"><p>Growth runs through a two-stage evaluation. Pass Stage 1, advance to Stage 2; pass Stage 2, the funded account activates.</p><p><strong class="stx-faq-means">Which means: this is a structured eval, not a one-and-done. You demonstrate consistency through two phases before the live funded account opens. Express skips both stages entirely &mdash; you trade the funded account from day one.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Reset fee</span><span class="stx-rules-item__value">$99</span></summary>
+        <div class="stx-rules-item__body"><p>If you fail Stage 1 or Stage 2, you can pay a $99 reset fee to restart the evaluation. The reset takes you back to <strong>Stage 1</strong> &mdash; any progress made in Stage 2 doesn't carry over.</p><p><strong class="stx-faq-means">Which means: blowing the account isn't the end. For $99 you get a second (or third, or fourth) chance to pass &mdash; significantly cheaper than buying another full $399 evaluation. The catch: you start over at Stage 1, so you lose your earned progress.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Intraday buying power</span><span class="stx-rules-item__value">$100,000</span></summary>
+        <div class="stx-rules-item__body"><p>$100,000 of simulated stock buying power intraday. No symbol/ticker concentration limit.</p><p><strong class="stx-faq-means">Which means: trade the full $100K however you want &mdash; one position or twenty &mdash; no caps on how much of your buying power can go into one ticker.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Daily loss limit</span><span class="stx-rules-item__value">$1,000</span></summary>
+        <div class="stx-rules-item__body"><p>Maximum loss in any single trading day before the rule triggers.</p><p><strong class="stx-faq-means">Which means: one rough day capped at -$1,000 from open to close. Hit it and the breach rule below kicks in.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Daily loss breach type</span><span class="stx-rules-item__value">Hard breach</span></summary>
+        <div class="stx-rules-item__body"><p><strong>Growth uses a hard breach.</strong> Hit the daily loss limit and the account is suspended for the rest of the evaluation. You can pay the <strong>$99 reset fee</strong> to restart from Stage 1, or buy another full evaluation.</p><p><strong class="stx-faq-means">Which means: a hard breach ends the current eval, but the $99 reset is a much cheaper second-chance than buying another $399 evaluation. You do lose earned progress when you reset.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Max end-of-day drawdown</span><span class="stx-rules-item__value">$3,000</span></summary>
+        <div class="stx-rules-item__body"><p>Trailing drawdown calculated on your highest end-of-day equity. Hit $3,000 below peak and the account is suspended.</p><p><strong class="stx-faq-means">Which means: keep your peak-to-trough EOD swing inside $3,000 and you keep trading. As you earn, the trailing drawdown rises with your equity until it locks at the high-water mark.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Min trade duration</span><span class="stx-rules-item__value">15 seconds</span></summary>
+        <div class="stx-rules-item__body"><p>Trades must be held for at least 15 seconds.</p><p><strong class="stx-faq-means">Which means: scalping is fine; pure HFT-style sub-second flips aren't allowed. 15 seconds is a low bar &mdash; matches most retail day-trading workflows.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Profit target</span><span class="stx-rules-item__value">$1,250</span></summary>
+        <div class="stx-rules-item__body"><p>Hit $1,250 of net profit to unlock payout eligibility.</p><p><strong class="stx-faq-means">Which means: this is the "pass" threshold &mdash; reach it and you can request your first payout, subject to the consistency rule and 5-day requirement below.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Consistency rule</span><span class="stx-rules-item__value">30%</span></summary>
+        <div class="stx-rules-item__body"><p>Your largest single-session profit can't exceed 30% of your profit target. If it does, the profit target adjusts upward so that session represents only 30%.</p><p>Example: profit target is $1,250 (30% = $375). If you make $600 in one session, the new target becomes 600 / 0.30 = $2,000.</p><p><strong class="stx-faq-means">Which means: no single lucky day can pass you. You need to demonstrate consistency over multiple sessions to qualify for payouts.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Payout requirement</span><span class="stx-rules-item__value">5 days @ $250</span></summary>
+        <div class="stx-rules-item__body"><p>Demonstrate at least 5 trading days (non-consecutive) with a minimum daily profit of $250 on each.</p><p><strong class="stx-faq-means">Which means: 5 disciplined winning days at $250+ each unlocks your payout eligibility. Combined with the consistency rule, this filters for sustained edge over fluke wins.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Profit split</span><span class="stx-rules-item__value">80 / 20</span></summary>
+        <div class="stx-rules-item__body"><p>You keep 80% of profits, TradeFundrr keeps 20%.</p><p><strong class="stx-faq-means">Which means: same split as Express and Pro. No tiered scale &mdash; you get 80 cents of every dollar from day one.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Payout caps (progressive)</span><span class="stx-rules-item__value">$1,000 → $1,500 → $2,000</span></summary>
+        <div class="stx-rules-item__body"><p>First payout caps at $1,000. Second payout caps at $1,500. Third payout caps at $2,000. After that, payouts unlock to the full $25,000 max per request.</p><p><strong class="stx-faq-means">Which means: early payouts are deliberately smaller to confirm sustained performance. Once you've demonstrated three clean cycles, you have access to the full payout ceiling.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Max payout per request (unlocked)</span><span class="stx-rules-item__value">$25,000</span></summary>
+        <div class="stx-rules-item__body"><p>Once you're past the progressive caps, you can request up to $25,000 per payout cycle.</p><p><strong class="stx-faq-means">Which means: sustained top performers don't hit this ceiling in practice &mdash; they get moved to the live capital path through T3 Global, where caps don't apply.</strong></p></div>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- EXPRESS panel -->
+  <div class="stx-rules__panel is-active" data-panel="express" role="tabpanel">
+    <p class="stx-rules__panel-intro">Express skips the evaluation entirely. Higher upfront cost ($899) but you trade the funded account from day one. <strong>Soft breach</strong> on the daily loss limit means a rough day pauses the session, not the account.</p>
+    <div class="stx-rules__list">
+
+      <details class="stx-rules-item" open>
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Signup cost</span><span class="stx-rules-item__value">$899</span></summary>
+        <div class="stx-rules-item__body"><p>Includes the funded-account access plus the first month's data fee. <strong>$800 evaluation fee</strong> (refundable with your first qualifying payout) + <strong>$99 first-month data access</strong> (not refundable).</p><p><strong class="stx-faq-means">Which means: you pay $899 once and start trading the funded $100K immediately. $800 of that comes back to you with the first payout &mdash; making the net cost $99 if you pass.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Monthly fees</span><span class="stx-rules-item__value">$99</span></summary>
+        <div class="stx-rules-item__body"><p>$99 per month covers platform access plus market data.</p><p><strong class="stx-faq-means">Which means: one flat recurring fee while your Express account is live. Same monthly fee as Growth.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Activation fee</span><span class="stx-rules-item__value">None</span></summary>
+        <div class="stx-rules-item__body"><p>No activation fee. The funded account goes live as soon as you complete signup.</p><p><strong class="stx-faq-means">Which means: no extra charge after you sign up. Growth has a $149 activation fee at the end of the evaluation phase; Express doesn't.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Intraday buying power</span><span class="stx-rules-item__value">$100,000</span></summary>
+        <div class="stx-rules-item__body"><p>$100,000 of simulated stock buying power intraday. No symbol/ticker concentration limit.</p><p><strong class="stx-faq-means">Which means: same buying power as Growth. The full $100K is yours to use, no per-ticker cap.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Daily loss limit</span><span class="stx-rules-item__value">$1,000</span></summary>
+        <div class="stx-rules-item__body"><p>Maximum loss in any single trading day before the rule triggers.</p><p><strong class="stx-faq-means">Which means: same daily loss cap as Growth, but the breach behavior is gentler &mdash; see next row.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Daily loss breach type</span><span class="stx-rules-item__value">Soft breach</span></summary>
+        <div class="stx-rules-item__body"><p><strong>Express uses a soft breach.</strong> Hit the daily loss limit and the account is paused for the rest of the session; trading resumes the next day.</p><p><strong class="stx-faq-means">Which means: one rough day doesn't end your account. You sit out the rest of the session and come back the next day. This is the single biggest reason traders choose Express over Growth.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Max end-of-day drawdown</span><span class="stx-rules-item__value">$3,000</span></summary>
+        <div class="stx-rules-item__body"><p>Trailing drawdown calculated on your highest end-of-day equity. Hit $3,000 below peak and the account is suspended.</p><p><strong class="stx-faq-means">Which means: same drawdown ceiling as Growth. As you earn, the trailing drawdown rises with your equity until it locks at the high-water mark.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Min trade duration</span><span class="stx-rules-item__value">15 seconds</span></summary>
+        <div class="stx-rules-item__body"><p>Trades must be held for at least 15 seconds.</p><p><strong class="stx-faq-means">Which means: same rule as Growth. Scalping is fine; sub-second HFT-style flips aren't.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Profit target</span><span class="stx-rules-item__value">$1,250</span></summary>
+        <div class="stx-rules-item__body"><p>Hit $1,250 of net profit to unlock payout eligibility.</p><p><strong class="stx-faq-means">Which means: same target as Growth. Reach it (with the consistency rule and 5-day requirement) and you can request your first payout.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Consistency rule</span><span class="stx-rules-item__value">30%</span></summary>
+        <div class="stx-rules-item__body"><p>Your largest single-session profit can't exceed 30% of your profit target. If it does, the profit target adjusts upward so that session represents only 30%.</p><p>Example: profit target is $1,250 (30% = $375). If you make $600 in one session, the new target becomes 600 / 0.30 = $2,000.</p><p><strong class="stx-faq-means">Which means: same rule as Growth. No single lucky day can pass you. Designed to filter for sustained edge over fluke wins.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Payout requirement</span><span class="stx-rules-item__value">5 days @ $250</span></summary>
+        <div class="stx-rules-item__body"><p>Demonstrate at least 5 trading days (non-consecutive) with a minimum daily profit of $250 on each.</p><p><strong class="stx-faq-means">Which means: same as Growth. 5 clean $250+ days unlocks your payout eligibility.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Profit split</span><span class="stx-rules-item__value">80 / 20</span></summary>
+        <div class="stx-rules-item__body"><p>You keep 80% of profits, TradeFundrr keeps 20%.</p><p><strong class="stx-faq-means">Which means: same split across all three plans. 80 cents on every dollar from day one.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Payout caps (progressive)</span><span class="stx-rules-item__value">$2,000 → $2,500 → $3,500</span></summary>
+        <div class="stx-rules-item__body"><p>First payout caps at $2,000. Second payout caps at $2,500. Third payout caps at $3,500. After that, payouts unlock to the full $25,000 max per request.</p><p><strong class="stx-faq-means">Which means: Express payout caps are roughly 2× Growth's at every stage. Higher cost upfront, faster path to bigger payouts.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Max payout per request (unlocked)</span><span class="stx-rules-item__value">$25,000</span></summary>
+        <div class="stx-rules-item__body"><p>Once past the progressive caps, you can request up to $25,000 per payout cycle.</p><p><strong class="stx-faq-means">Which means: the practical ceiling for the simulated funded account. Top performers move to live capital through T3 Global where this cap doesn't apply.</strong></p></div>
+      </details>
+
+    </div>
+  </div>
+
+  <!-- PRO TRADER FUNDING panel -->
+  <div class="stx-rules__panel" data-panel="pro" role="tabpanel">
+    <p class="stx-rules__panel-intro">Pro Trader Funding is <strong>fundamentally different</strong>: real money, not simulated. You make a capital contribution starting at $250K and trade with $5M&ndash;$20M+ of real-money buying power through T3 Global's infrastructure. No evaluation. Custom rules per trader.</p>
+    <div class="stx-rules__list">
+
+      <details class="stx-rules-item" open>
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Capital contribution</span><span class="stx-rules-item__value">From $250,000</span></summary>
+        <div class="stx-rules-item__body"><p>You contribute starting capital that funds your trading account. Three tiers: $250K → $5M buying power, $500K → $10M, $1M+ → $20M+.</p><p><strong class="stx-faq-means">Which means: this is real money trading with real capital, not a simulated funded account. Your contribution covers potential losses; the rest remains available to withdraw.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Real-money buying power</span><span class="stx-rules-item__value">$5M &ndash; $20M+</span></summary>
+        <div class="stx-rules-item__body"><p>Real-money buying power scaled from your capital contribution: 20&times; leverage on the trading desk.</p><p><strong class="stx-faq-means">Which means: institutional-scale positions. Real fills, real money, real institutional routing through T3 Global. This is what graduating from Growth/Express looks like at the top tier.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Evaluation phase</span><span class="stx-rules-item__value">None</span></summary>
+        <div class="stx-rules-item__body"><p>No evaluation. No simulated trial. You apply, get approved, contribute capital, and start trading real money.</p><p><strong class="stx-faq-means">Which means: this is for traders who have already proven themselves and have the capital to deploy. You're not auditioning; you're partnering.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Setup time</span><span class="stx-rules-item__value">From 5 days</span></summary>
+        <div class="stx-rules-item__body"><p>From application to live trading in as little as 5 business days.</p><p><strong class="stx-faq-means">Which means: fastest path of any plan once approved. Application + capital contribution + onboarding can complete inside a week.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Risk rules</span><span class="stx-rules-item__value">Custom</span></summary>
+        <div class="stx-rules-item__body"><p>Daily loss limit, drawdown, and position rules are tailored to your trading profile during onboarding.</p><p><strong class="stx-faq-means">Which means: no one-size-fits-all rules like Growth/Express. The risk parameters reflect your strategy, capital, and risk profile, agreed before you start.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Profit split</span><span class="stx-rules-item__value">80 / 20</span></summary>
+        <div class="stx-rules-item__body"><p>You keep 80% of profits, TradeFundrr / T3 Global keep 20%.</p><p><strong class="stx-faq-means">Which means: same split as Growth and Express. The economics scale with your buying power &mdash; an 80% share of real-money profits at $20M BP is a different order of magnitude than at $100K simulated.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Payout caps / cycles</span><span class="stx-rules-item__value">None</span></summary>
+        <div class="stx-rules-item__body"><p>No progressive payout caps. No cycle requirements. Withdrawals follow the onboarding agreement, not a fixed schedule.</p><p><strong class="stx-faq-means">Which means: this is real-money trading, so payout mechanics are governed by the desk agreement rather than the standardized cycles used for simulated accounts.</strong></p></div>
+      </details>
+
+      <details class="stx-rules-item">
+        <summary><span class="stx-rules-item__chevron">▾</span><span class="stx-rules-item__label">Markets available</span><span class="stx-rules-item__value">Stocks · Options · Futures</span></summary>
+        <div class="stx-rules-item__body"><p>Pro Trader Funding covers all three market verticals.</p><p><strong class="stx-faq-means">Which means: one capital contribution, multi-asset access. The pro-funding page has the per-market mechanics in detail.</strong></p></div>
+      </details>
+
+    </div>
+    <p class="stx-rules__footnote" style="margin-top:24px;">
+      <a href="pro-funding.html" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none;font-weight:600;font-size:14.5px;">See the full Pro Trader Funding page &rarr;</a>
+    </p>
+  </div>
+
+  <script>
+    /* Plan-tab switcher */
+    (function () {
+      var tabs = document.querySelectorAll('.stx-rules__tab');
+      var panels = document.querySelectorAll('.stx-rules__panel');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var plan = tab.getAttribute('data-plan');
+          tabs.forEach(function (t) {
+            var active = t.getAttribute('data-plan') === plan;
+            t.classList.toggle('is-active', active);
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          panels.forEach(function (p) {
+            p.classList.toggle('is-active', p.getAttribute('data-panel') === plan);
+          });
+        });
+      });
+    })();
+  </script>
 </section>
 
 <!-- ============================================
@@ -2142,35 +2507,52 @@
 
 <section class="stx-faq">
   <div class="stx-faq__head">
-    <span class="stx-eyebrow">Stocks-trader FAQ</span>
-    <h2>Questions stocks traders ask. <span class="accent">Straight answers below.</span></h2>
-    <p>The 6 questions equity day traders ask before they buy. No spin.</p>
+    <span class="stx-eyebrow">The questions traders actually ask</span>
+    <h2>Decision-driving FAQ. <span class="accent">Straight answers.</span></h2>
+    <p>If the comparison table or the per-plan rules left a question unanswered, it's probably here.</p>
   </div>
   <div class="stx-faq__list">
+
     <details class="stx-faq-item">
-      <summary>Is the $100K real money or simulated capital?<span class="stx-faq-chev">▾</span></summary>
-      <div class="stx-faq-item__body"><p>The funded account is simulated capital. The payouts are real money paid against simulated trading performance. Top performers earn live capital through T3 Global routing. <strong class="stx-faq-means">Which means: you trade $100K of buying power without risking your own savings to access it, and real payouts hit your Rise account weekly when you hit targets.</strong></p></div>
+      <summary>Should I start with Growth or Express?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>If you want the lowest upfront cost and don't mind the hard-breach risk on the daily loss limit, start with <strong>Growth ($399 + $149 activation after passing the eval)</strong>. If you want to skip the evaluation entirely, trade the funded account from day one, and have a softer safety net on rough days, choose <strong>Express ($899, fee largely refunded on first payout)</strong>.<strong class="stx-faq-means">Which means: Growth is cheaper but stricter. Express is more expensive but more forgiving. Most experienced day traders pick Express for the soft breach alone.</strong></p></div>
     </details>
+
     <details class="stx-faq-item">
-      <summary>Does the PDT rule still apply?<span class="stx-faq-chev">▾</span></summary>
-      <div class="stx-faq-item__body"><p>No. The Pattern Day Trader rule was repealed and no longer restricts day trading frequency on TradeFundrr funded accounts. <strong class="stx-faq-means">Which means: you can trade every day without worrying about the old four-day-rolling-window restriction that capped retail stock day traders.</strong></p></div>
+      <summary>What's a "hard breach" vs a "soft breach" — and why does it matter?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>If you hit the daily loss limit ($1,000) on <strong>Growth</strong>, the current evaluation is <strong>suspended</strong>. You can pay a <strong>$99 reset fee</strong> to restart from Stage 1, or buy another full $399 evaluation. That's a hard breach &mdash; not the end of your relationship with TradeFundrr, but it does end the current attempt. On <strong>Express</strong>, hitting the same $1,000 daily loss just <strong>pauses</strong> the rest of that session and you come back the next day. Same account, no restart.<strong class="stx-faq-means">Which means: on Growth, a bad day ends the current eval (but $99 gets you another shot). On Express, a bad day costs you the rest of the session and that's it. For most active day traders, the soft breach + day-one trading on Express justifies the $500 price difference.</strong></p></div>
     </details>
+
     <details class="stx-faq-item">
-      <summary>When do I get paid?<span class="stx-faq-chev">▾</span></summary>
-      <div class="stx-faq-item__body"><p>Payouts run weekly. Once you're eligible, request a payout and approved requests process on Fridays. Earliest payout on Express Funding is 5 days from start. <strong class="stx-faq-means">Which means: weekly payout windows, paid direct to your Rise account, performance-based not on-demand.</strong></p></div>
+      <summary>What does the 30% consistency rule actually mean for me?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>Your largest single-session profit can't exceed 30% of your profit target. Profit target is $1,250 on both Growth and Express, so 30% = $375. If you make more than $375 in one session, the profit target gets bumped up so that big day represents 30% of the new total. Example: make $600 in a session → new target becomes 600 / 0.30 = $2,000.<strong class="stx-faq-means">Which means: no single lucky day can "pass" you to a payout. You need to prove sustained edge over multiple sessions. Trade smaller-but-steady rather than YOLO for a one-day pass.</strong></p></div>
     </details>
+
     <details class="stx-faq-item">
-      <summary>What if I blow the account?<span class="stx-faq-chev">▾</span></summary>
-      <div class="stx-faq-item__body"><p>If you exceed the drawdown limit, the account is suspended per the published program rules. You can purchase another evaluation or Express account to restart. <strong class="stx-faq-means">Which means: the cost of failure is the eval fee, not your savings.</strong></p></div>
+      <summary>How do the progressive payout caps work? When do they unlock?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>First payout is capped at <strong>$1,000 (Growth)</strong> or <strong>$2,000 (Express)</strong>. Second payout caps at $1,500 / $2,500. Third payout caps at $2,000 / $3,500. After your third clean payout cycle, the cap unlocks to the full <strong>$25,000 max per request</strong>.<strong class="stx-faq-means">Which means: early payouts are deliberately smaller so the firm can confirm you have a real edge before sending bigger amounts. Three clean cycles and you're at the full $25K ceiling.</strong></p></div>
     </details>
+
     <details class="stx-faq-item">
-      <summary>What platforms can I trade on?<span class="stx-faq-chev">▾</span></summary>
-      <div class="stx-faq-item__body"><p>DXTrade for most traders (built by the same team behind tastyworks and thinkorswim). Deep Charts for traders who want professional charting and one-click execution from the chart. <strong class="stx-faq-means">Which means: the execution stack matches what a professional desk runs, not a retail brokerage.</strong></p></div>
+      <summary>What's the difference between simulated funding (Growth/Express) and real capital (Pro Trader)?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>Growth and Express use <strong>simulated funded accounts</strong> with $100K of simulated buying power. The buying power is simulated; the payouts are real money paid against your simulated performance. Pro Trader Funding is fundamentally different &mdash; you contribute real capital ($250K minimum) and trade with <strong>$5M to $20M+ of real-money buying power</strong> through T3 Global's institutional desk. No simulation, no evaluation. Custom risk rules. Real fills.<strong class="stx-faq-means">Which means: Growth/Express are the path for traders without big personal capital who want to prove themselves. Pro Trader is the path for traders who already have the edge and the capital to deploy.</strong></p></div>
     </details>
+
     <details class="stx-faq-item">
-      <summary>Can I really graduate to live capital?<span class="stx-faq-chev">▾</span></summary>
-      <div class="stx-faq-item__body"><p>Yes, but it's earned. Top-performing traders with sustained Sharpe and risk discipline audition for T3 Global's institutional trading desk. Not all traders qualify; the path is documented and open to those who demonstrate consistency. <strong class="stx-faq-means">Which means: this isn't a marketing promise. There is a real audition path to real desk capital at T3 Global for traders who earn it.</strong></p></div>
+      <summary>Can I trade stocks, options, AND futures on one account?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>The Growth and Express plans on this page are for <strong>stocks specifically</strong>. Options and futures have their own dedicated programs with similar mechanics but instrument-specific rules. <strong>Pro Trader Funding</strong> spans all three markets under one capital contribution.<strong class="stx-faq-means">Which means: for simulated funded accounts, you sign up per market. For Pro Trader, one contribution gives multi-asset access. The Pro Funding page has the per-market detail.</strong></p></div>
     </details>
+
+    <details class="stx-faq-item">
+      <summary>What if I pass Growth — can I "upgrade" to Express? Or move to Pro Trader?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>Growth and Express are separate accounts, not tiers of the same account. You can run them in parallel or buy Express directly if you'd rather skip the evaluation. <strong>Top performers on either plan get reviewed for the live-capital path through T3 Global</strong> &mdash; that's the real "upgrade" trajectory the page is built around. Pro Trader Funding is a separate decision based on your capital and trading profile, not a graduation from Growth/Express.<strong class="stx-faq-means">Which means: there's no penalty for starting with Growth and adding Express later. The real long-term path is T3 Global live capital via sustained performance.</strong></p></div>
+    </details>
+
+    <details class="stx-faq-item">
+      <summary>Can I really graduate to live capital at T3 Global?<span class="stx-faq-chev">▾</span></summary>
+      <div class="stx-faq-item__body"><p>Yes, but it's earned. Top-performing traders with sustained Sharpe and disciplined drawdown audition for T3 Global's institutional trading desk. Not all traders qualify; the path is documented and open to those who demonstrate consistency over multiple months.<strong class="stx-faq-means">Which means: this isn't a marketing promise. There is a real audition path to real desk capital at T3 Global for traders who earn it. Pro Trader Funding is the direct-entry version for traders who already have the capital and edge to skip the audition.</strong></p></div>
+    </details>
+
   </div>
 </section>
 
