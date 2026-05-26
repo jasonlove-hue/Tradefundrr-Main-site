@@ -1809,7 +1809,7 @@
 
     <div class="journey__rail" aria-hidden="true">
       <div class="journey__rail-line"></div>
-      <div class="journey__rail-marker" style="left: 12.5%;"></div>
+      <div class="journey__rail-marker is-active" style="left: 12.5%;"></div>
       <div class="journey__rail-label" style="left: 12.5%;">Week 1</div>
       <div class="journey__rail-marker" style="left: 37.5%;"></div>
       <div class="journey__rail-label" style="left: 37.5%;">Weekly</div>
@@ -1821,7 +1821,7 @@
 
     <div class="journey__grid">
 
-      <article class="journey-card">
+      <article class="journey-card is-active">
         <span class="journey-card__month">Week 1</span>
         <h3 class="journey-card__title">Pass the Eval.</h3>
         <span class="journey-card__stat">5 trading days &middot; Mon to Fri fastest path</span>
@@ -1862,10 +1862,15 @@
 </section>
 <script>
 /* Journey section: cycle active state across the 4 cards + rail markers.
-   SIMPLE version — animation starts on DOMContentLoaded, no IntersectionObserver.
-   This is intentional: the previous IO approach was producing "10s to start"
-   reports. Cycling pre-emptively means motion is always alive by the time the
-   user scrolls to the section. Pauses on hover so visitors can read. */
+   IMMEDIATE-RUN version — this <script> is inline AFTER the .journey section,
+   so all .journey-card / .journey__rail-marker elements already exist by the
+   time the parser reaches us. We call init() directly instead of waiting for
+   DOMContentLoaded, because DCL fires only AFTER:
+     - the remaining ~600 lines of HTML are parsed
+     - every <script defer> (jQuery, slick, main.js, sparkles.js) has executed
+   On a cold cache that adds 5-10s of perceived "hang" where no card is lit.
+   First card + first marker are also pre-marked .is-active in the HTML so the
+   initial paint already shows WEEK 1 highlighted — no flash of dead state. */
 (function () {
   function init() {
     try {
@@ -1876,7 +1881,12 @@
         window.__tfJourneyDebug = 'no-elements';
         return;
       }
+      // Find the index that's already .is-active in the HTML so we don't
+      // re-paint card 0 on first call when card 0 is already lit.
       var active = 0;
+      for (var k = 0; k < cards.length; k++) {
+        if (cards[k].classList.contains('is-active')) { active = k; break; }
+      }
       var paused = false;
       var cycleMs = 1500;
       function activate(idx) {
@@ -1894,19 +1904,17 @@
       }
       section.addEventListener('mouseenter', function () { paused = true; });
       section.addEventListener('mouseleave', function () { paused = false; });
-      activate(0);
+      // Don't re-call activate(active) — the HTML already has card[0] / marker[0]
+      // .is-active, so the initial paint is correct. Just start the cycle.
       setInterval(tick, cycleMs);
-      window.__tfJourneyDebug = 'running:' + cycleMs + 'ms';
+      window.__tfJourneyDebug = 'running:' + cycleMs + 'ms@' + active;
     } catch (err) {
       console.error('[journey] init failed:', err);
       window.__tfJourneyDebug = 'error:' + (err && err.message);
     }
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  // Run immediately — the script is inline after the section, elements exist.
+  init();
 })();
 </script>
 <!-- JOURNEY_SECTION_END -->
