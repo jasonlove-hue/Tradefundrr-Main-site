@@ -410,32 +410,7 @@
 </head>
 <body>
 
-<script>
-/* Navbar scroll-away, body is the actual scroll container, not window */
-(function(){
-  function bindNav(){
-    var h = document.querySelector('.site-header');
-    if (!h) { setTimeout(bindNav, 50); return; }
-    function getScroll(){
-      return document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
-    }
-    function upd(){
-      if (getScroll() > 100) {
-        h.style.cssText = 'display:none !important;visibility:hidden !important;';
-      } else {
-        h.style.cssText = '';
-      }
-    }
-    // Listen on every plausible scroll source
-    window.addEventListener('scroll', upd, { passive: true, capture: true });
-    document.addEventListener('scroll', upd, { passive: true, capture: true });
-    document.body.addEventListener('scroll', upd, { passive: true });
-    document.documentElement.addEventListener('scroll', upd, { passive: true });
-    upd();
-  }
-  bindNav();
-})();
-</script>
+<!-- Navbar scroll-away script removed 2026-05-25 — nav is now sticky via position:fixed in main.css -->
 
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
@@ -943,9 +918,7 @@
     .hero .btn--primary { width: 100% !important; justify-content: center !important; }
   }
 
-  /* Navbar scrolls away with the page (NOT sticky) */
-  .site-header { position: absolute !important; transition: opacity 0.2s ease; }
-  .site-header.is-hidden, .site-header.is-hidden * { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+  /* Navbar is sticky to top of viewport (position:fixed inherited from main.css) */
 
   /* Align pill rows across market cards (push pills to bottom of each card body) */
   .markets__card .body { height: 100% !important; }
