@@ -65,6 +65,9 @@
   .real-support__cards .card p strong { font-size: 13px !important; }
 </style>
 
+
+
+
 <link rel="stylesheet" href="assets/css/mobile-fixes.css?v=202605260801" id="mobile-fixes-css">
 
 <style id="payout-cards-style">
@@ -405,7 +408,44 @@
 </style>
 <!-- TRUSTPILOT_TUNE_CSS_END -->
 
-<style id="nadav-additions-css">/* ============================================
+<style id="nadav-review-css">
+  .nv-review-banner-top {
+    position: sticky; top: 0; z-index: 9999;
+    background: linear-gradient(90deg, #ffc828, #ffb800);
+    color: #1a1300; font-family: 'Geist Mono', monospace; font-size: 13px;
+    font-weight: 700; letter-spacing: 0.5px;
+    padding: 10px 24px; text-align: center;
+    border-bottom: 2px solid #060914;
+  }
+  .nv-review-flag {
+    background: linear-gradient(90deg, rgba(255,200,40,0.18), rgba(255,200,40,0.04));
+    border-left: 4px solid #ffc828;
+    border-top: 1px solid rgba(255,200,40,0.3);
+    border-bottom: 1px solid rgba(255,200,40,0.3);
+    padding: 14px 22px;
+    display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap;
+    max-width: 1240px; margin: 0 auto;
+  }
+  .nv-review-flag__tag {
+    color: #ffc828; font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 700; flex-shrink: 0;
+  }
+  .nv-review-flag__desc {
+    color: hsla(0,0%,100%,0.78); font-family: 'Inter', sans-serif;
+    font-size: 13.5px; letter-spacing: 0.2px; line-height: 1.5;
+  }
+  .nv-review-flag__inline {
+    display: inline-block;
+    background: rgba(255,200,40,0.25); border: 1px solid #ffc828;
+    color: #ffc828; font-family: 'Geist Mono', monospace;
+    font-size: 9.5px; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; margin: 0 6px;
+    letter-spacing: 1px; text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  /* ============================================
      PARTNERSHIP BLOCK (new founders treatment)
      ============================================ */
   .founders__partners {
@@ -476,6 +516,7 @@
     border-top: 1px solid hsla(0,0%,100%,0.08);
     line-height: 1.5;
   }
+
 
   .support-infra-card__portrait {
     width: 100%; max-width: 200px;
@@ -549,6 +590,8 @@
 </style>
 </head>
 <body>
+
+<div class="nv-review-banner-top">📝 NADAV-FRAMEWORK PREVIEW · 4 changes · scroll page; banners mark every change · approve, then strip all .nv-review-* elements before porting to index.html</div>
 
 <!-- Navbar scroll-away script removed 2026-05-25 — nav is now sticky via position:fixed in main.css -->
 
@@ -645,8 +688,11 @@
       <h1 class="hero__title">
         Use your edge. <span class="accent">Not your savings.</span>
       </h1>
-      <p class="hero__sub">
-        Trade a $100K simulated funding account through TradeFundrr's institutional partnership with T3 Global. Real-money capital path for traders who earn it.</p>
+      <!-- ▼ INLINE EDIT A · Hero subline ▼ -->
+      <p class="hero__sub" data-nv-edit="A">
+        Trade a $100K simulated funding account through TradeFundrr's institutional partnership with T3 Global. Real-money capital path for traders who earn it.<span class="nv-review-flag__inline">EDIT A</span>
+      </p>
+      <!-- ▲ END EDIT A ▲ -->
       <div class="btn-row">
         <a href="pages/pricing.html" class="btn btn--primary">Get Funded Now <span class="arrow"><img src="assets/images/btn-arrow.svg" alt="btn"></span></a>
         <a href="#how-it-works" class="btn btn--glass">See how it works →</a>
@@ -1581,6 +1627,10 @@
 <section class="numbers is-cards-falling">
 <!-- PAYOUT_CARDS_START --><div class="payout-cards-layer" aria-hidden="true"><img src="assets/images/1.webp?v=202605230741" class="payout-card payout-card--l" style="left:-3%;animation-name:payoutRainA;animation-duration:13.2s;animation-delay:0s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/2.webp?v=202605230741" class="payout-card payout-card--s" style="left:5%;animation-name:payoutRainC;animation-duration:9.4s;animation-delay:-0.72s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/3.webp?v=202605230741" class="payout-card payout-card--m" style="left:14%;animation-name:payoutRainB;animation-duration:11s;animation-delay:-1.44s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/4.webp?v=202605230741" class="payout-card payout-card--l" style="left:22%;animation-name:payoutRainD;animation-duration:13.8s;animation-delay:-2.16s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/5.webp?v=202605230741" class="payout-card payout-card--s" style="left:30%;animation-name:payoutRainA;animation-duration:9s;animation-delay:-2.88s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/6.webp?v=202605230741" class="payout-card payout-card--m" style="left:38%;animation-name:payoutRainE;animation-duration:11.4s;animation-delay:-3.6s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/7.webp?v=202605230741" class="payout-card payout-card--l" style="left:46%;animation-name:payoutRainC;animation-duration:12.8s;animation-delay:-4.32s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/8.webp?v=202605230741" class="payout-card payout-card--s" style="left:54%;animation-name:payoutRainB;animation-duration:9.8s;animation-delay:-5.04s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/9.webp?v=202605230741" class="payout-card payout-card--m" style="left:62%;animation-name:payoutRainD;animation-duration:11.2s;animation-delay:-5.76s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/10.webp?v=202605230741" class="payout-card payout-card--l" style="left:70%;animation-name:payoutRainA;animation-duration:13.6s;animation-delay:-6.48s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/11.webp?v=202605230741" class="payout-card payout-card--s" style="left:78%;animation-name:payoutRainE;animation-duration:9.2s;animation-delay:-7.2s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/12.webp?v=202605230741" class="payout-card payout-card--m" style="left:86%;animation-name:payoutRainC;animation-duration:10.8s;animation-delay:-7.92s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/13.webp?v=202605230741" class="payout-card payout-card--l" style="left:94%;animation-name:payoutRainB;animation-duration:13s;animation-delay:-8.64s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/14.webp?v=202605230741" class="payout-card payout-card--s" style="left:10%;animation-name:payoutRainD;animation-duration:9.6s;animation-delay:-1.85s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/15.webp?v=202605230741" class="payout-card payout-card--l" style="left:26%;animation-name:payoutRainE;animation-duration:13.4s;animation-delay:-3.95s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/16.webp?v=202605230741" class="payout-card payout-card--m" style="left:42%;animation-name:payoutRainA;animation-duration:10.6s;animation-delay:-6.1s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/17.webp?v=202605230741" class="payout-card payout-card--s" style="left:58%;animation-name:payoutRainB;animation-duration:9s;animation-delay:-7.55s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/18.webp?v=202605230741" class="payout-card payout-card--l" style="left:74%;animation-name:payoutRainC;animation-duration:12.6s;animation-delay:-9.1s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/19.webp?v=202605230741" class="payout-card payout-card--m" style="left:6%;animation-name:payoutRainD;animation-duration:11.6s;animation-delay:-10.4s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/20.webp?v=202605230741" class="payout-card payout-card--s" style="left:50%;animation-name:payoutRainE;animation-duration:9.5s;animation-delay:-11.2s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="assets/images/21.webp?v=202605230741" class="payout-card payout-card--l" style="left:90%;animation-name:payoutRainA;animation-duration:13s;animation-delay:-12s" alt="" loading="lazy" width="840" height="561" decoding="async"></div><!-- PAYOUT_CARDS_END -->
 
+
+
+
+
   <div class="bg"></div>
   <div class="container" style="position:relative;z-index:1">
     <!-- NUMBERS_BRAND_MARK_START -->
@@ -1724,6 +1774,11 @@
   </div>
 </section>
 
+<!-- ▼ CHANGE C · T3 Partnership amplified ▼ -->
+<div class="nv-review-flag">
+  <span class="nv-review-flag__tag">📝 CHANGE C · T3 PARTNERSHIP</span>
+  <span class="nv-review-flag__desc">Lead expanded with T3 Trading Group + "one of the largest" low-level superlative. Added "Sim is sim. Live is live." closer (matches stocks page treatment Nadav explicitly liked). Right card bullets stay.</span>
+</div>
 <section class="institutional">
   <div class="container">
     <div class="institutional__row">
@@ -1755,6 +1810,11 @@
   </div>
 </section>
 
+<!-- ▼ CHANGE D · Founders rebuild (Nadav: face + partnership) ▼ -->
+<div class="nv-review-flag">
+  <span class="nv-review-flag__tag">📝 CHANGE D · FOUNDERS REBUILD</span>
+  <span class="nv-review-flag__desc">Biggest structural change. Christian stays as the face. Solo credentials replaced with "Partnered with" block listing T3 Global, T3 Trading Group, and the operator team. Nadav's Darth Vader frame: one face, fleet behind. Low-level superlatives only. T3 broker-dealer/FINRA-SIPC claim restored (T3 verified). Christian's personal broker-dealer experience removed (not verified).</span>
+</div>
 <!-- FOUNDERS_SECTION_START -->
 <section class="founders">
   <div class="container">
@@ -1817,6 +1877,11 @@
 <section class="real-support">
   <div class="container">
     <div class="real-support__inner">
+      <!-- ▼ CHANGE E · Support infrastructure (replaces single-face Dawson card) ▼ -->
+      <div class="nv-review-flag">
+        <span class="nv-review-flag__tag">📝 CHANGE E · SUPPORT</span>
+        <span class="nv-review-flag__desc">Dawson restored as the face (real photo preserves "Real Person" promise). His role line now reads "One of the team you'll reach" (team-framing without being cheesy). Infrastructure 4-bullet block below his quote handles the "team, not a person" message Nadav wanted.</span>
+      </div>
       <!-- SUPPORT_INFRA_START -->
       <div class="small-support-media support-infra-card">
         <div class="support-infra-card__inner">
