@@ -1596,29 +1596,37 @@
   .guarantee__points { gap: 16px; }
 }
 .guarantee__footnote {
-  color: hsla(0, 0%, 100%, 0.65);
+  /* Receded "fine print" treatment so it doesn't compete with the marketing
+     copy above. Subtle dark inner panel signals "this is the legal section." */
+  color: hsla(0, 0%, 100%, 0.45);
   font-size: 12px;
   line-height: 1.55;
-  margin: 14px auto 0;
+  margin: 18px auto 0;
   max-width: 720px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px; /* generous row-to-row breathing room */
+  background: rgba(0, 0, 0, 0.20);
+  border-radius: 10px;
+  padding: 18px 22px;
 }
 .guarantee__footnote-row { line-height: 1.55; }
 .guarantee__footnote-row strong {
+  /* Labels stand a step above the body text, but still recede vs the marketing
+     copy above the footnote block. */
   display: block;
-  color: hsla(0, 0%, 100%, 0.85);
+  color: hsla(0, 0%, 100%, 0.72);
   font-weight: 500;
-  margin-bottom: 2px;
+  margin-bottom: 2px; /* keep label tight to its explanation */
 }
 
+/* Override the older blanket .guarantee__footnote strong rule that previously
+   pushed all bolds to 92% white + 600 weight. New scheme: bolds inside rows
+   inherit the row-strong color (72%); inline bolds (none in current copy) match. */
 .guarantee__footnote strong {
-  /* Key dollar figures + cap clause read brighter than surrounding fine print
-     so users can scan the math at a glance. */
-  color: hsla(0, 0%, 100%, 0.92);
-  font-weight: 600;
+  color: hsla(0, 0%, 100%, 0.72);
+  font-weight: 500;
 }
 /* === GUARANTEE END === */
 
