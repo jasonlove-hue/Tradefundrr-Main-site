@@ -1602,7 +1602,18 @@
   margin: 14px auto 0;
   max-width: 720px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+.guarantee__footnote-row { line-height: 1.55; }
+.guarantee__footnote-row strong {
+  display: block;
+  color: hsla(0, 0%, 100%, 0.85);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
 .guarantee__footnote strong {
   /* Key dollar figures + cap clause read brighter than surrounding fine print
      so users can scan the math at a glance. */
