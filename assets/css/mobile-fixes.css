@@ -2586,3 +2586,178 @@
           mask-mode: alpha;
 }
 /* === MARKETS CARD IMAGE FEATHER END === */
+
+
+/* ===========================================================
+   COMPETITOR COMPARISON SECTION  (added 2026-05-27)
+   .stx-compare-firms -- lives on index, why-us, stocks, options
+   Cross-link CTA on the same pages uses .stx-compare-cta
+   =========================================================== */
+.stx-compare-firms {
+  padding-block: 100px;
+  background: #060914;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.06);
+}
+.stx-compare-firms::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(34,211,168,0.06), transparent 60%);
+  pointer-events: none;
+}
+.stx-compare-firms__wrap {
+  max-width: min(100% - 60px, 1240px);
+  margin: 0 auto;
+  position: relative;
+}
+.stx-compare-firms .stx-eyebrow,
+.stx-compare-firms__eyebrow {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #22d3a8;
+  font-weight: 600;
+  margin: 0 0 14px;
+  display: block;
+}
+.stx-compare-firms__head {
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -1.4px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  max-width: 18ch;
+  color: #fff;
+}
+.stx-compare-firms__head .accent { color: #22d3a8; }
+.stx-compare-firms__lede {
+  color: hsla(0, 0%, 100%, 0.72);
+  font-size: 17px;
+  line-height: 1.55;
+  max-width: 62ch;
+  margin: 0 0 32px;
+}
+.cmp-card {
+  background: hsla(0, 0%, 100%, 0.03);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.cmp-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cmp-table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.cmp-table thead th {
+  text-align: left;
+  padding: 20px 14px;
+  vertical-align: bottom;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.14);
+  background: rgba(255,255,255,0.02);
+  min-width: 150px;
+}
+.cmp-table thead th .firm {
+  font-size: 15px; font-weight: 700; color: #fff;
+  letter-spacing: -0.2px; display: block;
+}
+.cmp-table thead th .meta {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10px; color: hsla(0,0%,100%,0.55);
+  letter-spacing: 1.1px; text-transform: uppercase;
+  margin-top: 5px; display: block; line-height: 1.4;
+}
+.cmp-table thead th.row-label-h {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px; color: hsla(0,0%,100%,0.55);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  font-weight: 600; min-width: 165px;
+}
+.cmp-table thead th.us {
+  background: rgba(34, 211, 168, 0.08);
+  border-bottom-color: rgba(34, 211, 168, 0.22);
+}
+.cmp-table thead th.us .firm { color: #22d3a8; }
+.cmp-table thead th.us .meta { color: #22d3a8; opacity: 0.85; }
+.cmp-table tbody tr { border-bottom: 1px solid hsla(0, 0%, 100%, 0.08); }
+.cmp-table tbody tr:last-child { border-bottom: none; }
+.cmp-table tbody td {
+  padding: 14px; vertical-align: top;
+  color: hsla(0, 0%, 100%, 0.72); line-height: 1.5;
+}
+.cmp-table tbody td.row-label {
+  color: #fff; font-weight: 600; font-size: 12.5px;
+  background: rgba(255,255,255,0.015);
+}
+.cmp-table tbody td.us {
+  background: rgba(34, 211, 168, 0.08); color: #fff;
+}
+.cmp-table tbody td.us strong { color: #22d3a8; }
+.cmp-table tbody td .tag {
+  display: inline-block;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 9.5px; letter-spacing: 1.1px;
+  text-transform: uppercase; padding: 3px 7px;
+  border-radius: 999px; margin-top: 6px; line-height: 1.2;
+}
+.tag-yes  { background: rgba(34,211,168,0.14); color: #22d3a8; }
+.tag-part { background: rgba(255,200,80,0.12); color: #ffd06b; }
+.tag-no   { background: rgba(255,255,255,0.06); color: hsla(0,0%,100%,0.55); }
+.cmp-table tbody td.us em.diff {
+  font-style: normal; color: #22d3a8; font-weight: 700;
+}
+.cmp-closer {
+  margin-top: 36px; padding: 22px 24px;
+  background: rgba(0,0,0,0.20); border-radius: 12px;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+}
+.cmp-closer p {
+  color: hsla(0, 0%, 100%, 0.55);
+  font-size: 13px; line-height: 1.55; margin: 0 0 10px;
+}
+.cmp-closer p:last-child { margin-bottom: 0; }
+.cmp-closer strong { color: hsla(0, 0%, 100%, 0.72); font-weight: 600; }
+
+.scroll-hint {
+  display: none;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: hsla(0, 0%, 100%, 0.45);
+  margin: 12px 0 0;
+}
+
+/* Cross-link CTA used on stocks/options/index hero areas */
+.stx-compare-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 18px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-size: 11.5px; letter-spacing: 1.4px;
+  text-transform: uppercase; font-weight: 600;
+  color: #22d3a8; text-decoration: none;
+  border-bottom: 1px solid rgba(34, 211, 168, 0.4);
+  padding-bottom: 4px;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.stx-compare-cta:hover {
+  border-bottom-color: #22d3a8;
+  transform: translateX(2px);
+}
+
+@media (max-width: 1100px) {
+  .scroll-hint { display: block; }
+}
+@media (max-width: 860px) {
+  .stx-compare-firms { padding-block: 70px; }
+  .cmp-table thead th, .cmp-table tbody td { padding: 12px 10px; }
+}
+/* ===========================================================
+   END COMPETITOR COMPARISON SECTION
+   =========================================================== */
