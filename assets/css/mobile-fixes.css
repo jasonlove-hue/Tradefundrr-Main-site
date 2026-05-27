@@ -2761,3 +2761,29 @@
 /* ===========================================================
    END COMPETITOR COMPARISON SECTION
    =========================================================== */
+
+
+/* ===========================================================
+   FAQ SECTION DIVIDER + LIFT  (added 2026-05-27)
+   Separates the new competitor-comparison section from the
+   FAQ block on index.html. The .faq class is homepage-only;
+   stocks/options use .stx-faq and are unaffected.
+   =========================================================== */
+section.faq {
+  background: #0a101e !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+section.faq::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 3px;
+  background: #22d3a8;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 0 18px rgba(34, 211, 168, 0.55), 0 0 4px rgba(34, 211, 168, 0.9);
+}
+/* === END FAQ SECTION DIVIDER + LIFT === */
