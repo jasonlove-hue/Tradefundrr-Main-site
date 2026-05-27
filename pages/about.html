@@ -6,13 +6,379 @@
   <link rel="icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="shortcut icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="../assets/images/tf-icon-dark.png?v=202605241720">
-  <title>About, TradeFundrr</title>
-  <meta name="description" content="Built by traders who got tired of the industry's broken promises, partnered with T3 Global for institutional-grade trading technology.">
+  <title>About TradeFundrr</title>
+  <meta name="description" content="The partnership behind TradeFundrr. Christian Bose, the operator. T3 Trading Group, the FINRA/SIPC broker-dealer. T3 Global, the institutional desk.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/main.css">
-<link rel="stylesheet" href="../assets/css/mobile-fixes.css" id="mobile-fixes-css">
+<link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605271200" id="mobile-fixes-css">
+
+<style id="ab-page-style">
+/* ============================================
+     ABOUT PAGE INLINE STYLES (stx-about-*)
+     Will move to mobile-fixes.css when ported.
+     ============================================ */
+  :root {
+    --bg: #060914;
+    --bg-2: #0a101e;
+    --teal: #22d3a8;
+    --white-72: hsla(0, 0%, 100%, 0.72);
+    --white-55: hsla(0, 0%, 100%, 0.55);
+    --white-45: hsla(0, 0%, 100%, 0.45);
+    --border: hsla(0, 0%, 100%, 0.08);
+  }
+
+  .preview-banner {
+    background: var(--teal); color: #060914;
+    text-align: center; padding: 12px 20px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.8px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .placement-guide {
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+  }
+  .placement-guide .wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .placement-guide h3 {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--teal); margin: 0 0 12px;
+    font-family: 'Geist Mono', monospace; font-weight: 700;
+  }
+  .placement-guide p { color: var(--white-72); font-size: 14px; line-height: 1.55; margin: 0 0 8px; }
+  .placement-guide code {
+    font-family: 'Geist Mono', monospace; color: var(--teal);
+    background: rgba(34,211,168,0.08); padding: 1px 6px;
+    border-radius: 4px; font-size: 12.5px;
+  }
+
+  /* Shared eyebrow + accent helpers */
+  .stx-eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--teal);
+    font-weight: 600; margin: 0 0 14px; display: inline-block;
+  }
+  .accent { color: var(--teal); }
+
+  /* ---- HERO ---- */
+  .ab-hero {
+    background: var(--bg);
+    padding: 140px 0 80px;
+    position: relative; overflow: hidden;
+  }
+  .ab-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 0%, rgba(34,211,168,0.08), transparent 55%);
+    pointer-events: none;
+  }
+  .ab-hero__wrap {
+    max-width: min(100% - 60px, 1240px); margin: 0 auto;
+    position: relative; display: grid;
+    grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center;
+  }
+  .ab-hero h1 {
+    font-size: clamp(40px, 6vw, 72px); line-height: 1.05;
+    letter-spacing: -2.4px; font-weight: 700;
+    margin: 0 0 22px; color: #fff;
+  }
+  .ab-hero__sub {
+    color: var(--white-72); font-size: 18px;
+    line-height: 1.55; margin: 0 0 28px; max-width: 56ch;
+  }
+  .ab-hero__trust {
+    display: flex; gap: 18px; flex-wrap: wrap;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--white-55);
+  }
+  .ab-hero__trust span::before { content: "\2713 "; color: var(--teal); font-weight: 700; }
+  .ab-hero__media {
+    position: relative;
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 30px 60px -25px rgba(0,0,0,0.55);
+  }
+  .ab-stack-svg {
+    display: block; width: 100%; height: auto;
+  }
+
+  /* === Stack visual animations === */
+  /* Top-down build: layers start above their final position and drop into place. */
+  .ab-layer { opacity: 0; transform: translateY(-18px); }
+  .ab-layer--in {
+    animation: abLayerIn 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes abLayerIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .ab-arrow { opacity: 0; }
+  .ab-arrow--in {
+    animation: abArrowIn 500ms ease-out forwards, abArrowPulse 2.4s ease-in-out 900ms infinite;
+  }
+  @keyframes abArrowIn {
+    to { opacity: 0.6; }
+  }
+  @keyframes abArrowPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.85; }
+  }
+
+  /* Crown subtle glow loop */
+  .ab-crown-rect {
+    transform-origin: center;
+  }
+  .ab-crown--in {
+    animation: abCrownGlow 3.6s ease-in-out 2400ms infinite;
+  }
+  @keyframes abCrownGlow {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(34, 211, 168, 0.20)); }
+    50%      { filter: drop-shadow(0 0 22px rgba(34, 211, 168, 0.55)); }
+  }
+
+  /* T3 Global bar-chart icon: each bar oscillates */
+  .ab-bar {
+    transform-origin: center bottom;
+  }
+  .ab-bar--in {
+    animation: abBarOsc var(--bdur, 3.2s) ease-in-out var(--bdelay, 0s) infinite;
+  }
+  @keyframes abBarOsc {
+    0%, 100% { transform: scaleY(1); }
+    50%      { transform: scaleY(var(--bscale, 1.25)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ab-layer { opacity: 1; transform: none; animation: none !important; }
+    .ab-arrow { opacity: 0.5; animation: none !important; }
+    .ab-bar { animation: none !important; }
+    .ab-crown--in { animation: none !important; }
+  }
+
+  /* ---- PARTNERSHIP BLOCK ---- */
+  .ab-partnership {
+    padding: 100px 0; background: var(--bg-2);
+    border-top: 1px solid var(--border);
+  }
+  .ab-partnership__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-partnership__head { text-align: center; max-width: 720px; margin: 0 auto 50px; padding: 0 20px; }
+  .ab-partnership__head h2 {
+    font-size: clamp(28px, 4vw, 44px); line-height: 1.1;
+    letter-spacing: -1.4px; font-weight: 700;
+    margin: 0 0 16px; color: #fff;
+  }
+  .ab-partnership__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-partnership__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .ab-pcard {
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid var(--border); border-radius: 18px;
+    padding: 32px 28px;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .ab-pcard:hover {
+    border-color: rgba(34, 211, 168, 0.35);
+    background: hsla(0, 0%, 100%, 0.05);
+    transform: translateY(-2px);
+  }
+  .ab-pcard__role {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--teal);
+    font-weight: 600; margin: 0 0 14px;
+  }
+  .ab-pcard__name {
+    font-size: 22px; font-weight: 700; color: #fff;
+    letter-spacing: -0.4px; margin: 0 0 10px;
+  }
+  .ab-pcard__tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--teal);
+    padding: 4px 10px; border-radius: 999px;
+    background: rgba(34,211,168,0.12);
+    display: inline-block; margin-bottom: 14px;
+  }
+  .ab-pcard__body { color: var(--white-72); font-size: 14.5px; line-height: 1.6; margin: 0; }
+  .ab-pcard__body strong { color: #fff; font-weight: 600; }
+
+  /* ---- STORY ---- */
+  .ab-story {
+    padding: 100px 0; background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .ab-story__wrap {
+    max-width: min(100% - 60px, 1100px); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+  }
+  .ab-story__h2 {
+    font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12;
+    letter-spacing: -1.2px; font-weight: 700;
+    margin: 0 0 20px; color: #fff;
+  }
+  .ab-story__h2 .accent { color: var(--teal); }
+  .ab-story__copy p {
+    color: var(--white-72); font-size: 16px;
+    line-height: 1.7; margin: 0 0 18px;
+  }
+  .ab-story__copy p:last-child { margin-bottom: 0; }
+  .ab-story__copy strong { color: #fff; font-weight: 600; }
+
+  /* ---- T3 TRUST PANEL ---- */
+  .ab-t3 {
+    padding: 100px 0; background: var(--bg-2);
+    border-top: 1px solid var(--border);
+  }
+  .ab-t3__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-t3__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 20px; }
+  .ab-t3__head h2 {
+    font-size: clamp(28px, 4vw, 40px); line-height: 1.12;
+    letter-spacing: -1.2px; font-weight: 700;
+    margin: 0 0 16px; color: #fff;
+  }
+  .ab-t3__head h2 .accent { color: var(--teal); }
+  .ab-t3__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-t3__grid {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px;
+  }
+  .ab-t3__copy p {
+    color: var(--white-72); font-size: 16px;
+    line-height: 1.65; margin: 0 0 16px;
+  }
+  .ab-t3__copy p:last-child { margin-bottom: 0; }
+  .ab-t3__copy strong { color: #fff; font-weight: 600; }
+  .ab-t3__card {
+    background: linear-gradient(180deg, rgba(34,211,168,0.05), rgba(34,211,168,0.01));
+    border: 1px solid rgba(34, 211, 168, 0.22);
+    border-radius: 18px; padding: 32px 28px;
+  }
+  .ab-t3__card-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--teal);
+    font-weight: 600; margin: 0 0 18px;
+  }
+  .ab-t3__card-points {
+    margin: 0; padding: 0; list-style: none;
+  }
+  .ab-t3__card-points li {
+    color: #fff; font-size: 15px; line-height: 1.55;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+  }
+  .ab-t3__card-points li:last-child { border-bottom: none; }
+  .ab-t3__card-points li strong { color: var(--teal); font-weight: 700; display: block; margin-bottom: 4px; font-size: 12.5px; letter-spacing: 0.4px; }
+  .ab-t3__footnote {
+    margin: 30px auto 0; max-width: 760px;
+    text-align: center; color: var(--white-45);
+    font-size: 12.5px; line-height: 1.5; font-style: italic;
+  }
+
+  /* ---- PRINCIPLES ---- */
+  .ab-principles {
+    padding: 100px 0; background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .ab-principles__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-principles__head { text-align: center; max-width: 720px; margin: 0 auto 50px; padding: 0 20px; }
+  .ab-principles__head h2 {
+    font-size: clamp(28px, 4vw, 40px); line-height: 1.12;
+    letter-spacing: -1.2px; font-weight: 700;
+    margin: 0 0 16px; color: #fff;
+  }
+  .ab-principles__head h2 .accent { color: var(--teal); }
+  .ab-principles__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-principles__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .ab-pri-card {
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 28px 22px;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .ab-pri-card:hover {
+    border-color: rgba(34, 211, 168, 0.35);
+    background: hsla(0, 0%, 100%, 0.05);
+    transform: translateY(-2px);
+  }
+  .ab-pri-card__num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 1.5px;
+    color: var(--teal); font-weight: 700;
+    margin: 0 0 14px;
+  }
+  .ab-pri-card__title {
+    font-size: 17px; font-weight: 700; color: #fff;
+    letter-spacing: -0.2px; margin: 0 0 8px;
+  }
+  .ab-pri-card__body { color: var(--white-72); font-size: 13.5px; line-height: 1.6; margin: 0; }
+
+  /* ---- COMPARISON CROSS-LINK ---- */
+  .ab-xlink {
+    padding: 80px 0; background: var(--bg-2);
+    border-top: 1px solid var(--border);
+  }
+  .ab-xlink__wrap {
+    max-width: min(100% - 60px, 980px); margin: 0 auto;
+    text-align: center;
+  }
+  .ab-xlink h2 {
+    font-size: clamp(24px, 3.4vw, 36px); line-height: 1.15;
+    letter-spacing: -1px; font-weight: 700;
+    margin: 0 0 14px; color: #fff;
+  }
+  .ab-xlink h2 .accent { color: var(--teal); }
+  .ab-xlink p { color: var(--white-72); font-size: 16px; line-height: 1.55; margin: 0 0 28px; max-width: 60ch; margin-left: auto; margin-right: auto; }
+  .ab-xlink__btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 26px; border-radius: 999px;
+    background: var(--teal); color: #060914;
+    font-weight: 700; text-decoration: none;
+    font-size: 14.5px; letter-spacing: 0.2px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .ab-xlink__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px -10px rgba(34,211,168,0.5);
+  }
+
+  /* ---- FINAL CTA ---- */
+  .ab-final {
+    padding: 100px 0; background: var(--bg);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .ab-final__wrap { max-width: min(100% - 60px, 820px); margin: 0 auto; }
+  .ab-final h2 {
+    font-size: clamp(32px, 4.4vw, 52px); line-height: 1.08;
+    letter-spacing: -1.6px; font-weight: 700;
+    margin: 0 0 18px; color: #fff;
+  }
+  .ab-final h2 .accent { color: var(--teal); }
+  .ab-final p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0 0 32px; }
+  .ab-final__cta {
+    display: inline-block; padding: 16px 32px;
+    border-radius: 999px; background: var(--teal); color: #060914;
+    font-weight: 700; text-decoration: none; font-size: 15px;
+  }
+
+  /* ---- MOBILE ---- */
+  @media (max-width: 900px) {
+    .ab-hero { padding: 100px 0 60px; }
+    .ab-hero__wrap { grid-template-columns: 1fr; gap: 40px; }
+    .ab-partnership__grid { grid-template-columns: 1fr; }
+    .ab-story__wrap { grid-template-columns: 1fr; gap: 30px; }
+    .ab-t3__grid { grid-template-columns: 1fr; gap: 30px; }
+    .ab-principles__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .ab-principles__grid { grid-template-columns: 1fr; }
+  }
+
+</style>
 </head>
 <body>
 
@@ -78,507 +444,420 @@
   </nav>
 </header>
 
-<section class="hero secondary">
-  <div class="container hero__inner">
-    <div class="hero__text">
-      <p class="eyebrow">who we are & how it works</p>
-      <h1 class="hero__title">
-        The Funded Trading Firm That <br> Actually Explains <span class="accent">How It Works.</span>
-      </h1>
-      <p class="hero__sub">
-        We built this page for the trader who wants to understand everything before committing to a funded account. By the end, you'll know how TradeFundrr works and exactly what to expect.
+
+<!-- 1. HERO -->
+<section class="ab-hero">
+  <div class="ab-hero__wrap">
+    <div>
+      <span class="stx-eyebrow">About TradeFundrr</span>
+      <h1>Built on a partnership. <span class="accent">Backed by a desk.</span></h1>
+      <p class="ab-hero__sub">
+        TradeFundrr is not a foreign sim shop with a payout page. It is a US-operated funded-trading program built on a partnership with a regulated SEC broker-dealer and a real institutional desk. This is who you are trusting with your eval fee, and who is behind every payout.
+      </p>
+      <div class="ab-hero__trust">
+        <span>SEC broker-dealer partner</span>
+        <span>FINRA / SIPC member</span>
+        <span>T3 Global desk path</span>
+      </div>
+    </div>
+    <div class="ab-hero__media">
+      <svg class="ab-stack-svg" viewBox="0 0 480 580" xmlns="http://www.w3.org/2000/svg" aria-labelledby="abStackTitle abStackDesc" role="img">
+        <title id="abStackTitle">The TradeFundrr partnership stack</title>
+        <desc id="abStackDesc">Three layers behind TradeFundrr: T3 Global infrastructure at the base, T3 Trading Group broker-dealer in the middle, and Christian Bose the operator on top.</desc>
+
+        <defs>
+          <linearGradient id="abCardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#22d3a8" stop-opacity="0.01"/>
+          </linearGradient>
+          <linearGradient id="abTopBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.20"/>
+            <stop offset="100%" stop-color="#22d3a8" stop-opacity="0.07"/>
+          </linearGradient>
+          <pattern id="abGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#22d3a8" stroke-opacity="0.05" stroke-width="0.5"/>
+          </pattern>
+          <marker id="abArrUp" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M5,0 L0,8 L10,8 z" fill="#22d3a8"/>
+          </marker>
+          <clipPath id="abChristianCircle">
+            <circle cx="390" cy="200" r="28"/>
+          </clipPath>
+          <!-- Force the T3 Global logo to render white so it reads on the dark card.
+               Works on PNG via SVG color matrix: drop original RGB, then add 1.0 to all channels. -->
+          <filter id="abWhitenLogo" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 1
+                                                  0 0 0 0 1
+                                                  0 0 0 0 1
+                                                  0 0 0 1 0"/>
+          </filter>
+        </defs>
+
+        <rect width="480" height="580" fill="#060914"/>
+        <rect width="480" height="580" fill="url(#abGrid)"/>
+
+        <!-- CROWN: TradeFundrr brand (top-down build: drops in FIRST) -->
+        <g class="ab-layer ab-layer--in ab-crown" style="animation-delay: 100ms;">
+          <g class="ab-crown--in">
+            <rect class="ab-crown-rect" x="40" y="30" width="400" height="80" rx="14" fill="url(#abTopBg)" stroke="#22d3a8" stroke-width="1.5"/>
+            <!-- TradeFundrr wordmark logo. Centered, sized to fit panel. -->
+            <image href="../assets/images/logo.svg" x="120" y="45" width="240" height="50" preserveAspectRatio="xMidYMid meet"/>
+          </g>
+        </g>
+
+        <g class="ab-arrow ab-arrow--in" style="animation-delay: 400ms, 1300ms;">
+          <line x1="240" y1="125" x2="240" y2="142" stroke="#22d3a8" stroke-width="1.5" marker-end="url(#abArrUp)"/>
+        </g>
+
+        <!-- LAYER 01: Christian Bose (drops in SECOND) -->
+        <g class="ab-layer ab-layer--in" style="animation-delay: 700ms;">
+          <rect x="40" y="150" width="400" height="100" rx="12" fill="url(#abCardBg)" stroke="rgba(34, 211, 168, 0.32)" stroke-width="1"/>
+          <text x="62" y="178" font-size="10" font-weight="700" fill="#22d3a8" letter-spacing="1.6" font-family="Geist Mono, monospace">01 &#183; THE OPERATOR</text>
+          <text x="62" y="208" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Christian Bose</text>
+          <text x="62" y="230" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">Founder &#183; two decades inside</text>
+          <text x="62" y="245" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">institutional trading firms</text>
+          <!-- Headshot inside the teal-bordered circle (clipped). -->
+          <circle cx="390" cy="200" r="29" fill="rgba(34, 211, 168, 0.10)" stroke="#22d3a8" stroke-width="1.5"/>
+          <image href="../assets/images/christian_headshot.png" x="362" y="172" width="56" height="56" preserveAspectRatio="xMidYMid slice" clip-path="url(#abChristianCircle)"/>
+        </g>
+
+        <g class="ab-arrow ab-arrow--in" style="animation-delay: 1000ms, 1900ms;">
+          <line x1="240" y1="265" x2="240" y2="282" stroke="#22d3a8" stroke-width="1.5" marker-end="url(#abArrUp)"/>
+        </g>
+
+        <!-- LAYER 02: T3 Trading Group (drops in THIRD) -->
+        <g class="ab-layer ab-layer--in" style="animation-delay: 1400ms;">
+          <rect x="40" y="290" width="400" height="100" rx="12" fill="url(#abCardBg)" stroke="rgba(34, 211, 168, 0.32)" stroke-width="1"/>
+          <text x="62" y="318" font-size="10" font-weight="700" fill="#22d3a8" letter-spacing="1.6" font-family="Geist Mono, monospace">02 &#183; THE BROKER-DEALER</text>
+          <text x="62" y="348" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="-0.3">T3 Trading Group</text>
+          <text x="62" y="370" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">SEC broker-dealer</text>
+          <text x="62" y="385" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">FINRA / SIPC member</text>
+          <!-- T3 Trading Group logo (color-matrix filter forces white render). -->
+          <image href="../assets/images/t3-trading-logo.webp" x="338" y="320" width="80" height="60" preserveAspectRatio="xMidYMid meet" filter="url(#abWhitenLogo)"/>
+        </g>
+
+        <g class="ab-arrow ab-arrow--in" style="animation-delay: 1800ms, 2700ms;">
+          <line x1="240" y1="405" x2="240" y2="422" stroke="#22d3a8" stroke-width="1.5" marker-end="url(#abArrUp)"/>
+        </g>
+
+        <!-- LAYER 03: T3 Global - FOUNDATION (drops in LAST in the top-down build) -->
+        <g class="ab-layer ab-layer--in" style="animation-delay: 2200ms;">
+          <rect x="40" y="430" width="400" height="120" rx="12" fill="url(#abCardBg)" stroke="rgba(34, 211, 168, 0.32)" stroke-width="1"/>
+          <text x="62" y="458" font-size="10" font-weight="700" fill="#22d3a8" letter-spacing="1.6" font-family="Geist Mono, monospace">03 &#183; THE INFRASTRUCTURE</text>
+          <text x="62" y="488" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="-0.3">T3 Global</text>
+          <text x="62" y="510" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">Institutional trading firm</text>
+          <text x="62" y="525" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">Where funded accounts run</text>
+          <text x="62" y="543" font-size="11" fill="#22d3a8" font-family="Geist Mono, monospace" letter-spacing="0.5">UP TO $20M+ DESK CAPITAL</text>
+
+          <!-- White T3 Global logo (color-matrix filter forces white render). -->
+          <image href="../assets/images/t3_global_logo.png" x="338" y="470" width="80" height="60" preserveAspectRatio="xMidYMid meet" filter="url(#abWhitenLogo)"/>
+        </g>
+
+        <text x="240" y="572" text-anchor="middle" font-size="9.5" fill="rgba(255, 255, 255, 0.4)" letter-spacing="3" font-family="Geist Mono, monospace">BUILT ON A REAL INSTITUTIONAL FOUNDATION</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PARTNERSHIP BLOCK -->
+<section class="ab-partnership">
+  <div class="ab-partnership__wrap">
+    <div class="ab-partnership__head">
+      <span class="stx-eyebrow">The three layers</span>
+      <h2>Who is actually <span class="accent">behind TradeFundrr.</span></h2>
+      <p>A face, a regulated broker-dealer, and an institutional trading desk. Each is real, each is named, each plays a specific role.</p>
+    </div>
+
+    <div class="ab-partnership__grid">
+
+      <article class="ab-pcard">
+        <p class="ab-pcard__role">01 &middot; The operator</p>
+        <h3 class="ab-pcard__name">Christian Bose</h3>
+        <span class="ab-pcard__tag">Founder</span>
+        <p class="ab-pcard__body">
+          Two decades inside trading desks, institutional firms, and trading technology. Christian set the T3 partnership, hired the operators, and put the offer in place. The structure behind TradeFundrr came from his work, not handed to him, not licensed in. <strong>Built.</strong>
+        </p>
+      </article>
+
+      <article class="ab-pcard">
+        <p class="ab-pcard__role">02 &middot; The broker-dealer</p>
+        <h3 class="ab-pcard__name">T3 Trading Group</h3>
+        <span class="ab-pcard__tag">SEC BD &middot; FINRA / SIPC</span>
+        <p class="ab-pcard__body">
+          Part of the T3 group of companies. A <strong>regulated SEC broker-dealer</strong> and FINRA / SIPC member, and <strong>one of the largest active-trader institutional desks in the U.S.</strong> The regulatory backbone behind TradeFundrr.
+        </p>
+      </article>
+
+      <article class="ab-pcard">
+        <p class="ab-pcard__role">03 &middot; The infrastructure</p>
+        <h3 class="ab-pcard__name">T3 Global</h3>
+        <span class="ab-pcard__tag">Trading infrastructure</span>
+        <p class="ab-pcard__body">
+          An institutional trading firm within the T3 group of companies. <strong>Trading infrastructure and trader routing.</strong> Where TradeFundrr's funded accounts run, and where the live-capital path leads for top performers.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3. STORY -->
+<section class="ab-story">
+  <div class="ab-story__wrap">
+    <div>
+      <span class="stx-eyebrow">Why this exists</span>
+      <h2 class="ab-story__h2">A real partnership, <span class="accent">not a sim shop with a website.</span></h2>
+    </div>
+    <div class="ab-story__copy">
+      <p>
+        When Christian looked at the prop firm category, he saw the same pattern over and over. <strong>Foreign sim shops with no broker-dealer partner, no live-capital path, and a marketing page that promised what they could not actually deliver.</strong> The 2023 MyForexFunds shutdown by the CFTC for fraud was not an outlier. It was the predictable result of a category built on payout copy instead of infrastructure.
+      </p>
+      <p>
+        TradeFundrr was assembled differently. Christian took the partnership-first route: secure a regulated broker-dealer (T3 Trading Group, FINRA / SIPC), tie into a real institutional desk (T3 Global), then layer the trader-facing offer on top. <strong>The infrastructure came first. The marketing came second.</strong>
+      </p>
+      <p>
+        Which means the rules on the offer page are the actual rules. The payouts come out of real institutional infrastructure. And the graduation path to live capital is not a placeholder, it is the desk behind the offer.
+      </p>
+      <p>
+        That is the difference between a funded-trading program and a sim shop with a Stripe integration.
       </p>
     </div>
-
   </div>
-  <img src="../assets/images/about-hero.webp" alt="about-hero" class="float-image">
 </section>
 
-<section class="story">
-  <div class="bg-stars"></div>
-  <div class="container">
-    <div class="story__row">
-      <div class="story__visual" aria-hidden="true">
-        <img src="../assets/images/about-image.webp" alt="about-image">
-      </div>
-      <div>
-        <p class="eyebrow">Built by traders, for traders</p>
-        <h2 class="h2 story__title">
-          Built By Traders Who Got Tired Of The Industry’s <span class="accent">Broken Promises</span>
-        </h2>
-        <div class="story__copy">
-          <p>TradeFundrr was founded by Christian Bose, a trader who had spent years inside the financial markets and understood what serious traders actually needed to perform at their best: real capital, fair rules, and a firm they could trust to pay them consistently. The prop firm model had real potential. The execution, almost everywhere, was falling short.</p>
-          <p>The problem wasn't hard to identify. Across the industry, prop firms were collecting challenge fees from thousands of traders, running simulated accounts dressed up as real funding, and building business models that depended on traders failing rather than succeeding. Rules were written to catch people out. Payouts were delayed, disputed, or quietly denied. Support disappeared when traders actually needed it.</p>
-        </div>
-      </div>
+<!-- 4. T3 TRUST PANEL -->
+<section class="ab-t3">
+  <div class="ab-t3__wrap">
+    <div class="ab-t3__head">
+      <span class="stx-eyebrow">Institutional backing</span>
+      <h2>The desk behind the <span class="accent">offer.</span></h2>
+      <p>Sim is sim. Live is live. T3 is live.</p>
     </div>
-  </div>
-</section>
 
-
-
-
-<section class="institutional">
-  <div class="container">
-    <div class="institutional__row">
-      <div>
-        <p class="eyebrow">institutional backing</p>
-        <h2 class="h2 institutional__title">
-          T3 Trading Group.
-          SEC-registered broker-dealer. <br>
-          <span class="accent">
-            The largest real prop firm
-            in North America.
-          </span>
-        </h2>
-        <div class="description">
-          <p class="lead">
-            [P1, T3 Trading Group: founded [year], the largest real proprietary trading firm in North America, SEC-registered broker-dealer, operates a live trading desk with hundreds of active traders, has been paying traders for 20+ years. Written as plain factual context, not a marketing claim.]
-          </p>
-          <p class="lead">
-            [P2, What SEC broker-dealer registration actually means for the trader: regulatory oversight, mandatory capital requirements, legal accountability for financial obligations, compliance infrastructure. The specific mechanism by which this protects a trader's payout in a way that unregistered firms cannot replicate. Written plainly, for a trader who doesn't know financial regulation but understands 'legally accountable to pay.']
-          </p>
-          <p class="lead">
-            [P3, When TradeFundrr says 'real capital,' it means capital backed by a firm that is legally accountable for it. When payout time comes, there is a regulated institution behind the obligation, not a marketing company's goodwill. Written to land as insight, not reassurance.]
-          </p>
-        </div>
-        <a href="about.html" class="btn btn--glass smaller" target="_blank" rel="noopener">Learn more about how programs work <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+    <div class="ab-t3__grid">
+      <div class="ab-t3__copy">
+        <p>
+          TradeFundrr is partnered with <strong>T3 Global</strong>, an institutional trading firm within the T3 group of companies. The group's broker-dealer, <strong>T3 Trading Group</strong>, is a regulated SEC broker-dealer and FINRA / SIPC member and <strong>one of the largest</strong> active-trader institutional desks in the U.S.
+        </p>
+        <p>
+          The live-capital path for top-performing TradeFundrr traders runs through <strong>T3 Global's institutional infrastructure</strong>. This is the same infrastructure used by professional proprietary traders at the desk, not a separate retail brokerage account dressed up to look like a live path.
+        </p>
+        <p>
+          For traders who graduate, buying power scales from <strong>$1M at entry</strong> to <strong>$20M+ at the top tier</strong>. Real capital. Real fills. Real institutional desk.
+        </p>
       </div>
 
-      <div class="institutional__card">
-        <img src="../assets/images/group-lines-2.svg" alt="group-lines">
-        <span><img src="../assets/images/broker-deal.svg" alt="broker-image"></span>
-        <div class="label">SEC Registered Broker-Dealer</div>
-        <ul class="points">
-          <li><span><img src="../assets/images/list-check.svg" alt="list-check"></span>20+ years T3 Trading Group has been paying traders</li>
-          <li><span><img src="../assets/images/list-check.svg" alt="list-check"></span>Live institutional trading desk, real capital, real infrastructure</li>
-          <li><span><img src="../assets/images/list-check.svg" alt="list-check"></span>SEC-registered, legal regulatory accountability on every payout</li>
+      <div class="ab-t3__card">
+        <p class="ab-t3__card-label">Partnered with T3 Global</p>
+        <ul class="ab-t3__card-points">
+          <li><strong>Regulated</strong>SEC broker-dealer T3 Trading Group, FINRA / SIPC member</li>
+          <li><strong>Established</strong>One of the largest active-trader institutional desks in the U.S.</li>
+          <li><strong>Real fills</strong>Institutional routing through T3 Global infrastructure</li>
+          <li><strong>Scalable</strong>Live capital from $1M to $20M+ for graduating traders</li>
         </ul>
       </div>
     </div>
+
+    <p class="ab-t3__footnote">*Reserved for top-performing traders. Subject to T3 Global review and audition. Not all traders qualify.</p>
   </div>
 </section>
 
-
-
-<section class="programs-section">
-  <div class="container">
-    <div>
-      <p class="eyebrow">the programs</p>
-      <h2 class="h2">
-        Three paths to funded trading. <br>
-        <span>Each one <span class="accent">explained in full.</span></span>
-      </h2>
-      <p class="lead">
-        Whether you choose Express Funding or a structured evaluation path, here’s exactly what to expect at every step, from simulated trading to performance-based progression.
-      </p>
+<!-- 5. OPERATING PRINCIPLES -->
+<section class="ab-principles">
+  <div class="ab-principles__wrap">
+    <div class="ab-principles__head">
+      <span class="stx-eyebrow">How we operate</span>
+      <h2>Four commitments. <span class="accent">No asterisks.</span></h2>
+      <p>What you get from a TradeFundrr account that you do not get from most of the prop firm category.</p>
     </div>
 
-    <div class="programs-tabs short" data-programs>
-      <div class="programs-tabs__nav" role="tablist">
-        <button data-tab="instant" class="is-active" role="tab" aria-selected="true">Express Funding</button>
-        <button data-tab="evaluation" role="tab">Evaluation Account</button>
-        <button data-tab="live" role="tab">Path to Live Funding</button>
-      </div>
+    <div class="ab-principles__grid">
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">01</p>
+        <h3 class="ab-pri-card__title">Weekly payouts</h3>
+        <p class="ab-pri-card__body">Once you hit profit target, you get paid every Friday. Not "when funds clear," not "subject to review," not "monthly aggregation." Weekly.</p>
+      </article>
 
-      <div class="programs-tabs__panel" data-panel="instant">
-        <p class="lead">Express Funding gives you immediate access to a funded account the moment your purchase is confirmed. No evaluation period, no waiting, from day one you're trading with real institutional capital.</p>
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">02</p>
+        <h3 class="ab-pri-card__title">Published rules</h3>
+        <p class="ab-pri-card__body">Every rule is on the offer page before you sign up. Daily loss limits, drawdown, min hold, consistency, payout caps. No bait-and-switch after funding.</p>
+      </article>
 
-        <div class="steps">
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">03</p>
+        <h3 class="ab-pri-card__title">Real human support</h3>
+        <p class="ab-pri-card__body">Phone and email staffed by people who know the programs. Not a chatbot, not a ticket queue that takes three days. Real traders supporting real traders.</p>
+      </article>
 
-          <div class="col-body">
-            <div class="step active">
-              <div class="counter">
-                <span>1</span>
-              </div>
-              <h4>Purchase &amp; Activate</h4>
-              <p>Select your asset class and account size, complete your purchase, and receive your funded account credentials immediately. There's no evaluation phase, no waiting period, and no additional hoops to jump through before you start trading.</p>
-            </div>
-            <div class="step">
-              <div class="counter">
-                <span>2</span>
-              </div>
-              <h4 class="is-muted">Trade Within the Rules</h4>
-            </div>
-            <div class="step">
-              <div class="counter">
-                <span>3</span>
-              </div>
-              <h4 class="is-muted">Request Your Payout</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-rules">
-          <p class="label">key rules, instant funding</p>
-          <ul>
-            <li>No minimum trading day requirement</li>
-            <li>Trade at your own pace within the program window</li>
-            <li>Every rule is visible before you start</li>
-          </ul>
-        </div>
-
-        <div class="actions">
-          <a href="pricing.html" class="btn btn--primary" target="_blank" rel="noopener">Get Express Funding Today <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn"></span></a>
-          <span class="pill"><span><img src="../assets/images/eligible.svg" alt="eligible"></span>Eligible for payout in as few as 5 days</span>
-        </div>
-      </div>
-
-      <div class="programs-tabs__panel"  style="display:none;" data-panel="evaluation">
-        <p class="lead">Express Funding gives you immediate access to a funded account the moment your purchase is confirmed. No evaluation period, no waiting, from day one you're trading with real institutional capital.</p>
-
-        <div class="steps">
-
-          <div class="col-body">
-            <div class="step active">
-              <div class="counter">
-                <span>1</span>
-              </div>
-              <h4>Purchase &amp; Activate</h4>
-              <p>Select your asset class and account size, complete your purchase, and receive your funded account credentials immediately. There's no evaluation phase, no waiting period, and no additional hoops to jump through before you start trading.</p>
-            </div>
-            <div class="step">
-              <div class="counter">
-                <span>2</span>
-              </div>
-              <h4 class="is-muted">Trade Within the Rules</h4>
-            </div>
-            <div class="step">
-              <div class="counter">
-                <span>3</span>
-              </div>
-              <h4 class="is-muted">Request Your Payout</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-rules">
-          <p class="label">key rules, instant funding</p>
-          <ul>
-            <li>No minimum trading day requirement</li>
-            <li>Trade at your own pace within the program window</li>
-            <li>Every rule is visible before you start</li>
-          </ul>
-        </div>
-
-        <div class="actions">
-          <a href="pricing.html" class="btn btn--primary" target="_blank" rel="noopener">Get Express Funding Today <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn"></span></a>
-          <span class="pill"><span><img src="../assets/images/eligible.svg" alt="eligible"></span>Eligible for payout in as few as 5 days</span>
-        </div>
-      </div>
-
-      <div class="programs-tabs__panel"  style="display:none;" data-panel="live">
-        <p class="lead">Express Funding gives you immediate access to a funded account the moment your purchase is confirmed. No evaluation period, no waiting, from day one you're trading with real institutional capital.</p>
-
-        <div class="steps">
-
-          <div class="col-body">
-            <div class="step active">
-              <div class="counter">
-                <span>1</span>
-              </div>
-              <h4>Purchase &amp; Activate</h4>
-              <p>Select your asset class and account size, complete your purchase, and receive your funded account credentials immediately. There's no evaluation phase, no waiting period, and no additional hoops to jump through before you start trading.</p>
-            </div>
-            <div class="step">
-              <div class="counter">
-                <span>2</span>
-              </div>
-              <h4 class="is-muted">Trade Within the Rules</h4>
-            </div>
-            <div class="step">
-              <div class="counter">
-                <span>3</span>
-              </div>
-              <h4 class="is-muted">Request Your Payout</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="key-rules">
-          <p class="label">key rules, instant funding</p>
-          <ul>
-            <li>No minimum trading day requirement</li>
-            <li>Trade at your own pace within the program window</li>
-            <li>Every rule is visible before you start</li>
-          </ul>
-        </div>
-
-        <div class="actions">
-          <a href="pricing.html" class="btn btn--primary" target="_blank" rel="noopener">Get Express Funding Today <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn"></span></a>
-          <span class="pill"><span><img src="../assets/images/eligible.svg" alt="eligible"></span>Eligible for payout in as few as 5 days</span>
-        </div>
-      </div>
-
-      
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">04</p>
+        <h3 class="ab-pri-card__title">Live-capital path</h3>
+        <p class="ab-pri-card__body">Top performers graduate to T3 Global's institutional desk with up to $20M+ in real buying power. Not a sim ceiling. A real audition path.</p>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- 6. FULL COMPARISON TABLE (mirrors why-us / stocks / options / index, audited monthly) -->
+<!-- ============================================
+     COMPETITOR COMPARISON  (added 2026-05-27)
+     CSS in assets/css/mobile-fixes.css
+     ============================================ -->
+<section class="stx-compare-firms" id="compare-firms">
+  <div class="stx-compare-firms__wrap">
 
+    <span class="stx-compare-firms__eyebrow">How we compare</span>
+    <h2 class="stx-compare-firms__head">TradeFundrr vs the <span class="accent">prop firm landscape.</span></h2>
+    <p class="stx-compare-firms__lede">
+      The honest comparison. Most prop firms route through retail brokerage infrastructure. TradeFundrr is partnered with a FINRA / SIPC-member broker-dealer and a real institutional desk, with a live-capital path that scales to $20M+. Same eval mechanic. Different infrastructure.
+    </p>
 
-<section class="how-it-works complex" id="how-it-works">
-  <div class="what-box">
-    <p>Payout eligibility window</p>
-    <span>Payout eligibility opens on a weekly cycle. Once you've hit your profit target within the program rules, you enter the eligible window and can submit your payout request. Eligibility resets weekly, so consistent performers can request payouts on a regular, predictable schedule.</span>
-  </div>
-  <div class="container">
-    <div class="how-it-works__head">
-      <p class="eyebrow">How Our Payout Process Works</p>
-      <h2 class="how-it-works__title h2">Hit Your Target. Request Your Payout. Get Paid.  <span class="accent">Here’s Every Step.</span></h2>
-      <span>Payouts run on a weekly cycle, partnered with T3 Global. Here's the full process from eligibility to payment…</span>
-    </div>
-
-    <div class="weekly">
-      <span><img src="../assets/images/grey-check.svg" alt="grey-check"></span>
-      <p>Weekly Payouts. Partnered with T3 Global. Processed on time, every time.</p>
-    </div>
-  </div>
-  <img src="../assets/images/getting-paid.svg" alt="payout-back">
-</section>
-
-
-<section class="cta-block middle rays longer" style="background:url('../assets/images/back-rays.webp')">
-  <div class="container">
-    <div class="cta-block__inner">
-      <h2 class="cta-block__title">
-        <span class="accent">You Know How Our Programs Work.<br></span>
-        <span>The Next Step Is Choosing Yours...</span>
-      </h2>
-      <p class="cta-block__sub">
-        View our full range of funding programs, account sizes, and pricing on the Plans &amp; Pricing page. Everything you need to make your decision is there…
-      </p>
-      <div class="btn-row">
-        <a href="pricing.html" class="btn btn--primary" target="_blank" rel="noopener">View All Plans <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
-        <div class="tick-row">
-          <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span> No hidden rules</span>
-          <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span> Weekly payout eligibility</span>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-
-
-<section class="platforms">
-  <div class="container">
-    <p class="eyebrow">the platforms</p>
-    <h2 class="h2">The Tools Serious Traders Need. <br>
-    <span class="accent">Here’s What We use...</span></h2>
-    <p class="lead">The platform you trade on matters. Here's what TradeFundrr uses across each asset class, and why it gives our funded traders a genuine professional edge…</p>
-    <div class="double__box">
-      <div class="box">
-        <img src="../assets/images/card-layer-1.svg" alt="card-layer-1">
-        <div class="top">
-          <p>DXTrade</p>
-          <span><img src="../assets/images/l-1.svg" alt="l-1"></span>
-        </div>
-        <div class="sub">
-          <span>stocks, options</span>
-        </div>
-        <div class="desc">
-          <p>DXTrade is built by Devexperts, the same development team behind ThinkOrSwim and TastyTrade. Options traders who have used those platforms will recognize the execution quality immediately. TradeFundrr's options program runs on DXTrade, giving funded traders the same professional-grade tools used by active options traders across the industry.</p>
-          <ul>
-            <li><span><img src="../assets/images/grey-check.svg" alt="grey-check"></span> Stocks Funded Accounts</li>
-            <li><span><img src="../assets/images/grey-check.svg" alt="grey-check"></span> Options Funded Accounts</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="box">
-        <img src="../assets/images/card-layer-2.svg" alt="card-layer-1">
-        <div class="top">
-          <p>NinjaTrader</p>
-          <span><img src="../assets/images/l-2.svg" alt="l-1"></span>
-        </div>
-        <div class="sub">
-          <span>futures</span>
-        </div>
-        <div class="desc">
-          <p>NinjaTrader is one of the most widely used platforms in professional futures trading. Futures traders already know it: fast execution, deep customization, and the kind of data infrastructure that serious futures trading requires. TradeFundrr's futures programs run on NinjaTrader as standard.</p>
-          <ul>
-            <li><span><img src="../assets/images/grey-check.svg" alt="grey-check"></span> Futures Accounts</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="rules">
-  <div class="container">
-    <p class="eyebrow">the rules</p>
-    <h2 class="h2"><span class="accent">Every rule explained.</span> <br>
-    Every rule visible before you buy.</h2>
-    <p class="lead">TradeFundrr's Rules Exist To Protect Your Payouts, Not To Catch You Out. Here's Every One Of Them…</p>
-    <div class="rules__box short">
-      <table>
-        <tr>
-          <th>rule</th>
-          <th>why it exists</th>
-        </tr>
-        <tr>
-          <td>
-            <span>Daily Loss Limit</span>
-            <p class="smaller">Confirmed value</p>
-          </td>
-          <td>
-            <p class="desc">Protects your account from a single bad session wiping out multiple days of gains. A daily cap on losses means one difficult trading day doesn't end your funded account, it's a safeguard, not a penalty.</p>
-          </td>
-        </tr>
-
-
-        <tr>
-          <td>
-            <span>Maximum Drawdown</span>
-            <p class="smaller">Confirmed value</p>
-          </td>
-          <td>
-            <p class="desc">Defines the total loss threshold for the account. Drawdown limits exist in every professional trading environment. This one ensures the capital behind your account is protected and that payouts remain sustainable for all funded traders.</p>
-          </td>
-        </tr>
-
-
-        <tr>
-          <td>
-            <span>Profit Target</span>
-            <p class="smaller">Confirmed value</p>
-          </td>
-          <td>
-            <p class="desc">Defines the performance threshold for payout eligibility. The profit target isn't arbitrary, it's the benchmark that confirms a trader has demonstrated a genuine, repeatable edge rather than reaching profitability through a single large position or outlier trade.</p>
-          </td>
-        </tr>
-
-
-        <tr>
-          <td>
-            <span>Minimum Trading Days</span>
-            <p class="smaller">Confirmed value</p>
-          </td>
-          <td>
-            <p class="desc">Sets a floor on how quickly positions can be opened and closed. This exists to ensure funded trading reflects genuine market engagement rather than exploiting very short-term inefficiencies that don't apply in institutional trading environments.</p>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <span>News Trading Rules</span>
-          </td>
-          <td>
-            <p class="desc">The minutes around major news releases can produce price action that no risk management framework can reliably contain. This rule protects funded traders from breaching their loss limits through events outside their control, and protects TradeFundrr's ability to process payouts reliably.</p>
-          </td>
-        </tr>
+    <div class="cmp-card">
+      <div class="cmp-scroll">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="row-label-h">&nbsp;</th>
+            <th class="us"><span class="firm">TradeFundrr</span><span class="meta">T3 Global<br>infrastructure</span></th>
+            <th><span class="firm">Topstep</span><span class="meta">Chicago<br>est. 2012</span></th>
+            <th><span class="firm">Apex</span><span class="meta">Texas<br>est. 2021</span></th>
+            <th><span class="firm">Earn2Trade</span><span class="meta">Chicago<br>est. 2016</span></th>
+            <th><span class="firm">FTMO</span><span class="meta">Prague, CZ<br>est. 2015</span></th>
+            <th><span class="firm">Maverick</span><span class="meta">Salt Lake City<br>est. 1997</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Broker-dealer partner</td>
+            <td class="us"><em class="diff">T3 Trading Group</em><br>SEC broker-dealer, FINRA / SIPC member<span class="tag tag-yes">Regulated partner</span></td>
+            <td>None disclosed<span class="tag tag-no">Sim only</span></td>
+            <td>None disclosed<span class="tag tag-no">Sim only</span></td>
+            <td>Helios Trading Partners (CTA / CPO)<span class="tag tag-no">Not a broker-dealer</span></td>
+            <td>None disclosed<span class="tag tag-no">Sim only</span></td>
+            <td>Partner brokers, no in-house BD<span class="tag tag-no">Not a broker-dealer</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Asset classes</td>
+            <td class="us"><strong>Stocks, options, futures, crypto</strong></td>
+            <td>Futures only</td>
+            <td>Futures only</td>
+            <td>Futures only</td>
+            <td>Forex, indices, commodities, crypto CFDs</td>
+            <td>Stocks, options, forex</td>
+          </tr>
+          <tr>
+            <td class="row-label">Path to live capital</td>
+            <td class="us"><em class="diff">T3 Global desk graduation</em><br>Up to $1M+ buying power for top performers, scaling to $20M+<span class="tag tag-yes">Institutional scale</span></td>
+            <td>Live Funded Account<br>Up to $150K starting balance, $250K+ in live performance bonuses<span class="tag tag-part">Retail-scale path</span></td>
+            <td>Discretionary live program<br>Sim PA trades mirrored to a live account via API for select performers, no published criteria<span class="tag tag-part">Discretionary</span></td>
+            <td>Helios offer after TCP<br>Choice of LiveSim or live routing through brokerage to CME, $25K to $400K<span class="tag tag-part">Retail-scale path</span></td>
+            <td>Demo only<br>"FTMO never allows traders a real live account"<span class="tag tag-no">No</span></td>
+            <td>Real capital via partner brokers after multi-step evaluation<span class="tag tag-part">Retail-scale path</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Pricing model</td>
+            <td class="us">One-time eval fee + monthly platform fee</td>
+            <td>Monthly recurring</td>
+            <td>Monthly recurring</td>
+            <td>Monthly recurring (Trader Career Path) or one-time (Gauntlet Mini)</td>
+            <td>One-time challenge fee</td>
+            <td>One-time application fee + monthly desk fee</td>
+          </tr>
+          <tr>
+            <td class="row-label">Entry cost range</td>
+            <td class="us"><strong>$399 Growth / $899 Express</strong><br>+ $99/mo platform<span class="tag tag-yes">$800 first-payout rebate*</span></td>
+            <td>$49 to $149 / month<br>($50K to $150K)</td>
+            <td>$147 to ~$300 / month<br>($25K to $300K)</td>
+            <td>$150 to $475 / month<br>($25K to $200K)</td>
+            <td>$155 to $1,080 one-time<br>($10K to $200K)</td>
+            <td>$199 application + ~$200 / month desk fee</td>
+          </tr>
+          <tr>
+            <td class="row-label">Profit split</td>
+            <td class="us"><strong>80% to trader</strong></td>
+            <td>100% first $5K, 90% after</td>
+            <td>100% first $25K, 90% after</td>
+            <td>80%</td>
+            <td>80% (up to 90% with scaling)</td>
+            <td>70 to 80% (varies by tier)</td>
+          </tr>
+          <tr>
+            <td class="row-label">Payout cadence</td>
+            <td class="us"><strong>Weekly</strong></td>
+            <td>Daily / on-demand once funded</td>
+            <td>Up to 2x per month, daily on some PA accounts</td>
+            <td>Bi-weekly</td>
+            <td>On request, 1 to 2 business days</td>
+            <td>Monthly</td>
+          </tr>
+          <tr>
+            <td class="row-label">Eval mechanic</td>
+            <td class="us">2-stage Growth, or direct funded Express (no eval)</td>
+            <td>1-step Trading Combine</td>
+            <td>1-step evaluation</td>
+            <td>1-step Trader Career Path (progressive profit targets)</td>
+            <td>2-step Challenge + Verification</td>
+            <td>Multi-step: application, course, sim eval, live</td>
+          </tr>
+          <tr>
+            <td class="row-label">Fee rebate or refund</td>
+            <td class="us"><strong>$800 of $899 rebated on first qualifying payout</strong> (Express plans only)</td>
+            <td>No fee refund disclosed</td>
+            <td>No fee refund disclosed</td>
+            <td>No standard fee refund</td>
+            <td>100% of challenge fee refunded on first profit split</td>
+            <td>No fee refund disclosed</td>
+          </tr>
+          <tr>
+            <td class="row-label">US regulation footprint</td>
+            <td class="us"><em class="diff">Yes, via T3 partnership</em><span class="tag tag-yes">SEC / FINRA / SIPC</span></td>
+            <td>US company, no BD registration</td>
+            <td>US company, no BD registration</td>
+            <td>US company, parent registered as CTA / CPO with NFA</td>
+            <td>Non-US (Czech Republic), restricted in some US states</td>
+            <td>US company, partners with registered brokers</td>
+          </tr>
+          <tr>
+            <td class="row-label">Best for</td>
+            <td class="us"><strong>Stock and options day traders who want a real path to a regulated institutional desk.</strong></td>
+            <td>Futures-only traders comfortable with combine-style rules.</td>
+            <td>Futures-only traders looking for high payout frequency.</td>
+            <td>Futures traders who value a structured career-path framing.</td>
+            <td>Forex / CFD traders, especially outside the US.</td>
+            <td>Stock and options traders willing to complete a multi-step application.</td>
+          </tr>
+        </tbody>
       </table>
+      </div>
     </div>
-    <div class="hidden__rules">
-      <span><img src="../assets/images/grey-check.svg" alt="grey-check"></span>
-      <p>No hidden rules, no gotchas. Every TradeFundrr rule is visible before you buy, and every one of them is listed on the individual program pages…</p>
+    <p class="scroll-hint">&larr; swipe to compare all six firms &rarr;</p>
+
+    <div class="cmp-closer">
+      <p><strong>What is genuinely different about TradeFundrr:</strong> a regulated SEC broker-dealer partner (T3 Trading Group, FINRA / SIPC member) and a live-capital path that scales to institutional size, $1M+ in buying power at entry, up to $20M+ at the top tier. Topstep, Apex, Earn2Trade, and Maverick all have live-capital paths of some kind, but they cap at retail scale ($150K to $400K). FTMO is demo-only and explicitly says so.</p>
+      <p><strong>What we cover that most do not:</strong> stocks, options, futures, and crypto on one program. Topstep, Apex, and Earn2Trade are futures-only. FTMO is forex and CFD. Maverick is the closest in asset class breadth.</p>
+      <p><strong>What we are not:</strong> the cheapest entry. Topstep, Apex, and Earn2Trade have lower monthly entry points for futures-only traders who do not need institutional-scale capital. If price is the only variable, those firms win that comparison.</p>
+      <p>*Earning a qualifying payout depends on your trading performance and is not guaranteed. Competitor pricing, rules, and live-capital programs are reproduced from each firm's public documentation as of 2026-05-27 and may change. Verify current terms on each provider's site before signup.</p>
     </div>
-    <a href="why-us.html" class="btn" target="_blank" rel="noopener">Have a rules question? Talk to our team<span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+
+  </div>
+</section>
+<!-- END COMPETITOR COMPARISON -->
+
+
+<!-- 7. FINAL CTA -->
+<section class="ab-final">
+  <div class="ab-final__wrap">
+    <span class="stx-eyebrow">Ready to trade</span>
+    <h2>Trade with a real <span class="accent">institutional desk behind you.</span></h2>
+    <p>Pick the offer that fits your edge. Pass the eval. Earn the first payout. Build toward live capital through T3 Global.</p>
+    <a href="stocks.html" class="ab-final__cta" target="_blank" rel="noopener">Get Funded &rarr;</a>
   </div>
 </section>
 
-<section class="real-support longer">
-  <div class="container">
-    <div class="real-support__inner">
-      <div class="small-support-media">
-        <img src="../assets/images/human-support.webp" alt="human-support">
-      </div>
-      <div>
-        <div class="real-support__head">
-          <p class="eyebrow">real human support</p>
-          <h2 class="h2">
-            The team behind TradeFundrr
-            is made up of <span class="accent">real traders.</span>
-          </h2>
-          <p class="lead">
-            When you're managing real capital, you need real support. At TradeFundrr, every support interaction goes to a real member of our team who understands the platform, knows the rules, and can actually resolve your issue…
-          </p>
-        </div>
-        <div class="real-support__cards">
-          <div class="card">
-            <div class="icon">
-              <span><img src="../assets/images/ic-1.svg" alt="ic-1"></span>
-              <span class="symbol">+</span>
-            </div>
-            <h4>Phone Support</h4>
-            <p style="word-break: break-word; overflow-wrap: anywhere;">Call directly and speak with a member of the team at <strong>+1 (877) 799-8198</strong>.</p>
-          </div>
-          <div class="card">
-            <div class="icon">
-              <span><img src="../assets/images/ic-2.svg" alt="ic-1"></span>
-              <span class="symbol">+</span>
-            </div>
-            <h4>Email Support</h4>
-            <p style="word-break: break-word; overflow-wrap: anywhere;">Send a message to <strong>support@TradeFundrr.com</strong> and get a response from a real person, not an AI reply, not a 3-day wait.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="numbers center">
-  <div class="container">
-      <h2 class="h2">
-        <span style="color:#fc0;display:block">Real traders.</span>
-        Getting paid every week.
-      </h2>
-      <a href="why-us.html" class="btn" target="_blank" rel="noopener">See More Trader Results <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
-  </div>
-</section>
-
-<section class="get-started cta-block">
-  <div class="container">
-    <div class="cta-block__inner">
-      <p class="eyebrow">get started</p>
-      <h2 class="cta-block__title">
-        <span>You’ve Done Your Research.</span>
-        <span class="accent">Now Choose your account.</span>
-      </h2>
-      <p class="cta-block__sub">
-        View our full range of funded accounts, rules, and pricing on the Plans &amp; Pricing page. Everything is listed clearly, meaning no surprises or hidden conditions…
-      </p>
-      <div class="btn-row">
-        <a href="pricing.html" class="btn btn--primary" target="_blank" rel="noopener">View Plans &amp; Pricing <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
-        <a href="#" class="btn btn--glass">Talk to someone on the team first</a>
-      </div>
-      <div class="tick-row">
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Weekly payouts</span>
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Transparent rules</span>
-        <span class="tick"><span><img src="../assets/images/list-mark.svg" alt="list-mark"></span>Phone &amp; Email support</span>
-      </div>
-      <div class="broker-desc">
-        <p><span><img src="../assets/images/broker-image.svg" alt="broker-image"></span>SEC Registered Broker-Dealer</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<div class="newsletter__wrapper">
-  <img src="../assets/images/rocket-image.png" alt="rocket-image">
-  <div class="container">
-    <div class="outer__newsletter">
-      <span>tradefundrr newsletter</span>
-      <h2><span class="accent">Stay ahead of the market.</span> Stay ahead of the field.</h2>
-      <p>Payout highlights, trader spotlights, funded account news, and exclusive promotions, delivered directly to your inbox. Join thousands of traders already on the list.</p>
-      <form action="">
-        <div class="group__input">
-          <input type="text" placeholder="Enter your email address…">
-        </div>
-        <button type="submit" class="btn btn--primary">Subscribe Free</button>
-      </form>
-      <div class="after">
-        <span>No spam. Unsubscribe anytime.</span>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- ============================================================
+     SECTION END
+     ============================================================ -->
 
 <footer class="site-footer">
   <style>
