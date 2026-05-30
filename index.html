@@ -382,25 +382,17 @@
      widget handles internal scrolling for the rest. The Trustpilot Grid
      template auto-flows into more columns when given more horizontal space,
      so widening alone gets us to a 4-5 column layout. */
+  /* Compact Micro Combo badge: render inline at its natural ~24px height.
+     No forced min-height (the old Grid/carousel widget needed one; this one
+     does not, and a min-height leaves a tall empty box below the badge). */
   .trader-payouts .trustpilot-widget {
     width: 100% !important;
     max-width: 100% !important;
     display: block !important;
-    min-height: 900px !important;
+    min-height: 0 !important;
   }
-
-  /* Mobile: shorter widget (fewer columns naturally fit fewer reviews per row,
-     so 3 rows is even more compact). */
-  @media (max-width: 767px) {
-    .trader-payouts .trustpilot-widget { min-height: 600px !important; }
-  }
-
-  /* Star color shift â€” hue-rotate the iframe so Trustpilot green moves toward
-     brand teal. Limitation: this affects ALL colors inside the widget, not
-     just stars. A small rotation keeps text legible while shifting the green.
-     Tune the degree value if you want more or less shift. */
   .trader-payouts .trustpilot-widget iframe {
-    filter: hue-rotate(12deg) saturate(0.85) !important;
+    height: 24px !important;
   }
 </style>
 <!-- TRUSTPILOT_TUNE_CSS_END -->
