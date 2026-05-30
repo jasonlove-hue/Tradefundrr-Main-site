@@ -48,11 +48,15 @@ body{background:var(--bg);color:var(--w100);font-family:var(--font);-webkit-font
 .hero{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:84px 40px 40px;display:grid;grid-template-columns:1.04fr 0.96fr;gap:56px;align-items:center}
 @media(max-width:980px){.hero{grid-template-columns:1fr;padding:54px 22px 24px;gap:40px}}
 h1{font-size:clamp(38px,5vw,62px);line-height:1.02;font-weight:800;letter-spacing:-0.035em;margin-bottom:20px}
-h1 .hl{color:var(--teal);white-space:nowrap}
+h1 .hl{display:block;width:fit-content;font-size:clamp(46px,6.2vw,82px);font-weight:900;letter-spacing:-0.045em;margin-top:6px;position:relative;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:8px;height:30%;background:var(--teal);filter:blur(32px);opacity:.4;z-index:-1;animation:payPulse 3.4s ease-in-out infinite}
+@keyframes payPulse{0%,100%{opacity:.3}50%{opacity:.58}}
 .subhead{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);max-width:480px;margin-bottom:14px}
-.kpi-line{font-family:var(--mono);font-size:15px;color:var(--w100);margin-bottom:30px;font-weight:600}
-.kpi-line b{color:var(--teal)}
-.kpi-line .sep{color:var(--w40);margin:0 8px}
+.htrophies{display:flex;gap:14px;margin:0 0 32px;flex-wrap:wrap}
+.htrophy{position:relative;background:linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:15px;padding:15px 20px;min-width:118px;overflow:hidden}
+.htrophy::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.htrophy .v{font-size:29px;font-weight:900;letter-spacing:-0.03em;color:var(--teal);line-height:1}
+.htrophy .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--w55);margin-top:8px}
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
 .btn{padding:15px 26px;border-radius:var(--r-ui);font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.22s;cursor:pointer;border:none}
 .btn-primary{background:var(--teal);color:var(--teal-deep);box-shadow:var(--shadow-glow)}
@@ -65,19 +69,20 @@ h1 .hl{color:var(--teal);white-space:nowrap}
 .chip svg{flex:none}
 
 .acct-wrap{position:relative;perspective:1400px}
-.acct-wrap::before{content:"";position:absolute;inset:-26px;z-index:0;border-radius:46px;background:radial-gradient(ellipse 75% 70% at 50% 48%,rgba(34,211,168,0.34),rgba(34,211,168,0.10) 45%,transparent 72%);filter:blur(34px);animation:glowPulse 6s ease-in-out infinite}
+.acct-wrap::before{content:"";position:absolute;inset:-46px -36px;z-index:0;border-radius:50%;background:radial-gradient(ellipse 72% 66% at 50% 50%,rgba(34,211,168,0.48),rgba(34,211,168,0.13) 45%,transparent 72%);filter:blur(40px);animation:glowPulse 6s ease-in-out infinite}
 @keyframes glowPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
 .sparkles{position:absolute;inset:-30px;z-index:1;pointer-events:none}
 .spk{position:absolute;background:var(--teal);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);filter:drop-shadow(0 0 5px var(--teal-glow));opacity:0;transform:scale(0) rotate(0deg);animation:twinkle 4.4s ease-in-out infinite}
 @keyframes twinkle{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}45%{opacity:.95;transform:scale(1) rotate(45deg)}60%{opacity:.55;transform:scale(.85) rotate(70deg)}}
-.acct{position:relative;z-index:2;background:linear-gradient(165deg,rgba(18,26,42,0.96),rgba(8,12,22,0.96));border:1px solid var(--border-bright);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow-lift),0 0 60px -8px rgba(34,211,168,0.40),0 0 0 1px rgba(34,211,168,0.10);animation:floaty 7s ease-in-out infinite}
+.acct{position:relative;z-index:2;background:linear-gradient(165deg,rgba(23,33,52,0.98),rgba(8,13,24,0.98));border:1px solid rgba(34,211,168,0.30);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow-lift),0 0 80px -12px rgba(34,211,168,0.52),inset 0 1px 0 rgba(255,255,255,0.08);animation:floaty 7s ease-in-out infinite}
 .acct::before{content:"";position:absolute;inset:0;border-radius:var(--r-card);padding:1px;background:linear-gradient(160deg,rgba(34,211,168,0.5),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .acct-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .acct-plat{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--w55);display:flex;align-items:center;gap:8px}
 .live-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 var(--teal-glow);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,168,.5)}70%{box-shadow:0 0 0 8px rgba(34,211,168,0)}100%{box-shadow:0 0 0 0 rgba(34,211,168,0)}}
-.payout-pill{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.5px;color:var(--teal);background:rgba(34,211,168,0.12);border:1px solid rgba(34,211,168,0.3);border-radius:30px;padding:5px 11px}
+.payout-pill{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.5px;color:var(--teal-deep);background:linear-gradient(180deg,var(--teal-2),var(--teal));border:none;border-radius:30px;padding:6px 12px;animation:badgePulse 2.6s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,211,168,.5)}50%{box-shadow:0 0 18px 2px rgba(34,211,168,.55)}}
 .acct-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
 .stat{background:var(--w06);border:1px solid var(--border);border-radius:12px;padding:14px}
 .stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:7px}
@@ -734,7 +739,11 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
     <span class="eyebrow">Funded Stock Trading · T3 Global Infrastructure</span>
     <h1>You can trade.<br>You just need the <span class="hl">buying power.</span></h1>
     <p class="subhead">Trade a $100K simulated equity account on an institutional-grade platform, and keep 80% of your profits, paid weekly.</p>
-    <p class="kpi-line tnum"><b>$100K</b> buying power<span class="sep">·</span><b>80%</b> profit split<span class="sep">·</span>weekly payouts</p>
+    <div class="htrophies">
+      <div class="htrophy"><div class="v">$100K</div><div class="l">Buying power</div></div>
+      <div class="htrophy"><div class="v">80%</div><div class="l">Profit split</div></div>
+      <div class="htrophy"><div class="v">Weekly</div><div class="l">Payouts</div></div>
+    </div>
     <div class="btns">
       <a href="#" class="btn btn-primary">Get Funded <span class="arr">→</span></a>
       <a href="#" class="btn btn-ghost">Talk to our team</a>
@@ -770,7 +779,7 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
         <svg class="spark" viewBox="0 0 320 84" preserveAspectRatio="none">
           <defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(34,211,168,0.28)"/><stop offset="1" stop-color="rgba(34,211,168,0)"/></linearGradient></defs>
           <path d="M0,70 L26,66 L54,58 L82,60 L110,48 L138,40 L166,44 L194,30 L222,24 L250,26 L278,14 L320,8 L320,84 L0,84 Z" fill="url(#fill)"/>
-          <path class="draw" d="M0,70 L26,66 L54,58 L82,60 L110,48 L138,40 L166,44 L194,30 L222,24 L250,26 L278,14 L320,8" fill="none" stroke="#22d3a8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="draw" d="M0,70 L26,66 L54,58 L82,60 L110,48 L138,40 L166,44 L194,30 L222,24 L250,26 L278,14 L320,8" fill="none" stroke="#34f5c6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 5px rgba(34,211,168,0.6))"/>
         </svg>
       </div>
       <div class="positions">
