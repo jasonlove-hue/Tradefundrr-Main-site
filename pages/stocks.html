@@ -740,8 +740,8 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
     <h1>You can trade.<br>You just need the <span class="hl">buying power.</span></h1>
     <p class="subhead">Trade a $100K simulated equity account on an institutional-grade platform, and keep 80% of your profits, paid weekly.</p>
     <div class="htrophies">
-      <div class="htrophy"><div class="v">$100K</div><div class="l">Buying power</div></div>
-      <div class="htrophy"><div class="v">80%</div><div class="l">Profit split</div></div>
+      <div class="htrophy"><div class="v tnum" id="t1">$0K</div><div class="l">Buying power</div></div>
+      <div class="htrophy"><div class="v tnum" id="t2">0%</div><div class="l">Profit split</div></div>
       <div class="htrophy"><div class="v">Weekly</div><div class="l">Payouts</div></div>
     </div>
     <div class="btns">
@@ -1635,6 +1635,8 @@ window.addEventListener('load',()=>{
   setTimeout(()=>{
     countUp(document.getElementById('bp'),100000,1600,'$',0,'');
     countUp(document.getElementById('pl'),1847.50,1900,'+$',2,'');
+    countUp(document.getElementById('t1'),100,1500,'$',0,'K');
+    countUp(document.getElementById('t2'),80,1500,'',0,'%');
   },300);
 });
 const io=new IntersectionObserver((es)=>{
