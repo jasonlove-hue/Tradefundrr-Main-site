@@ -642,20 +642,17 @@ h1 .hl{color:var(--teal);white-space:nowrap}
 .foot-legal p b{color:var(--w55)}
 .foot-legal .cftc{text-transform:uppercase;font-size:11.5px;letter-spacing:.3px;color:var(--w55)}
 h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif-close,.sep-quote blockquote,.reframe .b{text-wrap:balance}
-.tt,.hiw,.faq,.rev,.wn{background:#04060c}
-.rm,.pr,.bm,.sep{background:rgba(255,255,255,0.028)}
-.cg,.eq,.b5,.wif{background:rgba(34,211,168,0.022)}
-.t3{background:#05080f}
-.plat{background:#070b14}
+.tt,.hiw,.faq,.rev,.wn,.rm,.pr,.bm,.sep,.cg,.eq,.b5,.wif,.t3,.plat{background:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1300px 820px at 50% -4%,rgba(34,211,168,0.20),transparent 58%),radial-gradient(1100px 1000px at 90% 28%,rgba(34,211,168,0.12),transparent 55%),radial-gradient(1200px 1100px at 4% 76%,rgba(34,211,168,0.12),transparent 55%)}
 .plat::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 75% 60% at 50% 45%,#000 30%,transparent 78%);mask-image:radial-gradient(ellipse 75% 60% at 50% 45%,#000 30%,transparent 78%)}
 .truth-glow,.cg-glow,.tt-glow,.rm-glow,.eq-glow,.hiw-glow,.pr-glow,.b5-glow,.bm-glow,.t3-glow,.rev-glow,.plat-glow,.wif-glow,.sep-glow,.wn-glow,.cta-glow{display:none}
 .truth::after,.cg::after,.tt::after,.rm::after,.eq::after,.hiw::after,.pr::after,.b5::after,.faq::after,.bm::after,.t3::after,.rev::after,.wif::after,.sep::after,.wn::after,.cta::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none}
-.cg::after,.pr::after,.bm::after,.sep::after{background:radial-gradient(900px 540px at 16% 16%,rgba(34,211,168,0.20),transparent 60%),radial-gradient(900px 540px at 86% 12%,rgba(2,124,196,0.24),transparent 64%),radial-gradient(820px 600px at 50% 114%,rgba(2,124,196,0.15),transparent 60%)}
-.truth::after,.tt::after,.faq::after{background:radial-gradient(940px 560px at 50% -12%,rgba(2,124,196,0.20),transparent 60%),radial-gradient(680px 480px at 10% 92%,rgba(34,211,168,0.11),transparent 60%)}
-.eq::after,.b5::after,.rev::after,.wif::after{background:radial-gradient(780px 560px at 2% 4%,rgba(34,211,168,0.18),transparent 60%),radial-gradient(780px 560px at 98% 100%,rgba(2,124,196,0.22),transparent 60%)}
-.rm::after,.hiw::after,.cta::after{background:radial-gradient(940px 560px at 50% -8%,rgba(34,211,168,0.20),transparent 60%),radial-gradient(720px 520px at 88% 96%,rgba(2,124,196,0.16),transparent 60%)}
-.t3::after{background:radial-gradient(960px 560px at 50% 0%,rgba(2,124,196,0.30),transparent 60%),radial-gradient(700px 500px at 12% 100%,rgba(2,124,196,0.16),transparent 60%)}
-.wn::after{background:radial-gradient(860px 540px at 20% 14%,rgba(255,213,79,0.10),transparent 58%),radial-gradient(900px 560px at 84% 92%,rgba(2,124,196,0.20),transparent 62%)}
+.cg::after,.pr::after,.bm::after,.sep::after{background:radial-gradient(900px 540px at 16% 16%,rgba(34,211,168,0.17),transparent 60%),radial-gradient(900px 540px at 86% 12%,rgba(34,211,168,0.12),transparent 64%),radial-gradient(820px 600px at 50% 114%,rgba(34,211,168,0.10),transparent 60%)}
+.truth::after,.tt::after,.faq::after{background:radial-gradient(940px 560px at 50% -12%,rgba(34,211,168,0.15),transparent 60%),radial-gradient(680px 480px at 10% 92%,rgba(34,211,168,0.11),transparent 60%)}
+.eq::after,.b5::after,.rev::after,.wif::after{background:radial-gradient(780px 560px at 2% 4%,rgba(34,211,168,0.16),transparent 60%),radial-gradient(780px 560px at 98% 100%,rgba(34,211,168,0.13),transparent 60%)}
+.rm::after,.hiw::after,.cta::after{background:radial-gradient(940px 560px at 50% -8%,rgba(34,211,168,0.18),transparent 60%),radial-gradient(720px 520px at 88% 96%,rgba(34,211,168,0.12),transparent 60%)}
+.t3::after{background:radial-gradient(960px 560px at 50% 0%,rgba(34,211,168,0.18),transparent 60%),radial-gradient(700px 500px at 12% 100%,rgba(34,211,168,0.11),transparent 60%)}
+.wn::after{background:radial-gradient(860px 540px at 20% 14%,rgba(255,213,79,0.08),transparent 58%),radial-gradient(900px 560px at 84% 92%,rgba(34,211,168,0.14),transparent 62%)}
 .truth,.cg,.tt,.rm,.eq,.hiw,.pr,.b5,.faq,.bm,.t3,.rev,.plat,.wif,.sep,.wn,.cta{border-top:none}
 .cg::before,.tt::before,.rm::before,.eq::before,.hiw::before,.pr::before,.b5::before,.faq::before,.bm::before,.t3::before,.rev::before,.plat::before,.wif::before,.sep::before,.wn::before,.cta::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(92%,1120px);height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.10),transparent);z-index:3;pointer-events:none}
 .note{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:30px 40px 60px;color:var(--w40);font-size:12.5px;font-family:var(--mono);letter-spacing:.3px;border-top:1px solid var(--border)}
@@ -782,14 +779,12 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
 
 <div class="ticker">
   <div class="ticker-track">
-    <span class="ticker-item"><b>$2.3M+</b> paid to traders in 2025</span>
     <span class="ticker-item">Evaluation fee refunded when you pass</span>
     <span class="ticker-item"><b>80 / 20</b> profit split</span>
     <span class="ticker-item">Weekly payouts every Friday</span>
     <span class="ticker-item"><b>$100K</b> simulated buying power</span>
     <span class="ticker-item">T3 Global institutional partnership</span>
     <span class="ticker-item"><b>4.3 / 5</b> on Trustpilot · 67+ reviews</span>
-    <span class="ticker-item"><b>$2.3M+</b> paid to traders in 2025</span>
     <span class="ticker-item">Evaluation fee refunded when you pass</span>
     <span class="ticker-item"><b>80 / 20</b> profit split</span>
     <span class="ticker-item">Weekly payouts every Friday</span>
@@ -1662,6 +1657,26 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6
   if(!id||id.indexOf('YOUR_')!==-1)return;
   var load=function(){var s=document.createElement('script');s.src='https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';s.async=true;document.head.appendChild(s);};
   if('IntersectionObserver' in window){var io2=new IntersectionObserver(function(e){if(e[0].isIntersecting){load();io2.disconnect();}},{rootMargin:'400px'});io2.observe(w);}else{load();}
+})();
+</script>
+<script>
+/* Hero dashboard 3D mouse-tilt (matches the options page feel) */
+(function(){
+  var card=document.querySelector('.acct'), wrap=document.querySelector('.acct-wrap');
+  if(!card||!wrap||window.matchMedia('(hover:none)').matches)return;
+  var maxY=10,maxX=7;
+  wrap.addEventListener('mousemove',function(e){
+    var r=wrap.getBoundingClientRect();
+    var nx=((e.clientX-r.left)/r.width-0.5)*2, ny=((e.clientY-r.top)/r.height-0.5)*2;
+    card.style.animation='none';
+    card.style.transition='transform .08s linear';
+    card.style.transform='rotateX('+(-ny*maxX).toFixed(2)+'deg) rotateY('+(nx*maxY).toFixed(2)+'deg)';
+  });
+  wrap.addEventListener('mouseleave',function(){
+    card.style.transition='transform .5s cubic-bezier(0.2,0.8,0.2,1)';
+    card.style.transform='rotateX(0deg) rotateY(0deg)';
+    setTimeout(function(){card.style.animation='';card.style.transition='';card.style.transform='';},520);
+  });
 })();
 </script>
 <script src="../js/main.js?v=202605230840" defer></script>
