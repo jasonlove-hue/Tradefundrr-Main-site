@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Capital Is the #1 Thing Holding You Back | TradeFundrr Blog</title>
+  <meta name="description" content="If you can trade consistently small but cannot grow, capital is your ceiling. How funded trading removes the constraint without putting your own money at risk.">
+  <link rel="canonical" href="https://tradefundrr.com/blog/why-capital-is-holding-you-back">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why Capital Is the #1 Thing Holding You Back">
+  <meta property="og:description" content="When skill is not the constraint, capital is. Here is how funding changes that.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_190347_aa3e2311-e333-49fb-9945-fe351cc36aed.png">
+  <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <style>
+    .bp-wrap{max-width:760px;margin:0 auto;padding:0 24px}
+    .bp-article{padding:54px 0 30px}
+    .bp-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#22d3a8;display:block;margin-bottom:16px}
+    .bp-article h1{font-family:"Inter",system-ui,sans-serif;font-size:40px;letter-spacing:-.8px;line-height:1.12;margin-bottom:18px}
+    .bp-meta{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13.5px;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .bp-meta .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#22d3a8,#0e8f74);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04130f;font-size:13px;font-family:"Inter"}
+    .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
+    .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
+    .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
+    .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
+    .bp-body li{margin-bottom:10px}
+    .bp-body li strong,.bp-body p strong{color:#fff}
+    .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
+    .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
+    .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
+    .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
+    .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
+    .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
+    /* embedded diagram */
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
+    .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
+    #fundflow .anim{opacity:0}
+    #fundflow.play .step{animation:fundFadeUp .55s ease forwards}
+    #fundflow.play .st2{animation-delay:.45s}#fundflow.play .st3{animation-delay:.9s}#fundflow.play .st4{animation-delay:1.35s}
+    #fundflow.play .arw{animation:fundFade .4s ease forwards}
+    #fundflow.play .a1{animation-delay:.4s}#fundflow.play .a2{animation-delay:.85s}#fundflow.play .a3{animation-delay:1.3s}
+    @keyframes fundFadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fundFade{to{opacity:1}}
+    @media (prefers-reduced-motion: reduce){#fundflow .anim{opacity:1 !important;animation:none !important}}
+    @media(max-width:560px){.bp-article h1{font-size:30px}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu">
+          <a href="/pages/stocks.html" data-cat="stocks"><span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/options.html" data-cat="options"><span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/futures/" data-cat="futures"><span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span></a>
+          <a href="/pages/crypto.html" data-cat="crypto"><span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span></a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding"><span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span></a>
+        </div>
+      </span>
+      <a href="/index.html#how-it-works">How It Works</a>
+      <a href="/pages/about.html">Why Us</a>
+      <a href="/blog" class="active">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="/index.html#markets" class="btn btn--primary navbar__cta">Get Funded <span class="arrow"><img src="/assets/images/btn-arrow.svg" alt=""></span></a>
+    </div>
+  </nav>
+</header>
+
+<main class="bp-article">
+  <div class="bp-wrap">
+    <article>
+      <span class="bp-eyebrow">Capital &amp; Growth</span>
+      <h1>Why Capital Is the #1 Thing Holding You Back</h1>
+      <div class="bp-meta">
+        <span class="who"><span class="av">TF</span> TradeFundrr</span>
+        <span class="bp-dot"></span><span>June 13, 2026</span>
+        <span class="bp-dot"></span><span>5 min read</span>
+      </div>
+
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_190347_aa3e2311-e333-49fb-9945-fe351cc36aed.png" alt="3D candlestick prisms in mint teal rising on a dark navy background">
+
+      <div class="bp-body">
+        <p>There is a specific kind of trader who is stuck for a reason that has nothing to do with skill. They can trade consistently. They manage risk. Their numbers are steady. And they are still not getting anywhere, because a small account turns a good month into a small number.</p>
+        <p>If that is you, capital is not one of your problems. It is the problem. And it is one of the few problems in trading you cannot solve by getting better at trading.</p>
+
+        <h2>Skill and capital are different ceilings</h2>
+        <p>Most trading advice is about skill: better entries, tighter risk, more discipline. That advice matters right up until you have it. After that, a small account becomes the ceiling. A solid percentage return on a tiny balance is still a tiny result, and grinding a small account up takes years and exposes you to your own savings the whole way.</p>
+        <p>This is the honest case for funding. Not that it makes you a better trader, but that it removes the one ceiling effort cannot move.</p>
+
+        <figure class="bp-figure" id="fundflow">
+          <span class="figtag">How funding works</span>
+          <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="Four steps: pay entry fee, make first payout, get the fee rebated, keep 80 percent">
+            <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#22d3a8"/></marker></defs>
+            <g class="anim step st1"><rect x="8" y="40" width="222" height="120" rx="12" fill="#0a1f1a" stroke="#22d3a8" stroke-opacity=".35"/><text x="30" y="78" fill="#22d3a8" font-size="30" font-weight="800">1</text><text x="30" y="112" fill="#fff" font-size="17" font-weight="700">Pay your entry fee</text><text x="30" y="138" fill="#9fb0c3" font-size="14">$1,499 to get funded</text></g>
+            <line class="anim arw a1" x1="236" y1="100" x2="262" y2="100" stroke="#22d3a8" stroke-width="2.5" marker-end="url(#ar)"/>
+            <g class="anim step st2"><rect x="268" y="40" width="222" height="120" rx="12" fill="#0d1326" stroke="hsla(0,0%,100%,.12)"/><text x="290" y="78" fill="#22d3a8" font-size="30" font-weight="800">2</text><text x="290" y="112" fill="#fff" font-size="17" font-weight="700">Make first payout</text><text x="290" y="138" fill="#9fb0c3" font-size="14">Trade the rules, get paid</text></g>
+            <line class="anim arw a2" x1="496" y1="100" x2="522" y2="100" stroke="#22d3a8" stroke-width="2.5" marker-end="url(#ar)"/>
+            <g class="anim step st3"><rect x="528" y="40" width="222" height="120" rx="12" fill="#0d1326" stroke="hsla(0,0%,100%,.12)"/><text x="550" y="78" fill="#22d3a8" font-size="30" font-weight="800">3</text><text x="550" y="112" fill="#fff" font-size="17" font-weight="700">Get the $1,499 back</text><text x="550" y="138" fill="#9fb0c3" font-size="14">Full entry fee rebated</text></g>
+            <line class="anim arw a3" x1="756" y1="100" x2="782" y2="100" stroke="#22d3a8" stroke-width="2.5" marker-end="url(#ar)"/>
+            <g class="anim step st4"><rect x="788" y="40" width="204" height="120" rx="12" fill="#0a1f1a" stroke="#22d3a8" stroke-opacity=".6"/><text x="810" y="78" fill="#22d3a8" font-size="30" font-weight="800">4</text><text x="810" y="112" fill="#fff" font-size="17" font-weight="700">Keep 80%</text><text x="810" y="138" fill="#9fb0c3" font-size="14">of everything after</text></g>
+          </svg>
+          <figcaption>Make your first payout and your $1,499 entry fee is rebated in full. After that you keep 80% of what you earn.</figcaption>
+        </figure>
+
+        <h2>What changes when capital is not the constraint</h2>
+        <ul>
+          <li><strong>Your edge gets room to matter.</strong> The same disciplined approach on real buying power produces results worth the effort.</li>
+          <li><strong>Your own savings stay out of it.</strong> You develop and trade in a simulated environment, so the downside is not your personal capital.</li>
+          <li><strong>Good months compound into something.</strong> Steady process on a meaningful account size is how trading stops being a hobby.</li>
+        </ul>
+
+        <h2>One honest caveat</h2>
+        <p>This only holds if the skill is already there. Capital amplifies whatever you bring to it. If your process is not consistent yet, more buying power magnifies the problem. But if you have quietly proven you can trade and the account size is the only thing capping you, that is exactly the gap funding is built to close.</p>
+
+        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit or trading results. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+
+        <div class="bp-cta">
+          <h3>Is account size your only ceiling?</h3>
+          <p>Trade up to institutional-grade buying power without risking your own capital.</p>
+          <a class="btn" href="/index.html#markets">Get Funded →</a>
+        </div>
+
+        <a class="bp-back" href="/blog">← Back to all posts</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; margin: 0 0 22px 0; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) { .site-footer__grid { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="navbar__logo" aria-label="TradeFundrr"><img src="/assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pages/why-us.html">Why Us?</a></li>
+          <li><a href="/pages/about.html">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="/pages/stocks.html">Stocks Day Trader Funding</a></li>
+          <li><a href="/pages/options.html">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/">Futures Day Trader Funding</a></li>
+          <li><a href="/pages/crypto.html">Crypto Day Trader Funding</a></li>
+          <li><a href="/pages/pro-funding.html">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=8ae59468-1120-4330-8ca7-97112729076b" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/pages/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/pages/impressum.html">Impressum</a></li>
+          <li><a href="/pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/pages/refund-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<section class="legal-disclosure" aria-label="Legal disclosures">
+  <style>
+    .legal-disclosure { background: #060914; padding: 60px 0 80px 0; border-top: 1px solid hsla(0,0%,100%,0.06); color: hsla(0,0%,100%,0.55); }
+    .legal-disclosure .ld-container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .legal-disclosure h3 { color: #fff; font-family: "Inter", system-ui, sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 18px 0; }
+    .legal-disclosure h3:not(:first-child) { margin-top: 36px; }
+    .legal-disclosure p { color: hsla(0,0%,100%,0.55); font-family: "Inter", system-ui, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0 0 14px 0; }
+    .legal-disclosure .cftc-block { text-transform: uppercase; font-size: 12.5px; letter-spacing: 0.3px; color: hsla(0,0%,100%,0.6); }
+    @media (max-width: 575px) { .legal-disclosure { padding: 40px 0 60px 0; } .legal-disclosure .ld-container { padding: 0 20px; } }
+  </style>
+  <div class="ld-container">
+    <h3>General Disclosure</h3>
+    <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+    <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+    <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+    <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+    <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+    <h3>Risk Disclosure</h3>
+    <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+    <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+    <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+    <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
+    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+    <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+    <h3>Testimonial Disclosure</h3>
+    <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script>
+  (function(){
+    var el=document.getElementById('fundflow');
+    if(!el)return;
+    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
+    },{threshold:.35});
+    io.observe(el);
+  })();
+</script>
+</body>
+</html>
