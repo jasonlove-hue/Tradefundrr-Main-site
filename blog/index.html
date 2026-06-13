@@ -12,10 +12,9 @@
   <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
   <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
   <style>
-    /* Blog index — scoped styles (bl-) */
     .bl-container{max-width:1180px;margin:0 auto;padding:0 32px}
     .bl-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:#22d3a8}
-    .bl-hero{padding:120px 0 36px}
+    .bl-hero{padding:140px 0 36px}
     .bl-hero h1{font-family:"Inter",system-ui,sans-serif;font-size:46px;letter-spacing:-1px;margin:14px 0 12px;color:#fff}
     .bl-hero p{color:hsla(0,0%,100%,.62);max-width:640px;font-size:17px;line-height:1.6}
     .bl-featured{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;background:linear-gradient(180deg,#0d1326,#0a0f1f);border:1px solid hsla(0,0%,100%,.1);border-radius:18px;overflow:hidden;margin:8px 0 56px;text-decoration:none}
@@ -27,8 +26,12 @@
     .bl-metarow{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13px;margin-bottom:18px}
     .bl-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
     .bl-readlink{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center}
-    .bl-sechead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
+    .bl-sechead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px}
     .bl-sechead h3{font-family:"Inter";font-size:20px;color:#fff}
+    .bl-filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+    .bl-chip{font-size:13px;font-weight:600;color:hsla(0,0%,100%,.62);border:1px solid hsla(0,0%,100%,.14);background:transparent;border-radius:999px;padding:7px 16px;cursor:pointer;font-family:"Inter";transition:all .15s ease}
+    .bl-chip:hover{color:#fff;border-color:hsla(0,0%,100%,.3)}
+    .bl-chip.active{background:#22d3a8;color:#04130f;border-color:transparent}
     .bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:80px}
     .bl-card{background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:16px;overflow:hidden;transition:transform .15s ease,border-color .15s ease;text-decoration:none;display:block}
     .bl-card:hover{transform:translateY(-4px);border-color:hsla(160,70%,55%,.4)}
@@ -38,6 +41,7 @@
     .bl-card__body h4{font-family:"Inter";font-size:18px;letter-spacing:-.3px;margin:10px 0 10px;line-height:1.25;color:#fff}
     .bl-card__body p{color:hsla(0,0%,100%,.62);font-size:14px;margin-bottom:16px;line-height:1.55}
     .bl-card__meta{color:hsla(0,0%,100%,.45);font-size:12.5px}
+    .bl-card.is-hidden{display:none}
     @media(max-width:900px){.bl-featured{grid-template-columns:1fr}.bl-featured__media{min-height:220px}.bl-featured__body{padding:30px}.bl-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){.bl-grid{grid-template-columns:1fr}.bl-hero h1{font-size:34px}.bl-container{padding:0 20px}}
   </style>
@@ -46,37 +50,18 @@
 
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
-    <a href="/" class="navbar__logo" aria-label="TradeFundrr home">
-      <img src="/assets/images/logo.svg" alt="logo">
-    </a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="navbar__nav">
       <span class="has-sub" tabindex="0" aria-haspopup="true">
         Products
         <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
         <div class="dropdown" role="menu">
-          <a href="/pages/stocks.html" data-cat="stocks">
-            <span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span>
-            <span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span>
-          </a>
-          <a href="/pages/options.html" data-cat="options">
-            <span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span>
-            <span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span>
-          </a>
-          <a href="/pages/futures/" data-cat="futures">
-            <span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span>
-            <span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span>
-          </a>
-          <a href="/pages/crypto.html" data-cat="crypto">
-            <span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span>
-            <span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span>
-          </a>
-          <a href="/pages/pro-funding.html" data-cat="pro-funding">
-            <span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span>
-            <span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span>
-          </a>
+          <a href="/pages/stocks.html" data-cat="stocks"><span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/options.html" data-cat="options"><span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/futures/" data-cat="futures"><span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span></a>
+          <a href="/pages/crypto.html" data-cat="crypto"><span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span></a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding"><span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span></a>
         </div>
       </span>
       <a href="/index.html#how-it-works">How It Works</a>
@@ -98,13 +83,13 @@
       <p>Straight talk on funded trading, risk discipline, and the path to real capital. No hype, no get-rich-quick. Just what actually keeps traders in the game.</p>
     </div>
 
-    <a class="bl-featured" href="/blog/scaling-funded-account-without-blowing-it">
-      <div class="bl-featured__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_182531_cb373449-5fb8-4911-9099-60b97222aa64.png')"></div>
+    <a class="bl-featured" href="/blog/the-hidden-cost-of-revenge-trading">
+      <div class="bl-featured__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_192752_7d93a010-1c76-4d7d-8422-05d5a8dc4542.png')"></div>
       <div class="bl-featured__body">
-        <span class="bl-eyebrow">Featured &middot; Risk Management</span>
-        <h2>Why Traders Blow Funded Accounts When They Add Size</h2>
-        <p>You passed the challenge. Then you sized up and gave it all back. Here is why it happens, and a calmer way to scale that keeps you inside the rules.</p>
-        <div class="bl-metarow"><span>June 13, 2026</span><span class="bl-dot"></span><span>6 min read</span></div>
+        <span class="bl-eyebrow">Featured &middot; Trading Psychology</span>
+        <h2>The Hidden Cost of Revenge Trading</h2>
+        <p>One loss rarely ends an account. The trades you take to win it back do. How the spiral works, and how to break it.</p>
+        <div class="bl-metarow"><span>June 13, 2026</span><span class="bl-dot"></span><span>5 min read</span></div>
         <span class="bl-readlink">Read the article →</span>
       </div>
     </a>
@@ -114,17 +99,17 @@
       <span class="bl-eyebrow">Updated daily</span>
     </div>
 
-    <div class="bl-grid">
-      <a class="bl-card" href="/blog/the-hidden-cost-of-revenge-trading">
-        <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_192752_7d93a010-1c76-4d7d-8422-05d5a8dc4542.png')"></div>
-        <div class="bl-card__body">
-          <span class="bl-tag">Trading Psychology</span>
-          <h4>The Hidden Cost of Revenge Trading</h4>
-          <p>One loss rarely ends an account. The trades you take to win it back do.</p>
-          <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
-        </div>
-      </a>
-      <a class="bl-card" href="/blog/win-rate-isnt-what-matters">
+    <div class="bl-filters" id="blFilters">
+      <button class="bl-chip active" data-filter="all">All</button>
+      <button class="bl-chip" data-filter="funding">Funding</button>
+      <button class="bl-chip" data-filter="risk">Risk &amp; Reward</button>
+      <button class="bl-chip" data-filter="mindset">Mindset</button>
+      <button class="bl-chip" data-filter="rules">Rules</button>
+      <button class="bl-chip" data-filter="payouts">Payouts</button>
+    </div>
+
+    <div class="bl-grid" id="blGrid">
+      <a class="bl-card" data-cat="risk" href="/blog/win-rate-isnt-what-matters">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_190345_a65b0e6b-84b3-4b0b-94aa-c36fa9763f12.jpeg')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Risk &amp; Reward</span>
@@ -133,7 +118,7 @@
           <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/how-weekly-payouts-work">
+      <a class="bl-card" data-cat="payouts" href="/blog/how-weekly-payouts-work">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_190347_f541e5be-485a-4a0a-aa3b-a71dacf4f9e4.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Payouts</span>
@@ -142,7 +127,7 @@
           <div class="bl-card__meta">June 13, 2026 · 4 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/why-capital-is-holding-you-back">
+      <a class="bl-card" data-cat="funding" href="/blog/why-capital-is-holding-you-back">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_190347_aa3e2311-e333-49fb-9945-fe351cc36aed.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Capital &amp; Growth</span>
@@ -151,7 +136,7 @@
           <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/do-you-actually-need-funding">
+      <a class="bl-card" data-cat="funding" href="/blog/do-you-actually-need-funding">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_190345_9123f432-1a2f-423d-ae02-2d3b62563bdb.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Honest Take</span>
@@ -160,7 +145,7 @@
           <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/what-gets-traders-funded-consistently">
+      <a class="bl-card" data-cat="mindset" href="/blog/what-gets-traders-funded-consistently">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_191212_170f6d1a-2853-4203-a702-8e53b1bdc472.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Consistency</span>
@@ -169,7 +154,7 @@
           <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/why-traders-never-pass-funded-challenges">
+      <a class="bl-card" data-cat="mindset" href="/blog/why-traders-never-pass-funded-challenges">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_184652_42035335-707c-4dc4-ab97-7a7ab31c03f9.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Mindset &amp; Discipline</span>
@@ -178,7 +163,7 @@
           <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/daily-loss-limits-explained">
+      <a class="bl-card" data-cat="rules" href="/blog/daily-loss-limits-explained">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_184748_711120ea-2692-4e99-93fa-1b93db9cb11f.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Rules Explained</span>
@@ -187,7 +172,7 @@
           <div class="bl-card__meta">June 13, 2026 · 5 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/prop-firm-red-flags-before-you-choose">
+      <a class="bl-card" data-cat="funding" href="/blog/prop-firm-red-flags-before-you-choose">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_184659_d9577d6f-e210-40fe-87d2-8cc0f810740b.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Choosing a Firm</span>
@@ -196,7 +181,7 @@
           <div class="bl-card__meta">June 13, 2026 · 6 min read</div>
         </div>
       </a>
-      <a class="bl-card" href="/blog/scaling-funded-account-without-blowing-it">
+      <a class="bl-card" data-cat="risk" href="/blog/scaling-funded-account-without-blowing-it">
         <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_182532_5214ad9a-3e26-40e5-90fe-679565afa545.png')"></div>
         <div class="bl-card__body">
           <span class="bl-tag">Risk Management</span>
@@ -309,5 +294,22 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
+<script>
+  (function(){
+    var filters=document.getElementById('blFilters');
+    if(!filters)return;
+    var cards=document.querySelectorAll('#blGrid .bl-card');
+    filters.addEventListener('click',function(e){
+      var btn=e.target.closest('.bl-chip');
+      if(!btn)return;
+      var f=btn.getAttribute('data-filter');
+      filters.querySelectorAll('.bl-chip').forEach(function(c){c.classList.toggle('active',c===btn);});
+      cards.forEach(function(card){
+        var show = (f==='all') || card.getAttribute('data-cat')===f;
+        card.classList.toggle('is-hidden',!show);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
