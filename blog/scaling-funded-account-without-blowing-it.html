@@ -255,5 +255,25 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
+<style>
+  .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.93);display:none;align-items:center;justify-content:center;z-index:9999;cursor:zoom-out;padding:24px}
+  .bp-lightbox.open{display:flex}
+  .bp-lightbox img{max-width:95%;max-height:92%;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .bp-lightbox__close{position:absolute;top:16px;right:26px;color:#fff;font-size:34px;line-height:1;font-family:"Inter",sans-serif;cursor:pointer;opacity:.85}
+  .bp-hero,.bp-inline{cursor:zoom-in}
+</style>
+<div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer"><span class="bp-lightbox__close" aria-label="Close">&times;</span><img src="" alt=""></div>
+<script>
+  (function(){
+    var lb=document.getElementById('bpLightbox');if(!lb)return;
+    var img=lb.querySelector('img');
+    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){
+      el.addEventListener('click',function(){img.src=el.currentSrc||el.src;img.alt=el.alt||'';lb.classList.add('open');});
+    });
+    function close(){lb.classList.remove('open');img.src='';}
+    lb.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+</script>
 </body>
 </html>

@@ -107,8 +107,8 @@
         <figure class="bp-figure" id="winrate">
           <span class="figtag">Illustrative example</span>
           <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="Trader A with a 60 percent win rate nets about +20R over 100 trades; Trader B with a 40 percent win rate nets about +40R">
+            <text x="60" y="28" fill="#9fb0c3" font-size="13">Net result over 100 trades (R = multiples of risk)</text>
             <line x1="60" y1="250" x2="940" y2="250" stroke="hsla(0,0%,100%,.15)"/>
-            <text x="60" y="278" fill="#9fb0c3" font-size="13">Net result over 100 trades, measured in R (multiples of risk).</text>
             <!-- Trader A -->
             <rect class="gbar barA" x="200" y="150" width="160" height="100" rx="6" fill="#1c3a4f"/>
             <g class="lbl lA">
@@ -262,6 +262,26 @@
     if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){el.classList.add('play');io.disconnect();}});},{threshold:.35});
     io.observe(el);
+  })();
+</script>
+<style>
+  .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.93);display:none;align-items:center;justify-content:center;z-index:9999;cursor:zoom-out;padding:24px}
+  .bp-lightbox.open{display:flex}
+  .bp-lightbox img{max-width:95%;max-height:92%;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .bp-lightbox__close{position:absolute;top:16px;right:26px;color:#fff;font-size:34px;line-height:1;font-family:"Inter",sans-serif;cursor:pointer;opacity:.85}
+  .bp-hero,.bp-inline{cursor:zoom-in}
+</style>
+<div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer"><span class="bp-lightbox__close" aria-label="Close">&times;</span><img src="" alt=""></div>
+<script>
+  (function(){
+    var lb=document.getElementById('bpLightbox');if(!lb)return;
+    var img=lb.querySelector('img');
+    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){
+      el.addEventListener('click',function(){img.src=el.currentSrc||el.src;img.alt=el.alt||'';lb.classList.add('open');});
+    });
+    function close(){lb.classList.remove('open');img.src='';}
+    lb.addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
   })();
 </script>
 </body>
