@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The TradeFundrr Blog | Funded Trading, Risk &amp; Discipline</title>
+  <meta name="description" content="Straight talk on funded trading, risk discipline, and the path to real capital. No hype. Just what keeps traders in the game.">
+  <link rel="canonical" href="https://tradefundrr.com/blog">
+  <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <style>
+    /* Blog index — scoped styles (bl-) */
+    .bl-container{max-width:1180px;margin:0 auto;padding:0 32px}
+    .bl-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:#22d3a8}
+    .bl-hero{padding:64px 0 36px}
+    .bl-hero h1{font-family:"Inter",system-ui,sans-serif;font-size:46px;letter-spacing:-1px;margin:14px 0 12px;color:#fff}
+    .bl-hero p{color:hsla(0,0%,100%,.62);max-width:640px;font-size:17px;line-height:1.6}
+    .bl-featured{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;background:linear-gradient(180deg,#0d1326,#0a0f1f);border:1px solid hsla(0,0%,100%,.1);border-radius:18px;overflow:hidden;margin:8px 0 56px;text-decoration:none}
+    .bl-featured__media{height:100%;min-height:320px;background-size:cover;background-position:center}
+    .bl-featured__body{padding:40px 40px 40px 8px}
+    .bl-featured__body .bl-eyebrow{display:block;margin-bottom:14px}
+    .bl-featured__body h2{font-family:"Inter";font-size:30px;letter-spacing:-.6px;margin-bottom:14px;color:#fff;line-height:1.18}
+    .bl-featured__body p{color:hsla(0,0%,100%,.62);margin-bottom:22px;line-height:1.6}
+    .bl-metarow{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13px;margin-bottom:18px}
+    .bl-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
+    .bl-readlink{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center}
+    .bl-sechead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
+    .bl-sechead h3{font-family:"Inter";font-size:20px;color:#fff}
+    .bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:80px}
+    .bl-card{background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:16px;overflow:hidden;transition:transform .15s ease,border-color .15s ease;text-decoration:none;display:block}
+    .bl-card:hover{transform:translateY(-4px);border-color:hsla(160,70%,55%,.4)}
+    .bl-card__media{height:180px;background-size:cover;background-position:center}
+    .bl-card__body{padding:20px 22px 24px}
+    .bl-tag{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#22d3a8}
+    .bl-card__body h4{font-family:"Inter";font-size:18px;letter-spacing:-.3px;margin:10px 0 10px;line-height:1.25;color:#fff}
+    .bl-card__body p{color:hsla(0,0%,100%,.62);font-size:14px;margin-bottom:16px;line-height:1.55}
+    .bl-card__meta{color:hsla(0,0%,100%,.45);font-size:12.5px}
+    @media(max-width:900px){.bl-featured{grid-template-columns:1fr}.bl-featured__media{min-height:220px}.bl-featured__body{padding:30px}.bl-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.bl-grid{grid-template-columns:1fr}.bl-hero h1{font-size:34px}.bl-container{padding:0 20px}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home">
+      <img src="/assets/images/logo.svg" alt="logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu">
+          <a href="/pages/stocks.html" data-cat="stocks">
+            <span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span>
+            <span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span>
+          </a>
+          <a href="/pages/options.html" data-cat="options">
+            <span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span>
+            <span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span>
+          </a>
+          <a href="/pages/futures/" data-cat="futures">
+            <span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span>
+            <span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span>
+          </a>
+          <a href="/pages/crypto.html" data-cat="crypto">
+            <span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span>
+            <span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span>
+          </a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding">
+            <span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span>
+            <span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span>
+          </a>
+        </div>
+      </span>
+      <a href="/index.html#how-it-works">How It Works</a>
+      <a href="/pages/about.html">Why Us</a>
+      <a href="/blog" class="active">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="/index.html#markets" class="btn btn--primary navbar__cta">Get Funded <span class="arrow"><img src="/assets/images/btn-arrow.svg" alt=""></span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="bl-container">
+    <div class="bl-hero">
+      <span class="bl-eyebrow">The TradeFundrr Blog</span>
+      <h1>Trade with structure.</h1>
+      <p>Straight talk on funded trading, risk discipline, and the path to real capital. No hype, no get-rich-quick. Just what actually keeps traders in the game.</p>
+    </div>
+
+    <a class="bl-featured" href="/blog/scaling-funded-account-without-blowing-it">
+      <div class="bl-featured__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_182531_cb373449-5fb8-4911-9099-60b97222aa64.png')"></div>
+      <div class="bl-featured__body">
+        <span class="bl-eyebrow">Featured &middot; Risk Management</span>
+        <h2>Why Traders Blow Funded Accounts When They Add Size</h2>
+        <p>You passed the challenge. Then you sized up and gave it all back. Here is why it happens, and a calmer way to scale that keeps you inside the rules.</p>
+        <div class="bl-metarow"><span>June 13, 2026</span><span class="bl-dot"></span><span>6 min read</span></div>
+        <span class="bl-readlink">Read the article →</span>
+      </div>
+    </a>
+
+    <div class="bl-sechead">
+      <h3>Latest posts</h3>
+      <span class="bl-eyebrow">Updated daily</span>
+    </div>
+
+    <div class="bl-grid">
+      <a class="bl-card" href="/blog/scaling-funded-account-without-blowing-it">
+        <div class="bl-card__media" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260613_182532_5214ad9a-3e26-40e5-90fe-679565afa545.png')"></div>
+        <div class="bl-card__body">
+          <span class="bl-tag">Risk Management</span>
+          <h4>Why Traders Blow Funded Accounts When They Add Size</h4>
+          <p>The skill that got you funded is rarely the skill that breaks the account.</p>
+          <div class="bl-card__meta">June 13, 2026 · 6 min read</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; margin: 0 0 22px 0; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) { .site-footer__grid { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="navbar__logo" aria-label="TradeFundrr"><img src="/assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pages/why-us.html">Why Us?</a></li>
+          <li><a href="/pages/about.html">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="/pages/stocks.html">Stocks Day Trader Funding</a></li>
+          <li><a href="/pages/options.html">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/">Futures Day Trader Funding</a></li>
+          <li><a href="/pages/crypto.html">Crypto Day Trader Funding</a></li>
+          <li><a href="/pages/pro-funding.html">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=8ae59468-1120-4330-8ca7-97112729076b" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/pages/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/pages/impressum.html">Impressum</a></li>
+          <li><a href="/pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/pages/refund-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
