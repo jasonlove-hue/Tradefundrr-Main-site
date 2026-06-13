@@ -1,0 +1,45 @@
+<h2 class="sr-only">Side-by-side preview comparing the current hero image with the proposed mask fade and left-shift adjustments.</h2>
+
+<style>
+  .hp-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 1rem 0; }
+  .hp-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 12px; }
+  .hp-card p { margin: 0 0 8px; font-size: 13px; color: var(--color-text-secondary); }
+  .hp-stage { position: relative; height: 220px; border-radius: 8px; overflow: hidden; background-color: #060914; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 22px 22px; }
+  .hp-text { position: absolute; left: 12px; top: 28px; color: #fff; max-width: 140px; }
+  .hp-text .h { font-size: 14px; font-weight: 500; line-height: 1.15; margin: 0; }
+  .hp-text .a { font-size: 22px; font-weight: 500; margin: 4px 0 0; color: #ffc107; }
+  .hp-img { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); height: 190px; width: auto; pointer-events: none; }
+  .hp-img--fade { -webkit-mask-image: radial-gradient(ellipse 78% 88% at 50% 50%, black 55%, transparent 95%); mask-image: radial-gradient(ellipse 78% 88% at 50% 50%, black 55%, transparent 95%); height: 200px; right: 14px; }
+  .hp-note { margin-top: 8px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
+</style>
+
+<div class="hp-wrap">
+
+  <div class="hp-card">
+    <p>Current — visible card edges</p>
+    <div class="hp-stage">
+      <div class="hp-text"><p class="h">Fund Your Stocks, Options...</p><p class="a">$100k</p></div>
+      <img class="hp-img" src="https://tradefundrr-main-site.vercel.app/assets/images/hero-image.webp" alt="" />
+    </div>
+    <p class="hp-note">The image's own dark background creates a visible rectangle against the page grid.</p>
+  </div>
+
+  <div class="hp-card">
+    <p>Proposed — mask fade + slight scale + shift</p>
+    <div class="hp-stage">
+      <div class="hp-text"><p class="h">Fund Your Stocks, Options...</p><p class="a">$100k</p></div>
+      <img class="hp-img hp-img--fade" src="https://tradefundrr-main-site.vercel.app/assets/images/hero-image.webp" alt="" />
+    </div>
+    <p class="hp-note">Radial mask fades all four edges into the page. Image scaled up ~5% to fill more comfortably. Card boundary disappears.</p>
+  </div>
+
+</div>
+
+<div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; margin-top: 8px;">
+  <p style="margin: 0 0 6px; font-size: 13px; font-weight: 500; color: var(--color-text-primary);">CSS change preview</p>
+  <pre style="margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--color-text-secondary); white-space: pre-wrap; line-height: 1.5;">.hero .media > img {
+  -webkit-mask-image: radial-gradient(ellipse 78% 88% at 50% 50%, black 55%, transparent 95%);
+          mask-image: radial-gradient(ellipse 78% 88% at 50% 50%, black 55%, transparent 95%);
+  /* keep existing width: 100%, max-width, etc */
+}</pre>
+</div>

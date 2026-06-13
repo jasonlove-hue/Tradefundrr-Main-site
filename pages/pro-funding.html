@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="shortcut icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <title>Pro Trader Funding, TradeFundrr</title>
+  <meta name="description" content="Pro Trader Funding from TradeFundrr. Real-money buying power up to $5M via T3 Global. Capital contribution from $100K+, no evaluation, custom rules. Available across stocks, options, and futures.">
+  <link rel="stylesheet" href="../assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <link rel="stylesheet" href="../assets/css/pro-funding.css?v=202605231200">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-400.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-500.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-600.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/geist-mono-400.woff2">
+  <!-- Preconnect to HubSpot so the form (lazy-loaded below) has warm DNS/TLS when it loads -->
+  <link rel="preconnect" href="https://js.hsforms.net" crossorigin>
+  <link rel="preconnect" href="https://forms.hsforms.com" crossorigin>
+  <style id="tf-fonts">
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/inter-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(../assets/fonts/inter-500.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/inter-600.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(../assets/fonts/inter-700.woff2) format('woff2'); }
+    @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/geist-mono-400.woff2) format('woff2'); }
+    @font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(../assets/fonts/geist-mono-500.woff2) format('woff2'); }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #060914; color: #fff; margin: 0; }
+  </style>
+
+  <!-- =================================================================
+       PREVIEW STYLE OVERRIDES
+       Self-contained overrides for the 4 scoped fixes. Inline here so we
+       do not touch pro-funding.css (which is loaded by the 3 live pages).
+       When we ship, port these into pro-funding.css and bump cache-buster.
+       ================================================================= -->
+  <style id="pf-preview-overrides">
+    /* === FIX 1: BRAND TEAL ACCENT (replaces #ffc107 yellow + #05C4A1 mint + #5DEACB lighter mint) === */
+    .pf-section__head h2 .accent,
+    .pf-hero__text h1 .accent,
+    .pf-narrative__text h2 .accent,
+    .pf-t3 h2 .accent,
+    .pf-apply h2 .accent { color: #22d3a8 !important; }
+
+    .pf-hero__text .eyebrow,
+    .pf-process__num,
+    .pf-tiers__table tbody td.pf-tiers__bp { color: #22d3a8 !important; }
+
+    .pf-hero__bullets li::before {
+      background: radial-gradient(circle, #22d3a8 0% 35%, transparent 36%), rgba(34, 211, 168, 0.18) !important;
+    }
+    .pf-details li::before { background: #22d3a8 !important; opacity: 0.85 !important; }
+
+    .pf-apply__form .hs-input:focus { border-color: #22d3a8 !important; box-shadow: 0 0 0 3px rgba(34, 211, 168, 0.22) !important; }
+    .pf-apply__form .hs-button { background: linear-gradient(180deg, #2ce8b9 0%, #22d3a8 100%) !important; color: #06181a !important; }
+    .pf-apply__form .legal-consent-container a { color: #22d3a8 !important; }
+    .site-footer__email:hover { color: #22d3a8 !important; }
+
+    /* === FIX 2: ICON STYLING (since WordPress photos are gone) === */
+    /* Inline SVG icons replace the deleted <img> tags. They inherit teal stroke. */
+    .pf-benefit__icon,
+    .pf-apply-if__icon {
+      display: block;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 18px;
+      color: #22d3a8;
+    }
+    .pf-benefit__icon svg,
+    .pf-apply-if__icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Persona cards: drop the photo entirely and let text breathe more */
+    .pf-persona { padding-top: 28px; }
+    .pf-persona__badge {
+      display: inline-block;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #22d3a8;
+      border: 1px solid rgba(34, 211, 168, 0.35);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    /* Hero: text + animated visual on the right.
+       Override pro-funding.css's 16:10 card + object-fit: cover so the GIF
+       is centered (not pinned to the top of a 16:10 box). The card hugs
+       the GIF's natural height with light padding for breathing room. */
+    .pf-hero__media {
+      aspect-ratio: auto !important;
+      padding: 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .pf-hero__media img,
+    .pf-hero__media video {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 520px !important;
+      object-fit: contain !important;
+      display: block !important;
+      margin: 0 !important;
+    }
+    @media (max-width: 991px) {
+      .pf-hero__grid { grid-template-columns: 1fr !important; }
+      .pf-hero__media { margin-top: 28px; }
+      .pf-hero__media img,
+      .pf-hero__media video { max-width: 360px !important; }
+    }
+
+    /* Narrative sections become full-width text where the image was dropped */
+    .pf-narrative--no-media .pf-narrative__grid { grid-template-columns: 1fr !important; max-width: 900px; margin: 0 auto; }
+
+    /* T3 logo pair: use local logos, white-filter the T3 mark for legibility on dark bg */
+    .pf-t3__logos { display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; margin-top: 28px; }
+    .pf-t3__logos img { max-height: 56px; width: auto; opacity: 0.92; }
+    .pf-t3__logos .pf-t3__t3-mark { filter: brightness(0) invert(1); }
+
+    /* === FIX 3: ASTERISK + DISCLAIMER STYLING === */
+    sup.pf-disc {
+      font-size: 0.55em;
+      color: #22d3a8;
+      font-weight: 700;
+      margin-left: 1px;
+      top: -0.7em;
+    }
+    .pf-outcome-note {
+      max-width: 760px;
+      margin: 18px auto 0;
+      padding: 14px 18px;
+      border-left: 2px solid rgba(34, 211, 168, 0.35);
+      background: rgba(34, 211, 168, 0.04);
+      border-radius: 4px;
+      color: hsla(0, 0%, 100%, 0.55);
+      font-size: 12.5px;
+      line-height: 1.6;
+      letter-spacing: 0.1px;
+      font-style: italic;
+    }
+    .pf-tiers__wrap .pf-outcome-note { margin: 20px 0 0; }
+    .pf-hero .pf-outcome-note { margin-top: 22px; text-align: left; }
+
+    /* === FIX 4: TABBED MARKET-SPECIFICS COMPONENT === */
+    .pf-markets { padding: 80px 0; background: #060914; border-top: 1px solid hsla(0, 0%, 100%, 0.06); }
+    .pf-markets__wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .pf-markets__head { text-align: center; margin-bottom: 36px; }
+    .pf-markets__eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #22d3a8;
+      margin: 0 0 14px;
+      display: block;
+    }
+    .pf-markets__head h2 { font-size: 38px; font-weight: 700; letter-spacing: -1px; margin: 0 0 8px; color: #fff; }
+    .pf-markets__head h2 .accent { color: #22d3a8; }
+    .pf-markets__head p { color: hsla(0, 0%, 100%, 0.65); font-size: 16px; margin: 0; }
+
+    .pf-markets__nav {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin: 0 auto 28px;
+      padding: 6px;
+      background: hsla(0, 0%, 100%, 0.04);
+      border: 1px solid hsla(0, 0%, 100%, 0.08);
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .pf-markets__tab-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      color: hsla(0, 0%, 100%, 0.72);
+      background: transparent;
+      border: 0;
+      padding: 10px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color .15s ease, background .15s ease;
+    }
+    .pf-markets__tab-btn:hover { color: #fff; }
+    .pf-markets__tab-btn.is-active { color: #06181a; background: #22d3a8; }
+
+    .pf-markets__panels { position: relative; }
+    .pf-markets__panel { display: none; }
+    .pf-markets__panel.is-active { display: block; animation: pfTabFade .25s ease; }
+    @keyframes pfTabFade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .pf-markets__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .pf-markets__card {
+      background: hsla(0, 0%, 100%, 0.03);
+      border: 1px solid hsla(0, 0%, 100%, 0.08);
+      border-radius: 14px;
+      padding: 26px 24px;
+    }
+    .pf-markets__card-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #22d3a8;
+      margin: 0 0 10px;
+      display: block;
+    }
+    .pf-markets__card h4 { color: #fff; font-size: 17px; font-weight: 700; letter-spacing: -0.2px; margin: 0 0 10px; }
+    .pf-markets__card p { color: hsla(0, 0%, 100%, 0.72); font-size: 14px; line-height: 1.6; margin: 0; }
+
+    @media (max-width: 768px) {
+      .pf-markets__head h2 { font-size: 28px; }
+      .pf-markets__grid { grid-template-columns: 1fr; }
+      .pf-markets__nav { width: 100%; justify-content: stretch; }
+      .pf-markets__tab-btn { flex: 1; padding: 10px 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="../index.html" class="navbar__logo" aria-label="TradeFundrr home" target="_blank" rel="noopener"><img src="../assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="../assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu" >
+          <a href="stocks.html" data-cat="stocks" target="_blank" rel="noopener"><span class="thumb"><img src="../assets/images/market-stocks-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span><span class="desc">Funded stock trading accounts with $25K+ in institutional capital</span></span></a><a href="options.html" data-cat="options" target="_blank" rel="noopener"><span class="thumb"><img src="../assets/images/market-options-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span><span class="desc">Funded options accounts, multi-leg strategies, real institutional capital</span></span></a><a href="/pages/futures/" data-cat="futures" target="_blank" rel="noopener"><span class="thumb"><img src="../assets/images/market-futures-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span><span class="desc">NinjaTrader-powered futures funded accounts from $39/mo</span></span></a><a href="pricing.html" data-cat="crypto" target="_blank" rel="noopener"><span class="thumb"><img src="../assets/images/market-crypto-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span><span class="desc">Funded crypto trading, institutional backing, weekly payouts</span></span></a>
+          <!-- PRO_FUNDING_NAV_START -->
+          <a href="pro-funding.html" data-cat="pro-funding" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span>
+            </span>
+          </a>
+          <!-- PRO_FUNDING_NAV_END -->
+
+        </div>
+      </span>
+      <a href="../index.html#how-it-works" target="_blank" rel="noopener">How It Works</a>
+      <a href="about.html" target="_blank" rel="noopener">Why Us</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="https://dashboard.tradefundrr.com/Client" class="btn btn--primary navbar__cta" target="_blank" rel="noopener">Get Funded <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+    </div>
+  </nav>
+</header>
+
+<!-- ========== HERO (text-only, no hot-linked GIF) ========== -->
+<section class="pf-hero">
+  <div class="pf-hero__grid">
+    <div class="pf-hero__text">
+      <span class="eyebrow">What could you achieve with millions in real-money buying power?</span>
+      <h1>Meet <span class="accent">Pro Trader Funding</span>.</h1>
+      <p class="pf-hero__sub">Real-money buying power, risk management, and back-office infrastructure for traders who already have the edge and the capital, but need professional scale to pursue $1M+<sup class="pf-disc">*</sup> in annual income.</p>
+      <ul class="pf-hero__bullets">
+        <li>No Evaluations</li>
+        <li>Get Setup in as Little as 5 Days</li>
+        <li>Custom Tailored Rules</li>
+      </ul>
+      <a href="#apply-form" class="btn btn--primary">Apply Now <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="arrow"></span></a>
+      <p class="pf-outcome-note"><sup>*</sup>Outcome-dependent. Reserved for qualifying applicants meeting capital contribution requirements and sustained performance standards. Subject to T3 Global review and approval. Not all traders reach these income levels.</p>
+    </div>
+    <div class="pf-hero__media">
+      <video class="pf-hero-video"
+             autoplay loop muted playsinline preload="auto"
+             fetchpriority="high"
+             width="1000" height="563"
+             poster="../assets/images/futures_pro_animation_v2-poster.webp?v=202605260401"
+             aria-label="Pro Trader Funding setup animation">
+        <source src="../assets/images/futures_pro_animation_v2.webm?v=202605260401" type="video/webm">
+        <source src="../assets/images/futures_pro_animation_v2.mp4?v=202605260401"  type="video/mp4">
+        <!-- Last-ditch fallback for browsers that can't play either source -->
+        <img src="../assets/images/futures_pro_animation_v2.gif?v=202605260401" alt="Pro Trader Funding setup animation" loading="eager" width="1000" height="563">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 5-ICON BENEFIT GRID (inline SVG icons replace stock photos) ========== -->
+<section class="pf-benefits">
+  <div class="pf-benefits__grid">
+    <div class="pf-benefit">
+      <span class="pf-benefit__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M12 26v-4a12 12 0 0 1 24 0v4"/><path d="M12 26h4v10h-4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2zM36 26h-4v10h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z"/><path d="M30 38a4 4 0 0 1-4 4h-2"/></svg>
+      </span>
+      <p>Stress-free back office, risk management and trading tech support</p>
+    </div>
+    <div class="pf-benefit">
+      <span class="pf-benefit__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M16 24l6 6 12-12"/></svg>
+      </span>
+      <p>No Professional Trader Exam Needed</p>
+    </div>
+    <div class="pf-benefit">
+      <span class="pf-benefit__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><rect x="8" y="12" width="32" height="28" rx="2"/><path d="M8 20h32"/><path d="M16 8v8M32 8v8"/></svg>
+      </span>
+      <p>Daily Pro Trader Exclusive Pre-Market Prep and Post-Market Meetings</p>
+    </div>
+    <div class="pf-benefit">
+      <span class="pf-benefit__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="24" rx="2"/><path d="M12 28l8-8 6 6 10-12"/><path d="M16 40h16M24 34v6"/></svg>
+      </span>
+      <p>Access to Virtual Prop Trading Floor to Communicate With Other Pro Traders</p>
+    </div>
+    <div class="pf-benefit">
+      <span class="pf-benefit__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M8 22l16-12 16 12v18a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V22z"/><path d="M20 42V26h8v16"/></svg>
+      </span>
+      <p>Trade On Our Exchange Seats For A Fraction Of The Commission Cost</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== "WHY PRO TRADER FUNDING?" NARRATIVE (text-only, full-width) ========== -->
+<section class="pf-narrative pf-narrative--no-media pf-section--bg">
+  <div class="pf-narrative__grid">
+    <div class="pf-narrative__text">
+      <h2>So, why <span class="accent">Pro Trader Funding?</span></h2>
+      <p><strong>Let's face it</strong>, most "online prop trading firms" don't want to fund you. Or better said, they can't, because they don't have the capital, trading infrastructure, or risk management mechanisms needed to run a professional pro trading firm.</p>
+      <p><strong>That's why each step along the way is designed to keep you on an endless loop, leaving you feeling lost and stuck in an inescapable hamster wheel.</strong></p>
+      <p>Take a close look at their business model and it becomes obvious: they don't make their money from trading. Their revenue comes from charging traders fees to access a simulated trading environment. A portion of those fees is then used to pay out the few traders who manage to turn a profit. Their model is built around collecting fees, not trading success, and it depends on the assumption that most traders will not be consistently profitable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== "WE DO THINGS DIFFERENT" (text-only, full-width) ========== -->
+<section class="pf-narrative pf-narrative--no-media">
+  <div class="pf-narrative__grid">
+    <div class="pf-narrative__text">
+      <h2>Here at TradeFundrr, we do <span class="accent">things different</span>.</h2>
+      <p>TradeFundrr gives qualifying traders documented access to millions in real-money buying power, plus trade desk strategies, risk management, trading tech and back office support, to help them pursue $250K to $1M+<sup class="pf-disc">*</sup> in annual income, trading their unique way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== T3 PARTNERSHIP (local logos, no hot-linked images) ========== -->
+<section class="pf-t3 pf-section--bg">
+  <div class="container">
+    <h2>So you can professionally trade <span class="accent">for yourself, but not by yourself</span>.</h2>
+    <p>TradeFundrr is partnered with T3 Global, an institutional trading firm operating within the T3 group of companies. Member firms include a regulated SEC broker-dealer and FINRA/SIPC member. The infrastructure, risk oversight, and capital that have shaped thousands of professional traders sit behind every Pro Funding account.</p>
+    <div class="pf-t3__logos">
+      <img class="pf-t3__t3-mark" src="../assets/images/t3_global_logo.png" alt="T3 Global">
+      <img src="../assets/images/logo.svg" alt="TradeFundrr">
+    </div>
+  </div>
+</section>
+
+<!-- ========== MISSION STATEMENT (text-only) ========== -->
+<section class="pf-narrative pf-narrative--no-media">
+  <div class="pf-narrative__grid">
+    <div class="pf-narrative__text" style="text-align: center; max-width: 760px; margin: 0 auto;">
+      <h2>This same vision flows directly into <span class="accent">TradeFundrr</span>.</h2>
+      <p>Our mission is to provide real-money buying power to qualifying traders, with the goal of helping each funded trader pursue $1M+<sup class="pf-disc">*</sup> per year. We're not just here to offer capital for your trades, we're here to help you thrive and achieve your fullest trading potential.</p>
+      <p><strong>So we can share in the profits, rewarding the top traders as they reach new heights in their careers.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PERSONAS (text-only with teal badge instead of stock photo) ========== -->
+<section class="pf-personas pf-section--bg">
+  <div class="pf-section__head">
+    <h2>Who is Pro Trader Funding <span class="accent">great for?</span></h2>
+  </div>
+  <div class="pf-personas__grid">
+    <div class="pf-persona">
+      <span class="pf-persona__badge">Retail trader · scaling up</span>
+      <h3>Successful retail traders lacking the buying power to achieve their financial goals.</h3>
+      <p>You have already qualified for other funding but are frustrated with the lack of capital offered. We have the buying power to help you pursue your financial goals.</p>
+    </div>
+    <div class="pf-persona">
+      <span class="pf-persona__badge">Pro trader · institutional rails</span>
+      <h3>You're already earning a living from professional trading.</h3>
+      <p>You need significant buying power, with full back office and risk management support, in pursuit of multiple millions a year<sup class="pf-disc">*</sup>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRO FUNDING PROCESS (no images, just steps) ========== -->
+<section class="pf-process">
+  <div class="pf-section__head">
+    <h2>Pro Funding <span class="accent">Process</span></h2>
+  </div>
+  <div class="pf-process__steps">
+    <div class="pf-process__step">
+      <span class="pf-process__num">Step 01</span>
+      <h3>Your Application of Interest</h3>
+      <p>If your application impresses, within 48 hours we'll invite you to Step 2.</p>
+    </div>
+    <div class="pf-process__step">
+      <span class="pf-process__num">Step 02</span>
+      <h3>The Private Discovery Call</h3>
+      <p>We'll discuss your unique trading style and income goals, as well as the professional real-money buying power and payouts you'll need to help make it happen. Your way.</p>
+    </div>
+    <div class="pf-process__step">
+      <span class="pf-process__num">Step 03</span>
+      <h3>Clear A Regulatory And Criminal Background Check</h3>
+      <p>Wire your initial capital contribution and start trading your real-money buying power account (up to $5M, larger tiers custom-structured). With the professional risk management, back office support, and trading tech you need in pursuit of $250K to $1M+<sup class="pf-disc">*</sup> in annual income.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== APPLY-IF (inline SVG icons replace stock photos) ========== -->
+<section class="pf-apply-if pf-section--bg">
+  <p class="pf-apply-if__intro">You should definitely apply if:</p>
+  <div class="pf-apply-if__grid">
+    <div class="pf-apply-if__card">
+      <span class="pf-apply-if__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M24 6l14 6v12c0 9-6 15-14 18-8-3-14-9-14-18V12l14-6z"/><path d="M18 24l5 5 9-10"/></svg>
+      </span>
+      <p>You want a far less risky way to boost your buying power and manage risk, while professionally trading your way.</p>
+    </div>
+    <div class="pf-apply-if__card">
+      <span class="pf-apply-if__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
+      </span>
+      <p>You have a battle-tested trading strategy you want to scale, so you stop missing big profit opportunities and start building wealth.</p>
+    </div>
+    <div class="pf-apply-if__card">
+      <span class="pf-apply-if__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M8 36l10-10 6 6 16-18"/><path d="M28 14h12v12"/></svg>
+      </span>
+      <p>You will not let yourself settle for earning anything less than $250,000+<sup class="pf-disc">*</sup> a year from trading.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW MEMBERSHIP WORKS + FUNDING TIERS TABLE ========== -->
+<section class="pf-tiers">
+  <div class="pf-tiers__wrap">
+    <div class="pf-section__head" style="text-align: left; margin-bottom: 32px;">
+      <h2 style="text-align: left;">How being a member of our <span class="accent">prop trading firm</span> works.</h2>
+    </div>
+    <div class="pf-tiers__intro">
+      <p>Unlike our Retail Trader Funding path, you do not need to prove your trading skills through an evaluation.</p>
+      <p>You already know you can profitably trade with your own money. You've just been looking for a way to scale your results, with far less personal risk, alongside professional support and trading tech, in pursuit of the $250,000 to $1,000,000+<sup class="pf-disc">*</sup>/year income you want.</p>
+      <p>To trade with a prop firm, a trader makes an initial trading capital contribution. That contribution is used to cover potential losses in the prop trading account. The remaining balance remains available to withdraw. The initial contribution is used to calculate available buying power.</p>
+    </div>
+    <table class="pf-tiers__table">
+      <thead>
+        <tr><th>Your Trading Capital Contribution</th><th>Real-Money Buying Power We Provide</th><th>Max Drawdown</th><th>Your Profit Share</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>$100,000+</td><td class="pf-tiers__bp">Up to $1,000,000</td><td>Custom</td><td>80%</td></tr>
+        <tr><td>$250,000</td><td class="pf-tiers__bp">Up to $5,000,000</td><td>Custom</td><td>80%</td></tr>
+        <tr><td>$500,000</td><td class="pf-tiers__bp">Up to $10,000,000</td><td>Custom</td><td>80%</td></tr>
+        <tr><td>$1,000,000<sup class="pf-disc">*</sup></td><td class="pf-tiers__bp">Up to $20,000,000+<sup class="pf-disc">*</sup></td><td>Custom</td><td>80%</td></tr>
+      </tbody>
+    </table>
+    <p class="pf-tiers__custom-note" style="margin-top: 18px; color: hsla(0,0%,100%,0.78); font-size: 14.5px; line-height: 1.5; font-style: italic;">Buying power and drawdown structured per trader during application. "Up to" caps reflect maximum allocation at each tier; final structure depends on trading profile and onboarding review.</p>
+    <p class="pf-outcome-note"><sup>*</sup>Capital contribution, buying power, max drawdown, and income figures are outcome-dependent and subject to T3 Global review, sustained performance standards, and individual onboarding terms. Not all applicants are approved. Not all funded traders reach the income levels shown.</p>
+  </div>
+</section>
+
+<!-- ========== TABBED MARKET-SPECIFICS COMPONENT (NEW) ========== -->
+<!-- PF_MARKETS_TABS_START -->
+<section class="pf-markets" id="pf-markets">
+  <div class="pf-markets__wrap">
+    <div class="pf-markets__head">
+      <span class="pf-markets__eyebrow">Market-specific details</span>
+      <h2>Pick your <span class="accent">market</span>.</h2>
+      <p>The offer is the same. The mechanics differ by instrument. Open the tab for your market.</p>
+    </div>
+
+    <div class="pf-markets__nav" role="tablist">
+      <button class="pf-markets__tab-btn is-active" role="tab" data-tab="stocks" aria-selected="true">Stocks</button>
+      <button class="pf-markets__tab-btn" role="tab" data-tab="options" aria-selected="false">Options</button>
+      <button class="pf-markets__tab-btn" role="tab" data-tab="futures" aria-selected="false">Futures</button>
+    </div>
+
+    <div class="pf-markets__panels">
+
+      <!-- STOCKS -->
+      <div class="pf-markets__panel is-active" data-panel="stocks" role="tabpanel">
+        <div class="pf-markets__grid">
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Buying Power</span>
+            <h4>Equity buying power via leverage</h4>
+            <p>Your capital contribution funds the prop account; buying power is provided as real-money leverage on top. Intraday BP may differ from overnight holdings.</p>
+          </div>
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Margin behavior</span>
+            <h4>Standard equity margin rules</h4>
+            <p>Subject to applicable exchange and broker-dealer margin requirements. Specifics for your trading style are reviewed on the discovery call.</p>
+          </div>
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Exchange fees</span>
+            <h4>Trade on our exchange seats</h4>
+            <p>Access institutional commission rates via our exchange seats. Reduced fees may apply at higher contribution tiers, subject to applicable rules.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OPTIONS -->
+      <div class="pf-markets__panel" data-panel="options" role="tabpanel">
+        <div class="pf-markets__grid">
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Buying Power</span>
+            <h4>Options buying power</h4>
+            <p>Real-money buying power for multi-leg, defined-risk, and directional strategies. Intraday BP may differ from overnight holdings.</p>
+          </div>
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Margin behavior</span>
+            <h4>Strategy-driven margin</h4>
+            <p>Options contracts may be highly leveraged. Daily margin requirements vary by strategy. Specifics are reviewed on the discovery call.</p>
+          </div>
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Exchange fees</span>
+            <h4>Institutional commission tiers</h4>
+            <p>Trade on our exchange seats for a fraction of retail commission cost. Reduced rates available at higher contribution levels, subject to applicable exchange rules.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FUTURES -->
+      <div class="pf-markets__panel" data-panel="futures" role="tabpanel">
+        <div class="pf-markets__grid">
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Buying Power</span>
+            <h4>Notional via contract margin</h4>
+            <p>Real-money notional buying power expressed through futures contracts. Intraday position sizing may differ from overnight holds.</p>
+          </div>
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Margin behavior</span>
+            <h4>$450 to $40,000 per contract</h4>
+            <p>Futures contracts are already highly leveraged. Daily margins range from $450 to $40,000 per contract depending on the instrument. Specifics for your markets are reviewed on the discovery call.</p>
+          </div>
+          <div class="pf-markets__card">
+            <span class="pf-markets__card-label">Exchange fees</span>
+            <h4>CME-rate eligibility</h4>
+            <p>Traders contributing $350K or more may be eligible for reduced exchange fees, subject to CME rules, terms, and conditions.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* Pro-funding market tabs: click + hash deep-link (#stocks / #options / #futures). */
+(function () {
+  function init() {
+    var buttons = document.querySelectorAll('.pf-markets__tab-btn');
+    var panels = document.querySelectorAll('.pf-markets__panel');
+    if (!buttons.length) return;
+
+    function activate(tab) {
+      for (var i = 0; i < buttons.length; i++) {
+        var on = buttons[i].getAttribute('data-tab') === tab;
+        buttons[i].classList.toggle('is-active', on);
+        buttons[i].setAttribute('aria-selected', on ? 'true' : 'false');
+      }
+      for (var j = 0; j < panels.length; j++) {
+        panels[j].classList.toggle('is-active', panels[j].getAttribute('data-panel') === tab);
+      }
+    }
+
+    for (var k = 0; k < buttons.length; k++) {
+      buttons[k].addEventListener('click', function (e) {
+        var tab = e.currentTarget.getAttribute('data-tab');
+        activate(tab);
+        // update URL hash without scrolling
+        if (history && history.replaceState) {
+          history.replaceState(null, '', '#' + tab);
+        }
+      });
+    }
+
+    // Deep-link: activate matching tab if URL has #stocks / #options / #futures
+    var hash = (window.location.hash || '').replace('#', '').toLowerCase();
+    if (hash === 'stocks' || hash === 'options' || hash === 'futures') {
+      activate(hash);
+      // Scroll the tabs into view on hash arrival
+      var target = document.getElementById('pf-markets');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Respond to hash changes during navigation
+    window.addEventListener('hashchange', function () {
+      var h = (window.location.hash || '').replace('#', '').toLowerCase();
+      if (h === 'stocks' || h === 'options' || h === 'futures') activate(h);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<!-- PF_MARKETS_TABS_END -->
+
+<!-- ========== IMPORTANT DETAILS & CONSIDERATIONS (consolidated, no per-market noise) ========== -->
+<section class="pf-details">
+  <div class="pf-details__wrap">
+    <h3>Important Details &amp; Considerations</h3>
+    <ul>
+      <li>TradeFundrr Pro Funding is provided in the form of a real-money buying power account by T3 Global Group, LLC ("T3G"), a unit of T3 Companies.</li>
+      <li>Buying Power (BP) intraday may differ from the holding of overnight positions. Figures reflect maximum intraday Buying Power, subject to review and revision.</li>
+      <li>A trader's initial capital contribution will be used to cover losses. Any remaining balance is available to withdraw. Subject to management discretion including, but not limited to, consideration of risk mitigation and open positions.</li>
+      <li>All numbers are subject to review and revision among other risk parameters agreed upon in the onboarding process.</li>
+      <li>Market-specific margin behavior, contract specifics, and exchange-fee eligibility are detailed in the "Market-specific details" tabs above.</li>
+      <li>Please apply and talk to us about your unique situation.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== APPLICATION FORM ========== -->
+<section id="apply-form" class="pf-apply">
+  <div class="pf-apply__wrap">
+    <h2>Could an additional $5,000,000 to $20,000,000+<sup class="pf-disc">*</sup> in real-money buying power make an <span class="accent">immediate difference</span> for you?</h2>
+    <p class="pf-apply__intro">If so, tell us about the professional trader funding you're looking for.</p>
+    <div class="pf-apply__form">
+      <!-- HubSpot form lazy-loaded on viewport entry. Saves ~197 KiB on initial
+           load + removes a chained critical request from the network tree. -->
+      <div id="pf-hsform-target" data-hs-portal="39875218" data-hs-form="f6155cff-359c-4e83-baa9-3740ae7e891f" data-hs-region="na1">
+        <p style="color:hsla(0,0%,100%,0.55);font-size:14px;text-align:center;padding:32px 0;">Loading application form…</p>
+      </div>
+      <script>
+        (function () {
+          var target = document.getElementById('pf-hsform-target');
+          if (!target) return;
+          var loaded = false;
+          function loadHubSpot() {
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://js.hsforms.net/forms/embed/v2.js';
+            s.async = true;
+            s.charset = 'utf-8';
+            s.onload = function () {
+              if (!window.hbspt || !window.hbspt.forms) return;
+              window.hbspt.forms.create({
+                portalId: target.dataset.hsPortal,
+                formId:   target.dataset.hsForm,
+                region:   target.dataset.hsRegion,
+                target:   '#pf-hsform-target'
+              });
+              // Clear the "Loading…" placeholder once HubSpot replaces with the real form
+              var placeholder = target.querySelector('p');
+              if (placeholder) placeholder.remove();
+            };
+            document.head.appendChild(s);
+          }
+          if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+              for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) { loadHubSpot(); io.disconnect(); return; }
+              }
+            }, { rootMargin: '400px 0px' });
+            io.observe(target);
+          } else {
+            loadHubSpot();
+          }
+        })();
+      </script>
+    </div>
+    <p class="pf-outcome-note"><sup>*</sup>Buying power tiers are subject to capital contribution requirements, T3 Global review, and onboarding terms. Final amounts determined during discovery and onboarding.</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; padding: 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; padding: 0 !important; letter-spacing: 0.3px !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; padding: 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; padding: 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.2px; margin: 0 0 22px 0; text-transform: none; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; text-decoration: none; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) {
+      .site-footer { padding: 40px 0 24px 0; }
+      .site-footer .container { padding: 0 20px; }
+      .site-footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .site-footer__col h4 { margin-bottom: 14px; }
+      .site-footer__separator { margin: 32px 0 18px 0; }
+    }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="navbar__logo" aria-label="TradeFundrr" target="_blank" rel="noopener"><img src="../assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="why-us.html" target="_blank" rel="noopener">Why Us?</a></li>
+          <li><a href="about.html" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="stocks.html" target="_blank" rel="noopener">Stocks Day Trader Funding</a></li>
+          <li><a href="options.html" target="_blank" rel="noopener">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/" target="_blank" rel="noopener">Futures Day Trader Funding</a></li>
+          <li><a href="pro-funding.html" target="_blank" rel="noopener">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="terms.html" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a></li>
+          <li><a href="impressum.html" target="_blank" rel="noopener">Impressum</a></li>
+          <li><a href="disclaimer.html" target="_blank" rel="noopener">Disclaimer</a></li>
+          <li><a href="refund-policy.html" target="_blank" rel="noopener">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<!-- ========== LEGAL DISCLAIMERS ========== -->
+<style id="tf-disclaimer-style">
+  .tf-disclaimer { background: #060914; border-top: 1px solid hsla(0, 0%, 100%, 0.08); padding: 60px 0 50px 0; }
+  .tf-disclaimer .container { max-width: 1170px; margin: 0 auto; padding: 0 24px; }
+  .tf-disclaimer__section { margin-bottom: 40px; }
+  .tf-disclaimer__section:last-child { margin-bottom: 0; }
+  .tf-disclaimer__heading { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -0.2px; margin: 0 0 18px 0; line-height: 1.3; }
+  .tf-disclaimer__body p { color: hsla(0, 0%, 100%, 0.55); font-size: 13px; line-height: 1.7; margin: 0 0 14px 0; }
+  .tf-disclaimer__body p:last-child { margin-bottom: 0; }
+  .tf-disclaimer__body p.tf-disclaimer__caps { text-transform: uppercase; letter-spacing: 0.2px; }
+  @media (max-width: 768px) {
+    .tf-disclaimer { padding: 40px 0 30px 0; }
+    .tf-disclaimer .container { padding: 0 16px; }
+    .tf-disclaimer__heading { font-size: 16px; margin-bottom: 14px; }
+    .tf-disclaimer__body p { font-size: 12.5px; line-height: 1.65; margin-bottom: 12px; }
+    .tf-disclaimer__section { margin-bottom: 28px; }
+  }
+</style>
+<section id="tf-disclaimer" class="tf-disclaimer" aria-label="Legal disclaimers">
+  <div class="container">
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">General Disclosure</h4>
+      <div class="tf-disclaimer__body">
+        <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+        <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment.</p>
+        <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+        <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results.</p>
+      </div>
+    </div>
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">Risk Disclosure</h4>
+      <div class="tf-disclaimer__body">
+        <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+        <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+        <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+      </div>
+    </div>
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">Hypothetical Performance Disclaimer (CFTC Requirement)</h4>
+      <div class="tf-disclaimer__body">
+        <p class="tf-disclaimer__caps">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+        <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+      </div>
+    </div>
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">Testimonial Disclosure</h4>
+      <div class="tf-disclaimer__body">
+        <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="../js/main.js?v=202605230840"></script>
+
+</body>
+</html>

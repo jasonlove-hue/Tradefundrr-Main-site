@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nav Bar Compact Mockups — TradeFundrr</title>
+<style>
+:root{--teal:#22d3a8;--bg:#03050b;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(ellipse at 50% -20%,#0a1420 0%,#03050b 60%);min-height:100vh;font-family:"Inter",system-ui,sans-serif;color:#fff;padding:40px 20px 80px}
+h1{text-align:center;font-size:26px;letter-spacing:-0.5px;margin-bottom:6px}
+.note{text-align:center;color:#8a93a3;font-size:14px;margin-bottom:50px}
+.label{max-width:1170px;margin:0 auto 14px;display:flex;align-items:baseline;gap:12px}
+.label .tag{background:var(--teal);color:#03050b;font-weight:700;font-size:12px;padding:3px 10px;border-radius:100px;letter-spacing:.5px}
+.label .t{font-size:17px;font-weight:600}
+.label .d{font-size:13px;color:#8a93a3}
+.demo{margin:0 auto 64px}
+
+/* ===== shared nav skeleton ===== */
+.nv{position:relative;display:flex;align-items:center;border-radius:200px;isolation:isolate;margin:0 auto}
+.nv::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1}
+.nv .logo{display:inline-flex;align-items:center}
+.nv .logo img{display:block}
+.nv .links{display:flex;align-items:center;margin-left:auto;margin-right:auto;font-weight:500;color:#fff}
+.nv .links a,.nv .links .sub{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px;letter-spacing:-0.4px;transition:color .2s;cursor:pointer}
+.nv .links a:hover,.nv .links .sub:hover{color:var(--teal)}
+.nv .chev{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);opacity:.7}
+.nv .cta{display:inline-flex;align-items:center;gap:8px;border-radius:200px;font-weight:600;color:#fff;text-decoration:none;background:linear-gradient(180deg,#22d3a8 0%,#0fa9b0 100%);color:#03050b;white-space:nowrap;transition:filter .25s}
+.nv .cta:hover{filter:brightness(1.08)}
+.nv .cta .arr{font-weight:700}
+
+/* ===== VARIANT A — Compact Glass (-30%) ===== */
+/* keeps the frosted-glass pill, drops the border highlights, everything ~30% smaller */
+.nvA{gap:36px;padding:10px 14px 10px 22px;width:min(100% - 60px,1000px)}
+.nvA::before{background:linear-gradient(94deg,rgba(255,255,255,0.10) 0%,rgba(255,255,255,0.02) 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.nvA .logo img{height:28px}
+.nvA .links{gap:22px;font-size:14.5px}
+.nvA .cta{padding:10px 21px;font-size:14px}
+
+/* ===== VARIANT B — Slim Pill (-40%) ===== */
+/* darker solid pill, no border, no glass highlights, ~40% smaller */
+.nvB{gap:30px;padding:8px 11px 8px 19px;width:min(100% - 60px,940px)}
+.nvB::before{background:rgba(10,15,22,0.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nvB .logo img{height:24px}
+.nvB .links{gap:19px;font-size:13.5px}
+.nvB .cta{padding:8px 18px;font-size:13px}
+
+/* ===== VARIANT C — Borderless Float (-35%) ===== */
+/* no pill at all: nav floats directly on the page, just a soft blur scrim */
+.nvC{gap:34px;padding:9px 10px;width:min(100% - 60px,1040px);border-radius:0}
+.nvC::before{background:linear-gradient(180deg,rgba(3,5,11,0.55),rgba(3,5,11,0));backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:0}
+.nvC .logo img{height:26px}
+.nvC .links{gap:21px;font-size:14px}
+.nvC .cta{padding:9px 20px;font-size:13.5px;border-radius:200px}
+
+/* reference bar */
+.nvREF{gap:50px;padding:14px 20px 14px 30px;width:min(100% - 60px,1170px)}
+.nvREF::before{background:linear-gradient(94deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.02) 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset -2px 0 0 0 hsla(0,0%,100%,0.1),inset 2px 0 0 0 hsla(0,0%,100%,0.1),inset 0 2px 0 0 hsla(0,0%,100%,0.2)}
+.nvREF .logo img{height:40px}
+.nvREF .links{gap:30px;font-size:18px}
+.nvREF .cta{padding:15px 30px;font-size:18px}
+</style>
+</head>
+<body>
+
+<h1>Menu Bar — Compact, Borderless Mockups</h1>
+<p class="note">Current bar shown first for reference. Hover the links &amp; buttons — behavior matches the live site.</p>
+
+<div class="label"><span class="tag" style="background:#5a6372">CURRENT</span><span class="t">Live nav (reference)</span><span class="d">14px padding · 18px links · 40px logo · bordered glass pill</span></div>
+<div class="demo">
+  <nav class="nv nvREF">
+    <a class="logo" href="#"><img src="assets/images/logo.svg" alt="TradeFundrr"></a>
+    <div class="links"><span class="sub">Products <span class="chev"></span></span><a href="#">How It Works</a><a href="#">Why Us</a><a href="#">Blog</a><a href="#">Login</a></div>
+    <a class="cta" href="#">Get Funded <span class="arr">→</span></a>
+  </nav>
+</div>
+
+<div class="label"><span class="tag">A</span><span class="t">Compact Glass — 30% smaller</span><span class="d">keeps the frosted pill, border removed, tighter everything</span></div>
+<div class="demo">
+  <nav class="nv nvA">
+    <a class="logo" href="#"><img src="assets/images/logo.svg" alt="TradeFundrr"></a>
+    <div class="links"><span class="sub">Products <span class="chev"></span></span><a href="#">How It Works</a><a href="#">Why Us</a><a href="#">Blog</a><a href="#">Login</a></div>
+    <a class="cta" href="#">Get Funded <span class="arr">→</span></a>
+  </nav>
+</div>
+
+<div class="label"><span class="tag">B</span><span class="t">Slim Pill — 40% smaller</span><span class="d">darker solid pill, no border, lowest profile</span></div>
+<div class="demo">
+  <nav class="nv nvB">
+    <a class="logo" href="#"><img src="assets/images/logo.svg" alt="TradeFundrr"></a>
+    <div class="links"><span class="sub">Products <span class="chev"></span></span><a href="#">How It Works</a><a href="#">Why Us</a><a href="#">Blog</a><a href="#">Login</a></div>
+    <a class="cta" href="#">Get Funded <span class="arr">→</span></a>
+  </nav>
+</div>
+
+<div class="label"><span class="tag">C</span><span class="t">Borderless Float — 35% smaller</span><span class="d">no pill at all — links float on the page with a soft top scrim</span></div>
+<div class="demo">
+  <nav class="nv nvC">
+    <a class="logo" href="#"><img src="assets/images/logo.svg" alt="TradeFundrr"></a>
+    <div class="links"><span class="sub">Products <span class="chev"></span></span><a href="#">How It Works</a><a href="#">Why Us</a><a href="#">Blog</a><a href="#">Login</a></div>
+    <a class="cta" href="#">Get Funded <span class="arr">→</span></a>
+  </nav>
+</div>
+
+</body>
+</html>

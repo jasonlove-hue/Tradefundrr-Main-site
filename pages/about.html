@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="shortcut icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <title>About TradeFundrr</title>
+  <meta name="description" content="The partnership behind TradeFundrr. Christian Bose, the operator. T3 Trading Group, the FINRA/SIPC broker-dealer. T3 Global, the institutional desk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css?v=202606111300">
+<link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+
+<style id="ab-page-style">
+/* ============================================
+     ABOUT PAGE INLINE STYLES (stx-about-*)
+     Will move to mobile-fixes.css when ported.
+     ============================================ */
+  :root {
+    --bg: #060914;
+    --bg-2: #0a101e;
+    --teal: #22d3a8;
+    --white-72: hsla(0, 0%, 100%, 0.72);
+    --white-55: hsla(0, 0%, 100%, 0.55);
+    --white-45: hsla(0, 0%, 100%, 0.45);
+    --border: hsla(0, 0%, 100%, 0.08);
+  }
+
+  .preview-banner {
+    background: var(--teal); color: #060914;
+    text-align: center; padding: 12px 20px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.8px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .placement-guide {
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+  }
+  .placement-guide .wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .placement-guide h3 {
+    font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--teal); margin: 0 0 12px;
+    font-family: 'Geist Mono', monospace; font-weight: 700;
+  }
+  .placement-guide p { color: var(--white-72); font-size: 14px; line-height: 1.55; margin: 0 0 8px; }
+  .placement-guide code {
+    font-family: 'Geist Mono', monospace; color: var(--teal);
+    background: rgba(34,211,168,0.08); padding: 1px 6px;
+    border-radius: 4px; font-size: 12.5px;
+  }
+
+  /* Shared eyebrow + accent helpers */
+  .stx-eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--teal);
+    font-weight: 600; margin: 0 0 14px; display: inline-block;
+  }
+  .accent { color: var(--teal); }
+
+  /* ---- HERO ---- */
+  .ab-hero {
+    background: var(--bg);
+    padding: 140px 0 80px;
+    position: relative; overflow: hidden;
+  }
+  .ab-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 0%, rgba(34,211,168,0.08), transparent 55%);
+    pointer-events: none;
+  }
+  .ab-hero__wrap {
+    max-width: min(100% - 60px, 1240px); margin: 0 auto;
+    position: relative; display: grid;
+    grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center;
+  }
+  .ab-hero h1 {
+    font-size: clamp(40px, 6vw, 72px); line-height: 1.05;
+    letter-spacing: -2.4px; font-weight: 700;
+    margin: 0 0 22px; color: #fff;
+  }
+  .ab-hero__sub {
+    color: var(--white-72); font-size: 18px;
+    line-height: 1.55; margin: 0 0 28px; max-width: 56ch;
+  }
+  .ab-hero__trust {
+    display: flex; gap: 18px; flex-wrap: wrap;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--white-55);
+  }
+  .ab-hero__trust span::before { content: "\2713 "; color: var(--teal); font-weight: 700; }
+  .ab-hero__media {
+    position: relative;
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 30px 60px -25px rgba(0,0,0,0.55);
+  }
+  .ab-stack-svg {
+    display: block; width: 100%; height: auto;
+  }
+
+  /* === Stack visual animations === */
+  /* Top-down build: layers start above their final position and drop into place. */
+  .ab-layer { opacity: 0; transform: translateY(-18px); }
+  .ab-layer--in {
+    animation: abLayerIn 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes abLayerIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .ab-arrow { opacity: 0; }
+  .ab-arrow--in {
+    animation: abArrowIn 500ms ease-out forwards, abArrowPulse 2.4s ease-in-out 900ms infinite;
+  }
+  @keyframes abArrowIn {
+    to { opacity: 0.6; }
+  }
+  @keyframes abArrowPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.85; }
+  }
+
+  /* Crown subtle glow loop */
+  .ab-crown-rect {
+    transform-origin: center;
+  }
+  .ab-crown--in {
+    animation: abCrownGlow 3.6s ease-in-out 2400ms infinite;
+  }
+  @keyframes abCrownGlow {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(34, 211, 168, 0.20)); }
+    50%      { filter: drop-shadow(0 0 22px rgba(34, 211, 168, 0.55)); }
+  }
+
+  /* T3 Global bar-chart icon: each bar oscillates */
+  .ab-bar {
+    transform-origin: center bottom;
+  }
+  .ab-bar--in {
+    animation: abBarOsc var(--bdur, 3.2s) ease-in-out var(--bdelay, 0s) infinite;
+  }
+  @keyframes abBarOsc {
+    0%, 100% { transform: scaleY(1); }
+    50%      { transform: scaleY(var(--bscale, 1.25)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ab-layer { opacity: 1; transform: none; animation: none !important; }
+    .ab-arrow { opacity: 0.5; animation: none !important; }
+    .ab-bar { animation: none !important; }
+    .ab-crown--in { animation: none !important; }
+  }
+
+  /* ---- PARTNERSHIP BLOCK ---- */
+  .ab-partnership {
+    padding: 100px 0; background: var(--bg-2);
+    border-top: 1px solid var(--border);
+  }
+  .ab-partnership__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-partnership__head { text-align: center; max-width: 720px; margin: 0 auto 50px; padding: 0 20px; }
+  .ab-partnership__head h2 {
+    font-size: clamp(28px, 4vw, 44px); line-height: 1.1;
+    letter-spacing: -1.4px; font-weight: 700;
+    margin: 0 0 16px; color: #fff;
+  }
+  .ab-partnership__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-partnership__grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .ab-pcard {
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid var(--border); border-radius: 18px;
+    padding: 32px 28px;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .ab-pcard:hover {
+    border-color: rgba(34, 211, 168, 0.35);
+    background: hsla(0, 0%, 100%, 0.05);
+    transform: translateY(-2px);
+  }
+  .ab-pcard__role {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--teal);
+    font-weight: 600; margin: 0 0 14px;
+  }
+  .ab-pcard__name {
+    font-size: 22px; font-weight: 700; color: #fff;
+    letter-spacing: -0.4px; margin: 0 0 10px;
+  }
+  .ab-pcard__tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--teal);
+    padding: 4px 10px; border-radius: 999px;
+    background: rgba(34,211,168,0.12);
+    display: inline-block; margin-bottom: 14px;
+  }
+  .ab-pcard__body { color: var(--white-72); font-size: 14.5px; line-height: 1.6; margin: 0; }
+  .ab-pcard__body strong { color: #fff; font-weight: 600; }
+
+  /* ---- STORY ---- */
+  .ab-story {
+    padding: 100px 0; background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .ab-story__wrap {
+    max-width: min(100% - 60px, 1100px); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+  }
+  .ab-story__h2 {
+    font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12;
+    letter-spacing: -1.2px; font-weight: 700;
+    margin: 0 0 20px; color: #fff;
+  }
+  .ab-story__h2 .accent { color: var(--teal); }
+  .ab-story__copy p {
+    color: var(--white-72); font-size: 16px;
+    line-height: 1.7; margin: 0 0 18px;
+  }
+  .ab-story__copy p:last-child { margin-bottom: 0; }
+  .ab-story__copy strong { color: #fff; font-weight: 600; }
+
+  /* ---- T3 TRUST PANEL ---- */
+  .ab-t3 {
+    padding: 100px 0; background: var(--bg-2);
+    border-top: 1px solid var(--border);
+  }
+  .ab-t3__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-t3__head { text-align: center; max-width: 760px; margin: 0 auto 50px; padding: 0 20px; }
+  .ab-t3__head h2 {
+    font-size: clamp(28px, 4vw, 40px); line-height: 1.12;
+    letter-spacing: -1.2px; font-weight: 700;
+    margin: 0 0 16px; color: #fff;
+  }
+  .ab-t3__head h2 .accent { color: var(--teal); }
+  .ab-t3__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-t3__grid {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px;
+  }
+  .ab-t3__copy p {
+    color: var(--white-72); font-size: 16px;
+    line-height: 1.65; margin: 0 0 16px;
+  }
+  .ab-t3__copy p:last-child { margin-bottom: 0; }
+  .ab-t3__copy strong { color: #fff; font-weight: 600; }
+  .ab-t3__card {
+    background: linear-gradient(180deg, rgba(34,211,168,0.05), rgba(34,211,168,0.01));
+    border: 1px solid rgba(34, 211, 168, 0.22);
+    border-radius: 18px; padding: 32px 28px;
+  }
+  .ab-t3__card-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--teal);
+    font-weight: 600; margin: 0 0 18px;
+  }
+  .ab-t3__card-points {
+    margin: 0; padding: 0; list-style: none;
+  }
+  .ab-t3__card-points li {
+    color: #fff; font-size: 15px; line-height: 1.55;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+  }
+  .ab-t3__card-points li:last-child { border-bottom: none; }
+  .ab-t3__card-points li strong { color: var(--teal); font-weight: 700; display: block; margin-bottom: 4px; font-size: 12.5px; letter-spacing: 0.4px; }
+  .ab-t3__footnote {
+    margin: 30px auto 0; max-width: 760px;
+    text-align: center; color: var(--white-45);
+    font-size: 12.5px; line-height: 1.5; font-style: italic;
+  }
+
+  /* ---- PRINCIPLES ---- */
+  .ab-principles {
+    padding: 100px 0; background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .ab-principles__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-principles__head { text-align: center; max-width: 720px; margin: 0 auto 50px; padding: 0 20px; }
+  .ab-principles__head h2 {
+    font-size: clamp(28px, 4vw, 40px); line-height: 1.12;
+    letter-spacing: -1.2px; font-weight: 700;
+    margin: 0 0 16px; color: #fff;
+  }
+  .ab-principles__head h2 .accent { color: var(--teal); }
+  .ab-principles__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-principles__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  }
+  .ab-pri-card {
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 28px 22px;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+  }
+  .ab-pri-card:hover {
+    border-color: rgba(34, 211, 168, 0.35);
+    background: hsla(0, 0%, 100%, 0.05);
+    transform: translateY(-2px);
+  }
+  .ab-pri-card__num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px; letter-spacing: 1.5px;
+    color: var(--teal); font-weight: 700;
+    margin: 0 0 14px;
+  }
+  .ab-pri-card__title {
+    font-size: 17px; font-weight: 700; color: #fff;
+    letter-spacing: -0.2px; margin: 0 0 8px;
+  }
+  .ab-pri-card__body { color: var(--white-72); font-size: 13.5px; line-height: 1.6; margin: 0; }
+
+  /* ---- COMPARISON CROSS-LINK ---- */
+  .ab-xlink {
+    padding: 80px 0; background: var(--bg-2);
+    border-top: 1px solid var(--border);
+  }
+  .ab-xlink__wrap {
+    max-width: min(100% - 60px, 980px); margin: 0 auto;
+    text-align: center;
+  }
+  .ab-xlink h2 {
+    font-size: clamp(24px, 3.4vw, 36px); line-height: 1.15;
+    letter-spacing: -1px; font-weight: 700;
+    margin: 0 0 14px; color: #fff;
+  }
+  .ab-xlink h2 .accent { color: var(--teal); }
+  .ab-xlink p { color: var(--white-72); font-size: 16px; line-height: 1.55; margin: 0 0 28px; max-width: 60ch; margin-left: auto; margin-right: auto; }
+  .ab-xlink__btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 26px; border-radius: 999px;
+    background: var(--teal); color: #060914;
+    font-weight: 700; text-decoration: none;
+    font-size: 14.5px; letter-spacing: 0.2px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .ab-xlink__btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px -10px rgba(34,211,168,0.5);
+  }
+
+  /* ---- FINAL CTA ---- */
+  .ab-final {
+    padding: 100px 0; background: var(--bg);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .ab-final__wrap { max-width: min(100% - 60px, 820px); margin: 0 auto; }
+  .ab-final h2 {
+    font-size: clamp(32px, 4.4vw, 52px); line-height: 1.08;
+    letter-spacing: -1.6px; font-weight: 700;
+    margin: 0 0 18px; color: #fff;
+  }
+  .ab-final h2 .accent { color: var(--teal); }
+  .ab-final p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0 0 32px; }
+  .ab-final__cta {
+    display: inline-block; padding: 16px 32px;
+    border-radius: 999px; background: var(--teal); color: #060914;
+    font-weight: 700; text-decoration: none; font-size: 15px;
+  }
+
+  /* ---- MOBILE ---- */
+  @media (max-width: 900px) {
+    .ab-hero { padding: 100px 0 60px; }
+    .ab-hero__wrap { grid-template-columns: 1fr; gap: 40px; }
+    .ab-partnership__grid { grid-template-columns: 1fr; }
+    .ab-story__wrap { grid-template-columns: 1fr; gap: 30px; }
+    .ab-t3__grid { grid-template-columns: 1fr; gap: 30px; }
+    .ab-principles__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .ab-principles__grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="../index.html" class="navbar__logo" aria-label="TradeFundrr home" target="_blank" rel="noopener">
+      <img src="../assets/images/logo.svg" alt="logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="../assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu" >
+          <a href="stocks.html" data-cat="stocks" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-stocks-thumb.webp?v=202605260101" alt="dropdown"></span>
+            <span class="body">
+              <span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Funded stock trading accounts with $25K+ in institutional capital</span>
+            </span>
+          </a>
+          <a href="options.html" data-cat="options" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-options-thumb.webp?v=202605260101" alt="dropdown"></span>
+            <span class="body">
+              <span class="row"><span class="title">Options</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Funded options accounts, multi-leg strategies, real institutional capital</span>
+            </span>
+          </a>
+          <a href="/pages/futures/" data-cat="futures" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-futures-thumb.webp?v=202605260101" alt="dropdown"></span>
+            <span class="body">
+              <span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">NinjaTrader-powered futures funded accounts from $39/mo</span>
+            </span>
+          </a>
+          <a href="pricing.html" data-cat="crypto" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-crypto-thumb.webp?v=202605260101" alt="dropdown"></span>
+            <span class="body">
+              <span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Funded crypto trading, institutional backing, weekly payouts</span>
+            </span>
+          </a>
+          <!-- PRO_FUNDING_NAV_START -->
+          <a href="pro-funding.html" data-cat="pro-funding" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span>
+            </span>
+          </a>
+          <!-- PRO_FUNDING_NAV_END -->
+
+        </div>
+      </span>
+      <a href="../index.html#how-it-works" target="_blank" rel="noopener">How It Works</a>
+      <a href="about.html" target="_blank" rel="noopener">Why Us</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="pricing.html" class="btn btn--primary navbar__cta" target="_blank" rel="noopener">Get Funded <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- 1. HERO -->
+<section class="ab-hero">
+  <div class="ab-hero__wrap">
+    <div>
+      <span class="stx-eyebrow">About TradeFundrr</span>
+      <h1>We're not here to just give you funding. <span class="accent">We're here to earn your trust.</span></h1>
+      <p class="ab-hero__sub">
+        You're not getting a fly-by-night prop firm. You're getting a clear pathway, from simulated funded trading to professional institutional desks. Founded by Christian Bose and built on the T3 group of companies: T3 Trading Group, a regulated SEC broker-dealer and FINRA / SIPC member, and T3 Global, the institutional trading infrastructure where funded accounts run. Real infrastructure behind the offer, not a marketing page.
+      </p>
+      <div class="ab-hero__trust">
+        <span>SEC broker-dealer partner</span>
+        <span>FINRA / SIPC member</span>
+        <span>T3 Global desk path</span>
+      </div>
+    </div>
+    <div class="ab-hero__media">
+      <svg class="ab-stack-svg" viewBox="0 0 480 482" xmlns="http://www.w3.org/2000/svg" aria-labelledby="abStackTitle abStackDesc" role="img">
+        <title id="abStackTitle">The TradeFundrr partnership stack</title>
+        <desc id="abStackDesc">Two layers behind TradeFundrr: T3 Global infrastructure at the base, and Christian Bose the operator on top.</desc>
+
+        <defs>
+          <linearGradient id="abCardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#22d3a8" stop-opacity="0.01"/>
+          </linearGradient>
+          <linearGradient id="abTopBg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#22d3a8" stop-opacity="0.20"/>
+            <stop offset="100%" stop-color="#22d3a8" stop-opacity="0.07"/>
+          </linearGradient>
+          <pattern id="abGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#22d3a8" stroke-opacity="0.05" stroke-width="0.5"/>
+          </pattern>
+          <marker id="abArrUp" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M5,0 L0,8 L10,8 z" fill="#22d3a8"/>
+          </marker>
+          <clipPath id="abChristianCircle">
+            <circle cx="390" cy="200" r="28"/>
+          </clipPath>
+          <!-- Force the T3 Global logo to render white so it reads on the dark card.
+               Works on PNG via SVG color matrix: drop original RGB, then add 1.0 to all channels. -->
+          <filter id="abWhitenLogo" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 1
+                                                  0 0 0 0 1
+                                                  0 0 0 0 1
+                                                  0 0 0 1 0"/>
+          </filter>
+        </defs>
+
+        <rect width="480" height="482" fill="#060914"/>
+        <rect width="480" height="482" fill="url(#abGrid)"/>
+
+        <!-- CROWN: TradeFundrr brand (top-down build: drops in FIRST) -->
+        <g class="ab-layer ab-layer--in ab-crown" style="animation-delay: 100ms;">
+          <g class="ab-crown--in">
+            <rect class="ab-crown-rect" x="40" y="30" width="400" height="80" rx="14" fill="url(#abTopBg)" stroke="#22d3a8" stroke-width="1.5"/>
+            <!-- TradeFundrr wordmark logo. Centered, sized to fit panel. -->
+            <image href="../assets/images/logo.svg" x="120" y="45" width="240" height="50" preserveAspectRatio="xMidYMid meet"/>
+          </g>
+        </g>
+
+        <g class="ab-arrow ab-arrow--in" style="animation-delay: 400ms, 1300ms;">
+          <line x1="240" y1="125" x2="240" y2="142" stroke="#22d3a8" stroke-width="1.5" marker-end="url(#abArrUp)"/>
+        </g>
+
+        <!-- LAYER 01: Christian Bose (drops in SECOND) -->
+        <g class="ab-layer ab-layer--in" style="animation-delay: 700ms;">
+          <rect x="40" y="150" width="400" height="118" rx="12" fill="url(#abCardBg)" stroke="rgba(34, 211, 168, 0.32)" stroke-width="1"/>
+          <text x="62" y="178" font-size="10" font-weight="700" fill="#22d3a8" letter-spacing="1.6" font-family="Geist Mono, monospace">01 &#183; THE OPERATOR</text>
+          <text x="62" y="208" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Christian Bose</text>
+          <text x="62" y="230" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">Founder &#183; two decades inside</text>
+          <text x="62" y="245" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">institutional trading firms</text>
+          <!-- Headshot inside the teal-bordered circle (clipped). -->
+          <circle cx="390" cy="200" r="29" fill="rgba(34, 211, 168, 0.10)" stroke="#22d3a8" stroke-width="1.5"/>
+          <image href="../assets/images/christian_headshot.png" x="362" y="172" width="56" height="56" preserveAspectRatio="xMidYMid slice" clip-path="url(#abChristianCircle)"/>
+        </g>
+
+        <g class="ab-arrow ab-arrow--in" style="animation-delay: 1000ms, 1900ms;">
+          <line x1="240" y1="283" x2="240" y2="300" stroke="#22d3a8" stroke-width="1.5" marker-end="url(#abArrUp)"/>
+        </g>
+
+        <!-- LAYER 02: T3 Global - FOUNDATION (drops in LAST in the top-down build) -->
+        <g class="ab-layer ab-layer--in" style="animation-delay: 1400ms;">
+          <rect x="40" y="308" width="400" height="138" rx="12" fill="url(#abCardBg)" stroke="rgba(34, 211, 168, 0.32)" stroke-width="1"/>
+          <text x="62" y="336" font-size="10" font-weight="700" fill="#22d3a8" letter-spacing="1.6" font-family="Geist Mono, monospace">02 &#183; THE INFRASTRUCTURE</text>
+          <text x="62" y="366" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="-0.3">T3 Global</text>
+          <text x="62" y="388" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">Institutional trading firm</text>
+          <text x="62" y="403" font-size="12.5" fill="rgba(255, 255, 255, 0.72)">Where funded accounts run</text>
+          <text x="62" y="421" font-size="11" fill="#22d3a8" font-family="Geist Mono, monospace" letter-spacing="0.5">UP TO $20M+ DESK CAPITAL</text>
+
+          <!-- White T3 Global logo (color-matrix filter forces white render). -->
+          <image href="../assets/images/t3_global_logo.png" x="338" y="348" width="80" height="60" preserveAspectRatio="xMidYMid meet" filter="url(#abWhitenLogo)"/>
+        </g>
+
+        <text x="240" y="470" text-anchor="middle" font-size="9.5" fill="rgba(255, 255, 255, 0.4)" letter-spacing="3" font-family="Geist Mono, monospace">BUILT ON A REAL INSTITUTIONAL FOUNDATION</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST_TICKER_START (ported from homepage credibility ticker) -->
+<style id="ab-ticker-css">
+  .ab-ticker-band { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .tf-ticker { position: relative; width: 100%; overflow: hidden; padding: 22px 0; }
+  .tf-ticker__track { display: flex; gap: 56px; width: max-content; animation: tf-scroll 45s linear infinite; }
+  .tf-ticker:hover .tf-ticker__track { animation-play-state: paused; }
+  .tf-ticker__item { display: inline-flex; align-items: center; gap: 10px; font-family: 'Geist Mono', 'IBM Plex Mono', ui-monospace, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.2px; color: hsla(0,0%,100%,0.72); white-space: nowrap; }
+  .tf-ticker__item::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #22d3a8; opacity: .6; flex-shrink: 0; }
+  .tf-ticker__item b { color: #22d3a8; font-weight: 700; }
+  .tf-ticker::before, .tf-ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; pointer-events: none; z-index: 2; }
+  .tf-ticker::before { left: 0; background: linear-gradient(to right, #060914, transparent); }
+  .tf-ticker::after { right: 0; background: linear-gradient(to left, #060914, transparent); }
+  @keyframes tf-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .tf-ticker__track { animation: none; flex-wrap: wrap; justify-content: center; gap: 18px 40px; }
+  }
+</style>
+<div class="ab-ticker-band">
+  <div class="tf-ticker" aria-label="TradeFundrr credibility highlights">
+    <div class="tf-ticker__track">
+      <span class="tf-ticker__item">Full first month rebated on first payout</span>
+      <span class="tf-ticker__item"><b>80 / 20</b> profit split</span>
+      <span class="tf-ticker__item">Weekly payouts every Friday</span>
+      <span class="tf-ticker__item"><b>$100K</b> simulated buying power</span>
+      <span class="tf-ticker__item">T3 Global institutional partnership</span>
+      <span class="tf-ticker__item">Rated on <b>Trustpilot</b></span>
+      <span class="tf-ticker__item" aria-hidden="true">Full first month rebated on first payout</span>
+      <span class="tf-ticker__item" aria-hidden="true"><b>80 / 20</b> profit split</span>
+      <span class="tf-ticker__item" aria-hidden="true">Weekly payouts every Friday</span>
+      <span class="tf-ticker__item" aria-hidden="true"><b>$100K</b> simulated buying power</span>
+      <span class="tf-ticker__item" aria-hidden="true">T3 Global institutional partnership</span>
+      <span class="tf-ticker__item" aria-hidden="true">Rated on <b>Trustpilot</b></span>
+    </div>
+  </div>
+</div>
+<!-- TRUST_TICKER_END -->
+
+<!-- FOUNDERS_SECTION_START (ported from homepage 2026-06-02) -->
+<style id="ab-founders-css">
+  /* Partner list (not in mobile-fixes.css, inlined from homepage nadav-additions) */
+  .founders__partners { margin-top: 28px; padding-top: 22px; border-top: 1px solid hsla(0,0%,100%,0.10); }
+  .founders__partners-label { font-family: 'Geist Mono', 'Geist Mono Fallback', monospace; font-size: 11.5px; letter-spacing: 1.6px; text-transform: uppercase; color: #22d3a8; margin: 0 0 16px; }
+  .founders__partners-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+  .founders__partners-list li { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; }
+  .founders__partners-list li::before { content: "\25B8"; color: #22d3a8; font-weight: 700; font-size: 16px; line-height: 1.5; display: inline-block; }
+  .founders__partner-name { display: block; color: #fff; font-weight: 700; font-size: 15.5px; letter-spacing: -0.2px; margin-bottom: 4px; }
+  .founders__partner-desc { display: block; color: hsla(0,0%,100%,0.70); font-size: 14.5px; line-height: 1.55; }
+  .founders__partner-desc strong { color: #fff; font-weight: 600; }
+  /* Elevation: section break (hairline + glow) + gradient accent + entrance */
+  .founders { position: relative; overflow: hidden; }
+  .founders::before { content: ""; position: absolute; top: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg,transparent,rgba(34,211,168,.45),transparent); z-index: 3; }
+  .founders::after { content: ""; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle,rgba(34,211,168,.13),transparent 65%); filter: blur(120px); top: 120px; right: -170px; pointer-events: none; z-index: 0; }
+  .founders .container { position: relative; z-index: 1; }
+  .founders__title .accent { background: linear-gradient(95deg,#22d3a8,#5deacb 60%,#7af7d8); -webkit-background-clip: text; background-clip: text; color: transparent !important; -webkit-text-fill-color: transparent; }
+  .founders__header, .founders__body { opacity: 0; }
+  @keyframes fnFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .founders.in .founders__header { animation: fnFade .6s ease .05s forwards; }
+  .founders.in .founders__body { animation: fnFade .6s ease .2s forwards; }
+  @media (prefers-reduced-motion: reduce) { .founders__header, .founders__body { opacity: 1 !important; animation: none !important; } }
+</style>
+<section class="founders">
+  <div class="container">
+
+    <div class="founders__header">
+      <span class="founders__eyebrow">The face + the infrastructure</span>
+      <h2 class="founders__title">
+        One face. <span class="accent">Real infrastructure behind it.</span>
+      </h2>
+      <p class="founders__lead">
+        Christian Bose built TradeFundrr. He&rsquo;s run algorithmic hedge funds, led one of America&rsquo;s largest financial publishing companies, and spent two decades inside institutional trading desks and technology firms. He structured the partnerships. Hired the team. Built this from the ground up. The infrastructure backing TradeFundrr is listed below, because you deserve to know who&rsquo;s actually running this thing.
+      </p>
+    </div>
+
+    <div class="founders__body">
+
+      <div class="founders__portrait-wrap">
+        <div class="founders__portrait">
+          <img src="../assets/images/christian_headshot.png?v=202605241407" alt="Christian Bose, Co-Founder of TradeFundrr" loading="lazy" decoding="async">
+          <div class="founders__portrait-badge">Co-Founder &middot; TradeFundrr</div>
+        </div>
+      </div>
+
+      <div class="founders__bio">
+        <h3 class="founders__name">Christian Bose</h3>
+        <p class="founders__bio-text">
+          Two decades inside trading desks, institutional firms, and trading technology. Christian structured the T3 partnership. Hired the operators. Built the offer from scratch. This wasn&rsquo;t handed to him. Wasn&rsquo;t licensed in. Built.
+        </p>
+
+        <div class="founders__partners">
+          <p class="founders__partners-label">Partnered with</p>
+          <ul class="founders__partners-list">
+            <li>
+              <div>
+                <span class="founders__partner-name">T3 Trading Group &middot; the foundation</span>
+                <span class="founders__partner-desc">The regulated foundation of the T3 group of companies. <strong>SEC-registered broker-dealer &middot; FINRA/SIPC member</strong>, and one of the largest active-trader desks in the U.S.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="founders__partner-name">T3 Global &middot; built on it</span>
+                <span class="founders__partner-desc">Built on that foundation: the same platforms, compliance team, and infrastructure. Where TradeFundrr&rsquo;s funded accounts run, and the desk top traders graduate to. Not itself a registered broker-dealer; the Trading Group&rsquo;s registrations don&rsquo;t extend to it.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <span class="founders__partner-name">Who&rsquo;s running the back-end</span>
+                <span class="founders__partner-desc">The team behind TradeFundrr&rsquo;s risk management, technology, and back-office operations spans decades of broker-dealer, derivatives, and trading infrastructure work. These aren&rsquo;t kids running scripts. This is institutional-grade infrastructure, built for traders like you.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<noscript><style>.founders__header,.founders__body{opacity:1 !important;}</style></noscript>
+<script>
+(function(){var sec=document.querySelector('.founders');if(!sec)return;var reveal=function(){sec.classList.add('in');};if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){reveal();return;}var io=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){reveal();io.disconnect();}});},{threshold:.12});io.observe(sec);})();
+</script>
+<!-- FOUNDERS_SECTION_END -->
+
+<!-- ULTIMATE_PATHWAY_START (replaces homepage-ported Two Paths, 2026-06-02) -->
+<style id="ab-pathway-css">
+  .ab-path { position: relative; padding: 100px 0; background: var(--bg); border-top: 1px solid var(--border); overflow: hidden; }
+  .ab-path::after { content: ""; position: absolute; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle,rgba(34,211,168,.13),transparent 65%); filter: blur(120px); top: 80px; right: -170px; pointer-events: none; z-index: 0; }
+  .ab-path__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; position: relative; z-index: 1; }
+  .ab-path__head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .ab-path__head h2 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; letter-spacing: -1.4px; font-weight: 700; margin: 0 0 16px; color: #fff; }
+  .ab-path__head h2 .accent { color: var(--teal); }
+  .ab-path__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-path__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+  .ab-step { position: relative; background: hsla(0,0%,100%,0.03); border: 1px solid var(--border); border-radius: 18px; padding: 30px 26px; display: flex; flex-direction: column; transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+  .ab-step:hover { border-color: rgba(34,211,168,0.35); background: hsla(0,0%,100%,0.05); transform: translateY(-2px); }
+  .ab-step--earned { border-color: rgba(34,211,168,0.5); background: linear-gradient(180deg, rgba(34,211,168,0.06), rgba(34,211,168,0.01)); box-shadow: 0 24px 60px -30px rgba(34,211,168,0.45); }
+  .ab-step__badge { position: absolute; top: 22px; right: 22px; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; background: rgba(34,211,168,0.14); color: var(--teal); border: 1px solid rgba(34,211,168,0.4); }
+  .ab-step__num { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.6px; color: var(--teal); font-weight: 700; margin: 0 0 14px; }
+  .ab-step__title { font-size: 21px; font-weight: 700; color: #fff; letter-spacing: -0.4px; margin: 0 0 10px; }
+  .ab-step__body { color: var(--white-72); font-size: 14.5px; line-height: 1.6; margin: 0; }
+  .ab-step__body strong { color: #fff; font-weight: 600; }
+  .ab-path__close { text-align: center; margin: 40px auto 0; max-width: 720px; }
+  .ab-path__close p { color: #fff; font-size: clamp(18px, 2.4vw, 24px); font-weight: 700; letter-spacing: -0.4px; line-height: 1.3; margin: 0; }
+  .ab-path__close p .accent { color: var(--teal); }
+  .ab-path__disc { margin: 22px auto 0; max-width: 760px; text-align: center; color: var(--white-45); font-size: 12px; line-height: 1.5; font-style: italic; }
+  @media (max-width: 900px) { .ab-path__grid { grid-template-columns: 1fr; } }
+</style>
+<section class="ab-path">
+  <div class="ab-path__wrap">
+    <div class="ab-path__head">
+      <span class="stx-eyebrow">The ultimate pathway</span>
+      <h2>From funded trading, <span class="accent">to professional prop desks.</span></h2>
+      <p>Most prop firms hand you an account and hope you figure it out. TradeFundrr is built as a progression: prove a real, risk-managed edge, and the path keeps going. Retail to institutional. Funded to elite.</p>
+    </div>
+
+    <div class="ab-path__grid">
+      <article class="ab-step">
+        <p class="ab-step__num">01 &middot; Start</p>
+        <h3 class="ab-step__title">A simulated funded account</h3>
+        <p class="ab-step__body">Trade a <strong>$100K simulated funded account</strong> with every rule published before you pay. Hit your targets and you earn from real <strong>weekly payout cycles</strong>, paid every Friday.</p>
+      </article>
+      <article class="ab-step">
+        <p class="ab-step__num">02 &middot; Prove</p>
+        <h3 class="ab-step__title">Consistency and risk control</h3>
+        <p class="ab-step__body">Show <strong>sustained, risk-managed performance</strong>. No moving targets, no rule changes after you fund. The same standard a real desk holds its traders to.</p>
+      </article>
+      <article class="ab-step ab-step--earned">
+        <span class="ab-step__badge">Earned</span>
+        <p class="ab-step__num">03 &middot; Audition</p>
+        <h3 class="ab-step__title">A seat at T3 Global</h3>
+        <p class="ab-step__body">Top performers earn an invitation to audition for a real-money seat at <strong>T3 Global</strong>, scaling toward $1M+ and up to <strong>$20M+ in buying power</strong> at the top desk tier.*</p>
+      </article>
+    </div>
+
+    <div class="ab-path__close">
+      <p>That is the pathway most traders don't even know <span class="accent">exists.</span></p>
+    </div>
+    <p class="ab-path__disc">*The T3 Global desk path is reserved for top-performing traders and is subject to T3 Global review and audition. Not all traders qualify. TradeFundrr funded accounts are simulated with real payout cycles; live capital is earned through T3 Global. Sim is sim. Live is live.</p>
+  </div>
+</section>
+<!-- ULTIMATE_PATHWAY_END -->
+
+<!-- 3. INSTITUTIONAL INFRASTRUCTURE / T3 (ported from homepage 2026-06-01) -->
+<style id="ab-t3-partner-css">
+  .t3{ --teal:#22d3a8; --border:rgba(255,255,255,0.09); --w06:rgba(255,255,255,0.06); --w40:rgba(255,255,255,0.40); --w55:rgba(255,255,255,0.55); --w72:rgba(255,255,255,0.72); --w100:#fff; --gold:#ffd54f; --mono:'Geist Mono','IBM Plex Mono',ui-monospace,monospace; position:relative; z-index:2; overflow:hidden; border-top:1px solid var(--border); }
+  .t3::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,168,.45),transparent);z-index:4;}
+  .t3-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.4;pointer-events:none;width:600px;height:600px;background:radial-gradient(circle,rgba(34,211,168,0.15),transparent 65%);top:60px;right:-160px}
+  .t3-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:120px 40px}
+  @media(max-width:860px){.t3-inner{padding:78px 22px}}
+  .t3 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal);font-weight:600;}
+  .t3 .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#22d3a8;box-shadow:0 0 10px #22d3a8;}
+  .t3 h2{font-family:'Inter','Inter Fallback',sans-serif;font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;color:#fff;margin:14px 0 16px}
+  .t3 h2 .hl{background:linear-gradient(95deg,#22d3a8,#5deacb 60%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;}
+  .t3 .intro{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:900px;margin-bottom:26px}
+  .t3-ents{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+  @media(max-width:760px){.t3-ents{grid-template-columns:1fr}}
+  .t3-stack{display:flex;flex-direction:column;align-items:center;margin-bottom:22px}
+  .t3-top{width:min(560px,100%);align-items:flex-start;border-color:rgba(34,211,168,0.32)!important;background:rgba(34,211,168,0.05)!important}
+  .t3-top .t3-ent-note{color:var(--w72)}
+  .t3-grad-badge{align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);border:1px solid rgba(34,211,168,0.35);border-radius:999px;padding:5px 12px;margin-bottom:16px}
+  .t3-connector{display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px 0 18px}
+  .t3-connector .rail{width:2px;height:26px;background:linear-gradient(180deg,rgba(34,211,168,0.6),rgba(34,211,168,0.2))}
+  .t3-builton{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:700;display:inline-flex;align-items:center;gap:8px}
+  .t3-builton .arrow{font-size:13px}
+  .t3-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:640px}
+  .t3-chip{font-size:12.5px;font-weight:600;color:var(--w72);background:var(--w06);border:1px solid var(--border);border-radius:999px;padding:7px 14px}
+  .t3-chip b{color:var(--w100);font-weight:700}
+  .t3-base{width:100%;position:relative;border-color:rgba(34,211,168,0.18)!important;background:linear-gradient(180deg,rgba(34,211,168,0.06),var(--w06))!important;padding-top:30px}
+  .t3-base::before{content:"";position:absolute;top:0;left:24px;right:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(34,211,168,0.55),transparent)}
+  .t3-base-label{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#070a12;background:var(--teal);border-radius:999px;padding:5px 16px;white-space:nowrap}
+  .t3-base-grid{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:flex-start}
+  .t3-base-grid .col-logo{flex:0 0 auto}
+  .t3-base-grid .col-body{flex:1 1 320px;min-width:280px}
+  .t3-base-grid .col-body p{flex:none}
+  .t3-ent{background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;}
+  .t3-ent.grad{border-color:rgba(34,211,168,0.3);background:rgba(34,211,168,0.04)}
+  .t3-ent:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(34,211,168,.4);}
+  .t3-logochip{background:#fff;border-radius:10px;padding:11px 16px;display:inline-flex;align-items:center;align-self:flex-start;margin-bottom:18px;min-height:54px;max-width:100%}
+  .t3-logochip img{height:30px;width:auto;max-width:100%;display:block}
+  .t3-ent-tag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+  .t3-ent.grad .t3-ent-tag{color:var(--teal)}
+  .t3-ent.reg .t3-ent-tag{color:var(--w40)}
+  .t3-ent p{font-size:14.5px;line-height:1.55;color:var(--w72);flex:1;margin:0}
+  .t3-ent p b{color:var(--w100)}
+  .t3-ent .creds-line{font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:var(--w72);margin-top:12px}
+  .t3-ent .creds-line b{color:var(--w100)}
+  .t3-ent-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;line-height:1.45;color:var(--w55);font-weight:600}
+  .t3-ent.grad .t3-ent-note{color:var(--w72)}
+  .t3-distinct{border:1px solid rgba(255,213,79,0.35);background:rgba(255,213,79,0.05);border-radius:14px;padding:22px 26px;margin-bottom:36px}
+  .t3-distinct .dl{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+  .t3-distinct p{font-size:14.5px;line-height:1.6;color:var(--w72);margin:0}
+  .t3-distinct p b{color:var(--w100);font-weight:700}
+  .t3-grad{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);max-width:740px;margin-bottom:24px}
+  .t3-grad b{color:var(--w100)}
+  .t3-mantra{font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:var(--w100)}
+  .t3-mantra .t{color:var(--teal)}
+  .t3-disc{font-size:11.5px;color:var(--w40);margin-top:22px;line-height:1.5;max-width:720px}
+  .t3-stack,.t3-distinct{opacity:0;}
+  @keyframes t3Fade{from{opacity:0}to{opacity:1}}
+  .t3.in .t3-stack{animation:t3Fade .6s ease .05s forwards;}
+  .t3.in .t3-distinct{animation:t3Fade .6s ease .22s forwards;}
+  @media (prefers-reduced-motion:reduce){.t3-stack,.t3-distinct{opacity:1 !important;animation:none !important;}}
+</style>
+<section class="t3">
+  <div class="t3-glow"></div>
+  <div class="t3-inner">
+    <span class="eyebrow">The institutional partner &middot; T3 Global</span>
+    <h2>Built on real <span class="hl">institutional infrastructure.</span></h2>
+    <p class="intro">&ldquo;Earn your way to a T3 seat&rdquo; only means something if you know who T3 is, and how the pieces fit together.</p>
+
+    <div class="t3-stack">
+      <div class="t3-ent t3-top">
+        <span class="t3-grad-badge">Where you graduate</span>
+        <div class="t3-logochip"><img src="../assets/images/t3_global_logo.png?v=202605241500" alt="T3 Global"></div>
+        <p><b>T3 Global</b> is the institutional trading firm and live-capital path for top-performing TradeFundrr traders. This is the desk you earn your way to, by invitation.</p>
+        <div class="t3-ent-note">T3 Global is not itself a registered broker-dealer.</div>
+      </div>
+
+      <div class="t3-connector">
+        <div class="rail"></div>
+        <span class="t3-builton"><span class="arrow">&#9650;</span> Built on the same infrastructure</span>
+        <div class="t3-chips">
+          <span class="t3-chip">Same <b>trading platforms</b></span>
+          <span class="t3-chip">Same <b>compliance team</b></span>
+          <span class="t3-chip">Same <b>system-ops team</b></span>
+        </div>
+        <div class="rail"></div>
+      </div>
+
+      <div class="t3-ent t3-base">
+        <span class="t3-base-label">The foundation</span>
+        <div class="t3-base-grid">
+          <div class="col-logo">
+            <div class="t3-logochip"><img src="../assets/images/t3_group_logo.png" alt="T3 Trading Group, LLC"></div>
+          </div>
+          <div class="col-body">
+            <p><b>T3 Trading Group</b> is the T3 group's registered broker-dealer, one of the largest active-trader desks in the U.S. T3 Global is built on the same technology, platforms, and compliance. <b>We leverage that foundation; it just isn't where you graduate to.</b></p>
+            <div class="creds-line"><b>SEC</b>-registered &middot; <b>FINRA</b> / <b>SIPC</b> member</div>
+            <div class="t3-ent-note">Traders do not graduate to this entity. Its registrations do not extend to T3 Global.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t3-distinct">
+      <div class="dl">The important distinction</div>
+      <p><b>T3 Global and T3 Trading Group are separate business units</b> within the T3 group of companies. The SEC, FINRA, and SIPC registrations belong to <b>T3 Trading Group only</b> and <b>do not apply to T3 Global</b>, the entity TradeFundrr traders graduate to. T3 Global is not itself a registered broker-dealer.</p>
+    </div>
+
+    <p class="t3-grad">When a TradeFundrr trader proves a sustained, risk-managed edge, the path to a real-money seat runs through T3 Global's infrastructure: <b>real firm capital, real fills, real desk oversight.</b> By invitation, reserved for top performers.</p>
+
+    <p class="t3-mantra">Sim is sim. Live is live. <span class="t">T3 is live.</span></p>
+
+    <p class="t3-disc">Reserved for top-performing traders. Subject to T3 Global review. Not all traders qualify. SEC, FINRA, and SIPC registrations refer to T3 Trading Group, a separate entity within the T3 group of companies, and do not apply to T3 Global or to TradeFundrr's simulated funded accounts.</p>
+  </div>
+</section>
+<script>
+(function(){var sec=document.querySelector('.t3');if(!sec)return;var reveal=function(){sec.classList.add('in');};if(!('IntersectionObserver' in window)||(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){reveal();return;}var io=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){reveal();io.disconnect();}});},{threshold:.12});io.observe(sec);})();
+</script>
+
+<!-- 3. STORY -->
+<section class="ab-story">
+  <div class="ab-story__wrap">
+    <div>
+      <span class="stx-eyebrow">Why this exists</span>
+      <h2 class="ab-story__h2">A real partnership, <span class="accent">not a sim shop with a website.</span></h2>
+    </div>
+    <div class="ab-story__copy">
+      <p>
+        When Christian looked at the prop firm category, he saw the same pattern over and over. <strong>Foreign sim shops with no broker-dealer partner, no live-capital path, and a marketing page that promised what they could not actually deliver.</strong> The 2023 MyForexFunds shutdown by the CFTC for fraud was not an outlier. It was the predictable result of a category built on payout copy instead of infrastructure.
+      </p>
+      <p>
+        TradeFundrr was assembled differently. Christian took the partnership-first route: secure a regulated broker-dealer (T3 Trading Group, FINRA / SIPC), tie into a real institutional desk (T3 Global), then layer the trader-facing offer on top. <strong>The infrastructure came first. The marketing came second.</strong>
+      </p>
+      <p>
+        Which means the rules on the offer page are the actual rules. The payouts come out of real institutional infrastructure. And the graduation path to live capital is not a placeholder, it is the desk behind the offer.
+      </p>
+      <p>
+        That is the difference between a funded-trading program and a sim shop with a Stripe integration.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. OPERATING PRINCIPLES (Transparency / Simplicity / Abundance, from Why-Us blueprint 2026-06-02) -->
+<style id="ab-tsa-css">
+  .ab-principles--tsa .ab-principles__grid { grid-template-columns: repeat(3, 1fr); }
+  .ab-principles--tsa .ab-pri-card__title { font-size: 19px; margin-bottom: 10px; }
+  .ab-principles--tsa .ab-pri-card__body { font-size: 14px; }
+  .ab-principles--tsa .ab-pri-disc { margin: 26px auto 0; max-width: 760px; text-align: center; color: var(--white-45); font-size: 12px; line-height: 1.5; font-style: italic; }
+  @media (max-width: 900px) { .ab-principles--tsa .ab-principles__grid { grid-template-columns: 1fr; } }
+</style>
+<section class="ab-principles ab-principles--tsa">
+  <div class="ab-principles__wrap">
+    <div class="ab-principles__head">
+      <span class="stx-eyebrow">Hard-wired into everything we do</span>
+      <h2>Transparency. Simplicity. <span class="accent">Abundance.</span></h2>
+      <p>Three principles built into every program, not slogans on a marketing page.</p>
+    </div>
+
+    <div class="ab-principles__grid">
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">Transparency</p>
+        <h3 class="ab-pri-card__title">You always know where you stand</h3>
+        <p class="ab-pri-card__body">Real-time, trade-by-trade reporting so you know exactly what's required before, during, and after every trade. Every rule, drawdown limit, and payout term is published before you pay. No bait-and-switch after funding.</p>
+      </article>
+
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">Simplicity</p>
+        <h3 class="ab-pri-card__title">Trade your way</h3>
+        <p class="ab-pri-card__body">One trade a day or a hundred, it's your call. Performance tools to help you grow the account safely, with weekly payouts every Friday, across all of our day-trader funding programs.</p>
+      </article>
+
+      <article class="ab-pri-card">
+        <p class="ab-pri-card__num">Abundance</p>
+        <h3 class="ab-pri-card__title">Your own trading capital stays safe</h3>
+        <p class="ab-pri-card__body">You never put your own trading capital on the line. You get significant <strong>simulated buying power</strong> and real payouts, with a path to scale toward up to <strong>$20M+</strong> at the T3 Global desk.* The better you trade, the more you scale.</p>
+      </article>
+    </div>
+    <p class="ab-pri-disc">*Scaling to the T3 Global desk is reserved for top-performing traders, by invitation, and is subject to T3 Global review and audition. Not all traders qualify. The evaluation fee is rebated on your first qualifying payout. Standard platform and data fees apply.</p>
+  </div>
+</section>
+
+<!-- MARKET_ROUTER_START (replaces comparison table on About, from Why-Us blueprint 2026-06-02) -->
+<style id="ab-router-css">
+  .ab-router { padding: 100px 0; background: var(--bg-2); border-top: 1px solid var(--border); }
+  .ab-router__wrap { max-width: min(100% - 60px, 1240px); margin: 0 auto; }
+  .ab-router__head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+  .ab-router__head h2 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; letter-spacing: -1.4px; font-weight: 700; margin: 0 0 16px; color: #fff; }
+  .ab-router__head h2 .accent { color: var(--teal); }
+  .ab-router__head p { color: var(--white-72); font-size: 17px; line-height: 1.55; margin: 0; }
+  .ab-router__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .ab-route { display: flex; flex-direction: column; background: hsla(0,0%,100%,0.03); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; text-decoration: none; transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+  .ab-route:hover { border-color: rgba(34,211,168,0.35); background: hsla(0,0%,100%,0.05); transform: translateY(-2px); }
+  .ab-route__label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--teal); font-weight: 600; margin: 0 0 10px; }
+  .ab-route__title { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.3px; margin: 0 0 10px; }
+  .ab-route__body { color: var(--white-72); font-size: 13.5px; line-height: 1.55; margin: 0 0 22px; flex: 1; }
+  .ab-route__cta { font-family: 'Geist Mono', monospace; font-size: 12.5px; letter-spacing: 0.5px; color: var(--teal); font-weight: 600; }
+  @media (max-width: 900px) { .ab-router__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .ab-router__grid { grid-template-columns: 1fr; } }
+</style>
+<section class="ab-router">
+  <div class="ab-router__wrap">
+    <div class="ab-router__head">
+      <span class="stx-eyebrow">Ready to get started?</span>
+      <h2>Pick the market <span class="accent">you trade.</span></h2>
+      <p>One institution behind all four. Choose your market and see the rules before you pay.</p>
+    </div>
+    <div class="ab-router__grid">
+      <a href="stocks.html" class="ab-route" target="_blank" rel="noopener">
+        <p class="ab-route__label">Stocks</p>
+        <h3 class="ab-route__title">Stock Day Trader Funding</h3>
+        <p class="ab-route__body">Day trade stocks listed on the NYSE, AMEX, and NASDAQ, including biotech, blue chips, and penny stocks.</p>
+        <span class="ab-route__cta">Get started &rarr;</span>
+      </a>
+      <a href="options.html" class="ab-route" target="_blank" rel="noopener">
+        <p class="ab-route__label">Options</p>
+        <h3 class="ab-route__title">Options Day Trader Funding</h3>
+        <p class="ab-route__body">Day trade many listed options on the NYSE, NASDAQ, or AMEX, including SPX, SPY, and QQQ. Restrictions and risk parameters apply.</p>
+        <span class="ab-route__cta">Get started &rarr;</span>
+      </a>
+      <a href="/pages/futures/" class="ab-route" target="_blank" rel="noopener">
+        <p class="ab-route__label">Futures</p>
+        <h3 class="ab-route__title">Futures Day Trader Funding</h3>
+        <p class="ab-route__body">Day trade or scalp 28 futures markets on the CME, NYMEX, and COMEX, including ES, NQ, RTY, YM, CL, and GC.</p>
+        <span class="ab-route__cta">Get started &rarr;</span>
+      </a>
+      <a href="pricing.html" class="ab-route" target="_blank" rel="noopener">
+        <p class="ab-route__label">Crypto</p>
+        <h3 class="ab-route__title">Crypto Day Trader Funding</h3>
+        <p class="ab-route__body">Day trade or scalp major cryptocurrencies, including Bitcoin, Ethereum, and other leading digital assets across multiple exchanges.</p>
+        <span class="ab-route__cta">Get started &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- MARKET_ROUTER_END -->
+
+<!-- 6. FULL COMPARISON TABLE (removed from About 2026-06-02, now lives on why-us.html) -->
+<section class="stx-compare-firms" id="compare-firms" hidden style="display:none">
+  <div class="stx-compare-firms__wrap">
+
+    <span class="stx-compare-firms__eyebrow">How we compare</span>
+    <h2 class="stx-compare-firms__head">TradeFundrr vs the <span class="accent">prop firm landscape.</span></h2>
+    <p class="stx-compare-firms__lede">
+      The honest comparison. Most prop firms route through retail brokerage infrastructure. TradeFundrr is partnered with a FINRA / SIPC-member broker-dealer and a real institutional desk, with a live-capital path that scales to $20M+. Same eval mechanic. Different infrastructure.
+    </p>
+
+    <div class="cmp-card">
+      <div class="cmp-scroll">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="row-label-h">&nbsp;</th>
+            <th class="us"><span class="firm">TradeFundrr</span><span class="meta">T3 Global<br>infrastructure</span></th>
+            <th><span class="firm">Topstep</span><span class="meta">Chicago<br>est. 2012</span></th>
+            <th><span class="firm">Apex</span><span class="meta">Texas<br>est. 2021</span></th>
+            <th><span class="firm">Earn2Trade</span><span class="meta">Chicago<br>est. 2016</span></th>
+            <th><span class="firm">FTMO</span><span class="meta">Prague, CZ<br>est. 2015</span></th>
+            <th><span class="firm">Maverick</span><span class="meta">Salt Lake City<br>est. 1997</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Broker-dealer partner</td>
+            <td class="us">T3 Trading Group, an SEC broker-dealer and FINRA / SIPC member, is a separate firm within the T3 group. Traders graduate to T3 Global, which is not itself a broker-dealer.<span class="tag tag-part">Affiliated BD in the T3 group</span></td>
+            <td>None disclosed<span class="tag tag-no">Sim only</span></td>
+            <td>None disclosed<span class="tag tag-no">Sim only</span></td>
+            <td>Helios Trading Partners (CTA / CPO)<span class="tag tag-no">Not a broker-dealer</span></td>
+            <td>None disclosed<span class="tag tag-no">Sim only</span></td>
+            <td>Partner brokers, no in-house BD<span class="tag tag-no">Not a broker-dealer</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Asset classes</td>
+            <td class="us"><strong>Stocks, options, futures, crypto</strong></td>
+            <td>Futures only</td>
+            <td>Futures only</td>
+            <td>Futures only</td>
+            <td>Forex, indices, commodities, crypto CFDs</td>
+            <td>Stocks, options, forex</td>
+          </tr>
+          <tr>
+            <td class="row-label">Path to live capital</td>
+            <td class="us"><em class="diff">T3 Global desk graduation</em><br>Up to $1M+ buying power for top performers, scaling to $20M+<span class="tag tag-yes">Institutional scale</span></td>
+            <td>Live Funded Account<br>Up to $150K starting balance, $250K+ in live performance bonuses<span class="tag tag-part">Retail-scale path</span></td>
+            <td>Discretionary live program<br>Sim PA trades mirrored to a live account via API for select performers, no published criteria<span class="tag tag-part">Discretionary</span></td>
+            <td>Helios offer after TCP<br>Choice of LiveSim or live routing through brokerage to CME, $25K to $400K<span class="tag tag-part">Retail-scale path</span></td>
+            <td>Demo only<br>"FTMO never allows traders a real live account"<span class="tag tag-no">No</span></td>
+            <td>Real capital via partner brokers after multi-step evaluation<span class="tag tag-part">Retail-scale path</span></td>
+          </tr>
+          <tr>
+            <td class="row-label">Pricing model</td>
+            <td class="us">One-time eval fee + monthly platform fee</td>
+            <td>Monthly recurring</td>
+            <td>Monthly recurring</td>
+            <td>Monthly recurring (Trader Career Path) or one-time (Gauntlet Mini)</td>
+            <td>One-time challenge fee</td>
+            <td>One-time application fee + monthly desk fee</td>
+          </tr>
+          <tr>
+            <td class="row-label">Entry cost range</td>
+            <td class="us"><strong>$399 Growth / $899 to $1,999 Express</strong><br>+ $99/mo platform<span class="tag tag-yes">Full first-month rebate*</span></td>
+            <td>$49 to $149 / month<br>($50K to $150K)</td>
+            <td>$147 to ~$300 / month<br>($25K to $300K)</td>
+            <td>$150 to $475 / month<br>($25K to $200K)</td>
+            <td>$155 to $1,080 one-time<br>($10K to $200K)</td>
+            <td>$199 application + ~$200 / month desk fee</td>
+          </tr>
+          <tr>
+            <td class="row-label">Profit split</td>
+            <td class="us"><strong>80% to trader</strong></td>
+            <td>100% first $5K, 90% after</td>
+            <td>100% first $25K, 90% after</td>
+            <td>80%</td>
+            <td>80% (up to 90% with scaling)</td>
+            <td>70 to 80% (varies by tier)</td>
+          </tr>
+          <tr>
+            <td class="row-label">Payout cadence</td>
+            <td class="us"><strong>Weekly</strong></td>
+            <td>Daily / on-demand once funded</td>
+            <td>Up to 2x per month, daily on some PA accounts</td>
+            <td>Bi-weekly</td>
+            <td>On request, 1 to 2 business days</td>
+            <td>Monthly</td>
+          </tr>
+          <tr>
+            <td class="row-label">Eval mechanic</td>
+            <td class="us">2-stage Growth, or direct funded Express (no eval)</td>
+            <td>1-step Trading Combine</td>
+            <td>1-step evaluation</td>
+            <td>1-step Trader Career Path (progressive profit targets)</td>
+            <td>2-step Challenge + Verification</td>
+            <td>Multi-step: application, course, sim eval, live</td>
+          </tr>
+          <tr>
+            <td class="row-label">Fee rebate or refund</td>
+            <td class="us"><strong>100% of first-month plan fee rebated on first qualifying payout</strong> (Express plans)</td>
+            <td>No fee refund disclosed</td>
+            <td>No fee refund disclosed</td>
+            <td>No standard fee refund</td>
+            <td>100% of challenge fee refunded on first profit split</td>
+            <td>No fee refund disclosed</td>
+          </tr>
+          <tr>
+            <td class="row-label">US regulation footprint</td>
+            <td class="us">TradeFundrr is not itself a registered broker-dealer. An affiliated broker-dealer (T3 Trading Group, SEC / FINRA / SIPC) operates within the T3 group; those registrations do not extend to the T3 Global desk traders graduate to.<span class="tag tag-part">Affiliated BD in the T3 group</span></td>
+            <td>US company, no BD registration</td>
+            <td>US company, no BD registration</td>
+            <td>US company, parent registered as CTA / CPO with NFA</td>
+            <td>Non-US (Czech Republic), restricted in some US states</td>
+            <td>US company, partners with registered brokers</td>
+          </tr>
+          <tr>
+            <td class="row-label">Best for</td>
+            <td class="us"><strong>Stock and options day traders who want a real path to a regulated institutional desk.</strong></td>
+            <td>Futures-only traders comfortable with combine-style rules.</td>
+            <td>Futures-only traders looking for high payout frequency.</td>
+            <td>Futures traders who value a structured career-path framing.</td>
+            <td>Forex / CFD traders, especially outside the US.</td>
+            <td>Stock and options traders willing to complete a multi-step application.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <p class="scroll-hint">&larr; swipe to compare all six firms &rarr;</p>
+
+    <div class="cmp-closer">
+      <p><strong>What is genuinely different about TradeFundrr:</strong> an affiliated SEC broker-dealer within the T3 group (T3 Trading Group, FINRA / SIPC member, whose registrations do not extend to the T3 Global desk traders graduate to) and a live-capital path that scales to institutional size, $1M+ in buying power at entry, up to $20M+ at the top tier. Topstep, Apex, Earn2Trade, and Maverick all have live-capital paths of some kind, but they cap at retail scale ($150K to $400K). FTMO is demo-only and explicitly says so.</p>
+      <p><strong>What we cover that most do not:</strong> stocks, options, futures, and crypto on one program. Topstep, Apex, and Earn2Trade are futures-only. FTMO is forex and CFD. Maverick is the closest in asset class breadth.</p>
+      <p><strong>What we are not:</strong> the cheapest entry. Topstep, Apex, and Earn2Trade have lower monthly entry points for futures-only traders who do not need institutional-scale capital. If price is the only variable, those firms win that comparison.</p>
+      <p>*Earning a qualifying payout depends on your trading performance and is not guaranteed. Competitor pricing, rules, and live-capital programs are reproduced from each firm's public documentation as of 2026-05-27 and may change. Verify current terms on each provider's site before signup.</p>
+    </div>
+
+  </div>
+</section>
+<!-- END COMPETITOR COMPARISON -->
+
+
+<!-- 7. FINAL CTA -->
+<section class="ab-final">
+  <div class="ab-final__wrap">
+    <span class="stx-eyebrow">Ready to trade</span>
+    <h2>Trade with a real <span class="accent">institutional desk behind you.</span></h2>
+    <p>Pick the offer that fits your edge. Pass the eval. Earn the first payout. Build toward live capital through T3 Global.</p>
+    <a href="stocks.html" class="ab-final__cta" target="_blank" rel="noopener">Get Funded &rarr;</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION END
+     ============================================================ -->
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; padding: 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; padding: 0 !important; letter-spacing: 0.3px !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; padding: 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; padding: 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.2px; margin: 0 0 22px 0; text-transform: none; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; text-decoration: none; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) {
+      .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+    }
+    @media (max-width: 575px) {
+      .site-footer { padding: 40px 0 24px 0; }
+      .site-footer .container { padding: 0 20px; }
+      .site-footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .site-footer__col h4 { margin-bottom: 14px; }
+      .site-footer__separator { margin: 32px 0 18px 0; }
+    }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+
+      <div class="site-footer__brand">
+        <a href="../index.html" class="navbar__logo" aria-label="TradeFundrr" target="_blank" rel="noopener">
+          <img src="../assets/images/logo.svg" alt="TradeFundrr">
+        </a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="why-us.html" target="_blank" rel="noopener">Why Us?</a></li>
+          <li><a href="about.html" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="stocks.html" target="_blank" rel="noopener">Stocks Day Trader Funding</a></li>
+          <li><a href="options.html" target="_blank" rel="noopener">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/" target="_blank" rel="noopener">Futures Day Trader Funding</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="terms.html" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a></li>
+          <li><a href="#tf-disclaimer">Disclaimer</a></li>
+          <li><a href="refund-policy.html" target="_blank" rel="noopener">Refund Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+
+  <!-- DISCLAIMER_START -->
+<style id="tf-disclaimer-style">
+  .tf-disclaimer { background: #060914; border-top: 1px solid hsla(0, 0%, 100%, 0.08); padding: 60px 0 50px 0; }
+  .tf-disclaimer .container { max-width: 1170px; margin: 0 auto; padding: 0 24px; }
+  .tf-disclaimer__section { margin-bottom: 40px; }
+  .tf-disclaimer__section:last-child { margin-bottom: 0; }
+  .tf-disclaimer__heading { color: #fff; font-size: 18px; font-weight: 700; letter-spacing: -0.2px; margin: 0 0 18px 0; line-height: 1.3; }
+  .tf-disclaimer__body p { color: hsla(0, 0%, 100%, 0.55); font-size: 13px; line-height: 1.7; margin: 0 0 14px 0; }
+  .tf-disclaimer__body p:last-child { margin-bottom: 0; }
+  .tf-disclaimer__body p.tf-disclaimer__caps { text-transform: uppercase; letter-spacing: 0.2px; }
+  @media (max-width: 768px) {
+    .tf-disclaimer { padding: 40px 0 30px 0; }
+    .tf-disclaimer .container { padding: 0 16px; }
+    .tf-disclaimer__heading { font-size: 16px; margin-bottom: 14px; }
+    .tf-disclaimer__body p { font-size: 12.5px; line-height: 1.65; margin-bottom: 12px; }
+    .tf-disclaimer__section { margin-bottom: 28px; }
+  }
+</style>
+<section id="tf-disclaimer" class="tf-disclaimer" aria-label="Legal disclaimers">
+  <div class="container">
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">General Disclosure</h4>
+      <div class="tf-disclaimer__body">
+        <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+        <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+        <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+        <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+        <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+      </div>
+    </div>
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">Risk Disclosure</h4>
+      <div class="tf-disclaimer__body">
+        <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+        <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+        <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+      </div>
+    </div>
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">Hypothetical Performance Disclaimer (CFTC Requirement)</h4>
+      <div class="tf-disclaimer__body">
+        <p class="tf-disclaimer__caps">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+        <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+      </div>
+    </div>
+    <div class="tf-disclaimer__section">
+      <h4 class="tf-disclaimer__heading">Testimonial Disclosure</h4>
+      <div class="tf-disclaimer__body">
+        <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- DISCLAIMER_END -->
+</footer>
+<!-- LEGAL_DISCLOSURE removed 2026-06-02: duplicated the footer's tf-disclaimer block above. -->
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

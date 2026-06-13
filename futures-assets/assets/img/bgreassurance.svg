@@ -1,0 +1,38 @@
+<svg width="1440" height="168" viewBox="0 0 1440 168" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_72_289)">
+<mask id="path-1-inside-1_72_289" fill="white">
+<path d="M0 0H1440V168H0V0Z"/>
+</mask>
+<path d="M0 0H1440V168H0V0Z" fill="#0E0B16"/>
+<g opacity="0.6" filter="url(#filter0_f_72_289)">
+<ellipse cx="1359.93" cy="-96.5456" rx="279.565" ry="201.054" transform="rotate(9.50387 1359.93 -96.5456)" fill="black"/>
+</g>
+<g opacity="0.6" filter="url(#filter1_f_72_289)">
+<ellipse cx="-124.075" cy="-96.5456" rx="279.565" ry="201.054" transform="rotate(9.50387 -124.075 -96.5456)" fill="black"/>
+</g>
+<g opacity="0.6" filter="url(#filter2_f_72_289)">
+<ellipse cx="655.431" cy="421.443" rx="376.401" ry="201.054" transform="rotate(9.50387 655.431 421.443)" fill="#00AAFF"/>
+</g>
+</g>
+<path d="M1440 168V166H0V168V170H1440V168Z" fill="white" fill-opacity="0.1" mask="url(#path-1-inside-1_72_289)"/>
+<defs>
+<filter id="filter0_f_72_289" x="582.179" y="-800.187" width="1555.49" height="1407.28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_72_289"/>
+</filter>
+<filter id="filter1_f_72_289" x="-901.821" y="-800.187" width="1555.49" height="1407.28" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_72_289"/>
+</filter>
+<filter id="filter2_f_72_289" x="-217.309" y="-286.418" width="1745.48" height="1415.72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="250" result="effect1_foregroundBlur_72_289"/>
+</filter>
+<clipPath id="clip0_72_289">
+<path d="M0 0H1440V168H0V0Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,38 @@
+node_modules/
+.DS_Store
+Thumbs.db
+.vercel
+.env
+.env.local
+.idea/
+.vscode/
+*.log
+
+# Perf-script backups (kept locally for rollback safety, not for the CDN)
+*.bak
+*.bak.*
+**/_originals_png/
+**/_originals_webp/
+.tools/
+
+# Staging copy of the futures-delta-ten mirror (sourced via mirror-futures-*.ps1)
+futures-mirror/
+
+# --- Added 2026-06-01: hide dev scratch so `git status` shows only real changes ---
+# PowerShell automation scripts (run locally, one-off)
+*.ps1
+# Backup variants the *.bak rules above miss (e.g. index.html.bak13, stocks.html.bak-202605...)
+*.bak[0-9]*
+*.bak-*
+*.bakfaq*
+# Visual mockups / previews / comparison scratch pages (never deployed)
+*-mockup.html
+*-preview.html
+*-compare.html
+*-questions.html
+*-annotated.html
+# Scratch / working directories
+hero-concepts/
+security-deposit-mockups/
+# NOT ignored on purpose: assets/** (so a new image still shows in status and
+# never silently 404s live), and the HANDOFF / Reports / *.pdf docs.

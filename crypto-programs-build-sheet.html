@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeFundrr Crypto &mdash; Internal Build Sheet</title>
+<style>
+  :root {
+    --ink: #111;
+    --ink-dim: #555;
+    --ink-mute: #888;
+    --line: #d4d4d4;
+    --line-strong: #888;
+    --bg: #fff;
+    --shade: #f5f5f5;
+    --shade-2: #fafafa;
+    --growth: #e3f2fd;
+    --growth-dark: #1565c0;
+    --promo: #fffbe6;
+    --promo-dark: #856404;
+    --express: #f3e5f5;
+    --express-dark: #6a1b9a;
+    --live: #e8f5e9;
+    --live-dark: #2e7d32;
+    --flag: #ffe0e0;
+    --flag-dark: #c62828;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #e8e8e8;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, system-ui, 'Segoe UI', sans-serif;
+    font-size: 11px;
+    line-height: 1.35;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sheet {
+    width: 1056px;       /* 11" @ 96dpi */
+    min-height: 816px;   /* 8.5" @ 96dpi */
+    margin: 24px auto;
+    padding: 28px 36px;
+    background: var(--bg);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    page-break-after: always;
+  }
+  /* HEADER */
+  .header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+  }
+  .header h1 {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .header .sub {
+    font-size: 11px;
+    color: var(--ink-dim);
+    font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+    letter-spacing: 0.02em;
+  }
+  .header .meta {
+    text-align: right;
+    font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    line-height: 1.6;
+  }
+  .header .meta strong { color: var(--ink); font-weight: 700; }
+  /* MASTER MATRIX */
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5px;
+    margin-bottom: 14px;
+  }
+  table.matrix th,
+  table.matrix td {
+    border: 1px solid var(--line);
+    padding: 5px 7px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  table.matrix thead th {
+    background: var(--shade);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--ink);
+    text-align: center;
+  }
+  table.matrix thead th.col-param {
+    text-align: left;
+    background: var(--ink);
+    color: #fff;
+    width: 18%;
+  }
+  table.matrix thead th.col-growth { background: var(--growth); color: var(--growth-dark); }
+  table.matrix thead th.col-promo  { background: var(--promo);  color: var(--promo-dark);  }
+  table.matrix thead th.col-express{ background: var(--express);color: var(--express-dark);}
+  table.matrix tbody td.param {
+    background: var(--shade-2);
+    font-weight: 600;
+    font-size: 10.5px;
+  }
+  table.matrix tbody td.value {
+    text-align: center;
+    font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+    font-size: 10.5px;
+    letter-spacing: -0.01em;
+  }
+  table.matrix tbody td.text-value {
+    text-align: center;
+    font-size: 10px;
+  }
+  table.matrix tbody tr.group-row td {
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 8px;
+  }
+  table.matrix tbody td.na { color: var(--ink-mute); }
+  table.matrix tbody td.flag { background: var(--flag); color: var(--flag-dark); font-weight: 600; }
+  /* SUPPORTING BLOCKS */
+  .support {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .block {
+    border: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .block h2 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    background: var(--ink);
+    color: #fff;
+    padding: 6px 10px;
+  }
+  .block__body { padding: 10px; }
+  table.mini {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+  }
+  table.mini th,
+  table.mini td {
+    border: 1px solid var(--line);
+    padding: 4px 6px;
+    text-align: center;
+  }
+  table.mini th {
+    background: var(--shade);
+    font-weight: 700;
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  table.mini td.label {
+    background: var(--shade-2);
+    text-align: left;
+    font-weight: 600;
+  }
+  table.mini td.mono {
+    font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+  }
+  .kv { display: grid; grid-template-columns: 100px 1fr; gap: 4px 8px; font-size: 10.5px; }
+  .kv dt { color: var(--ink-mute); text-transform: uppercase; font-size: 9.5px; letter-spacing: 0.05em; font-weight: 700; padding-top: 2px; }
+  .kv dd { font-weight: 500; }
+  /* FOOTNOTES + CHECKLIST */
+  .bottom {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .footnotes {
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    font-size: 9.5px;
+    line-height: 1.55;
+  }
+  .footnotes h2 {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+  }
+  .footnotes ol { padding-left: 16px; }
+  .footnotes li { margin-bottom: 3px; }
+  .footnotes li strong { font-weight: 700; }
+  .checklist {
+    border: 1px solid var(--line);
+    padding: 10px 12px;
+    font-size: 9.5px;
+  }
+  .checklist h2 {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 4px;
+  }
+  .checklist ul { list-style: none; }
+  .checklist li {
+    padding: 3px 0 3px 22px;
+    position: relative;
+    font-size: 10px;
+  }
+  .checklist li::before {
+    content: "";
+    width: 12px; height: 12px;
+    border: 1.5px solid var(--ink-mute);
+    border-radius: 2px;
+    position: absolute;
+    left: 0; top: 4px;
+  }
+  .doc-footer {
+    margin-top: 8px;
+    border-top: 1px dashed var(--line);
+    padding-top: 6px;
+    font-size: 9px;
+    color: var(--ink-mute);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'SF Mono', 'Menlo', Consolas, monospace;
+    letter-spacing: 0.02em;
+  }
+  /* ZOOM CONTROLS (screen only) */
+  .zoom-controls {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(15,15,15,0.92);
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 12px;
+    z-index: 1000;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .zoom-controls button {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-family: inherit;
+  }
+  .zoom-controls button:hover { background: rgba(255,255,255,0.18); }
+  .zoom-controls button:active { background: rgba(255,255,255,0.28); }
+  .zoom-controls .zoom-value {
+    min-width: 50px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.85);
+  }
+  .zoom-controls .zoom-reset {
+    font-size: 10px;
+    padding: 0 12px;
+    width: auto;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .zoom-hint {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 10px;
+    color: rgba(15,15,15,0.45);
+    background: rgba(255,255,255,0.6);
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  /* CLICKABLE FOOTNOTE REFS */
+  html { scroll-behavior: smooth; }
+  .fn-link {
+    color: #1a73e8;
+    text-decoration: none;
+    border-bottom: 1px dotted #1a73e8;
+    cursor: pointer;
+    font-weight: 700;
+    transition: color 0.15s ease, background 0.15s ease;
+    padding: 0 1px;
+    border-radius: 2px;
+  }
+  .fn-link:hover {
+    color: #fff;
+    background: #1a73e8;
+    border-bottom-color: #1a73e8;
+  }
+  .footnotes li {
+    scroll-margin-top: 60px;
+  }
+  .footnotes li:target {
+    background: #fff7e0;
+    border-left: 3px solid #f9ab00;
+    padding-left: 8px;
+    margin-left: -11px;
+    transition: background 0.4s ease;
+  }
+    /* PRINT */
+  @media print {
+    html, body { background: #fff; }
+    .sheet { box-shadow: none; margin: 0; width: 100%; padding: 18px; zoom: 1 !important; }
+    .zoom-controls, .zoom-hint { display: none !important; }
+    @page { size: letter landscape; margin: 0.4in; }
+  }
+  /* COLOR LEGEND CHIPS */
+  .legend {
+    display: inline-flex;
+    gap: 10px;
+    font-size: 9.5px;
+    margin-left: 8px;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--ink-dim);
+  }
+  .legend i {
+    width: 10px; height: 10px;
+    border: 1px solid var(--line-strong);
+    display: inline-block;
+  }
+  .legend i.g  { background: var(--growth); }
+  .legend i.pr { background: var(--promo); }
+  .legend i.ex { background: var(--express); }
+  .legend i.l  { background: var(--live); }
+  .legend i.fl { background: var(--flag); }
+</style>
+</head>
+<body>
+
+<div class="zoom-controls" role="toolbar" aria-label="Zoom controls">
+  <button class="zoom-out" title="Zoom out (-)">&minus;</button>
+  <span class="zoom-value">100%</span>
+  <button class="zoom-in" title="Zoom in (+)">+</button>
+  <button class="zoom-reset" title="Reset zoom (0)">Reset</button>
+</div>
+<div class="zoom-hint">Keys: + / &minus; / 0</div>
+
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>TradeFundrr Crypto &mdash; Program Build Sheet</h1>
+      <div class="sub">Internal · for the team configuring program rules in the backend</div>
+      <div class="legend">
+        <span><i class="g"></i> Growth (Eval)</span>
+        <span><i class="pr"></i> Promo</span>
+        <span><i class="ex"></i> Express (Instant)</span>
+        <span><i class="l"></i> Live capital</span>
+        <span><i class="fl"></i> Needs confirmation</span>
+      </div>
+    </div>
+    <div class="meta">
+      <strong>Crypto build sheet v1</strong><br>
+      Date: 2026-05-27<br>
+      Source: futures-programs-build-sheet.html v3 (template) + Jason 2026-05-27 spec<br>
+      Owner: Jason / Ops
+    </div>
+  </div>
+
+  <!-- MASTER MATRIX -->
+  <table class="matrix">
+    <thead>
+      <tr>
+        <th class="col-param">Parameter</th>
+        <th class="col-growth">Crypto Growth 50K</th>
+        <th class="col-growth">Crypto Growth 100K</th>
+        <th class="col-promo">Crypto Promo 5K</th>
+        <th class="col-express">Crypto Express 50K</th>
+        <th class="col-express">Crypto Express 100K</th>
+        <th style="width: 14%;">Notes &amp; Source</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="group-row"><td colspan="7">Identity &amp; Setup</td></tr>
+      <tr>
+        <td class="param">Program type</td>
+        <td class="text-value">Evaluation</td>
+        <td class="text-value">Evaluation</td>
+        <td class="text-value">Eval (Promo)</td>
+        <td class="text-value">Instant Funded</td>
+        <td class="text-value">Instant Funded</td>
+        <td class="text-value">Backend program-type field</td>
+      </tr>
+      <tr>
+        <td class="param">Account size (simulated)</td>
+        <td class="value">$50,000</td>
+        <td class="value">$100,000</td>
+        <td class="value">$5,000</td>
+        <td class="value">$50,000</td>
+        <td class="value">$100,000</td>
+        <td class="text-value">Sim balance / buying power</td>
+      </tr>
+      <tr>
+        <td class="param">Platform (simulated)</td>
+        <td class="text-value" colspan="5">Deep Charts <span style="color:#666;font-size:9px;">(ByBit data feed)</span></td>
+        <td class="text-value">Same across all programs</td>
+      </tr>
+      <tr>
+        <td class="param">Platform (live)</td>
+        <td class="text-value" colspan="5">TBD <span style="color:#c62828;font-size:9px;">crypto live desk</span></td>
+        <td class="text-value">Live stage only</td>
+      </tr>
+      <tr>
+        <td class="param">Account limit (per person)</td>
+        <td class="text-value" colspan="2">Counts toward 5 max</td>
+        <td class="text-value">1 only (separate)</td>
+        <td class="text-value" colspan="2">Counts toward 5 max</td>
+        <td class="text-value">See Account Limits block</td>
+      </tr>
+
+      <tr class="group-row"><td colspan="7">Pricing</td></tr>
+      <tr>
+        <td class="param">Initial fee</td>
+        <td class="value">$199</td>
+        <td class="value">$499</td>
+        <td class="value">$1</td>
+        <td class="value">$999</td>
+        <td class="value">$1,999</td>
+        <td class="text-value">One-time at sign-up</td>
+      </tr>
+      <tr>
+        <td class="param">Activation fee</td>
+        <td class="value">$129</td>
+        <td class="value">$129</td>
+        <td class="value">$29</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="text-value">Paid post-eval to unlock funded</td>
+      </tr>
+      <tr>
+        <td class="param">Reset fee (on fail)</td>
+        <td class="value">$69</td>
+        <td class="value">$79</td>
+        <td class="value na">N/A</td>
+        <td class="value">$399</td>
+        <td class="value">$599</td>
+        <td class="text-value">No reset fee on Promo</td>
+      </tr>
+      <tr>
+        <td class="param">Monthly fee</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="text-value">No recurring billing</td>
+      </tr>
+      <tr>
+        <td class="param">Total cost to funded (no resets)</td>
+        <td class="value">$328</td>
+        <td class="value">$628</td>
+        <td class="value">$30</td>
+        <td class="value">$999</td>
+        <td class="value">$1,999</td>
+        <td class="text-value">Initial + activation</td>
+      </tr>
+
+      <tr class="group-row"><td colspan="7">Risk Parameters</td></tr>
+      <tr>
+        <td class="param">Max Drawdown</td>
+        <td class="value">$3,000</td>
+        <td class="value">$6,000</td>
+        <td class="value">$250</td>
+        <td class="value">$3,000</td>
+        <td class="value">$6,000</td>
+        <td class="text-value">EOD trailing<sup><a href="#fn-1" class="fn-link">1</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">Daily Loss Limit</td>
+        <td class="text-value">NONE</td>
+        <td class="value">$2,000</td>
+        <td class="text-value">NONE</td>
+        <td class="value">$1,500</td>
+        <td class="value">$2,000</td>
+        <td class="text-value">50K &amp; Promo have no daily cap</td>
+      </tr>
+      <tr>
+        <td class="param">Breach rule</td>
+        <td class="text-value" colspan="5">2 Soft &rarr; Hard (3rd breach = fail)</td>
+        <td class="text-value">One warning, then hard<sup><a href="#fn-2" class="fn-link">2</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">Profit Target (eval)</td>
+        <td class="value">$4,000</td>
+        <td class="value">$6,000</td>
+        <td class="value">$300</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="text-value">Triggers eval pass</td>
+      </tr>
+      <tr>
+        <td class="param">Profit Cap (funded)</td>
+        <td class="value">$3,000</td>
+        <td class="value">$3,000</td>
+        <td class="flag">TBD</td>
+        <td class="flag">TBD</td>
+        <td class="flag">TBD</td>
+        <td class="text-value">Per session<sup><a href="#fn-3" class="fn-link">3</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">News trading allowed</td>
+        <td class="text-value" colspan="5">Yes</td>
+        <td class="text-value">No exclusion window</td>
+      </tr>
+
+      <tr class="group-row"><td colspan="7">Trading Rules</td></tr>
+      <tr>
+        <td class="param">Minimum hold time</td>
+        <td class="text-value" colspan="5">TBD <span style="color:#c62828;font-size:9px;">crypto-specific hold time</span></td>
+        <td class="text-value">Profit removed if &le; 15s</td>
+      </tr>
+      <tr>
+        <td class="param">Consistency rule</td>
+        <td class="value">100%</td>
+        <td class="value">100%</td>
+        <td class="value">100%</td>
+        <td class="value">30%</td>
+        <td class="value">30%</td>
+        <td class="text-value">Per running target<sup><a href="#fn-4" class="fn-link">4</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">Consistency rule (post-fund)</td>
+        <td class="value">30%</td>
+        <td class="value">30%</td>
+        <td class="value">30%</td>
+        <td class="value">30%</td>
+        <td class="value">30%</td>
+        <td class="text-value">Once funded</td>
+      </tr>
+      <tr>
+        <td class="param">Min trading days (eval)</td>
+        <td class="value">1 day<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value">1 day<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value">1 day<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="text-value">Earliest eval pass<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">Min trading days (funded)</td>
+        <td class="value">10 days<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value">10 days<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value">10 days<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value">10 days<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="value">10 days<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+        <td class="text-value">Must elapse before payout<sup><a href="#fn-6" class="fn-link">6</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">Algo trading allowed</td>
+        <td class="text-value" colspan="5">No (manual only)</td>
+        <td class="text-value">All programs<sup><a href="#fn-7" class="fn-link">7</a></sup></td>
+      </tr>
+
+      <tr class="group-row"><td colspan="7">Position Sizing (funded base)</td></tr>
+      <tr>
+        <td class="param">Max Risk per Position (eval)</td>
+        <td class="value">1.0%</td>
+        <td class="value">1.0%</td>
+        <td class="value">1.0%</td>
+        <td class="value na">N/A</td>
+        <td class="value na">N/A</td>
+        <td class="text-value">% of account, on entry</td>
+      </tr>
+      <tr>
+        <td class="param">Max Risk per Position (funded/Instant)</td>
+        <td class="value">0.50%</td>
+        <td class="value">0.50%</td>
+        <td class="value">0.5%</td>
+        <td class="value">0.50%</td>
+        <td class="value">0.50%</td>
+        <td class="text-value">% of account, on entry</td>
+      </tr>
+      <tr>
+        <td class="param">Scaling plan applied</td>
+        <td class="text-value" colspan="5"><span style="color:#c62828;">N/A &mdash; crypto uses %-based risk, not tier-scaling</span></td>
+        <td class="text-value">Same scaling across funded</td>
+      </tr>
+
+      <tr class="group-row"><td colspan="7">Payouts</td></tr>
+      <tr>
+        <td class="param">Payout cycle</td>
+        <td class="text-value" colspan="5">Weekly <span style="color:#666;">(same cadence as futures &mdash; confirm close day &amp; cutoff)</span></td>
+        <td class="text-value">Close day &amp; cutoff TBD<sup><a href="#fn-8" class="fn-link">8</a></sup></td>
+      </tr>
+      <tr>
+        <td class="param">Payout processor</td>
+        <td class="text-value" colspan="5">Rise</td>
+        <td class="text-value">External settlement vendor</td>
+      </tr>
+      <tr>
+        <td class="param">Per-cycle limit (cycles 1-3)</td>
+        <td class="value">$1,000</td>
+        <td class="value">$1,500</td>
+        <td class="value">$500</td>
+        <td class="value">$1,000</td>
+        <td class="value">$1,500</td>
+        <td class="text-value">Same tier as futures</td>
+      </tr>
+      <tr>
+        <td class="param">Per-cycle limit (cycles 4+)</td>
+        <td class="value">$1,500</td>
+        <td class="value">$3,000</td>
+        <td class="value">$1,000</td>
+        <td class="value">$1,500</td>
+        <td class="value">$3,000</td>
+        <td class="text-value">Same tier as futures</td>
+      </tr>
+      <tr>
+        <td class="param">Lifetime cap (per account)</td>
+        <td class="value">$20,000</td>
+        <td class="value">$20,000</td>
+        <td class="value">$5,000</td>
+        <td class="value">$25,000</td>
+        <td class="value">$25,000</td>
+        <td class="text-value">Account closes at cap</td>
+      </tr>
+      <tr>
+        <td class="param">Profit split (trader / firm)</td>
+        <td class="text-value" colspan="5"><strong>80% trader / 20% firm</strong>. Confirm "50% of Gains" note from spec &mdash; does this override 80/20 for a window, or apply to a different metric?</td>
+        <td class="text-value">Placeholder<sup><a href="#fn-5" class="fn-link">5</a></sup></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- SUPPORTING BLOCKS -->
+  <div class="support">
+
+    <!-- SCALING PLAN -->
+    <div class="block">
+      <h2>Position Sizing &mdash; Risk-Based (Crypto)</h2>
+      <div class="block__body">
+        <table class="mini">
+          <thead>
+            <tr><th>Phase</th><th>Max Risk per Position</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="label">Eval (all sizes)</td><td class="mono">1.0% of account</td></tr>
+            <tr><td class="label">Funded / Instant</td><td class="mono">0.50% of account</td></tr>
+            <tr><td class="label">Promo Funded</td><td class="mono">0.5% of account</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 6px; font-size: 9.5px; color: #555;">
+          Crypto uses <strong>%-based risk</strong> per position, not tiered contract counts.
+          The futures-style 5-tier scaling plan does NOT apply.
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCOUNT LIMITS -->
+    <div class="block">
+      <h2>Account Limits</h2>
+      <div class="block__body">
+        <dl class="kv">
+          <dt>Standard cap</dt><dd><strong>5 accounts</strong> per person (Growth, Growth-Funded, or Express combined)</dd>
+          <dt>Promo cap</dt><dd><strong>1 Promo account</strong> per person, separate from the 5</dd>
+          <dt>Effective max</dt><dd>5 standard + 1 promo = <strong>6 total</strong></dd>
+          <dt>Enforcement</dt><dd><strong>Phase 1 (first ~2 weeks):</strong> Track-only. No front-end KYC gate. Monitor for abuse patterns (multi-account creation, identity overlap, etc.). <strong>Phase 2:</strong> Decide enforcement &mdash; KYC gate, in-app account-count cap, or other &mdash; based on what Phase 1 surfaces.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <!-- LIVE CAPITAL MAPPING -->
+    <div class="block" style="background: var(--live);">
+      <h2 style="background: var(--live-dark);">Live Capital &mdash; T3 Global Backing</h2>
+      <div class="block__body">
+        <table class="mini">
+          <thead>
+            <tr>
+              <th>Simulated</th>
+              <th>Backing&nbsp;/&nbsp;acct</th>
+              <th>&times; max</th>
+              <th>Total live</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="label">50K</td><td class="mono">$2,000</td><td class="mono">5</td><td class="mono"><strong>$10,000</strong></td></tr>
+            <tr><td class="label">100K</td><td class="mono">$3,000</td><td class="mono">5</td><td class="mono"><strong>$15,000</strong></td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 6px; font-size: 9.5px; color: var(--ink-dim);">
+          Backing capital allocated by T3 Global when trader graduates from sim funded to live. Sim balance &ne; live backing.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTNOTES + CHECKLIST -->
+  <div class="bottom">
+
+    <div class="footnotes">
+      <h2>Implementation Notes</h2>
+      <ol>
+        <li id="fn-1"><strong>Max Drawdown &mdash; EOD trailing.</strong> Calculated end of day. Stops trailing once the account reaches the initial balance threshold. The drawdown is fixed at that level afterwards; no further trailing.</li>
+        <li id="fn-2"><strong>2 Soft &rarr; Hard breach (crypto).</strong> First and second daily-loss breaches: account pauses, session ends, account resumes the next trading day. Third daily-loss breach: immediate failure (hard breach), account closed. Two warnings per account.</li>
+        <li id="fn-3"><strong>Profit Cap (funded).</strong> Per-session cap. If a single trading session generates more than the profit cap, surplus is removed (similar to consistency-rule trim) or session is auto-flat. Confirm with backend team which behavior to implement.</li>
+        <li id="fn-4"><strong>Consistency rule (funded only).</strong> No single trading session may exceed 30% of the running profit target. If exceeded, the profit target is recalculated upward to keep the trader within the consistency band.</li>
+        <li id="fn-5"><strong>Profit split.</strong> 80% to trader / 20% to firm. The source spec also mentions "Payout: 50% of Gains" &mdash; this is currently ambiguous. Clarify with Jason whether it overrides the 80/20 split during a specific window (e.g. first payout) or refers to a different metric (e.g. account-size threshold for going live).</li>
+        <li id="fn-6"><strong>Min trading days.</strong> 1 day for eval, 10 days for funded. <em>"Days"</em> &mdash; clarify whether calendar days or trading days. Current assumption: calendar days for the 10-day elapse window, but verify in backend rule definition before launch.</li>
+        <li id="fn-7"><strong>Algo trading.</strong> Not permitted on any program. Backend must enforce manual-trade-only flag and reject API/algo order tags.</li>
+        <li id="fn-8"><strong>Payout cycle &mdash; close day &amp; cutoff.</strong> Weekly cadence is locked, but <em>which day</em> the cycle closes (Friday close? Sunday EOD?) and <em>what time</em> (UTC? ET?) are not yet specified. Backend cron + Rise settlement integration both need this defined before launch. Confirm with Jason.</li>
+      </ol>
+    </div>
+
+    <div class="checklist">
+      <h2>Build Checklist</h2>
+      <ul>
+        <li>Create 5 program SKUs in billing system</li>
+        <li>Set price &amp; activation fee per SKU</li>
+        <li>Configure max-drawdown &amp; daily-loss thresholds</li>
+        <li>Implement 1-soft-then-hard breach state machine</li>
+        <li>Implement %-based per-position risk check (1% eval / 0.5% funded)</li>
+        <li>Wire weekly payout cycle to Rise</li>
+        <li>Configure per-cycle limit logic (cycles 1-3 vs 4+)</li>
+        <li>Enforce lifetime-cap-per-account close</li>
+        <li>Add 5-account-per-person KYC gate</li>
+        <li>Mark Promo account as separate (1-per-person)</li>
+        <li>Set up T3 Global handoff for live-capital graduates</li>
+        <li>Confirm profit split with Jason</li>
+        <li>Confirm "min trading days" = calendar or trading</li>
+        <li>Confirm payout cycle close day &amp; cutoff time</li>
+        <li>Build Phase-1 abuse-tracking instrumentation (multi-account creation logs, identity overlap signals, IP/device fingerprints)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <span>TradeFundrr Internal &middot; Crypto Program Build Sheet &middot; v1 &middot; 2026-05-27</span>
+    <span>Print: letter landscape, 0.4in margins. One physical page.</span>
+  </div>
+
+</div>
+
+<script>
+  (function(){
+    const sheet = document.querySelector('.sheet');
+    const valueEl = document.querySelector('.zoom-value');
+    let zoom = 100;
+    function apply() {
+      sheet.style.zoom = (zoom / 100);
+      valueEl.textContent = zoom + '%';
+    }
+    document.querySelector('.zoom-in').addEventListener('click', () => { zoom = Math.min(200, zoom + 10); apply(); });
+    document.querySelector('.zoom-out').addEventListener('click', () => { zoom = Math.max(50, zoom - 10); apply(); });
+    document.querySelector('.zoom-reset').addEventListener('click', () => { zoom = 100; apply(); });
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+      if (e.key === '+' || e.key === '=') { zoom = Math.min(200, zoom + 10); apply(); e.preventDefault(); }
+            else if (e.key === '-' || e.key === '_') { zoom = Math.max(50, zoom - 10); apply(); e.preventDefault(); }
+      else if (e.key === '0') { zoom = 100; apply(); e.preventDefault(); }
+    });
+  })();
+</script>
+
+</body>
+</html>

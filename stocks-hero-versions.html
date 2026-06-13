@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stocks Hero — 3 Versions Compared</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060914;--teal:#22d3a8;--teal-2:#2ee9bc;--teal-deep:#04261f;--teal-glow:rgba(34,211,168,0.45);
+  --gold:#ffd54f;--white:#fff;--muted:rgba(255,255,255,0.5);
+  --w100:#fff;--w72:rgba(255,255,255,0.72);--w55:rgba(255,255,255,0.55);--w40:rgba(255,255,255,0.40);
+  --w06:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.09);--border-bright:rgba(255,255,255,0.16);
+  --r-ui:10px;--r-card:18px;
+  --shadow-lift:0 30px 80px -30px rgba(0,0,0,0.8);--shadow-glow:0 24px 70px -20px rgba(34,211,168,0.28);
+  --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--w100);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.tnum{font-variant-numeric:tabular-nums}
+.vlabel{position:relative;z-index:5;max-width:1240px;margin:0 auto;padding:38px 40px 0;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:600}
+.vlabel span{color:var(--w55)}
+.vdiv{max-width:1240px;margin:0 auto;border-top:1px dashed var(--border)}
+
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;font-weight:600}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.atmos .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+.atmos .glow.a{width:620px;height:620px;background:radial-gradient(circle,rgba(34,211,168,0.22),transparent 65%);top:-180px;right:-120px}
+.atmos .glow.b{width:520px;height:520px;background:radial-gradient(circle,rgba(0,120,210,0.16),transparent 65%);top:520px;left:-180px}
+
+.hero{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:30px 40px 50px;display:grid;grid-template-columns:0.86fr 1.14fr;gap:40px;align-items:center}
+@media(max-width:980px){.hero{grid-template-columns:1fr;padding:24px 22px 24px;gap:36px}.hero-platform-img{width:100%!important}}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.02;font-weight:800;letter-spacing:-0.035em;margin-bottom:20px}
+h1 .hl{display:block;width:fit-content;font-size:clamp(46px,6.2vw,82px);line-height:1.1;padding-bottom:0.1em;font-weight:900;letter-spacing:-0.045em;margin-top:6px;position:relative;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:8px;height:30%;background:var(--teal);filter:blur(32px);opacity:.4;z-index:-1;animation:payPulse 3.4s ease-in-out infinite}
+@keyframes payPulse{0%,100%{opacity:.3}50%{opacity:.58}}
+h1 .h1-num{display:block;width:fit-content;font-size:clamp(62px,11vw,124px);line-height:0.9;font-weight:900;letter-spacing:-0.05em;position:relative;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .h1-num::after{content:"";position:absolute;left:2px;right:2px;bottom:10px;height:32%;background:var(--teal);filter:blur(34px);opacity:.4;z-index:-1;animation:payPulse 3.4s ease-in-out infinite}
+h1 .h1-bp{display:block;font-size:clamp(30px,4.6vw,58px);line-height:1.0;font-weight:800;letter-spacing:-0.03em;color:var(--w100);margin-top:2px}
+h1 .h1-tag{display:block;font-size:clamp(22px,2.9vw,38px);line-height:1.1;font-weight:700;letter-spacing:-0.02em;color:var(--w100);margin-top:18px}
+.hero-kicker{font-size:clamp(15px,1.7vw,19px);font-weight:700;color:var(--w72);letter-spacing:-0.01em;margin-bottom:14px}
+.subhead{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);max-width:480px;margin-bottom:14px}
+.subhead.leadbox{font-weight:800;color:var(--w100);max-width:520px;line-height:1.45;background:rgba(34,211,168,0.07);border-left:3px solid var(--teal);padding:14px 20px;border-radius:0 4px 4px 0;margin-bottom:30px}
+.hero-fee{font-family:var(--mono);font-size:13.5px;letter-spacing:.2px;color:var(--w72);margin:-2px 0 20px}
+.hero-fee b{color:var(--teal);font-weight:700}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.btn{padding:15px 26px;border-radius:var(--r-ui);font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.22s;border:none;cursor:pointer}
+.btn-primary{background:var(--teal);color:var(--teal-deep);box-shadow:var(--shadow-glow)}
+.btn-primary:hover{background:var(--teal-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--w100);border:1px solid var(--border-bright)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn .arr{transition:.22s}.btn:hover .arr{transform:translateX(4px)}
+.trust-chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--w72);background:var(--w06);border:1px solid var(--border);border-radius:40px;padding:7px 14px;font-weight:500}
+.hero-badges{display:flex;flex-direction:column;gap:12px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--w72)}
+.hero-badge svg{color:var(--teal);flex:none}
+
+.acct-wrap{position:relative;perspective:1400px}
+.acct-wrap::before{content:"";position:absolute;inset:-46px -36px;z-index:0;border-radius:50%;background:radial-gradient(ellipse 72% 66% at 50% 50%,rgba(34,211,168,0.34),rgba(34,211,168,0.10) 45%,transparent 72%);filter:blur(40px)}
+.sparkles{position:absolute;inset:-30px;z-index:1;pointer-events:none}
+.spk{position:absolute;background:var(--teal);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);filter:drop-shadow(0 0 5px var(--teal-glow));opacity:0;transform:scale(0);animation:twinkle 4.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(0) rotate(0)}45%{opacity:.95;transform:scale(1) rotate(45deg)}60%{opacity:.55;transform:scale(.85) rotate(70deg)}}
+
+.hero-platform-img{position:relative;z-index:2;width:100%;height:auto;display:block;-webkit-mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 6%,#000 94%,transparent),linear-gradient(to bottom,transparent,#000 6%,#000 94%,transparent);mask-composite:intersect;filter:drop-shadow(0 22px 55px rgba(0,0,0,0.5)) drop-shadow(0 0 55px rgba(34,211,168,0.26));transition:transform .3s cubic-bezier(.2,.7,.2,1),filter .3s ease;cursor:pointer}
+.hero-platform-img:hover{transform:translateY(-8px) scale(1.02);filter:drop-shadow(0 30px 70px rgba(0,0,0,0.55)) drop-shadow(0 0 95px rgba(34,211,168,0.5))}
+
+/* coded account panel (Christian's mock) */
+.acct{position:relative;z-index:2;background:linear-gradient(165deg,rgba(23,33,52,0.98),rgba(8,13,24,0.98));border:1px solid rgba(34,211,168,0.30);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow-lift),0 0 80px -12px rgba(34,211,168,0.42),inset 0 1px 0 rgba(255,255,255,0.08)}
+.acct-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.acct-plat{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--w55);display:flex;align-items:center;gap:8px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 var(--teal-glow);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,168,.5)}70%{box-shadow:0 0 0 8px rgba(34,211,168,0)}100%{box-shadow:0 0 0 0 rgba(34,211,168,0)}}
+.payout-pill{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.5px;color:var(--teal-deep);background:linear-gradient(180deg,var(--teal-2),var(--teal));border-radius:30px;padding:6px 12px}
+.acct-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.stat{background:var(--w06);border:1px solid var(--border);border-radius:12px;padding:13px}
+.stat .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:7px}
+.stat .val{font-size:18px;font-weight:800;letter-spacing:-0.02em}
+.stat .val.up{color:var(--teal)}
+.stat .val.gold{color:var(--gold)}
+.chart-box{background:var(--w06);border:1px solid var(--border);border-radius:12px;padding:14px 14px 8px;margin-bottom:16px}
+.chart-box .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:8px}
+.spark{width:100%;height:74px;display:block}
+.positions .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:10px}
+.pos-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border)}
+.pos-row:first-of-type{border-top:none}
+.pos-tkr{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}
+.pos-tkr .ico{width:26px;height:26px;border-radius:7px;background:var(--w06);border:1px solid var(--border);display:grid;place-items:center;font-size:10px;font-family:var(--mono);color:var(--w72)}
+.pos-pl{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--teal)}
+</style>
+</head>
+<body>
+<div class="atmos"><span class="glow a"></span><span class="glow b"></span></div>
+
+<!-- ============ OPTION A — clean two-liner ============ -->
+<div class="vlabel">Option A <span>— "$100K buying power. / Trade big. Risk small." (clean two-liner)</span></div>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Funded Stock Trading · T3 Global Infrastructure</span>
+    <p class="hero-kicker">You can trade. You just need the capital.</p>
+    <h1>$100K buying power.<br><span class="hl">Trade big. Risk small.</span></h1>
+    <p class="hero-fee"><b>$1,499</b> to start, and it&rsquo;s rebated on your first payout.</p>
+    <p class="subhead leadbox">Trade with institutional capital and keep 80% of your profits, paid weekly.</p>
+    <div class="btns"><a href="#" class="btn btn-primary">Get Funded <span class="arr">→</span></a><a href="#" class="btn btn-ghost">Talk to our team</a></div>
+    <div class="trust-chips">
+      <span class="chip">Full first month rebated</span>
+      <span class="chip">4.3 ★ · 67+ Trustpilot reviews</span>
+      <span class="chip">$2.3M+ paid to traders in 2025</span>
+    </div>
+  </div>
+  <div class="acct-wrap">
+    <div class="sparkles"><span class="spk" style="top:-2%;left:8%;width:13px;height:13px;animation-delay:0s"></span><span class="spk" style="top:12%;right:-3%;width:9px;height:9px;animation-delay:1.1s"></span><span class="spk" style="bottom:8%;right:4%;width:14px;height:14px;animation-delay:.6s"></span><span class="spk" style="bottom:-2%;left:22%;width:8px;height:8px;animation-delay:3.1s"></span></div>
+    <img class="hero-platform-img" src="assets/images/stocks-platform-hero.webp" alt="TradeFundrr funded stock trading platform" width="850" height="542" decoding="async">
+  </div>
+</section>
+<div class="vdiv"></div>
+
+<!-- ============ OPTION B — big $100K stack ============ -->
+<div class="vlabel">Option B <span>— Big $100K stack + "Trade Big. Risk Small."</span></div>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Funded Stock Trading · T3 Global Infrastructure</span>
+    <p class="hero-kicker">You can trade. You just need the capital.</p>
+    <h1><span class="h1-num">$100K</span><span class="h1-bp">buying power.</span><span class="h1-tag">Trade Big. Risk Small.</span></h1>
+    <p class="hero-fee"><b>$1,499</b> to start, and it&rsquo;s rebated on your first payout.</p>
+    <p class="subhead leadbox">Trade with institutional capital and keep 80% of your profits, paid weekly.</p>
+    <div class="btns"><a href="#" class="btn btn-primary">Get Funded <span class="arr">→</span></a><a href="#" class="btn btn-ghost">Talk to our team</a></div>
+    <div class="trust-chips">
+      <span class="chip">Full first month rebated</span>
+      <span class="chip">4.3 ★ · 67+ Trustpilot reviews</span>
+      <span class="chip">$2.3M+ paid to traders in 2025</span>
+    </div>
+  </div>
+  <div class="acct-wrap">
+    <div class="sparkles"><span class="spk" style="top:-2%;left:8%;width:13px;height:13px;animation-delay:0s"></span><span class="spk" style="top:12%;right:-3%;width:9px;height:9px;animation-delay:1.1s"></span><span class="spk" style="bottom:8%;right:4%;width:14px;height:14px;animation-delay:.6s"></span><span class="spk" style="bottom:-2%;left:22%;width:8px;height:8px;animation-delay:3.1s"></span></div>
+    <img class="hero-platform-img" src="assets/images/stocks-platform-hero.webp" alt="TradeFundrr funded stock trading platform" width="850" height="542" decoding="async">
+  </div>
+</section>
+<div class="vdiv"></div>
+
+<!-- ============ VERSION B — PREVIOUS ($1,499 at risk headline) ============ -->
+<div class="vlabel">Option C <span>— "$100K buying power. / $1,499 at risk."</span></div>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Funded Stock Trading · T3 Global Infrastructure</span>
+    <p class="hero-kicker">You can trade. You just need the buying power.</p>
+    <h1>$100K buying power.<br><span class="hl">$1,499 at risk.</span></h1>
+    <p class="subhead leadbox">Trade with institutional capital and keep 80% of your profits, paid weekly.</p>
+    <div class="btns"><a href="#" class="btn btn-primary">Get Funded <span class="arr">→</span></a><a href="#" class="btn btn-ghost">Talk to our team</a></div>
+    <div class="trust-chips">
+      <span class="chip">Full first month rebated</span>
+      <span class="chip">4.3 ★ · 67+ Trustpilot reviews</span>
+      <span class="chip">$2.3M+ paid to traders in 2025</span>
+    </div>
+  </div>
+  <div class="acct-wrap">
+    <div class="sparkles"><span class="spk" style="top:-2%;left:8%;width:13px;height:13px;animation-delay:.4s"></span><span class="spk" style="top:14%;right:-3%;width:9px;height:9px;animation-delay:1.6s"></span><span class="spk" style="bottom:8%;right:4%;width:14px;height:14px;animation-delay:.9s"></span></div>
+    <img class="hero-platform-img" src="assets/images/stocks-platform-hero.webp" alt="TradeFundrr funded stock trading platform" width="850" height="542" decoding="async">
+  </div>
+</section>
+<div class="vdiv"></div>
+
+<!-- ============ VERSION C — CHRISTIAN'S v2 ($0 of your money) ============ -->
+<div class="vlabel">Option D <span>— Christian's v2 · "$0 of YOUR money at risk" + coded dashboard</span></div>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">Funded Stock Trading · T3 Global Infrastructure</span>
+    <p class="hero-kicker">You can trade. You just need the buying power.</p>
+    <h1>$100K buying power.<br><span class="hl">$0 of YOUR money at risk.</span></h1>
+    <p class="subhead leadbox">Trade with institutional capital. Keep 80% of your profits.</p>
+    <div class="btns"><a href="#" class="btn btn-primary">Get Funded <span class="arr">→</span></a><a href="#" class="btn btn-ghost">Talk to Our Team <span class="arr">→</span></a></div>
+    <div class="hero-badges">
+      <div class="hero-badge"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Evaluation fee refunded when you pass</div>
+      <div class="hero-badge"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 80% profit split</div>
+      <div class="hero-badge"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Weekly payouts</div>
+    </div>
+  </div>
+  <div class="acct-wrap">
+    <div class="sparkles"><span class="spk" style="top:-2%;left:8%;width:13px;height:13px;animation-delay:.2s"></span><span class="spk" style="top:14%;right:-3%;width:9px;height:9px;animation-delay:1.3s"></span><span class="spk" style="bottom:8%;right:4%;width:14px;height:14px;animation-delay:.7s"></span></div>
+    <div class="acct">
+      <div class="acct-head"><span class="acct-plat"><span class="live-dot"></span>DXTRADE · LIVE</span><span class="payout-pill">● PAYOUT READY · DAY 5</span></div>
+      <div class="acct-stats">
+        <div class="stat"><div class="lbl">Buying Power</div><div class="val">$100,000</div></div>
+        <div class="stat"><div class="lbl">Today P&amp;L</div><div class="val up">+$1,847.50</div></div>
+        <div class="stat"><div class="lbl">Payout</div><div class="val gold">Day 5</div></div>
+      </div>
+      <div class="chart-box">
+        <div class="lbl">5-Day P&amp;L Curve</div>
+        <svg class="spark" viewBox="0 0 320 74" preserveAspectRatio="none">
+          <defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(34,211,168,0.28)"/><stop offset="1" stop-color="rgba(34,211,168,0)"/></linearGradient></defs>
+          <path d="M0,62 L30,56 L60,50 L90,53 L120,42 L150,36 L180,40 L210,28 L240,22 L270,16 L320,8 L320,74 L0,74 Z" fill="url(#fill)"/>
+          <path d="M0,62 L30,56 L60,50 L90,53 L120,42 L150,36 L180,40 L210,28 L240,22 L270,16 L320,8" fill="none" stroke="#34f5c6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="positions">
+        <div class="lbl">Open Positions</div>
+        <div class="pos-row"><span class="pos-tkr"><span class="ico">A</span>AAPL</span><span class="pos-pl">+$612.00</span></div>
+        <div class="pos-row"><span class="pos-tkr"><span class="ico">N</span>NVDA</span><span class="pos-pl">+$1,235.50</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

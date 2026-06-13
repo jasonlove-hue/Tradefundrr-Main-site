@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeFundrr — Section 02 · The Truth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060914;--teal:#22d3a8;--teal-2:#2ee9bc;--teal-deep:#04261f;--teal-glow:rgba(34,211,168,0.45);
+  --crim:#ff5f5f;--crim-deep:#3a0f0f;--crim-glow:rgba(255,95,95,0.35);
+  --gold:#ffd54f;
+  --w100:#fff;--w72:rgba(255,255,255,0.72);--w55:rgba(255,255,255,0.55);--w40:rgba(255,255,255,0.40);
+  --w06:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.09);--border-bright:rgba(255,255,255,0.16);
+  --r-ui:10px;--r-card:18px;
+  --font:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--w100);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+.atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4}
+.glow.r{width:560px;height:560px;background:radial-gradient(circle,rgba(255,95,95,0.18),transparent 65%);top:120px;left:-160px}
+.glow.t{width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.16),transparent 65%);bottom:-160px;right:-140px}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(var(--w06) 1px,transparent 1px),linear-gradient(90deg,var(--w06) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 25%,transparent 75%);opacity:.45}
+
+section{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:112px 40px}
+@media(max-width:860px){section{padding:72px 22px}}
+
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--crim);
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:20px;font-weight:600}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--crim);box-shadow:0 0 10px var(--crim)}
+h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;max-width:760px}
+h2 .num{color:var(--teal)}
+.sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:600px;margin-bottom:46px}
+.sub b{color:var(--w100);font-weight:700}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* math card */
+.math{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);
+  padding:40px;display:grid;grid-template-columns:0.85fr 1.15fr;gap:46px;align-items:center;overflow:hidden;
+  box-shadow:0 30px 80px -40px rgba(0,0,0,0.8)}
+.math::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--crim-glow),transparent)}
+@media(max-width:760px){.math{grid-template-columns:1fr;gap:30px;padding:28px}}
+
+.bignum{font-size:clamp(72px,12vw,128px);font-weight:900;letter-spacing:-0.05em;line-height:.9;color:var(--crim);
+  text-shadow:0 0 50px rgba(255,95,95,0.3)}
+.bignum-cap{font-family:var(--mono);font-size:13px;letter-spacing:.5px;color:var(--w72);margin-top:14px;max-width:260px;line-height:1.5}
+.bignum-cap b{color:var(--crim)}
+
+.bar-block .bar-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.bar-row .lbl{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w40)}
+.bar-row .v{font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.bar-row .v.start{color:var(--w100)}
+.bar-row .v.end{color:var(--teal)}
+.track{position:relative;height:14px;border-radius:8px;background:var(--w06);border:1px solid var(--border);overflow:hidden;margin:6px 0 12px}
+.fill{position:absolute;inset:0 100% 0 0;border-radius:8px;background:linear-gradient(90deg,var(--crim),var(--teal));transition:right 1.6s cubic-bezier(.5,0,.2,1)}
+.track.in .fill{right:0}
+.bar-cap{font-size:14px;color:var(--w55);line-height:1.5}
+.bar-cap b{color:var(--w100)}
+
+/* cascade */
+.cascade{margin:46px 0 0}
+.cascade .line{display:flex;align-items:center;gap:14px;font-size:clamp(18px,2.4vw,26px);font-weight:700;letter-spacing:-0.01em;
+  color:var(--w100);padding:14px 0;border-bottom:1px solid var(--border)}
+.cascade .line .ix{font-family:var(--mono);font-size:13px;color:var(--crim);font-weight:600;min-width:26px}
+.cascade .line .em{color:var(--crim)}
+
+/* reframe */
+.reframe{margin-top:48px}
+.reframe .a{font-size:clamp(17px,2vw,21px);color:var(--w55);font-weight:500;margin-bottom:6px}
+.reframe .b{font-size:clamp(26px,3.6vw,42px);font-weight:800;letter-spacing:-0.025em;line-height:1.1}
+.reframe .b .hl{color:var(--teal)}
+
+.note{position:relative;z-index:2;max-width:1040px;margin:0 auto 60px;padding:0 40px;color:var(--w40);font-size:12.5px;font-family:var(--mono)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.track .fill{right:0;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="atmos">
+  <div class="grid-lines"></div>
+  <div class="glow r"></div>
+  <div class="glow t"></div>
+</div>
+
+<section>
+  <span class="eyebrow rv">The truth most traders figure out too late</span>
+  <h2 class="rv">You're trading with <span class="num">$5,000.</span> Maybe $10,000.</h2>
+  <p class="sub rv">And to make $5,000 in profit, you need to <b>double your account.</b></p>
+
+  <div class="math rv">
+    <div class="bignum-col">
+      <div class="bignum tnum" id="pct">0%</div>
+      <div class="bignum-cap"><b>return required</b> just to put $5,000 in your pocket</div>
+    </div>
+    <div class="bar-block">
+      <div class="bar-row">
+        <span class="lbl">Your account</span>
+        <span class="v start tnum">$5,000</span>
+      </div>
+      <div class="track" id="track"><div class="fill"></div></div>
+      <div class="bar-row">
+        <span class="lbl">Must reach</span>
+        <span class="v end tnum">$10,000</span>
+      </div>
+      <p class="bar-cap">Double your money <b>before you've made a single dollar</b> of real profit.</p>
+    </div>
+  </div>
+
+  <div class="cascade">
+    <div class="line rv"><span class="ix">01</span>Which means you're taking <span class="em">&nbsp;huge risks.</span></div>
+    <div class="line rv"><span class="ix">02</span>Overleveraging on setups that <span class="em">&nbsp;"feel right."</span></div>
+    <div class="line rv"><span class="ix">03</span>And <span class="em">&nbsp;blowing up your account&nbsp;</span> every few months.</div>
+  </div>
+
+  <div class="reframe rv">
+    <div class="a">Not because you're a bad trader.</div>
+    <div class="b">Because you're trying to do something <span class="hl">damn near impossible.</span></div>
+  </div>
+</section>
+
+<div class="note">MOCKUP · section 02 of the V2 rebuild. Same token system as the hero. Copy/numbers are V2 placeholders pending the compliance pass.</div>
+
+<script>
+function countUp(el,target,dur,suffix){
+  const start=performance.now();
+  function tick(now){
+    let p=Math.min((now-start)/dur,1);
+    p=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*p)+suffix;
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const io=new IntersectionObserver((es)=>{
+  es.forEach((e,i)=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      if(e.target.classList.contains('math')){
+        document.getElementById('track').classList.add('in');
+        setTimeout(()=>countUp(document.getElementById('pct'),100,1600,'%'),300);
+      }
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6)*0.06).toFixed(2)+'s';io.observe(el);});
+</script>
+</body>
+</html>

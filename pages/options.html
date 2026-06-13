@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+  <title>Funded Options Trading, TradeFundrr</title>
+  <meta name="description" content="Trade a $25K simulated options account with up to 20 contracts and weekly payouts on DXTrade. TradeFundrr funded options trading.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css?v=202606111730">
+  <link rel="stylesheet" href="../assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-400.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/inter-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/geist-mono-400.woff2">
+<style>
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(../assets/fonts/geist-mono-400.woff2) format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url(../assets/fonts/geist-mono-500.woff2) format('woff2'); }
+@font-face { font-family: 'Geist Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url(../assets/fonts/geist-mono-600.woff2) format('woff2'); }
+:root{
+  --bg:#060914;--bg-2:#0a0f1c;
+  --teal:#22d3a8;--teal-2:#2ee9bc;--teal-deep:#04261f;--teal-glow:rgba(34,211,168,0.45);
+  --crim:#ff5f5f;--crim-deep:#3a0f0f;--crim-glow:rgba(255,95,95,0.35);
+  --gold:#ffd54f;
+  --w100:#fff;--w72:rgba(255,255,255,0.72);--w55:rgba(255,255,255,0.55);--w40:rgba(255,255,255,0.40);
+  --w06:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.09);--border-bright:rgba(255,255,255,0.16);
+  --r-ui:10px;--r-card:18px;
+  --shadow-lift:0 30px 80px -30px rgba(0,0,0,0.8);--shadow-glow:0 24px 70px -20px rgba(34,211,168,0.28);
+  --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'Geist Mono','IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--w100);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+.tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;font-weight:600}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.eyebrow.warn{color:var(--teal)}
+.eyebrow.warn::before{background:var(--teal);box-shadow:0 0 10px var(--teal)}
+
+.atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.atmos .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 22s ease-in-out infinite alternate}
+.atmos .glow.a{width:620px;height:620px;background:radial-gradient(circle,rgba(34,211,168,0.26),transparent 65%);top:-180px;right:-120px}
+.atmos .glow.b{width:520px;height:520px;background:radial-gradient(circle,rgba(0,140,200,0.16),transparent 65%);top:220px;left:-180px;animation-delay:-8s}
+.gridbg{display:none}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.12)}}
+
+/* standard navbar provided by main.css; redesign nav styles removed */
+.navbar .btn,.navbar__cta.btn{padding:0;box-shadow:none}
+/* Restore homepage-size pill on the nav 'Get Funded' button (matches index.html .btn--primary, teal) */
+.navbar__cta.btn--primary{padding:9px 20px;border-radius:200px;gap:8px;font-size:13.5px;font-weight:600;letter-spacing:-0.4px;line-height:1.1;color:#fff;background:linear-gradient(180deg,#22d3a8 0%,#0fa9b0 100%);box-shadow:0 0 10px rgba(34,211,168,.6)}
+.navbar__cta.btn--primary:hover{box-shadow:0 0 18px rgba(34,211,168,.6)}
+
+.hero{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:124px 0 40px 0;display:grid;grid-template-columns:0.86fr 1.14fr;gap:40px;align-items:center}
+@media(max-width:980px){.hero{grid-template-columns:1fr;padding:54px 22px 24px;gap:40px}.hero-platform-img{width:100%!important;margin-right:0!important}}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.02;font-weight:800;letter-spacing:-0.035em;margin-bottom:20px}
+h1 .hl{display:block;width:fit-content;font-size:clamp(46px,6.2vw,82px);line-height:1.1;padding-bottom:0.1em;font-weight:900;letter-spacing:-0.045em;margin-top:6px;position:relative;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:8px;height:30%;background:var(--teal);filter:blur(32px);opacity:.4;z-index:-1;animation:payPulse 3.4s ease-in-out infinite}
+@keyframes payPulse{0%,100%{opacity:.3}50%{opacity:.58}}
+h1 .h1-num{display:block;width:fit-content;font-size:clamp(62px,11vw,124px);line-height:0.9;font-weight:900;letter-spacing:-0.05em;position:relative;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .h1-num::after{content:"";position:absolute;left:2px;right:2px;bottom:10px;height:32%;background:var(--teal);filter:blur(34px);opacity:.4;z-index:-1;animation:payPulse 3.4s ease-in-out infinite}
+h1 .h1-bp{display:block;font-size:clamp(30px,4.6vw,58px);line-height:1.0;font-weight:800;letter-spacing:-0.03em;color:var(--w100);margin-top:2px}
+h1 .h1-tag{display:block;font-size:clamp(22px,2.9vw,38px);line-height:1.1;font-weight:700;letter-spacing:-0.02em;color:var(--w100);margin-top:18px}
+h1 .hh-num{display:block;font-size:clamp(60px,10vw,118px);font-weight:900;letter-spacing:-0.05em;color:var(--w100);line-height:0.9;position:relative}
+h1 .hh-num::after{content:"";position:absolute;left:0;right:0;bottom:10px;height:34%;background:var(--teal);filter:blur(38px);opacity:.32;z-index:-1;animation:payPulse 3.4s ease-in-out infinite}
+h1 .hh-bp{display:block;font-size:clamp(28px,4.4vw,52px);font-weight:800;letter-spacing:-0.03em;color:var(--w100);line-height:1.05;margin-top:4px}
+h1 .hh-offer{display:block;font-size:clamp(24px,3.3vw,44px);font-weight:800;letter-spacing:-0.025em;color:var(--w100);line-height:1.1;margin-top:16px}
+h1 .hh-all{color:var(--teal)}
+.hero-benefits{display:flex;flex-wrap:wrap;gap:11px 22px;margin-top:4px}
+.hbf{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--w72);font-weight:500}
+.hbf svg{flex:none}
+.subhead{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);max-width:480px;margin-bottom:14px}
+.hero-kicker{font-size:clamp(15px,1.7vw,19px);font-weight:700;color:var(--w72);letter-spacing:-0.01em;margin-bottom:14px}
+.subhead.leadbox{font-weight:800;color:var(--w100);max-width:520px;line-height:1.45;background:rgba(34,211,168,0.07);border-left:3px solid var(--teal);padding:14px 20px;border-radius:0 4px 4px 0;margin-bottom:30px}
+.hero-fee{font-family:var(--mono);font-size:13.5px;letter-spacing:.2px;color:var(--w72);margin:-2px 0 20px}
+.hero-fee b{color:var(--teal);font-weight:700}
+.htrophies{display:flex;gap:14px;margin:0 0 32px;flex-wrap:wrap}
+.htrophy{position:relative;background:linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:15px;padding:15px 20px;min-width:118px;overflow:hidden}
+.htrophy::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.htrophy .v{font-size:29px;font-weight:900;letter-spacing:-0.03em;color:var(--teal);line-height:1}
+.htrophy .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--w55);margin-top:8px}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.btn{padding:15px 26px;border-radius:var(--r-ui);font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.22s;cursor:pointer;border:none}
+.btn-primary{background:var(--teal);color:var(--teal-deep);box-shadow:var(--shadow-glow)}
+.btn-primary:hover{background:var(--teal-2);transform:translateY(-2px);box-shadow:0 30px 80px -20px rgba(34,211,168,0.42)}
+.btn-ghost{background:transparent;color:var(--w100);border:1px solid var(--border-bright)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn .arr{transition:.22s}.btn:hover .arr{transform:translateX(4px)}
+.trust-chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--w72);background:var(--w06);border:1px solid var(--border);border-radius:40px;padding:7px 14px;font-weight:500}
+.chip svg{flex:none}
+
+.acct-wrap{position:relative;perspective:1400px}
+.acct-wrap::before{content:"";position:absolute;inset:-46px -36px;z-index:0;border-radius:50%;background:radial-gradient(ellipse 72% 66% at 50% 50%,rgba(34,211,168,0.48),rgba(34,211,168,0.13) 45%,transparent 72%);filter:blur(40px);animation:glowPulse 6s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+.sparkles{position:absolute;inset:-30px;z-index:1;pointer-events:none}
+.spk{position:absolute;background:var(--teal);clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%);filter:drop-shadow(0 0 5px var(--teal-glow));opacity:0;transform:scale(0) rotate(0deg);animation:twinkle 4.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}45%{opacity:.95;transform:scale(1) rotate(45deg)}60%{opacity:.55;transform:scale(.85) rotate(70deg)}}
+.acct{position:relative;z-index:2;background:linear-gradient(165deg,rgba(23,33,52,0.98),rgba(8,13,24,0.98));border:1px solid rgba(34,211,168,0.30);border-radius:var(--r-card);padding:24px;box-shadow:var(--shadow-lift),0 0 80px -12px rgba(34,211,168,0.52),inset 0 1px 0 rgba(255,255,255,0.08);animation:floaty 7s ease-in-out infinite}
+.acct::before{content:"";position:absolute;inset:0;border-radius:var(--r-card);padding:1px;background:linear-gradient(160deg,rgba(34,211,168,0.5),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.acct-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.acct-plat{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--w55);display:flex;align-items:center;gap:8px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 var(--teal-glow);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,211,168,.5)}70%{box-shadow:0 0 0 8px rgba(34,211,168,0)}100%{box-shadow:0 0 0 0 rgba(34,211,168,0)}}
+.payout-pill{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.5px;color:var(--teal-deep);background:linear-gradient(180deg,var(--teal-2),var(--teal));border:none;border-radius:30px;padding:6px 12px;animation:badgePulse 2.6s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,211,168,.5)}50%{box-shadow:0 0 18px 2px rgba(34,211,168,.55)}}
+.acct-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.stat{background:var(--w06);border:1px solid var(--border);border-radius:12px;padding:14px}
+.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:7px}
+.stat .val{font-size:25px;font-weight:800;letter-spacing:-0.02em}
+.stat .val.up{color:var(--teal)}
+.chart-box{background:var(--w06);border:1px solid var(--border);border-radius:12px;padding:14px 14px 8px;margin-bottom:18px}
+.chart-box .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:8px}
+.spark{width:100%;height:84px;display:block}
+.draw{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 2.2s 0.4s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.positions .lbl{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--w40);text-transform:uppercase;margin-bottom:10px}
+.pos-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border)}
+.pos-row:first-of-type{border-top:none}
+.pos-tkr{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}
+.pos-tkr .ico{width:26px;height:26px;border-radius:7px;background:var(--w06);border:1px solid var(--border);display:grid;place-items:center;font-size:10px;font-family:var(--mono);color:var(--w72)}
+.pos-pl{font-family:var(--mono);font-weight:600;font-size:14px;color:var(--teal)}
+.hero-platform-img{position:relative;z-index:2;width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 18px 44px rgba(0,0,0,0.5);transform:none!important}
+.hero-img-caption{margin:14px auto 0;max-width:560px;text-align:center;font-size:13.5px;line-height:1.5;color:#abaeb9;font-style:italic}
+
+.ticker{position:relative;z-index:2;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:30px;overflow:hidden;background:url("../assets/images/items-back.svg") center/cover no-repeat, #060914;padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;width:max-content;animation:scroll 32s linear infinite}
+.ticker-item{font-family:var(--mono);font-size:13px;color:var(--w72);display:inline-flex;align-items:center;gap:10px;font-weight:500}
+.ticker-item b{color:var(--teal)}
+.ticker-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);opacity:.6}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.truth{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.truth-glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none}
+.truth-glow.r{width:560px;height:560px;background:radial-gradient(circle,rgba(255,95,95,0.18),transparent 65%);top:80px;left:-160px}
+.truth-glow.t{width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.16),transparent 65%);bottom:-160px;right:-140px}
+.truth-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.truth-inner{padding:72px 22px}}
+.truth h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;max-width:760px}
+.truth h2 .num{color:var(--teal)}
+.truth .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:600px;margin-bottom:46px}
+.truth .sub b{color:var(--w100);font-weight:700}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.rv.in{opacity:1;transform:none}
+.math{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:40px;display:grid;grid-template-columns:0.85fr 1.15fr;gap:46px;align-items:center;overflow:hidden;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8)}
+.math::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--crim-glow),transparent)}
+@media(max-width:760px){.math{grid-template-columns:1fr;gap:30px;padding:28px}}
+.bignum{font-size:clamp(72px,12vw,128px);font-weight:900;letter-spacing:-0.05em;line-height:.9;color:var(--crim);text-shadow:0 0 50px rgba(255,95,95,0.3)}
+.bignum-cap{font-family:var(--mono);font-size:13px;letter-spacing:.5px;color:var(--w72);margin-top:14px;max-width:260px;line-height:1.5}
+.bignum-cap b{color:var(--crim)}
+.bar-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.bar-row .lbl{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w40)}
+.bar-row .v{font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.bar-row .v.start{color:var(--w100)}
+.bar-row .v.end{color:var(--teal)}
+.track{position:relative;height:14px;border-radius:8px;background:var(--w06);border:1px solid var(--border);overflow:hidden;margin:6px 0 12px}
+.fill{position:absolute;inset:0 100% 0 0;border-radius:8px;background:linear-gradient(90deg,var(--crim),var(--teal));transition:right 1.6s cubic-bezier(.5,0,.2,1)}
+.track.in .fill{right:0}
+.bar-cap{font-size:14px;color:var(--w55);line-height:1.5}
+.bar-cap b{color:var(--w100)}
+.cascade{margin:46px 0 0}
+.cascade .line{display:flex;align-items:center;gap:14px;font-size:clamp(18px,2.4vw,26px);font-weight:700;letter-spacing:-0.01em;color:var(--w100);padding:14px 0;border-bottom:1px solid var(--border)}
+.cascade .line .ix{font-family:var(--mono);font-size:13px;color:var(--crim);font-weight:600;min-width:26px}
+.cascade .line .em{color:var(--crim)}
+.reframe{margin-top:48px}
+.reframe .a{font-size:clamp(17px,2vw,21px);color:var(--w55);font-weight:500;margin-bottom:6px}
+.reframe .b{font-size:clamp(26px,3.6vw,42px);font-weight:800;letter-spacing:-0.025em;line-height:1.1}
+.reframe .b .hl{color:var(--teal)}
+
+.cg{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.cg-glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none;width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.16),transparent 65%);top:140px;right:-160px}
+.cg-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.cg-inner{padding:72px 22px}}
+.cg h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;max-width:760px}
+.cg h2 .warnacc{color:var(--crim)}
+.cg .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:36px}
+.cg .sub b{color:var(--w100);font-weight:700}
+.elim{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 40px}
+.elim .x{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:var(--w55);background:var(--w06);border:1px solid var(--border);border-radius:40px;padding:9px 17px}
+.elim .x s{text-decoration:line-through;text-decoration-color:rgba(255,95,95,.6)}
+.elim .x .ic{color:var(--crim);font-weight:800}
+.cg-reframe{margin:6px 0 36px}
+.cg-reframe .small{font-size:clamp(18px,2.2vw,24px);color:var(--w55);font-weight:600;margin-bottom:4px}
+.cg-reframe .small s{text-decoration-color:var(--crim)}
+.cg-reframe .big{font-size:clamp(34px,5vw,62px);font-weight:900;letter-spacing:-0.035em;line-height:1}
+.cg-reframe .big .hl{color:var(--teal);text-shadow:0 0 50px rgba(34,211,168,0.28)}
+
+.deal{display:flex;align-items:flex-start;gap:16px;background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.22);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:18px 22px;margin:0 0 44px;max-width:780px}
+.deal-k{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;white-space:nowrap;margin-top:4px}
+.deal p{font-size:clamp(16px,2vw,19px);line-height:1.5;color:var(--w100);font-weight:500}
+.deal p b{font-weight:800}
+.deal p b.tealtxt{color:var(--teal)}
+
+.proof{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:34px 40px;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8)}
+.proof::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,168,0.4),transparent)}
+@media(max-width:640px){.proof{padding:26px 22px}}
+.proof-row{padding:4px 0 26px;border-bottom:1px solid var(--border);margin-bottom:26px}
+.proof-row.last{border-bottom:none;margin-bottom:0;padding-bottom:4px}
+.proof-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.proof-k{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:600}
+.proof-k .n{color:var(--w40);margin-right:8px}
+.proof-sub{font-size:13px;color:var(--w55)}
+.scale{display:flex;flex-direction:column;gap:18px}
+.scale-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:10px}
+.scale-lbl{font-size:14px;color:var(--w72);font-weight:500}
+.scale-val{font-size:23px;font-weight:800;letter-spacing:-0.02em;color:var(--w100)}
+.scale-val.teal{color:var(--teal)}
+.sbar{height:16px;border-radius:8px;background:var(--w06);border:1px solid var(--border);overflow:hidden}
+.sfill{height:100%;width:0;border-radius:8px;transition:width 1.5s cubic-bezier(.5,0,.2,1)}
+.sfill.s-sm{background:linear-gradient(90deg,rgba(255,255,255,0.22),rgba(255,255,255,0.4))}
+.sfill.s-lg{background:linear-gradient(90deg,var(--teal),var(--teal-2))}
+.proof.in .sfill.s-sm{width:5%}
+.proof.in .sfill.s-lg{width:100%}
+.proof-note{font-size:13.5px;color:var(--w55);margin-top:16px}
+.proof-note b{color:var(--w100)}
+.whose{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.whose{grid-template-columns:1fr}}
+.whose-item{background:var(--w06);border:1px solid var(--border);border-radius:14px;padding:20px}
+.cg-prose{max-width:680px;margin:8px 0 0}
+.cg-prose p{font-size:clamp(15px,1.9vw,18px);line-height:1.65;color:var(--w72);margin-bottom:18px}
+.cg-prose p:last-child{margin-bottom:0}
+.cg-prose b{color:var(--w100);font-weight:700}
+.cg-prose .tealtxt{color:var(--teal)}
+.cg-graphic{margin:40px auto 0;max-width:1060px;width:100%}
+.cg-graphic iframe{width:100%}
+.whose-pill{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:14px}
+.whose-pill.warn{color:var(--crim);background:rgba(255,95,95,0.12);border:1px solid rgba(255,95,95,0.3)}
+.whose-pill.good{color:var(--teal);background:rgba(34,211,168,0.12);border:1px solid rgba(34,211,168,0.3)}
+.whose-amt{font-size:42px;font-weight:900;letter-spacing:-0.03em;line-height:1}
+.whose-amt.warn{color:var(--crim)}.whose-amt.teal{color:var(--teal)}
+.whose-tag{font-size:12.5px;color:var(--w55);margin:5px 0 12px;font-family:var(--mono);letter-spacing:.3px}
+.whose-cap{font-size:14px;line-height:1.5;color:var(--w72)}
+.risk-strip{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;margin-top:24px;padding:14px 18px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px}
+.risk-strip .rs-k{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);font-weight:600}
+.risk-strip .rs-i{font-size:13.5px;color:var(--w72)}
+.risk-strip .rs-i b{color:var(--w100);font-weight:700}
+.cg-close{margin-top:46px;max-width:720px}
+.cg-close p{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);margin-bottom:14px}
+.cg-close p b{color:var(--w100)}
+.cg-close .big{font-size:clamp(24px,3.4vw,38px);font-weight:800;letter-spacing:-0.025em;line-height:1.15;color:var(--w100)}
+.cg-close .big .hl{color:var(--teal)}
+
+.tt{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.tt-glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none;width:540px;height:540px;background:radial-gradient(circle,rgba(255,95,95,0.14),transparent 65%);top:120px;left:-160px}
+.tt-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.tt-inner{padding:72px 22px}}
+.tt h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;max-width:760px}
+.tt h2 .warnacc{color:var(--crim)}
+.tt .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:600px;margin-bottom:18px}
+.tt .sub b{color:var(--w100);font-weight:700}
+.tt .body{font-size:clamp(15px,1.9vw,18px);line-height:1.6;color:var(--w72);max-width:660px;margin-bottom:38px}
+.tt .body b{color:var(--w100)}
+.ttcard{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:28px 30px;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8);overflow:hidden}
+.ttcard::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,168,0.4),transparent)}
+.tt-legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:6px}
+.tt-leg{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--w72)}
+.tt-leg .dot{width:10px;height:10px;border-radius:50%}
+.tt-leg .dot.teal{background:var(--teal)}
+.tt-leg .dot.crim{background:var(--crim)}
+.tt-chart{width:100%;height:auto;display:block}
+.tt-grid{stroke:var(--w06);stroke-width:1}
+.tt-axis{stroke:var(--border)}
+.tt-axl{fill:var(--w40);font-family:var(--mono);font-size:11px}
+.tt-line{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400}
+.tt-red{stroke:var(--crim);filter:drop-shadow(0 0 6px rgba(255,95,95,0.3))}
+.tt-teal{stroke:var(--teal);filter:drop-shadow(0 0 6px rgba(34,211,168,0.35))}
+.ttcard.in .tt-red{animation:ttdraw 2.3s .25s cubic-bezier(.6,0,.2,1) forwards}
+.ttcard.in .tt-teal{animation:ttdraw 1.3s .1s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes ttdraw{to{stroke-dashoffset:0}}
+.tt-startdot{fill:var(--teal);filter:drop-shadow(0 0 6px var(--teal))}
+.tt-anno{font-family:var(--mono);font-size:12px;font-weight:600}
+.tt-anno.teal{fill:var(--teal)}
+.tt-anno.crim{fill:var(--crim)}
+.tt-anno.w{fill:var(--w72)}
+.tt-ptr{stroke-width:1.5;stroke-dasharray:3 3}
+.tt-ptr.crim{stroke:var(--crim)}
+.tt-ptr.w{stroke:rgba(255,255,255,0.32)}
+.tt-foot{font-size:11.5px;color:var(--w40);margin-top:12px}
+.tt-bridge{font-size:clamp(17px,2.2vw,22px);font-weight:700;letter-spacing:-0.01em;line-height:1.4;color:var(--w100);margin:24px 0 4px;max-width:720px}
+.tt-bridge b{color:var(--crim)}
+.tt-rate{background:rgba(255,95,95,0.05);border:1px solid rgba(255,95,95,0.2);border-left:3px solid var(--crim);border-radius:0 12px 12px 0;padding:26px 28px;margin-top:30px}
+.tt-rate-head{display:flex;gap:22px;align-items:center}
+@media(max-width:600px){.tt-rate-head{flex-direction:column;align-items:flex-start;gap:12px}}
+.tt-rate-num{font-size:clamp(36px,6vw,54px);font-weight:900;letter-spacing:-0.03em;color:var(--crim);line-height:1;flex:none;white-space:nowrap}
+.tt-rate-num span{font-size:0.42em;color:var(--w55);font-weight:700}
+.tt-rate-txt{font-size:14.5px;line-height:1.55;color:var(--w72)}
+.tt-rate-txt b{color:var(--w100);font-weight:700}
+.tt-ladder{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+.tt-rung{display:flex;flex-direction:column;background:var(--w06);border:1px solid var(--border);border-radius:10px;padding:8px 12px;min-width:76px}
+.tt-rung .y{font-family:var(--mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--w40)}
+.tt-rung .a{font-size:15px;font-weight:800;letter-spacing:-0.01em;color:var(--w72);font-variant-numeric:tabular-nums}
+.tt-rung.end{border-color:rgba(255,95,95,0.4);background:rgba(255,95,95,0.08)}
+.tt-rung.end .a{color:var(--crim)}
+.tt-cx{font-family:var(--mono);font-size:11px;color:var(--teal);font-weight:700}
+.tt-ladder-note{font-size:12px;color:var(--w40);margin-top:12px;line-height:1.5}
+.tt-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+@media(max-width:640px){.tt-stats{grid-template-columns:1fr}}
+.tt-stat{background:var(--w06);border:1px solid var(--border);border-radius:14px;padding:22px 20px;text-align:center}
+.tt-stat .n{font-size:clamp(40px,6vw,56px);font-weight:900;letter-spacing:-0.04em;line-height:1;color:var(--crim);text-shadow:0 0 40px rgba(255,95,95,0.25)}
+.tt-stat .l{font-size:14px;line-height:1.45;color:var(--w72);margin-top:10px}
+.tt-stat .l b{color:var(--w100);font-weight:700}
+.tt-src{font-size:12px;line-height:1.55;color:var(--w40);margin-top:16px;font-family:var(--mono)}
+.tt-src b{color:var(--w55)}
+.tt-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.tt-kicker{font-size:clamp(18px,2.4vw,24px);font-weight:800;color:var(--w100);letter-spacing:-0.02em;margin:6px 0 14px;max-width:680px}
+.tt-p{font-size:clamp(15px,1.9vw,18px);line-height:1.65;color:var(--w72);max-width:680px;margin:0 0 22px}
+.tt-p b{color:var(--w100);font-weight:700}
+.tt-cost{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:4px 0 26px;max-width:800px}
+@media(max-width:640px){.tt-cost{grid-template-columns:1fr}}
+.tt-cost-item{display:flex;gap:12px;align-items:flex-start;background:rgba(255,95,95,0.05);border:1px solid rgba(255,95,95,0.18);border-radius:12px;padding:16px 18px}
+.tt-cost-x{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:rgba(255,95,95,0.14);color:var(--crim);font-weight:700;font-size:14px;margin-top:1px}
+.tt-cost-item p{font-size:14.5px;line-height:1.55;color:var(--w72);margin:0}
+.tt-cost-item p b{color:var(--w100);font-weight:700}
+.tt-pivot{background:rgba(34,211,168,0.07);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:20px 24px;margin:0 0 26px;max-width:620px}
+.tt-pivot-sm{font-size:clamp(15px,1.9vw,18px);color:var(--w72);margin:0 0 4px;font-weight:600}
+.tt-pivot-big{font-size:clamp(24px,3.4vw,38px);font-weight:800;letter-spacing:-0.025em;color:var(--w100);line-height:1.1;margin:0}
+.tt-pivot-big span{color:var(--teal)}
+.tt-no{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.tt-no span{font-family:var(--mono);font-size:13px;letter-spacing:.3px;color:var(--teal);background:rgba(34,211,168,0.08);border:1px solid rgba(34,211,168,0.3);border-radius:30px;padding:8px 16px;font-weight:600}
+.tt-compare2{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;margin:24px 0 0;max-width:940px}
+@media(max-width:760px){.tt-compare2{grid-template-columns:1fr}.tt-vs2{padding:10px 0}}
+.tt-box{border-radius:14px;padding:22px 24px}
+.tt-box.red{background:rgba(255,95,95,0.06);border:1px solid rgba(255,95,95,0.22)}
+.tt-box.green{background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.28)}
+.tt-box-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);display:block;margin-bottom:6px}
+.tt-box-amt{font-size:18px;font-weight:800;letter-spacing:-0.02em;color:var(--w100);margin-bottom:14px}
+.tt-box-title{font-size:15px;font-weight:700;margin-bottom:12px}
+.tt-box.red .tt-box-title{color:var(--crim)}
+.tt-box.green .tt-box-title{color:var(--teal)}
+.tt-box ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.tt-box li{font-size:13.5px;line-height:1.5;color:var(--w72);padding-left:16px;position:relative}
+.tt-box li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%}
+.tt-box.red li::before{background:var(--crim)}
+.tt-box.green li::before{background:var(--teal)}
+.tt-box li b{color:var(--w100);font-weight:700}
+.tt-vs2{display:flex;align-items:center;justify-content:center;padding:0 18px;font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--w40)}
+.tt-badge{font-family:var(--mono);font-size:12.5px;color:var(--w72);background:var(--w06);border:1px solid var(--border);border-radius:40px;padding:9px 16px;display:inline-flex;align-items:center;gap:8px}
+.tt-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.tt-close{margin-top:44px;max-width:720px}
+.tt-close p{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);margin-bottom:12px}
+.tt-close p b{color:var(--w100)}
+.tt-close .big{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;color:var(--w100)}
+.tt-close .big .hl{color:var(--teal);text-shadow:0 0 50px rgba(34,211,168,0.28)}
+.rm{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.rm-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;pointer-events:none;width:540px;height:540px;background:radial-gradient(circle,rgba(34,211,168,0.13),transparent 65%);bottom:-160px;right:-140px}
+.rm-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:118px 40px}
+@media(max-width:860px){.rm-inner{padding:78px 22px}}
+.dc-lead{font-size:clamp(18px,2.4vw,24px);line-height:1.45;color:var(--w72);max-width:680px;margin-bottom:6px;font-weight:600}
+.dc-lead b{color:var(--w100);font-weight:800}
+.dc-p{font-size:clamp(15px,1.9vw,18px);line-height:1.65;color:var(--w72);max-width:680px;margin:18px 0 0}
+.dc-p b{color:var(--w100);font-weight:700}
+.dc-fear{background:rgba(255,95,95,0.05);border:1px solid rgba(255,95,95,0.18);border-left:3px solid var(--crim);border-radius:0 12px 12px 0;padding:20px 24px;margin:30px 0 0;max-width:680px}
+.dc-fear-t{font-weight:700;color:var(--w100);font-size:16px;margin-bottom:14px}
+.dc-fear ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.dc-fear li{font-size:14.5px;line-height:1.5;color:var(--w72);padding-left:18px;position:relative}
+.dc-fear li::before{content:"\2715";position:absolute;left:0;top:1px;color:var(--crim);font-size:11px;font-weight:700}
+.dc-pivot{background:rgba(34,211,168,0.07);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:22px 26px;margin:30px 0 0;max-width:680px}
+.dc-pivot-or{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px}
+.dc-pivot-big{font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-0.025em;color:var(--w100);line-height:1.2;margin:0}
+.dc-pivot-big span{color:var(--teal)}
+.dc-pivot-sm{font-size:13.5px;color:var(--w55);margin-top:10px}
+.dc-contrast{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;margin:40px 0 0;max-width:880px}
+@media(max-width:680px){.dc-contrast{grid-template-columns:1fr}.dc-vs{padding:12px 0}}
+.dc-col{border-radius:14px;padding:28px 26px;text-align:center}
+.dc-col.red{background:rgba(255,95,95,0.06);border:1px solid rgba(255,95,95,0.22)}
+.dc-col.teal{background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.28)}
+.dc-k{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);margin-bottom:14px}
+.dc-big{font-size:clamp(46px,7vw,76px);font-weight:900;letter-spacing:-0.04em;line-height:1}
+.dc-col.red .dc-big{color:var(--crim);text-shadow:0 0 40px rgba(255,95,95,0.25)}
+.dc-col.teal .dc-big{color:var(--teal);text-shadow:0 0 40px rgba(34,211,168,0.25)}
+.dc-c{font-size:13.5px;line-height:1.5;color:var(--w72);margin-top:14px}
+.dc-vs{display:flex;align-items:center;justify-content:center;padding:0 18px;font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:1px;color:var(--w40)}
+.dc-close{font-size:clamp(18px,2.4vw,24px);font-weight:700;letter-spacing:-0.01em;line-height:1.4;color:var(--w100);margin:34px 0 0;max-width:720px}
+.dc-close .hl{color:var(--teal)}
+.rm h2{font-size:clamp(32px,4.8vw,56px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;margin-bottom:22px}
+.rm h2 .hl{color:var(--teal);text-shadow:0 0 50px rgba(34,211,168,0.28)}
+.rm-lede{font-size:clamp(17px,2.1vw,21px);line-height:1.55;color:var(--w72);max-width:680px;margin-bottom:18px}
+.rm-lede b{color:var(--w100)}
+.rm-turn{font-size:clamp(17px,2.1vw,21px);line-height:1.5;color:var(--w100);font-weight:600;max-width:680px}
+.rm-turn b{color:var(--teal)}
+.rm-contrast{display:grid;grid-template-columns:1fr 1px 1fr;align-items:stretch;margin:44px 0 40px;max-width:780px}
+@media(max-width:680px){.rm-contrast{grid-template-columns:1fr}}
+.rm-divide{background:var(--border)}
+@media(max-width:680px){.rm-divide{height:1px;margin:14px 0}}
+.rm-col{padding:8px 34px}
+@media(max-width:680px){.rm-col{padding:8px 0}}
+.rm-col .k{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);margin-bottom:12px}
+.rm-col .big{font-size:clamp(40px,6vw,60px);font-weight:900;letter-spacing:-0.03em;line-height:1}
+.rm-col.l .big{color:var(--w100)}
+.rm-col.r .big{color:var(--teal);text-shadow:0 0 44px rgba(34,211,168,0.25)}
+.rm-col .c{font-size:14px;line-height:1.5;color:var(--w72);margin-top:12px;max-width:280px}
+.rm-close{font-size:clamp(20px,2.8vw,30px);font-weight:800;letter-spacing:-0.02em;line-height:1.25;color:var(--w100);max-width:720px}
+.rm-close .hl{color:var(--teal)}
+.eq{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.eq-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.13),transparent 65%);top:120px;left:-150px}
+.eq-inner{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.eq-inner{padding:72px 22px}}
+.eq h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:20px;max-width:820px}
+.eq h2 .warnacc{color:var(--crim)}
+.eq h2 .hl{color:var(--teal)}
+.eq .lede{font-size:clamp(16px,2vw,20px);line-height:1.55;color:var(--w72);max-width:700px;margin-bottom:40px}
+.eq .lede b{color:var(--w100)}
+.eq-vs{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px}
+@media(max-width:720px){.eq-vs{grid-template-columns:1fr}}
+.eq-card{border:1px solid var(--border);border-radius:16px;padding:26px;background:var(--w06)}
+.eq-card.us{border-color:rgba(34,211,168,0.32);background:rgba(34,211,168,0.05)}
+.eq-card .lbl{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.eq-card.them .lbl{color:var(--w40)}
+.eq-card.us .lbl{color:var(--teal)}
+.eq-pt{display:flex;align-items:flex-start;gap:12px;padding:9px 0;font-size:15.5px;line-height:1.45}
+.eq-pt .i{flex:none;font-weight:800;margin-top:1px}
+.eq-card.them .eq-pt{color:var(--w55)}
+.eq-card.them .eq-pt .i{color:var(--crim)}
+.eq-card.us .eq-pt{color:var(--w100)}
+.eq-card.us .eq-pt .i{color:var(--teal)}
+.eq-close{margin-top:40px;font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:var(--w100);max-width:760px}
+.eq-close .hl{color:var(--teal)}
+.hiw{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.hiw-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;pointer-events:none;width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.14),transparent 65%);top:60px;right:-150px}
+.hiw-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.hiw-inner{padding:72px 22px}}
+.hiw h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.hiw h2 .hl{color:var(--teal)}
+.hiw .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:50px}
+.hiw-steps{display:flex;align-items:stretch;gap:0}
+@media(max-width:820px){.hiw-steps{flex-direction:column}}
+.hiw-step{flex:1;position:relative;background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:28px}
+.hiw-step .num{font-family:var(--mono);font-size:14px;font-weight:800;color:var(--teal-deep);background:var(--teal);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;box-shadow:0 8px 22px -8px var(--teal-glow)}
+.hiw-step h3{font-size:19px;font-weight:800;letter-spacing:-0.01em;margin-bottom:10px;line-height:1.2}
+.hiw-step p{font-size:14.5px;line-height:1.55;color:var(--w72)}
+.hiw-step p b{color:var(--w100);font-weight:700}
+.hiw-conn{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 16px;color:var(--teal);font-size:24px;font-weight:700}
+@media(max-width:820px){.hiw-conn{padding:6px 0;transform:rotate(90deg)}}
+.hiw-foot{font-family:var(--mono);font-size:13px;color:var(--w55);margin-top:30px;letter-spacing:.3px}
+.hiw-foot b{color:var(--teal)}
+.pr{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.pr-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.4;pointer-events:none;width:620px;height:620px;background:radial-gradient(circle,rgba(34,211,168,0.14),transparent 65%);top:80px;left:50%;transform:translateX(-50%)}
+.pr-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.pr-inner{padding:78px 22px}}
+.pr h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.pr h2 .hl{color:var(--teal)}
+.pr .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:50px}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+@media(max-width:920px){.pr-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+.pcard{position:relative;background:var(--w06);border:1px solid var(--border);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;height:100%}
+.pcard.feat{border-color:rgba(34,211,168,0.4);background:linear-gradient(180deg,rgba(34,211,168,0.07),rgba(34,211,168,0.02));transform:translateY(-8px);box-shadow:0 30px 70px -28px rgba(34,211,168,0.25)}
+@media(max-width:920px){.pcard.feat{transform:none}}
+.pcard.feat::before{content:"";position:absolute;top:0;left:12%;right:12%;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.pc-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--w40);font-weight:600;margin-bottom:14px}
+.pcard.feat .pc-eyebrow{color:var(--teal)}
+.pc-title{font-size:22px;font-weight:800;letter-spacing:-0.01em;margin-bottom:6px}
+.pc-tag{font-size:14px;color:var(--w72);line-height:1.45;margin-bottom:18px;min-height:42px}
+.pc-price .amt{font-size:34px;font-weight:900;letter-spacing:-0.02em}
+.pc-price .per{font-size:12.5px;color:var(--w55);margin-top:5px;font-family:var(--mono);line-height:1.4}
+.pc-hi{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13.5px;color:var(--w72);margin:16px 0;line-height:1.45}
+.pc-hi b{color:var(--w100);font-weight:700}
+.pc-list{list-style:none;margin:0 0 20px;padding:0;flex:1}
+.pc-list li{display:flex;gap:10px;font-size:14px;color:var(--w72);padding:7px 0;line-height:1.4}
+.pc-list li::before{content:"→";color:var(--teal);font-weight:700;flex:none}
+.pc-rebate{font-family:var(--mono);font-size:11.5px;font-weight:600;padding:8px 12px;border-radius:8px;margin-bottom:18px;display:inline-block}
+.pc-rebate.no{color:var(--crim);background:rgba(255,95,95,0.1);border:1px solid rgba(255,95,95,0.25)}
+.pc-rebate.yes{color:var(--teal);background:rgba(34,211,168,0.12);border:1px solid rgba(34,211,168,0.3)}
+.pc-rebate.na{color:var(--gold);background:rgba(255,213,79,0.1);border:1px solid rgba(255,213,79,0.25)}
+.pc-cta{display:block;text-align:center;padding:13px;border-radius:10px;font-weight:700;font-size:14.5px;text-decoration:none;border:1px solid var(--border-bright);color:var(--w100);transition:.2s}
+.pc-cta:hover{border-color:var(--teal);color:var(--teal)}
+.pcard.feat .pc-cta{background:var(--teal);color:var(--teal-deep);border-color:var(--teal);box-shadow:0 12px 30px -10px var(--teal-glow)}
+.pcard.feat .pc-cta:hover{background:var(--teal-2);color:var(--teal-deep)}
+.rebate-callout{margin-top:30px;background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:28px 30px}
+.rebate-callout h3{font-size:17px;font-weight:800;margin-bottom:4px}
+.rebate-callout .rc-sub{font-size:13px;color:var(--w55);margin-bottom:16px}
+.rc-row{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--border)}
+.rc-row:first-of-type{border-top:none}
+.rc-ic{flex:none;font-weight:800;font-size:15px;width:18px}
+.rc-ic.yes{color:var(--teal)}.rc-ic.no{color:var(--crim)}.rc-ic.na{color:var(--gold)}
+.rc-txt{font-size:13.5px;line-height:1.55;color:var(--w72)}
+.rc-txt b{color:var(--w100);font-weight:700}
+.rc-txt .req{color:var(--w55)}
+.b5{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.b5-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);top:120px;left:-150px}
+.b5-inner{position:relative;z-index:2;max-width:920px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.b5-inner{padding:78px 22px}}
+.b5 h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.b5 h2 .hl{color:var(--teal)}
+.b5 .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:30px}
+.b5-share-lbl{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);margin-bottom:12px}
+.b5-share{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.b5-share .s{font-family:var(--mono);font-size:12px;color:var(--w72);background:var(--w06);border:1px solid var(--border);border-radius:40px;padding:7px 14px;display:flex;align-items:center;gap:8px}
+.b5-share .s::before{content:"✓";color:var(--teal);font-weight:800}
+.b5-table{border:1px solid var(--border-bright);border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.02)}
+.b5-row{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;align-items:center;padding:16px 22px;border-top:1px solid var(--border)}
+.b5-row:first-child{border-top:none}
+.b5-row.head{background:rgba(255,255,255,0.03)}
+.b5-plan{font-weight:800;font-size:16px}
+.b5-plan.express{color:var(--teal)}
+.b5-pop{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--teal-deep);background:var(--teal);border-radius:20px;padding:2px 8px;margin-left:8px;font-weight:700;vertical-align:2px}
+.b5-label{font-family:var(--mono);font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--w55)}
+.b5-hint{display:block;font-family:var(--font);text-transform:none;letter-spacing:0;color:var(--w40);font-size:11.5px;margin-top:4px;font-weight:400;line-height:1.3}
+.b5-val{font-size:14.5px;color:var(--w72);line-height:1.4}
+.b5-val.express{color:var(--w100);font-weight:600}
+.b5-val .x{color:var(--crim);font-weight:800;margin-right:5px}
+.b5-val .c{color:var(--teal);font-weight:800;margin-right:5px}
+.b5-foot{font-size:12px;color:var(--w40);margin-top:14px;font-family:var(--mono);line-height:1.5;max-width:680px}
+@media(max-width:640px){.b5-row{grid-template-columns:1fr;gap:4px;padding:14px 16px}.b5-row.head{display:none}.b5-label{margin-bottom:3px}.b5-val::before{content:attr(data-plan)" — ";color:var(--w40);font-family:var(--mono);font-size:11px}}
+.faq{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.faq-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);top:120px;right:-150px}
+.faq-inner{position:relative;z-index:2;max-width:840px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.faq-inner{padding:78px 22px}}
+.faq h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.faq h2 .hl{color:var(--teal)}
+.faq .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:600px;margin-bottom:40px}
+.faq-item{border:1px solid var(--border);border-radius:12px;margin-bottom:12px;background:var(--w06);overflow:hidden;transition:border-color .2s}
+.faq-item[open]{border-color:rgba(34,211,168,0.3)}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16.5px;font-weight:700;color:var(--w100);line-height:1.35}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .ico{flex:none;width:11px;height:11px;border-right:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(45deg);transition:transform .25s;margin-right:8px;margin-top:-5px}
+.faq-item[open] summary .ico{transform:rotate(-135deg);margin-top:3px}
+.faq-ans{padding:0 24px 22px;font-size:15px;line-height:1.6;color:var(--w72)}
+.faq-ans b{color:var(--w100);font-weight:700}
+.faq-ans .means{display:block;margin-top:16px;padding:12px 14px;background:rgba(34,211,168,0.08);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;color:#fff;font-weight:600;font-size:14px;line-height:1.55;letter-spacing:0.1px}
+.faq-ans .means b{color:#fff}
+.bm{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.bm-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);top:120px;left:-150px}
+.bm-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.bm-inner{padding:78px 22px}}
+.bm h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.bm h2 .hl{color:var(--teal)}
+.bm .intro{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:660px;margin-bottom:40px}
+.bm-parts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+@media(max-width:720px){.bm-parts{grid-template-columns:1fr}}
+.bm-part{background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:28px}
+.bm-part .pn{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:14px}
+.bm-part h3{font-size:19px;font-weight:800;line-height:1.25;margin-bottom:10px}
+.bm-part p{font-size:14.5px;line-height:1.55;color:var(--w72)}
+.bm-part p b{color:var(--w100);font-weight:700}
+.bm-plain{background:rgba(34,211,168,0.07);border:1px solid rgba(34,211,168,0.22);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:22px 26px}
+.bm-plain .pl-lbl{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px}
+.bm-plain p{font-size:clamp(16px,2vw,19px);line-height:1.5;color:var(--w100);font-weight:600}
+.bm-plain p .t{color:var(--teal)}
+.t3{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.t3-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35;pointer-events:none;width:560px;height:560px;background:radial-gradient(circle,rgba(0,140,200,0.16),transparent 65%);top:80px;right:-150px}
+.t3-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.t3-inner{padding:78px 22px}}
+.t3 h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.t3 h2 .hl{color:var(--teal)}
+.t3 .intro{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:900px;margin-bottom:26px}
+.t3-ents{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+@media(max-width:760px){.t3-ents{grid-template-columns:1fr}}
+.t3-stack{display:flex;flex-direction:column;align-items:center;margin-bottom:22px}
+.t3-top{width:min(560px,100%);align-items:flex-start;border-color:rgba(34,211,168,0.32)!important;background:rgba(34,211,168,0.05)!important}
+.t3-top .t3-ent-note{color:var(--w72)}
+.t3-grad-badge{align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--teal);border:1px solid rgba(34,211,168,0.35);border-radius:999px;padding:5px 12px;margin-bottom:16px}
+.t3-connector{display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px 0 18px}
+.t3-connector .rail{width:2px;height:26px;background:linear-gradient(180deg,rgba(34,211,168,0.6),rgba(34,211,168,0.2))}
+.t3-builton{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);font-weight:700;display:inline-flex;align-items:center;gap:8px}
+.t3-builton .arrow{font-size:13px}
+.t3-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:640px}
+.t3-chip{font-size:12.5px;font-weight:600;color:var(--w72);background:var(--w06);border:1px solid var(--border);border-radius:999px;padding:7px 14px}
+.t3-chip b{color:var(--w100);font-weight:700}
+.t3-base{width:100%;position:relative;border-color:rgba(34,211,168,0.18)!important;background:linear-gradient(180deg,rgba(34,211,168,0.06),var(--w06))!important;padding-top:30px}
+.t3-base::before{content:"";position:absolute;top:0;left:24px;right:24px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(34,211,168,0.55),transparent)}
+.t3-base-label{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:#070a12;background:var(--teal);border-radius:999px;padding:5px 16px;white-space:nowrap}
+.t3-base-grid{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:flex-start}
+.t3-base-grid .col-logo{flex:0 0 auto}
+.t3-base-grid .col-body{flex:1 1 320px;min-width:280px}
+.t3-base-grid .col-body p{flex:none}
+.t3-ent{background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+.t3-ent.grad{border-color:rgba(34,211,168,0.3);background:rgba(34,211,168,0.04)}
+.t3-logochip{background:#fff;border-radius:10px;padding:11px 16px;display:inline-flex;align-items:center;align-self:flex-start;margin-bottom:18px;min-height:54px;max-width:100%}
+.t3-logochip img{height:30px;width:auto;max-width:100%;display:block}
+.t3-ent-tag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.t3-ent.grad .t3-ent-tag{color:var(--teal)}
+.t3-ent.reg .t3-ent-tag{color:var(--w40)}
+.t3-ent p{font-size:14.5px;line-height:1.55;color:var(--w72);flex:1;margin:0}
+.t3-ent p b{color:var(--w100)}
+.t3-ent .creds-line{font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:var(--w72);margin-top:12px}
+.t3-ent .creds-line b{color:var(--w100)}
+.t3-ent-note{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;line-height:1.45;color:var(--w55);font-weight:600}
+.t3-ent.grad .t3-ent-note{color:var(--w72)}
+.t3-distinct{border:1px solid rgba(255,213,79,0.35);background:rgba(255,213,79,0.05);border-radius:14px;padding:22px 26px;margin-bottom:36px}
+.t3-distinct .dl{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+.t3-distinct p{font-size:14.5px;line-height:1.6;color:var(--w72);margin:0}
+.t3-distinct p b{color:var(--w100);font-weight:700}
+.t3-grad{font-size:clamp(16px,2vw,19px);line-height:1.55;color:var(--w72);max-width:740px;margin-bottom:24px}
+.t3-grad b{color:var(--w100)}
+.t3-mantra{font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:var(--w100)}
+.t3-mantra .t{color:var(--teal)}
+.t3-disc{font-size:11.5px;color:var(--w40);margin-top:22px;line-height:1.5;max-width:720px}
+.rev{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.rev-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35;pointer-events:none;width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);top:80px;left:50%;transform:translateX(-50%)}
+.rev-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.rev-inner{padding:78px 22px}}
+.rev h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.rev h2 .hl{color:var(--teal)}
+.rev .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:30px}
+.rev-rating{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--w06);border:1px solid var(--border);border-radius:14px;padding:16px 22px;margin-bottom:8px}
+.rev-rating .stars{color:var(--teal);font-size:18px;letter-spacing:3px}
+.rev-rating .score{font-size:19px;font-weight:800}
+.rev-rating .txt{font-size:14px;color:var(--w72)}
+.rev-rating a{color:var(--teal);text-decoration:none}
+.rev-rating a:hover{text-decoration:underline}
+.rev-rating-live{background:var(--w06);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin:8px auto 30px;max-width:960px;display:flex;justify-content:center}
+.rev-rating-live .trustpilot-widget{width:100%}
+.rev-cap{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);margin:34px 0 16px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:880px){.rev-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.rev-grid{grid-template-columns:1fr}}
+.rev-card{background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column}
+.rev-card .stars{color:var(--teal);font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.rev-card .rtitle{font-size:15.5px;font-weight:800;margin-bottom:10px;line-height:1.3}
+.rev-card .quote{font-size:14px;line-height:1.55;color:var(--w72);flex:1}
+.rev-card .quote b{color:var(--w100);font-weight:700}
+.rev-card .who{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:12.5px;color:var(--w55);font-family:var(--mono)}
+.rev-card .who b{color:var(--w100);font-weight:700}
+.rev-more{display:inline-flex;align-items:center;gap:8px;margin-top:26px;color:var(--teal);text-decoration:none;font-weight:700;font-size:14.5px}
+.rev-more:hover{gap:12px}
+.rev-disc{font-size:11.5px;color:var(--w40);margin-top:18px;line-height:1.5;max-width:760px}
+.plat{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.plat-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);top:120px;right:-150px}
+.plat-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.plat-inner{padding:78px 22px}}
+.plat h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.plat h2 .hl{color:var(--teal)}
+.plat .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:44px}
+.plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.plat-grid{grid-template-columns:1fr}}
+.plat-card{background:var(--w06);border:1px solid var(--border);border-radius:18px;padding:30px;display:flex;flex-direction:column}
+.plat-card .ptag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px}
+.plat-card .pname{font-size:21px;font-weight:800;letter-spacing:-0.01em;margin-bottom:14px}
+.plat-card .pdesc{font-size:14.5px;line-height:1.55;color:var(--w72);margin-bottom:18px}
+.plat-card .pdesc b{color:var(--w100);font-weight:700}
+.plat-feat{list-style:none;margin:0;padding:0}
+.plat-feat li{display:flex;gap:11px;font-size:14px;color:var(--w72);padding:9px 0;border-top:1px solid var(--border);line-height:1.4}
+.plat-feat li:first-child{border-top:none}
+.plat-feat li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:7px}
+.plat-note{font-family:var(--mono);font-size:12.5px;color:var(--w55);margin-top:26px;letter-spacing:.3px}
+.plat-note b{color:var(--teal)}
+
+/* === WHAT YOU CAN TRADE (added 2026-06-09) === */
+.wct{position:relative;z-index:2;overflow:hidden;background:#070b14}
+.wct::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 75% 60% at 50% 40%,#000 30%,transparent 78%);mask-image:radial-gradient(ellipse 75% 60% at 50% 40%,#000 30%,transparent 78%)}
+.wct::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(92%,1120px);height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.10),transparent);z-index:3;pointer-events:none}
+.wct-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:120px 40px}
+@media(max-width:860px){.wct-inner{padding:74px 22px}}
+.wct h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px;max-width:760px}
+.wct h2 .hl{color:var(--teal)}
+.wct .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:660px;margin-bottom:44px}
+.wct .sub b{color:var(--w100);font-weight:700}
+.wct-blab{font-family:var(--mono);font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--w55);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.wct-blab::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.wct-tickers{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.tkr{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.5px;color:var(--w100);background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:9px;padding:9px 14px;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.tkr:hover{border-color:rgba(34,211,168,0.4);transform:translateY(-2px)}
+.tkr .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal-glow)}
+.tkr.more{color:var(--teal);background:rgba(34,211,168,0.08);border-color:rgba(34,211,168,0.28)}
+.wct-tnote{font-family:var(--mono);font-size:12px;color:var(--w40);letter-spacing:.3px;margin-bottom:48px}
+.wct-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:52px}
+@media(max-width:760px){.wct-cards{grid-template-columns:1fr}}
+.wcard{background:var(--w06);border:1px solid var(--border);border-radius:18px;padding:30px;display:flex;flex-direction:column}
+.wcard .wtag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px}
+.wcard .wname{font-size:21px;font-weight:800;letter-spacing:-0.01em;margin-bottom:8px}
+.wcard .wdesc{font-size:14.5px;line-height:1.55;color:var(--w72);margin-bottom:18px}
+.wcard .wdesc b{color:var(--w100);font-weight:700}
+.wlist{list-style:none;margin:0;padding:0}
+.wlist li{display:flex;gap:11px;font-size:14px;color:var(--w72);padding:10px 0;border-top:1px solid var(--border);line-height:1.45}
+.wlist li:first-child{border-top:none}
+.wlist li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:7px}
+.wlist li b{color:var(--w100);font-weight:700}
+.wcard.short .wtag{color:var(--w55)}
+.wcard.short .wlist li::before{background:var(--w55)}
+.wct-strats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+@media(max-width:760px){.wct-strats{grid-template-columns:1fr 1fr}}
+@media(max-width:460px){.wct-strats{grid-template-columns:1fr}}
+.strat{background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015));border:1px solid var(--border);border-radius:14px;padding:18px 18px;transition:.2s;position:relative;overflow:hidden}
+.strat:hover{border-color:rgba(34,211,168,0.35);transform:translateY(-2px);background:rgba(34,211,168,0.04)}
+.strat .sname{font-size:15.5px;font-weight:700;letter-spacing:-0.01em;display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.strat .sname .si{flex:none;width:8px;height:8px;border-radius:2px;background:var(--teal);box-shadow:0 0 10px var(--teal-glow);transform:rotate(45deg)}
+.strat .sd{font-size:13px;line-height:1.45;color:var(--w55)}
+.wct-note{font-family:var(--mono);font-size:13px;color:var(--w55);letter-spacing:.3px;line-height:1.6;border-left:3px solid var(--teal);padding:14px 20px;background:rgba(34,211,168,0.05);border-radius:0 6px 6px 0}
+.wct-note b{color:var(--teal);font-weight:600}
+/* === END WHAT YOU CAN TRADE === */
+.wif{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.wif-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);bottom:40px;left:-150px}
+.wif-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.wif-inner{padding:78px 22px}}
+.wif h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.wif h2 .hl{color:var(--teal)}
+.wif .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:620px;margin-bottom:44px}
+.wif-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px}
+@media(max-width:760px){.wif-grid{grid-template-columns:1fr}}
+.wif-card{border-radius:18px;padding:28px;border:1px solid var(--border)}
+.wif-card.yes{background:rgba(34,211,168,0.05);border-color:rgba(34,211,168,0.3)}
+.wif-card.no{background:var(--w06)}
+.wif-card .ch{font-family:var(--mono);font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.wif-card.yes .ch{color:var(--teal)}
+.wif-card.no .ch{color:var(--w40)}
+.wif-li{display:flex;gap:11px;font-size:14.5px;line-height:1.45;padding:10px 0;border-top:1px solid var(--border)}
+.wif-li:first-of-type{border-top:none}
+.wif-li .i{flex:none;font-weight:800;margin-top:1px}
+.wif-card.yes .wif-li{color:var(--w100)}
+.wif-card.yes .wif-li .i{color:var(--teal)}
+.wif-card.no .wif-li{color:var(--w55)}
+.wif-card.no .wif-li .i{color:var(--crim)}
+.wif-close{font-size:clamp(20px,2.6vw,28px);font-weight:800;letter-spacing:-0.02em;line-height:1.25;color:var(--w100);margin-bottom:24px;max-width:680px}
+.wif-close .hl{color:var(--teal)}
+.wif-cta{display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:var(--teal-deep);padding:15px 28px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:var(--shadow-glow);transition:.22s}
+.wif-cta:hover{background:var(--teal-2);transform:translateY(-2px)}
+.wif-cta .arr{transition:.22s}.wif-cta:hover .arr{transform:translateX(4px)}
+.sep{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.sep-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.35;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);top:120px;right:-150px}
+.sep-inner{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.sep-inner{padding:78px 22px}}
+.sep h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+.sep h2 .hl{color:var(--teal)}
+.sep .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:620px;margin-bottom:36px}
+.sep-list{margin-bottom:46px}
+.sep-row{display:grid;grid-template-columns:0.9fr 1.1fr;gap:24px;align-items:center;padding:26px 0;border-top:1px solid var(--border)}
+@media(max-width:680px){.sep-row{grid-template-columns:1fr;gap:10px;align-items:start}}
+.sep-row:first-child{border-top:none;padding-top:6px}
+.sep-head .big{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-0.02em;line-height:1.1}
+.sep-head .big .t{color:var(--teal)}
+.sep-head .not{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--crim);margin-top:8px;font-weight:600}
+.sep-row p{font-size:15px;line-height:1.6;color:var(--w72);margin:0}
+.sep-row p b{color:var(--w100);font-weight:700}
+.sep-quote{position:relative;background:var(--w06);border:1px solid var(--border-bright);border-radius:18px;padding:36px;overflow:hidden}
+.sep-quote::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,168,0.5),transparent)}
+.sep-quote blockquote{font-size:clamp(20px,2.8vw,28px);font-weight:700;letter-spacing:-0.02em;line-height:1.35;color:var(--w100);margin:0 0 24px}
+.sep-quote blockquote .t{color:var(--teal)}
+.sep-author{display:flex;align-items:center;gap:14px}
+.sep-author .av{width:58px;height:58px;border-radius:50%;overflow:hidden;flex:none;background:#fff;border:2px solid rgba(34,211,168,0.35)}
+.sep-author .av img{width:100%;height:100%;object-fit:cover;object-position:50% 16%;display:block}
+.sep-author .nm{font-weight:700;font-size:15px}
+.sep-author .rl{font-size:13px;color:var(--w55)}
+.wn{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.wn-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35;pointer-events:none;width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.13),transparent 65%);top:80px;left:50%;transform:translateX(-50%)}
+.wn-inner{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.wn-inner{padding:78px 22px}}
+.wn-chip{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);background:rgba(255,213,79,0.08);border:1px solid rgba(255,213,79,0.3);border-radius:40px;padding:7px 14px;margin-bottom:22px;font-weight:600}
+.wn-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.wn h2{font-size:clamp(30px,4.6vw,52px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;max-width:800px}
+.wn h2 .hl{color:var(--teal)}
+.wn .intro{font-size:clamp(16px,2vw,20px);line-height:1.55;color:var(--w72);max-width:680px;margin-bottom:40px}
+.wn-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:40px}
+@media(max-width:680px){.wn-cols{grid-template-columns:1fr}}
+.wn-col{border:1px solid var(--border);border-radius:16px;padding:26px;background:var(--w06)}
+.wn-col.gap{border-color:rgba(34,211,168,0.3);background:rgba(34,211,168,0.04)}
+.wn-col .k{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.wn-col.now .k{color:var(--w40)}
+.wn-col.gap .k{color:var(--teal)}
+.wn-col p{font-size:15px;line-height:1.6;color:var(--w72);margin:0}
+.wn-col p b{color:var(--w100);font-weight:700}
+.wn-close{font-size:clamp(24px,3.4vw,40px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:var(--w100)}
+.wn-close .hl{color:var(--teal)}
+.wn-disc{font-size:11.5px;color:var(--w40);margin-top:18px;line-height:1.5;max-width:700px}
+.cta{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.cta-glow{position:absolute;border-radius:50%;filter:blur(130px);opacity:.4;pointer-events:none;width:680px;height:680px;background:radial-gradient(circle,rgba(34,211,168,0.18),transparent 65%);top:40px;left:50%;transform:translateX(-50%)}
+.cta-inner{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:120px 40px;text-align:center}
+@media(max-width:860px){.cta-inner{padding:84px 22px}}
+.cta h2{font-size:clamp(34px,5.5vw,64px);line-height:1.04;font-weight:900;letter-spacing:-0.035em;margin-bottom:20px}
+.cta h2 .hl{color:var(--teal)}
+.cta .lead{font-size:clamp(17px,2vw,21px);line-height:1.5;color:var(--w72);max-width:620px;margin:0 auto 42px}
+.cta-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:44px;text-align:left}
+@media(max-width:760px){.cta-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.cta-steps{grid-template-columns:1fr}}
+.cta-step{background:var(--w06);border:1px solid var(--border);border-radius:12px;padding:18px}
+.cta-step .n{font-family:var(--mono);font-size:12px;color:var(--teal);font-weight:700;margin-bottom:8px}
+.cta-step .t{font-weight:700;font-size:14.5px;margin-bottom:5px;line-height:1.25}
+.cta-step .d{font-size:13px;color:var(--w55);line-height:1.45}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.cta-btn{padding:16px 32px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.22s;border:none}
+.cta-btn.primary{background:var(--teal);color:var(--teal-deep);box-shadow:var(--shadow-glow)}
+.cta-btn.primary:hover{background:var(--teal-2);transform:translateY(-2px)}
+.cta-btn.ghost{background:transparent;color:var(--w100);border:1px solid var(--border-bright)}
+.cta-btn.ghost:hover{border-color:var(--teal);color:var(--teal)}
+.cta-fine{font-size:13px;color:var(--w55)}
+.foot{position:relative;z-index:2;background:#04060d;border-top:1px solid var(--border)}
+.foot-inner{max-width:1180px;margin:0 auto;padding:66px 40px 30px}
+@media(max-width:860px){.foot-inner{padding:48px 22px 28px}}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.15fr 1fr;gap:44px;align-items:start;margin-bottom:42px}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr;gap:34px}}
+@media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+.foot-logo{display:inline-block;margin-bottom:18px}
+.foot-logo img{height:30px;width:auto;display:block}
+.foot-brand p{font-size:13px;color:var(--w55);line-height:1.6;margin:0 0 4px}
+.foot-brand .fb-head{color:var(--w100);font-weight:700;font-size:13px;margin-top:16px}
+.foot-brand a{color:var(--w100);font-size:13px;text-decoration:underline;text-underline-offset:2px}
+.foot-brand a:hover{color:var(--teal)}
+.foot-col h4{color:var(--w100);font-size:14.5px;font-weight:700;margin:0 0 16px;letter-spacing:.2px}
+.foot-col a{display:block;color:var(--w72);text-decoration:none;font-size:13.5px;padding:6px 0;transition:.2s}
+.foot-col a:hover{color:var(--teal)}
+.foot-sep{border-top:1px solid var(--border);margin:6px 0 22px}
+.foot-copy{text-align:center;color:var(--w40);font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.foot-legal{border-top:1px solid var(--border);background:#03050b;padding:54px 0 70px}
+.foot-legal-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+@media(max-width:860px){.foot-legal-inner{padding:0 22px}.foot-legal{padding:40px 0 56px}}
+.foot-legal h3{color:var(--w100);font-size:17px;font-weight:700;margin:0 0 14px;letter-spacing:-0.2px}
+.foot-legal h3:not(:first-child){margin-top:32px}
+.foot-legal p{color:var(--w40);font-size:13px;line-height:1.7;margin:0 0 12px}
+.foot-legal p b{color:var(--w55)}
+.foot-legal .cftc{text-transform:uppercase;font-size:11.5px;letter-spacing:.3px;color:var(--w55)}
+h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif-close,.sep-quote blockquote,.reframe .b{text-wrap:balance}
+.hero{border-bottom:none;background:none;overflow:visible}
+.hero::after{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100vw;height:2px;background:hsla(0,0%,100%,0.10);z-index:3;pointer-events:none}
+.tt,.hiw,.faq,.rev,.wn{background:#04060c}
+.rm,.pr,.bm,.sep{background:rgba(255,255,255,0.028)}
+.cg,.eq,.b5,.wif{background:rgba(34,211,168,0.022)}
+.t3{background:#05080f}
+.plat{background:#070b14}
+.plat::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 75% 60% at 50% 45%,#000 30%,transparent 78%);mask-image:radial-gradient(ellipse 75% 60% at 50% 45%,#000 30%,transparent 78%)}
+.truth-glow,.cg-glow,.tt-glow,.rm-glow,.eq-glow,.hiw-glow,.pr-glow,.b5-glow,.bm-glow,.t3-glow,.rev-glow,.plat-glow,.wif-glow,.sep-glow,.wn-glow,.cta-glow{display:none}
+.truth::after,.cg::after,.tt::after,.rm::after,.eq::after,.hiw::after,.pr::after,.b5::after,.faq::after,.bm::after,.t3::after,.rev::after,.wif::after,.sep::after,.wn::after,.cta::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none}
+.cg::after,.pr::after,.bm::after,.sep::after{background:radial-gradient(900px 540px at 16% 16%,rgba(34,211,168,0.20),transparent 60%),radial-gradient(900px 540px at 86% 12%,rgba(2,124,196,0.24),transparent 64%),radial-gradient(820px 600px at 50% 114%,rgba(2,124,196,0.15),transparent 60%)}
+.truth::after,.tt::after,.faq::after{background:radial-gradient(940px 560px at 50% -12%,rgba(2,124,196,0.20),transparent 60%),radial-gradient(680px 480px at 10% 92%,rgba(34,211,168,0.11),transparent 60%)}
+.eq::after,.b5::after,.rev::after,.wif::after{background:radial-gradient(780px 560px at 2% 4%,rgba(34,211,168,0.18),transparent 60%),radial-gradient(780px 560px at 98% 100%,rgba(2,124,196,0.22),transparent 60%)}
+.rm::after,.hiw::after,.cta::after{background:radial-gradient(940px 560px at 50% -8%,rgba(34,211,168,0.20),transparent 60%),radial-gradient(720px 520px at 88% 96%,rgba(2,124,196,0.16),transparent 60%)}
+.t3::after{background:radial-gradient(960px 560px at 50% 0%,rgba(2,124,196,0.30),transparent 60%),radial-gradient(700px 500px at 12% 100%,rgba(2,124,196,0.16),transparent 60%)}
+.wn::after{background:radial-gradient(860px 540px at 20% 14%,rgba(255,213,79,0.10),transparent 58%),radial-gradient(900px 560px at 84% 92%,rgba(2,124,196,0.20),transparent 62%)}
+.truth,.cg,.tt,.rm,.eq,.hiw,.pr,.b5,.faq,.bm,.t3,.rev,.plat,.wif,.sep,.wn,.cta{border-top:none}
+.cg::before,.tt::before,.rm::before,.eq::before,.hiw::before,.pr::before,.b5::before,.faq::before,.bm::before,.t3::before,.rev::before,.plat::before,.wif::before,.sep::before,.wn::before,.cta::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(92%,1120px);height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.10),transparent);z-index:3;pointer-events:none}
+.note{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:30px 40px 60px;color:var(--w40);font-size:12.5px;font-family:var(--mono);letter-spacing:.3px;border-top:1px solid var(--border)}
+.note b{color:var(--teal)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.track .fill{right:0;transition:none}.sfill{transition:none}*{animation-duration:.01s!important}}
+</style>
+</head>
+<body>
+
+<div class="gridbg"></div>
+<div class="atmos"><div class="glow a"></div><div class="glow b"></div></div>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="../index.html" class="navbar__logo" aria-label="TradeFundrr home" target="_blank" rel="noopener">
+      <img src="../assets/images/logo.svg" alt="logo">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="../assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu" >
+          <a href="stocks.html" data-cat="stocks" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-stocks-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Trade stocks with up to $25K in simulated funding capital</span>
+            </span>
+          </a>
+          <a href="options.html" data-cat="options" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-options-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">options</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Trade options with up to $25K in simulated funding capital</span>
+            </span>
+          </a>
+          <a href="/pages/futures/" data-cat="futures" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-futures-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">futures</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Trade futures with up to $100K in simulated funding capital</span>
+            </span>
+          </a>
+          <a href="pricing.html" data-cat="crypto" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/market-crypto-thumb.webp?v=202605260101" alt="dropdown" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">crypto</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span>
+            </span>
+          </a>
+          <a href="pro-funding.html" data-cat="pro-funding" target="_blank" rel="noopener">
+            <span class="thumb"><img src="../assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span>
+            <span class="body">
+              <span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="../assets/images/dropdown-arrow-right.svg" alt="dropdown-arrow-right"></span></span>
+              <span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span>
+            </span>
+          </a>
+        </div>
+      </span>
+      <a href="../index.html#how-it-works" target="_blank" rel="noopener">How It Works</a>
+      <a href="about.html" target="_blank" rel="noopener">Why Us</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="pricing.html" class="btn btn--primary navbar__cta" target="_blank" rel="noopener">Get Funded <span class="arrow"><img src="../assets/images/btn-arrow.svg" alt="btn-arrow"></span></a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-copy" style="min-width:0">
+    <span class="eyebrow">Your edge works. Your 2 contracts don't.</span>
+    <h1><span class="hh-num">$25K</span><span class="hh-bp"> options account.</span><span class="hh-offer">Up to <span class="hh-all">20 contracts.</span></span></h1>
+    <p class="subhead">Trade a simulated $25K options account on DXTrade with up to 20 contracts per leg. Keep 80% of profits, paid weekly. Your savings never on the line.</p>
+    <div class="btns">
+      <a href="#programs" class="btn btn-primary">Get Funded <span class="arr">→</span></a>
+      <a href="#" class="btn btn-ghost">Talk to Our Team <span class="arr">→</span></a>
+    </div>
+    <div class="hero-benefits">
+      <span class="hbf"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#22d3a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 20 contracts per leg</span>
+      <span class="hbf"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#22d3a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>80% profit split</span>
+      <span class="hbf"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#22d3a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Weekly payouts</span>
+      <span class="hbf"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#22d3a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>T3 Global institutional partnership</span>
+    </div>
+  </div>
+
+  <div class="acct-wrap">
+    <div class="sparkles" aria-hidden="true">
+      <span class="spk" style="top:-2%;left:8%;width:13px;height:13px;animation-delay:0s"></span>
+      <span class="spk" style="top:12%;right:-3%;width:9px;height:9px;animation-delay:1.1s"></span>
+      <span class="spk" style="top:46%;left:-4%;width:11px;height:11px;animation-delay:2.3s"></span>
+      <span class="spk" style="bottom:8%;right:4%;width:14px;height:14px;animation-delay:0.6s"></span>
+      <span class="spk" style="bottom:-2%;left:22%;width:8px;height:8px;animation-delay:3.1s"></span>
+      <span class="spk" style="top:4%;right:30%;width:7px;height:7px;animation-delay:1.8s"></span>
+      <span class="spk" style="bottom:24%;left:-2%;width:9px;height:9px;animation-delay:3.7s"></span>
+    </div>
+    <img class="hero-platform-img" src="../assets/images/DX-Hero-1-web.webp?v=20260611b" alt="Funded options trading on DXTrade: the TradeFundrr-branded SPY option chain with calls, puts, strikes, deltas, and implied volatility" width="1600" height="1138" fetchpriority="high" decoding="async">
+    <p class="hero-img-caption">Your funded options account on DXTrade: live chains, institutional routing, and weekly payouts against your simulated P&amp;L.</p>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><b>$25K</b> simulated options account</span>
+    <span class="ticker-item">Up to <b>20 contracts</b> per leg</span>
+    <span class="ticker-item"><b>80 / 20</b> profit split</span>
+    <span class="ticker-item">Weekly payouts every Friday</span>
+    <span class="ticker-item">Built on <b>DXTrade</b></span>
+    <span class="ticker-item">T3 Global institutional partnership</span>
+    <span class="ticker-item">Rated on <b>Trustpilot</b></span>
+    <span class="ticker-item"><b>$25K</b> simulated options account</span>
+    <span class="ticker-item">Up to <b>20 contracts</b> per leg</span>
+    <span class="ticker-item"><b>80 / 20</b> profit split</span>
+    <span class="ticker-item">Weekly payouts every Friday</span>
+    <span class="ticker-item">Built on <b>DXTrade</b></span>
+    <span class="ticker-item">T3 Global institutional partnership</span>
+    <span class="ticker-item">Rated on <b>Trustpilot</b></span>
+  </div>
+</div>
+
+<!-- WHAT FUNDED TRADING MEANS (new-trader intro) -->
+<section class="fdt">
+  <style>
+    .fdt{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+    .fdt-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:120px 40px}
+    @media(max-width:860px){.fdt-inner{padding:72px 22px}}
+    .fdt h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+    .fdt h2 .hl{color:var(--teal)}
+    .fdt .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:660px;margin-bottom:46px}
+    .fdt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media(max-width:820px){.fdt-grid{grid-template-columns:1fr}}
+    .fdt-card{background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:26px 24px}
+    .fdt-num{font-family:var(--mono);font-size:13px;font-weight:800;color:var(--teal-deep);background:var(--teal);width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+    .fdt-card h3{font-size:18px;font-weight:800;letter-spacing:-0.01em;margin-bottom:10px;line-height:1.25}
+    .fdt-card p{font-size:14.5px;line-height:1.55;color:var(--w72)}
+    .fdt-card p b{color:var(--w100);font-weight:700}
+    .fdt-closer{margin-top:30px;max-width:820px;font-size:clamp(16px,2vw,19px);line-height:1.5;color:var(--w72)}
+    .fdt-closer b{color:var(--w100);font-weight:800}
+  </style>
+  <div class="fdt-inner">
+    <span class="eyebrow rv">New here? Start with this.</span>
+    <h2 class="rv">What <span class="hl">"funded trading"</span> actually means.</h2>
+    <p class="sub rv">If you've only traded your own brokerage account, this is the part most prop firms don't bother to explain. Three plain-English sentences:</p>
+    <div class="fdt-grid rv">
+      <div class="fdt-card"><div class="fdt-num">01</div><h3>You trade a $25K simulated options account.</h3><p>It looks and behaves like a real brokerage screen, with <b>live options data and institutional fills.</b> The capital is simulated, so you're not risking your savings to access it.</p></div>
+      <div class="fdt-card"><div class="fdt-num">02</div><h3>The payouts are real money.</h3><p>Hit the published profit target without breaking the loss limits, and you can request a real-money payout against your simulated P&amp;L. <b>Up to 80% of profits, paid weekly.</b></p></div>
+      <div class="fdt-card"><div class="fdt-num">03</div><h3>Top performers earn real desk capital.</h3><p>Sustained, risk-managed performance earns a path to <b>T3 Global</b>, a real institutional desk with real firm capital and real fills. Audition-based, not the default.</p></div>
+    </div>
+    <p class="fdt-closer rv">The point: <b>you prove you can trade with someone else's risk, then we put real firm capital behind you when you do.</b></p>
+  </div>
+</section>
+
+<section class="truth">
+  <div class="truth-glow r"></div>
+  <div class="truth-glow t"></div>
+  <div class="truth-inner">
+    <span class="eyebrow warn rv">The truth most options traders figure out too late</span>
+    <h2 class="rv">You're trading <span class="num">2 contracts.</span><br>Maybe 3 on a good day.</h2>
+    <p class="sub rv">A $0.50 winner on 2 contracts is <b>$100.</b> The exact same read, same timing, same setup, on 20 contracts is <b>$1,000.</b></p>
+
+    <p class="sub rv">Your edge isn't the problem. <span class="num">Your contract count is.</span> And a retail account will never give you the size to make the math matter.</p>
+
+    <div class="cascade">
+      <div class="line rv"><span class="ix">01</span>So you size up too aggressively to <span class="em">force the numbers.</span></div>
+      <div class="line rv"><span class="ix">02</span>You pile into setups that <span class="em">"feel right"</span> to chase the win.</div>
+      <div class="line rv"><span class="ix">03</span>And one bad fill <span class="em">erases weeks</span> of careful work.</div>
+    </div>
+
+    <div class="reframe rv">
+      <div class="a">Not because you're a bad trader.</div>
+      <div class="b">Because you're running a real edge at <span class="hl">a size that can't pay you.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cg">
+  <div class="cg-glow"></div>
+  <div class="cg-inner">
+    <span class="eyebrow warn rv">The retail options trader's hidden handicap, exposed</span>
+    <h2 class="rv">Something is quietly <span class="warnacc">capping your gains.</span></h2>
+    <p class="sub rv">It's not your reads. Not your strategy. Not your screen time. The single biggest thing holding most retail options traders back is something almost nobody talks about, and it has <b>nothing to do with skill.</b></p>
+
+    <div class="elim rv">
+      <span class="x"><span class="ic">✗</span><s>Your reads</s></span>
+      <span class="x"><span class="ic">✗</span><s>Your strategy</s></span>
+      <span class="x"><span class="ic">✗</span><s>Your screen time</s></span>
+    </div>
+
+    <div class="cg-reframe rv">
+      <div class="small">It's not a <s>skill gap.</s></div>
+      <div class="big">It's a <span class="hl">size gap.</span></div>
+    </div>
+
+    <!-- OPTIONS SIZE-GAP GRAPHIC -->
+    <style>
+      .sgap{max-width:920px;margin:0 auto;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(34,211,168,0.06),transparent 60%),rgba(255,255,255,0.02);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:30px 34px 26px;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8),0 0 90px -34px rgba(34,211,168,0.22);overflow:hidden}
+      .sgap-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:6px}
+      .sgap-head .l{font-family:var(--mono);font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--w40)}
+      .sgap-head .r{font-family:var(--mono);font-size:11px;letter-spacing:.6px;color:var(--teal);border:1px solid rgba(34,211,168,0.3);border-radius:6px;padding:4px 11px}
+      .sgap svg{display:block;width:100%;height:auto}
+      .sgap-foot{font-family:var(--mono);font-size:10.5px;line-height:1.55;color:var(--w40);margin-top:12px;text-align:center}
+      .sgap-bar{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);transition:transform 1.3s cubic-bezier(.5,0,.2,1)}
+      .cg-graphic.in .sgap-bar{transform:scaleY(1)}
+      .sgap-fade{opacity:0;transition:opacity .7s ease .7s}
+      .cg-graphic.in .sgap-fade{opacity:1}
+      @media(prefers-reduced-motion:reduce){.sgap-bar{transform:none}.sgap-fade{opacity:1}}
+    </style>
+    <div class="cg-graphic rv" style="max-width:920px">
+      <div class="sgap">
+        <div class="sgap-head">
+          <span class="l">The size gap &middot; same $0.50 move</span>
+          <span class="r">10&times; the size</span>
+        </div>
+        <svg viewBox="0 0 860 430" role="img" aria-label="A $0.50 move on 2 contracts is $100; the same move on 20 contracts is $1,000, ten times the size.">
+          <defs>
+            <linearGradient id="sgapRed" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#7a2230"/><stop offset="1" stop-color="#ff5f5f"/>
+            </linearGradient>
+            <linearGradient id="sgapTeal" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#0c5a4a"/><stop offset="1" stop-color="#2ee9bc"/>
+            </linearGradient>
+            <filter id="sgapGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- baseline -->
+          <line x1="40" y1="372" x2="820" y2="372" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <!-- LEFT: 2 contracts -->
+          <text x="245" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="34" fill="#ff5f5f" class="sgap-fade">$100</text>
+          <rect class="sgap-bar" x="190" y="338" width="110" height="34" rx="6" fill="url(#sgapRed)"/>
+          <text x="245" y="398" text-anchor="middle" font-family="Geist Mono,monospace" font-size="13" letter-spacing="1" fill="rgba(255,255,255,0.55)">2 CONTRACTS</text>
+          <text x="245" y="418" text-anchor="middle" font-family="Geist Mono,monospace" font-size="11" letter-spacing=".5" fill="rgba(255,255,255,0.35)">retail account</text>
+          <!-- middle multiplier -->
+          <text x="430" y="210" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="46" fill="#ffffff" class="sgap-fade">10&#215;</text>
+          <text x="430" y="238" text-anchor="middle" font-family="Geist Mono,monospace" font-size="11" letter-spacing="1" fill="rgba(255,255,255,0.45)" class="sgap-fade">same edge</text>
+          <!-- RIGHT: 20 contracts -->
+          <rect class="sgap-bar" x="560" y="72" width="110" height="300" rx="6" fill="url(#sgapTeal)" filter="url(#sgapGlow)"/>
+          <rect class="sgap-bar" x="560" y="72" width="110" height="300" rx="6" fill="url(#sgapTeal)"/>
+          <text x="615" y="54" text-anchor="middle" font-family="Inter,sans-serif" font-weight="900" font-size="40" fill="#2ee9bc" class="sgap-fade">$1,000</text>
+          <text x="615" y="398" text-anchor="middle" font-family="Geist Mono,monospace" font-size="13" letter-spacing="1" fill="#22d3a8">20 CONTRACTS</text>
+          <text x="615" y="418" text-anchor="middle" font-family="Geist Mono,monospace" font-size="11" letter-spacing=".5" fill="rgba(255,255,255,0.45)">$25K funded account</text>
+        </svg>
+        <p class="sgap-foot">Same read, same timing, same $0.50 move. The only variable is contract count. Hypothetical, for illustration only, not a performance claim. Funded accounts are simulated.</p>
+      </div>
+    </div>
+    <!-- END OPTIONS SIZE-GAP GRAPHIC -->
+
+    <div class="deal rv">
+      <span class="deal-k">Here's the deal</span>
+      <p>You trade a <b>simulated $25,000 options account</b> with up to 20 contracts. The buying power is simulated. <b class="tealtxt">The money you take out is real.</b></p>
+    </div>
+
+    <div class="cg-close rv">
+      <p>Desk traders don't size down out of fear. Not because they can stomach bigger losses, but because the capital on the line <b>was never their own savings.</b></p>
+      <p class="big">Same edge. Real size. <span class="hl">Your savings stay home.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="tt">
+  <div class="tt-glow"></div>
+  <div class="tt-inner">
+    <span class="eyebrow warn rv">The retail trader's time tax, exposed</span>
+    <h2 class="rv">Most traders quit <span class="warnacc">before it gets good.</span></h2>
+    <p class="sub rv">It's not just about size. It's about <b>time.</b></p>
+
+    <div class="ttext rv">
+      <p class="tt-kicker">The slow grind doesn't have to be your only path.</p>
+      <p class="tt-p">Most talented options traders don't fail for lack of skill. They run out of <b>runway</b> before their edge can compound into real contract size.</p>
+      <div class="tt-cost">
+        <div class="tt-cost-item"><span class="tt-cost-x">&times;</span><p>Every month spent grinding 2 contracts up is <b>another month of capped upside.</b></p></div>
+        <div class="tt-cost-item"><span class="tt-cost-x">&times;</span><p>Every clean setup you under-size because the account's too small is <b>money left on the table.</b></p></div>
+      </div>
+      <div class="tt-pivot">
+        <p class="tt-pivot-sm">TradeFundrr doesn't just give you size.</p>
+        <p class="tt-pivot-big">It gives you back your <span>time.</span></p>
+      </div>
+      <p class="tt-p">Start day one with a <b>simulated $25K options account and up to 20 contracts</b>, skipping the years most traders spend grinding a retail account up to that size. Payouts run on a weekly schedule, and you never put your own trading capital on the line, just a one-time evaluation fee.</p>
+      <div class="tt-no">
+        <span>No grinding</span>
+        <span>No waiting</span>
+        <span>No wasted years</span>
+      </div>
+    </div>
+
+    <div class="ttcard rv">
+      <div class="tt-legend">
+        <span class="tt-leg"><span class="dot teal"></span>TradeFundrr · 20 contracts, from day 1</span>
+        <span class="tt-leg"><span class="dot crim"></span>Grinding 2 contracts up yourself, best case</span>
+      </div>
+      <svg class="tt-chart" viewBox="0 0 760 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Years to reach 20 contracts of size: grinding a small account up versus starting at 20 contracts on day one">
+        <line class="tt-grid" x1="64" y1="81" x2="736" y2="81"/>
+        <line class="tt-grid" x1="64" y1="145" x2="736" y2="145"/>
+        <line class="tt-grid" x1="64" y1="208" x2="736" y2="208"/>
+        <line class="tt-grid" x1="64" y1="272" x2="736" y2="272"/>
+        <line class="tt-grid tt-axis" x1="64" y1="336" x2="736" y2="336"/>
+        <text class="tt-axl" x="56" y="85" text-anchor="end">20 ctr</text>
+        <text class="tt-axl" x="56" y="149" text-anchor="end">15 ctr</text>
+        <text class="tt-axl" x="56" y="212" text-anchor="end">10 ctr</text>
+        <text class="tt-axl" x="56" y="276" text-anchor="end">5 ctr</text>
+        <text class="tt-axl" x="56" y="340" text-anchor="end">0</text>
+        <text class="tt-axl" x="198" y="356" text-anchor="middle">Yr 1</text>
+        <text class="tt-axl" x="333" y="356" text-anchor="middle">Yr 2</text>
+        <text class="tt-axl" x="467" y="356" text-anchor="middle">Yr 3</text>
+        <text class="tt-axl" x="601" y="356" text-anchor="middle">Yr 4</text>
+        <text class="tt-axl" x="722" y="356" text-anchor="middle">Yr 5</text>
+        <path class="tt-line tt-red" d="M64,323 L131,320 L198,316 L265,309 L333,300 L400,286 L467,266 L534,235 L601,193 L668,138 L736,81"/>
+        <path class="tt-line tt-teal" d="M64,81 L736,81"/>
+        <circle class="tt-startdot" cx="64" cy="81" r="5.5"/>
+        <text class="tt-anno teal" x="80" y="72">You start here · Day 1</text>
+        <line class="tt-ptr crim" x1="206" y1="299" x2="206" y2="313"/>
+        <text class="tt-anno crim" x="206" y="293" text-anchor="middle">most quit around here</text>
+        <rect x="406" y="232" width="268" height="40" rx="8" fill="#0a0e18"/>
+        <text class="tt-anno w" x="540" y="246" text-anchor="middle">≈ 5 years to reach this size,</text>
+        <text class="tt-anno w" x="540" y="262" text-anchor="middle">and only if you never stop winning</text>
+      </svg>
+      <p class="tt-foot">The red path is the best case: a steady, profitable run with no blow-ups. The numbers below show how rarely that happens. Illustrative; individual results vary.</p>
+    </div>
+
+    <div class="tt-compare2 rv">
+      <div class="tt-box red">
+        <span class="tt-box-tag">Trading your own money</span>
+        <div class="tt-box-amt">2 contracts, retail account</div>
+        <div class="tt-box-title">&#9888;&nbsp; The multi-year grind</div>
+        <ul>
+          <li><b>Years 1-3:</b> the account is too small to size up, so even a clean edge barely pays.</li>
+          <li><b>Years 4-5:</b> it can take years of uninterrupted compounding just to trade real size, if it ever gets there.</li>
+          <li><b>The reality:</b> most traders quit long before that, and every dollar of loss is their own.</li>
+        </ul>
+      </div>
+      <div class="tt-vs2">VS</div>
+      <div class="tt-box green">
+        <span class="tt-box-tag">TradeFundrr funded account</span>
+        <div class="tt-box-amt">$25K account &middot; up to 20 contracts, day 1</div>
+        <div class="tt-box-title">&#10003;&nbsp; Skip the grind</div>
+        <ul>
+          <li><b>Day 1:</b> you trade up to 20 contracts on a simulated $25K account, no years of compounding required.</li>
+          <li><b>Every week:</b> payouts run on a weekly schedule, and your only cost is a one-time evaluation fee, not your savings.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="tt-bridge rv">And almost no one comes close. <b>Here's what actually happens.</b></p>
+
+    <div class="tt-stats rv">
+      <div class="tt-stat"><div class="n tnum" id="ts1">40%</div><div class="l">of day traders quit within the <b>first month</b></div></div>
+      <div class="tt-stat"><div class="n tnum" id="ts2">80%</div><div class="l">have quit within <b>two years</b></div></div>
+      <div class="tt-stat"><div class="n tnum" id="ts3">93%</div><div class="l">are gone within <b>five years</b></div></div>
+    </div>
+    <p class="tt-src">Barber, Lee, Liu &amp; Odean — study of 130,000+ Taiwanese day traders (1992–2006). A separate Brazilian study (Chague, De-Losso &amp; Giovannetti, 2020) found <b>97% of those who kept trading past 300 days still lost money.</b></p>
+
+    <div class="tt-strip rv">
+      <span class="tt-badge">20 contracts from day 1</span>
+      <span class="tt-badge">Skip the multi-year grind</span>
+      <span class="tt-badge">Your edge matters now</span>
+    </div>
+
+    <div class="tt-close rv">
+      <p>TradeFundrr doesn't just hand you size. It hands you back the <b>years you'd spend grinding to reach this contract count.</b></p>
+      <p class="big">It gives you back your <span class="hl">time.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="rm">
+  <div class="rm-glow"></div>
+  <div class="rm-inner">
+    <span class="eyebrow warn rv">The real cost of trading your own money</span>
+    <h2 class="rv">Your downside, <span class="hl">capped.</span></h2>
+    <p class="dc-lead rv">The question that keeps you up at night isn't "what could I make?"</p>
+    <p class="dc-lead rv">It's <b>"what happens if I lose it all?"</b></p>
+
+    <p class="dc-p rv">Trade your own account and a bad stretch isn't just a red number on a screen. That account was supposed to go toward a down payment. Your kid's braces. The car you've been putting off. Now it's funding your contracts, where one bad week could wipe it out.</p>
+    <p class="dc-p rv">And even if you grind it up, you're trading with <b>everything on the line</b>, your savings and your safety net, where a single bad month can erase years of work.</p>
+
+    <div class="dc-fear rv">
+      <div class="dc-fear-t">And the fear of trading like that makes you worse, not better.</div>
+      <ul>
+        <li>You hesitate on the good setups.</li>
+        <li>You exit winners too early.</li>
+        <li>You overtrade to make losses back.</li>
+      </ul>
+    </div>
+
+    <div class="dc-pivot rv">
+      <div class="dc-pivot-or">Or</div>
+      <p class="dc-pivot-big">Put up an evaluation fee, trade a simulated <span>$25K options account</span> with up to <span>20 contracts</span> starting now, and your own trading capital never goes on the line.</p>
+      <p class="dc-pivot-sm">Your only cost is the one-time evaluation fee. Standard platform and data fees apply.</p>
+    </div>
+
+    <div class="dc-contrast rv">
+      <div class="dc-col red">
+        <div class="dc-k">Trading your own money</div>
+        <div class="dc-big">Everything</div>
+        <div class="dc-c">Your whole account is exposed. There's no floor.</div>
+      </div>
+      <div class="dc-vs">VS</div>
+      <div class="dc-col teal">
+        <div class="dc-k">Trading a funded account</div>
+        <div class="dc-big tnum">$1,499</div>
+        <div class="dc-c">The Options Express evaluation fee you put up, set before you ever place a trade. That's the only number at risk, never your savings.</div>
+      </div>
+    </div>
+
+    <p class="dc-close rv">Same trade. One downside has no bottom. <span class="hl">The other, you'd already measured.</span></p>
+  </div>
+</section>
+
+<!-- ZERO_NET_COST_START (replaces equity-traders section, 2026-06-02) -->
+<style id="znc-css">
+.znc{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.znc-glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none}
+.znc-glow.r{width:540px;height:540px;background:radial-gradient(circle,rgba(255,95,95,0.16),transparent 65%);top:90px;left:-160px}
+.znc-glow.t{width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.18),transparent 65%);bottom:-150px;right:-150px}
+.znc-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.znc-inner{padding:72px 22px}}
+.znc h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:18px;max-width:780px}
+.znc h2 .hl{display:inline-block;position:relative;font-weight:900;letter-spacing:-0.035em;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.znc h2 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:6px;height:30%;background:var(--teal);filter:blur(30px);opacity:.4;z-index:-1;animation:zncPulse 3.4s ease-in-out infinite}
+@keyframes zncPulse{0%,100%{opacity:.3}50%{opacity:.56}}
+.znc .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:660px;margin-bottom:44px}
+.znc .sub b{color:var(--w100);font-weight:700}
+.znc-card{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);overflow:hidden;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8),0 0 90px -30px rgba(34,211,168,0.25);max-width:820px}
+.znc-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--teal-glow),transparent)}
+.znc-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(34,211,168,0.06) 0%,transparent 60%)}
+.znc-grid{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1s ease .3s}
+.znc-card.in .znc-grid{opacity:1}
+.znc-grid svg{width:100%;height:100%}
+.znc-card-inner{position:relative;z-index:2;padding:34px 40px 40px}
+@media(max-width:760px){.znc-card-inner{padding:24px 22px 30px}}
+.znc-chead{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:6px}
+.znc-chead .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--w40)}
+.znc-chead .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.8px;color:var(--teal);border:1px solid rgba(34,211,168,0.3);border-radius:6px;padding:5px 11px}
+.znc-row{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(-16px);transition:opacity .55s ease,transform .55s ease}
+.znc-row:last-of-type{border-bottom:none}
+.znc-row.in{opacity:1;transform:none}
+.znc-ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;font-style:normal;border:1px solid transparent}
+.znc-ic.red{background:rgba(255,95,95,0.12);color:var(--crim);border-color:rgba(255,95,95,0.22)}
+.znc-ic.teal{background:rgba(34,211,168,0.12);color:var(--teal);border-color:rgba(34,211,168,0.25)}
+.znc-ic.gold{background:rgba(255,213,79,0.12);color:var(--gold);border-color:rgba(255,213,79,0.22)}
+.znc-desc{flex:1}
+.znc-desc .a{font-size:15.5px;color:#fff;font-weight:600;letter-spacing:-0.01em}
+.znc-desc .b{font-size:12.5px;color:var(--w40);margin-top:3px}
+.znc-amt{font-family:var(--mono);font-size:23px;font-weight:600;white-space:nowrap;letter-spacing:-0.01em}
+.znc-amt.red{color:var(--crim);position:relative}
+.znc-amt.teal{color:var(--teal)}
+.znc-amt.gold{color:var(--gold)}
+.znc-amt.red::after{content:"";position:absolute;left:0;top:50%;width:0;height:2px;background:var(--crim);opacity:.8;transition:width .45s ease}
+.znc-amt.red.strike::after{width:100%}
+.znc-net{margin-top:8px;border-top:1px solid var(--border);padding-top:30px;text-align:center;opacity:0;transition:opacity .7s ease}
+.znc-net.in{opacity:1}
+.znc-net-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--w40);margin-bottom:10px}
+.znc-net-num{display:inline-block;position:relative;font-weight:900;letter-spacing:-0.05em;line-height:.9;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.znc-net-num::after{content:"";position:absolute;left:0;right:0;bottom:10px;height:34%;background:var(--teal);filter:blur(38px);opacity:.34;z-index:-1;animation:zncPulse 3.4s ease-in-out infinite}
+.znc-net-grid{display:flex;align-items:flex-start;justify-content:center;gap:30px;flex-wrap:wrap}
+.znc-net-grid .znc-net-num{font-size:clamp(54px,9vw,92px)}
+.znc-net-cell{display:flex;flex-direction:column;align-items:center;gap:10px}
+.znc-net-div{width:1px;align-self:stretch;background:var(--border);margin:6px 0}
+.znc-net-sub{font-family:var(--mono);font-size:11px;letter-spacing:.4px;color:var(--w55);margin-top:2px}
+.znc-net-num.gold{background:linear-gradient(92deg,var(--gold),#ffe88a 60%,#fff1b8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.znc-net-num.gold::after{background:var(--gold);opacity:.30}
+.znc-hedge{margin-top:24px;font-size:12px;color:var(--w40);line-height:1.6;max-width:640px;margin-left:auto;margin-right:auto}
+@media(max-width:520px){.znc-net-div{display:none}}
+.znc-stamp{position:absolute;top:30%;left:62%;transform:translate(-50%,-50%) rotate(-12deg) scale(0);transform-origin:center;z-index:20;pointer-events:none;opacity:0}
+.znc-stamp.slam{animation:zncSlam .55s cubic-bezier(0.22,1.4,0.5,1) forwards}
+@keyframes zncSlam{0%{opacity:0;transform:translate(-50%,-50%) rotate(-12deg) scale(2.7)}55%{opacity:.92;transform:translate(-50%,-50%) rotate(-12deg) scale(0.88)}75%{transform:translate(-50%,-50%) rotate(-12deg) scale(1.05)}100%{opacity:.92;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}}
+.znc-stamp-ink{border:4px solid var(--teal);color:var(--teal);font-family:var(--mono);font-weight:700;font-size:26px;letter-spacing:.1em;line-height:1.05;text-align:center;padding:12px 24px;border-radius:10px;text-transform:uppercase;filter:url(#znc-grunge);opacity:.92;text-shadow:0 0 26px rgba(34,211,168,0.35)}
+.znc-ring{position:absolute;top:50%;left:50%;width:20px;height:20px;border-radius:50%;border:2px solid rgba(34,211,168,0.6);transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none}
+.znc-ring.pulse{animation:zncRing .7s ease-out forwards}
+@keyframes zncRing{0%{transform:translate(-50%,-50%) scale(0.5);opacity:.8}100%{transform:translate(-50%,-50%) scale(8);opacity:0}}
+.znc-deal{display:flex;align-items:flex-start;gap:16px;background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.22);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:18px 22px;margin:40px 0 0;max-width:820px}
+.znc-deal-k{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;white-space:nowrap;margin-top:4px}
+.znc-deal p{font-size:clamp(16px,2vw,19px);line-height:1.5;color:var(--w100);font-weight:500}
+.znc-deal p b{font-weight:800}
+.znc-deal p b.tealtxt{color:var(--teal)}
+@media(prefers-reduced-motion:reduce){.znc-row,.znc-net{opacity:1!important;transform:none!important}.znc-amt.red::after{width:100%!important;transition:none!important}.znc-stamp{opacity:.92!important;transform:translate(-50%,-50%) rotate(-12deg) scale(1)!important;animation:none!important}.znc h2 .hl::after,.znc-net-num::after{animation:none!important}}
+</style>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <defs>
+    <filter id="znc-grunge" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" seed="8" stitchTiles="stitch" result="n1"/>
+      <feDisplacementMap in="SourceGraphic" in2="n1" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="disp"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.88" numOctaves="4" seed="3" stitchTiles="stitch" result="n2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.8 3.2" in="n2" result="drop"/>
+      <feComposite in="disp" in2="drop" operator="in" result="worn"/>
+      <feGaussianBlur stdDeviation="0.25" in="worn"/>
+    </filter>
+  </defs>
+</svg>
+<section class="znc" id="znc-live">
+  <div class="znc-glow r"></div>
+  <div class="znc-glow t"></div>
+  <div class="znc-inner">
+
+    <span class="eyebrow rv">The honest math</span>
+    <h2 class="rv">Most prop firms make you pay to get funded.<br><span class="hl">Your net cost here is zero.</span></h2>
+    <p class="sub rv">On <b>Options Express</b>, you put up the evaluation fee. Pass, reach your first payout, and every dollar comes back, with your 80% split on top. <b>Watch it net out to zero.</b></p>
+
+    <div class="znc-card rv" id="zncCard">
+      <div class="znc-grid">
+        <svg viewBox="0 0 820 440" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="110" x2="820" y2="110" stroke="rgba(34,211,168,0.04)" stroke-width="1"/>
+          <line x1="0" y1="220" x2="820" y2="220" stroke="rgba(34,211,168,0.04)" stroke-width="1"/>
+          <line x1="0" y1="330" x2="820" y2="330" stroke="rgba(34,211,168,0.04)" stroke-width="1"/>
+          <line x1="190" y1="0" x2="190" y2="440" stroke="rgba(34,211,168,0.03)" stroke-width="1"/>
+          <line x1="640" y1="0" x2="640" y2="440" stroke="rgba(34,211,168,0.03)" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <div class="znc-card-inner">
+
+        <div class="znc-chead">
+          <span class="lbl">The math &middot; Options Express</span>
+          <span class="badge">NET $0</span>
+        </div>
+
+        <div class="znc-row" id="zncRow0">
+          <span class="znc-ic red">&#8722;</span>
+          <span class="znc-desc">
+            <div class="a">You put up the evaluation fee</div>
+            <div class="b">Rebated on your first qualifying payout</div>
+          </span>
+          <span class="znc-amt red" id="zncRed">&#8722;$1,499</span>
+        </div>
+
+        <div class="znc-row" id="zncRow1">
+          <span class="znc-ic teal">&#10003;</span>
+          <span class="znc-desc">
+            <div class="a">You pass and reach your first payout</div>
+            <div class="b">Full fee rebated, every dollar</div>
+          </span>
+          <span class="znc-amt teal">+$1,499</span>
+        </div>
+
+        <div class="znc-row" id="zncRow2">
+          <span class="znc-ic gold">&#9733;</span>
+          <span class="znc-desc">
+            <div class="a">Your first $1,000 payout request</div>
+            <div class="b">You keep 80% under the standard split</div>
+          </span>
+          <span class="znc-amt gold">+$800</span>
+        </div>
+
+        <div class="znc-net" id="zncNet">
+          <div class="znc-net-grid">
+            <div class="znc-net-cell">
+              <div class="znc-net-label">Net cost to get funded</div>
+              <span class="znc-net-num teal">$0</span>
+            </div>
+            <div class="znc-net-div"></div>
+            <div class="znc-net-cell">
+              <div class="znc-net-label">Total on your first payout</div>
+              <span class="znc-net-num gold" id="zncPay">+$0</span>
+              <div class="znc-net-sub">$1,499 fee back &nbsp;+&nbsp; $800 your 80% split</div>
+            </div>
+          </div>
+          <p class="znc-hedge">The $1,000 payout request is an illustrative example, not a guarantee; payouts depend on your trading and you keep 80% under the standard split. Net cost is $0 only if you pass and reach your first qualifying payout. The evaluation fee is retained only if you don't pass and choose not to retake it. Standard platform and data fees apply. Funded accounts are simulated.</p>
+        </div>
+
+      </div>
+
+      <div class="znc-stamp" id="zncStamp">
+        <div class="znc-stamp-ink">Zero Net<br>Cost</div>
+        <div class="znc-ring" id="zncRing"></div>
+      </div>
+
+    </div>
+
+    <div class="znc-deal rv">
+      <span class="znc-deal-k">The deal</span>
+      <p>Pass once, reach your first payout, and the full fee comes back, <b class="tealtxt">plus your 80% split on top.</b> TradeFundrr exists to remove the capital barrier, not add to it.</p>
+    </div>
+
+  </div>
+</section>
+<script>
+(function(){
+  var sec=document.getElementById('znc-live'); if(!sec) return;
+  var rows=['zncRow0','zncRow1','zncRow2'].map(function(i){return document.getElementById(i);});
+  var red=document.getElementById('zncRed');
+  var net=document.getElementById('zncNet');
+  var pay=document.getElementById('zncPay');
+  var stamp=document.getElementById('zncStamp');
+  var ring=document.getElementById('zncRing');
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el,to,dur){ if(!el) return; if(reduced){el.textContent='+$'+to.toLocaleString();return;} var s=null; function t(n){ if(s===null)s=n; var p=Math.min((n-s)/dur,1); var e=1-Math.pow(1-p,3); el.textContent='+$'+Math.round(to*e).toLocaleString(); if(p<1)requestAnimationFrame(t);} requestAnimationFrame(t); }
+  var done=false;
+  function run(){
+    if(done) return; done=true;
+    var base=450;
+    rows.forEach(function(r,i){ setTimeout(function(){ r&&r.classList.add('in'); }, base+i*230); });
+    setTimeout(function(){ red&&red.classList.add('strike'); }, base+230+130);
+    var netT=base+rows.length*230+160;
+    setTimeout(function(){ net&&net.classList.add('in'); countUp(pay,2299,1300); }, netT);
+    var stampT=netT+430;
+    setTimeout(function(){ stamp&&stamp.classList.add('slam'); setTimeout(function(){ ring&&ring.classList.add('pulse'); },320); }, stampT);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(); io.disconnect(); } }); }, {threshold:0.2});
+    io.observe(sec);
+  } else { run(); }
+})();
+</script>
+<!-- ZERO_NET_COST_END -->
+
+<!-- EQUITY_SCALE_START (built-for-equity-day-trader, 2026-06-02) -->
+<style id="eqs-css">
+.eqs{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+.eqs-glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none}
+.eqs-glow.t{width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.16),transparent 65%);top:120px;right:-160px}
+.eqs-glow.r{width:520px;height:520px;background:radial-gradient(circle,rgba(255,95,95,0.14),transparent 65%);bottom:-140px;left:-150px}
+.eqs-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:148px 40px}
+@media(max-width:860px){.eqs-inner{padding:72px 22px}}
+.eqs h2{font-size:clamp(30px,4.6vw,52px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;margin-bottom:26px;max-width:840px}
+.eqs h2 .hl{display:inline-block;position:relative;font-weight:900;letter-spacing:-0.035em;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eqs h2 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:6px;height:30%;background:var(--teal);filter:blur(30px);opacity:.4;z-index:-1;animation:eqsPulse 3.4s ease-in-out infinite}
+@keyframes eqsPulse{0%,100%{opacity:.3}50%{opacity:.56}}
+.eqs-lead{max-width:680px;margin-bottom:42px}
+.eqs-lead p{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);margin-bottom:6px}
+.eqs-lead p.big{font-size:clamp(20px,2.6vw,26px);font-weight:800;letter-spacing:-0.02em;margin:10px 0 0}
+.eqs-lead p.big.white{color:var(--w100)}
+.eqs-lead p.big.crim{color:var(--crim)}
+.eqs-lead p.last{margin-top:14px}
+.eqs-lead b{color:var(--w100);font-weight:700}
+.eqs-box{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:34px 38px;max-width:820px;overflow:hidden;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8)}
+.eqs-box::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--teal-glow),transparent)}
+.eqs-box-label{font-family:var(--mono);font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:24px}
+.eqs-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-bottom:26px}
+@media(max-width:620px){.eqs-compare{grid-template-columns:1fr;gap:14px}}
+.eqs-cell{background:var(--w06);border:1px solid var(--border);border-radius:14px;padding:22px 20px;text-align:center}
+.eqs-cell.fund{border-color:rgba(34,211,168,0.28);background:rgba(34,211,168,0.05)}
+.eqs-acct{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w55);margin-bottom:6px}
+.eqs-ret{font-size:13px;color:var(--w55);margin-bottom:10px}
+.eqs-amt{font-size:clamp(38px,6vw,56px);font-weight:900;letter-spacing:-0.04em;line-height:1}
+.eqs-amt.crim{color:var(--crim)}
+.eqs-amt.teal{color:var(--teal);text-shadow:0 0 44px rgba(34,211,168,0.32)}
+.eqs-vs{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:1px;color:var(--w40);text-transform:uppercase}
+@media(max-width:620px){.eqs-vs{justify-self:center}}
+.eqs-box-copy{font-size:clamp(15px,1.9vw,17px);line-height:1.55;color:var(--w72);margin-bottom:12px}
+.eqs-box-copy b{color:var(--w100);font-weight:700}
+.eqs-box-kicker{font-size:clamp(17px,2.2vw,21px);font-weight:800;letter-spacing:-0.02em;color:var(--w100)}
+.eqs-box-kicker .crimtxt{color:var(--crim)}
+.eqs-hedge{margin-top:18px;font-family:var(--mono);font-size:10.5px;line-height:1.55;letter-spacing:.2px;color:var(--w40);max-width:760px}
+.eqs-bridge{margin-top:40px;max-width:820px;background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.22);border-left:3px solid var(--teal);border-radius:0 14px 14px 0;padding:26px 30px}
+.eqs-bridge-label{font-family:var(--mono);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px}
+.eqs-bridge-head{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-0.03em;line-height:1;color:var(--w100)}
+.eqs-bridge-head .hl{position:relative;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(prefers-reduced-motion:reduce){.eqs h2 .hl::after{animation:none}}
+</style>
+<section class="eqs" id="eqs-live">
+  <div class="eqs-glow t"></div>
+  <div class="eqs-glow r"></div>
+  <div class="eqs-inner">
+
+    <span class="eyebrow rv">Built for the options day trader</span>
+    <h2 class="rv">You've proven you can trade.<br>You haven't proven you can <span class="hl">scale.</span></h2>
+
+    <div class="eqs-lead rv">
+      <p>You've been trading options <b>1 or 2 contracts</b> at a time on a retail account.</p>
+      <p class="big white">The edge is there.</p>
+      <p class="big crim">The size isn't.</p>
+      <p class="last">Most retail options traders never escape that gap.</p>
+    </div>
+
+    <div class="eqs-box rv">
+      <div class="eqs-box-label">The contract problem &middot; same edge. different scale.</div>
+      <div class="eqs-compare">
+        <div class="eqs-cell">
+          <div class="eqs-acct">2 contracts</div>
+          <div class="eqs-ret">a $0.50 move is</div>
+          <div class="eqs-amt crim" id="eqsAmtA">$100</div>
+        </div>
+        <div class="eqs-vs">vs</div>
+        <div class="eqs-cell fund">
+          <div class="eqs-acct">20 contracts</div>
+          <div class="eqs-ret">the same $0.50 move is</div>
+          <div class="eqs-amt teal" id="eqsAmtB">$1,000</div>
+        </div>
+      </div>
+      <p class="eqs-box-copy">The strategy is identical, only the contract count changed. That's the gap TradeFundrr closes, with <b>simulated size you don't have to risk your savings to access.</b></p>
+      <p class="eqs-box-kicker">Your edge works. <span class="crimtxt">Your 2 contracts don't.</span></p>
+      <p class="eqs-hedge">Illustration of how contract count affects the same per-contract move. Hypothetical and for illustration only, not a performance claim or guarantee; returns depend on your trading. Funded accounts are simulated.</p>
+    </div>
+
+    <div class="eqs-bridge rv">
+      <div class="eqs-bridge-label">The path that didn't exist</div>
+      <div class="eqs-bridge-head">Until <span class="hl">TradeFundrr.</span></div>
+    </div>
+
+  </div>
+</section>
+<script>
+(function(){
+  var sec=document.getElementById('eqs-live'); if(!sec) return;
+  var a=document.getElementById('eqsAmtA'), b=document.getElementById('eqsAmtB');
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el,to,dur){ if(!el) return; if(reduced){el.textContent='$'+to.toLocaleString();return;} var s=null; function t(n){ if(s===null)s=n; var p=Math.min((n-s)/dur,1); var e=1-Math.pow(1-p,3); el.textContent='$'+Math.round(to*e).toLocaleString(); if(p<1)requestAnimationFrame(t);} requestAnimationFrame(t); }
+  if(!reduced){ if(a)a.textContent='$0'; if(b)b.textContent='$0'; }
+  var done=false;
+  function run(){ if(done)return; done=true; setTimeout(function(){countUp(a,100,900);},250); setTimeout(function(){countUp(b,1000,1100);},500); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){run();io.disconnect();}});},{threshold:0.25});
+    io.observe(sec);
+  } else { run(); }
+})();
+</script>
+<!-- EQUITY_SCALE_END -->
+
+<style id="hiw2-css">
+.hiw h2 .hl{display:inline-block;position:relative;font-weight:900;letter-spacing:-0.035em;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hiw h2 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:6px;height:30%;background:var(--teal);filter:blur(30px);opacity:.4;z-index:-1;animation:hiwPulse 3.4s ease-in-out infinite}
+@keyframes hiwPulse{0%,100%{opacity:.3}50%{opacity:.56}}
+.hiw .sub{max-width:660px;margin-bottom:30px}
+.hiw-lead{max-width:720px;margin-bottom:42px}
+.hiw-lead p{font-size:clamp(16px,2vw,18px);line-height:1.6;color:var(--w72);margin-bottom:14px}
+.hiw-lead p:last-child{margin-bottom:0}
+.hiw-lead b{color:var(--w100);font-weight:700}
+.hiw-lead .em{color:var(--teal);font-weight:700}
+.hiw-steplabel{font-family:var(--mono);font-size:13px;letter-spacing:.3px;color:var(--w55);margin-bottom:22px}
+.hiw-note{margin-top:34px;max-width:840px;background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.22);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:20px 24px}
+.hiw-note p{font-size:clamp(15px,1.9vw,18px);line-height:1.55;color:var(--w72)}
+.hiw-note p b{color:var(--w100);font-weight:700}
+.hiw-note-label{font-family:var(--mono);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px}
+.hiw-note-hedge{font-family:var(--mono);font-size:10.5px;line-height:1.5;letter-spacing:.2px;color:var(--w40);margin-top:12px}
+@media(prefers-reduced-motion:reduce){.hiw h2 .hl::after{animation:none}}
+</style>
+<section class="hiw" id="how-it-works">
+  <div class="hiw-glow"></div>
+  <div class="hiw-inner">
+    <span class="eyebrow rv">How it works</span>
+    <h2 class="rv">Here's what happens <span class="hl">when you join.</span></h2>
+    <p class="sub rv">Two ways in. Pick the path that fits how you want to start, both put you on a simulated $25K options account.</p>
+
+    <div class="hiw-lead rv">
+      <p><b>Express</b> funds you immediately. You're trading a <b>simulated $25K options account</b> with up to 20 contracts from day one, no evaluation to clear.</p>
+      <p><b>Growth</b> is the two-step route. You prove you can manage risk and execute consistently through a structured evaluation, then you're funded, trading up to 10 contracts per leg.</p>
+      <p>Either way, once you're trading your edge finally has <span class="em">room to breathe</span>, on institutional-grade infrastructure, not your savings. Make profitable trades and you keep <b>80%</b>. This is your business, you keep the lion's share.</p>
+    </div>
+
+    <p class="hiw-steplabel rv">Three plain-English steps:</p>
+
+    <div class="hiw-steps rv">
+      <div class="hiw-step">
+        <div class="num">1</div>
+        <h3>You trade a $25K simulated options account</h3>
+        <p>DXTrade looks and behaves like a real brokerage screen, with <b>live options chains and institutional fills.</b> Up to 20 contracts per leg, and the capital is simulated, so you're not risking your own savings to access it.</p>
+      </div>
+      <div class="hiw-conn">→</div>
+      <div class="hiw-step">
+        <div class="num">2</div>
+        <h3>The payouts are real money</h3>
+        <p>Hit the published profit target without breaking the loss limits, then request a payout against your P&amp;L. <b>Up to 80% of profits, paid weekly.</b></p>
+      </div>
+      <div class="hiw-conn">→</div>
+      <div class="hiw-step">
+        <div class="num">3</div>
+        <h3>Top performers earn real desk capital</h3>
+        <p>Sustained, risk-managed performance earns a path to <b>T3 Global</b>: real firm capital, real institutional routing, real fills. Audition-based, not the default.</p>
+      </div>
+    </div>
+
+    <div class="hiw-note rv">
+      <div class="hiw-note-label">Earned, by invitation</div>
+      <p>Simulated funding pays you real money right away, but staying there isn't the finish line. The traders who prove a sustained, risk-managed edge earn something rare: <b>a personal invitation to trade real capital at the T3 Global desk.</b> Not automatic. Not for everyone. Reserved for the few who earn their seat.</p>
+      <p class="hiw-note-hedge">The T3 desk path is reserved for top-performing traders and is subject to T3 Global review and audition. Not all traders qualify.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pr" id="programs">
+  <div class="pr-glow"></div>
+  <div class="pr-inner">
+    <span class="eyebrow rv">Three programs · pick your path</span>
+    <h2 class="rv">Simulated options funded accounts, <span class="hl">laid out in full.</span></h2>
+    <p class="sub rv">Every program below, so you can compare and decide with full information. No hidden tiers. No bait pricing.</p>
+
+    <div class="pr-grid rv">
+      <div class="pcard">
+        <div class="pc-eyebrow">Eval path · lowest upfront</div>
+        <div class="pc-title">Options Growth</div>
+        <div class="pc-tag">Prove yourself through a structured 2-stage evaluation at the lowest upfront cost.</div>
+        <div class="pc-price"><span class="amt tnum">$399</span><div class="per">+ $99/mo · + $149 activation after you pass</div></div>
+        <div class="pc-hi"><b>$25K</b> simulated options account · up to <b>10 contracts</b> per leg</div>
+        <ul class="pc-list">
+          <li>2-stage evaluation: Stage 1 → Stage 2 → Funded</li>
+          <li><b>Hard</b> breach on the $1,000 daily loss limit</li>
+          <li>$3,000 max drawdown · $1,250 profit target</li>
+          <li>80 / 20 split · weekly payouts · first payout in as few as 10 days</li>
+          <li>$99 reset to restart if you fail a stage</li>
+        </ul>
+        <span class="pc-rebate no">✗ Not eligible for the rebate</span>
+        <a href="#" class="pc-cta">Choose Growth</a>
+      </div>
+
+      <div class="pcard feat">
+        <div class="pc-eyebrow">● Most popular · skip the eval</div>
+        <div class="pc-title">Options Express</div>
+        <div class="pc-tag">Skip the evaluation entirely. Trade the funded account from day one, with a softer safety net.</div>
+        <div class="pc-price"><span class="amt tnum">$1,499</span><div class="per">+ $99/mo · funded from day one</div></div>
+        <div class="pc-hi"><b>$25K</b> simulated options account · up to <b>20 contracts</b> per leg</div>
+        <ul class="pc-list">
+          <li>Direct to funded, trade from day one</li>
+          <li><b>Soft</b> breach: hitting the daily loss limit pauses the session, not the account</li>
+          <li>$3,000 max drawdown · $1,250 profit target</li>
+          <li>80 / 20 split · weekly payouts · first payout in as few as 5 trading days</li>
+        </ul>
+        <span class="pc-rebate yes">✓ $1,499 rebated on your first payout</span>
+        <a href="#" class="pc-cta">Choose Express</a>
+      </div>
+
+      <div class="pcard">
+        <div class="pc-eyebrow">Smaller account · lower cost</div>
+        <div class="pc-title">Options Express 10k</div>
+        <div class="pc-tag">Instant funding at the lowest entry point. A $10K account with the same soft safety net.</div>
+        <div class="pc-price"><span class="amt tnum">$999</span><div class="per">+ $99/mo · funded from day one</div></div>
+        <div class="pc-hi"><b>$10K</b> simulated options account · up to <b>10 contracts</b> per leg</div>
+        <ul class="pc-list">
+          <li>Direct to funded, no evaluation</li>
+          <li><b>Soft</b> breach: hitting the daily loss limit pauses the session, not the account</li>
+          <li>$1,500 max drawdown · $625 profit target</li>
+          <li>80 / 20 split · weekly payouts · first payout in as few as 5 trading days</li>
+        </ul>
+        <span class="pc-rebate yes">✓ $999 rebated on your first payout</span>
+        <a href="#" class="pc-cta">Choose Express 10k</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="b5" id="spec">
+  <style>
+    .spec-wrap{overflow-x:auto;border:1px solid var(--border-bright);border-radius:var(--r-card);background:rgba(255,255,255,0.02);box-shadow:0 30px 80px -40px rgba(0,0,0,0.8);-webkit-overflow-scrolling:touch}
+    .spec-tbl{width:100%;border-collapse:collapse;min-width:720px}
+    .spec-tbl th,.spec-tbl td{text-align:left;padding:13px 20px;font-size:14px;border-bottom:1px solid var(--border)}
+    .spec-tbl thead th{background:#0a0f1c;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--w55);font-weight:600}
+    .spec-tbl thead th .pop{display:inline-block;margin-left:8px;font-size:9px;letter-spacing:.5px;color:var(--teal-deep);background:var(--teal);border-radius:20px;padding:2px 8px;vertical-align:middle}
+    .spec-tbl thead th.feat{color:var(--teal)}
+    .spec-tbl td.param{color:var(--w72);font-weight:500;width:34%}
+    .spec-tbl td.v{font-variant-numeric:tabular-nums;color:var(--w100);font-weight:600}
+    .spec-tbl td.feat{background:rgba(34,211,168,0.05);color:var(--teal-2)}
+    .spec-tbl tr.grp td{background:rgba(255,255,255,0.03);font-family:var(--mono);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--w40);font-weight:700;padding-top:16px;padding-bottom:10px}
+    .spec-foot{font-size:12.5px;color:var(--w40);line-height:1.6;margin-top:18px;max-width:840px}
+    .spec-foot b{color:var(--w55)}
+    .spec-scrollhint{font-family:var(--mono);font-size:11px;color:var(--w40);margin:0 0 12px;display:none}
+    @media(max-width:720px){.spec-scrollhint{display:block}}
+  </style>
+  <div class="b5-glow"></div>
+  <div class="b5-inner">
+    <span class="eyebrow rv">Full specs · side by side</span>
+    <h2 class="rv">Every rule, <span class="hl">all three programs.</span></h2>
+    <p class="sub rv">The complete parameter sheet. Everything is published before you pay, and it doesn't change after you pass.</p>
+
+    <p class="spec-scrollhint rv">Scroll the table sideways to see every column &rarr;</p>
+    <div class="spec-wrap rv">
+      <table class="spec-tbl">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Options Growth</th>
+            <th class="feat">Options Express<span class="pop">Popular</span></th>
+            <th>Express 10k</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="grp"><td colspan="4">Account &amp; fees</td></tr>
+          <tr><td class="param">Account size (simulated)</td><td class="v">$25,000</td><td class="v feat">$25,000</td><td class="v">$10,000</td></tr>
+          <tr><td class="param">Initial fee</td><td class="v">$399</td><td class="v feat">$1,499</td><td class="v">$999</td></tr>
+          <tr><td class="param">Activation fee (after you pass)</td><td class="v"><span style="color:var(--crim);font-weight:700">$149</span></td><td class="v feat">&mdash;</td><td class="v">&mdash;</td></tr>
+          <tr><td class="param">Reset fee</td><td class="v">$99</td><td class="v feat">&mdash;</td><td class="v">&mdash;</td></tr>
+          <tr><td class="param">Monthly fee</td><td class="v">$99</td><td class="v feat">$99</td><td class="v">$99</td></tr>
+
+          <tr class="grp"><td colspan="4">Risk rules</td></tr>
+          <tr><td class="param">Max contracts</td><td class="v"><span style="color:var(--crim);font-weight:700">10</span></td><td class="v feat">20</td><td class="v"><span style="color:var(--crim);font-weight:700">10</span></td></tr>
+          <tr><td class="param">Max drawdown</td><td class="v">$3,000</td><td class="v feat">$3,000</td><td class="v">$1,500</td></tr>
+          <tr><td class="param">Daily loss limit</td><td class="v">$1,000</td><td class="v feat">$1,000</td><td class="v">$500</td></tr>
+          <tr><td class="param">Breach rule</td><td class="v"><span style="color:var(--crim);font-weight:700">Hard breach</span></td><td class="v feat"><span style="color:var(--teal);font-weight:700">Soft breach</span></td><td class="v"><span style="color:var(--teal);font-weight:700">Soft breach</span></td></tr>
+          <tr><td class="param">Profit target</td><td class="v">$1,250</td><td class="v feat">$1,250</td><td class="v">$625</td></tr>
+
+          <tr class="grp"><td colspan="4">Trading rules</td></tr>
+          <tr><td class="param">Min hold time</td><td class="v">15 seconds</td><td class="v feat">15 seconds</td><td class="v">15 seconds</td></tr>
+          <tr><td class="param">Max position</td><td class="v">10 contracts</td><td class="v feat">20 contracts</td><td class="v">10 contracts</td></tr>
+          <tr><td class="param">Consistency rule</td><td class="v">30%</td><td class="v feat">30%</td><td class="v">30%</td></tr>
+          <tr><td class="param">Consistency days</td><td class="v">5 days @ $250</td><td class="v feat">5 days @ $250</td><td class="v">5 days @ $125</td></tr>
+          <tr><td class="param">Min trading days (eval)</td><td class="v">5 days</td><td class="v feat">&mdash;</td><td class="v">&mdash;</td></tr>
+          <tr><td class="param">Min trading days (funded)</td><td class="v">5 days</td><td class="v feat">5 days</td><td class="v">5 days</td></tr>
+
+          <tr class="grp"><td colspan="4">Payouts</td></tr>
+          <tr><td class="param">Minimum time to first payout</td><td class="v"><span style="color:var(--crim);font-weight:700">10 days</span></td><td class="v feat"><span style="color:var(--teal);font-weight:700">5 days</span></td><td class="v"><span style="color:var(--teal);font-weight:700">5 days</span></td></tr>
+          <tr><td class="param">Payout cycle</td><td class="v">Weekly</td><td class="v feat">Weekly</td><td class="v">Weekly</td></tr>
+          <tr><td class="param">Profit split</td><td class="v">80 / 20</td><td class="v feat">80 / 20</td><td class="v">80 / 20</td></tr>
+          <tr><td class="param">Payout cap (% of overall profit)*</td><td class="v">50%</td><td class="v feat">50%</td><td class="v">50%</td></tr>
+          <tr><td class="param">Minimum payout</td><td class="v">$250</td><td class="v feat">$250</td><td class="v">$250</td></tr>
+          <tr><td class="param">Payout caps (per cycle &rarr; max)</td><td class="v">$1,000 &rarr; $1,500 &rarr; $2,000 &rarr; $5,000<br>up to $25,000</td><td class="v feat">$2,000 &rarr; $2,500 &rarr; $3,500 &rarr; $5,000<br>up to $25,000</td><td class="v">$500 &rarr; $750 &rarr; $1,000 &rarr; $2,500<br>up to $15,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="spec-foot rv">*Payout cap is a percentage of overall profit per request; the full 100% of profit becomes payable from payout cycle 7 onward. All three programs are simulated funded accounts; standard platform and data fees apply. Earning a qualifying payout depends on your trading performance and is not guaranteed.</p>
+  </div>
+</section>
+
+<!-- TRADER'S DICTIONARY (glossary) -->
+<section class="gloss">
+  <style>
+    .gloss{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+    .gloss-glow{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;pointer-events:none;width:520px;height:520px;background:radial-gradient(circle,rgba(34,211,168,0.12),transparent 65%);bottom:-140px;left:-150px}
+    .gloss-inner{max-width:900px;margin:0 auto;padding:148px 40px;position:relative;z-index:2}
+    @media(max-width:860px){.gloss-inner{padding:72px 22px}}
+    .gloss h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px}
+    .gloss h2 .hl{color:var(--teal)}
+    .gloss .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:40px}
+    .gloss-list{display:flex;flex-direction:column;gap:10px}
+    .gloss-item{background:var(--w06);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .gloss-item summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;cursor:pointer;list-style:none;font-weight:700;font-size:15.5px;color:var(--w100)}
+    .gloss-item summary::-webkit-details-marker{display:none}
+    .gloss-item .chev{color:var(--teal);font-size:12px;transition:transform .2s;flex:none}
+    .gloss-item[open] .chev{transform:rotate(180deg)}
+    .gloss-item .body{padding:0 20px 18px;font-size:14.5px;line-height:1.6;color:var(--w72)}
+    .gloss-item .body b{color:var(--w100);font-weight:700}
+  </style>
+  <div class="gloss-glow"></div>
+  <div class="gloss-inner">
+    <span class="eyebrow rv">New to funded trading? Start here.</span>
+    <h2 class="rv">The trader's <span class="hl">dictionary.</span></h2>
+    <p class="sub rv">Plain-English definitions for every term used on this page. Click any term to expand.</p>
+    <div class="gloss-list rv">
+      <details class="gloss-item"><summary>Eval / Evaluation<span class="chev">&#9662;</span></summary><div class="body">A paid trial period. You buy access to a simulated account, trade under published rules, and "pass" by hitting the profit target without violating the loss limits. Express and Express 10k skip the eval, you start trading day one.</div></details>
+      <details class="gloss-item"><summary>Simulated capital<span class="chev">&#9662;</span></summary><div class="body">The funded account ($25K on Growth and Express, $10K on Express 10k) is simulated, so you're not risking your savings to access it. The payouts earned against that simulated trading are <b>real money</b>, paid weekly.</div></details>
+      <details class="gloss-item"><summary>Drawdown / Max drawdown<span class="chev">&#9662;</span></summary><div class="body">The peak-to-trough loss in your account. <b>Max drawdown</b> is the largest loss allowed before the account is suspended, $3,000 on the $25K programs and $1,500 on Express 10k.</div></details>
+      <details class="gloss-item"><summary>Daily loss limit<span class="chev">&#9662;</span></summary><div class="body">The most you can lose in a single day before the day ends. On a <b>hard</b> breach (Growth) it ends the evaluation; on a <b>soft</b> breach (Express, Express 10k) it just pauses your session until tomorrow.</div></details>
+      <details class="gloss-item"><summary>Defined-risk options<span class="chev">&#9662;</span></summary><div class="body">Multi-leg options strategies where the maximum loss is known upfront and capped by the structure itself, verticals, iron condors, butterflies, and calendars. Naked short options are not defined-risk. Defined-risk structures tend to fit the program rules cleanly because the max loss is baked into the position. Note that risk controls can still force-liquidate open positions, and in fast markets positions may be flattened at losses exceeding the theoretical max of the structure.</div></details>
+      <details class="gloss-item"><summary>PFOF (Payment for Order Flow)<span class="chev">&#9662;</span></summary><div class="body">When a retail broker sells your order flow to a market maker who pays for it, often filling at a spread slightly worse than direct institutional routing. Most commission-free retail brokers use PFOF; <b>TradeFundrr's funded accounts don't.</b></div></details>
+      <details class="gloss-item"><summary>Consistency rule (30%)<span class="chev">&#9662;</span></summary><div class="body">No single trading day can make up more than <b>30% of your total profit</b> when you request a payout. It confirms steady trading rather than one lucky day. Trade normally and you'll never feel it.</div></details>
+      <details class="gloss-item"><summary>Sharpe ratio<span class="chev">&#9662;</span></summary><div class="body">A measure of risk-adjusted return. A high Sharpe means strong returns relative to volatility, you make money without huge swings. T3 Global weighs Sharpe (among other metrics) when reviewing graduates for live capital.</div></details>
+      <details class="gloss-item"><summary>Profit split<span class="chev">&#9662;</span></summary><div class="body">The percentage of profits you keep. TradeFundrr's split is <b>80/20</b>: you keep 80%, the firm keeps 20%. Same across Growth, Express, and Express 10k.</div></details>
+      <details class="gloss-item"><summary>Contract limit / buying power<span class="chev">&#9662;</span></summary><div class="body">On options accounts your exposure is gated by the <b>contract limit</b>, 10 contracts on Growth and Express 10k, 20 on Express, rather than a raw buying-power figure.</div></details>
+      <details class="gloss-item"><summary>Audition path / Graduation<span class="chev">&#9662;</span></summary><div class="body">The process by which a trader earns a real-capital seat at T3 Global. Triggered by sustained Sharpe, disciplined drawdown, and consistent profitability over multiple months. Not automatic; reviewed case by case.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-glow"></div>
+  <div class="faq-inner">
+    <span class="eyebrow rv">The questions traders actually ask</span>
+    <h2 class="rv">Straight answers. <span class="hl">No fine print.</span></h2>
+    <p class="sub rv">If the pricing or the rules left a question open, it's probably here.</p>
+
+    <div class="rv">
+      <details class="faq-item" open>
+        <summary>Growth, Express, or Express 10k, which should I pick?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>If you want the lowest upfront cost and don't mind a hard breach on the daily loss limit, start with <b>Growth ($399</b>, plus a $149 activation after you pass). If you'd rather skip the evaluation, trade the funded account from day one, and have a softer safety net, choose <b>Express ($1,499)</b> for the full $25K account and up to 20 contracts. Want instant funding at the lowest entry point? <b>Express 10k ($999)</b> is the same soft-breach setup on a smaller $10K account with up to 10 contracts.</p>
+          <div class="means"><b>Which means:</b> Growth is cheapest if you'll clear an eval; Express is the full-size instant account; Express 10k is the low-cost way to start funded today.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's a "hard breach" vs a "soft breach," and why does it matter?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>A <b>hard breach</b> (Growth) means hitting the daily loss limit ends the account for that evaluation; you'd pay $99 to restart from Stage 1. A <b>soft breach</b> (Express) means hitting the daily loss limit just pauses your session for the day. Your account stays open, you come back tomorrow, no reset, no starting over. Picture a rough morning where you hit the limit: on Growth the eval is over; on Express you're simply done for the day and back at it tomorrow.</p>
+          <div class="means"><b>Which means:</b> on Express, one bad day pauses you. On Growth, it can end the whole run.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What does the 30% consistency rule actually mean for me?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>No single trading day can account for more than <b>30% of your total profit</b> when you request a payout. So if you've made $2,000 total, no one day can have contributed more than $600 of it. It confirms you're trading consistently, not getting lucky once and cashing out.</p>
+          <div class="means"><b>Which means:</b> trade normally and you'll never feel it. It only catches one-lucky-day cash-outs.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do the payout caps work, and what happens at the ceiling?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>Each payout request is capped, and the cap rises as you complete more payout cycles, from $1,000 early on up to $5,000 per request from cycle 7+ on the $25K programs (lower on Express 10k). There's also a lifetime ceiling per account: <b>$25,000 on the $25K programs, $15,000 on Express 10k.</b> Once you're consistently hitting those, you've outgrown the sim, and that's exactly when the path to a real-money seat at <b>T3 Global</b> opens, where the cap comes off.</p>
+          <div class="means"><b>Which means:</b> caps step up automatically as you prove consistency, and hitting the ceiling is the signal you're ready for a real T3 seat where the cap disappears.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's the difference between simulated funding and real capital?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p><b>All three options programs are simulated funded accounts.</b> The buying power is simulated and you trade on DXTrade with live options data, but the capital itself isn't real money. Your payouts, however, are real, paid against your simulated P&L. <b>Graduating to T3 Global is different:</b> proven traders earn a real-money seat with institutional leverage and infrastructure through T3 Global's desk.</p>
+          <div class="means"><b>Which means:</b> Growth, Express, and Express 10k are simulated with real payouts. The T3 desk is real money at real size, earned by your track record.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I really graduate to live capital at T3 Global?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>Yes, but it's <b>earned, not automatic.</b> The T3 path is reserved for traders who show sustained, risk-managed performance over time. T3 Global operates within the T3 group, which includes a regulated SEC broker-dealer and FINRA/SIPC member. This isn't a marketing line; it's a real desk for traders who prove a real edge, and it's invite-only by design.</p>
+          <div class="means"><b>Which means:</b> the live desk is real and reachable, but the invitation is earned, not handed out.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this a scam?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>Fair question, and asking it means you're thinking clearly. TradeFundrr is a real company with a real address (88 Pine St, 23rd Floor, New York, NY 10005), real reviews on Trustpilot, and real payouts documented publicly. The business model is on this page in plain sight: eval fees fund the payouts, and the real upside is graduating top traders to T3's institutional desk. The simulated-capital model is standard in prop trading; what's different here is the real T3 partnership with real regulatory credentials.</p>
+          <div class="means"><b>Which means:</b> every claim here is checkable, the address, the reviews, the regulated T3 desk. Read them and call support before you pay. That's exactly what you should do.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I lose the whole account?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>You can't lose the account balance the way you're picturing, because the <b>account is simulated buying power, not your money.</b> If you breach the account rules (like the max drawdown), the account pauses or closes depending on your program, but your personal savings are completely unaffected. The only money at stake is the fee you paid to start, not your trading capital.</p>
+          <div class="means"><b>Which means:</b> the worst case is losing the fee you paid. Never your savings.</div>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long until my first payout?<span class="ico"></span></summary>
+        <div class="faq-ans">
+          <p>With <b>Express</b> and <b>Express 10k</b>, the earliest you can request a first payout is after 5 trading days that meet the profit target. With <b>Growth</b>, you first pass the 2-stage evaluation, so a first payout takes a bit longer, as few as 10 days.</p>
+          <div class="means"><b>Which means:</b> the instant programs are the fastest route to a first payout (as few as 5 trading days); Growth is as few as 10.</div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="bm">
+  <div class="bm-glow"></div>
+  <div class="bm-inner">
+    <span class="eyebrow rv">The business model · transparent on purpose</span>
+    <h2 class="rv">Where the payouts <span class="hl">actually come from.</span></h2>
+    <p class="intro rv">If we're paying real money against simulated trading, where's it coming from? The honest answer has two parts.</p>
+
+    <div class="bm-parts rv">
+      <div class="bm-part">
+        <div class="pn">Part 1</div>
+        <h3>The eval fees fund the winners.</h3>
+        <p>Some traders pass, some don't. Those fees cover the infrastructure, platform, market data, support, and the payouts going to the traders who make it through. <b>Straightforward.</b></p>
+      </div>
+      <div class="bm-part">
+        <div class="pn">Part 2</div>
+        <h3>The real business is graduating top performers.</h3>
+        <p>When a trader proves a sustained edge and earns a seat at T3 Global, they trade real firm capital and we share in the long-term performance. <b>One good trader is worth more to us than a hundred who don't make it.</b></p>
+      </div>
+    </div>
+
+    <div class="bm-plain rv">
+      <div class="pl-lbl">In plain terms</div>
+      <p>The eval fees fund the payouts. Our real upside is graduating traders to the institutional desk. <span class="t">We win when you win, scaled.</span> That's why the rules are strict, the targets are real, and the T3 path exists. We're looking for the traders who'll earn firm capital.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCALING: WE MOVE IT TWICE -->
+<section class="scl">
+  <style>
+    .scl{position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+    .scl-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:148px 40px}
+    @media(max-width:860px){.scl-inner{padding:72px 22px}}
+    .scl h2{font-size:clamp(30px,4.4vw,50px);line-height:1.04;font-weight:800;letter-spacing:-0.03em;margin-bottom:16px;max-width:760px}
+    .scl h2 .hl{color:var(--teal)}
+    .scl .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:660px;margin-bottom:46px}
+    .scl-grid{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:0}
+    @media(max-width:820px){.scl-grid{grid-template-columns:1fr;gap:14px}.scl-arrow{transform:rotate(90deg);padding:6px 0}}
+    .scl-card{background:var(--w06);border:1px solid var(--border);border-radius:16px;padding:28px 22px;text-align:center;position:relative}
+    .scl-card.mid{border-color:rgba(34,211,168,0.28);background:rgba(34,211,168,0.05)}
+    .scl-card.top{border-color:rgba(34,211,168,0.4);background:linear-gradient(180deg,rgba(34,211,168,0.08),rgba(34,211,168,0.02))}
+    .scl-label{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--w40);margin-bottom:12px}
+    .scl-amt{font-size:clamp(38px,6vw,52px);font-weight:900;letter-spacing:-0.04em;line-height:1}
+    .scl-card .scl-amt{color:var(--w100)}
+    .scl-card.mid .scl-amt,.scl-card.top .scl-amt{color:var(--teal);text-shadow:0 0 40px rgba(34,211,168,0.28)}
+    .scl-q{font-family:var(--mono);font-size:12px;color:var(--w55);margin:6px 0 12px}
+    .scl-d{font-size:13.5px;line-height:1.5;color:var(--w72)}
+    .scl-arrow{display:flex;align-items:center;justify-content:center;padding:0 14px;color:var(--teal);font-size:22px;font-weight:700}
+    .scl-earned{position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--teal-deep);background:var(--teal);border-radius:20px;padding:4px 12px;font-weight:700}
+    .scl-disc{font-size:11px;color:var(--w40);margin-top:10px;line-height:1.5}
+    .scl-closer{margin-top:36px;font-size:clamp(18px,2.4vw,26px);font-weight:800;letter-spacing:-0.02em;color:var(--w100)}
+    .scl-closer .hl{color:var(--teal)}
+  </style>
+  <div class="scl-glow" style="position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;pointer-events:none;width:540px;height:540px;background:radial-gradient(circle,rgba(34,211,168,0.13),transparent 65%);top:80px;right:-150px"></div>
+  <div class="scl-inner">
+    <span class="eyebrow rv">The math of staying small</span>
+    <h2 class="rv">Your edge has one ceiling.<br><span class="hl">We move it. Twice.</span></h2>
+    <p class="sub rv">The same strategy at three different sizes. Same edge. Wildly different math.</p>
+    <div class="scl-grid rv">
+      <div class="scl-card">
+        <div class="scl-label">Trading your own money</div>
+        <div class="scl-amt tnum">$25,000</div>
+        <div class="scl-q">your ceiling</div>
+        <div class="scl-d">Every loss is your money, and every win is capped by the 1 to 2 contracts a retail account lets you size, no matter how clean your edge.</div>
+      </div>
+      <div class="scl-arrow">&rarr;</div>
+      <div class="scl-card mid">
+        <div class="scl-label">Funded options account</div>
+        <div class="scl-amt tnum">20</div>
+        <div class="scl-q">contracts simulated</div>
+        <div class="scl-d">A simulated funded account with up to 20 contracts per leg. Keep up to 80% of what you make, with no personal capital tied up.</div>
+      </div>
+      <div class="scl-arrow">&rarr;</div>
+      <div class="scl-card top">
+        <span class="scl-earned">Earned</span>
+        <div class="scl-label">T3 Global desk</div>
+        <div class="scl-amt tnum">$1M+</div>
+        <div class="scl-q">desk capital</div>
+        <div class="scl-d">Top performers earn a seat: institutional infrastructure, real fills, real firm capital.</div>
+        <div class="scl-disc">Reserved for top-performing traders. Subject to T3 Global review and audition. Not all traders qualify.</div>
+      </div>
+    </div>
+    <p class="scl-closer rv">Start at 20 contracts. <span class="hl">Earn your way to live desk capital.</span></p>
+  </div>
+</section>
+
+<section class="t3">
+  <div class="t3-glow"></div>
+  <div class="t3-inner">
+    <span class="eyebrow rv">The institutional partner · T3 Global</span>
+    <h2 class="rv">Built on real <span class="hl">institutional infrastructure.</span></h2>
+    <p class="intro rv">"Earn your way to a T3 seat" only means something if you know who T3 is, and how the pieces fit together.</p>
+
+    <div class="t3-stack rv">
+      <div class="t3-ent t3-top">
+        <span class="t3-grad-badge">Where you graduate</span>
+        <div class="t3-logochip"><img src="../assets/images/t3_global_logo.png" alt="T3 Global"></div>
+        <p><b>T3 Global</b> is the institutional trading firm and live-capital path for top-performing TradeFundrr traders. This is the desk you earn your way to, by invitation.</p>
+        <div class="t3-ent-note">T3 Global is not itself a registered broker-dealer.</div>
+      </div>
+
+      <div class="t3-connector">
+        <div class="rail"></div>
+        <span class="t3-builton"><span class="arrow">▲</span> Built on the same infrastructure</span>
+        <div class="t3-chips">
+          <span class="t3-chip">Same <b>trading platforms</b></span>
+          <span class="t3-chip">Same <b>compliance team</b></span>
+          <span class="t3-chip">Same <b>system-ops team</b></span>
+        </div>
+        <div class="rail"></div>
+      </div>
+
+      <div class="t3-ent t3-base">
+        <span class="t3-base-label">The foundation</span>
+        <div class="t3-base-grid">
+          <div class="col-logo">
+            <div class="t3-logochip"><img src="../assets/images/t3_group_logo.png" alt="T3 Trading Group, LLC"></div>
+          </div>
+          <div class="col-body">
+            <p><b>T3 Trading Group</b> is the T3 group's registered broker-dealer, one of the largest active-trader desks in the U.S. T3 Global is built on the same technology, platforms, and compliance. <b>We leverage that foundation; it just isn't where you graduate to.</b></p>
+            <div class="creds-line"><b>SEC</b>-registered · <b>FINRA</b> / <b>SIPC</b> member</div>
+            <div class="t3-ent-note">Traders do not graduate to this entity. Its registrations do not extend to T3 Global.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t3-distinct rv">
+      <div class="dl">The important distinction</div>
+      <p><b>T3 Global and T3 Trading Group are separate business units</b> within the T3 group of companies. The SEC, FINRA, and SIPC registrations belong to <b>T3 Trading Group only</b> and <b>do not apply to T3 Global</b>, the entity TradeFundrr traders graduate to. T3 Global is not itself a registered broker-dealer.</p>
+    </div>
+
+    <p class="t3-grad rv">When a TradeFundrr trader proves a sustained, risk-managed edge, the path to a real-money seat runs through T3 Global's infrastructure: <b>real firm capital, real fills, real desk oversight.</b> By invitation, reserved for top performers.</p>
+
+    <p class="t3-mantra rv">Sim is sim. Live is live. <span class="t">T3 is live.</span></p>
+
+    <p class="t3-disc rv">Reserved for top-performing traders. Subject to T3 Global review. Not all traders qualify. SEC, FINRA, and SIPC registrations refer to T3 Trading Group, a separate entity within the T3 group of companies, and do not apply to T3 Global or to TradeFundrr's simulated funded accounts.</p>
+  </div>
+</section>
+
+<section class="rev">
+  <div class="rev-glow"></div>
+  <div class="rev-inner">
+    <span class="eyebrow rv">Real traders · real payouts</span>
+    <h2 class="rv">Don't just take <span class="hl">our word for it.</span></h2>
+    <p class="sub rv">Real names. Real reviews. Verified on Trustpilot, we don't curate them.</p>
+
+    <div class="rev-rating-live rv">
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5406e65db0d04a09e042d5fc" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="78px" data-style-width="100%" data-theme="dark" data-token="01a863ca-5195-4b5c-b0b2-0ed2d6d99ba9" data-review-disclaimer="true">
+        <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">★★★★★ Reviews on Trustpilot</a>
+      </div>
+    </div>
+
+    <div class="rev-cap rv">Verified payout stories</div>
+
+    <div class="rev-grid rv">
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">So glad I took the chance</div>
+        <div class="quote">"I was skeptical this was going to be as good as the other reviews state. Nevertheless I took the leap. I passed the evaluation phase, moved seamlessly to the funded account phase, and then requested my first payout on 3 accounts. Within no time the money was in my account. <b>This is the real deal.</b>"</div>
+        <div class="who"><b>Chad Tillbrook</b> · United States · Jan 12, 2026</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">My first payout after six trading days</div>
+        <div class="quote">"I really had a great experience with TradeFundrr as I just started my journey in December and <b>got my first payout approved just after six trading days.</b> The rules are very clear. The support team is amazing with prompt responses and clear answers."</div>
+        <div class="who"><b>Hassan</b> · Saudi Arabia · Jan 9, 2026</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">One of the best prop firms I've worked with</div>
+        <div class="quote">"Clear rules, fast execution, and a professional environment that actually supports long-term success. <b>The payouts are fast and reliable,</b> and customer support is responsive when you need help. Highly recommended."</div>
+        <div class="who"><b>Parker B.</b> · United States · Dec 23, 2025</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">I received my payout today</div>
+        <div class="quote">"<b>I received my payout today, it is the 3rd great experience so far.</b> We have the choice among ETFs and stocks, nothing to complain about so far. Customer service replies fast, and not AI agents, which is great."</div>
+        <div class="who"><b>Mohamed El-Brahmi</b> · France · Apr 11, 2026</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">Top two in the sim stock world</div>
+        <div class="quote">"I have been a member of TradeFundrr for several months and have been happy throughout. In my opinion, they are in the top two in the sim stock world, and <b>I give them the #1 spot because of their straight-to-funded option.</b>"</div>
+        <div class="who"><b>Eric</b> · United States · Apr 30, 2026</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">Got my first payout in 7 days</div>
+        <div class="quote">"Can't say enough about this program. Enrolled into the instant funding program and <b>got my first payout in 7 days.</b>"</div>
+        <div class="who"><b>Caleb</b> · United States · Oct 8, 2025</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">A very good experience with TradeFundrr</div>
+        <div class="quote">"I've had a very good experience with TradeFundrr so far. It really helps teach discipline and consistency in trading rather than rushing into things unprepared. <b>I'm also very satisfied with their payout service — reliable and smooth, which builds a lot of trust.</b>"</div>
+        <div class="who"><b>Kajal Prakash</b> · United States · Apr 4, 2026</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">Fast payout</div>
+        <div class="quote">"I met criteria for payout and made my request — <b>money hit my account in a few hours.</b>"</div>
+        <div class="who"><b>Joyce</b> · United States · Nov 22, 2025</div>
+      </div>
+      <div class="rev-card">
+        <div class="stars">★★★★★</div>
+        <div class="rtitle">Finally got my first payout</div>
+        <div class="quote">"I have been with TradeFundrr since January of 25 and finally got my first payout this October. Their dashboard is so user friendly — the other prop firms were so confusing I had no clue what stage I was in. <b>I've received my first payout and it feels amazing.</b>"</div>
+        <div class="who"><b>Lisa</b> · United States · Oct 6, 2025</div>
+      </div>
+    </div>
+
+    <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener noreferrer" class="rev-more rv">Read all verified reviews on Trustpilot →</a>
+    <p class="rev-disc rv">Reviews are real and shown verbatim from Trustpilot. Individual results vary. Trading outcomes described are not typical and are not a guarantee of future performance.</p>
+  </div>
+</section>
+
+<section class="plat">
+  <div class="plat-glow"></div>
+  <div class="plat-inner">
+    <span class="eyebrow rv">Platform · built for options</span>
+    <h2 class="rv">One platform. <span class="hl">Built for options flow.</span></h2>
+    <p class="sub rv">Your funded options account runs on DXTrade, the same institutional execution stack a professional desk uses, with live chains and real fills.</p>
+
+    <div class="plat-grid rv">
+      <div class="plat-card">
+        <div class="ptag">The execution stack</div>
+        <div class="pname">DXTrade</div>
+        <p class="pdesc">Built by the same development team behind <b>tastyworks and thinkorswim.</b> The pro-grade options order ticket, with institutional routing instead of payment for order flow.</p>
+        <ul class="plat-feat">
+          <li>Real-time options chains and quotes</li>
+          <li>Greeks, deltas, and implied volatility</li>
+          <li>Single-leg and multi-leg order entry</li>
+          <li>Fast, keyboard-driven execution</li>
+          <li>Multi-monitor support</li>
+        </ul>
+      </div>
+      <div class="plat-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column">
+        <img src="../assets/images/DX-Hero-1-web.webp" alt="DXTrade, TradeFundrr-branded: the SPY option chain with calls, puts, strikes, deltas and implied volatility" style="width:100%;display:block;border-bottom:1px solid var(--border)" width="2000" height="1422" loading="lazy" decoding="async">
+        <div style="padding:20px 24px">
+          <div class="ptag">DXTrade · TradeFundrr-branded</div>
+          <p class="pdesc" style="margin:0">The real workspace: live chart, the full option chain with strikes, deltas and IV, and one-click order entry, with institutional routing and real fills, not payment for order flow.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="plat-note rv">One funded options account on DXTrade. <b>Real chains, real fills, real size.</b></p>
+  </div>
+</section>
+
+<!-- WHAT_YOU_CAN_TRADE_START -->
+<section class="wct" id="what-you-can-trade">
+  <div class="wct-inner">
+    <span class="eyebrow rv">What you can trade</span>
+    <h2 class="rv">Trade the options you <span class="hl">already trade.</span></h2>
+    <p class="sub rv">The funded account doesn't change your watchlist or your playbook. Same underlyings you pull up every morning, same setups you already run, just with <b>real contract size</b> behind them instead of your own savings.</p>
+
+    <div class="wct-blab rv">The underlyings you already watch</div>
+    <div class="wct-tickers rv">
+      <span class="tkr"><span class="dot"></span>SPX</span>
+      <span class="tkr"><span class="dot"></span>SPY</span>
+      <span class="tkr"><span class="dot"></span>QQQ</span>
+      <span class="tkr"><span class="dot"></span>AAPL</span>
+      <span class="tkr"><span class="dot"></span>NVDA</span>
+      <span class="tkr"><span class="dot"></span>TSLA</span>
+      <span class="tkr"><span class="dot"></span>AMD</span>
+      <span class="tkr"><span class="dot"></span>META</span>
+      <span class="tkr"><span class="dot"></span>AMZN</span>
+      <span class="tkr"><span class="dot"></span>MSFT</span>
+      <span class="tkr"><span class="dot"></span>IWM</span>
+      <span class="tkr more">+ many more</span>
+    </div>
+    <p class="wct-tnote rv"><b>Hundreds of the most liquid US symbols</b> are available in the options program, including <b>SPX, SPY, QQQ, IWM, TSLA, and NVDA.</b></p>
+
+    <div class="wct-cards rv">
+      <div class="wcard">
+        <div class="wtag">The universe</div>
+        <div class="wname">Hundreds of symbols</div>
+        <p class="wdesc">Both sides of the chain on the most liquid names you already follow. Nothing exotic to learn, the same options you trade today.</p>
+        <ul class="wlist">
+          <li>Calls and puts on <b>hundreds of liquid US symbols</b></li>
+          <li>Index options including <b>SPX</b>, plus <b>SPY, QQQ, IWM</b></li>
+          <li>Single names like <b>TSLA and NVDA</b></li>
+          <li>Up to <b>20 contracts</b> per leg on Express</li>
+        </ul>
+      </div>
+      <div class="wcard short">
+        <div class="wtag">How you structure it</div>
+        <div class="wname">A full suite of strategies</div>
+        <p class="wdesc">Trade outright or build the structure. We publish every constraint up front, the way we publish every rule.</p>
+        <ul class="wlist">
+          <li>Outright <b>long calls and puts</b></li>
+          <li><b>Spreads, iron condors, and butterflies</b></li>
+          <li><b>Credit-based positions</b> allowed, up to account buying power</li>
+          <li>15-second minimum hold, intraday positions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wct-blab rv">Whatever strategy you run</div>
+    <div class="wct-strats rv">
+      <div class="strat"><div class="sname"><span class="si"></span>Day trading</div><div class="sd">In and out same session, no overnight risk.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>Scalping</div><div class="sd">Fast entries for small, repeatable edges, with a 15-second minimum hold.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>Directional calls &amp; puts</div><div class="sd">Express a clean read with outright long premium.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>Spreads, condors &amp; butterflies</div><div class="sd">Defined-risk multi-leg structures, debit or credit.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>Momentum</div><div class="sd">Ride the underlyings moving on volume.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>Breakout / ORB</div><div class="sd">Opening-range and key-level breaks on the underlying.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>VWAP &amp; mean reversion</div><div class="sd">Fade the extremes back to the average.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>News &amp; catalyst</div><div class="sd">Earnings, upgrades, and headline-driven moves.</div></div>
+      <div class="strat"><div class="sname"><span class="si"></span>Your own system</div><div class="sd">Any intraday system that respects the loss limit and drawdown.</div></div>
+    </div>
+
+    <p class="wct-note rv">Traders get a <b>full suite of strategies</b>, such as spreads, iron condors, and butterflies, and <b>credit-based positions are allowed up to the account buying power.</b> Bottom line: you can trade the options you trade today, with the intraday strategy you already run, under simple published rules, a 15-second minimum hold, intraday positions only (no overnight), plus the daily loss limit and drawdown.</p>
+  </div>
+</section>
+<!-- WHAT_YOU_CAN_TRADE_END -->
+
+<section class="wif">
+  <div class="wif-glow"></div>
+  <div class="wif-inner">
+    <span class="eyebrow rv">Is this right for you?</span>
+    <h2 class="rv">TradeFundrr isn't for <span class="hl">everyone.</span></h2>
+    <p class="sub rv">And that's by design. Be honest with yourself, here's who this is built for, and who it isn't.</p>
+
+    <style>
+      .wif .wif-li{align-items:center;min-height:64px}
+      @media(max-width:760px){.wif .wif-li{min-height:0}}
+    </style>
+    <div class="wif-grid rv">
+      <div class="wif-card yes">
+        <div class="ch">✓ This is for you if</div>
+        <div class="wif-li"><span class="i">✓</span>You have a proven strategy but lack the capital to scale it</div>
+        <div class="wif-li"><span class="i">✓</span>You're tired of risking your own savings on every trade</div>
+        <div class="wif-li"><span class="i">✓</span>You want to trade at size without the multi-year grind</div>
+        <div class="wif-li"><span class="i">✓</span>You're disciplined enough to respect a daily loss limit and drawdown</div>
+        <div class="wif-li"><span class="i">✓</span>You'd rather risk a fixed, known cost than your savings</div>
+        <div class="wif-li"><span class="i">✓</span>You're ready to trade funded, starting now</div>
+      </div>
+      <div class="wif-card no">
+        <div class="ch">✗ This isn't for you if</div>
+        <div class="wif-li"><span class="i">✗</span>You're still learning the basics of trading</div>
+        <div class="wif-li"><span class="i">✗</span>You expect to get funded and immediately blow the account</div>
+        <div class="wif-li"><span class="i">✗</span>You can't follow a daily loss limit or a drawdown rule</div>
+        <div class="wif-li"><span class="i">✗</span>You're looking for a get-rich-quick shortcut</div>
+        <div class="wif-li"><span class="i">✗</span>You want to trade without accountability or structure</div>
+        <div class="wif-li"><span class="i">✗</span>You need to hold positions overnight</div>
+      </div>
+    </div>
+
+    <p class="wif-close rv">If the left column sounds like you, <span class="hl">you're in the right place.</span></p>
+    <a href="#" class="wif-cta rv">Get funded today <span class="arr">→</span></a>
+  </div>
+</section>
+
+<section class="sep">
+  <div class="sep-glow"></div>
+  <div class="sep-inner">
+    <span class="eyebrow rv">What separates TradeFundrr</span>
+    <h2 class="rv">Built on substance. <span class="hl">Not marketing.</span></h2>
+    <p class="sub rv">Three things most funded-trader programs can't say, and back up.</p>
+
+    <div class="sep-list rv">
+      <div class="sep-row">
+        <div class="sep-head"><div class="big">Real <span class="t">rules.</span></div><div class="not">Not vague promises</div></div>
+        <p>Drawdown limits, profit targets, and payout cycles are all <b>published before you pay,</b> and they don't change after you pass.</p>
+      </div>
+      <div class="sep-row">
+        <div class="sep-head"><div class="big">Real <span class="t">graduation.</span></div><div class="not">Not sim forever</div></div>
+        <p>Prove your edge and you graduate to a real-money seat at T3 Global, with <b>real firm capital and real fills.</b> Most firms just hand you a bigger simulated account and call it "live capital." We don't. Sim is sim. Live is live.</p>
+      </div>
+      <div class="sep-row">
+        <div class="sep-head"><div class="big">Real <span class="t">support.</span></div><div class="not">Not a chatbot</div></div>
+        <p>Real people on phone and email who know the platform, the rules, and your account, <b>not a tier-1 ticket queue.</b></p>
+      </div>
+    </div>
+
+    <div class="sep-quote rv">
+      <blockquote>"Your edge is real. Our job is to make sure your <span class="t">account size doesn't stop you.</span>"</blockquote>
+      <div class="sep-author">
+        <div class="av"><img src="../assets/images/christian_headshot.png" alt="Christian Bose"></div>
+        <div>
+          <div class="nm">Christian Bose</div>
+          <div class="rl">Co-founder · TradeFundrr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wn">
+  <div class="wn-glow"></div>
+  <div class="wn-inner">
+    <span class="eyebrow rv">Why now</span>
+    <div class="wn-chip rv">Effective June 4, 2026 · FINRA</div>
+    <h2 class="rv">The rules just changed. <span class="hl">The capital gap didn't.</span></h2>
+    <p class="intro rv">For the first time in 25 years, the Pattern Day Trading (PDT) rule and its $25,000 day-trading minimum are going away. It's the biggest shift in retail day trading in a generation, and it still doesn't solve the thing that actually holds you back.</p>
+
+    <div class="wn-cols rv">
+      <div class="wn-col now">
+        <div class="k">What's changing</div>
+        <p>The PDT rule and its <b>$25,000 day-trading minimum</b> end June 4, 2026 (phased in by broker through 2027). Sub-$25K accounts can finally day-trade without restriction, on real-time intraday margin.</p>
+      </div>
+      <div class="wn-col gap">
+        <div class="k">What isn't</div>
+        <p>Your account is still your account. A small balance trading <b>1 or 2 contracts</b>, even unrestricted, is still small, and it's still <b>your own money</b> on every trade. The barrier was never just the rule. It was the size.</p>
+      </div>
+    </div>
+
+    <p class="wn-close rv">The rules got easier. <span class="hl">The contract count didn't.</span></p>
+    <p class="wn-disc rv">FINRA's amended day-trading margin rules take effect June 4, 2026, with broker implementation phased through October 2027; timing varies by broker. The $2,000 minimum to open a margin account is unchanged.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <span class="eyebrow rv">It's time to make your move</span>
+    <h2 class="rv">Stop risking your savings.<br><span class="hl">Start trading our capital.</span></h2>
+    <p class="lead rv">Keep grinding 2 contracts the slow way, or give yourself a simulated $25K options account with up to 20 contracts and trade at the level you're already capable of.</p>
+
+    <div class="cta-steps rv">
+      <div class="cta-step"><div class="n">01</div><div class="t">Choose your program</div><div class="d">Growth, Express, or Express 10k, all put real contract size behind you.</div></div>
+      <div class="cta-step"><div class="n">02</div><div class="t">Get set up</div><div class="d">Your funded options account is ready quickly, on DXTrade.</div></div>
+      <div class="cta-step"><div class="n">03</div><div class="t">Trade funded</div><div class="d">Hit the targets, respect the loss limit and drawdown.</div></div>
+      <div class="cta-step"><div class="n">04</div><div class="t">Get paid</div><div class="d">Request your payout and keep 80%, weekly.</div></div>
+    </div>
+
+    <div class="cta-btns rv">
+      <a href="#" class="cta-btn primary">Get Funded <span>→</span></a>
+      <a href="#" class="cta-btn ghost">Talk to our team</a>
+    </div>
+    <p class="cta-fine rv">$25K simulated options account · up to 20 contracts · keep 80% of profits · your savings never on the line.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="foot-logo" aria-label="TradeFundrr"><img src="../assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p>88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="fb-head">For Customer Service</p>
+        <p>Mon-Fri, 9AM-5PM EST</p>
+        <p class="fb-head">Email</p>
+        <a href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="fb-head">Phone</p>
+        <a href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <a href="pages/why-us.html" target="_blank" rel="noopener">Why Us?</a>
+        <a href="pages/about.html" target="_blank" rel="noopener">Contact Us</a>
+        <a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a>
+        <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a>
+      </div>
+      <div class="foot-col">
+        <h4>What We Offer</h4>
+        <a href="pages/stocks.html" target="_blank" rel="noopener">Stocks Day Trader Funding</a>
+        <a href="pages/options.html" target="_blank" rel="noopener">Options Day Trader Funding</a>
+        <a href="/pages/futures/" target="_blank" rel="noopener">Futures Day Trader Funding</a>
+        <a href="pages/pro-funding.html" target="_blank" rel="noopener">Pro Funding</a>
+      </div>
+      <div class="foot-col">
+        <h4>Policies</h4>
+        <a href="pages/terms.html" target="_blank" rel="noopener">Terms and Conditions</a>
+        <a href="pages/privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="pages/cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>
+        <a href="pages/impressum.html" target="_blank" rel="noopener">Impressum</a>
+        <a href="pages/disclaimer.html" target="_blank" rel="noopener">Disclaimer</a>
+        <a href="refund-policy.html" target="_blank" rel="noopener">Refund Policy</a>
+      </div>
+    </div>
+    <div class="foot-sep"></div>
+    <div class="foot-copy">Copyright 2026 TradeFundrr. All rights reserved.</div>
+  </div>
+
+  <div class="foot-legal">
+    <div class="foot-legal-inner">
+      <h3>General Disclosure</h3>
+      <p>TradeFundrr ("the Platform") is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+      <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+      <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. Participation in TradeFundrr's programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+      <p><b>T3 Global and T3 Trading Group are separate business units within the T3 group of companies.</b> The SEC, FINRA, and SIPC registrations belong to T3 Trading Group only and do not apply to T3 Global, the entity TradeFundrr traders graduate to, or to TradeFundrr's simulated accounts. Graduation to T3 Global is by invitation, reserved for top performers, and is not guaranteed.</p>
+      <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+      <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+      <h3>Risk Disclosure</h3>
+      <p>Trading in financial markets involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses. Before participating, users should carefully consider their financial situation, trading experience, and risk tolerance.</p>
+      <p>TradeFundrr enforces strict risk management parameters, including daily loss limits and maximum drawdown. Most participants do not pass the evaluation or earn a payout, and fees are largely non-refundable. Nothing on this page is a guarantee of funding, payouts, or income. Users are encouraged to consult independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+      <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
+      <p class="cftc">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+      <h3>Testimonials</h3>
+      <p>Reviews and testimonials reflect individual experiences and are not representative of typical results. Trading outcomes described are not typical and are not a guarantee of future performance.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Hero dashboard 3D tilt-to-flat on scroll (Clear Street style) */
+(function(){
+  var img=document.querySelector('.hero-platform-img');
+  if(!img) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){img.style.setProperty('--tilt','0deg');return;}
+  var MAX=0,ticking=false; /* tilt disabled, hero image stays flat */
+  function update(){ticking=false;var d=window.innerHeight*0.6;var p=Math.min(Math.max(window.scrollY/d,0),1);img.style.setProperty('--tilt',(MAX*(1-p)).toFixed(2)+'deg');}
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll,{passive:true});
+  update();
+})();
+</script>
+
+<script>
+function countUp(el,target,dur,prefix,decimals,suffix){
+  if(!el)return;
+  const start=performance.now();
+  function tick(now){
+    let p=Math.min((now-start)/dur,1);p=1-Math.pow(1-p,3);
+    const v=target*p;
+    el.textContent=(prefix||'')+v.toLocaleString('en-US',{minimumFractionDigits:decimals,maximumFractionDigits:decimals})+(suffix||'');
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    countUp(document.getElementById('bp'),100000,1600,'$',0,'');
+    countUp(document.getElementById('pl'),1847.50,1900,'+$',2,'');
+    // hero trophies removed in storytelling rework (2026-05-31)
+  },300);
+});
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      if(e.target.classList.contains('math')){
+        document.getElementById('track').classList.add('in');
+        setTimeout(()=>countUp(document.getElementById('pct'),100,1600,'',0,'%'),300);
+      }
+      if(e.target.classList.contains('proof')){
+        setTimeout(()=>{
+          countUp(document.getElementById('s5'),1000,1500,'+$',0,'');
+          countUp(document.getElementById('s100'),20000,1700,'+$',0,'');
+        },380);
+      }
+      if(e.target.classList.contains('tt-stats')){
+        setTimeout(()=>{
+          countUp(document.getElementById('ts1'),40,1400,'',0,'%');
+          countUp(document.getElementById('ts2'),80,1500,'',0,'%');
+          countUp(document.getElementById('ts3'),93,1600,'',0,'%');
+        },300);
+      }
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.25});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6)*0.06).toFixed(2)+'s';io.observe(el);});
+
+(function(){
+  var w=document.querySelector('.trustpilot-widget');
+  if(!w)return;
+  var id=w.getAttribute('data-businessunit-id')||'';
+  if(!id||id.indexOf('YOUR_')!==-1)return;
+  var load=function(){var s=document.createElement('script');s.src='https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';s.async=true;document.head.appendChild(s);};
+  if('IntersectionObserver' in window){var io2=new IntersectionObserver(function(e){if(e[0].isIntersecting){load();io2.disconnect();}},{rootMargin:'400px'});io2.observe(w);}else{load();}
+})();
+</script>
+<!-- Hero platform image 3D mouse-follow tilt removed 2026-06-11: kept flat for sharpness -->
+<script src="../js/main.js?v=202605230840" defer></script>
+</body>
+</html>

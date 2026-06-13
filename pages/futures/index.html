@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="../../futures-assets/assets/img/favicon.ico">
+  <link href="../../futures-assets/styles/css/main.css" rel="stylesheet">
+
+  <!-- FUTURES HERO 2026-05-28: ported from stocks-page hero (.stx-hero),
+       converted to brand blue (#00AAFF) instead of teal. Sparkles + parallax tilt match. -->
+  <style>
+    :root {
+      --ftr-blue: #00AAFF;
+      --ftr-blue-glow: rgba(0, 170, 255, 0.25);
+      --ftr-blue-soft: rgba(0, 170, 255, 0.08);
+      --ftr-border: hsla(0, 0%, 100%, 0.08);
+      --ftr-border-hover: rgba(0, 170, 255, 0.35);
+      --ftr-white-72: hsla(0, 0%, 100%, 0.72);
+      --ftr-white-55: hsla(0, 0%, 100%, 0.55);
+      --ftr-bg: #060914;
+    }
+
+    .ftr-hero {
+      padding: 240px 0 80px;
+      position: relative;
+      background: var(--ftr-bg);
+      display: block;
+    }
+
+    .ftr-hero__sparkles { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+    .ftr-hero__sparkles span {
+      position: absolute;
+      width: var(--size, 2px);
+      height: var(--size, 2px);
+      border-radius: 50%;
+      background: #7FD0FF;
+      box-shadow: 0 0 5px rgba(127, 208, 255, 0.65);
+      opacity: 0.45;
+      will-change: transform, opacity;
+      animation: ftrTwinkle var(--dur, 4s) ease-in-out infinite;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes ftrTwinkle {
+      0%, 100% { opacity: 0.15; transform: scale(0.85) translate(0, 0); }
+      25%      { opacity: 0.55; transform: scale(1.05) translate(2px, -4px); }
+      50%      { opacity: 0.8;  transform: scale(1.15) translate(0, -7px); }
+      75%      { opacity: 0.55; transform: scale(1.05) translate(-2px, -4px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ftr-hero__sparkles span { animation: none; opacity: 0.4; }
+    }
+
+    .ftr-hero__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ftr-hero__text { color: #fff; }
+    .ftr-eyebrow {
+      font-family: 'Geist Mono', 'Inter', monospace;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--ftr-blue);
+      margin: 0 0 18px;
+      display: block;
+    }
+    .ftr-hero__text h1 {
+      font-family: 'Inter', 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: #fff;
+      margin: 0 0 24px;
+      text-transform: none;
+    }
+    .ftr-hero__text h1 .accent { color: var(--ftr-blue); }
+
+    .ftr-hero__sub {
+      font-size: 17px;
+      color: var(--ftr-white-72);
+      line-height: 1.55;
+      max-width: 600px;
+      margin: 0 0 32px;
+    }
+    .ftr-hero__sub strong { color: #fff; font-weight: 600; }
+
+    .ftr-hero__buttons { display: flex; gap: 14px; flex-wrap: wrap; margin: 0 0 28px; }
+    .ftr-hero__cta-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--ftr-blue);
+      color: #06181a;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .ftr-hero__cta-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px var(--ftr-blue-glow); }
+    .ftr-hero__cta-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #fff;
+      padding: 14px 24px;
+      font-weight: 500;
+      font-size: 15px;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+    .ftr-hero__cta-secondary:hover { opacity: 1; }
+
+    .ftr-hero__ticks {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: var(--ftr-white-72);
+      font-size: 13.5px;
+    }
+    .ftr-hero__ticks span::before { content: "\2713 \00a0"; color: var(--ftr-blue); font-weight: 700; }
+
+    .ftr-hero__media {
+      position: relative;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #0a101e 0%, #060914 100%);
+      border: 1px solid var(--ftr-border);
+      transform: perspective(1800px) rotateX(-2deg) rotateY(-6deg);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow:
+        0 0 60px rgba(0, 170, 255, 0.25),
+        0 30px 80px rgba(0, 170, 255, 0.18),
+        0 60px 120px rgba(0, 0, 0, 0.5);
+      -webkit-box-reflect: below 12px linear-gradient(transparent 70%, rgba(0,0,0,0.35) 100%);
+    }
+    .ftr-hero__media img { width: 100%; height: auto; display: block; border-radius: 18px; }
+
+    @media (max-width: 980px) {
+      .ftr-hero { padding-top: 200px; }
+      .ftr-hero__grid { grid-template-columns: 1fr; gap: 40px; }
+      .ftr-hero__text h1 { font-size: 44px; letter-spacing: -1.5px; }
+      .ftr-hero__media { max-width: 520px; margin: 0 auto; }
+    }
+    @media (max-width: 640px) {
+      .ftr-hero { padding: 140px 0 50px; }
+      .ftr-hero__text h1 { font-size: 40px !important; letter-spacing: -1.5px !important; line-height: 1.04 !important; }
+      .ftr-hero__sub { font-size: 15.5px; }
+      .ftr-hero__ticks { font-size: 12.5px; gap: 14px; }
+      .ftr-hero__cta-primary, .ftr-hero__cta-secondary { font-size: 14px; padding: 12px 22px; }
+    }
+    @media (max-width: 420px) {
+      .ftr-hero { padding: 120px 0 40px; }
+      .ftr-hero__text h1 { font-size: 34px !important; letter-spacing: -1.2px !important; }
+    }
+
+    /* CREDIBILITY TICKER 2026-05-28: ported from homepage .tf-ticker, brand-blue palette.
+       Replaces the static reassurance grid below the hero. 45s infinite scroll, pauses on hover. */
+    .ftr-reassurance { background: var(--ftr-bg); padding: 0; border-bottom: 1px solid hsla(0, 0%, 100%, 0.06); }
+    .ftr-ticker { position: relative; width: 100%; overflow: hidden; padding: 24px 0; }
+    .ftr-ticker__track {
+      display: flex; gap: 56px; width: max-content;
+      animation: ftr-ticker-scroll 45s linear infinite;
+    }
+    .ftr-ticker:hover .ftr-ticker__track { animation-play-state: paused; }
+    .ftr-ticker__item {
+      display: inline-flex; align-items: center; gap: 12px;
+      color: #fff; font-size: 15px; white-space: nowrap; opacity: 0.92;
+      font-family: 'Inter', 'Arial', sans-serif;
+    }
+    .ftr-ticker__item img { width: 24px; height: 24px; flex-shrink: 0; filter: brightness(1.45) saturate(1.25); opacity: 0.95; }
+    .ftr-ticker::before, .ftr-ticker::after { content: ""; position: absolute; top: 0; bottom: 0; width: 120px; pointer-events: none; z-index: 2; }
+    .ftr-ticker::before { left: 0; background: linear-gradient(to right, #060914, transparent); }
+    .ftr-ticker::after { right: 0; background: linear-gradient(to left, #060914, transparent); }
+    @keyframes ftr-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .ftr-ticker__track { animation: none; flex-wrap: wrap; justify-content: center; }
+    }
+
+
+    /* ============================================================
+       HYPER-AWARE-AUDIENCE REWRITE 2026-05-28
+       Sections between hero and footer, rebuilt for sophisticated futures traders.
+       Voice: name the specific structural games, show our counter.
+       All sections inherit the dark-navy + brand-blue palette.
+       ============================================================ */
+    .ftr-section { background: var(--ftr-bg); padding: 100px 0; border-bottom: 1px solid hsla(0, 0%, 100%, 0.06); position: relative; }
+    .ftr-section__inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .ftr-eyebrow-dark {
+      font-family: 'Geist Mono', 'Inter', monospace;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--ftr-blue);
+      margin: 0 0 18px;
+      display: block;
+    }
+    .ftr-section h2 {
+      font-family: 'Inter', 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #fff;
+      margin: 0 0 22px;
+      text-transform: none;
+    }
+    .ftr-section h2 .accent { color: var(--ftr-blue); }
+    .ftr-section__lede {
+      font-size: 17px;
+      color: var(--ftr-white-72);
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 0 56px;
+    }
+
+    /* Trap-and-counter cards (replaces 'The Payout Problem' soft comparison) */
+    .ftr-traps__grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    .ftr-trap {
+      border: 1px solid var(--ftr-border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, hsla(0,0%,100%,0.025) 0%, transparent 100%);
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .ftr-trap__head {
+      grid-column: 1 / -1;
+      display: flex; align-items: baseline; gap: 16px;
+      padding-bottom: 18px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--ftr-border);
+    }
+    .ftr-trap__num {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: var(--ftr-blue);
+      flex-shrink: 0;
+    }
+    .ftr-trap__name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .ftr-trap__col h4 {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+      font-weight: 500;
+    }
+    .ftr-trap__col--bad h4 { color: #FF8585; }
+    .ftr-trap__col--good h4 { color: var(--ftr-blue); }
+    .ftr-trap__col p {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--ftr-white-72);
+      margin: 0;
+    }
+    .ftr-trap__col p strong { color: #fff; font-weight: 600; }
+
+    @media (max-width: 760px) {
+      .ftr-trap { grid-template-columns: 1fr; gap: 20px; padding: 22px 22px; }
+      .ftr-section h2 { font-size: 32px; letter-spacing: -1px; }
+      .ftr-section { padding: 64px 0; }
+    }
+
+    /* Why-block mechanical trust signals */
+    .ftr-why__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .ftr-why__card {
+      border: 1px solid var(--ftr-border);
+      border-radius: 14px;
+      padding: 28px;
+      background: hsla(0,0%,100%,0.02);
+      transition: border-color 0.2s;
+    }
+    .ftr-why__card:hover { border-color: var(--ftr-border-hover); }
+    .ftr-why__card-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ftr-blue);
+      margin: 0 0 14px;
+      display: block;
+    }
+    .ftr-why__card-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.25;
+      margin: 0 0 12px;
+      letter-spacing: -0.3px;
+    }
+    .ftr-why__card-body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ftr-white-72);
+    }
+
+    /* Steps (How it works) */
+    .ftr-steps__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; counter-reset: ftr-step; }
+    .ftr-step {
+      border: 1px solid var(--ftr-border);
+      border-radius: 14px;
+      padding: 28px;
+      background: hsla(0,0%,100%,0.02);
+      position: relative;
+    }
+    .ftr-step::before {
+      counter-increment: ftr-step;
+      content: counter(ftr-step, decimal-leading-zero);
+      font-family: 'Geist Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: var(--ftr-blue);
+      display: block;
+      margin: 0 0 18px;
+    }
+    .ftr-step__title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 19px;
+      color: #fff;
+      margin: 0 0 14px;
+      letter-spacing: -0.3px;
+    }
+    .ftr-step__body {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--ftr-white-72);
+    }
+    .ftr-step__body strong { color: #fff; font-weight: 600; }
+
+    /* Switch CTA card */
+    .ftr-switch__card {
+      border: 1px solid var(--ftr-blue);
+      border-radius: 14px;
+      padding: 36px 40px;
+      background: linear-gradient(135deg, rgba(0,170,255,0.08) 0%, rgba(0,170,255,0.02) 100%);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+    .ftr-switch__card-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #fff;
+      margin: 0 0 10px;
+      letter-spacing: -0.3px;
+    }
+    .ftr-switch__card-body { color: var(--ftr-white-72); font-size: 14.5px; line-height: 1.6; }
+    .ftr-switch__card-body strong { color: #fff; }
+    .ftr-switch__cta {
+      background: var(--ftr-blue);
+      color: #06181a;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .ftr-switch__cta:hover { box-shadow: 0 8px 24px var(--ftr-blue-glow); }
+    @media (max-width: 640px) {
+      .ftr-switch__card { grid-template-columns: 1fr; padding: 26px 24px; }
+    }
+
+    /* FAQ */
+    .ftr-faq__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 18px; }
+    .ftr-faq__item {
+      border: 1px solid var(--ftr-border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      background: hsla(0,0%,100%,0.02);
+    }
+    .ftr-faq__q {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #fff;
+      margin: 0 0 12px;
+      letter-spacing: -0.2px;
+    }
+    .ftr-faq__a {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--ftr-white-72);
+    }
+    .ftr-faq__a strong { color: #fff; font-weight: 600; }
+
+    /* CTA / Get-started numeric anchor */
+    .ftr-cta { background: var(--ftr-bg); padding: 100px 0; text-align: center; border-bottom: 1px solid hsla(0,0%,100%,0.06); }
+    .ftr-cta h2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 56px;
+      letter-spacing: -2px;
+      color: #fff;
+      margin: 0 0 22px;
+      line-height: 1.05;
+      text-transform: none;
+    }
+    .ftr-cta h2 .accent { color: var(--ftr-blue); }
+    .ftr-cta__sub {
+      font-size: 17px;
+      color: var(--ftr-white-72);
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+    .ftr-cta__buttons { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .ftr-cta__primary {
+      background: var(--ftr-blue); color: #06181a;
+      padding: 16px 32px; border-radius: 999px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .ftr-cta__primary:hover { box-shadow: 0 8px 24px var(--ftr-blue-glow); }
+    .ftr-cta__secondary {
+      color: #fff; padding: 16px 28px;
+      border-radius: 999px; border: 1px solid var(--ftr-border);
+      font-weight: 500; font-size: 15px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .ftr-cta__secondary:hover { border-color: var(--ftr-border-hover); }
+    @media (max-width: 640px) {
+      .ftr-cta h2 { font-size: 36px; letter-spacing: -1.2px; }
+      .ftr-cta { padding: 64px 0; }
+    }
+
+
+    /* CASCADING PAYOUT CARDS 2026-05-28: ported from homepage with brand-blue hue-rotate.
+       Replaces the static reviews.png section. 21 cards rain on independent paths. */
+    .ftr-payouts {
+      position: relative;
+      overflow: hidden;
+      background: var(--ftr-bg);
+      padding: 110px 0 130px;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.06);
+      min-height: 720px;
+    }
+    .ftr-payouts__cards-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .ftr-payouts__card {
+      position: absolute;
+      top: 0;
+      height: auto;
+      opacity: 0;
+      filter: drop-shadow(0 14px 30px rgba(0,0,0,0.55)) hue-rotate(38deg) saturate(1.15);
+      will-change: transform, opacity;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-play-state: paused;
+    }
+    .ftr-payouts__card--s { width: 280px; }
+    .ftr-payouts__card--m { width: 360px; }
+    .ftr-payouts__card--l { width: 420px; }
+    .ftr-payouts.is-running .ftr-payouts__card { animation-play-state: running; }
+
+    @keyframes ftrPayoutRainA {
+      0%   { transform: translate(0, -450px) rotate(-2deg); opacity: 0; }
+      8%   { opacity: 0.92; }
+      50%  { transform: translate(35px, 550px) rotate(6deg); }
+      92%  { opacity: 0.92; }
+      100% { transform: translate(20px, 1600px) rotate(-3deg); opacity: 0; }
+    }
+    @keyframes ftrPayoutRainB {
+      0%   { transform: translate(0, -450px) rotate(3deg); opacity: 0; }
+      8%   { opacity: 0.92; }
+      50%  { transform: translate(-55px, 550px) rotate(-7deg); }
+      92%  { opacity: 0.92; }
+      100% { transform: translate(-85px, 1600px) rotate(4deg); opacity: 0; }
+    }
+    @keyframes ftrPayoutRainC {
+      0%   { transform: translate(0, -450px) rotate(0deg); opacity: 0; }
+      8%   { opacity: 0.92; }
+      25%  { transform: translate(-35px, 100px) rotate(-5deg); }
+      50%  { transform: translate(40px, 600px) rotate(6deg); }
+      75%  { transform: translate(-25px, 1100px) rotate(-4deg); }
+      92%  { opacity: 0.92; }
+      100% { transform: translate(30px, 1600px) rotate(5deg); opacity: 0; }
+    }
+    @keyframes ftrPayoutRainD {
+      0%   { transform: translate(0, -450px) rotate(-4deg); opacity: 0; }
+      8%   { opacity: 0.92; }
+      35%  { transform: translate(-50px, 350px) rotate(-9deg); }
+      70%  { transform: translate(60px, 950px) rotate(8deg); }
+      92%  { opacity: 0.92; }
+      100% { transform: translate(40px, 1600px) rotate(-3deg); opacity: 0; }
+    }
+    @keyframes ftrPayoutRainE {
+      0%   { transform: translate(0, -450px) rotate(1deg); opacity: 0; }
+      8%   { opacity: 0.92; }
+      50%  { transform: translate(15px, 550px) rotate(4deg); }
+      92%  { opacity: 0.92; }
+      100% { transform: translate(-10px, 1600px) rotate(-2deg); opacity: 0; }
+    }
+
+    .ftr-payouts__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      text-align: center;
+    }
+    .ftr-payouts__brand {
+      margin: 0 auto 28px;
+      display: flex;
+      justify-content: center;
+    }
+    .ftr-payouts__brand img { height: 42px; width: auto; }
+    .ftr-payouts__stack {
+      font-family: 'Inter', 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      color: #fff;
+    }
+    .ftr-payouts__stack p { margin: 0 0 6px; }
+    .ftr-payouts__stack p .num { color: var(--ftr-blue); }
+    .ftr-payouts__cta { margin-top: 40px; }
+
+    @media (max-width: 768px) {
+      .ftr-payouts { padding: 64px 0 80px; min-height: 560px; }
+      .ftr-payouts__card--s { width: 140px; }
+      .ftr-payouts__card--m { width: 180px; }
+      .ftr-payouts__card--l { width: 220px; }
+      .ftr-payouts__stack { font-size: 24px; letter-spacing: -0.6px; }
+      .ftr-payouts__brand img { height: 32px; }
+
+      @keyframes ftrPayoutRainA {
+        0%   { transform: translate(0, -300px) rotate(-2deg); opacity: 0; }
+        8%   { opacity: 0.92; }
+        50%  { transform: translate(20px, 400px) rotate(6deg); }
+        92%  { opacity: 0.92; }
+        100% { transform: translate(10px, 1200px) rotate(-3deg); opacity: 0; }
+      }
+      @keyframes ftrPayoutRainB {
+        0%   { transform: translate(0, -300px) rotate(3deg); opacity: 0; }
+        8%   { opacity: 0.92; }
+        50%  { transform: translate(-30px, 400px) rotate(-7deg); }
+        92%  { opacity: 0.92; }
+        100% { transform: translate(-45px, 1200px) rotate(4deg); opacity: 0; }
+      }
+      @keyframes ftrPayoutRainC {
+        0%   { transform: translate(0, -300px) rotate(0deg); opacity: 0; }
+        8%   { opacity: 0.92; }
+        25%  { transform: translate(-20px, 50px) rotate(-5deg); }
+        50%  { transform: translate(25px, 400px) rotate(6deg); }
+        75%  { transform: translate(-15px, 800px) rotate(-4deg); }
+        92%  { opacity: 0.92; }
+        100% { transform: translate(15px, 1200px) rotate(5deg); opacity: 0; }
+      }
+      @keyframes ftrPayoutRainD {
+        0%   { transform: translate(0, -300px) rotate(-4deg); opacity: 0; }
+        8%   { opacity: 0.92; }
+        35%  { transform: translate(-30px, 250px) rotate(-9deg); }
+        70%  { transform: translate(35px, 700px) rotate(8deg); }
+        92%  { opacity: 0.92; }
+        100% { transform: translate(25px, 1200px) rotate(-3deg); opacity: 0; }
+      }
+      @keyframes ftrPayoutRainE {
+        0%   { transform: translate(0, -300px) rotate(1deg); opacity: 0; }
+        8%   { opacity: 0.92; }
+        50%  { transform: translate(10px, 400px) rotate(4deg); }
+        92%  { opacity: 0.92; }
+        100% { transform: translate(-5px, 1200px) rotate(-2deg); opacity: 0; }
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ftr-payouts__card { animation: none !important; opacity: 0.18; transform: none !important; }
+    }
+
+
+    /* Trap-and-counter section — visual upgrade 2026-05-28 */
+
+    .ftr-traps__kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--ftr-border);
+      border: 1px solid var(--ftr-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: -28px 0 48px;
+    }
+    .ftr-traps__kpi {
+      background: var(--ftr-bg);
+      padding: 18px 20px;
+    }
+    .ftr-traps__kpi-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ftr-blue);
+      margin: 0 0 8px;
+      display: block;
+    }
+    .ftr-traps__kpi-value {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.25;
+      color: #fff;
+      margin: 0 0 6px;
+      letter-spacing: -0.2px;
+    }
+    .ftr-traps__kpi-sub {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      color: var(--ftr-white-55);
+      line-height: 1.4;
+    }
+    @media (max-width: 760px) {
+      .ftr-traps__kpi-strip { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 420px) {
+      .ftr-traps__kpi-strip { grid-template-columns: 1fr; }
+    }
+
+    /* Trap viz block (mini SVG between header and the two text columns) */
+    .ftr-trap__viz {
+      grid-column: 1 / -1;
+      margin: 4px 0 18px;
+      padding: 18px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--ftr-border);
+      display: block;
+    }
+    .ftr-trap__viz svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 180px;
+    }
+    .ftr-trap__viz-caption {
+      margin-top: 12px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--ftr-white-55);
+      text-align: center;
+    }
+
+    /* Sub-grid for the two text columns under the viz */
+    .ftr-trap__cols {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 760px) {
+      .ftr-trap__cols { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+
+    /* Mechanic-only card body (replaces the two-column trap/counter layout) */
+    .ftr-trap__body {
+      grid-column: 1 / -1;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ftr-white-72);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .ftr-trap__body strong { color: #fff; font-weight: 600; }
+    .ftr-trap__body p { margin: 0 0 14px; }
+    .ftr-trap__body p:last-child { margin-bottom: 0; }
+
+
+    /* Mechanic 'Which means' callout — plain-English translation below the body */
+    .ftr-trap__means {
+      grid-column: 1 / -1;
+      margin-top: 18px;
+      padding: 16px 20px;
+      background: rgba(0, 170, 255, 0.06);
+      border-left: 3px solid var(--ftr-blue);
+      border-radius: 4px;
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+    .ftr-trap__means-tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ftr-blue);
+      font-weight: 600;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .ftr-trap__means-body {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #fff;
+      font-weight: 500;
+    }
+    .ftr-trap__means-body strong { color: var(--ftr-blue); }
+    @media (max-width: 540px) {
+      .ftr-trap__means { flex-direction: column; gap: 6px; }
+    }
+
+
+    /* Closing thesis after the four mechanic cards */
+    .ftr-traps__close {
+      margin-top: 40px;
+      padding: 22px 28px;
+      background: linear-gradient(135deg, rgba(0,170,255,0.08) 0%, rgba(0,170,255,0.02) 100%);
+      border-left: 3px solid var(--ftr-blue);
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.5;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+    }
+    .ftr-traps__close strong { color: var(--ftr-blue); font-weight: 600; }
+
+
+    /* Side-by-side ceiling comparison (Mechanic 03 body) */
+    .ftr-cap-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 0 auto 22px;
+      max-width: 720px;
+    }
+    .ftr-cap-card {
+      padding: 18px 22px;
+      border: 1px solid var(--ftr-border);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .ftr-cap-card__row--lift {
+      padding: 8px 12px;
+      margin: 6px -12px 0;
+      background: linear-gradient(90deg, rgba(0,170,255,0.18) 0%, rgba(0,170,255,0.05) 100%);
+      border-radius: 6px;
+      border-left: 3px solid var(--ftr-blue);
+    }
+    .ftr-cap-card__row--lift .ftr-cap-card__size { color: var(--ftr-blue); font-weight: 500; }
+    .ftr-cap-card__row--lift .ftr-cap-card__val { color: #fff; font-weight: 600; }
+    .ftr-cap-card__tag {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--ftr-blue);
+      display: block;
+      margin: 0 0 14px;
+      font-weight: 500;
+    }
+    .ftr-cap-card__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      margin: 0 0 7px;
+    }
+    .ftr-cap-card__size { color: var(--ftr-white-72); }
+    .ftr-cap-card__val { color: #fff; font-weight: 500; }
+    .ftr-cap-card__note {
+      font-size: 12.5px;
+      color: var(--ftr-white-72);
+      line-height: 1.5;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--ftr-border);
+    }
+    .ftr-cap-card--lift .ftr-cap-card__note { color: #fff; }
+    @media (max-width: 640px) {
+      .ftr-cap-compare { grid-template-columns: 1fr; }
+    }
+
+
+    /* Subtle brand-blue emphasis in mechanic bodies (replaces bold weight) */
+    .ftr-trap__body .accent-blue {
+      color: var(--ftr-blue);
+      font-weight: 500;
+    }
+
+    /* Disable mouse-tilt on touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .ftr-hero__media {
+        transform: none !important;
+        max-width: 100% !important;
+        box-shadow: 0 0 30px rgba(0, 170, 255, 0.18), 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+      .ftr-hero__media img { border-radius: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="main">
+    <div class="container-header">
+      <div class="container">
+        <header class="header" id="header">
+          <a href="/pages/futures/" class="header__logo">
+            <img src="../../futures-assets/assets/img/logo.svg" alt="TradeFundrr" class="header__logo-img" />
+          </a>
+
+          <nav class="header__navi" id="navi">
+            <ul class="header__navi-list">
+              <li class="header__navi-item">
+                <span class="header__navi-link header__navi-link--dropdown">Products</span>
+
+                <ul class="header__navi-dropdown">
+                  <li class="header__navi-dropdown-item">
+                    <a href="/pages/futures/about#rules" class="header__navi-dropdown-link">
+                      <span class="header__navi-dropdown-pic">
+                        <img src="../../futures-assets/assets/img/dropdown1.png" alt="" class="header__navi-dropdown-img">
+                      </span>
+
+                      <span class="header__navi-dropdown-col">
+                        <span class="header__navi-dropdown-title">Evaluation</span>
+
+                        <span class="header__navi-dropdown-text">2-step evaluation with flexible rules</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="header__navi-dropdown-item">
+                    <a href="/pages/futures/about#rules" class="header__navi-dropdown-link">
+                      <span class="header__navi-dropdown-pic">
+                        <img src="../../futures-assets/assets/img/dropdown3.png" alt="" class="header__navi-dropdown-img">
+                      </span>
+
+                      <span class="header__navi-dropdown-col">
+                        <span class="header__navi-dropdown-title">instant funding</span>
+
+                        <span class="header__navi-dropdown-text">Skip evaluation, trade live now</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="header__navi-item">
+                <a href="/pages/futures/about" class="header__navi-link">Why Us</a>
+              </li>
+              <li class="header__navi-item">
+                <a href="/pages/futures/switch" class="header__navi-link">Switch</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="#programs" class="btn btn--blue header__btn-get"><span>Get Futures Funding<span class="btn__arrow">&nbsp;-&gt;</span></span></a>
+
+          <button class="header__button" type="button"></button>
+        </header>
+      </div>
+    </div>
+
+    <!-- hero (rebuilt 2026-05-28 in stocks-page style with blue sparkles + parallax-tilt on hero image) -->
+    <section class="ftr-hero">
+      <div class="ftr-hero__sparkles" aria-hidden="true">
+      <span style="top:12%;left:6%;--size:3.0px;--delay:0.0s;--dur:4.2s;"></span>
+      <span style="top:24%;left:42%;--size:2.0px;--delay:1.2s;--dur:3.8s;"></span>
+      <span style="top:8%;left:68%;--size:2.5px;--delay:2.4s;--dur:5.0s;"></span>
+      <span style="top:38%;left:14%;--size:2.0px;--delay:0.6s;--dur:4.6s;"></span>
+      <span style="top:62%;left:32%;--size:3.0px;--delay:1.8s;--dur:3.6s;"></span>
+      <span style="top:78%;left:8%;--size:2.0px;--delay:3.0s;--dur:5.4s;"></span>
+      <span style="top:18%;left:92%;--size:2.5px;--delay:0.4s;--dur:4.4s;"></span>
+      <span style="top:52%;left:96%;--size:2.0px;--delay:2.0s;--dur:4.0s;"></span>
+      <span style="top:84%;left:88%;--size:3.0px;--delay:1.4s;--dur:5.2s;"></span>
+      <span style="top:46%;left:76%;--size:2.0px;--delay:2.8s;--dur:4.8s;"></span>
+      <span style="top:6%;left:22%;--size:2.5px;--delay:1.6s;--dur:3.9s;"></span>
+      <span style="top:30%;left:58%;--size:2.0px;--delay:0.9s;--dur:5.6s;"></span>
+      <span style="top:14%;left:36%;--size:2.0px;--delay:3.2s;--dur:4.3s;"></span>
+      <span style="top:70%;left:18%;--size:2.5px;--delay:2.2s;--dur:4.7s;"></span>
+      <span style="top:90%;left:48%;--size:2.0px;--delay:0.3s;--dur:3.7s;"></span>
+      <span style="top:42%;left:4%;--size:3.0px;--delay:1.0s;--dur:5.1s;"></span>
+      <span style="top:26%;left:84%;--size:2.0px;--delay:2.6s;--dur:4.5s;"></span>
+      <span style="top:58%;left:62%;--size:2.5px;--delay:1.5s;--dur:3.9s;"></span>
+      <span style="top:74%;left:54%;--size:2.0px;--delay:3.4s;--dur:5.3s;"></span>
+      <span style="top:16%;left:78%;--size:2.0px;--delay:0.7s;--dur:4.1s;"></span>
+      <span style="top:36%;left:88%;--size:2.5px;--delay:2.1s;--dur:4.9s;"></span>
+      <span style="top:66%;left:72%;--size:2.0px;--delay:1.3s;--dur:5.5s;"></span>
+      <span style="top:50%;left:24%;--size:2.5px;--delay:3.6s;--dur:3.8s;"></span>
+      <span style="top:4%;left:54%;--size:2.0px;--delay:2.7s;--dur:4.6s;"></span>
+      <span style="top:20%;left:16%;--size:2.5px;--delay:0.5s;--dur:4.3s;"></span>
+      <span style="top:48%;left:10%;--size:2.0px;--delay:1.7s;--dur:5.0s;"></span>
+      <span style="top:32%;left:70%;--size:2.5px;--delay:2.3s;--dur:3.9s;"></span>
+      <span style="top:88%;left:28%;--size:2.0px;--delay:0.8s;--dur:4.7s;"></span>
+      <span style="top:10%;left:50%;--size:3.0px;--delay:2.9s;--dur:5.2s;"></span>
+      <span style="top:56%;left:46%;--size:2.0px;--delay:1.1s;--dur:4.1s;"></span>
+      <span style="top:64%;left:2%;--size:2.5px;--delay:3.3s;--dur:4.8s;"></span>
+      <span style="top:22%;left:64%;--size:2.0px;--delay:0.2s;--dur:5.6s;"></span>
+      <span style="top:44%;left:38%;--size:2.5px;--delay:1.9s;--dur:4.2s;"></span>
+      <span style="top:80%;left:62%;--size:2.0px;--delay:2.5s;--dur:3.7s;"></span>
+      <span style="top:28%;left:26%;--size:2.5px;--delay:3.1s;--dur:5.0s;"></span>
+      <span style="top:60%;left:84%;--size:2.0px;--delay:1.6s;--dur:4.4s;"></span>
+      <span style="top:38%;left:52%;--size:2.5px;--delay:0.4s;--dur:4.9s;"></span>
+      <span style="top:72%;left:36%;--size:2.0px;--delay:2.0s;--dur:5.3s;"></span>
+      </div>
+      <div class="ftr-hero__grid">
+        <div class="ftr-hero__text">
+          <span class="ftr-eyebrow">Professional futures funding &middot; Partnered with T3 Global</span>
+          <h1>Trade $100K futures.<br><span class="accent">Risk $129.</span></h1>
+          <p class="ftr-hero__sub">
+            Trade $100K simulated funded futures accounts on NinjaTrader. Partnered with
+            <strong>T3 Global</strong>, an institutional trading firm within the T3 group of companies &mdash;
+            alongside FINRA/SIPC member <strong>T3 Trading Group</strong>, the group&rsquo;s regulated SEC broker-dealer.
+            Weekly payouts. No monthly fees.
+          </p>
+          <div class="ftr-hero__buttons">
+            <a href="#programs" class="ftr-hero__cta-primary">See Futures Programs &rarr;</a>
+            <a href="/pages/futures/switch" class="ftr-hero__cta-secondary">Switching from another firm? See our offer &rarr;</a>
+          </div>
+          <div class="ftr-hero__ticks">
+            <span>Evaluations from $129</span>
+            <span>NinjaTrader&reg; execution</span>
+            <span>Partnered with T3 Global</span>
+          </div>
+        </div>
+
+        <div class="ftr-hero__media">
+          <img src="../../assets/images/futures-hero.webp?v=202605281307"
+               alt="TradeFundrr white-labeled futures platform: E-mini S&amp;P 500 chart trending upward with a blue DOM order ladder on the right, routing via T3 Global"
+               width="1702" height="924"
+               fetchpriority="high" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- credibility ticker (replaces the static reassurance grid) -->
+    <section class="ftr-reassurance" aria-label="TradeFundrr credibility highlights">
+      <div class="ftr-ticker">
+        <div class="ftr-ticker__track">
+          <span class="ftr-ticker__item"><img src="../../assets/images/list-icon-1.svg" alt="">NinjaTrader-Powered Funded Accounts</span>
+          <span class="ftr-ticker__item"><img src="../../assets/images/list-icon-2.svg" alt="">Evaluations from $129 &middot; Instant from $999</span>
+          <span class="ftr-ticker__item"><img src="../../assets/images/list-icon-3.svg" alt="">Live Capital Path through T3 Global</span>
+          <span class="ftr-ticker__item"><img src="../../assets/images/list-icon-4.svg" alt="">T3 Global &mdash; Partnered with TradeFundrr</span>
+          <span class="ftr-ticker__item"><img src="../../assets/images/list-icon-5.svg" alt="">Weekly Payouts &mdash; Every Week, On Time</span>
+
+          <span class="ftr-ticker__item" aria-hidden="true"><img src="../../assets/images/list-icon-1.svg" alt="">NinjaTrader-Powered Funded Accounts</span>
+          <span class="ftr-ticker__item" aria-hidden="true"><img src="../../assets/images/list-icon-2.svg" alt="">Evaluations from $129 &middot; Instant from $999</span>
+          <span class="ftr-ticker__item" aria-hidden="true"><img src="../../assets/images/list-icon-3.svg" alt="">Live Capital Path through T3 Global</span>
+          <span class="ftr-ticker__item" aria-hidden="true"><img src="../../assets/images/list-icon-4.svg" alt="">T3 Global &mdash; Partnered with TradeFundrr</span>
+          <span class="ftr-ticker__item" aria-hidden="true"><img src="../../assets/images/list-icon-5.svg" alt="">Weekly Payouts &mdash; Every Week, On Time</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- traps-and-counters (rewritten 2026-05-28 for hyper-aware futures audience) -->
+    <section class="ftr-section">
+      <div class="ftr-section__inner">
+        <span class="ftr-eyebrow-dark">Four moments the firm steps back</span>
+        <h2>Prove yourself. <span class="accent">The firm steps back.</span></h2>
+        <p class="ftr-section__lede">
+          Most prop firms tighten constraints as your account scales. We do the opposite. Each of the four mechanics
+          below triggers a moment the firm steps back, once you&rsquo;ve proven you can trade. You earn the room.
+          We trust you with it.
+        </p>
+
+        <div class="ftr-traps__kpi-strip">
+          <div class="ftr-traps__kpi">
+            <span class="ftr-traps__kpi-tag">01 &middot; Drawdown</span>
+            <p class="ftr-traps__kpi-value">Locks after first payout</p>
+            <p class="ftr-traps__kpi-sub">$3K (50K) &middot; $6K (100K)</p>
+          </div>
+          <div class="ftr-traps__kpi">
+            <span class="ftr-traps__kpi-tag">02 &middot; Consistency</span>
+            <p class="ftr-traps__kpi-value">30%, once you&rsquo;re funded</p>
+            <p class="ftr-traps__kpi-sub">target nudges, rule stays</p>
+          </div>
+          <div class="ftr-traps__kpi">
+            <span class="ftr-traps__kpi-tag">03 &middot; Weekly cap</span>
+            <p class="ftr-traps__kpi-value">Rises at payout 4</p>
+            <p class="ftr-traps__kpi-sub">$1K&rarr;$1.5K (50K) &middot; $1.5K&rarr;$3K (100K)</p>
+          </div>
+          <div class="ftr-traps__kpi">
+            <span class="ftr-traps__kpi-tag">04 &middot; Breach</span>
+            <p class="ftr-traps__kpi-value">One warning, then closed</p>
+            <p class="ftr-traps__kpi-sub">first hit pauses, second hit ends</p>
+          </div>
+        </div>
+
+        <div class="ftr-traps__grid">
+
+          <article class="ftr-trap">
+            <header class="ftr-trap__head">
+              <span class="ftr-trap__num">MECHANIC 01</span>
+              <span class="ftr-trap__name">Drawdown resets at first payout</span>
+            </header>
+          <div class="ftr-trap__viz" aria-hidden="true">
+            <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- gridlines -->
+              <line x1="40" y1="110" x2="560" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="40" y1="30" x2="40" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <line x1="40" y1="90" x2="560" y2="90" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 4"/>
+
+              <!-- equity curve -->
+              <polyline points="40,90 90,82 145,68 200,58 255,48 310,40 365,42 410,60 460,72 510,55 540,38" fill="none" stroke="#00AAFF" stroke-width="2.8" stroke-linejoin="round"/>
+
+              <!-- watermark trailing line -->
+              <polyline points="40,100 90,100 145,88 200,80 255,70 310,60 365,58 410,90 460,90 510,90 540,90" fill="none" stroke="#00AAFF" stroke-width="2" stroke-dasharray="5 3" opacity="0.7"/>
+
+              <!-- FIRST PAYOUT vertical marker + dot -->
+              <line x1="365" y1="28" x2="365" y2="110" stroke="rgba(0,170,255,0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="365" cy="42" r="4" fill="#00AAFF"/>
+
+              <!-- text labels with background pills (rect behind each) -->
+              <!-- EQUITY ($K) — top-left axis -->
+              <rect x="38" y="11" width="86" height="15" fill="#020610" rx="2"/>
+              <text x="42" y="22" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.85)" letter-spacing="1.5">EQUITY ($K)</text>
+
+              <!-- DAYS → -->
+              <rect x="38" y="116" width="60" height="13" fill="#020610" rx="2"/>
+              <text x="42" y="126" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.85)" letter-spacing="1.5">DAYS &rarr;</text>
+
+              <!-- START $50K — sits over both gridlines, needs strong background -->
+              <rect x="44" y="80" width="80" height="14" fill="#020610" rx="2"/>
+              <text x="48" y="91" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.95)" letter-spacing="1.2" font-weight="500">START $50K</text>
+
+              <!-- WATERMARK TRAILS — positioned in empty area between curve + watermark -->
+              <rect x="120" y="46" width="135" height="14" fill="#020610" rx="2"/>
+              <text x="124" y="57" font-family="Geist Mono, monospace" font-size="10" fill="#00AAFF" letter-spacing="1.2" font-weight="600">WATERMARK TRAILS</text>
+
+              <!-- FIRST PAYOUT — to the right of the marker -->
+              <rect x="372" y="20" width="105" height="14" fill="#020610" rx="2"/>
+              <text x="376" y="31" font-family="Geist Mono, monospace" font-size="10.5" fill="#00AAFF" letter-spacing="1.5" font-weight="700">FIRST PAYOUT</text>
+
+              <!-- LOCKS AT START — below the marker, on the locked watermark line -->
+              <rect x="380" y="98" width="135" height="14" fill="#020610" rx="2"/>
+              <text x="384" y="109" font-family="Geist Mono, monospace" font-size="10.5" fill="#00AAFF" letter-spacing="1.5" font-weight="700">&rarr; LOCKS AT START</text>
+            </svg>
+            <div class="ftr-trap__viz-caption">Until your first payout: standard trailing safety line. After: the firm steps back. The line locks at start.</div>
+          </div>
+          <div class="ftr-trap__body">
+            <p>Every account starts with a trailing safety line: $3,000 below your starting balance on 50K accounts,
+              $6,000 on 100K. As your account grows, the line trails up behind you each day. Standard prop-firm
+              mechanic.</p>
+            <p>The moment you take your first weekly payout, <span class="accent-blue">the firm steps back</span>.
+              The line locks at your original starting balance and stops moving for the rest of the account&rsquo;s
+              life. From your second payout onward, you&rsquo;re trading against a fixed floor, not a chasing one.
+              You earned the room to manage your own risk. We trust you with it.</p>
+          </div>
+          <div class="ftr-trap__means">
+            <span class="ftr-trap__means-tag">Which means</span>
+            <span class="ftr-trap__means-body">Your first weekly payout permanently locks your safety line at your starting balance. After that, a winning week can&rsquo;t pull your floor up behind you.</span>
+          </div>
+        </article>
+
+          <article class="ftr-trap">
+            <header class="ftr-trap__head">
+              <span class="ftr-trap__num">MECHANIC 02</span>
+              <span class="ftr-trap__name">30% consistency, forward-only</span>
+            </header>
+          <div class="ftr-trap__viz" aria-hidden="true">
+            <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+              <line x1="40" y1="110" x2="560" y2="110" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="40" y1="30" x2="40" y2="110" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <text x="40" y="22" font-family="Geist Mono, monospace" font-size="9.5" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">DAILY P&amp;L (% OF RUNNING TARGET)</text>
+              <line x1="40" y1="55" x2="560" y2="55" stroke="rgba(0,170,255,0.55)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="528" y="51" font-family="Geist Mono, monospace" font-size="11" fill="#00AAFF" font-weight="600" text-anchor="end">30% CAP</text>
+              <rect x="80"  y="88" width="42" height="22" fill="#00AAFF" rx="2"/>
+              <rect x="142" y="72" width="42" height="38" fill="#00AAFF" rx="2"/>
+              <rect x="204" y="82" width="42" height="28" fill="#00AAFF" rx="2"/>
+              <rect x="266" y="65" width="42" height="45" fill="#00AAFF" rx="2"/>
+              <rect x="328" y="78" width="42" height="32" fill="#00AAFF" rx="2"/>
+              <rect x="390" y="68" width="42" height="42" fill="#00AAFF" rx="2"/>
+              <rect x="452" y="85" width="42" height="25" fill="#00AAFF" rx="2"/>
+              <text x="80" y="124" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)" letter-spacing="0.5">M  T  W  T  F  M  T</text>
+            </svg>
+            <div class="ftr-trap__viz-caption">Big day above 30%? The firm steps back. The target nudges up. The rule never moves backward.</div>
+          </div>
+          <div class="ftr-trap__body">
+            <p>We fund traders, not gamblers. The 30% consistency rule says no single trading day can be more than
+              30% of your running profit target. Our way of making sure that everyone who clears a payout did it with
+              disciplined trading, not a single oversized bet.</p>
+            <p>It applies once you&rsquo;re funded. During the evaluation, Growth programs require steady gains
+              (100% consistency); Express programs use the same 30% rule. Past evaluation, every program runs the same
+              30% standard.</p>
+            <p>Here&rsquo;s where <span class="accent-blue">the firm steps back</span>: if you do hit a big day above
+              30%, we don&rsquo;t trim it out of your buffer. The profit target just steps up to absorb it. Your
+              monster day still counts. The rule itself never moves backward.</p>
+          </div>
+          <div class="ftr-trap__means">
+            <span class="ftr-trap__means-tag">Which means</span>
+            <span class="ftr-trap__means-body">Your monster day still counts. The target nudges up to match. Nothing gets shaved off your buffer. The rule paces you, it doesn&rsquo;t punish you.</span>
+          </div>
+        </article>
+
+          <article class="ftr-trap">
+            <header class="ftr-trap__head">
+              <span class="ftr-trap__num">MECHANIC 03</span>
+              <span class="ftr-trap__name">Your weekly ceiling rises at payout 4</span>
+            </header>
+          <div class="ftr-trap__viz" aria-hidden="true">
+            <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- LEFT PANEL. 50K -->
+              <text x="55" y="22" font-family="Geist Mono, monospace" font-size="10.5" fill="rgba(0,170,255,0.95)" letter-spacing="1.5" font-weight="600">50K ACCOUNT</text>
+              <text x="55" y="38" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.7)" letter-spacing="1.5">WEEKLY PAYOUT CAP</text>
+              <line x1="40" y1="115" x2="280" y2="115" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="40" y1="45" x2="40" y2="115" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+              <!-- 50K step line: $1K through payout 3, jumps to $1.5K at 4 -->
+              <polyline points="50,95 170,95 170,75 270,75" fill="none" stroke="#00AAFF" stroke-width="2.5" stroke-linejoin="round"/>
+              <line x1="170" y1="75" x2="170" y2="95" stroke="rgba(0,170,255,0.45)" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="170" cy="75" r="3.5" fill="#00AAFF"/>
+              <text x="80" y="90" font-family="Geist Mono, monospace" font-size="11" fill="rgba(0,170,255,0.85)" letter-spacing="0.5">$1K</text>
+              <text x="195" y="70" font-family="Geist Mono, monospace" font-size="11" fill="#00AAFF" letter-spacing="0.5" font-weight="600">$1.5K</text>
+
+              <!-- x-axis labels (payouts 1-6+) for 50K -->
+              <text x="50" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">1</text>
+              <text x="92" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">2</text>
+              <text x="134" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">3</text>
+              <text x="168" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(0,170,255,0.95)" font-weight="600">4</text>
+              <text x="212" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">5</text>
+              <text x="252" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">6+</text>
+              <text x="55" y="139" font-family="Geist Mono, monospace" font-size="8.5" fill="rgba(255,255,255,0.7)" letter-spacing="1.5">WEEKLY PAYOUT</text>
+
+              <!-- Divider -->
+              <line x1="300" y1="20" x2="300" y2="120" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 4"/>
+
+              <!-- RIGHT PANEL. 100K -->
+              <text x="335" y="22" font-family="Geist Mono, monospace" font-size="10.5" fill="rgba(0,170,255,0.95)" letter-spacing="1.5" font-weight="600">100K ACCOUNT</text>
+              <text x="335" y="38" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.7)" letter-spacing="1.5">WEEKLY PAYOUT CAP</text>
+              <line x1="320" y1="115" x2="560" y2="115" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+              <line x1="320" y1="45" x2="320" y2="115" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+              <!-- 100K step line: $1.5K through payout 3 (same y as 50K&apos;s peak), jumps to $3K at 4 -->
+              <polyline points="330,75 450,75 450,50 550,50" fill="none" stroke="#00AAFF" stroke-width="2.5" stroke-linejoin="round"/>
+              <line x1="450" y1="50" x2="450" y2="75" stroke="rgba(0,170,255,0.45)" stroke-width="1" stroke-dasharray="3 3"/>
+              <circle cx="450" cy="50" r="3.5" fill="#00AAFF"/>
+              <text x="362" y="70" font-family="Geist Mono, monospace" font-size="11" fill="rgba(0,170,255,0.85)" letter-spacing="0.5">$1.5K</text>
+              <text x="475" y="45" font-family="Geist Mono, monospace" font-size="11" fill="#00AAFF" letter-spacing="0.5" font-weight="600">$3K</text>
+
+              <!-- x-axis labels (payouts 1-6+) for 100K -->
+              <text x="330" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">1</text>
+              <text x="372" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">2</text>
+              <text x="414" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">3</text>
+              <text x="448" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(0,170,255,0.95)" font-weight="600">4</text>
+              <text x="492" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">5</text>
+              <text x="532" y="129" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.4)">6+</text>
+              <text x="335" y="139" font-family="Geist Mono, monospace" font-size="8.5" fill="rgba(255,255,255,0.7)" letter-spacing="1.5">WEEKLY PAYOUT</text>
+
+            </svg>
+            <div class="ftr-trap__viz-caption">Three clean payouts and the firm steps back. The ceiling rises automatically, no review meeting required.</div>
+          </div>
+          <div class="ftr-trap__body">
+            <div class="ftr-cap-compare">
+              <div class="ftr-cap-card">
+                <span class="ftr-cap-card__tag">50K Account</span>
+                <div class="ftr-cap-card__row">
+                  <span class="ftr-cap-card__size">Payouts 1&ndash;3</span>
+                  <span class="ftr-cap-card__val">$1,000 / week</span>
+                </div>
+                <div class="ftr-cap-card__row ftr-cap-card__row--lift">
+                  <span class="ftr-cap-card__size">Payouts 4+</span>
+                  <span class="ftr-cap-card__val">$1,500 / week</span>
+                </div>
+                <div class="ftr-cap-card__note">The firm steps back at payout 4. Ceiling lifts automatically.</div>
+              </div>
+              <div class="ftr-cap-card">
+                <span class="ftr-cap-card__tag">100K Account</span>
+                <div class="ftr-cap-card__row">
+                  <span class="ftr-cap-card__size">Payouts 1&ndash;3</span>
+                  <span class="ftr-cap-card__val">$1,500 / week</span>
+                </div>
+                <div class="ftr-cap-card__row ftr-cap-card__row--lift">
+                  <span class="ftr-cap-card__size">Payouts 4+</span>
+                  <span class="ftr-cap-card__val">$3,000 / week</span>
+                </div>
+                <div class="ftr-cap-card__note">The firm steps back at payout 4. Ceiling lifts automatically.</div>
+              </div>
+            </div>
+            <p>Three clean payouts means we&rsquo;ve watched you trade. We don&rsquo;t need a meeting to know what
+              you can handle. You proved you could earn it. We lift the ceiling.</p>
+          </div>
+          <div class="ftr-trap__means">
+            <span class="ftr-trap__means-tag">Which means</span>
+            <span class="ftr-trap__means-body">Prove three weekly payouts and your weekly ceiling rises on its own. We don&rsquo;t make you re-prove yourself.</span>
+          </div>
+        </article>
+
+                              <article class="ftr-trap">
+            <header class="ftr-trap__head">
+              <span class="ftr-trap__num">MECHANIC 04</span>
+              <span class="ftr-trap__name">One warning per account</span>
+            </header>
+          <div class="ftr-trap__viz" aria-hidden="true">
+            <svg viewBox="0 0 600 130" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- DAY 1 panel: soft breach (blue) -->
+              <text x="40" y="22" font-family="Geist Mono, monospace" font-size="9.5" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">DAY 1 INTRADAY P&amp;L</text>
+              <line x1="40" y1="55" x2="280" y2="55" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 4"/>
+              <text x="46" y="51" font-family="Geist Mono, monospace" font-size="8.5" fill="rgba(255,255,255,0.4)" letter-spacing="1">$0</text>
+              <line x1="40" y1="94" x2="280" y2="94" stroke="rgba(0,170,255,0.5)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="46" y="90" font-family="Geist Mono, monospace" font-size="9" fill="rgba(0,170,255,0.85)" letter-spacing="1">DAILY LOSS LIMIT</text>
+              <polyline points="50,55 90,44 130,40 170,55 210,76 245,98 265,105" fill="none" stroke="#00AAFF" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle cx="265" cy="105" r="4" fill="#00AAFF"/>
+              <text x="50" y="122" font-family="Geist Mono, monospace" font-size="10" fill="#00AAFF" letter-spacing="1.2" font-weight="600">SOFT &middot; PAUSES, RESUMES TOMORROW</text>
+
+              <!-- divider -->
+              <line x1="300" y1="20" x2="300" y2="115" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 4"/>
+
+              <!-- DAY 2 panel: hard breach (red) -->
+              <text x="320" y="22" font-family="Geist Mono, monospace" font-size="9.5" fill="rgba(255,255,255,0.55)" letter-spacing="1.5">NEXT BREACH</text>
+              <line x1="320" y1="55" x2="560" y2="55" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 4"/>
+              <text x="326" y="51" font-family="Geist Mono, monospace" font-size="8.5" fill="rgba(255,255,255,0.4)" letter-spacing="1">$0</text>
+              <line x1="320" y1="94" x2="560" y2="94" stroke="rgba(255,95,95,0.55)" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <text x="326" y="90" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,95,95,0.9)" letter-spacing="1">DAILY LOSS LIMIT</text>
+              <polyline points="330,55 370,46 410,42 450,55 490,76 525,98 542,108" fill="none" stroke="#FF5F5F" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle cx="542" cy="108" r="4" fill="#FF5F5F"/>
+              <text x="330" y="122" font-family="Geist Mono, monospace" font-size="10" fill="#FF5F5F" letter-spacing="1.2" font-weight="600">HARD &middot; ACCOUNT CLOSED</text>
+
+            </svg>
+            <div class="ftr-trap__viz-caption">First breach: the firm steps back. Account pauses. Second breach: account closed.</div>
+          </div>
+          <div class="ftr-trap__body">
+            <p>Most prop firms close an account on the first daily loss limit hit. Here&rsquo;s where
+              <span class="accent-blue">the firm steps back</span>: your first breach is a warning, not a death
+              sentence. The account pauses, the trading day ends, and you resume the next morning with the account
+              intact.</p>
+            <p>Hit the daily loss limit a second time on the same account and the account closes. One warning per
+              account, ever.</p>
+            <p>A single ugly Tuesday morning shouldn&rsquo;t end an account that had six clean weeks behind it. We
+              trust you with one recoverable mistake. We&rsquo;re funding human traders who occasionally have bad
+              days, not algos that have to be perfect.</p>
+          </div>
+          <div class="ftr-trap__means">
+            <span class="ftr-trap__means-tag">Which means</span>
+            <span class="ftr-trap__means-body">Every account gets one mulligan. A bad Tuesday morning can&rsquo;t end six clean weeks of trading.</span>
+          </div>
+        </article>
+
+        </div>
+
+        <p class="ftr-traps__close">
+          Four mechanics. Four moments the firm steps back. <span class="accent-blue">Each one earned, not negotiated.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- programs -->
+    <!-- PROGRAMS BLOCK REBUILT 2026-05-28: All values match futures-programs-build-sheet.html v2.
+         Naming updated to Growth/Express. Added $19 Promo featured banner above the 4-card grid
+         (per Design Doc § 8 + user direction on placement). Each card shows the customer-facing
+         summary; the full spec table lives on the about/rules page. -->
+    <section class="section section--programs" id="programs">
+      <div class="container">
+        <div class="section__column">
+          <div class="section__subtitle">
+            futures programs
+          </div>
+
+          <h2>Four ways in. <br /><span>One institutional backer.</span></h2>
+
+          <div class="section__text">
+            <p>Every program. Every spec. Published before you buy.</p>
+          </div>
+        </div>
+
+        <!-- $19 PROMO BANNER 2026-05-28: featured above the standard grid.
+             One per person, separate from the 5-account cap. KYC monitored for 2-3 weeks. -->
+        <div class="promo-banner" id="promo-19" style="background: linear-gradient(135deg, #fff200 0%, #ffe066 100%); border-radius: 16px; padding: 24px 32px; margin-bottom: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+          <div style="flex: 1 1 60%; min-width: 280px;">
+            <div style="display: inline-block; background: #000; color: #fff200; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 8px;">Limited Trial</div>
+            <div style="font-size: 22px; font-weight: 800; color: #1a1a1a; line-height: 1.2; margin-bottom: 6px;">$19 Promo Account &mdash; try the firm for the price of lunch.</div>
+            <div style="font-size: 14px; color: #2a2a2a; line-height: 1.5;">One $50K Promo Evaluation per person. Same rules, same payout engine. Separate from your 5-account cap. $19 entry, $129 to activate funded.</div>
+          </div>
+          <a href="#" class="btn btn--black" style="flex: 0 0 auto;"><span>See Promo terms<span class="btn__arrow">&nbsp;-&gt;</span></span></a>
+        </div>
+
+        <div class="programs programs--four">
+          <div class="programs__column">
+            <div class="box box--basic programs__box">
+              <div class="box__inner">
+                <div class="programs__box-label">entry level</div>
+
+                <div class="programs__box-title">Growth 50K</div>
+
+                <div class="programs__box-text">$50,000 simulated account • Lowest entry cost. Prove your consistency in evaluation, activate to funded.</div>
+
+                <div class="programs__box-price"><span>$129</span> initial &middot; $129 activation</div>
+
+                <div class="programs__box-button">
+                  <a href="#" class="btn btn--purple"><span>See Growth 50K Details</span></a>
+                </div>
+
+                <div class="programs__box-details">
+                  <table class="programs__box-table">
+                    <tbody>
+                      <tr>
+                        <th class="programs__box-th">details</th>
+                        <th class="programs__box-th"></th>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Account size</td>
+                        <td class="programs__box-td programs__box-td--col2">$50,000</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Cost to funded</td>
+                        <td class="programs__box-td programs__box-td--col2">$258</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Max drawdown</td>
+                        <td class="programs__box-td programs__box-td--col2">$3,000 EOD trailing</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Profit target</td>
+                        <td class="programs__box-td programs__box-td--col2">$3,000</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Lifetime cap</td>
+                        <td class="programs__box-td programs__box-td--col2">$15,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="programs__box-checks">
+                  <div class="check-item">NinjaTrader platform</div>
+
+                  <div class="check-item">Weekly payouts (10-day min)</div>
+
+                  <div class="check-item">Phone &amp; Zoom support</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="programs__column programs__column--selected" id="evaluation-box">
+            <div class="box box--blue programs__box">
+              <div class="box__shadow"></div>
+              <div class="box__inner">
+                <div class="programs__box-label">
+                  <span>Best Value</span>
+                </div>
+
+                <div class="programs__box-title">Growth 100K</div>
+
+                <div class="programs__box-text">$100,000 simulated account &bull; Maximum size at the lowest activation. Same rules, double the capital.</div>
+
+                <div class="programs__box-price"><span>$199</span> initial &middot; $199 activation</div>
+
+                <div class="programs__box-button">
+                  <a href="#" class="btn btn--blue"><span>See Growth 100K Details<span class="btn__arrow">&nbsp;-&gt;</span></span></a>
+                </div>
+
+                <div class="programs__box-details">
+                  <table class="programs__box-table">
+                    <tbody>
+                      <tr>
+                        <th class="programs__box-th">details</th>
+                        <th class="programs__box-th"></th>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Account size</td>
+                        <td class="programs__box-td programs__box-td--col2">$100,000</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Cost to funded</td>
+                        <td class="programs__box-td programs__box-td--col2">$398</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Max drawdown</td>
+                        <td class="programs__box-td programs__box-td--col2">$6,000 EOD trailing</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Profit target</td>
+                        <td class="programs__box-td programs__box-td--col2">$6,000</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Lifetime cap</td>
+                        <td class="programs__box-td programs__box-td--col2">$15,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="programs__box-checks">
+                  <div class="check-item">NinjaTrader platform</div>
+
+                  <div class="check-item">Weekly payouts (10-day min)</div>
+
+                  <div class="check-item">Phone &amp; Zoom support</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="programs__column" id="instant-funding">
+            <div class="box box--basic programs__box">
+              <div class="box__inner">
+                <div class="programs__box-label">fastest path</div>
+
+                <div class="programs__box-title">Express 50K</div>
+
+                <div class="programs__box-text">$50,000 simulated, instant funded &bull; Skip evaluation. Trade funded capital from day one.</div>
+
+                <div class="programs__box-price"><span>$999</span> instant funded</div>
+
+                <div class="programs__box-button">
+                  <a href="#" class="btn btn--purple"><span>See Express 50K Details</span></a>
+                </div>
+
+                <div class="programs__box-details">
+                  <table class="programs__box-table">
+                    <tbody>
+                      <tr>
+                        <th class="programs__box-th">details</th>
+                        <th class="programs__box-th"></th>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Account size</td>
+                        <td class="programs__box-td programs__box-td--col2">$50,000</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Cost to funded</td>
+                        <td class="programs__box-td programs__box-td--col2">$999 (no activation)</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Max drawdown</td>
+                        <td class="programs__box-td programs__box-td--col2">$3,000 EOD trailing</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Consistency</td>
+                        <td class="programs__box-td programs__box-td--col2">30%</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Lifetime cap</td>
+                        <td class="programs__box-td programs__box-td--col2">$25,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="programs__box-checks">
+                  <div class="check-item">NinjaTrader platform</div>
+
+                  <div class="check-item">No evaluation</div>
+
+                  <div class="check-item">Weekly payouts (10-day min)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="programs__column">
+            <div class="box box--basic programs__box">
+              <div class="box__inner">
+                <div class="programs__box-label">fastest path</div>
+
+                <div class="programs__box-title">Express 100K</div>
+
+                <div class="programs__box-text">$100,000 simulated, instant funded &bull; Maximum size, no evaluation. For experienced traders.</div>
+
+                <div class="programs__box-price"><span>$1,999</span> instant funded</div>
+
+                <div class="programs__box-button">
+                  <a href="#" class="btn btn--purple"><span>See Express 100K Details</span></a>
+                </div>
+
+                <div class="programs__box-details">
+                  <table class="programs__box-table">
+                    <tbody>
+                      <tr>
+                        <th class="programs__box-th">details</th>
+                        <th class="programs__box-th"></th>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Account size</td>
+                        <td class="programs__box-td programs__box-td--col2">$100,000</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Cost to funded</td>
+                        <td class="programs__box-td programs__box-td--col2">$1,999 (no activation)</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Max drawdown</td>
+                        <td class="programs__box-td programs__box-td--col2">$6,000 EOD trailing</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Consistency</td>
+                        <td class="programs__box-td programs__box-td--col2">30%</td>
+                      </tr>
+                      <tr>
+                        <td class="programs__box-td programs__box-td--col1">Lifetime cap</td>
+                        <td class="programs__box-td programs__box-td--col2">$25,000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="programs__box-checks">
+                  <div class="check-item">NinjaTrader platform</div>
+
+                  <div class="check-item">No evaluation</div>
+
+                  <div class="check-item">Weekly payouts (10-day min)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shared rules / link to full spec -->
+        <div style="margin-top: 24px; padding: 16px 20px; background: #f1f3f4; border-left: 4px solid #1a73e8; border-radius: 4px; font-size: 13px; line-height: 1.6; color: #2a2a2a;">
+          <strong>Shared rules across all 4 programs:</strong>
+          1 soft-then-hard breach &middot; 30% consistency post-fund &middot; 10-day minimum to first payout &middot; 80/20 trader split &middot;
+          Manual trading only (no algos) &middot; News trading allowed &middot; &gt;15-second min hold &middot;
+          5 funded accounts per person (+1 Promo).
+          <a href="/pages/futures/about#rules" style="color: #1a73e8; font-weight: 600;">See full rules &amp; spec &rarr;</a>
+        </div>
+
+        <!-- <div class="programs__also">
+          <div class="programs__also-btn">Also available: Futures Incubator 50K - $49/first month</div>
+
+          <div class="programs__also-content">
+            <div class="programs__column">
+              <div class="box box--basic programs__box">
+                <div class="box__inner">
+                  <div class="programs__box-label">structured path</div>
+
+                  <div class="programs__box-title">Futures Incubator 50K</div>
+
+                  <div class="programs__box-text">$50,000 • Profile target TBD</div>
+
+                  <div class="programs__box-price"><span>$49</span> /first month</div>
+
+                  <div class="programs__box-button">
+                    <a href="" class="btn btn--purple"><span>See Incubator 50K</span></a>
+                  </div>
+
+                  <div class="programs__box-details">
+
+                    <table class="programs__box-table">
+                      <tbody>
+                        <tr>
+                          <th class="programs__box-th">details</th>
+                          <th class="programs__box-th"></th>
+                        </tr>
+                        <tr>
+                          <td class="programs__box-td programs__box-td--col1">step 1 target</td>
+                          <td class="programs__box-td programs__box-td--col2">$50,000</td>
+                        </tr>
+                        <tr>
+                          <td class="programs__box-td programs__box-td--col1">step 2 target</td>
+                          <td class="programs__box-td programs__box-td--col2">Instant funding</td>
+                        </tr>
+                        <tr>
+                          <td class="programs__box-td programs__box-td--col1">earliest payout</td>
+                          <td class="programs__box-td programs__box-td--col2">TBD</td>
+                        </tr>
+                        <tr>
+                          <td class="programs__box-td programs__box-td--col1">profit split</td>
+                          <td class="programs__box-td programs__box-td--col2">TBD</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="programs__box-checks">
+                    <div class="check-item">NinjaTrader platform</div>
+
+                    <div class="check-item">Weekly payout eligibility</div>
+
+                    <div class="check-item">Weekly payouts</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- scaling -->
+    <!-- SCALING SECTION ADDED 2026-05-28: per Design Doc § 3 (Position sizing - scaling tiers).
+         Cumulative funded profit unlocks larger size. 5 tiers per build sheet v2. -->
+    <section class="section section--scaling" id="scaling" style="padding: 80px 0; background: linear-gradient(180deg, #fafafa 0%, #f3e8ff 100%);">
+      <div class="container">
+        <div class="section__column">
+          <div class="section__subtitle">
+            your size grows with you
+          </div>
+
+          <h2>The more you earn, <span>the bigger you trade.</span></h2>
+
+          <div class="section__text">
+            <p>Every funded account starts conservatively and unlocks larger position size as your cumulative profit grows. No paperwork, no requests &mdash; the tiers update automatically based on your funded P&amp;L.</p>
+          </div>
+
+          <div style="margin-top: 32px; overflow-x: auto;">
+            <table style="width: 100%; max-width: 880px; margin: 0 auto; border-collapse: collapse; font-size: 14px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 8px; overflow: hidden;">
+              <thead>
+                <tr style="background: #1a73e8; color: #fff; text-align: left;">
+                  <th style="padding: 14px 16px; font-weight: 600;">Cumulative funded profit</th>
+                  <th style="padding: 14px 16px; font-weight: 600; text-align: center;" colspan="2">50K account</th>
+                  <th style="padding: 14px 16px; font-weight: 600; text-align: center;" colspan="2">100K account</th>
+                </tr>
+                <tr style="background: #f1f3f4; color: #5f6368; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em;">
+                  <th style="padding: 8px 16px;"></th>
+                  <th style="padding: 8px 16px; text-align: center;">Max minis</th>
+                  <th style="padding: 8px 16px; text-align: center;">Max micros</th>
+                  <th style="padding: 8px 16px; text-align: center;">Max minis</th>
+                  <th style="padding: 8px 16px; text-align: center;">Max micros</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 12px 16px; border-bottom: 1px solid #e0e0e0;">Less than $1,500</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">1</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">10</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">2</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">20</td></tr>
+                <tr style="background: #fafafa;"><td style="padding: 12px 16px; border-bottom: 1px solid #e0e0e0;">$1,500 &ndash; $2,000</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">2</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">20</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">3</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">30</td></tr>
+                <tr><td style="padding: 12px 16px; border-bottom: 1px solid #e0e0e0;">$2,000 &ndash; $3,000</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">3</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">30</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">4</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">40</td></tr>
+                <tr style="background: #fafafa;"><td style="padding: 12px 16px; border-bottom: 1px solid #e0e0e0;">$3,000 &ndash; $4,500</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">3</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">30</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">5</td><td style="padding: 12px 16px; text-align: center; border-bottom: 1px solid #e0e0e0;">50</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 600;">$4,500 and above</td><td style="padding: 12px 16px; text-align: center; font-weight: 600;">3</td><td style="padding: 12px 16px; text-align: center; font-weight: 600;">30</td><td style="padding: 12px 16px; text-align: center; font-weight: 600;">6</td><td style="padding: 12px 16px; text-align: center; font-weight: 600;">60</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: 20px; text-align: center; font-size: 13px; color: #5f6368;">
+            Drawdown resets to starting balance on your first payout &mdash; once you&rsquo;ve proven discipline, the firm steps out of the risk.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- live capital -->
+    <!-- LIVE CAPITAL SECTION ADDED 2026-05-28: per Design Doc § 5 + user placement choice.
+         The T3 Global handoff: $2K per 50K x 5 = $10K, $3K per 100K x 5 = $15K, $5K floor underwritten. -->
+    <section class="section section--live-capital" id="live-capital" style="padding: 80px 0; background: #ffffff;">
+      <div class="container">
+        <div class="section__column">
+          <div class="section__subtitle">
+            funded &rarr; live at t3 global
+          </div>
+
+          <h2>From simulated funded <br /><span>to real capital at T3 Global.</span></h2>
+
+          <div class="section__text">
+            <p>When you trade consistently after your first or second payout, you graduate from the simulated funded environment to a live account at T3 Global, backed with real capital. The amount you get is transparent, defined, and known in advance &mdash; no haircuts, no surprises.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px;">
+
+            <div style="background: linear-gradient(180deg, #e6f4ea 0%, #ffffff 60%); border: 1px solid #34a853; border-radius: 12px; padding: 28px; text-align: center;">
+              <div style="font-size: 12px; font-weight: 700; color: #1e8e3e; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">50K Account</div>
+              <div style="font-size: 36px; font-weight: 800; color: #1a1a1a; line-height: 1;">$2,000</div>
+              <div style="font-size: 13px; color: #5f6368; margin-top: 6px;">live capital per account</div>
+              <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #c4e8d0;">
+                <div style="font-size: 24px; font-weight: 700; color: #1a73e8;">&times; 5 accounts = $10,000</div>
+                <div style="font-size: 12px; color: #5f6368; margin-top: 4px;">total live backing at the cap</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(180deg, #e6f4ea 0%, #ffffff 60%); border: 1px solid #34a853; border-radius: 12px; padding: 28px; text-align: center;">
+              <div style="font-size: 12px; font-weight: 700; color: #1e8e3e; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">100K Account</div>
+              <div style="font-size: 36px; font-weight: 800; color: #1a1a1a; line-height: 1;">$3,000</div>
+              <div style="font-size: 13px; color: #5f6368; margin-top: 6px;">live capital per account</div>
+              <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #c4e8d0;">
+                <div style="font-size: 24px; font-weight: 700; color: #1a73e8;">&times; 5 accounts = $15,000</div>
+                <div style="font-size: 12px; color: #5f6368; margin-top: 4px;">total live backing at the cap</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(180deg, #fff8e1 0%, #ffffff 60%); border: 1px solid #f9ab00; border-radius: 12px; padding: 28px; text-align: center;">
+              <div style="font-size: 12px; font-weight: 700; color: #b06000; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px;">$5K Floor</div>
+              <div style="font-size: 36px; font-weight: 800; color: #1a1a1a; line-height: 1;">Underwritten</div>
+              <div style="font-size: 13px; color: #5f6368; margin-top: 6px;">by TradeFundrr</div>
+              <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #f3d97a; font-size: 13px; color: #2a2a2a; line-height: 1.5;">
+                T3 Global requires a $5,000 minimum live account. If your tier math falls short, we cover the gap. You go live with the full $5K.
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 32px; padding: 24px 28px; background: #f1f3f4; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #2a2a2a;">
+            <strong style="color: #1a1a1a;">Why this matters.</strong>
+            Other firms haircut traders going live &mdash; a 70% cut on the way through the door, with no clear rule. TradeFundrr&rsquo;s path is transparent, defined, and known the day you sign up. Past 5 accounts the tier scales down; we&rsquo;ll publish the schedule once your fifth account is in play. The principle stays the same: <strong>no surprises.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- why (rewritten 2026-05-28: mechanical trust signals for hyper-aware audience) -->
+    <section class="ftr-section">
+      <div class="ftr-section__inner">
+        <span class="ftr-eyebrow-dark">Mechanical trust signals</span>
+        <h2>Four mechanics. <span class="accent">No marketing claims.</span></h2>
+        <p class="ftr-section__lede">
+          Each of these is a structural mechanic you can verify at purchase. Not a brand promise. The firm doesn’t
+          decide which one applies on payout day.
+        </p>
+
+        <div class="ftr-why__grid">
+          <article class="ftr-why__card">
+            <span class="ftr-why__card-tag">Mechanic 01</span>
+            <h3 class="ftr-why__card-title">Drawdown resets after the first payout</h3>
+            <p class="ftr-why__card-body">The moment you take your first payout, your trailing $3K (50K) or $6K (100K)
+              max drawdown moves to your starting balance and stays there. The firm is out of the risk; you’re
+              trading on real prop-style parameters from cycle two onward.</p>
+          </article>
+
+          <article class="ftr-why__card">
+            <span class="ftr-why__card-tag">Mechanic 02</span>
+            <h3 class="ftr-why__card-title">Every rule locked at purchase</h3>
+            <p class="ftr-why__card-body">Target, drawdown, consistency, breach mechanic, min days, profit cap,
+              per-cycle payout cap, lifetime cap, profit split. Every program parameter is fixed at the moment you
+              fund. We can’t change them on you mid-cycle.</p>
+          </article>
+
+          <article class="ftr-why__card">
+            <span class="ftr-why__card-tag">Mechanic 03</span>
+            <h3 class="ftr-why__card-title">80 / 20 split from day one</h3>
+            <p class="ftr-why__card-body">No first-payout 50/50 split. No graduated split that quietly creeps in your
+              favor over time. Day one, first payout, hundredth payout — you keep 80% of every dollar above the
+              firm’s 20% cut.</p>
+          </article>
+
+          <article class="ftr-why__card">
+            <span class="ftr-why__card-tag">Mechanic 04</span>
+            <h3 class="ftr-why__card-title">Live capital is real money at T3</h3>
+            <p class="ftr-why__card-body">When you graduate, you trade on T3 Global with capital backed by the T3
+              group of companies — not a paper promotion. $2K per 50K simulated account, $3K per 100K,
+              up to 5 accounts. Up to $15K total at the cap.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- how it works (rewritten 2026-05-28: trader-fluent micro-spec) -->
+    <section class="ftr-section" id="how-it-works">
+      <div class="ftr-section__inner">
+        <span class="ftr-eyebrow-dark">How it works</span>
+        <h2>Three steps. <span class="accent">No surprises.</span></h2>
+        <p class="ftr-section__lede">
+          The mechanics of getting funded, trading the rules, and clearing payouts — spelled out at the level
+          a serious futures trader actually needs to make the decision.
+        </p>
+
+        <div class="ftr-steps__grid">
+          <article class="ftr-step">
+            <h3 class="ftr-step__title">Choose your path</h3>
+            <p class="ftr-step__body">
+              <strong>Growth 50K ($129 + $129 activation)</strong> or <strong>Growth 100K ($199 + $199)</strong> if you
+              want the lowest entry and a 1-step evaluation. <strong>Express 50K ($999)</strong> or
+              <strong>Express 100K ($1,999)</strong> to skip the eval and trade funded capital from day one.
+              Plus a <strong>$19 Promo 50K</strong> if you want to try the platform before committing.
+            </p>
+          </article>
+
+          <article class="ftr-step">
+            <h3 class="ftr-step__title">Hit the target. Stay within the rules.</h3>
+            <p class="ftr-step__body">
+              <strong>$3K (50K) / $6K (100K) EOD trailing drawdown.</strong> Daily loss limit $1K / $2K.
+              <strong>30% consistency post-funded.</strong> 1 soft → hard breach. 10-day minimum on first payout.
+              News trading allowed. Manual only — no algos. &gt;15-second minimum hold.
+              NinjaTrader and Tradovate simulated.
+            </p>
+          </article>
+
+          <article class="ftr-step">
+            <h3 class="ftr-step__title">Request payouts. Drawdown resets after the first one.</h3>
+            <p class="ftr-step__body">
+              Weekly payout cycle via <strong>Rise</strong>. <strong>80 / 20 split from day one.</strong>
+              Per-cycle cap rises from $1K → $1.5K (50K) and $1.5K → $3K (100K) on cycle 4.
+              Lifetime cap $15K (Growth) / $25K (Express). After your first payout, the drawdown resets to your
+              starting balance and the firm steps out of the risk.
+            </p>
+          </article>
+        </div>
+
+        <div style="margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#programs" class="ftr-cta__primary">See full program details →</a>
+          <a href="/pages/futures/about#rules" class="ftr-cta__secondary">Read every rule →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- switching (rewritten 2026-05-28: real switcher offer for hyper-aware traders) -->
+    <section class="ftr-section">
+      <div class="ftr-section__inner">
+        <span class="ftr-eyebrow-dark">Coming from another firm?</span>
+        <h2>You don’t need a tutorial. <span class="accent">You need a different structural agreement.</span></h2>
+        <p class="ftr-section__lede">
+          If you’re funded at Apex, Topstep, Earn2Trade, FTMO, or anywhere else and you’re reading this
+          page, you already know how the games work. We’re not here to re-explain prop. We’re here to give
+          you something that doesn’t play them.
+        </p>
+
+        <div class="ftr-switch__card">
+          <div>
+            <h3 class="ftr-switch__card-title">Switcher offer: activation waived + cycle-4 payout caps from day one</h3>
+            <p class="ftr-switch__card-body">
+              Bring proof of an active funded account from another firm (any size, any program). Activation fee waived
+              on Growth 50K or Growth 100K. <strong>You start on cycle-4 payout caps</strong> — $1.5K (50K) /
+              $3K (100K) per cycle from your first eligible payout, not your fourth.
+              Email <strong>switch@tradefundrr.com</strong> with a screenshot.
+            </p>
+          </div>
+          <a href="/pages/futures/switch" class="ftr-switch__cta">See the offer →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- platform -->
+    <section class="section section--platform">
+      <div class="container">
+        <div class="platform">
+          <div class="platform__column platform__column-left">
+            <div class="box box--blue platform__box">
+              <div class="box__shadow"></div>
+
+              <div class="box__inner">
+                <div class="platform__box-header">
+                  <img src="../../futures-assets/assets/img/platform.png" alt="TradeFundrr" class="platform__box-img">
+                </div>
+
+                <div class="check-item">Full Charting & Order Flow Tools</div>
+
+                <div class="check-item">Depth of Market (DOM) Visibility</div>
+
+                <div class="check-item">Custom Indicator & Add-On Support Support</div>
+
+                <div class="platform__note">Note: Manual trading only. Algorithmic trading is not permitted on
+                  Evaluation / Instant accounts.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="platform__column platform__column-right">
+            <div class="section__column">
+              <div class="section__subtitle">
+                the platform
+              </div>
+
+              <h2><span>NinjaTrader®.</span> <br /> The platform You Already Use.</h2>
+
+              <div class="section__text section__text--big">
+                <p>NinjaTrader is the standard platform for serious futures traders. TradeFundrr's funded accounts
+                  operate on the same NinjaTrader environment the trader already knows. No platform migration. No
+                  learning curve. No adjustment period. Same charts, same order flow tools, same hotkeys.</p>
+
+                <p>NinjaTrader connects directly to CME, CBOT, NYMEX, and COMEX. TradeFundrr's futures programs provide
+                  access to 28 futures markets across equity indices, currencies, energy, metals, and agriculture. Depth
+                  of Market visibility, volume profile, footprint charts, and custom indicator support are all
+                  available.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- payouts (cascading payout-card rain, ported 2026-05-28 from homepage in brand blue) -->
+    <section class="ftr-payouts" id="payouts">
+      <div class="ftr-payouts__cards-layer" aria-hidden="true"><img src="../../assets/images/1.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:-3%;animation-name:ftrPayoutRainA;animation-duration:13.2s;animation-delay:0.0s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/2.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:5%;animation-name:ftrPayoutRainC;animation-duration:9.4s;animation-delay:-0.72s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/3.webp" class="ftr-payouts__card ftr-payouts__card--m" style="left:14%;animation-name:ftrPayoutRainB;animation-duration:11.0s;animation-delay:-1.44s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/4.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:22%;animation-name:ftrPayoutRainD;animation-duration:13.8s;animation-delay:-2.16s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/5.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:30%;animation-name:ftrPayoutRainA;animation-duration:9.0s;animation-delay:-2.88s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/6.webp" class="ftr-payouts__card ftr-payouts__card--m" style="left:38%;animation-name:ftrPayoutRainE;animation-duration:11.4s;animation-delay:-3.6s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/7.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:46%;animation-name:ftrPayoutRainC;animation-duration:12.8s;animation-delay:-4.32s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/8.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:54%;animation-name:ftrPayoutRainB;animation-duration:9.8s;animation-delay:-5.04s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/9.webp" class="ftr-payouts__card ftr-payouts__card--m" style="left:62%;animation-name:ftrPayoutRainD;animation-duration:11.2s;animation-delay:-5.76s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/10.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:70%;animation-name:ftrPayoutRainA;animation-duration:13.6s;animation-delay:-6.48s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/11.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:78%;animation-name:ftrPayoutRainE;animation-duration:9.2s;animation-delay:-7.2s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/12.webp" class="ftr-payouts__card ftr-payouts__card--m" style="left:86%;animation-name:ftrPayoutRainC;animation-duration:10.8s;animation-delay:-7.92s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/13.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:94%;animation-name:ftrPayoutRainB;animation-duration:13.0s;animation-delay:-8.64s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/14.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:10%;animation-name:ftrPayoutRainD;animation-duration:9.6s;animation-delay:-1.85s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/15.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:26%;animation-name:ftrPayoutRainE;animation-duration:13.4s;animation-delay:-3.95s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/16.webp" class="ftr-payouts__card ftr-payouts__card--m" style="left:42%;animation-name:ftrPayoutRainA;animation-duration:10.6s;animation-delay:-6.1s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/17.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:58%;animation-name:ftrPayoutRainB;animation-duration:9.0s;animation-delay:-7.55s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/18.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:74%;animation-name:ftrPayoutRainC;animation-duration:12.6s;animation-delay:-9.1s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/19.webp" class="ftr-payouts__card ftr-payouts__card--m" style="left:6%;animation-name:ftrPayoutRainD;animation-duration:11.6s;animation-delay:-10.4s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/20.webp" class="ftr-payouts__card ftr-payouts__card--s" style="left:50%;animation-name:ftrPayoutRainE;animation-duration:9.5s;animation-delay:-11.2s" alt="" loading="lazy" width="840" height="561" decoding="async"><img src="../../assets/images/21.webp" class="ftr-payouts__card ftr-payouts__card--l" style="left:90%;animation-name:ftrPayoutRainA;animation-duration:13.0s;animation-delay:-12.0s" alt="" loading="lazy" width="840" height="561" decoding="async"></div>
+      <div class="ftr-payouts__inner">
+        <div class="ftr-payouts__brand">
+          <img src="../../futures-assets/assets/img/logo.svg" alt="TradeFundrr" width="240" height="42" loading="lazy" decoding="async">
+        </div>
+        <div class="ftr-payouts__stack">
+          <p><span class="num">Real</span> Traders. Real Payouts. Every Friday.</p>
+          <p><span class="num">Paid</span> Direct to your Rise Account. No Delays.</p>
+          <p><span class="num">From</span> Small Account to T3 Global Trading Desk.</p>
+          <p><span class="num">Scale</span> to $1M+ at a Professional Trading Desk.</p>
+        </div>
+        <div class="ftr-payouts__cta">
+          <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener" class="ftr-cta__secondary">
+            See all reviews on Trustpilot &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- intersection-observer: start the rain when section enters viewport -->
+    <script>
+    (function(){
+      function init(){
+        var sec = document.querySelector('.ftr-payouts');
+        if (!sec) return;
+        if (sec.dataset.init) return;
+        sec.dataset.init = '1';
+        if (!('IntersectionObserver' in window)) { sec.classList.add('is-running'); return; }
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if (e.isIntersecting) sec.classList.add('is-running');
+            else sec.classList.remove('is-running');
+          });
+        }, { threshold: 0.05 });
+        io.observe(sec);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+    </script>
+
+    <!-- cta (rewritten 2026-05-28: numeric anchor for hyper-aware traders) -->
+    <section class="ftr-cta">
+      <div class="ftr-section__inner">
+        <h2>Trade $100K futures. <span class="accent">Risk $129.</span></h2>
+        <p class="ftr-cta__sub">
+          Drawdown that resets at first payout. 80/20 from day one. Rules locked at purchase.
+          Live capital path through T3 Global. Read every spec before you buy.
+        </p>
+        <div class="ftr-cta__buttons">
+          <a href="#programs" class="ftr-cta__primary">See all programs &rarr;</a>
+          <a href="/pages/futures/about#rules" class="ftr-cta__secondary">Read every rule &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- faq (rewritten 2026-05-28: real questions hyper-aware futures traders ask) -->
+    <section class="ftr-section">
+      <div class="ftr-section__inner">
+        <span class="ftr-eyebrow-dark">Direct answers</span>
+        <h2>Futures traders ask. <span class="accent">We answer at the rule level.</span></h2>
+        <p class="ftr-section__lede">
+          No Lorem ipsum. No marketing dodges. The questions a sophisticated futures trader actually asks before
+          buying — answered at the rule mechanic.
+        </p>
+
+        <div class="ftr-faq__grid">
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">What’s the max drawdown rule? Is it trailing or static?</h3>
+            <p class="ftr-faq__a"><strong>$3,000 (50K) / $6,000 (100K) EOD trailing.</strong> Calculated end-of-day,
+              not intraday. The trailing watermark stops moving the moment you take your first payout and resets
+              to your starting balance from that point forward. The firm steps out of the risk on cycle two onward.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">How exactly does the consistency rule work?</h3>
+            <p class="ftr-faq__a"><strong>30% consistency, post-funded only.</strong> No single trading session may
+              exceed 30% of your running profit target. If it does, the profit target recalculates upward to keep you
+              within the band — the rule itself doesn’t move retroactively. Evaluation phase: 100% consistency
+              on Growth, 30% on Express.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">What’s the breach mechanic?</h3>
+            <p class="ftr-faq__a"><strong>1 soft → hard.</strong> First daily-loss breach in the account’s
+              lifetime pauses the account, ends the session, account resumes the next trading day. Second daily-loss
+              breach in the same account: immediate hard breach, account closed. One warning per account, ever.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">Minimum days to first payout?</h3>
+            <p class="ftr-faq__a"><strong>10 trading days funded.</strong> The 10-day minimum applies on every program
+              (Growth, Express, Promo). Subsequent payouts run on the weekly cycle once you’re past the 10-day
+              minimum and have hit the per-cycle threshold.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">Per-cycle payout caps vs lifetime caps — how do they interact?</h3>
+            <p class="ftr-faq__a">Per-cycle is your <strong>withdrawal ceiling per week</strong>: $1K (50K) / $1.5K
+              (100K) on cycles 1-3, rising to $1.5K / $3K on cycle 4+. Lifetime is the <strong>account close trigger</strong>:
+              $15K (Growth) / $25K (Express) cumulative across that account. Hit the lifetime cap, the account closes;
+              you continue on your other accounts.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">News trading? Algos? Hold time?</h3>
+            <p class="ftr-faq__a"><strong>News trading: yes</strong>, on every program, no restrictions.
+              <strong>Algos: no</strong>, manual trading only. <strong>Minimum hold time: &gt;15 seconds.</strong>
+              Same rules across Growth, Express, and Promo.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">What’s the live capital path?</h3>
+            <p class="ftr-faq__a">When you trade consistently after your first or second payout, you graduate to
+              <strong>T3 Global</strong> with real capital. <strong>$2,000 per 50K, $3,000 per 100K, up to 5 accounts</strong>
+              ($10K-$15K total backing). Defined the day you sign up. Allocated at graduation.</p>
+          </div>
+
+          <div class="ftr-faq__item">
+            <h3 class="ftr-faq__q">Why T3 Global?</h3>
+            <p class="ftr-faq__a">The T3 group of companies includes a <strong>FINRA/SIPC regulated SEC broker-dealer
+              (T3 Trading Group)</strong> and an institutional trading firm where TradeFundrr’s funded accounts
+              execute <strong>(T3 Global)</strong>. Regulated, operational depth — the difference between a payout
+              you can count on and one that depends on next month’s sign-ups.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- get started (rewritten 2026-05-28) -->
+    <section class="ftr-cta" style="border-bottom: none;">
+      <div class="ftr-section__inner">
+        <span class="ftr-eyebrow-dark">Get started</span>
+        <h2 style="font-size: 44px; letter-spacing: -1.5px;">Stop renting evaluations. <span class="accent">Start owning the rules.</span></h2>
+        <p class="ftr-cta__sub">
+          $129 to start a $100K Growth evaluation. $999 to skip the eval entirely. Either way,
+          the rules are locked at purchase and the drawdown resets at your first payout.
+        </p>
+        <div class="ftr-cta__buttons">
+          <a href="#programs" class="ftr-cta__primary">See all programs &rarr;</a>
+          <a href="/pages/futures/switch" class="ftr-cta__secondary">Switching from another firm? &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="section section--newsletter">
+      <div class="container">
+        <div class="section__column">
+          <div class="section__subtitle">
+            tradefundrr newsletter
+          </div>
+
+          <h2><span>Stay ahead of the market.</span> Stay ahead of the field.</h2>
+
+          <div class="section__text">
+            <p>Payout highlights, trader spotlights, funded account news, and exclusive promotions — delivered directly
+              to your inbox. Join thousands of traders already on the list.</p>
+          </div>
+
+          <form class="form-box">
+            <div class="form-box__wrapper">
+              <input type="text" class="form-box__input" placeholder="Enter your email address…">
+              <button class="btn btn--blue">Subscribe Free</button>
+            </div>
+
+            <div class="form-box__text">No spam. Unsubscribe anytime.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__col footer__col-left">
+            <img src="../../futures-assets/assets/img/flogo.svg" alt="TradeFundrr" class="footer__logo">
+
+            <div class="footer__text">
+              Professional futures prop trading partnered with T3 Global
+            </div>
+
+            <ul class="socials">
+              <li class="socials__item">
+                <a href="" class="socials__link">
+                  <img src="../../futures-assets/assets/img/x.svg" alt="" class="socials__img" title="twitter">
+                </a>
+              </li>
+              <li class="socials__item">
+                <a href="" class="socials__link">
+                  <img src="../../futures-assets/assets/img/in.svg" alt="" class="socials__img" title="instagram">
+                </a>
+              </li>
+              <li class="socials__item">
+                <a href="" class="socials__link">
+                  <img src="../../futures-assets/assets/img/youtube.svg" alt="" class="socials__img" title="youtube">
+                </a>
+              </li>
+              <li class="socials__item">
+                <a href="" class="socials__link">
+                  <img src="../../futures-assets/assets/img/fb.svg" alt="" class="socials__img" title="facebook">
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer__col footer__col-right">
+            <div class="footer__navi">
+              <div class="footer__navi-col">
+                <div class="footer__navi-title">programs</div>
+
+                <ul class="footer__navi-list">
+                  <li><a href="#evaluation-box" class="footer__navi-link">Evaluation</a></li>
+                  <li><a href="#instant-funding" class="footer__navi-link">Instant Funding</a></li>
+                </ul>
+              </div>
+
+              <div class="footer__navi-col">
+                <div class="footer__navi-title">company</div>
+
+                <ul class="footer__navi-list">
+                  <li><a href="" class="footer__navi-link">How</a></li>
+                  <li><a href="/pages/futures/about" class="footer__navi-link">Why Us</a></li>
+                  <li>Visit <a href="https://tradefundrr.com/" target="_blank"
+                      class="footer__navi-link footer__navi-link--underline">tradefundrr.com</a></li>
+                </ul>
+              </div>
+
+              <div class="footer__navi-col">
+                <div class="footer__navi-title">support</div>
+
+                <ul class="footer__navi-list">
+                  <li>Phone: <a a href="tel:(555) 000-0000" class="footer__navi-link">(555) 000-0000</a></li>
+                  <li>Email: <a href="mailto:support@tradefundrr.com"
+                      class="footer__navi-link">support@tradefundrr.com</a></li>
+                  <li><a href="" class="footer__navi-link">Book a Zoom Call</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <div class="footer__col footer__col-left">
+            <div class="footer__copy">&copy; 2026 TradeFundrr. All rights reserved.</div>
+          </div>
+
+          <div class="footer__col footer__col-right">
+            <ul class="footer__subnavi">
+              <li><a href="" class="footer__subnavi-link">Privacy Policy</a></li>
+              <li><a href="" class="footer__subnavi-link">Terms</a></li>
+              <li><a href="" class="footer__subnavi-link">Risk Disclosure</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="../../futures-assets/assets/js/scripts.js"></script>
+
+  <!-- Mouse-follow 3D tilt on futures hero image. Gracefully degrades on touch/no-pointer. -->
+  <script>
+  (function () {
+    function init() {
+      var media = document.querySelector('.ftr-hero__media');
+      if (!media) return;
+      var defaultTransform = 'perspective(1800px) rotateX(-2deg) rotateY(-6deg)';
+      var maxTiltY = 10;
+      var maxTiltX = 7;
+      var moving = false;
+
+      media.addEventListener('mousemove', function (e) {
+        var rect = media.getBoundingClientRect();
+        var nx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        var ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+        var ry = nx * maxTiltY;
+        var rx = -ny * maxTiltX;
+        if (!moving) {
+          media.style.transition = 'transform 0.08s linear';
+          moving = true;
+        }
+        media.style.transform = 'perspective(1800px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+      });
+
+      media.addEventListener('mouseleave', function () {
+        media.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+        media.style.transform = defaultTransform;
+        moving = false;
+      });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+</script>
+
+<script>
+/* Scroll-triggered animation for the four "firm steps back" mechanic charts (2026-05-29) */
+(function(){
+  function revealAll(svg){
+    svg.querySelectorAll('*').forEach(function(el){
+      el.style.opacity=''; el.style.transform=''; el.style.strokeDasharray=''; el.style.strokeDashoffset='';
+    });
+  }
+  function prep(svg){
+    try{
+      svg.querySelectorAll('polyline, path').forEach(function(p){
+        if(p.getAttribute('stroke-dasharray')){ p.dataset.fade='1'; p.style.opacity='0'; return; }
+        var len=0; try{ len=p.getTotalLength(); }catch(e){}
+        if(len){ p.dataset.len=len; p.style.strokeDasharray=len; p.style.strokeDashoffset=len; }
+        else { p.dataset.fade='1'; p.style.opacity='0'; }
+      });
+      svg.querySelectorAll('rect').forEach(function(r){
+        var f=(r.getAttribute('fill')||'').toUpperCase();
+        if(f==='#00AAFF'||f==='#FF5F5F'){ r.dataset.bar='1'; r.style.transformBox='fill-box'; r.style.transformOrigin='center bottom'; r.style.transform='scaleY(0)'; }
+        else { r.style.opacity='0'; }
+      });
+      svg.querySelectorAll('circle').forEach(function(c){ c.style.transformBox='fill-box'; c.style.transformOrigin='center'; c.style.transform='scale(0)'; c.style.opacity='0'; });
+      svg.querySelectorAll('line, text').forEach(function(el){ el.style.opacity='0'; });
+    }catch(e){ revealAll(svg); }
+  }
+  function run(svg){
+    try{
+      svg.querySelectorAll('line, text').forEach(function(el,i){
+        el.style.transition='opacity .5s ease '+(0.15+(i%6)*0.03).toFixed(2)+'s';
+        requestAnimationFrame(function(){ el.style.opacity='1'; });
+      });
+      svg.querySelectorAll('rect').forEach(function(r){
+        if(r.dataset.bar) return;
+        r.style.transition='opacity .5s ease .15s'; requestAnimationFrame(function(){ r.style.opacity='1'; });
+      });
+      var d=0;
+      svg.querySelectorAll('polyline, path').forEach(function(p){
+        if(p.dataset.fade){ var o=p.getAttribute('opacity')||'1'; p.style.transition='opacity .6s ease .5s'; requestAnimationFrame(function(){ p.style.opacity=o; }); }
+        else if(p.dataset.len){ p.style.transition='stroke-dashoffset 1.1s ease '+d.toFixed(2)+'s'; requestAnimationFrame(function(){ p.style.strokeDashoffset='0'; }); d+=0.18; }
+      });
+      var bi=0;
+      svg.querySelectorAll('rect').forEach(function(r){
+        if(!r.dataset.bar) return;
+        r.style.transition='transform .55s cubic-bezier(.2,.9,.3,1.15) '+(0.2+bi*0.07).toFixed(2)+'s';
+        requestAnimationFrame(function(){ r.style.transform='scaleY(1)'; }); bi++;
+      });
+      svg.querySelectorAll('circle').forEach(function(c){
+        c.style.transition='transform .45s cubic-bezier(.2,.9,.3,1.4) 1s, opacity .3s ease 1s';
+        requestAnimationFrame(function(){ c.style.transform='scale(1)'; c.style.opacity='1'; });
+      });
+    }catch(e){ revealAll(svg); }
+  }
+  function init(){
+    var svgs=document.querySelectorAll('.ftr-trap__viz svg');
+    if(!svgs.length) return;
+    var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce || !('IntersectionObserver' in window)) return;
+    svgs.forEach(prep);
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } });
+    },{threshold:0.3});
+    svgs.forEach(function(s){ io.observe(s); });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+</body>
+</html>
