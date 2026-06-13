@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Funding, Coming Soon | TradeFundrr</title>
+<meta name="description" content="Funded crypto trading is coming to TradeFundrr. Trade BTC, ETH, and top alts with up to $100K of simulated capital, keep up to 80%, paid weekly. Be first in line.">
+<link rel="canonical" href="https://tradefundrr.com/pages/crypto.html">
+<meta property="og:title" content="Crypto Funding, Coming Soon | TradeFundrr">
+<meta property="og:description" content="Trade BTC, ETH, and top alts with up to $100K of simulated capital, keep up to 80%, paid weekly. Be first in line.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="../assets/images/tf-icon-dark.png?v=202605241720">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    /* Crypto theme: yellow is the single accent (vs the main site's teal) */
+    --gold:#F6FF00;
+    --gold-2:#FFC400;
+    --gold-dim:rgba(246,255,0,0.12);
+    --gold-border:rgba(246,255,0,0.28);
+    --gold-glow:rgba(246,255,0,0.55);
+    --bg:#060914;
+    --bg-2:#0a101e;
+    --card:hsla(0,0%,100%,0.03);
+    --card-border:hsla(0,0%,100%,0.08);
+    --tx:#ffffff;
+    --tx-72:hsla(0,0%,100%,0.72);
+    --tx-55:hsla(0,0%,100%,0.55);
+    --tx-40:hsla(0,0%,100%,0.40);
+    --mono:'Geist Mono','JetBrains Mono',ui-monospace,monospace;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx-72);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ===== Ambient background ===== */
+  .ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .ambient .glow{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5}
+  .ambient .glow.g1{width:620px;height:620px;top:-180px;left:50%;transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(246,255,0,0.22),transparent 65%)}
+  .ambient .glow.g2{width:480px;height:480px;bottom:-160px;left:-120px;
+    background:radial-gradient(circle,rgba(255,196,0,0.14),transparent 65%)}
+  .ambient .glow.g3{width:420px;height:420px;bottom:-120px;right:-120px;
+    background:radial-gradient(circle,rgba(246,255,0,0.10),transparent 65%)}
+  .grid-lines{position:absolute;inset:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 80%);
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 30%,#000 30%,transparent 80%)}
+  .spark{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 8px 1px var(--gold-glow);opacity:0;animation:twinkle 4s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:.9;transform:scale(1)}}
+  .coin{position:absolute;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;font-family:var(--mono);font-weight:700;color:#0a0a0a;
+    background:radial-gradient(circle at 32% 28%,#fff6a8,var(--gold) 46%,var(--gold-2) 100%);
+    box-shadow:0 10px 30px -6px rgba(0,0,0,.6),0 0 22px var(--gold-glow),inset 0 2px 6px rgba(255,255,255,.55),inset 0 -6px 12px rgba(120,90,0,.35);
+    border:1px solid rgba(255,255,255,.35);will-change:transform;animation:float 9s ease-in-out infinite}
+  .coin::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(0,0,0,.10)}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-22px) rotate(6deg)}}
+
+  /* ===== Nav ===== */
+  .nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;
+    padding:22px 24px;max-width:1180px;margin:0 auto}
+  .nav__logo img{height:30px}
+  .nav__right{display:flex;align-items:center;gap:20px}
+  .nav__link{font-size:14px;color:var(--tx-72);font-weight:500;transition:color .2s}
+  .nav__link:hover{color:var(--gold)}
+  .nav__cta{font-size:14px;font-weight:700;color:#0a0a0a;background:linear-gradient(180deg,var(--gold),var(--gold-2));
+    padding:11px 20px;border-radius:8px;box-shadow:0 0 16px var(--gold-dim);transition:transform .15s,box-shadow .2s;white-space:nowrap}
+  .nav__cta:hover{transform:translateY(-1px);box-shadow:0 0 22px var(--gold-glow)}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;z-index:5;text-align:center;padding:54px 0 40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;
+    font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+    padding:8px 16px;border:1px solid var(--gold-border);border-radius:999px;background:var(--gold-dim);margin-bottom:26px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px 2px var(--gold-glow);
+    animation:pulse 1.8s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.15)}}
+  h1{font-size:clamp(2.8rem,7.5vw,5.6rem);font-weight:900;color:var(--tx);line-height:1.02;
+    letter-spacing:-.03em;margin-bottom:24px}
+  h1 .hl{display:inline-block;background:linear-gradient(96deg,var(--gold),var(--gold-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em;position:relative}
+  h1 .hl::after{content:"";position:absolute;left:6%;right:6%;bottom:.02em;height:40%;
+    background:var(--gold);filter:blur(26px);opacity:.35;z-index:-1;animation:breathe 3.4s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.22}50%{opacity:.45}}
+  .lede{max-width:680px;margin:0 auto 30px;font-size:clamp(1rem,1.4vw,1.18rem);color:var(--tx-72)}
+  .lede b{color:var(--tx)}
+  .assets{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:34px}
+  .achip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;font-weight:600;
+    color:var(--tx);padding:8px 14px;border:1px solid var(--card-border);border-radius:999px;background:var(--card)}
+  .achip .sym{color:var(--gold);font-weight:700}
+  .achip.muted{color:var(--tx-55)}
+  .signup{max-width:480px;margin:0 auto}
+  .signup__form{display:flex;gap:10px}
+  .signup__form input{flex:1;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--card-border);
+    border-radius:10px;padding:15px 16px;color:var(--tx);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}
+  .signup__form input::placeholder{color:var(--tx-40)}
+  .signup__form input:focus{border-color:var(--gold-border);box-shadow:0 0 0 3px var(--gold-dim)}
+  .signup__form button{flex:none;font-weight:800;color:#0a0a0a;background:linear-gradient(180deg,var(--gold),var(--gold-2));
+    border:none;border-radius:10px;padding:0 22px;font-size:15px;cursor:pointer;transition:transform .15s,box-shadow .2s}
+  .signup__form button:hover{transform:translateY(-1px);box-shadow:0 0 20px var(--gold-glow)}
+  .signup__note{margin-top:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--tx-40)}
+  .signup__ok{display:none;align-items:center;justify-content:center;gap:10px;padding:15px;border-radius:10px;
+    border:1px solid var(--gold-border);background:var(--gold-dim);color:var(--gold);font-weight:700;font-size:15px}
+  .signup.done .signup__form{display:none}
+  .signup.done .signup__ok{display:flex}
+  .trust{position:relative;z-index:5;margin:48px auto 0;max-width:980px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .tcard{text-align:center;padding:22px 14px;border:1px solid var(--card-border);border-radius:14px;background:var(--card)}
+  .tcard__n{font-size:1.7rem;font-weight:900;color:var(--gold);letter-spacing:-.02em;line-height:1}
+  .tcard__l{margin-top:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx-55)}
+
+  /* ===== Whats coming ===== */
+  .coming{position:relative;z-index:5;padding:90px 0 30px}
+  .coming__head{text-align:center;margin-bottom:44px}
+  .coming__eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+  .coming__head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:900;color:var(--tx);letter-spacing:-.02em}
+  .coming__head h2 .hl{color:var(--gold)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fcard{padding:30px 26px;border:1px solid var(--card-border);border-radius:16px;background:var(--card);
+    transition:border-color .2s,transform .2s,background .2s}
+  .fcard:hover{border-color:var(--gold-border);transform:translateY(-3px);background:hsla(0,0%,100%,0.05)}
+  .fcard__ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:var(--gold-dim);border:1px solid var(--gold-border);margin-bottom:18px}
+  .fcard__ic svg{width:22px;height:22px;stroke:var(--gold)}
+  .fcard h3{font-size:1.18rem;font-weight:800;color:var(--tx);margin-bottom:10px;letter-spacing:-.01em}
+  .fcard p{font-size:14.5px;color:var(--tx-72)}
+
+  /* ===== Closing line ===== */
+  .closer{position:relative;z-index:5;text-align:center;padding:70px 0 24px}
+  .closer p{font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:800;color:var(--tx);max-width:760px;margin:0 auto;letter-spacing:-.01em}
+  .closer p .hl{color:var(--gold)}
+  .closer .sub{margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-40);font-weight:500}
+
+  /* ===== Footer ===== */
+  .foot{position:relative;z-index:5;border-top:1px solid var(--card-border);margin-top:60px;padding:30px 0}
+  .foot__row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .foot__row a{color:var(--tx-55);font-size:13px}
+  .foot__row a:hover{color:var(--gold)}
+  .foot__disc{margin-top:18px;font-size:11.5px;line-height:1.7;color:var(--tx-40);max-width:900px}
+  .foot__copy{font-size:12px;color:var(--tx-40)}
+
+  @media(max-width:760px){
+    .nav__links-hide{display:none}
+    .trust{grid-template-columns:repeat(2,1fr)}
+    .cards{grid-template-columns:1fr}
+    .signup__form{flex-direction:column}
+    .signup__form button{padding:14px}
+    .coin{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true">
+  <div class="grid-lines"></div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="glow g3"></div>
+  <div id="sparks"></div>
+  <div class="coin" style="width:64px;height:64px;font-size:26px;top:120px;left:6%;animation-duration:8s;animation-delay:-1s">&#8383;</div>
+  <div class="coin" style="width:48px;height:48px;font-size:20px;top:300px;left:13%;animation-duration:11s;animation-delay:-3s">&#926;</div>
+  <div class="coin" style="width:54px;height:54px;font-size:21px;top:160px;right:7%;animation-duration:9.5s;animation-delay:-2s">&#9678;</div>
+  <div class="coin" style="width:40px;height:40px;font-size:17px;top:360px;right:14%;animation-duration:12s;animation-delay:-4s">&#8383;</div>
+  <div class="coin" style="width:34px;height:34px;font-size:14px;top:90px;left:30%;animation-duration:10s;animation-delay:-5s">&#926;</div>
+  <div class="coin" style="width:30px;height:30px;font-size:13px;top:240px;right:30%;animation-duration:13s;animation-delay:-1.5s">&#9678;</div>
+</div>
+
+<nav class="nav">
+  <a class="nav__logo" href="../index.html" aria-label="TradeFundrr home">
+    <img src="../assets/images/crypto%20logo.svg" alt="TradeFundrr">
+  </a>
+  <div class="nav__right">
+    <a class="nav__link nav__links-hide" href="../index.html">Home</a>
+    <a class="nav__link nav__links-hide" href="../index.html#how-it-works">How It Works</a>
+    <a class="nav__cta" href="#notify">Get Notified</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow"><span class="dot"></span>Crypto &middot; Coming Soon</span>
+    <h1>Your crypto edge.<br><span class="hl">Funded.</span></h1>
+    <p class="lede">Soon you&rsquo;ll trade <b>BTC, ETH, and the top alts</b> with up to <b>$100K of simulated capital</b>, keep up to <b>80%</b> of the profits, and get paid <b>every Friday</b>. The same honest rules. None of your own coins at risk.</p>
+
+    <div class="assets">
+      <span class="achip"><span class="sym">&#8383;</span> Bitcoin</span>
+      <span class="achip"><span class="sym">&#926;</span> Ethereum</span>
+      <span class="achip"><span class="sym">&#9678;</span> Solana</span>
+      <span class="achip muted">+ top alts</span>
+    </div>
+
+    <div class="signup" id="notify">
+      <form class="signup__form" id="notifyForm">
+        <input type="email" id="notifyEmail" placeholder="you@email.com" aria-label="Email address" required>
+        <button type="submit">Notify me at launch</button>
+      </form>
+      <div class="signup__ok">&#10003;&nbsp; You&rsquo;re on the list. We&rsquo;ll email you the moment crypto goes live.</div>
+      <p class="signup__note">Be first in line. No spam, just the launch.</p>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="tcard"><div class="tcard__n">$100K</div><div class="tcard__l">Simulated capital</div></div>
+    <div class="tcard"><div class="tcard__n">80%</div><div class="tcard__l">Max profit split</div></div>
+    <div class="tcard"><div class="tcard__n">Weekly</div><div class="tcard__l">Payouts, every Friday</div></div>
+    <div class="tcard"><div class="tcard__n">4</div><div class="tcard__l">Markets, one institution</div></div>
+  </div>
+</header>
+
+<section class="coming">
+  <div class="container">
+    <div class="coming__head">
+      <span class="coming__eyebrow">What&rsquo;s coming</span>
+      <h2>Funded crypto, done the <span class="hl">honest</span> way.</h2>
+    </div>
+    <div class="cards">
+      <div class="fcard">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M7 5h7a3 3 0 0 1 0 6H7m0 0h8a3 3 0 0 1 0 6H7"/></svg></div>
+        <h3>Real funded capital</h3>
+        <p>Up to $100K of simulated buying power for BTC, ETH, and the majors. Run the size your edge deserves without bridging to an offshore exchange.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 7 4-14 3 7h4"/></svg></div>
+        <h3>Keep 80%, paid weekly</h3>
+        <p>The same payout cadence funded TradeFundrr traders already get. Real payouts, processed every Friday, straight to your account.</p>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div>
+        <h3>Rules published before you pay</h3>
+        <p>No moving goalposts, no gotchas. The transparent structure you already know from TradeFundrr, now built for crypto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closer">
+  <div class="container">
+    <p>The patterns work. The position size doesn&rsquo;t. <span class="hl">We&rsquo;re fixing that.</span></p>
+    <p class="sub">Sim is sim. Live is live. Crypto is almost here.</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot__row">
+      <a href="../index.html">&larr; Back to TradeFundrr</a>
+      <span class="foot__copy">&copy; 2026 TradeFundrr. All rights reserved.</span>
+    </div>
+    <p class="foot__disc">
+      Crypto funded programs are not yet available and details are subject to change. TradeFundrr funded accounts are simulated; payouts are real and processed on a weekly schedule to eligible funded accounts. Earning a payout depends on your trading performance and is not guaranteed. TradeFundrr is not a broker-dealer, investment adviser, or financial planner and does not provide personalized investment advice. Trading involves substantial risk of loss and is not suitable for everyone.
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var box=document.getElementById('sparks');if(!box)return;
+    for(var i=0;i<34;i++){
+      var s=document.createElement('span');s.className='spark';
+      s.style.left=(Math.random()*100)+'%';
+      s.style.top=(Math.random()*70)+'%';
+      s.style.animationDelay=(Math.random()*4)+'s';
+      s.style.animationDuration=(3+Math.random()*3)+'s';
+      box.appendChild(s);
+    }
+  })();
+  (function(){
+    var f=document.getElementById('notifyForm');if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=document.getElementById('notifyEmail').value.trim();
+      if(!email||email.indexOf('@')<1)return;
+      document.getElementById('notify').classList.add('done');
+    });
+  })();
+</script>
+</body>
+</html>
