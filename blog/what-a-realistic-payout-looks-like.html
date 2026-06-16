@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What a Realistic Payout Looks Like (and What Doesn't) | TradeFundrr Blog</title>
+  <meta name="description" content="The payout screenshots in your feed are the rare top of the distribution, not the middle. What a steady, realistic payout track tends to look like, how the split and rules shape it, and why the hype number is the wrong target.">
+  <link rel="canonical" href="https://tradefundrr.com/blog/what-a-realistic-payout-looks-like">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-16">
+  <meta property="article:section" content="Payouts">
+  <meta property="og:title" content="What a Realistic Payout Looks Like (and What Doesn't)">
+  <meta property="og:description" content="The screenshots are the tail of the distribution. Here is the shape of a steady payout track.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260616_123321_3bdf142e-c5d4-433d-b936-c873c99ec33e.png">
+  <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <style>
+    .bp-wrap{max-width:760px;margin:0 auto;padding:0 24px}
+    .bp-article{padding:124px 0 30px}
+    .bp-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#22d3a8;display:block;margin-bottom:16px}
+    .bp-article h1{font-family:"Inter",system-ui,sans-serif;font-size:40px;letter-spacing:-.8px;line-height:1.12;margin-bottom:18px}
+    .bp-meta{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13.5px;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .bp-meta .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#22d3a8,#0e8f74);display:flex;align-items:center;justify-content:center;font-weight:700;color:#04130f;font-size:13px;font-family:"Inter"}
+    .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
+    .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
+    .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
+    .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
+    .bp-body li{margin-bottom:10px}
+    .bp-body li strong,.bp-body p strong{color:#fff}
+    .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
+    .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
+    .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
+    .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
+    .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
+    .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
+    /* embedded diagram */
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
+    .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
+    #payfig .anim{opacity:0}
+    #payfig.play .hypecurve{animation:payDraw 1s ease forwards}
+    #payfig.play .realstep{animation:payRise .5s ease forwards}
+    #payfig.play .rs2{animation-delay:.3s}#payfig.play .rs3{animation-delay:.6s}#payfig.play .rs4{animation-delay:.9s}#payfig.play .rs5{animation-delay:1.2s}#payfig.play .rs6{animation-delay:1.5s}
+    #payfig.play .lbl{animation:payFade .5s ease forwards}
+    #payfig.play .lb2{animation-delay:.6s}
+    @keyframes payFade{to{opacity:1}}
+    @keyframes payDraw{from{opacity:0;stroke-dashoffset:600}to{opacity:1;stroke-dashoffset:0}}
+    @keyframes payRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion: reduce){#payfig .anim{opacity:1 !important;animation:none !important;transform:none !important;stroke-dashoffset:0 !important}}
+    @media(max-width:560px){.bp-article h1{font-size:30px}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu">
+          <a href="/pages/stocks.html" data-cat="stocks"><span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/options.html" data-cat="options"><span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/futures/" data-cat="futures"><span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span></a>
+          <a href="/pages/crypto.html" data-cat="crypto"><span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span></a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding"><span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span></a>
+        </div>
+      </span>
+      <a href="/index.html#how-it-works">How It Works</a>
+      <a href="/pages/about.html">Why Us</a>
+      <a href="/blog" class="active">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="/index.html#markets" class="btn btn--primary navbar__cta">Get Funded <span class="arrow"><img src="/assets/images/btn-arrow.svg" alt=""></span></a>
+    </div>
+  </nav>
+</header>
+
+<main class="bp-article">
+  <div class="bp-wrap">
+    <article>
+      <span class="bp-eyebrow">Payouts</span>
+      <h1>What a Realistic Payout Looks Like (and What Doesn't)</h1>
+      <div class="bp-meta">
+        <span class="who"><span class="av">TF</span> TradeFundrr</span>
+        <span class="bp-dot"></span><span>June 16, 2026</span>
+        <span class="bp-dot"></span><span>6 min read</span>
+      </div>
+
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260616_123321_3bdf142e-c5d4-433d-b936-c873c99ec33e.png" alt="Branded 3D candlestick prisms in mint teal on a navy surface, rising in modest steady steps">
+
+      <div class="bp-body">
+        <p>If you have spent any time around funded trading, your feed is full of payout screenshots. A big number, a green arrow, a caption about quitting the day job. They are not all fake. But they are not the middle of the story either. They are the top of it, and treating the top as the expectation is how a lot of traders set themselves up to feel like failures while doing perfectly reasonable work.</p>
+        <p>So here is the less exciting, more useful version. What does a realistic payout actually look like, and what shape does the hype leave out?</p>
+
+        <h2>The screenshots are the tail, not the average</h2>
+        <p>Any group of traders produces a spread of results. A small number have a standout month. A larger number make something modest. Many make little or break even, and some lose. The screenshots that travel are, almost by definition, from that thin top slice, because those are the ones worth posting. Nobody screenshots a quiet, ordinary week.</p>
+        <p>This is not a knock on the people posting. It is just how attention works. The problem is the inference: if every payout you see is large, it is easy to assume large is normal. It is not. The honest expectation is a steady, unremarkable shape with the occasional better week, not a straight line to a life-changing number.</p>
+
+        <figure class="bp-figure" id="payfig">
+          <span class="figtag">Illustrative example</span>
+          <svg viewBox="0 0 1000 340" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="Two shapes side by side: a steep vertical hype curve, and a modest stepwise realistic payout track with a small dip">
+            <!-- baseline -->
+            <line x1="60" y1="280" x2="940" y2="280" stroke="hsla(0,0%,100%,.18)" stroke-width="1.5"/>
+            <!-- LEFT: hype curve -->
+            <path class="anim hypecurve" d="M120,278 C150,270 175,120 200,40" fill="none" stroke="#f0556b" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="600"/>
+            <text class="anim lbl" x="70" y="60" fill="#f08294" font-size="16" font-weight="700">The screenshot version</text>
+            <text class="anim lbl" x="70" y="312" fill="#9fb0c3" font-size="13">Steep, rare, and rarely the whole story</text>
+            <!-- divider -->
+            <line x1="500" y1="40" x2="500" y2="300" stroke="hsla(0,0%,100%,.1)" stroke-width="1" stroke-dasharray="4 6"/>
+            <!-- RIGHT: realistic steps -->
+            <g transform="translate(560,0)">
+              <rect class="anim realstep" x="0" y="240" width="44" height="40" rx="4" fill="#22d3a8" fill-opacity=".85"/>
+              <rect class="anim realstep rs2" x="60" y="215" width="44" height="65" rx="4" fill="#22d3a8" fill-opacity=".85"/>
+              <rect class="anim realstep rs3" x="120" y="255" width="44" height="25" rx="4" fill="#f0556b" fill-opacity=".7"/>
+              <rect class="anim realstep rs4" x="180" y="200" width="44" height="80" rx="4" fill="#22d3a8" fill-opacity=".85"/>
+              <rect class="anim realstep rs5" x="240" y="180" width="44" height="100" rx="4" fill="#22d3a8" fill-opacity=".85"/>
+              <rect class="anim realstep rs6" x="300" y="150" width="44" height="130" rx="4" fill="#22d3a8" fill-opacity="1"/>
+            </g>
+            <text class="anim lbl lb2" x="560" y="60" fill="#22d3a8" font-size="16" font-weight="700">A steadier shape</text>
+            <text class="anim lbl lb2" x="560" y="312" fill="#9fb0c3" font-size="13">Modest weeks, an occasional down week, slow build</text>
+          </svg>
+          <figcaption>Illustrative example only. These shapes are simplified to contrast a hype curve with a steadier payout track. They are not data, not a forecast, and not based on any actual trader results.</figcaption>
+        </figure>
+
+        <h2>What the split and the rules do to the number</h2>
+        <p>A payout is not the same as the profit you generated on the screen. Two structural things shape it.</p>
+        <p>First, the split. On a standard TradeFundrr funded account you keep 80% of what you earn, and the program keeps the rest. So a payout is roughly four-fifths of the profit you made over the period, not all of it. That is a normal, transparent part of the model, but it is worth doing the arithmetic before you anchor on a gross figure.</p>
+        <p>Second, the rules that govern when and how much you can withdraw. Funded accounts carry things like minimum trading days, consistency expectations, and payout cycles. These exist to make sure a payout reflects a repeatable process rather than one lucky session. They tend to smooth the curve. They make a single explosive day count for less and a steady stretch count for more.</p>
+
+        <h2>What a realistic payout actually looks like</h2>
+        <p>Less like a jackpot, more like a paycheck that varies. In plain terms, a realistic payout track tends to share these features:</p>
+        <ul>
+          <li><strong>It is uneven.</strong> Some periods are better than others, and a flat or down stretch is normal rather than a sign something is broken.</li>
+          <li><strong>It builds slowly.</strong> The meaningful results come from consistency over many cycles, not from one period you can screenshot.</li>
+          <li><strong>It is a fraction of the gross.</strong> After the split, the number you withdraw is smaller than the profit you watched accumulate.</li>
+          <li><strong>It rewards staying in the game.</strong> The traders with the best payout histories are usually the ones who avoided the blow-up, not the ones who swung biggest.</li>
+        </ul>
+        <p>None of that is as thrilling as a green arrow. It is also the version that holds up over time.</p>
+
+        <h2>Why the hype number is the wrong target</h2>
+        <p>Chasing the screenshot number is not just unrealistic, it is actively dangerous to the account. To hit an outsized payout quickly you have to take outsized risk, and outsized risk is exactly what trips the daily loss limit and the drawdown. The fastest way to never get a payout is to trade like the person in the screenshot you are trying to copy. The steadier target, a modest result you can repeat, is both more achievable and less likely to end your account on the way there.</p>
+
+        <h2>One honest caveat</h2>
+        <p>We are not going to hand you a number. Results vary widely from one trader to the next, most of the spread comes down to discipline and risk control, and anyone promising a specific payout is selling something. What we can say plainly is this: a realistic payout is a fraction of your gross, it arrives unevenly, and it grows from consistency. You build all of that in a simulated environment first, where the rules are designed to reward the steady shape and not the spike, long before any of it involves your own capital.</p>
+
+        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit or trading results, and all figures and shapes above are hypothetical illustrations, not actual payouts. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+
+        <div class="bp-cta">
+          <h3>Build a payout track that lasts</h3>
+          <p>Develop the consistency behind real payouts in a structured, simulated environment, without risking your own capital.</p>
+          <a class="btn" href="/index.html#markets">Get Funded →</a>
+        </div>
+
+        <a class="bp-back" href="/blog">← Back to all posts</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; margin: 0 0 22px 0; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) { .site-footer__grid { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="navbar__logo" aria-label="TradeFundrr"><img src="/assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pages/why-us.html">Why Us?</a></li>
+          <li><a href="/pages/about.html">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="/pages/stocks.html">Stocks Day Trader Funding</a></li>
+          <li><a href="/pages/options.html">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/">Futures Day Trader Funding</a></li>
+          <li><a href="/pages/crypto.html">Crypto Day Trader Funding</a></li>
+          <li><a href="/pages/pro-funding.html">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=8ae59468-1120-4330-8ca7-97112729076b" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/pages/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/pages/impressum.html">Impressum</a></li>
+          <li><a href="/pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/pages/refund-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<section class="legal-disclosure" aria-label="Legal disclosures">
+  <style>
+    .legal-disclosure { background: #060914; padding: 60px 0 80px 0; border-top: 1px solid hsla(0,0%,100%,0.06); color: hsla(0,0%,100%,0.55); }
+    .legal-disclosure .ld-container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .legal-disclosure h3 { color: #fff; font-family: "Inter", system-ui, sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 18px 0; }
+    .legal-disclosure h3:not(:first-child) { margin-top: 36px; }
+    .legal-disclosure p { color: hsla(0,0%,100%,0.55); font-family: "Inter", system-ui, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0 0 14px 0; }
+    .legal-disclosure .cftc-block { text-transform: uppercase; font-size: 12.5px; letter-spacing: 0.3px; color: hsla(0,0%,100%,0.6); }
+    @media (max-width: 575px) { .legal-disclosure { padding: 40px 0 60px 0; } .legal-disclosure .ld-container { padding: 0 20px; } }
+  </style>
+  <div class="ld-container">
+    <h3>General Disclosure</h3>
+    <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+    <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+    <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+    <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+    <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+    <h3>Risk Disclosure</h3>
+    <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+    <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+    <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+    <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
+    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+    <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+    <h3>Testimonial Disclosure</h3>
+    <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script>
+  (function(){
+    var el=document.getElementById('payfig');
+    if(!el)return;
+    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
+    },{threshold:.35});
+    io.observe(el);
+  })();
+</script>
+<style>
+  .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
+  .bp-lightbox.open{display:flex}
+  .bp-lightbox__content{max-width:1100px;width:100%;max-height:92vh;overflow:auto;display:flex;align-items:center;justify-content:center}
+  .bp-lightbox__content img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .bp-lightbox__content .bp-figure{width:100%;margin:0;cursor:default}
+  .bp-lightbox__close{position:absolute;top:16px;right:26px;color:#fff;font-size:34px;line-height:1;font-family:"Inter",sans-serif;cursor:pointer;opacity:.85;z-index:1}
+  .bp-hero,.bp-inline,.bp-figure{cursor:zoom-in}
+</style>
+<div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <span class="bp-lightbox__close" aria-label="Close">&times;</span>
+  <div class="bp-lightbox__content" id="bpLbContent"></div>
+</div>
+<script>
+  (function(){
+    var lb=document.getElementById('bpLightbox');if(!lb)return;
+    var content=document.getElementById('bpLbContent');
+    var movedFig=null,placeholder=null;
+    function restore(){if(movedFig&&placeholder){placeholder.parentNode.insertBefore(movedFig,placeholder);placeholder.remove();}movedFig=null;placeholder=null;}
+    function openImg(el){restore();content.innerHTML='';var im=document.createElement('img');im.src=el.currentSrc||el.src;im.alt=el.alt||'';content.appendChild(im);lb.classList.add('open');}
+    function openFig(fig){restore();content.innerHTML='';placeholder=document.createComment('lb');fig.parentNode.insertBefore(placeholder,fig);movedFig=fig;fig.classList.add('play');content.appendChild(fig);lb.classList.add('open');}
+    function close(){lb.classList.remove('open');restore();content.innerHTML='';}
+    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){el.addEventListener('click',function(){openImg(el);});});
+    document.querySelectorAll('.bp-figure').forEach(function(fig){fig.addEventListener('click',function(){if(lb.contains(fig))return;openFig(fig);});});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('bp-lightbox__close'))close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+</script>
+</body>
+</html>
