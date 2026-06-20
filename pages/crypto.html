@@ -1231,40 +1231,48 @@
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function size(){ W=cv.clientWidth||900; H=cv.clientHeight||Math.round(W*0.7); cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
     size(); window.addEventListener('resize',size); window.addEventListener('load',size);
-    var rings=[{R:0.32,tilt:0.42,spd:0.15,dir:1,bf:0.052},{R:0.205,tilt:0.42,spd:0.18,dir:-1,bf:0.031}];
+    var rings=[
+      {A:0.33,B:0.115,rot:0.0,spd:0.34,dir:1},
+      {A:0.33,B:0.115,rot:1.047,spd:0.34,dir:-1},
+      {A:0.33,B:0.115,rot:2.094,spd:0.34,dir:1}
+    ];
     var coins=[
-      {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
-      {sym:'',shape:'eth',label:'Ethereum',color:'#8A97B5',ring:0,a0:0.898},
-      {sym:'',shape:'sol',label:'Solana',color:'#19FB9B',ring:0,a0:1.795},
-      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:0,a0:2.693},
-      {sym:'◆',label:'BNB',color:'#F3BA2F',ring:0,a0:3.591},
-      {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:4.488},
-      {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:5.386},
-      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:0.0},
-      {sym:'Ł',label:'Litecoin',color:'#C8CDD9',ring:1,a0:0.628},
-      {sym:'AVAX',label:'Avalanche',color:'#FF5A5C',ring:1,a0:1.257},
-      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:1.885},
-      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:2.513},
-      {sym:'POL',label:'Polygon',color:'#B388FF',ring:1,a0:3.142},
-      {sym:'UNI',label:'Uniswap',color:'#FF7BD5',ring:1,a0:3.770},
-      {sym:'ATOM',label:'Cosmos',color:'#9D8CFF',ring:1,a0:4.398},
-      {sym:'SUI',label:'Sui',color:'#5AC8FA',ring:1,a0:5.027},
-      {sym:'ARB',label:'Arbitrum',color:'#9DB6E0',ring:1,a0:5.655}
+      {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0,s:1},
+      {sym:'AVAX',label:'Avalanche',color:'#FF5A5C',ring:0,a0:1.047,s:0.6},
+      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:0,a0:2.094,s:1},
+      {sym:'POL',label:'Polygon',color:'#B388FF',ring:0,a0:3.142,s:0.6},
+      {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:4.189,s:1},
+      {sym:'SUI',label:'Sui',color:'#5AC8FA',ring:0,a0:5.236,s:0.6},
+      {sym:'',shape:'eth',label:'Ethereum',color:'#8A97B5',ring:1,a0:0.0,s:1},
+      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:1.047,s:0.6},
+      {sym:'◆',label:'BNB',color:'#F3BA2F',ring:1,a0:2.094,s:1},
+      {sym:'UNI',label:'Uniswap',color:'#FF7BD5',ring:1,a0:3.142,s:0.6},
+      {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:1,a0:4.189,s:1},
+      {sym:'ARB',label:'Arbitrum',color:'#9DB6E0',ring:1,a0:5.236,s:0.6},
+      {sym:'',shape:'sol',label:'Solana',color:'#19FB9B',ring:2,a0:0.0,s:1},
+      {sym:'Ł',label:'Litecoin',color:'#C8CDD9',ring:2,a0:1.257,s:0.6},
+      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:2,a0:2.513,s:0.6},
+      {sym:'ATOM',label:'Cosmos',color:'#9D8CFF',ring:2,a0:3.770,s:0.6},
+      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:2,a0:5.027,s:0.6}
     ];
     var coinsM=[
-      {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
-      {sym:'',shape:'eth',label:'Ethereum',color:'#3b3f4a',ring:0,a0:1.257},
-      {sym:'',shape:'sol',label:'Solana',color:'#121417',ring:0,a0:2.513},
-      {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:3.77},
-      {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:5.027},
-      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:1,a0:0.0},
-      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:1.571},
-      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:3.142},
-      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:4.712}
+      {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0,s:1},
+      {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:2.094,s:1},
+      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:0,a0:4.189,s:0.6},
+      {sym:'',shape:'eth',label:'Ethereum',color:'#3b3f4a',ring:1,a0:0.0,s:1},
+      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:1,a0:2.094,s:1},
+      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:4.189,s:0.6},
+      {sym:'',shape:'sol',label:'Solana',color:'#121417',ring:2,a0:0.0,s:1},
+      {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:2,a0:2.094,s:1},
+      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:2,a0:4.189,s:0.6}
     ];
-    var ringsM=[{R:0.40,tilt:0.44,spd:0.16,dir:1,bf:0.080},{R:0.225,tilt:0.44,spd:0.22,dir:-1,bf:0.05}];
-    var tf=null, tfImg=new Image();
-    tfImg.onload=function(){ try{ var o=document.createElement('canvas'); o.width=tfImg.naturalWidth; o.height=tfImg.naturalHeight; var oc=o.getContext('2d'); oc.drawImage(tfImg,0,0); oc.globalCompositeOperation='source-in'; oc.fillStyle='#0a0a0a'; oc.fillRect(0,0,o.width,o.height); tf=o; }catch(e){} };
+    var ringsM=[
+      {A:0.34,B:0.12,rot:0.0,spd:0.42,dir:1},
+      {A:0.34,B:0.12,rot:1.047,spd:0.42,dir:-1},
+      {A:0.34,B:0.12,rot:2.094,spd:0.42,dir:1}
+    ];
+    var tf=null, tfP=null, tfImg=new Image();
+    tfImg.onload=function(){ try{ function tint(col){ var o=document.createElement('canvas'); o.width=tfImg.naturalWidth; o.height=tfImg.naturalHeight; var oc=o.getContext('2d'); oc.drawImage(tfImg,0,0); oc.globalCompositeOperation='source-in'; oc.fillStyle=col; oc.fillRect(0,0,o.width,o.height); return o; } tf=tint('#ffffff'); }catch(e){} };
     tfImg.src='../assets/images/tf-icon-dark.png';
     function hexA(h,a){ var n=parseInt(h.slice(1),16); return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')'; }
     function qp(a,b,c,t){ var m=1-t; return m*m*a+2*m*t*b+t*t*c; }
@@ -1274,9 +1282,9 @@
       ctx.fillStyle=g; ctx.beginPath(); ctx.arc(cx,cy,gl,0,6.283); ctx.fill();
       var b=ctx.createRadialGradient(cx-R*0.34,cy-R*0.38,4,cx,cy,R*1.06); b.addColorStop(0,'#E9D5FF'); b.addColorStop(.5,'#A66CFF'); b.addColorStop(1,'#5B34B0');
       ctx.fillStyle=b; ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.fill();
-      ctx.strokeStyle='rgba(255,255,255,.5)'; ctx.lineWidth=1; ctx.stroke();
+      ctx.strokeStyle='rgba(255,255,255,.55)'; ctx.lineWidth=1; ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.stroke();
       if(tf){ ctx.drawImage(tf,cx-s/2,cy-s/2,s,s); }
-      else { ctx.fillStyle='#0a0a0a'; var u=R*0.42; ctx.beginPath(); ctx.moveTo(cx+u*0.25,cy-u); ctx.lineTo(cx-u*0.6,cy+u*0.25); ctx.lineTo(cx,cy+u*0.25); ctx.lineTo(cx-u*0.2,cy+u*1.15); ctx.lineTo(cx+u*0.65,cy-u*0.3); ctx.lineTo(cx+u*0.05,cy-u*0.3); ctx.closePath(); ctx.fill(); }
+      else { ctx.fillStyle='#fff'; var u=R*0.42; ctx.beginPath(); ctx.moveTo(cx+u*0.25,cy-u); ctx.lineTo(cx-u*0.6,cy+u*0.25); ctx.lineTo(cx,cy+u*0.25); ctx.lineTo(cx-u*0.2,cy+u*1.15); ctx.lineTo(cx+u*0.65,cy-u*0.3); ctx.lineTo(cx+u*0.05,cy-u*0.3); ctx.closePath(); ctx.fill(); }
     }
     function ethG(x,y,r){
       ctx.fillStyle='#fff'; var hw=r*0.56;
@@ -1316,13 +1324,16 @@
     var t0=performance.now();
     function render(t){
       var mob=(window.innerWidth||document.documentElement.clientWidth||W)<=900, RINGS=mob?ringsM:rings, COINS=mob?coinsM:coins;
-      var cx=W*(mob?0.5:0.57), cy=H*(mob?0.5:0.54); ctx.clearRect(0,0,W,H);
-      var nodes=COINS.map(function(c,i){ var rg=RINGS[c.ring]; var a=c.a0+rg.dir*rg.spd*t; var R=W*rg.R; var X=R*Math.cos(a), S=R*Math.sin(a); var depth=S*Math.cos(rg.tilt); return {idx:i,color:c.color,sym:c.sym,shape:c.shape,label:c.label,base:W*rg.bf,x:cx+X,y:cy+S*Math.sin(rg.tilt),depth:depth,R:R,sc:0.58+0.52*((depth/R+1)/2)}; });
-      nodes.sort(function(a,b){return a.depth-b.depth;});
-      RINGS.forEach(function(rg){ ctx.beginPath(); ctx.ellipse(cx,cy,W*rg.R,W*rg.R*Math.sin(rg.tilt),0,0,6.283); ctx.strokeStyle='rgba(150,170,210,.10)'; ctx.lineWidth=1; ctx.stroke(); });
-      nodes.forEach(function(n){ if(n.depth<0){ conn(n,cx,cy); part(n,cx,cy,t); node(n);} });
+      var cx=W*(mob?0.5:0.57), cy=H*0.5; ctx.clearRect(0,0,W,H);
+      var nodes=COINS.map(function(c,i){
+        var rg=RINGS[c.ring]; var a=c.a0+rg.dir*rg.spd*t;
+        var ex=rg.A*Math.cos(a), ey=rg.B*Math.sin(a), cr=Math.cos(rg.rot), sr=Math.sin(rg.rot);
+        return {idx:i,color:c.color,sym:c.sym,shape:c.shape,label:c.label,base:W*0.052*(c.s||1),x:cx+W*(ex*cr-ey*sr),y:cy+W*(ex*sr+ey*cr),depth:0,R:W*rg.A,sc:1};
+      });
+      RINGS.forEach(function(rg){ ctx.beginPath(); ctx.ellipse(cx,cy,W*rg.A,W*rg.B,rg.rot,0,6.283); ctx.strokeStyle='rgba(166,108,255,.18)'; ctx.lineWidth=1.3; ctx.stroke(); });
+      nodes.forEach(function(n){ if(n.y<cy){ node(n);} });
       hub(cx,cy,mob);
-      nodes.forEach(function(n){ if(n.depth>=0){ conn(n,cx,cy); part(n,cx,cy,t); node(n);} });
+      nodes.forEach(function(n){ if(n.y>=cy){ node(n);} });
     }
     if(reduce){ render(0.6); }
     else { (function loop(now){ render((now-t0)/1000); requestAnimationFrame(loop); })(performance.now()); }
