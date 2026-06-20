@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tradefundrr.com/</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tradefundrr.com/blog</loc><lastmod>2026-06-19</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradefundrr.com/blog</loc><lastmod>2026-06-20</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://tradefundrr.com/pages/about</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tradefundrr.com/pages/why-us</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tradefundrr.com/pages/pricing</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -48,4 +48,7 @@
   <url><loc>https://tradefundrr.com/blog/one-step-vs-two-step-evaluations</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tradefundrr.com/blog/pre-market-routine-for-discipline</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tradefundrr.com/blog/overnight-and-weekend-holding-rules</loc><lastmod>2026-06-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradefundrr.com/blog/what-you-pay-to-get-funded</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradefundrr.com/blog/what-counts-as-a-rule-violation</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tradefundrr.com/blog/correlation-risk-explained</loc><lastmod>2026-06-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
