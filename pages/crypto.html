@@ -1231,7 +1231,7 @@
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function size(){ W=cv.clientWidth||900; H=cv.clientHeight||Math.round(W*0.7); cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
     size(); window.addEventListener('resize',size); window.addEventListener('load',size);
-    var rings=[{R:0.32,tilt:0.42,spd:0.15,dir:1,bf:0.052},{R:0.205,tilt:0.42,spd:0.20,dir:-1,bf:0.034}];
+    var rings=[{R:0.32,tilt:0.42,spd:0.15,dir:1,bf:0.052},{R:0.205,tilt:0.42,spd:0.18,dir:-1,bf:0.031}];
     var coins=[
       {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
       {sym:'',shape:'eth',label:'Ethereum',color:'#8A97B5',ring:0,a0:1.26},
@@ -1239,13 +1239,17 @@
       {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:3.77},
       {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:5.03},
       {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:1,a0:0.0},
-      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:0.785},
-      {sym:'Ł',label:'Litecoin',color:'#C8CDD9',ring:1,a0:1.571},
-      {sym:'AVAX',label:'Avalanche',color:'#FF5A5C',ring:1,a0:2.356},
-      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:3.142},
-      {sym:'◆',label:'BNB',color:'#F3BA2F',ring:1,a0:3.927},
-      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:4.712},
-      {sym:'POL',label:'Polygon',color:'#B388FF',ring:1,a0:5.498}
+      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:0.524},
+      {sym:'Ł',label:'Litecoin',color:'#C8CDD9',ring:1,a0:1.047},
+      {sym:'AVAX',label:'Avalanche',color:'#FF5A5C',ring:1,a0:1.571},
+      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:2.094},
+      {sym:'◆',label:'BNB',color:'#F3BA2F',ring:1,a0:2.618},
+      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:3.142},
+      {sym:'POL',label:'Polygon',color:'#B388FF',ring:1,a0:3.665},
+      {sym:'UNI',label:'Uniswap',color:'#FF7BD5',ring:1,a0:4.189},
+      {sym:'ATOM',label:'Cosmos',color:'#9D8CFF',ring:1,a0:4.712},
+      {sym:'SUI',label:'Sui',color:'#5AC8FA',ring:1,a0:5.236},
+      {sym:'ARB',label:'Arbitrum',color:'#9DB6E0',ring:1,a0:5.760}
     ];
     var coinsM=[
       {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
