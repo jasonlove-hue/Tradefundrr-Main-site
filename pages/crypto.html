@@ -1240,16 +1240,18 @@
       {sym:'◆',label:'BNB',color:'#F3BA2F',ring:0,a0:3.591},
       {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:4.488},
       {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:5.386},
-      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:0.0},
-      {sym:'Ł',label:'Litecoin',color:'#C8CDD9',ring:1,a0:0.628},
-      {sym:'AVAX',label:'Avalanche',color:'#FF5A5C',ring:1,a0:1.257},
-      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:1.885},
-      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:2.513},
-      {sym:'POL',label:'Polygon',color:'#B388FF',ring:1,a0:3.142},
-      {sym:'UNI',label:'Uniswap',color:'#FF7BD5',ring:1,a0:3.770},
-      {sym:'ATOM',label:'Cosmos',color:'#9D8CFF',ring:1,a0:4.398},
-      {sym:'SUI',label:'Sui',color:'#5AC8FA',ring:1,a0:5.027},
-      {sym:'ARB',label:'Arbitrum',color:'#9DB6E0',ring:1,a0:5.655}
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:0.0},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:0.524},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:1.047},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:1.571},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:2.094},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:2.618},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:3.142},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:3.665},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:4.189},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:4.712},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:5.236},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:5.760}
     ];
     var coinsM=[
       {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
@@ -1257,14 +1259,14 @@
       {sym:'',shape:'sol',label:'Solana',color:'#121417',ring:0,a0:2.513},
       {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:3.77},
       {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:5.027},
-      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:1,a0:0.0},
-      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:1.571},
-      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:3.142},
-      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:4.712}
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:0.0},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:1.571},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:3.142},
+      {tf:true,label:'TradeFundrr',color:'#a66cff',ring:1,a0:4.712}
     ];
     var ringsM=[{R:0.40,tilt:0.44,spd:0.16,dir:1,bf:0.080},{R:0.225,tilt:0.44,spd:0.22,dir:-1,bf:0.05}];
-    var tf=null, tfImg=new Image();
-    tfImg.onload=function(){ try{ var o=document.createElement('canvas'); o.width=tfImg.naturalWidth; o.height=tfImg.naturalHeight; var oc=o.getContext('2d'); oc.drawImage(tfImg,0,0); oc.globalCompositeOperation='source-in'; oc.fillStyle='#0a0a0a'; oc.fillRect(0,0,o.width,o.height); tf=o; }catch(e){} };
+    var tf=null, tfP=null, tfImg=new Image();
+    tfImg.onload=function(){ try{ function tint(col){ var o=document.createElement('canvas'); o.width=tfImg.naturalWidth; o.height=tfImg.naturalHeight; var oc=o.getContext('2d'); oc.drawImage(tfImg,0,0); oc.globalCompositeOperation='source-in'; oc.fillStyle=col; oc.fillRect(0,0,o.width,o.height); return o; } tf=tint('#0a0a0a'); tfP=tint('#c4a6ff'); }catch(e){} };
     tfImg.src='../assets/images/tf-icon-dark.png';
     function hexA(h,a){ var n=parseInt(h.slice(1),16); return 'rgba('+((n>>16)&255)+','+((n>>8)&255)+','+(n&255)+','+a+')'; }
     function qp(a,b,c,t){ var m=1-t; return m*m*a+2*m*t*b+t*t*c; }
@@ -1307,7 +1309,8 @@
       ctx.beginPath(); ctx.arc(n.x,n.y,r,0,6.283); ctx.lineWidth=1; ctx.strokeStyle='rgba(255,255,255,0.12)'; ctx.stroke();
       ctx.beginPath(); ctx.arc(n.x,n.y,r-0.6,Math.PI*1.15,Math.PI*1.95); ctx.lineWidth=1.4; ctx.strokeStyle='rgba(255,255,255,0.30)'; ctx.stroke();
       // glyph / shape in brand color
-      if(n.shape==='eth'){ ethG(n.x,n.y,r); }
+      if(n.tf){ if(tfP){ var ts=r*1.2; ctx.drawImage(tfP,n.x-ts/2,n.y-ts/2,ts,ts); } else { ctx.fillStyle='#c4a6ff'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.font='800 '+(r*0.85).toFixed(1)+'px Inter,system-ui,sans-serif'; ctx.fillText('TF',n.x,n.y+1); } }
+      else if(n.shape==='eth'){ ethG(n.x,n.y,r); }
       else if(n.shape==='sol'){ solG(n.x,n.y,r); }
       else { ctx.fillStyle=n.color; ctx.textAlign='center'; ctx.textBaseline='middle'; var fs=n.sym.length>1?(r*1.5/n.sym.length):r*0.95; ctx.font='800 '+fs.toFixed(1)+'px Inter,system-ui,sans-serif'; ctx.fillText(n.sym,n.x,n.y+1); }
     }
