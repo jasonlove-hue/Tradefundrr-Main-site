@@ -509,6 +509,7 @@
         <div class="hchip"><b>80%</b><span>profit split</span></div>
         <div class="hchip"><b>Weekly</b><span>payouts</span></div>
         <div class="hchip"><b>$1</b><span>to start</span></div>
+        <div class="hchip"><b>400+</b><span>assets</span></div>
       </div>
       <div class="hero-btns">
         <a class="btn-gold" href="#plans">Get my $100K &rarr;</a>
@@ -619,7 +620,7 @@
       <span class="coin"><span class="sym">&#8383;</span> Bitcoin</span>
       <span class="coin"><span class="sym">&#926;</span> Ethereum</span>
       <span class="coin"><span class="sym">&#9678;</span> Solana</span>
-      <span class="coin more">+ liquid alts</span>
+      <span class="coin more">+ 400 more assets</span>
     </div>
   </div>
 </section>
@@ -1230,25 +1231,34 @@
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function size(){ W=cv.clientWidth||900; H=cv.clientHeight||Math.round(W*0.7); cv.width=W*DPR; cv.height=H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0); }
     size(); window.addEventListener('resize',size); window.addEventListener('load',size);
-    var rings=[{R:0.32,tilt:0.42,spd:0.15,dir:1,bf:0.052},{R:0.17,tilt:0.42,spd:0.23,dir:-1,bf:0.044}];
+    var rings=[{R:0.32,tilt:0.42,spd:0.15,dir:1,bf:0.052},{R:0.205,tilt:0.42,spd:0.20,dir:-1,bf:0.034}];
     var coins=[
       {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
       {sym:'',shape:'eth',label:'Ethereum',color:'#8A97B5',ring:0,a0:1.26},
       {sym:'',shape:'sol',label:'Solana',color:'#19FB9B',ring:0,a0:2.51},
       {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:3.77},
       {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:5.03},
-      {sym:'✕',label:'XRP',color:'#E6EAF2',ring:1,a0:0.6},
-      {sym:'Ł',label:'Litecoin',color:'#5C8FD6',ring:1,a0:2.7},
-      {sym:'◆',label:'BNB',color:'#F3BA2F',ring:1,a0:4.8}
+      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:1,a0:0.0},
+      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:0.785},
+      {sym:'Ł',label:'Litecoin',color:'#C8CDD9',ring:1,a0:1.571},
+      {sym:'AVAX',label:'Avalanche',color:'#FF5A5C',ring:1,a0:2.356},
+      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:3.142},
+      {sym:'◆',label:'BNB',color:'#F3BA2F',ring:1,a0:3.927},
+      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:4.712},
+      {sym:'POL',label:'Polygon',color:'#B388FF',ring:1,a0:5.498}
     ];
     var coinsM=[
       {sym:'₿',label:'Bitcoin',color:'#F7931A',ring:0,a0:0.0},
       {sym:'',shape:'eth',label:'Ethereum',color:'#3b3f4a',ring:0,a0:1.257},
       {sym:'',shape:'sol',label:'Solana',color:'#121417',ring:0,a0:2.513},
       {sym:'T',label:'Tether',color:'#26A17B',ring:0,a0:3.77},
-      {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:5.027}
+      {sym:'Ð',label:'Dogecoin',color:'#C2A633',ring:0,a0:5.027},
+      {sym:'XRP',label:'XRP',color:'#E6EAF2',ring:1,a0:0.0},
+      {sym:'ADA',label:'Cardano',color:'#4DA6FF',ring:1,a0:1.571},
+      {sym:'LINK',label:'Chainlink',color:'#5C9DFF',ring:1,a0:3.142},
+      {sym:'DOT',label:'Polkadot',color:'#FF4FA3',ring:1,a0:4.712}
     ];
-    var ringsM=[{R:0.40,tilt:0.44,spd:0.16,dir:1,bf:0.080}];
+    var ringsM=[{R:0.40,tilt:0.44,spd:0.16,dir:1,bf:0.080},{R:0.225,tilt:0.44,spd:0.22,dir:-1,bf:0.05}];
     var tf=null, tfImg=new Image();
     tfImg.onload=function(){ try{ var o=document.createElement('canvas'); o.width=tfImg.naturalWidth; o.height=tfImg.naturalHeight; var oc=o.getContext('2d'); oc.drawImage(tfImg,0,0); oc.globalCompositeOperation='source-in'; oc.fillStyle='#0a0a0a'; oc.fillRect(0,0,o.width,o.height); tf=o; }catch(e){} };
     tfImg.src='../assets/images/tf-icon-dark.png';
@@ -1295,7 +1305,7 @@
       // glyph / shape in brand color
       if(n.shape==='eth'){ ethG(n.x,n.y,r); }
       else if(n.shape==='sol'){ solG(n.x,n.y,r); }
-      else { ctx.fillStyle=n.color; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.font='800 '+(r*0.95).toFixed(1)+'px Inter,system-ui,sans-serif'; ctx.fillText(n.sym,n.x,n.y+1); }
+      else { ctx.fillStyle=n.color; ctx.textAlign='center'; ctx.textBaseline='middle'; var fs=n.sym.length>1?(r*1.5/n.sym.length):r*0.95; ctx.font='800 '+fs.toFixed(1)+'px Inter,system-ui,sans-serif'; ctx.fillText(n.sym,n.x,n.y+1); }
     }
     function conn(n,cx,cy){ ctx.beginPath(); ctx.moveTo(cx,cy); ctx.quadraticCurveTo((cx+n.x)/2,(cy+n.y)/2-16,n.x,n.y); ctx.strokeStyle='rgba(150,170,210,'+(0.06+0.16*Math.max(0,n.depth)/(W*0.4)).toFixed(3)+')'; ctx.lineWidth=1.2; ctx.stroke(); }
     function part(n,cx,cy,time){ var mx=(cx+n.x)/2, my=(cy+n.y)/2-16; for(var k=0;k<2;k++){ var p=(((time*0.42 + n.idx*0.13 + k*0.5)%1)+1)%1; var px=qp(cx,mx,n.x,p), py=qp(cy,my,n.y,p); var al=0.45+0.55*Math.max(0,n.depth)/n.R; ctx.beginPath(); ctx.arc(px,py,1.9,0,6.283); ctx.fillStyle='rgba(233,213,255,'+al.toFixed(2)+')'; ctx.shadowColor='rgba(166,108,255,.85)'; ctx.shadowBlur=6; ctx.fill(); ctx.shadowBlur=0; } }
