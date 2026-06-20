@@ -36,3 +36,7 @@ hero-concepts/
 security-deposit-mockups/
 # NOT ignored on purpose: assets/** (so a new image still shows in status and
 # never silently 404s live), and the HANDOFF / Reports / *.pdf docs.
+
+crypto-full-site-mockup.html
+crypto-hero-options.html
+Crypto Page — Rationale & Build Log.md
