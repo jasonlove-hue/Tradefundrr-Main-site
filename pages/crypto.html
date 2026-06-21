@@ -537,477 +537,344 @@
   </div>
 </div>
 
-<!-- HOOK (unaware) -->
-<section>
-  <div class="wrap narrow story">
-    <span class="eyebrow">You've got the edge</span>
-    <h2>Your edge is real.<br>Your bag's just too <span class="hl">small to prove it.</span></h2>
-    <p>You've called moves that printed. You've also watched a clean setup go to waste because the size wasn't there, or risked rent money to get the size, then ate a liquidation for it.</p>
-    <p>The skill was never the problem. <b>The capital was.</b> Every trader who's any good hits the same wall: a small account caps what your edge can actually do.</p>
-  </div>
-</section>
+<!-- ===== CRYPTO REDESIGN · below-hero sections (scoped under #cmid) ===== -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+#cmid{--bg:#08080C;--surface:#0C0C12;--accent:#8B5CF6;--deep:#6D28D9;--light:#A78BFA;--light2:#C4B5FD;--tx:#ECECF1;--tx2:#A6A6B4;--tx3:#9A9AA8;--muted:#8A8A98;--muted2:#6E6E7C;--muted3:#5E5E6C;--pos:#34D399;--neg:#F87171;--star:#FBBF24;--hair:rgba(255,255,255,.07);--hair2:rgba(255,255,255,.12);--abd:rgba(139,92,246,.45);--disp:'Space Grotesk',sans-serif;--body:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;color:var(--tx);font-family:var(--body)}
+#cmid *{box-sizing:border-box;margin:0;padding:0}
+#cmid a{text-decoration:none;color:inherit}
+#cmid .sec{max-width:1120px;margin:0 auto;padding:96px 32px 0}
+#cmid .faq{max-width:840px;margin:0 auto;padding:96px 32px 0}
+#cmid .eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+#cmid h2{font-family:var(--disp);font-weight:700;font-size:40px;letter-spacing:-.02em;line-height:1.08;margin:14px 0 0}
+#cmid .lead{font-size:18px;line-height:1.6;color:var(--tx2);margin:18px 0 0;font-weight:450;max-width:680px}
+#cmid .center{text-align:center}
+#cmid .center .lead{margin-left:auto;margin-right:auto}
+#cmid .btn{font-family:var(--body);font-weight:700;cursor:pointer;border:none;border-radius:12px;display:inline-flex;align-items:center;gap:9px;transition:all .15s}
+#cmid .b-pri{background:var(--accent);color:#fff;padding:15px 26px;font-size:16px;box-shadow:0 8px 30px rgba(139,92,246,.35)}
+#cmid .b-pri:hover{background:#7c4ef3;transform:translateY(-1px)}
+#cmid .b-sec{background:rgba(255,255,255,.05);border:1px solid var(--hair2);color:var(--tx);padding:15px 26px;font-size:16px}
+#cmid .b-sec:hover{background:rgba(255,255,255,.09)}
+#cmid .card{background:var(--surface);border:1px solid var(--hair);border-radius:16px}
+#cmid .stars{color:var(--star);letter-spacing:1px}
+#cmid .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+#cmid .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+#cmid .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+#cmid .pad{padding:26px}
+#cmid .tile{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+#cmid .t-acc{background:rgba(139,92,246,.16);color:var(--light)}
+#cmid .t-pos{background:rgba(52,211,153,.14);color:var(--pos)}
+#cmid .t-neg{background:rgba(248,113,113,.14);color:var(--neg)}
+#cmid .ctitle{font-family:var(--disp);font-weight:700;font-size:18px;margin-top:14px}
+#cmid .cdesc{font-size:14px;color:var(--tx3);line-height:1.6;margin-top:8px}
+#cmid .compare{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:36px;align-items:stretch}
+#cmid .cmp{padding:28px}
+#cmid .cmp.bag{background:var(--surface);border:1px solid rgba(248,113,113,.3);border-radius:16px 0 0 16px}
+#cmid .cmp.cap{background:linear-gradient(180deg,rgba(139,92,246,.12),var(--surface));border:1px solid var(--abd);border-radius:0 16px 16px 0}
+#cmid .vs{display:flex;align-items:center;justify-content:center;padding:0 18px;color:var(--muted);font-family:var(--disp);font-weight:700}
+#cmid .cmp .big{font-family:var(--disp);font-weight:700;font-size:40px;margin:10px 0}
+#cmid .lpill{display:inline-block;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+#cmid .lpill.r{background:rgba(248,113,113,.15);color:var(--neg)}
+#cmid .lpill.g{background:rgba(52,211,153,.15);color:var(--pos)}
+#cmid .toggle{display:inline-flex;gap:4px;background:var(--surface);border:1px solid var(--hair);border-radius:11px;padding:4px;margin:24px auto 0}
+#cmid .toggle button{font-family:var(--body);font-weight:600;font-size:13.5px;padding:8px 20px;border-radius:8px;border:none;cursor:pointer;background:transparent;color:var(--tx3);transition:all .15s}
+#cmid .toggle button.on{background:var(--accent);color:#fff}
+#cmid .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:start}
+#cmid .pcard{background:var(--surface);border:1px solid var(--hair);border-radius:18px;padding:28px;position:relative}
+#cmid .pcard.pop{background:linear-gradient(180deg,rgba(139,92,246,.12),var(--surface));border:1px solid var(--abd);box-shadow:0 20px 60px rgba(124,58,237,.18)}
+#cmid .badge{position:absolute;top:-12px;left:24px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;white-space:nowrap}
+#cmid .ptier{font-family:var(--disp);font-weight:700;font-size:21px}
+#cmid .psub-tier{font-size:12.5px;color:var(--muted);margin-top:4px}
+#cmid .pprice{font-family:var(--disp);font-weight:700;font-size:40px;margin:14px 0 2px}
+#cmid .psub{font-size:12.5px;color:var(--tx3);min-height:34px}
+#cmid .pfeat{list-style:none;margin:18px 0;padding-top:18px;border-top:1px solid var(--hair)}
+#cmid .pfeat li{font-size:13.5px;color:var(--tx2);padding:7px 0 7px 24px;position:relative;line-height:1.4}
+#cmid .pfeat li::before{content:"\2713";position:absolute;left:0;color:var(--pos);font-weight:700}
+#cmid .pbtn{display:block;width:100%;text-align:center;margin-top:6px;padding:14px;border-radius:12px;font-weight:700;font-size:14px;cursor:pointer;border:none}
+#cmid .pbtn.pri{background:var(--accent);color:#fff}
+#cmid .pbtn.sec{background:rgba(255,255,255,.05);border:1px solid var(--hair2);color:var(--tx)}
+#cmid .terms{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+#cmid .term{font-size:12.5px;color:var(--tx2);background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);border-radius:999px;padding:7px 14px}
+#cmid .term::before{content:"\2713 ";color:var(--pos);font-weight:700}
+#cmid .ruletoggle{display:flex;align-items:center;gap:9px;margin:26px auto 0;background:transparent;border:1px solid var(--hair2);color:var(--tx);font-family:var(--body);font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;cursor:pointer}
+#cmid .ruletoggle .car{transition:transform .2s}
+#cmid .tablewrap{margin-top:18px;overflow-x:auto;border:1px solid var(--hair);border-radius:14px}
+#cmid table{width:100%;border-collapse:collapse;font-size:13px;min-width:680px}
+#cmid th,#cmid td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.05)}
+#cmid th{font-family:var(--body);color:var(--tx3);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em;background:rgba(255,255,255,.02)}
+#cmid td{font-family:var(--mono);color:var(--tx2)}
+#cmid td:first-child{font-family:var(--body);color:var(--tx);font-weight:600}
+#cmid tr.z td{background:rgba(255,255,255,.015)}
+#cmid .fineprint{font-size:12px;color:var(--muted2);line-height:1.55;margin:16px 4px 0;max-width:900px}
+#cmid .vsgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+#cmid .vscol{padding:26px}
+#cmid .vscol.us{background:linear-gradient(180deg,rgba(139,92,246,.1),var(--surface));border:1px solid var(--abd)}
+#cmid .vsh{font-family:var(--disp);font-weight:700;font-size:18px;margin-bottom:8px}
+#cmid .vsrow{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--hair);font-size:14px;color:var(--tx2);line-height:1.5}
+#cmid .vsrow:last-child{border-bottom:none}
+#cmid .mk{flex-shrink:0;font-weight:700}
+#cmid .mk.x{color:var(--neg)}
+#cmid .mk.c{color:var(--pos)}
+#cmid .faqlist{border:1px solid var(--hair);border-radius:16px;overflow:hidden;margin-top:36px}
+#cmid .faqitem{border-bottom:1px solid var(--hair)}
+#cmid .faqitem:last-child{border-bottom:none}
+#cmid .faqq{width:100%;text-align:left;background:transparent;border:none;color:var(--tx);font-family:var(--body);font-weight:600;font-size:16px;padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+#cmid .faqq .car{transition:transform .2s;color:var(--accent)}
+#cmid .faqa{padding:0 22px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s ease;font-size:14.5px;color:var(--tx3);line-height:1.65}
+#cmid .faqitem.open .faqa{max-height:280px;padding:0 22px 20px}
+#cmid .faqitem.open .car{transform:rotate(180deg)}
+#cmid .finalcta{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(109,40,217,.1));border:1px solid var(--abd);border-radius:24px;padding:56px 40px;text-align:center;margin-top:40px}
+#cmid .finalcta .fglow{position:absolute;top:-100px;right:-60px;width:420px;height:420px;background:radial-gradient(circle,rgba(139,92,246,.4),transparent 60%);pointer-events:none}
+#cmid .finalcta h2{font-size:44px;letter-spacing:-.02em}
+@media(max-width:860px){
+  #cmid h2{font-size:30px}
+  #cmid .finalcta h2{font-size:32px}
+  #cmid .g2,#cmid .g3,#cmid .g4,#cmid .vsgrid,#cmid .pgrid,#cmid .compare{grid-template-columns:1fr}
+  #cmid .compare{gap:14px}
+  #cmid .cmp.bag,#cmid .cmp.cap{border-radius:16px}
+  #cmid .vs{padding:6px}
+}
+</style>
 
-<!-- REVEAL -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow">Trade our stack. Not yours.</span>
-    <h2>$100K of our capital. <span class="hl">Keep 80% of what you pull.</span></h2>
-    <p class="lead">We fund you up to <b>$100K</b> to trade BTC, ETH and the majors. Stay inside the rules, cash out weekly. Blow a trade? It's our capital, not your bag, no liquidating your savings to size up, no offshore bridge just to get leverage.</p>
-    <div class="termcard" id="termCard">
-      <div class="term-head">
-        <div class="term-pair"><span class="term-ic">&#8383;</span><div><div class="term-sym">BTC-PERP</div><div class="term-tag">Funded &middot; 80% to you</div></div></div>
-        <div class="term-stat"><div class="term-price" id="termPrice">$58,200</div><div class="term-chg" id="termChg">+0.0%</div></div>
-        <div class="term-pnl"><div class="term-pnl-l">Account P&amp;L</div><div class="term-pnl-v" id="termPnl">+$0</div></div>
-      </div>
-      <canvas id="termCanvas" class="term-canvas"></canvas>
-      <p class="term-cap">Illustrative funded-account run. Not a performance promise, results depend on your trading.</p>
-    </div>
+<div id="cmid">
+
+  <!-- VALUE -->
+  <section class="sec">
+    <span class="eyebrow">Your edge is real — your bag isn't</span>
+    <h2>The skill was never the problem. The capital was.</h2>
+    <p class="lead">Most struggling traders don't need another setup. They need real size behind a real edge — without risking the rent to get it.</p>
     <div class="compare">
-      <div class="cbox bad">
-        <span class="clab">Your own bag</span>
-        <div class="cbig">$2&ndash;5K</div>
-        <p>Maxed-out leverage, one liquidation from zero, and your rent on the line.</p>
-        <div class="mini-wrap"><canvas class="mini-cv" id="lqBad"></canvas><span class="lq-tag" id="lqTag">Liquidated</span></div>
-      </div>
-      <div class="cvs">vs</div>
-      <div class="cbox good">
-        <span class="clab">Our capital</span>
-        <div class="cbig">Up to $100K</div>
-        <p>Real size, real fills, your savings never touched. The most you risk is the entry fee.</p>
-        <div class="mini-wrap"><canvas class="mini-cv" id="lqGood"></canvas></div>
-      </div>
+      <div class="cmp bag"><div style="font-size:13px;color:var(--muted)">Your own bag</div><div class="big">$2–5K</div><span class="lpill r">Liquidated</span><p class="cdesc">One bad candle on 10x and the loss comes straight out of your savings.</p></div>
+      <div class="vs">vs</div>
+      <div class="cmp cap"><div style="font-size:13px;color:var(--light2)">Our capital</div><div class="big">Up to $100K</div><span class="lpill g">Funded · 80% to you</span><p class="cdesc">Size your edge properly. Your downside is capped at the entry fee.</p></div>
     </div>
-  </div>
-</section>
+    <div class="g2" id="cm_benefits"></div>
+  </section>
 
-<!-- EXPLAINER -->
-<section id="what">
-  <div class="wrap">
-    <div class="explain">
-      <span class="eyebrow">Why this beats your own account</span>
-      <h2>Same edge. <span class="hl">Real size behind it.</span></h2>
-      <p class="lead">Four things change the moment you're trading our capital instead of your own:</p>
-      <div class="steps">
-        <div class="line"><span class="tick">&#10003;</span><span><b>Up to $100K of buying power.</b> Size your edge properly instead of trading 2x because that's all your bag allows.</span></div>
-        <div class="line"><span class="tick">&#10003;</span><span><b>Your downside is the fee.</b> No more watching a stop-out come straight out of your actual savings.</span></div>
-        <div class="line"><span class="tick">&#10003;</span><span><b>No offshore bridge.</b> Trade the majors on a real platform, not a sketchy venue you only opened to get leverage.</span></div>
-        <div class="line"><span class="tick">&#10003;</span><span><b>Keep 80%, paid weekly.</b> Real cash out, not points or "profit credits" you can't withdraw.</span></div>
-      </div>
-      <p class="kick">You already know how to trade. <span class="hl">This is the size you've been missing.</span></p>
-    </div>
-  </div>
-</section>
+  <!-- STEPS -->
+  <section class="sec">
+    <span class="eyebrow">How it works</span>
+    <h2>From signup to your first payout.</h2>
+    <div class="g4" id="cm_steps"></div>
+  </section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="wrap">
-    <span class="eyebrow">Four steps to funded</span>
-    <h2>From signup to <span class="hl">your first payout.</span></h2>
-    <p class="lead">No hand-holding. Here's the whole path.</p>
-    <div class="steps-grid">
-      <div class="step"><div class="n">STEP 1</div><h3>Pick your size</h3><p>From $5K up to $100K of our capital. You choose how big you start.</p></div>
-      <div class="step"><div class="n">STEP 2</div><h3>Clear the eval</h3><p>Hit the profit target inside the drawdown and risk limits. Or skip it entirely with Express.</p></div>
-      <div class="step"><div class="n">STEP 3</div><h3>Trade the majors</h3><p>BTC, ETH and the top alts on a real platform. Real prices, real fills.</p></div>
-      <div class="step"><div class="n">STEP 4</div><h3>Cash out weekly</h3><p>Request a payout and keep 80%. Real money to your account, not credits.</p></div>
+  <!-- PRICING -->
+  <section class="sec center" id="plans">
+    <span class="eyebrow">Pick your plan</span>
+    <h2>Funding that fits how you trade.</h2>
+    <p class="lead">Start at a buck, or skip the eval entirely. Every plan keeps 80% and pays weekly.</p>
+    <div class="toggle"><button id="cm_t50" class="on" onclick="cmidSetSize('50K')">50K</button><button id="cm_t100" onclick="cmidSetSize('100K')">100K</button></div>
+    <div class="pgrid" style="text-align:left">
+      <div class="pcard">
+        <div class="ptier">Promo · 5K</div><div class="psub-tier">Test it for a buck</div>
+        <div class="pprice">$1</div><div class="psub">+ $29 activation on pass · 5K only</div>
+        <ul class="pfeat" id="cm_promoF"></ul>
+        <button class="pbtn sec">Start the $1 promo</button>
+      </div>
+      <div class="pcard pop">
+        <div class="badge">Most popular</div>
+        <div class="ptier">Growth <span id="cm_gSize">50K</span></div><div class="psub-tier">Pass once, get funded</div>
+        <div class="pprice" id="cm_gPrice">$199</div><div class="psub" id="cm_gSub"></div>
+        <ul class="pfeat" id="cm_gFeat"></ul>
+        <button class="pbtn pri">Choose Growth <span id="cm_gSize2">50K</span></button>
+      </div>
+      <div class="pcard">
+        <div class="ptier">Express <span id="cm_eSize">50K</span></div><div class="psub-tier">Skip the eval</div>
+        <div class="pprice" id="cm_ePrice">$999</div><div class="psub" id="cm_eSub"></div>
+        <ul class="pfeat" id="cm_eFeat"></ul>
+        <button class="pbtn sec">Get Express <span id="cm_eSize2">50K</span></button>
+      </div>
     </div>
-  </div>
-</section>
+    <div class="terms" id="cm_terms"></div>
+    <button class="ruletoggle" onclick="cmidToggleTable()"><span id="cm_tableLabel">See every rule · all 5 plans</span><span class="car" id="cm_tableCar">▼</span></button>
+    <div id="cm_tableBox" style="display:none">
+      <div class="tablewrap"><table id="cm_ruleTable"></table></div>
+      <p class="fineprint">Funded accounts are simulated; live capital is allocated by T3 Global on graduation. Drawdown trails end-of-day until the account reaches its starting balance, then locks. Earning a payout depends on your trading and is not guaranteed. Standard platform and data fees apply.</p>
+    </div>
+  </section>
 
-<!-- WHAT YOU CAN TRADE -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow">What you can trade</span>
-    <h2>The majors and the <span class="hl">alts that actually move.</span></h2>
-    <p class="lead">Trade Bitcoin, Ethereum and the liquid alts, the names with the volume to size into.</p>
-    <div class="coins">
-      <span class="coin"><span class="sym">&#8383;</span> Bitcoin</span>
-      <span class="coin"><span class="sym">&#926;</span> Ethereum</span>
-      <span class="coin"><span class="sym">&#9678;</span> Solana</span>
-      <span class="coin more">+ 400 more assets</span>
-    </div>
-  </div>
-</section>
-
-<!-- PLANS -->
-<section id="plans">
-  <div class="wrap">
-    <span class="eyebrow">Pick your account</span>
-    <h2>Eval, Express, or test it for <span class="hl">a buck.</span></h2>
-    <p class="lead">Pick a size, <b>Growth</b> and <b>Express</b> below update to that account. The <b>$5K Promo</b> is a separate, one-time deal.</p>
-    <div class="size-toggle-row">
-      <div class="size-toggle" id="sizeToggle">
-        <button class="active" data-size="50">50K ACCOUNT</button>
-        <button data-size="100">100K ACCOUNT</button>
-      </div>
-    </div>
-    <div class="plan-grid">
-      <div class="plan alt">
-        <span class="tag">Promo &middot; 5K only</span>
-        <div class="pname">Promo Account</div>
-        <div class="acct">The lowest-cost way in. One per person, separate from your other accounts.</div>
-        <div class="price">$1<small> to start</small></div>
-        <div class="sub2">+ $29 activation on pass &middot; no monthly fee</div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <b>$5,000</b> simulated buying power</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Profit target to pass: <b>$300</b></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Trailing max drawdown: $250</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Max risk / trade: 0.5% funded</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Keep 80%, paid weekly</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> One per person</li>
-        </ul>
-        <a class="pbtn" href="#">Start the $1 Promo</a>
-      </div>
-      <div class="plan">
-        <span class="tag">Eval path</span>
-        <div class="pname">Growth Account</div>
-        <div class="acct">Prove yourself through an evaluation at the lowest upfront cost, then go funded.</div>
-        <div class="price">$<span class="sw" data-50="199" data-100="499">199</span><small> to start</small></div>
-        <div class="sub2"><span class="sw" data-50="50K" data-100="100K">50K</span> eval &middot; matching $129 activation on pass &middot; no monthly fee</div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <b>$<span class="sw" data-50="50,000" data-100="100,000">50,000</span></b> simulated buying power</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Profit target to pass: <b>$<span class="sw" data-50="4,000" data-100="6,000">4,000</span></b></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Trailing max drawdown: $<span class="sw" data-50="3,000" data-100="6,000">3,000</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Max risk / trade: 0.5% funded</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Keep 80%, paid weekly</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Up to $20K total payout</li>
-        </ul>
-        <a class="pbtn" href="#">Choose Growth <span class="sw" data-50="50K" data-100="100K">50K</span></a>
-      </div>
-      <div class="plan feat">
-        <span class="badge">Most popular</span>
-        <span class="tag">Skip the eval</span>
-        <div class="pname">Express Funding</div>
-        <div class="acct">Skip the evaluation entirely. Trade the funded account from day one.</div>
-        <div class="price">$<span class="sw" data-50="999" data-100="1,999">999</span><small> to start</small></div>
-        <div class="sub2">Funded from day one &middot; no eval, no activation fee</div>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <b>$<span class="sw" data-50="50,000" data-100="100,000">50,000</span></b> buying power, no eval phase</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Trailing max drawdown: $<span class="sw" data-50="3,000" data-100="6,000">3,000</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Max risk / trade: 0.5% funded</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Keep 80%, paid weekly</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Up to $25K total payout</li>
-        </ul>
-        <a class="pbtn" href="#">Get Express <span class="sw" data-50="50K" data-100="100K">50K</span></a>
-      </div>
-    </div>
-    <div class="chipstrip">
-      <span class="fchip">TradeFundrr Trader</span>
-      <span class="fchip"><b>80 / 20</b> split</span>
-      <span class="fchip">Weekly payouts</span>
-      <span class="fchip">&gt;15s min hold</span>
-      <span class="fchip">No daily loss limit</span>
-      <span class="fchip">News allowed</span>
-      <span class="fchip">Up to 5 accounts + 1 promo</span>
-    </div>
-    <details class="full" open>
-      <summary><span>See every rule &middot; Promo, Growth &amp; Express &middot; 50K vs 100K</span><span class="chev">+</span></summary>
-      <div class="tblwrap">
-        <table class="spec">
-          <thead><tr><th>Parameter</th><th>Promo 5K</th><th>Growth 50K</th><th>Growth 100K</th><th>Express 50K</th><th>Express 100K</th></tr></thead>
-          <tbody>
-            <tr><th>Path to funded</th><td>Eval first</td><td>Eval first</td><td>Eval first</td><td>Instant</td><td>Instant</td></tr>
-            <tr><th>Initial fee</th><td>$1</td><td>$199</td><td>$499</td><td>$999</td><td>$1,999</td></tr>
-            <tr><th>Activation (on pass)</th><td>$29</td><td>$129</td><td>$129</td><td>N/A</td><td>N/A</td></tr>
-            <tr><th>Reset (on breach)</th><td>&ndash;</td><td>$69</td><td>$79</td><td>$399</td><td>$599</td></tr>
-            <tr><th>Trailing max drawdown</th><td>$250</td><td>$3,000</td><td>$6,000</td><td>$3,000</td><td>$6,000</td></tr>
-            <tr><th>Daily loss limit</th><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td></tr>
-            <tr><th>Profit target (eval)</th><td>$300</td><td>$4,000</td><td>$6,000</td><td>N/A</td><td>N/A</td></tr>
-            <tr><th>Max risk / trade (funded)</th><td>0.50%</td><td>0.50%</td><td>0.50%</td><td>0.50%</td><td>0.50%</td></tr>
-            <tr><th>Consistency (funded)</th><td>30%</td><td>30%</td><td>30%</td><td>30%</td><td>30%</td></tr>
-            <tr><th>Per-cycle payout (1&ndash;3 &rarr; 4+)</th><td>$500 &rarr; $1,000</td><td>$1,000 &rarr; $1,500</td><td>$1,500 &rarr; $3,000</td><td>$1,000 &rarr; $1,500</td><td>$1,500 &rarr; $3,000</td></tr>
-            <tr><th>Max total payout</th><td>$5,000</td><td>$20,000</td><td>$20,000</td><td>$25,000</td><td>$25,000</td></tr>
-            <tr><th>Min trading days</th><td>1 eval &middot; 10 funded</td><td>1 eval &middot; 10 funded</td><td>1 eval &middot; 10 funded</td><td>10 funded</td><td>10 funded</td></tr>
-            <tr><th>Profit split</th><td>80/20</td><td>80/20</td><td>80/20</td><td>80/20</td><td>80/20</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="specfoot">The $1 Promo is a one-time 5K eval, one per person, separate from your standard accounts (up to 5), carrying the same rules. Drawdown trails end-of-day until the account reaches its starting balance, then locks. Lifetime cap is per account; the account closes once reached. Earning a payout depends on your trading and is not guaranteed. Funded accounts are simulated; live capital is allocated by T3 Global on graduation. Standard platform and data fees apply.</p>
-    </details>
-  </div>
-</section>
-
-<!-- NUMBERS -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow">What you keep</span>
-    <h2>You pull it, <span class="hl">you keep most of it.</span></h2>
-    <p class="lead">Trade well and the cut is real cash, mostly yours. The shape of the deal:</p>
-    <div class="nums">
-      <div class="num-card"><div class="v" data-to="100" data-prefix="$" data-suffix="K">$100K</div><div class="l">buying power</div></div>
-      <div class="num-card"><div class="v" data-to="80" data-suffix="%">80%</div><div class="l">your cut of profits</div></div>
-      <div class="num-card"><div class="v">Weekly</div><div class="l">payout cycle</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- THE GRAVEYARD -->
-<section>
-  <div class="wrap">
+  <!-- WHY FIRMS FAIL -->
+  <section class="sec">
     <span class="eyebrow">Read the room</span>
-    <h2>Most crypto funded firms <span class="hl">didn't make it.</span></h2>
-    <p class="lead">You've watched it happen. A firm launches, signs up thousands, then the rules change, the payouts stall, the Discord goes quiet and the domain 404s. The space is a graveyard. Here's what keeps killing them.</p>
-    <div class="grave-grid">
-      <div class="grave"><span class="gx">&times;</span><div><h3>Rugged at payout</h3><p>The week your withdrawal clears, you suddenly "violated" a rule nobody mentioned. The fine print was the exit.</p></div></div>
-      <div class="grave"><span class="gx">&times;</span><div><h3>Vanished overnight</h3><p>Anonymous team, offshore shell, a Telegram handle for "support." One morning the site's gone and so is your account.</p></div></div>
-      <div class="grave"><span class="gx">&times;</span><div><h3>Never had the capital</h3><p>Selling challenges and resets with no real desk behind them. Your entry fee <em>was</em> the business model, until the math caught up.</p></div></div>
-      <div class="grave"><span class="gx">&times;</span><div><h3>Goalposts on wheels</h3><p>Drawdown that quietly recalculates, a consistency rule buried in a PDF, a target that moves the moment you get close.</p></div></div>
-    </div>
-    <p class="grave-kick">We built the <span class="hl">exact opposite</span>, and we put a real, regulated trading group's name on it.</p>
-  </div>
-</section>
+    <h2>Most crypto funded firms didn't make it.</h2>
+    <p class="lead">You've been burned before — fairly. Here's exactly how the last wave went down.</p>
+    <div class="g2" id="cm_failures"></div>
+  </section>
 
-<!-- US VS THEM -->
-<section>
-  <div class="wrap">
+  <!-- US VS THEM -->
+  <section class="sec" id="safe">
     <span class="eyebrow">Us vs the rest</span>
-    <h2>Same pitch everywhere. <span class="hl">Almost none of it's real.</span></h2>
-    <p class="lead">Line us up against the typical crypto funded firm. The difference was never the marketing, it's whether anyone's actually behind the account.</p>
+    <h2>Same pitch everywhere. Almost none of it's real.</h2>
+    <p class="lead">The difference isn't the marketing. It's what's actually behind the account.</p>
     <div class="vsgrid">
-      <div class="vscol them">
-        <div class="vshead">The typical crypto firm</div>
-        <ul>
-          <li><span class="vx">&times;</span> Anonymous team, offshore shell, Telegram "support"</li>
-          <li><span class="vx">&times;</span> Funded by your challenge fees and resets</li>
-          <li><span class="vx">&times;</span> Rules buried in a PDF, rewritten at payout</li>
-          <li><span class="vx">&times;</span> Payouts stuck "processing" with no date</li>
-          <li><span class="vx">&times;</span> Win too much and the account quietly "breaches"</li>
-          <li><span class="vx">&times;</span> Drawdown that recalculates against you</li>
-        </ul>
-      </div>
-      <div class="vscol us">
-        <div class="vshead">TradeFundrr</div>
-        <ul>
-          <li><span class="vc">&check;</span> A real US trading group behind it, T3</li>
-          <li><span class="vc">&check;</span> Profits come from real trading + scaled capital</li>
-          <li><span class="vc">&check;</span> Every rule published before you pay, and fixed</li>
-          <li><span class="vc">&check;</span> Weekly payouts when you qualify, in real cash</li>
-          <li><span class="vc">&check;</span> Win and you scale, up to your plan's cap</li>
-          <li><span class="vc">&check;</span> Trailing drawdown that locks once you're up</li>
-        </ul>
-      </div>
+      <div class="vscol card"><div class="vsh" style="color:var(--neg)">The typical crypto firm</div><div id="cm_themRows"></div></div>
+      <div class="vscol us"><div class="vsh" style="color:var(--light)">TradeFundrr</div><div id="cm_usRows"></div></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- IS IT SAFE -->
-<section id="safe">
-  <div class="wrap">
-    <span class="eyebrow">No anon founders. No rug.</span>
-    <h2>Built on a real desk, <span class="hl">not a Telegram promise.</span></h2>
-    <p class="lead">You've seen enough exit scams to be skeptical. Good, here's why this one's different.</p>
-    <div class="qa-grid">
-      <div class="qa-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>Our capital, not yours</h3>
-        <p>You trade our funded account. The only money you ever put up is the entry fee, never your bag, never your keys.</p>
-      </div>
-      <div class="qa-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
-        <h3>Every rule published first</h3>
-        <p>Drawdown, risk limits, payout caps, all on the table before you pay. No moving goalposts, no surprise clauses.</p>
-      </div>
-      <div class="qa-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div>
-        <h3>Payouts you can verify</h3>
-        <p>Real traders, real names, posting real payouts on Trustpilot, not screenshots in a private Discord.</p>
-      </div>
-      <div class="qa-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg></div>
-        <h3>A regulated firm in the group</h3>
-        <p>Backed by T3, an institutional desk with an SEC / FINRA / SIPC member firm in the group. A name, an address, a regulator. Not a logo and a countdown timer.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHERE PAYOUTS COME FROM -->
-<section id="model">
-  <div class="wrap">
+  <!-- PAYOUT SOURCE -->
+  <section class="sec">
     <span class="eyebrow">No conflict of interest</span>
-    <h2>Where your payout <span class="hl">actually comes from.</span></h2>
-    <p class="lead">The question every funded trader should ask: if I win, who pays me, and why would they want to?</p>
-    <div class="explain">
-      <div class="steps">
-        <div class="line"><span class="tick">&check;</span><div><b>We're not the house.</b> We don't sit on the other side of your trades, and we don't profit when you blow the account. A firm that wins when you lose has no reason to ever pay you.</div></div>
-        <div class="line"><span class="tick">&check;</span><div><b>Entry &amp; activation fees</b> cover the cost of running evaluations, data and risk systems, they're not the whole business. If selling resets were the game, you'd feel it.</div></div>
-        <div class="line"><span class="tick">&check;</span><div><b>Prove an edge and you get real capital.</b> Graduate and your trading is backed by live capital allocated through T3 Global, a real US trading desk. Your profit is real market profit, not a number in a dashboard.</div></div>
-        <div class="line"><span class="tick">&check;</span><div><b>You keep 80%. We keep 20%.</b> We only earn our cut when you earn yours. The incentives point the same way, the more you pull, the better we do.</div></div>
-      </div>
-      <p class="kick">We make money <span class="hl">when you make money.</span> That's the only model that survives.</p>
-    </div>
-  </div>
-</section>
+    <h2>Where your payout actually comes from.</h2>
+    <p class="lead">If a firm wins when you lose, it has no reason to ever pay you. Here's why our model is the opposite.</p>
+    <div class="g2" id="cm_payout"></div>
+    <p class="center" style="font-family:var(--disp);font-weight:700;font-size:22px;color:var(--light);margin:36px auto 0;max-width:760px">We make money when you make money. That's the only model that survives.</p>
+  </section>
 
-<!-- WHO'S BEHIND THIS -->
-<section>
-  <div class="wrap">
-    <div class="t3box">
-      <span class="eyebrow">Who's behind this</span>
-      <h2>A real desk. <span class="hl">Real backing.</span></h2>
-      <p class="t3lead">Know who you're trading with. TradeFundrr runs on a long-standing institutional trading group, the opposite of the anon projects that have burned you.</p>
-      <div class="t3row">
-        <div class="t3card"><h4>T3 Global</h4><p>The institutional desk. Prove a real, sustained edge and you can earn your way onto T3 Global's live-money desk, real firm capital, real fills, real oversight.</p></div>
-        <div class="t3card"><h4>T3 Trading Group</h4><p>A regulated brokerage in the same group (SEC / FINRA / SIPC member). The proof that serious infrastructure, not a marketing site, sits behind this.</p></div>
-      </div>
-      <p class="t3note">A clear note, in plain terms: TradeFundrr accounts are simulated. T3 Global is not itself a registered broker-dealer; the SEC / FINRA / SIPC registrations belong to T3 Trading Group only and do not extend to T3 Global or to TradeFundrr's simulated accounts.</p>
+  <!-- WHO'S BEHIND -->
+  <section class="sec">
+    <span class="eyebrow">Who's behind this</span>
+    <h2>A real desk. Real backing.</h2>
+    <p class="lead">Not a marketing site with a Stripe button — actual trading infrastructure.</p>
+    <div class="g2">
+      <div class="card pad"><div class="ctitle">T3 Global</div><div class="cdesc">The institutional desk. Prove a real, sustained edge and you can earn your way onto T3 Global's live-money desk — real firm capital, real fills, real oversight.</div></div>
+      <div class="card pad"><div class="ctitle">T3 Trading Group</div><div class="cdesc">A regulated brokerage in the same group (SEC / FINRA / SIPC member). The proof that serious infrastructure — not a marketing site — sits behind this.</div></div>
     </div>
-  </div>
-</section>
+    <p class="fineprint" style="max-width:920px">A clear note: TradeFundrr accounts are simulated. T3 Global is not itself a registered broker-dealer; the SEC / FINRA / SIPC registrations belong to T3 Trading Group only and do not extend to T3 Global or to TradeFundrr's simulated accounts.</p>
+  </section>
 
-<!-- PAYOUT PROOF -->
-<section id="payouts">
-  <div class="wrap">
-    <span class="eyebrow">Real cash, on a cycle</span>
-    <h2>Hit your targets. <span class="hl">Pull your profit weekly.</span></h2>
-    <p class="lead">No "processing" purgatory and no surprise rule the week your withdrawal clears. Qualify, request, get paid: real money, on a weekly cycle (when you're eligible).</p>
-    <div class="paycard">
-      <div class="pay-head">
-        <span class="pay-title">Illustrative funded account &middot; cumulative payouts</span>
-        <div class="pay-tot"><div class="pay-tot-l">Withdrawn</div><div class="pay-tot-v" id="payTot">$0</div></div>
-      </div>
-      <canvas id="payCanvas" class="pay-canvas"></canvas>
-      <p class="pay-cap">Illustrative funded-account run, not a performance promise. Funded accounts have a 10-trading-day minimum before the first payout; after that, eligible accounts can request on a weekly cycle. Payouts depend on your trading and eligibility, not every account qualifies each cycle.</p>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section>
-  <div class="wrap">
+  <!-- TESTIMONIALS -->
+  <section class="sec">
     <span class="eyebrow">Real names. Real payouts.</span>
-    <h2>Don't take <span class="hl">our word for it.</span></h2>
-    <p class="lead">Verified TradeFundrr traders on Trustpilot, real names, real reviews, real cash out.</p>
-    <div class="rev-grid">
-      <div class="rev">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <h3>This is the real deal</h3>
-        <p>&ldquo;I was skeptical, so I took the leap. I passed, moved to the funded account, and requested my first payout on 3 accounts. The money was in my account in no time.&rdquo;</p>
-        <p class="who"><b>Chad T.</b> &middot; United States</p>
-      </div>
-      <div class="rev">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <h3>First payout in days</h3>
-        <p>&ldquo;I got my first payout approved just after six trading days, and today it hit my bank account. The rules are very clear and the support team is amazing.&rdquo;</p>
-        <p class="who"><b>Hassan</b> &middot; Saudi Arabia</p>
-      </div>
-      <div class="rev">
-        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <h3>Fast payout</h3>
-        <p>&ldquo;I met the criteria for a payout and made my request, the money hit my account in a few hours.&rdquo;</p>
-        <p class="who"><b>Joyce</b> &middot; United States</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <h2>Don't take our word for it.</h2>
+    <div class="g3" id="cm_testi"></div>
+  </section>
 
-<!-- HONESTY -->
-<section>
-  <div class="wrap">
-    <div class="honest">
-      <span class="eyebrow">No sugar-coating</span>
-      <h2>The catch, <span class="hl">straight up.</span></h2>
-      <p class="big" style="color:var(--tx-80);max-width:680px;margin-top:6px">You've been burned before, so here's exactly what you're signing up for, no spin:</p>
-      <ul>
-        <li><span class="mark">i</span><span><b>There's an entry fee.</b> One-time, from $1 on the Promo. Don't earn a payout? That fee is all you're out.</span></li>
-        <li><span class="mark">i</span><span><b>Hard risk rules.</b> Blow the max drawdown or oversize a position and the account's done. Two soft strikes, then it's firm. The rules are the job.</span></li>
-        <li><span class="mark">i</span><span><b>It's a simulated funded account.</b> The payouts are real cash; the trading runs in a funded sim environment until top traders earn live capital.</span></li>
-        <li><span class="mark">i</span><span><b>Most don't clear the eval first try.</b> Normal. Reset and run it back. The ones who make it respect the risk rules.</span></li>
-      </ul>
-      <p class="kick" style="margin-top:24px;color:var(--tx);font-weight:600">Anyone promising guaranteed gains is lying to you. We won't. <span style="color:var(--gold)">We'll just shoot straight.</span></p>
+  <!-- THE CATCH + SELF SELECT -->
+  <section class="sec">
+    <span class="eyebrow">No fine-print games</span>
+    <h2>The catch, straight up.</h2>
+    <div class="g2" style="align-items:start">
+      <div class="card pad" id="cm_catch"></div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div class="card pad"><div class="vsh" style="color:var(--neg)">Take a pass if…</div><div id="cm_passIf"></div></div>
+        <div class="vscol us pad" style="border-radius:16px"><div class="vsh" style="color:var(--light)">Built for you if…</div><div id="cm_builtFor"></div></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- NOT FOR EVERYONE -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow">Be honest with yourself</span>
-    <h2>This isn't for <span class="hl">everyone.</span></h2>
-    <p class="lead">We'd rather you self-select out now than blow an account learning it the hard way. Read both columns and be honest about which one's you.</p>
-    <div class="vsgrid">
-      <div class="vscol them">
-        <div class="vshead">Take a pass if&hellip;</div>
-        <ul>
-          <li><span class="vx">&times;</span> You're here to gamble, 100x, full-port, send-it. The risk rules will end you fast.</li>
-          <li><span class="vx">&times;</span> You don't have a process. "Vibes and a Telegram call" isn't an edge.</li>
-          <li><span class="vx">&times;</span> You want a get-rich-quick button. This is a job, not a lottery ticket.</li>
-          <li><span class="vx">&times;</span> You can't sit inside a rule. Drawdown and risk limits are non-negotiable.</li>
-        </ul>
-      </div>
-      <div class="vscol us">
-        <div class="vshead">Built for you if&hellip;</div>
-        <ul>
-          <li><span class="vc">&check;</span> You've got a real, repeatable edge and the discipline to run it.</li>
-          <li><span class="vc">&check;</span> You've been green on your own size, you just need real capital behind you.</li>
-          <li><span class="vc">&check;</span> You can trade inside risk limits without blowing up.</li>
-          <li><span class="vc">&check;</span> You want to get paid for skill, and keep most of it.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="center"><span class="eyebrow">Questions</span><h2>The honest answers.</h2></div>
+    <div class="faqlist" id="cm_faqlist"></div>
+  </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="wrap">
-    <span class="eyebrow">Your questions</span>
-    <h2>Straight answers, <span class="hl">no fine print.</span></h2>
-    <div class="faq">
-      <details class="q"><summary>Real money or sim?<span class="chev">+</span></summary><p>Funded simulated accounts. The trading runs in a sim environment; the payouts are real cash. Top traders earn their way to live capital at T3 Global.</p></details>
-      <details class="q"><summary>What's the max drawdown, can I get blown out?<span class="chev">+</span></summary><p>Each plan has a max drawdown and a max risk per position (0.5% on funded). Breach either and the account stops. Every limit is published before you pay.</p></details>
-      <details class="q"><summary>Eval vs Express?<span class="chev">+</span></summary><p><b>Growth</b> runs a quick eval (hit the profit target inside the rules) for a cheaper entry. <b>Express</b> skips the eval and funds you same day for more upfront. Both keep 80%.</p></details>
-      <details class="q"><summary>Position sizing and risk limits?<span class="chev">+</span></summary><p>Sizing is governed by the risk rules, max risk per trade and max drawdown, not a blanket cap. The full limits for your plan are laid out before checkout.</p></details>
-      <details class="q"><summary>How fast do payouts hit?<span class="chev">+</span></summary><p>Request <b>weekly</b>. Once approved it's sent as real cash, traders report payouts landing in hours to days. You keep 80%, up to each plan's cap.</p></details>
-      <details class="q"><summary>Which coins?<span class="chev">+</span></summary><p>BTC, ETH and the liquid majors and alts, the names with the volume to actually trade size.</p></details>
+  <!-- FINAL CTA -->
+  <section class="sec">
+    <div class="finalcta"><div class="fglow"></div>
+      <h2>Stop trading your own bag. Trade ours.</h2>
+      <p style="color:var(--light2);font-size:18px;margin:14px 0 28px">Real size, real payouts, rules published before you pay.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="#plans" class="btn b-pri">Get funded →</a>
+        <a href="#safe" class="btn b-sec">Talk to our team</a>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:22px">Trading involves substantial risk of loss. The most you can lose here is the program fee.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SUPPORT -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow">Questions? Hit us.</span>
-    <h2>Talk to a <span class="hl">real human.</span></h2>
-    <p class="lead">No tier-1 ticket queue, no bot. Real people who know the platform and the rules.</p>
-    <div class="support">
-      <div class="sup-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div>
-        <h3>Call us</h3>
-        <p>Speak to someone who knows the platform and your account: <a href="tel:+18777998198">(877) 799-8198</a></p>
-      </div>
-      <div class="sup-card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
-        <h3>Email us</h3>
-        <p>Write any time and a real person answers: <a href="mailto:support@tradefundrr.com">support@tradefundrr.com</a></p>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- FINAL CTA -->
-<section>
-  <div class="wrap">
-    <div class="final">
-      <span class="eyebrow">Ready when you are</span>
-      <h2>Stop trading your own bag. <span class="hl">Trade ours.</span></h2>
-      <p>$100K of our capital. Keep 80%. Your savings stay out of it. Here's the path:</p>
-      <div class="cta-steps">
-        <div class="cta-step"><div class="n">01</div><div class="t">Pick a plan</div><div class="d">From $1 to test, up to a $100K account.</div></div>
-        <div class="cta-step"><div class="n">02</div><div class="t">Get funded</div><div class="d">Clear the eval, or skip it on Express.</div></div>
-        <div class="cta-step"><div class="n">03</div><div class="t">Trade the majors</div><div class="d">Respect the drawdown and risk rules.</div></div>
-        <div class="cta-step"><div class="n">04</div><div class="t">Cash out</div><div class="d">Keep up to 80%, weekly.</div></div>
-      </div>
-      <div class="cta-row">
-        <a class="btn-gold" href="#plans">Get my $100K &rarr;</a>
-        <a class="btn-ghost" href="#safe">Talk to our team</a>
-      </div>
-    </div>
-    <div class="riskband">
-      <p><b>A reminder before you start:</b> trading involves real risk, results are never guaranteed, and most people do not reach a payout. Only spend the plan fee, which is the only money you can lose here.</p>
-    </div>
-  </div>
-</section>
-
+<script>
+(function(){
+  var root=document.getElementById('cmid'); if(!root) return;
+  var Q=function(id){return document.getElementById(id);};
+  var DATA={
+    benefits:[
+      {t:'Up to $100K of buying power',d:'Size your edge properly instead of trading 2x because that’s all your bag allows.'},
+      {t:'Your downside is the fee',d:'No more watching a stop-out come straight out of your actual savings.'},
+      {t:'No offshore bridge',d:'Trade the majors on a real platform, not a sketchy venue you only opened to get leverage.'},
+      {t:'Keep 80%, paid weekly',d:'Real cash out, not points or “profit credits” you can’t withdraw.'}
+    ],
+    steps:[
+      {n:'STEP 1',t:'Pick your size',d:'From $5K up to $100K of our capital. You choose how big you start.'},
+      {n:'STEP 2',t:'Clear the eval',d:'Hit the profit target inside the limits. Or skip it entirely with Express.'},
+      {n:'STEP 3',t:'Trade the majors',d:'BTC, ETH and the top alts on a real platform. Real prices, real fills.'},
+      {n:'STEP 4',t:'Cash out weekly',d:'Request a payout and keep 80%. Real money to your account, not credits.'}
+    ],
+    promoFeatures:['$5,000 simulated buying power','Profit target to pass: $300','Trailing max drawdown: $250','Keep 80%, paid weekly'],
+    commonTerms:['80/20 split','Weekly payouts','No daily loss limit','>15s min hold','News allowed','Up to 5 accounts + 1 promo'],
+    growth:{'50K':{price:'$199',sub:'50K eval · $129 activation on pass · no monthly fee',features:['$50,000 simulated buying power','Profit target to pass: $4,000','Trailing max drawdown: $3,000','Max risk / trade: 0.5% funded','Up to $20K total payout']},
+            '100K':{price:'$499',sub:'100K eval · $129 activation on pass · no monthly fee',features:['$100,000 simulated buying power','Profit target to pass: $6,000','Trailing max drawdown: $6,000','Max risk / trade: 0.5% funded','Up to $20K total payout']}},
+    express:{'50K':{price:'$999',sub:'Funded from day one · no eval, no activation fee',features:['$50,000 buying power, no eval phase','Trailing max drawdown: $3,000','Max risk / trade: 0.5% funded','Up to $25K total payout','Funded from day one']},
+             '100K':{price:'$1,999',sub:'Funded from day one · no eval, no activation fee',features:['$100,000 buying power, no eval phase','Trailing max drawdown: $6,000','Max risk / trade: 0.5% funded','Up to $25K total payout','Funded from day one']}},
+    tableCols:['Promo 5K','Growth 50K','Growth 100K','Express 50K','Express 100K'],
+    tableRows:[
+      ['Path to funded','Eval first','Eval first','Eval first','Instant','Instant'],
+      ['Initial fee','$1','$199','$499','$999','$1,999'],
+      ['Activation (on pass)','$29','$129','$129','—','—'],
+      ['Reset (on breach)','—','$69','$79','$399','$599'],
+      ['Trailing max drawdown','$250','$3,000','$6,000','$3,000','$6,000'],
+      ['Daily loss limit','None','None','None','None','None'],
+      ['Profit target (eval)','$300','$4,000','$6,000','N/A','N/A'],
+      ['Max risk / trade','0.50%','0.50%','0.50%','0.50%','0.50%'],
+      ['Max total payout','$5,000','$20,000','$20,000','$25,000','$25,000'],
+      ['Profit split','80/20','80/20','80/20','80/20','80/20']
+    ],
+    failures:[
+      {t:'Rugged at payout',d:'The week your withdrawal clears, you suddenly “violated” a rule nobody mentioned. The fine print was the exit.'},
+      {t:'Vanished overnight',d:'Anonymous team, offshore shell, a Telegram handle for “support.” One morning the site’s gone and so is your account.'},
+      {t:'Never had the capital',d:'Selling challenges and resets with no real desk behind them. Your entry fee was the business model, until the math caught up.'},
+      {t:'Goalposts on wheels',d:'Drawdown that quietly recalculates, a consistency rule buried in a PDF, a target that moves the moment you get close.'}
+    ],
+    themRows:['Anonymous team, offshore shell, Telegram “support”','Funded by your challenge fees and resets','Rules buried in a PDF, rewritten at payout','Payouts stuck “processing” with no date','Win too much and the account quietly “breaches”','Drawdown that recalculates against you'],
+    usRows:['A real US trading group behind it, T3','Profits come from real trading + scaled capital','Every rule published before you pay, and fixed','Weekly payouts when you qualify, in real cash','Win and you scale, up to your plan’s cap','Trailing drawdown that locks once you’re up'],
+    payout:[
+      {t:'We’re not the house',d:'We don’t sit on the other side of your trades, and we don’t profit when you blow the account. A firm that wins when you lose has no reason to ever pay you.'},
+      {t:'Fees cover operations, not the whole business',d:'Entry and activation fees cover evaluations, data and risk systems. If selling resets were the game, you’d feel it.'},
+      {t:'Prove an edge, get real capital',d:'Graduate and your trading is backed by live capital allocated through T3 Global, a real US trading desk. Your profit is real market profit.'},
+      {t:'You keep 80%, we keep 20%',d:'We only earn our cut when you earn yours. The more you pull, the better we do.'}
+    ],
+    testimonials:[
+      {title:'This is the real deal',quote:'“I was skeptical, so I took the leap. I passed, moved to the funded account, and requested my first payout on 3 accounts. The money was in my account in no time.”',name:'Chad T.',loc:'United States'},
+      {title:'First payout in days',quote:'“I got my first payout approved just after six trading days, and today it hit my bank account. The rules are very clear and the support team is amazing.”',name:'Hassan',loc:'Saudi Arabia'},
+      {title:'Fast payout',quote:'“I met the criteria for a payout and made my request — the money hit my account in a few hours.”',name:'Joyce',loc:'United States'}
+    ],
+    catch:[
+      {h:'There’s an entry fee.',d:'One-time, from $1 on the Promo. Don’t earn a payout? That fee is all you’re out.'},
+      {h:'Hard risk rules.',d:'Blow the max drawdown or oversize a position and the account’s done. The rules are the job.'},
+      {h:'It’s a simulated funded account.',d:'The payouts are real cash; the trading runs in a funded sim environment until top traders earn live capital.'},
+      {h:'Most don’t clear the eval first try.',d:'Normal. Reset and run it back. The ones who make it respect the risk rules.'}
+    ],
+    passIf:['You’re here to gamble — 100x, full-port, send-it. The risk rules will end you fast.','You don’t have a process. “Vibes and a Telegram call” isn’t an edge.','You want a get-rich-quick button. This is a job, not a lottery ticket.','You can’t sit inside a rule. Drawdown and risk limits are non-negotiable.'],
+    builtFor:['You’ve got a real, repeatable edge and the discipline to run it.','You’ve been green on your own size — you just need real capital behind you.','You can trade inside risk limits without blowing up.','You want to get paid for skill, and keep most of it.'],
+    faqs:[
+      ['Real money or sim?','Funded simulated accounts. The trading runs in a sim environment; the payouts are real cash. Top traders earn their way to live capital at T3 Global.'],
+      ['What’s the max drawdown — can I get blown out?','Each plan has a max drawdown and a max risk per position (0.5% on funded). Breach either and the account stops. Every limit is published before you pay.'],
+      ['Eval vs Express?','Growth runs a quick eval (hit the profit target inside the rules) for a cheaper entry. Express skips the eval and funds you same day for more upfront. Both keep 80%.'],
+      ['How fast do payouts hit?','Request weekly. Once approved it’s sent as real cash — traders report payouts landing in hours to days. You keep 80%, up to each plan’s cap.'],
+      ['Which coins?','BTC, ETH and the liquid majors and alts — the names with the volume to actually trade size.'],
+      ['Position sizing and risk limits?','Sizing is governed by the risk rules — max risk per trade and max drawdown, not a blanket cap. The full limits for your plan are laid out before checkout.']
+    ]
+  };
+  Q('cm_benefits').innerHTML=DATA.benefits.map(function(b){return '<div class="card pad"><div class="tile t-acc">✓</div><div class="ctitle">'+b.t+'</div><div class="cdesc">'+b.d+'</div></div>';}).join('');
+  Q('cm_steps').innerHTML=DATA.steps.map(function(s){return '<div class="card pad"><div style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em">'+s.n+'</div><div class="ctitle">'+s.t+'</div><div class="cdesc">'+s.d+'</div></div>';}).join('');
+  Q('cm_promoF').innerHTML=DATA.promoFeatures.map(function(f){return '<li>'+f+'</li>';}).join('');
+  Q('cm_terms').innerHTML=DATA.commonTerms.map(function(t){return '<span class="term">'+t+'</span>';}).join('');
+  Q('cm_failures').innerHTML=DATA.failures.map(function(f){return '<div class="card pad" style="border-color:rgba(248,113,113,.25)"><div class="tile t-neg">×</div><div class="ctitle">'+f.t+'</div><div class="cdesc">'+f.d+'</div></div>';}).join('');
+  Q('cm_themRows').innerHTML=DATA.themRows.map(function(r){return '<div class="vsrow"><span class="mk x">×</span><span>'+r+'</span></div>';}).join('');
+  Q('cm_usRows').innerHTML=DATA.usRows.map(function(r){return '<div class="vsrow"><span class="mk c">✓</span><span>'+r+'</span></div>';}).join('');
+  Q('cm_payout').innerHTML=DATA.payout.map(function(p){return '<div class="card pad"><div class="tile t-acc">◆</div><div class="ctitle">'+p.t+'</div><div class="cdesc">'+p.d+'</div></div>';}).join('');
+  Q('cm_testi').innerHTML=DATA.testimonials.map(function(t){return '<div class="card pad"><div class="stars">★★★★★</div><div class="ctitle" style="font-size:16px;margin-top:10px">'+t.title+'</div><div class="cdesc">'+t.quote+'</div><div style="font-size:13px;color:var(--muted);margin-top:14px;font-weight:600">'+t.name+' · '+t.loc+'</div></div>';}).join('');
+  Q('cm_catch').innerHTML=DATA.catch.map(function(c){return '<div style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--hair)"><div class="tile t-acc">i</div><div><div style="font-weight:700;color:var(--tx)">'+c.h+'</div><div class="cdesc" style="margin-top:4px">'+c.d+'</div></div></div>';}).join('');
+  Q('cm_passIf').innerHTML=DATA.passIf.map(function(r){return '<div class="vsrow"><span class="mk x">×</span><span>'+r+'</span></div>';}).join('');
+  Q('cm_builtFor').innerHTML=DATA.builtFor.map(function(r){return '<div class="vsrow"><span class="mk c">✓</span><span>'+r+'</span></div>';}).join('');
+  Q('cm_ruleTable').innerHTML='<thead><tr><th></th>'+DATA.tableCols.map(function(c){return '<th>'+c+'</th>';}).join('')+'</tr></thead><tbody>'+DATA.tableRows.map(function(r,i){return '<tr class="'+(i%2?'z':'')+'"><td>'+r[0]+'</td>'+r.slice(1).map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody>';
+  Q('cm_faqlist').innerHTML=DATA.faqs.map(function(f,i){return '<div class="faqitem'+(i===0?' open':'')+'"><button class="faqq" onclick="this.parentNode.classList.toggle(\'open\')">'+f[0]+'<span class="car">▾</span></button><div class="faqa">'+f[1]+'</div></div>';}).join('');
+  var size='50K';
+  function renderPricing(){
+    var g=DATA.growth[size], e=DATA.express[size];
+    Q('cm_gSize').textContent=size;Q('cm_gSize2').textContent=size;Q('cm_eSize').textContent=size;Q('cm_eSize2').textContent=size;
+    Q('cm_gPrice').textContent=g.price;Q('cm_gSub').textContent=g.sub;Q('cm_gFeat').innerHTML=g.features.map(function(f){return '<li>'+f+'</li>';}).join('');
+    Q('cm_ePrice').textContent=e.price;Q('cm_eSub').textContent=e.sub;Q('cm_eFeat').innerHTML=e.features.map(function(f){return '<li>'+f+'</li>';}).join('');
+    Q('cm_t50').classList.toggle('on',size==='50K');Q('cm_t100').classList.toggle('on',size==='100K');
+  }
+  window.cmidSetSize=function(s){size=s;renderPricing();};
+  window.cmidToggleTable=function(){var b=Q('cm_tableBox');var open=b.style.display==='none';b.style.display=open?'block':'none';Q('cm_tableLabel').textContent=open?'Hide full rules':'See every rule · all 5 plans';Q('cm_tableCar').style.transform=open?'rotate(180deg)':'rotate(0deg)';};
+  Q('cm_promoF').innerHTML=DATA.promoFeatures.map(function(f){return '<li>'+f+'</li>';}).join('');
+  renderPricing();
+})();
+</script>
+<!-- ===== END CRYPTO REDESIGN ===== -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="site-footer__grid">
@@ -1541,16 +1408,4 @@
     if(totEl) totEl.textContent=fmt(paid);
   }
   var ran=false;
-  function run(){ if(ran)return; ran=true; size();
-    if(reduce){draw(1);return;}
-    var dur=1750,t0=null;
-    function frame(ts){ if(!t0)t0=ts; var e=Math.min(1,(ts-t0)/dur); var p=1-Math.pow(1-e,3); draw(p); if(e<1)requestAnimationFrame(frame); }
-    requestAnimationFrame(frame);
-  }
-  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)run();});},{threshold:0.3});
-  io.observe(cv);
-  window.addEventListener('resize',function(){ if(ran){size();draw(1);} });
-})();
-</script>
-</body>
-</html>
+  functi
