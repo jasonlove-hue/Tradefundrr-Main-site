@@ -98,10 +98,13 @@
   .hero-benefits svg{width:17px;height:17px;stroke:var(--gold);flex:none}
   .hero-media{min-width:0;position:relative}
   .hero-orb{position:absolute;top:0;right:0;width:60vw;height:100%;z-index:1;pointer-events:none}
+  .hero-assets{position:absolute;right:0;bottom:16px;width:60vw;text-align:center;z-index:3;font-size:14px;color:var(--tx-60);padding:0 16px;pointer-events:none}
+  .hero-assets b{color:var(--gold);font-weight:700}
   @media(max-width:900px){
     .hero{display:flex;flex-direction:column;padding:30px 0 18px}
     .hero>.wrap{order:1}
     .hero-orb{order:2;position:relative;width:100%;height:78vw;right:auto;top:auto;margin:2px 0 -6px}
+    .hero-assets{order:3;position:relative;right:auto;bottom:auto;width:100%;margin-top:4px}
     .hero-copy{max-width:none}
     .hero-chips{max-width:none}
     .gf-badge{display:none!important}
@@ -499,6 +502,7 @@
   <div class="hero-aurora" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
   <canvas id="heroOrb" class="hero-orb" aria-hidden="true"></canvas>
+  <div class="hero-assets">BTC, ETH &amp; <b>400+ assets</b> with the volume to size into</div>
   <div class="wrap">
     <div class="hero-copy">
       <span class="hero-pill"><i></i> Your Edge &middot; Our Capital</span>
