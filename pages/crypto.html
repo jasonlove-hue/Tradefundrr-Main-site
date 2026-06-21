@@ -732,13 +732,13 @@
   <!-- WHO'S BEHIND -->
   <section class="sec">
     <span class="eyebrow">Who's behind this</span>
-    <h2>A real desk. Real backing.</h2>
-    <p class="lead">Not a marketing site with a Stripe button — actual trading infrastructure.</p>
+    <h2>Real infrastructure. Real backing.</h2>
+    <p class="lead">Not a marketing site with a Stripe button — TradeFundrr runs on the T3 group's trading infrastructure.</p>
     <div class="g2">
-      <div class="card pad"><div class="ctitle">T3 Global</div><div class="cdesc">The institutional desk. Prove a real, sustained edge and you can earn your way onto T3 Global's live-money desk — real firm capital, real fills, real oversight.</div></div>
+      <div class="card pad"><div class="ctitle">T3 Global</div><div class="cdesc">The institutional trading firm in the T3 group. The crypto program is built on the same technology, platforms, and compliance backbone that powers a real institutional desk.</div></div>
       <div class="card pad"><div class="ctitle">T3 Trading Group</div><div class="cdesc">A regulated brokerage in the same group (SEC / FINRA / SIPC member). The proof that serious infrastructure — not a marketing site — sits behind this.</div></div>
     </div>
-    <p class="fineprint" style="max-width:920px">A clear note: TradeFundrr accounts are simulated. T3 Global is not itself a registered broker-dealer; the SEC / FINRA / SIPC registrations belong to T3 Trading Group only and do not extend to T3 Global or to TradeFundrr's simulated accounts.</p>
+    <p class="fineprint" style="max-width:920px">TradeFundrr crypto accounts are simulated; earned payouts are paid in real cash. T3 Global is not itself a registered broker-dealer; the SEC / FINRA / SIPC registrations belong to T3 Trading Group only and do not extend to T3 Global or to TradeFundrr's simulated accounts.</p>
   </section>
 
   <!-- TESTIMONIALS / TRUSTPILOT -->
@@ -839,7 +839,7 @@
     payout:[
       {t:'We’re not the house',d:'We don’t sit on the other side of your trades, and we don’t profit when you blow the account. A firm that wins when you lose has no reason to ever pay you.'},
       {t:'Fees cover operations, not the whole business',d:'Entry and activation fees cover evaluations, data and risk systems. If selling resets were the game, you’d feel it.'},
-      {t:'Prove an edge, get real capital',d:'Graduate and your trading is backed by live capital allocated through T3 Global, a real US trading desk. Your profit is real market profit.'},
+      {t:'Built to pay, not to trap',d:'Earned payouts are paid in real cash on a weekly cycle, up to your plan’s cap — not points or credits you can’t withdraw. The model only works long-term if funded traders actually get paid.'},
       {t:'You keep 80%, we keep 20%',d:'We only earn our cut when you earn yours. The more you pull, the better we do.'}
     ],
     testimonials:[
@@ -856,13 +856,13 @@
     catch:[
       {h:'There’s an entry fee.',d:'One-time, from $1 on the Promo. Don’t earn a payout? That fee is all you’re out.'},
       {h:'Hard risk rules.',d:'Blow the max drawdown or oversize a position and the account’s done. The rules are the job.'},
-      {h:'It’s a simulated funded account.',d:'The payouts are real cash; the trading runs in a funded sim environment until top traders earn live capital.'},
+      {h:'It’s a simulated funded account.',d:'The trading runs in a funded sim environment on real market data; earned payouts are paid in real cash.'},
       {h:'Most don’t clear the eval first try.',d:'Normal. Reset and run it back. The ones who make it respect the risk rules.'}
     ],
     passIf:['You’re here to gamble — 100x, full-port, send-it. The risk rules will end you fast.','You don’t have a process. “Vibes and a Telegram call” isn’t an edge.','You want a get-rich-quick button. This is a job, not a lottery ticket.','You can’t sit inside a rule. Drawdown and risk limits are non-negotiable.'],
     builtFor:['You’ve got a real, repeatable edge and the discipline to run it.','You’ve been green on your own size — you just need real capital behind you.','You can trade inside risk limits without blowing up.','You want to get paid for skill, and keep most of it.'],
     faqs:[
-      ['Real money or sim?','Funded simulated accounts. The trading runs in a sim environment; the payouts are real cash. Top traders earn their way to live capital at T3 Global.'],
+      ['Real money or sim?','Funded simulated accounts. The trading runs in a sim environment on real market data; earned payouts are paid in real cash — 80% to you, weekly, up to your plan’s cap.'],
       ['What’s the max drawdown — can I get blown out?','Each plan has a max drawdown and a max risk per position (0.5% on funded). Breach either and the account stops. Every limit is published before you pay.'],
       ['Eval vs Express?','Growth runs a quick eval (hit the profit target inside the rules) for a cheaper entry. Express skips the eval and funds you same day for more upfront. Both keep 80%.'],
       ['How fast do payouts hit?','Request weekly. Once approved it’s sent as real cash — traders report payouts landing in hours to days. You keep 80%, up to each plan’s cap.'],
@@ -870,16 +870,16 @@
       ['Position sizing and risk limits?','Sizing is governed by the risk rules — max risk per trade and max drawdown, not a blanket cap. The full limits for your plan are laid out before checkout.']
     ]
   };
-  Q('cm_benefits').innerHTML=DATA.benefits.map(function(b){return '<div class="card pad"><div class="tile t-acc">✓</div><div class="ctitle">'+b.t+'</div><div class="cdesc">'+b.d+'</div></div>';}).join('');
+  Q('cm_benefits').innerHTML=DATA.benefits.map(function(b){return '<div class="card pad"><div class="ctitle">'+b.t+'</div><div class="cdesc">'+b.d+'</div></div>';}).join('');
   Q('cm_steps').innerHTML=DATA.steps.map(function(s){return '<div class="card pad"><div style="color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em">'+s.n+'</div><div class="ctitle">'+s.t+'</div><div class="cdesc">'+s.d+'</div></div>';}).join('');
   Q('cm_promoF').innerHTML=DATA.promoFeatures.map(function(f){return '<li>'+f+'</li>';}).join('');
   Q('cm_terms').innerHTML=DATA.commonTerms.map(function(t){return '<span class="term">'+t+'</span>';}).join('');
-  Q('cm_failures').innerHTML=DATA.failures.map(function(f){return '<div class="card pad" style="border-color:rgba(248,113,113,.25)"><div class="tile t-neg">×</div><div class="ctitle">'+f.t+'</div><div class="cdesc">'+f.d+'</div></div>';}).join('');
+  Q('cm_failures').innerHTML=DATA.failures.map(function(f){return '<div class="card pad" style="border-color:rgba(248,113,113,.25)"><div class="ctitle">'+f.t+'</div><div class="cdesc">'+f.d+'</div></div>';}).join('');
   Q('cm_themRows').innerHTML=DATA.themRows.map(function(r){return '<div class="vsrow"><span class="mk x">×</span><span>'+r+'</span></div>';}).join('');
   Q('cm_usRows').innerHTML=DATA.usRows.map(function(r){return '<div class="vsrow"><span class="mk c">✓</span><span>'+r+'</span></div>';}).join('');
-  Q('cm_payout').innerHTML=DATA.payout.map(function(p){return '<div class="card pad"><div class="tile t-acc">◆</div><div class="ctitle">'+p.t+'</div><div class="cdesc">'+p.d+'</div></div>';}).join('');
+  Q('cm_payout').innerHTML=DATA.payout.map(function(p){return '<div class="card pad"><div class="ctitle">'+p.t+'</div><div class="cdesc">'+p.d+'</div></div>';}).join('');
   Q('cm_testi').innerHTML=DATA.testimonials.map(function(t){return '<div class="card pad"><div class="stars" style="color:var(--accent)">★★★★★</div><div class="ctitle" style="font-size:16px;margin-top:10px">'+t.title+'</div><div class="cdesc">'+t.quote+'</div><div style="font-size:13px;color:var(--muted);margin-top:14px;font-weight:600">'+t.name+' · '+t.loc+'</div></div>';}).join('');
-  Q('cm_catch').innerHTML=DATA.catch.map(function(c){return '<div style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--hair)"><div class="tile t-acc">i</div><div><div style="font-weight:700;color:var(--tx)">'+c.h+'</div><div class="cdesc" style="margin-top:4px">'+c.d+'</div></div></div>';}).join('');
+  Q('cm_catch').innerHTML=DATA.catch.map(function(c){return '<div style="padding:14px 0;border-bottom:1px solid var(--hair)"><div style="font-weight:700;color:var(--tx)">'+c.h+'</div><div class="cdesc" style="margin-top:4px">'+c.d+'</div></div>';}).join('');
   Q('cm_passIf').innerHTML=DATA.passIf.map(function(r){return '<div class="vsrow"><span class="mk x">×</span><span>'+r+'</span></div>';}).join('');
   Q('cm_builtFor').innerHTML=DATA.builtFor.map(function(r){return '<div class="vsrow"><span class="mk c">✓</span><span>'+r+'</span></div>';}).join('');
   Q('cm_ruleTable').innerHTML='<thead><tr><th></th>'+DATA.tableCols.map(function(c){return '<th>'+c+'</th>';}).join('')+'</tr></thead><tbody>'+DATA.tableRows.map(function(r,i){return '<tr class="'+(i%2?'z':'')+'"><td>'+r[0]+'</td>'+r.slice(1).map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody>';
