@@ -1083,6 +1083,7 @@
   (function(){
     var track=document.getElementById('priceTrack');
     if(!track)return;
+    track.innerHTML += track.innerHTML; /* duplicate cards so the marquee loops seamlessly before/without live data */
     var COINS=[
       {id:'bitcoin',sym:'BTC',name:'Bitcoin',bg:'#F7931A',ic:'<b>₿</b>'},
       {id:'ethereum',sym:'ETH',name:'Ethereum',bg:'#3b3f4a',ic:'<svg viewBox="0 0 32 32" fill="#fff"><path d="M16 3 8 16l8 4.7L24 16 16 3z"/><path d="M16 21.6 8 16.9 16 28l8-11.1-8 4.7z"/></svg>'},
