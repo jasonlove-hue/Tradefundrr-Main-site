@@ -558,6 +558,8 @@
 #cmid .b-sec:hover{background:rgba(255,255,255,.09)}
 #cmid .card{background:var(--surface);border:1px solid var(--hair);border-radius:16px}
 #cmid .stars{color:var(--star);letter-spacing:1px}
+#cmid .tpbox{max-width:760px;margin:36px auto 0;background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:20px 24px;display:flex;align-items:center;justify-content:center;min-height:88px}
+#cmid .tpbox .trustpilot-widget{width:100%}
 #cmid .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
 #cmid .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
 #cmid .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
@@ -738,12 +740,20 @@
     <p class="fineprint" style="max-width:920px">A clear note: TradeFundrr accounts are simulated. T3 Global is not itself a registered broker-dealer; the SEC / FINRA / SIPC registrations belong to T3 Trading Group only and do not extend to T3 Global or to TradeFundrr's simulated accounts.</p>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="sec">
-    <span class="eyebrow">Real names. Real payouts.</span>
-    <h2>Don't take our word for it.</h2>
-    <div class="g3" id="cm_testi"></div>
+  <!-- TESTIMONIALS / TRUSTPILOT -->
+  <section class="sec center">
+    <span class="eyebrow">Real traders. Real payouts.</span>
+    <h2>What funded trading looks like when you choose <span style="color:var(--accent)">TradeFundrr</span>.</h2>
+    <p class="lead">Real names. Real reviews. No anonymous testimonials.</p>
+    <div class="tpbox">
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="5406e65db0d04a09e042d5fc" data-businessunit-id="678cdb99372187073c2b030e" data-style-height="80px" data-style-width="100%" data-theme="dark" data-token="01a863ca-5195-4b5c-b0b2-0ed2d6d99ba9" data-review-disclaimer="true">
+        <a href="https://www.trustpilot.com/review/tradefundrr.com" target="_blank" rel="noopener" style="color:var(--light2)">Trustpilot</a>
+      </div>
+    </div>
+    <p class="eyebrow" style="margin-top:42px">Verified Payout Stories</p>
+    <div class="g3" id="cm_testi" style="text-align:left;margin-top:18px"></div>
   </section>
+  <script src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 
   <!-- THE CATCH + SELF SELECT -->
   <section class="sec">
@@ -830,9 +840,9 @@
       {t:'You keep 80%, we keep 20%',d:'We only earn our cut when you earn yours. The more you pull, the better we do.'}
     ],
     testimonials:[
-      {title:'This is the real deal',quote:'“I was skeptical, so I took the leap. I passed, moved to the funded account, and requested my first payout on 3 accounts. The money was in my account in no time.”',name:'Chad T.',loc:'United States'},
-      {title:'First payout in days',quote:'“I got my first payout approved just after six trading days, and today it hit my bank account. The rules are very clear and the support team is amazing.”',name:'Hassan',loc:'Saudi Arabia'},
-      {title:'Fast payout',quote:'“I met the criteria for a payout and made my request — the money hit my account in a few hours.”',name:'Joyce',loc:'United States'}
+      {title:'So glad I took the chance…',quote:'“I was skeptical this was going to be as good as the other reviews state. Nevertheless I took the leap. I passed the evaluation phase, moved seamlessly to the funded account phase, and then requested my first payout on 3 accounts. Within no time the money was in my account. Now I praise TradeFundrr left and right. This is the real deal.”',name:'Verified review',loc:'Trustpilot'},
+      {title:'My TradeFundrr experience',quote:'“I really had a great experience with TradeFundrr — I just started my journey and got my first payout approved just after six trading days. Today I received my first payout in my bank account. The rules are very clear and the support team is amazing, with prompt responses and clear answers.”',name:'Verified review',loc:'Trustpilot'},
+      {title:'One of the best prop firms I’ve worked with',quote:'“Clear rules, fast execution, and a professional environment that actually supports long-term success. The payouts are fast & reliable, and customer support is responsive when you need help. Highly recommended for traders looking for a legit, well-run prop firm.”',name:'Verified review',loc:'Trustpilot'}
     ],
     catch:[
       {h:'There’s an entry fee.',d:'One-time, from $1 on the Promo. Don’t earn a payout? That fee is all you’re out.'},
@@ -859,7 +869,7 @@
   Q('cm_themRows').innerHTML=DATA.themRows.map(function(r){return '<div class="vsrow"><span class="mk x">×</span><span>'+r+'</span></div>';}).join('');
   Q('cm_usRows').innerHTML=DATA.usRows.map(function(r){return '<div class="vsrow"><span class="mk c">✓</span><span>'+r+'</span></div>';}).join('');
   Q('cm_payout').innerHTML=DATA.payout.map(function(p){return '<div class="card pad"><div class="tile t-acc">◆</div><div class="ctitle">'+p.t+'</div><div class="cdesc">'+p.d+'</div></div>';}).join('');
-  Q('cm_testi').innerHTML=DATA.testimonials.map(function(t){return '<div class="card pad"><div class="stars">★★★★★</div><div class="ctitle" style="font-size:16px;margin-top:10px">'+t.title+'</div><div class="cdesc">'+t.quote+'</div><div style="font-size:13px;color:var(--muted);margin-top:14px;font-weight:600">'+t.name+' · '+t.loc+'</div></div>';}).join('');
+  Q('cm_testi').innerHTML=DATA.testimonials.map(function(t){return '<div class="card pad"><div class="stars" style="color:var(--accent)">★★★★★</div><div class="ctitle" style="font-size:16px;margin-top:10px">'+t.title+'</div><div class="cdesc">'+t.quote+'</div><div style="font-size:13px;color:var(--muted);margin-top:14px;font-weight:600">'+t.name+' · '+t.loc+'</div></div>';}).join('');
   Q('cm_catch').innerHTML=DATA.catch.map(function(c){return '<div style="display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--hair)"><div class="tile t-acc">i</div><div><div style="font-weight:700;color:var(--tx)">'+c.h+'</div><div class="cdesc" style="margin-top:4px">'+c.d+'</div></div></div>';}).join('');
   Q('cm_passIf').innerHTML=DATA.passIf.map(function(r){return '<div class="vsrow"><span class="mk x">×</span><span>'+r+'</span></div>';}).join('');
   Q('cm_builtFor').innerHTML=DATA.builtFor.map(function(r){return '<div class="vsrow"><span class="mk c">✓</span><span>'+r+'</span></div>';}).join('');
