@@ -613,32 +613,6 @@
 #cmid .reb{display:block;width:100%;text-align:center;font-size:12px;font-weight:600;padding:9px;border-radius:10px;margin:4px 0 10px}
 #cmid .reb.no{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--neg)}
 #cmid .reb.yes{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--pos)}
-#cmid .netwrap{max-width:880px;margin:36px auto 0;position:relative}
-#cmid .netbox{background:var(--surface);border:1px solid var(--hair);border-radius:18px;padding:28px;position:relative;overflow:hidden}
-#cmid .nethead{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-bottom:18px;border-bottom:1px solid var(--hair)}
-#cmid .nettag{border:1px solid var(--pos);color:var(--pos);border-radius:8px;padding:4px 10px;font-size:11px;white-space:nowrap}
-#cmid .netrow{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--hair)}
-#cmid .nicon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
-#cmid .ni-neg{background:rgba(248,113,113,.14);color:var(--neg)}
-#cmid .ni-pos{background:rgba(52,211,153,.14);color:var(--pos)}
-#cmid .ni-star{background:rgba(245,196,81,.14);color:var(--star)}
-#cmid .ntext{flex:1}
-#cmid .ntext b{display:block;color:var(--tx);font-size:15px}
-#cmid .ntext span{font-size:12.5px;color:var(--muted)}
-#cmid .namt{font-family:var(--mono);font-weight:700;font-size:18px;white-space:nowrap}
-#cmid .amt-neg{color:var(--neg);text-decoration:line-through}
-#cmid .amt-pos{color:var(--pos)}
-#cmid .amt-star{color:var(--star)}
-#cmid .nettotals{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:12px;overflow:hidden;margin-top:18px}
-#cmid .nettot{background:#0b0b12;padding:18px;text-align:center}
-#cmid .nettot .nl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-#cmid .nettot .nv{font-family:var(--disp);font-weight:700;font-size:38px;line-height:1}
-#cmid .nv.zero{color:var(--pos)}
-#cmid .nv.total{color:var(--star)}
-#cmid .nettot .nsub{font-size:11px;color:var(--muted);margin-top:8px}
-#cmid .stamp{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%) rotate(-12deg);border:2px dashed var(--pos);color:var(--pos);font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.08em;padding:8px 14px;border-radius:8px;opacity:.5;pointer-events:none;text-align:center;line-height:1.15;text-transform:uppercase}
-#cmid .netnote{font-size:12px;color:var(--muted2);line-height:1.55;margin:16px auto 0;max-width:720px;text-align:center}
-@media(max-width:860px){#cmid .nettotals{grid-template-columns:1fr}#cmid .stamp{display:none}}
 #cmid .vsgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
 #cmid .vscol{padding:26px}
 #cmid .vscol.us{background:linear-gradient(180deg,rgba(139,92,246,.1),var(--surface));border:1px solid var(--abd)}
@@ -732,26 +706,192 @@
     </div>
   </section>
 
-  <!-- NET COST ZERO (Express rebate) -->
-  <section class="sec center">
-    <span class="eyebrow">The rebate math</span>
-    <h2>Most prop firms make you pay to get funded.<br><span style="color:var(--pos)">On Express, your net cost is zero.</span></h2>
-    <p class="lead">Put up the Express funding fee. Reach your first qualifying payout and every dollar comes back, with your 80% split on top. Watch it net out to zero.</p>
-    <div class="netwrap">
-      <div class="netbox" style="text-align:left">
-        <div class="nethead"><span>The math · Express funding fee (50K)</span><span class="nettag">Net $0</span></div>
-        <div class="netrow"><div class="nicon ni-neg">−</div><div class="ntext"><b>You put up the Express fee</b><span>Rebated on your first qualifying payout</span></div><div class="namt amt-neg">$999</div></div>
-        <div class="netrow"><div class="nicon ni-pos">✓</div><div class="ntext"><b>You reach your first payout</b><span>Full fee rebated, every dollar</span></div><div class="namt amt-pos">+$999</div></div>
-        <div class="netrow" style="border-bottom:none"><div class="nicon ni-star">★</div><div class="ntext"><b>Your first $1,000 payout request</b><span>You keep 80% under the standard split</span></div><div class="namt amt-star">+$800</div></div>
-        <div class="nettotals">
-          <div class="nettot"><div class="nl">Net cost to get funded</div><div class="nv zero">$0</div></div>
-          <div class="nettot"><div class="nl">Total on your first payout</div><div class="nv total">+$1,799</div><div class="nsub">$999 fee back + $800 your 80% split</div></div>
+  <!-- NET COST ZERO · exact znc port (Express 100K) -->
+  <style>
+  @keyframes zncPulse{0%,100%{opacity:.3}50%{opacity:.56}}
+  @keyframes zncSlam{0%{opacity:0;transform:translate(-50%,-50%) rotate(-12deg) scale(2.7)}55%{opacity:.92;transform:translate(-50%,-50%) rotate(-12deg) scale(0.88)}75%{transform:translate(-50%,-50%) rotate(-12deg) scale(1.05)}100%{opacity:.92;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}}
+  @keyframes zncRing{0%{transform:translate(-50%,-50%) scale(0.5);opacity:.8}100%{transform:translate(-50%,-50%) scale(8);opacity:0}}
+  #cmid{
+    .znc{--teal:#22d3a8;--teal-2:#2ee9bc;--teal-glow:rgba(34,211,168,0.45);--crim:#ff5f5f;--gold:#ffd54f;--border:rgba(255,255,255,0.09);--border-bright:rgba(255,255,255,0.16);--r-card:18px;--w100:#fff;--w72:rgba(255,255,255,0.72);--w55:rgba(255,255,255,0.55);--w40:rgba(255,255,255,0.40);--w06:rgba(255,255,255,0.06);--mono:'JetBrains Mono',ui-monospace,monospace;position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--border)}
+    .znc-glow{position:absolute;border-radius:50%;filter:blur(100px);opacity:.4;pointer-events:none}
+    .znc-glow.r{width:540px;height:540px;background:radial-gradient(circle,rgba(255,95,95,0.16),transparent 65%);top:90px;left:-160px}
+    .znc-glow.t{width:560px;height:560px;background:radial-gradient(circle,rgba(34,211,168,0.18),transparent 65%);bottom:-150px;right:-150px}
+    .znc-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:120px 40px 96px}
+    .znc h2{font-size:clamp(30px,4.4vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.03em;margin:0 0 18px;max-width:780px;color:var(--w100)}
+    .znc h2 .hl{display:inline-block;position:relative;font-weight:900;letter-spacing:-0.035em;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .znc h2 .hl::after{content:"";position:absolute;left:2px;right:2px;bottom:6px;height:30%;background:var(--teal);filter:blur(30px);opacity:.4;z-index:-1;animation:zncPulse 3.4s ease-in-out infinite}
+    .znc .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:660px;margin:0 0 44px}
+    .znc .sub b{color:var(--w100);font-weight:700}
+    .znc-card{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);overflow:hidden;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8),0 0 90px -30px rgba(34,211,168,0.25);max-width:820px}
+    .znc-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--teal-glow),transparent)}
+    .znc-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(34,211,168,0.06) 0%,transparent 60%)}
+    .znc-grid{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 1s ease .3s}
+    .znc-card.in .znc-grid{opacity:1}
+    .znc-grid svg{width:100%;height:100%}
+    .znc-card-inner{position:relative;z-index:2;padding:34px 40px 40px}
+    .znc-chead{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:6px}
+    .znc-chead .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--w40)}
+    .znc-chead .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.8px;color:var(--teal);border:1px solid rgba(34,211,168,0.3);border-radius:6px;padding:5px 11px}
+    .znc-row{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(-16px);transition:opacity .55s ease,transform .55s ease}
+    .znc-row:last-of-type{border-bottom:none}
+    .znc-row.in{opacity:1;transform:none}
+    .znc-ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;font-style:normal;border:1px solid transparent}
+    .znc-ic.red{background:rgba(255,95,95,0.12);color:var(--crim);border-color:rgba(255,95,95,0.22)}
+    .znc-ic.teal{background:rgba(34,211,168,0.12);color:var(--teal);border-color:rgba(34,211,168,0.25)}
+    .znc-ic.gold{background:rgba(255,213,79,0.12);color:var(--gold);border-color:rgba(255,213,79,0.22)}
+    .znc-desc{flex:1}
+    .znc-desc .a{font-size:15.5px;color:#fff;font-weight:600;letter-spacing:-0.01em}
+    .znc-desc .b{font-size:12.5px;color:var(--w40);margin-top:3px}
+    .znc-amt{font-family:var(--mono);font-size:23px;font-weight:600;white-space:nowrap;letter-spacing:-0.01em}
+    .znc-amt.red{color:var(--crim);position:relative}
+    .znc-amt.teal{color:var(--teal)}
+    .znc-amt.gold{color:var(--gold)}
+    .znc-amt.red::after{content:"";position:absolute;left:0;top:50%;width:0;height:2px;background:var(--crim);opacity:.8;transition:width .45s ease}
+    .znc-amt.red.strike::after{width:100%}
+    .znc-net{margin-top:8px;border-top:1px solid var(--border);padding-top:30px;text-align:center;opacity:0;transition:opacity .7s ease}
+    .znc-net.in{opacity:1}
+    .znc-net-label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--w40);margin-bottom:10px}
+    .znc-net-num{display:inline-block;position:relative;font-weight:900;letter-spacing:-0.05em;line-height:.9;background:linear-gradient(92deg,var(--teal),var(--teal-2) 58%,#7af7d8);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .znc-net-num::after{content:"";position:absolute;left:0;right:0;bottom:10px;height:34%;background:var(--teal);filter:blur(38px);opacity:.34;z-index:-1;animation:zncPulse 3.4s ease-in-out infinite}
+    .znc-net-grid{display:flex;align-items:flex-start;justify-content:center;gap:30px;flex-wrap:wrap}
+    .znc-net-grid .znc-net-num{font-size:clamp(54px,9vw,92px)}
+    .znc-net-cell{display:flex;flex-direction:column;align-items:center;gap:10px}
+    .znc-net-div{width:1px;align-self:stretch;background:var(--border);margin:6px 0}
+    .znc-net-sub{font-family:var(--mono);font-size:11px;letter-spacing:.4px;color:var(--w55);margin-top:2px}
+    .znc-net-num.gold{background:linear-gradient(92deg,var(--gold),#ffe88a 60%,#fff1b8);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .znc-net-num.gold::after{background:var(--gold);opacity:.30}
+    .znc-hedge{margin-top:24px;font-size:12px;color:var(--w40);line-height:1.6;max-width:640px;margin-left:auto;margin-right:auto}
+    .znc-stamp{position:absolute;top:30%;left:62%;transform:translate(-50%,-50%) rotate(-12deg) scale(0);transform-origin:center;z-index:20;pointer-events:none;opacity:0}
+    .znc-stamp.slam{animation:zncSlam .55s cubic-bezier(0.22,1.4,0.5,1) forwards}
+    .znc-stamp-ink{border:4px solid var(--teal);color:var(--teal);font-family:var(--mono);font-weight:700;font-size:26px;letter-spacing:.1em;line-height:1.05;text-align:center;padding:12px 24px;border-radius:10px;text-transform:uppercase;filter:url(#znc-grunge);opacity:.92;text-shadow:0 0 26px rgba(34,211,168,0.35)}
+    .znc-ring{position:absolute;top:50%;left:50%;width:20px;height:20px;border-radius:50%;border:2px solid rgba(34,211,168,0.6);transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none}
+    .znc-ring.pulse{animation:zncRing .7s ease-out forwards}
+    .znc-deal{display:flex;align-items:flex-start;gap:16px;background:rgba(34,211,168,0.06);border:1px solid rgba(34,211,168,0.22);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:18px 22px;margin:40px 0 0;max-width:820px}
+    .znc-deal-k{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;white-space:nowrap;margin-top:4px}
+    .znc-deal p{font-size:clamp(16px,2vw,19px);line-height:1.5;color:var(--w100);font-weight:500}
+    .znc-deal p b{font-weight:800}
+    .znc-deal p b.tealtxt{color:var(--teal)}
+    @media(max-width:860px){.znc-inner{padding:72px 22px}}
+    @media(max-width:760px){.znc-card-inner{padding:24px 22px 30px}}
+    @media(max-width:520px){.znc-net-div{display:none}}
+    @media(prefers-reduced-motion:reduce){.znc-row,.znc-net{opacity:1!important;transform:none!important}.znc-amt.red::after{width:100%!important;transition:none!important}.znc-stamp{opacity:.92!important;transform:translate(-50%,-50%) rotate(-12deg) scale(1)!important;animation:none!important}.znc h2 .hl::after,.znc-net-num::after{animation:none!important}}
+  }
+  </style>
+  <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="znc-grunge" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="3" seed="8" stitchTiles="stitch" result="n1"/>
+        <feDisplacementMap in="SourceGraphic" in2="n1" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="disp"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.88" numOctaves="4" seed="3" stitchTiles="stitch" result="n2"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3.8 3.2" in="n2" result="drop"/>
+        <feComposite in="disp" in2="drop" operator="in" result="worn"/>
+        <feGaussianBlur stdDeviation="0.25" in="worn"/>
+      </filter>
+    </defs>
+  </svg>
+  <section class="znc" id="znc-live">
+    <div class="znc-glow r"></div>
+    <div class="znc-glow t"></div>
+    <div class="znc-inner">
+      <span class="eyebrow" style="color:var(--teal)">The honest math</span>
+      <h2>Most prop firms make you pay to get funded.<br><span class="hl">Your net cost here is zero.</span></h2>
+      <p class="sub">You put up the Express funding fee. Reach your first payout and every dollar comes back, with your 80% split on top. <b>Watch it net out to zero.</b></p>
+      <div class="znc-card" id="zncCard">
+        <div class="znc-grid">
+          <svg viewBox="0 0 820 440" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="110" x2="820" y2="110" stroke="rgba(34,211,168,0.04)" stroke-width="1"/>
+            <line x1="0" y1="220" x2="820" y2="220" stroke="rgba(34,211,168,0.04)" stroke-width="1"/>
+            <line x1="0" y1="330" x2="820" y2="330" stroke="rgba(34,211,168,0.04)" stroke-width="1"/>
+            <line x1="190" y1="0" x2="190" y2="440" stroke="rgba(34,211,168,0.03)" stroke-width="1"/>
+            <line x1="640" y1="0" x2="640" y2="440" stroke="rgba(34,211,168,0.03)" stroke-width="1"/>
+          </svg>
         </div>
-        <div class="stamp">Zero net<br>cost</div>
+        <div class="znc-card-inner">
+          <div class="znc-chead">
+            <span class="lbl">The math &middot; Express funding fee (100K)</span>
+            <span class="badge">NET $0</span>
+          </div>
+          <div class="znc-row" id="zncRow0">
+            <span class="znc-ic red">&#8722;</span>
+            <span class="znc-desc">
+              <div class="a">You put up the Express funding fee</div>
+              <div class="b">Rebated on your first qualifying payout</div>
+            </span>
+            <span class="znc-amt red" id="zncRed">&#8722;$1,999</span>
+          </div>
+          <div class="znc-row" id="zncRow1">
+            <span class="znc-ic teal">&#10003;</span>
+            <span class="znc-desc">
+              <div class="a">You reach your first payout</div>
+              <div class="b">Full fee rebated, every dollar</div>
+            </span>
+            <span class="znc-amt teal">+$1,999</span>
+          </div>
+          <div class="znc-row" id="zncRow2">
+            <span class="znc-ic gold">&#9733;</span>
+            <span class="znc-desc">
+              <div class="a">Your first $1,000 payout request</div>
+              <div class="b">You keep 80% under the standard split</div>
+            </span>
+            <span class="znc-amt gold">+$800</span>
+          </div>
+          <div class="znc-net" id="zncNet">
+            <div class="znc-net-grid">
+              <div class="znc-net-cell">
+                <div class="znc-net-label">Net cost to get funded</div>
+                <span class="znc-net-num teal">$0</span>
+              </div>
+              <div class="znc-net-div"></div>
+              <div class="znc-net-cell">
+                <div class="znc-net-label">Total on your first payout</div>
+                <span class="znc-net-num gold" id="zncPay">+$0</span>
+                <div class="znc-net-sub">$1,999 fee back &nbsp;+&nbsp; $800 your 80% split</div>
+              </div>
+            </div>
+            <p class="znc-hedge">The rebate applies to Express Funding only; Growth accounts and the $1 promo are not rebate-eligible. The $1,000 payout request is an illustrative example, not a guarantee; payouts depend on your trading and you keep 80% under the standard split. Net cost is $0 only if you reach your first qualifying payout. The Express fee is rebated on your first qualifying payout. Standard platform and data fees apply. Funded accounts are simulated.</p>
+          </div>
+        </div>
+        <div class="znc-stamp" id="zncStamp">
+          <div class="znc-stamp-ink">Zero Net<br>Cost</div>
+          <div class="znc-ring" id="zncRing"></div>
+        </div>
       </div>
-      <p class="netnote">The rebate applies to <strong style="color:var(--tx)">Express Funding only</strong>. Growth accounts and the $1 promo are <strong style="color:var(--tx)">not</strong> rebate-eligible. The fee is rebated on your first qualifying payout; payouts depend on your trading and are not guaranteed.</p>
+      <div class="znc-deal">
+        <span class="znc-deal-k">The deal</span>
+        <p>Skip the eval, reach your first payout, and the full Express fee comes back, <b class="tealtxt">plus your 80% split on top.</b> TradeFundrr exists to remove the capital barrier, not add to it.</p>
+      </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var sec=document.getElementById('znc-live'); if(!sec) return;
+    var card=document.getElementById('zncCard');
+    var rows=['zncRow0','zncRow1','zncRow2'].map(function(i){return document.getElementById(i);});
+    var red=document.getElementById('zncRed');
+    var net=document.getElementById('zncNet');
+    var pay=document.getElementById('zncPay');
+    var stamp=document.getElementById('zncStamp');
+    var ring=document.getElementById('zncRing');
+    var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function countUp(el,to,dur){ if(!el) return; if(reduced){el.textContent='+$'+to.toLocaleString();return;} var s=null; function t(n){ if(s===null)s=n; var p=Math.min((n-s)/dur,1); var e=1-Math.pow(1-p,3); el.textContent='+$'+Math.round(to*e).toLocaleString(); if(p<1)requestAnimationFrame(t);} requestAnimationFrame(t); }
+    var done=false;
+    function run(){
+      if(done) return; done=true;
+      card&&card.classList.add('in');
+      var base=450;
+      rows.forEach(function(r,i){ setTimeout(function(){ r&&r.classList.add('in'); }, base+i*230); });
+      setTimeout(function(){ red&&red.classList.add('strike'); }, base+230+130);
+      var netT=base+rows.length*230+160;
+      setTimeout(function(){ net&&net.classList.add('in'); countUp(pay,2799,1300); }, netT);
+      var stampT=netT+430;
+      setTimeout(function(){ stamp&&stamp.classList.add('slam'); setTimeout(function(){ ring&&ring.classList.add('pulse'); },320); }, stampT);
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(); io.disconnect(); } }); }, {threshold:0.2});
+      io.observe(sec);
+    } else { run(); }
+  })();
+  </script>
 
   <!-- WHY FIRMS FAIL -->
   <section class="sec">
