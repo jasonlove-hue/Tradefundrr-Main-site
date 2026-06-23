@@ -285,9 +285,7 @@ h1 .hh-all{color:var(--teal)}
 .tt-end.crim{fill:var(--crim)}
 .tt-fade{opacity:0}
 .ttcard.in .tt-fade{opacity:1;transition:opacity .7s ease;transition-delay:2.4s}
-.tt-chart-img{display:block;width:100%;height:auto;border-radius:10px;clip-path:inset(0 100% 0 0);opacity:0}
-.ttcard.in .tt-chart-img{clip-path:inset(0 0 0 0);opacity:1;transition:clip-path 1.9s cubic-bezier(.45,0,.2,1),opacity .5s ease}
-@media(prefers-reduced-motion:reduce){.tt-chart-img{clip-path:none;opacity:1;transition:none}}
+.tt-chart-img,.tt-chart-vid{display:block;width:100%;height:auto;border-radius:10px}
 .tt-foot{font-size:11.5px;color:var(--w40);margin-top:12px}
 .tt-bridge{font-size:clamp(17px,2.2vw,22px);font-weight:700;letter-spacing:-0.01em;line-height:1.4;color:var(--w100);margin:24px 0 4px;max-width:720px}
 .tt-bridge b{color:var(--crim)}
@@ -1040,7 +1038,10 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
     </div>
 
     <div class="ttcard rv">
-      <img class="tt-chart-img" src="../assets/images/stocks-time-tax-chart.png" alt="Years to reach $100K of buying power. Teal: TradeFundrr gives $100K of simulated buying power from day one. Red: grinding a $5,000 account up yourself takes roughly 5 years to reach $100K in the best case, and only if you never stop winning. Most traders quit early. Illustrative; individual results vary." />
+      <video class="tt-chart-vid" id="ttChartVid" muted playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
+        <source src="../assets/videos/stocks-time-tax.mp4" type="video/mp4">
+        <img class="tt-chart-img" src="../assets/images/stocks-time-tax-chart.png" alt="Years to reach $100K of buying power: TradeFundrr gives $100K of simulated buying power from day one, versus grinding a $5,000 account up over roughly 5 years. Illustrative; individual results vary." />
+      </video>
     </div>
 
     <div class="tt-compare2 rv">
@@ -2225,5 +2226,17 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6
 })();
 </script>
 <script src="../js/main.js?v=202605230840" defer></script>
+<script>
+(function(){
+  var v=document.getElementById('ttChartVid'); if(!v) return;
+  v.muted=true;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ v.addEventListener('loadedmetadata',function(){ try{ v.currentTime=Math.max(0,(v.duration||4)-0.05); }catch(e){} }); return; }
+  function go(){ var p=v.play(); if(p&&p.catch){ p.catch(function(){}); } }
+  if(!('IntersectionObserver' in window)){ go(); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ go(); io.disconnect(); } }); },{threshold:0.4});
+  io.observe(v);
+})();
+</script>
 </body>
 </html>
