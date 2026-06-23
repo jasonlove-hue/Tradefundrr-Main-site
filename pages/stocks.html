@@ -279,6 +279,12 @@ h1 .hh-all{color:var(--teal)}
 .tt-ptr{stroke-width:1.5;stroke-dasharray:3 3}
 .tt-ptr.crim{stroke:var(--crim)}
 .tt-ptr.w{stroke:rgba(255,255,255,0.32)}
+.tt-reddot{fill:var(--crim);filter:drop-shadow(0 0 6px var(--crim))}
+.tt-end{font-family:var(--mono);font-weight:800;font-size:21px}
+.tt-end.teal{fill:var(--teal)}
+.tt-end.crim{fill:var(--crim)}
+.tt-fade{opacity:0}
+.ttcard.in .tt-fade{opacity:1;transition:opacity .7s ease;transition-delay:2.4s}
 .tt-foot{font-size:11.5px;color:var(--w40);margin-top:12px}
 .tt-bridge{font-size:clamp(17px,2.2vw,22px);font-weight:700;letter-spacing:-0.01em;line-height:1.4;color:var(--w100);margin:24px 0 4px;max-width:720px}
 .tt-bridge b{color:var(--crim)}
@@ -1035,7 +1041,7 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
         <span class="tt-leg"><span class="dot teal"></span>TradeFundrr · simulated $100K, from day 1</span>
         <span class="tt-leg"><span class="dot crim"></span>Grinding $5K up yourself, best case</span>
       </div>
-      <svg class="tt-chart" viewBox="0 0 760 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Years to reach $100K of buying power: grinding a small account up versus starting at $100K on day one">
+      <svg class="tt-chart" viewBox="0 0 920 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Years to reach $100K of buying power: grinding a small account up versus starting at $100K on day one">
         <line class="tt-grid" x1="64" y1="81" x2="736" y2="81"/>
         <line class="tt-grid" x1="64" y1="145" x2="736" y2="145"/>
         <line class="tt-grid" x1="64" y1="208" x2="736" y2="208"/>
@@ -1051,15 +1057,29 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
         <text class="tt-axl" x="467" y="356" text-anchor="middle">Yr 3</text>
         <text class="tt-axl" x="601" y="356" text-anchor="middle">Yr 4</text>
         <text class="tt-axl" x="722" y="356" text-anchor="middle">Yr 5</text>
-        <path class="tt-line tt-red" d="M64,323 L131,320 L198,316 L265,309 L333,300 L400,286 L467,266 L534,235 L601,193 L668,138 L736,81"/>
+        <path class="tt-line tt-red" d="M64,323 L131,320 L198,316 L265,309 L333,300 L400,286 L467,266 L534,235 L601,193 L668,148 L736,96"/>
         <path class="tt-line tt-teal" d="M64,81 L736,81"/>
-        <circle class="tt-startdot" cx="64" cy="81" r="5.5"/>
-        <text class="tt-anno teal" x="80" y="72">You start here · Day 1</text>
-        <line class="tt-ptr crim" x1="206" y1="299" x2="206" y2="313"/>
-        <text class="tt-anno crim" x="206" y="293" text-anchor="middle">most quit around here</text>
-        <rect x="406" y="232" width="268" height="40" rx="8" fill="#0a0e18"/>
-        <text class="tt-anno w" x="540" y="246" text-anchor="middle">≈ 5 years to reach this size,</text>
-        <text class="tt-anno w" x="540" y="262" text-anchor="middle">and only if you never stop winning</text>
+        <!-- start markers -->
+        <circle class="tt-startdot tt-fade" cx="64" cy="81" r="5.5"/>
+        <text class="tt-anno teal tt-fade" x="80" y="72">You start here · Day 1</text>
+        <circle class="tt-reddot tt-fade" cx="64" cy="323" r="5.5"/>
+        <text class="tt-anno crim tt-fade" x="80" y="316">$5K</text>
+        <!-- end markers -->
+        <circle class="tt-startdot tt-fade" cx="736" cy="81" r="5.5"/>
+        <circle class="tt-reddot tt-fade" cx="736" cy="96" r="5.5"/>
+        <text class="tt-end teal tt-fade" x="748" y="80">$100K+</text>
+        <text class="tt-anno teal tt-fade" x="749" y="98">from day 1</text>
+        <text class="tt-end crim tt-fade" x="748" y="122">$100K</text>
+        <text class="tt-anno crim tt-fade" x="749" y="140">after ~5 years</text>
+        <text class="tt-anno crim tt-fade" x="749" y="156">(best case)</text>
+        <!-- most quit callout -->
+        <rect class="tt-fade" x="150" y="249" width="186" height="34" rx="8" fill="#0a0e18" stroke="rgba(255,95,95,0.45)"/>
+        <text class="tt-anno crim tt-fade" x="243" y="270" text-anchor="middle">Most traders quit here.</text>
+        <line class="tt-ptr crim tt-fade" x1="222" y1="283" x2="206" y2="312"/>
+        <!-- 5-year callout -->
+        <rect class="tt-fade" x="406" y="232" width="268" height="40" rx="8" fill="#0a0e18"/>
+        <text class="tt-anno w tt-fade" x="540" y="246" text-anchor="middle">≈ 5 years to reach this size,</text>
+        <text class="tt-anno w tt-fade" x="540" y="262" text-anchor="middle">and only if you never stop winning</text>
       </svg>
       <p class="tt-foot">The red path is the best case: a steady, profitable run with no blow-ups. The numbers below show how rarely that happens. Illustrative; individual results vary.</p>
     </div>
