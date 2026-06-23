@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volatility and Position Sizing: Adjusting Risk When the Market Speeds Up | TradeFundrr Blog</title>
+  <meta name="description" content="The same trade can be sensible on a calm day and reckless on a fast one. What changes is volatility. Here is how position size is the dial you turn to keep your risk steady when the market speeds up.">
+  <link rel="canonical" href="https://tradefundrr.com/blog/volatility-and-position-sizing">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-23">
+  <meta property="article:section" content="Risk & Reward">
+  <meta property="og:title" content="Volatility and Position Sizing: Adjusting Risk When the Market Speeds Up">
+  <meta property="og:description" content="When the market gets faster, your risk changes even if your lot size does not. Here is how to use position size to keep risk steady.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260623_120535_0fcafaaa-ddce-4063-a0ef-de617b1bac73.png">
+  <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <style>
+    .bp-wrap{max-width:760px;margin:0 auto;padding:0 24px}
+    .bp-article{padding:124px 0 30px}
+    .bp-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#22d3a8;display:block;margin-bottom:16px}
+    .bp-article h1{font-family:"Inter",system-ui,sans-serif;font-size:40px;letter-spacing:-.8px;line-height:1.12;margin-bottom:18px}
+    .bp-meta{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13.5px;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .bp-meta .av{width:34px;height:34px;border-radius:50%;background:#0d1326;border:1px solid hsla(160,60%,45%,.35);display:flex;align-items:center;justify-content:center;overflow:hidden}.bp-meta .av img{width:21px;height:21px;object-fit:contain;display:block}
+    .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
+    .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
+    .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-inline{width:100%;border-radius:14px;margin:30px 0;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
+    .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
+    .bp-body li{margin-bottom:10px}
+    .bp-body li strong,.bp-body p strong{color:#fff}
+    .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
+    .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
+    .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
+    .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
+    .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
+    .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
+    .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
+    #volfig .anim{opacity:0}
+    #volfig.play .bar{animation:volFade .6s ease forwards}
+    #volfig.play .b2{animation-delay:.18s}#volfig.play .b3{animation-delay:.36s}
+    #volfig.play .lbl{animation:volFade .5s ease forwards;animation-delay:.5s}
+    @keyframes volFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion: reduce){#volfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
+    @media(max-width:560px){.bp-article h1{font-size:30px}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu">
+          <a href="/pages/stocks.html" data-cat="stocks"><span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/options.html" data-cat="options"><span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/futures/" data-cat="futures"><span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span></a>
+          <a href="/pages/crypto.html" data-cat="crypto"><span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span></a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding"><span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span></a>
+        </div>
+      </span>
+      <a href="/index.html#how-it-works">How It Works</a>
+      <a href="/pages/about.html">Why Us</a>
+      <a href="/blog" class="active">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="/index.html#markets" class="btn btn--primary navbar__cta">Get Funded <span class="arrow"><img src="/assets/images/btn-arrow.svg" alt=""></span></a>
+    </div>
+  </nav>
+</header>
+
+<main class="bp-article">
+  <div class="bp-wrap">
+    <article>
+      <span class="bp-eyebrow">Risk &amp; Reward</span>
+      <h1>Volatility and Position Sizing: Adjusting Risk When the Market Speeds Up</h1>
+      <div class="bp-meta">
+        <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
+        <span class="bp-dot"></span><span>June 23, 2026</span>
+        <span class="bp-dot"></span><span>6 min read</span>
+      </div>
+
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260623_120535_0fcafaaa-ddce-4063-a0ef-de617b1bac73.png" alt="An abstract mint-green line on a dark navy background that starts smooth on the left and becomes jagged and volatile on the right, representing rising market volatility">
+
+      <div class="bp-body">
+        <p>The same trade can be sensible on one day and reckless on another, with nothing changing except the market itself. You take your usual setup, your usual size, your usual stop. On a quiet morning it works out fine. On a fast morning the same position gets knocked out almost instantly, or runs against you far harder than you expected. People often blame the setup. Usually the real culprit is volatility, and the fact that their position size never moved to account for it.</p>
+        <p>Volatility is one of the few variables you can read in advance and respond to. Position size is the dial you turn in response. Getting that relationship right is one of the quieter skills that separates traders who last from traders who keep getting surprised.</p>
+
+        <h2>Volatility is just how much price moves</h2>
+        <p>Strip away the jargon and volatility is a simple idea: how far and how fast price tends to move over a given period. A calm market drifts. A volatile market lurches. The same instrument can be both within the same week, depending on the news, the session, and what the rest of the market is doing.</p>
+        <p>This matters because your stop-loss lives in that movement. In a calm market, price might need to travel only a short distance before your trade is clearly wrong. In a fast market, normal noise can be several times wider, so a stop placed at the same close distance gets hit by ordinary wiggle rather than by a real change in the idea.</p>
+
+        <h2>Why a fixed lot size quietly changes your risk</h2>
+        <p>Here is the trap. Most traders fix their position size out of habit. They always trade the same number of shares, contracts, or lots, because that is what they are used to. The problem is that risk is not your position size on its own. Risk is your position size multiplied by how far price can move against you before you are out.</p>
+        <p>So when volatility doubles and your size stays the same, your real risk roughly doubles too, even though nothing on your order ticket looks different. You feel like you are trading the same way. The market is quietly handing you a much bigger bet. This is one of the most common reasons a strategy that felt safe for weeks suddenly produces a loss that feels out of proportion.</p>
+
+        <figure class="bp-figure" id="volfig">
+          <span class="figtag">Illustrative example</span>
+          <svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A bar chart showing position size getting smaller as market volatility rises, so that the dollar risk stays constant across calm, normal, and fast markets">
+            <!-- y axis label -->
+            <text x="34" y="170" fill="#9fb0c3" font-size="14" font-weight="600" text-anchor="middle" transform="rotate(-90 34 170)">Position size</text>
+            <!-- baseline -->
+            <line x1="80" y1="272" x2="960" y2="272" stroke="hsla(0,0%,100%,.18)" stroke-width="1.5"/>
+            <!-- constant risk note (open top-right space) -->
+            <text x="952" y="58" fill="#22d3a8" font-size="14" font-weight="700" text-anchor="end">Dollar risk per trade held constant</text>
+            <!-- Bar 1 calm -->
+            <g class="anim bar">
+              <rect x="150" y="92" width="130" height="180" rx="6" fill="#22d3a8" opacity="0.92"/>
+              <text x="215" y="64" fill="#9fb0c3" font-size="13" font-weight="600" text-anchor="middle">Low volatility</text>
+            </g>
+            <!-- Bar 2 normal -->
+            <g class="anim bar b2">
+              <rect x="440" y="152" width="130" height="120" rx="6" fill="#1aa886" opacity="0.92"/>
+              <text x="505" y="124" fill="#9fb0c3" font-size="13" font-weight="600" text-anchor="middle">Higher volatility</text>
+            </g>
+            <!-- Bar 3 fast -->
+            <g class="anim bar b3">
+              <rect x="730" y="206" width="130" height="66" rx="6" fill="#127a61" opacity="0.92"/>
+              <text x="795" y="178" fill="#9fb0c3" font-size="13" font-weight="600" text-anchor="middle">High volatility</text>
+            </g>
+            <!-- bottom labels -->
+            <text x="215" y="298" class="anim lbl" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">Calm market</text>
+            <text x="505" y="298" class="anim lbl" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">Normal market</text>
+            <text x="795" y="298" class="anim lbl" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">Fast market</text>
+          </svg>
+          <figcaption>Illustrative only. As volatility rises, the position size shrinks so the dollar amount at risk stays the same. The numbers and proportions here are a teaching example, not a guarantee or a specific rule for any account.</figcaption>
+        </figure>
+
+        <h2>Hold the risk steady, not the size</h2>
+        <p>The fix is to flip what you keep constant. Instead of fixing your position size and letting your risk float around with the market, fix the amount you are willing to lose on the trade and let your position size move to fit it. When volatility is low and your stop can sit close, you can carry a larger position for the same risk. When volatility is high and your stop needs more room, you carry a smaller position so that the wider stop still costs you the same amount.</p>
+        <p>That is the whole idea in one sentence: as the market speeds up, your size comes down, so your risk does not. The chart above is just that thought drawn out.</p>
+
+        <h2>A simple way to think about the math</h2>
+        <p>You do not need a complicated formula. You need two numbers before you enter: how much you are willing to risk on this trade, and how far away your stop is. Divide the first by the second and you get the position size that keeps your risk where you want it.</p>
+        <p>Many traders use a volatility measure, such as the average range a market has been moving recently, to decide where a sensible stop sits in current conditions. If that range is wide today, the stop goes wider, and the position comes down to match. If the range is tight, the stop can be closer and the position can be a little larger. The exact tool matters less than the habit of letting today's conditions set the size rather than yesterday's routine.</p>
+        <p><em>As a hypothetical, for illustration only:</em> imagine a trader who risks the same fixed amount on every trade. On a calm day the natural stop is narrow, so that fixed risk allows a fairly large position. A week later the same instrument is moving twice as fast, the sensible stop is twice as wide, and so the position that keeps the risk identical is about half the size. Same risk, very different size, decided entirely by the conditions on the day. This is an illustration of the relationship, not a claim about any real result.</p>
+
+        <h2>What this looks like inside the rules</h2>
+        <p>In a structured, simulated funded account, this habit does more than smooth out your results. It keeps you on the right side of the account rules. Daily loss limits and drawdown limits do not care whether a bad day came from one oversized trade in a fast market or from a string of small ones. They only see the damage. Sizing to volatility is one of the most reliable ways to keep a single fast session from pushing you into a limit you did not mean to test.</p>
+        <p>It also makes your performance easier to read. When your risk per trade is steady, your results reflect the quality of your decisions rather than the accident of how wild the market happened to be that day. That is exactly the kind of consistency a funded program is built to reward.</p>
+
+        <h2>The honest version</h2>
+        <p>Sizing to volatility is not exciting, and it will sometimes feel like you are leaving money on the table by trading smaller on the fastest days. That is the point. The fast days are precisely when a fixed size does the most damage. Most traders do not blow up because they were wrong more often. They blow up because the one time they were wrong, they were far too big for the conditions.</p>
+        <p>None of this guarantees a winning trade or a winning week. TradeFundrr is a structured, simulated environment for developing exactly these habits, not a shortcut to a result. But of all the dials you can turn, position size is the one most directly under your control, and matching it to volatility is one of the simplest ways to make your risk behave the way you intended. Always confirm the specific limits and sizing rules for your own account in writing, since these differ from firm to firm.</p>
+
+        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is financial advice or a guarantee of any result, and the examples above are hypothetical illustrations only. Volatility measures, position sizing methods, stop placement, and account limits vary by market, firm, and account, so always follow the written rules and terms for your specific account. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+
+        <div class="bp-cta">
+          <h3>Build the habit in a structured environment</h3>
+          <p>Develop your risk discipline in a structured, simulated environment, without risking your own capital.</p>
+          <a class="btn" href="/index.html#markets">Get Funded →</a>
+        </div>
+
+        <a class="bp-back" href="/blog">← Back to all posts</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; margin: 0 0 22px 0; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) { .site-footer__grid { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="navbar__logo" aria-label="TradeFundrr"><img src="/assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pages/why-us.html">Why Us?</a></li>
+          <li><a href="/pages/about.html">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="/pages/stocks.html">Stocks Day Trader Funding</a></li>
+          <li><a href="/pages/options.html">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/">Futures Day Trader Funding</a></li>
+          <li><a href="/pages/crypto.html">Crypto Day Trader Funding</a></li>
+          <li><a href="/pages/pro-funding.html">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=8ae59468-1120-4330-8ca7-97112729076b" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/pages/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/pages/impressum.html">Impressum</a></li>
+          <li><a href="/pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/pages/refund-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<section class="legal-disclosure" aria-label="Legal disclosures">
+  <style>
+    .legal-disclosure { background: #060914; padding: 60px 0 80px 0; border-top: 1px solid hsla(0,0%,100%,0.06); color: hsla(0,0%,100%,0.55); }
+    .legal-disclosure .ld-container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .legal-disclosure h3 { color: #fff; font-family: "Inter", system-ui, sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 18px 0; }
+    .legal-disclosure h3:not(:first-child) { margin-top: 36px; }
+    .legal-disclosure p { color: hsla(0,0%,100%,0.55); font-family: "Inter", system-ui, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0 0 14px 0; }
+    .legal-disclosure .cftc-block { text-transform: uppercase; font-size: 12.5px; letter-spacing: 0.3px; color: hsla(0,0%,100%,0.6); }
+    @media (max-width: 575px) { .legal-disclosure { padding: 40px 0 60px 0; } .legal-disclosure .ld-container { padding: 0 20px; } }
+  </style>
+  <div class="ld-container">
+    <h3>General Disclosure</h3>
+    <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+    <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+    <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+    <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+    <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+    <h3>Risk Disclosure</h3>
+    <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+    <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+    <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+    <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
+    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+    <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+    <h3>Testimonial Disclosure</h3>
+    <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script>
+  (function(){
+    var el=document.getElementById('volfig');if(!el)return;
+    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){el.classList.add('play');io.unobserve(el);}});
+    },{threshold:.35});
+    io.observe(el);
+  })();
+</script>
+<style>
+  .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
+  .bp-lightbox.open{display:flex}
+  .bp-lightbox__content{max-width:1100px;width:100%;max-height:92vh;overflow:auto;display:flex;align-items:center;justify-content:center}
+  .bp-lightbox__content img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .bp-lightbox__content .bp-figure{width:100%;margin:0;cursor:default}
+  .bp-lightbox__close{position:absolute;top:16px;right:26px;color:#fff;font-size:34px;line-height:1;font-family:"Inter",sans-serif;cursor:pointer;opacity:.85;z-index:1}
+  .bp-hero,.bp-inline,.bp-figure{cursor:zoom-in}
+</style>
+<div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <span class="bp-lightbox__close" aria-label="Close">&times;</span>
+  <div class="bp-lightbox__content" id="bpLbContent"></div>
+</div>
+<script>
+  (function(){
+    var lb=document.getElementById('bpLightbox');if(!lb)return;
+    var content=document.getElementById('bpLbContent');
+    var movedFig=null,placeholder=null;
+    function restore(){if(movedFig&&placeholder){placeholder.parentNode.insertBefore(movedFig,placeholder);placeholder.remove();}movedFig=null;placeholder=null;}
+    function openImg(el){restore();content.innerHTML='';var im=document.createElement('img');im.src=el.currentSrc||el.src;im.alt=el.alt||'';content.appendChild(im);lb.classList.add('open');}
+    function openFig(fig){restore();content.innerHTML='';placeholder=document.createComment('lb');fig.parentNode.insertBefore(placeholder,fig);movedFig=fig;fig.classList.add('play');content.appendChild(fig);lb.classList.add('open');}
+    function close(){lb.classList.remove('open');restore();content.innerHTML='';}
+    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){el.addEventListener('click',function(){openImg(el);});});
+    document.querySelectorAll('.bp-figure').forEach(function(fig){fig.addEventListener('click',function(){if(lb.contains(fig))return;openFig(fig);});});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('bp-lightbox__close'))close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+</script>
+</body>
+</html>
