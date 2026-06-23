@@ -1057,7 +1057,9 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
         <text class="tt-axl" x="467" y="356" text-anchor="middle">Yr 3</text>
         <text class="tt-axl" x="601" y="356" text-anchor="middle">Yr 4</text>
         <text class="tt-axl" x="722" y="356" text-anchor="middle">Yr 5</text>
-        <path class="tt-line tt-red" d="M64,323 L131,320 L198,316 L265,309 L333,300 L400,286 L467,266 L534,235 L601,193 L668,148 L736,96"/>
+        <defs><radialGradient id="redglow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff3c3c" stop-opacity="0.26"/><stop offset="1" stop-color="#ff3c3c" stop-opacity="0"/></radialGradient></defs>
+        <ellipse cx="694" cy="272" rx="168" ry="150" fill="url(#redglow)"/>
+        <path class="tt-line tt-red" d="M64,323 L131,323 L198,322 L265,320 L333,316 L400,307 L467,290 L534,263 L601,223 L668,162 L736,96"/>
         <path class="tt-line tt-teal" d="M64,81 L736,81"/>
         <!-- start markers -->
         <circle class="tt-startdot tt-fade" cx="64" cy="81" r="5.5"/>
@@ -1076,10 +1078,13 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
         <rect class="tt-fade" x="150" y="249" width="186" height="34" rx="8" fill="#0a0e18" stroke="rgba(255,95,95,0.45)"/>
         <text class="tt-anno crim tt-fade" x="243" y="270" text-anchor="middle">Most traders quit here.</text>
         <line class="tt-ptr crim tt-fade" x1="222" y1="283" x2="206" y2="312"/>
-        <!-- 5-year callout -->
-        <rect class="tt-fade" x="406" y="232" width="268" height="40" rx="8" fill="#0a0e18"/>
-        <text class="tt-anno w tt-fade" x="540" y="246" text-anchor="middle">≈ 5 years to reach this size,</text>
-        <text class="tt-anno w tt-fade" x="540" y="262" text-anchor="middle">and only if you never stop winning</text>
+        <!-- 5-year speech bubble -->
+        <rect class="tt-fade" x="424" y="180" width="158" height="82" rx="11" fill="#0a0e18" stroke="rgba(255,95,95,0.5)"/>
+        <polygon class="tt-fade" points="486,261 514,261 490,279" fill="#0a0e18" stroke="rgba(255,95,95,0.5)" stroke-width="1"/>
+        <text class="tt-anno crim tt-fade" x="503" y="203" text-anchor="middle">≈ 5 years to reach</text>
+        <text class="tt-anno crim tt-fade" x="503" y="221" text-anchor="middle">this size, and only</text>
+        <text class="tt-anno crim tt-fade" x="503" y="239" text-anchor="middle">if you never stop</text>
+        <text class="tt-anno crim tt-fade" x="503" y="257" text-anchor="middle">winning.</text>
       </svg>
       <p class="tt-foot">The red path is the best case: a steady, profitable run with no blow-ups. The numbers below show how rarely that happens. Illustrative; individual results vary.</p>
     </div>
