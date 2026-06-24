@@ -252,7 +252,8 @@ h1 .hh-all{color:var(--teal)}
 .tt .sub b{color:var(--w100);font-weight:700}
 .tt .body{font-size:clamp(15px,1.9vw,18px);line-height:1.6;color:var(--w72);max-width:660px;margin-bottom:38px}
 .tt .body b{color:var(--w100)}
-.ttcard{position:relative;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:28px 30px;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8);overflow:hidden}
+.ttcard{position:relative;margin-top:40px;background:rgba(255,255,255,0.025);border:1px solid var(--border-bright);border-radius:var(--r-card);padding:34px 30px;box-shadow:0 30px 80px -40px rgba(0,0,0,0.8);overflow:hidden}
+.tt-chart-img,.tt-chart-vid{display:block;width:100%;height:auto;border-radius:10px}
 .ttcard::before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(34,211,168,0.4),transparent)}
 .tt-legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:6px}
 .tt-leg{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--w72)}
@@ -2414,5 +2415,17 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6
 </script>
 <!-- Hero platform image 3D mouse-follow tilt removed 2026-06-11: kept flat for sharpness -->
 <script src="../js/main.js?v=202605230840" defer></script>
+<script>
+(function(){
+  var v=document.getElementById('ttChartVid'); if(!v) return;
+  v.muted=true;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ v.addEventListener('loadedmetadata',function(){ try{ v.currentTime=Math.max(0,(v.duration||4)-0.05); }catch(e){} }); return; }
+  function go(){ var p=v.play(); if(p&&p.catch){ p.catch(function(){}); } }
+  if(!('IntersectionObserver' in window)){ go(); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ go(); io.disconnect(); } }); },{threshold:0.4});
+  io.observe(v);
+})();
+</script>
 </body>
 </html>
