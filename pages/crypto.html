@@ -679,7 +679,7 @@
         <div class="pprice">$1</div><div class="psub">+ $29 activation on pass · 5K only</div>
         <ul class="pfeat" id="cm_promoF"></ul>
         <div class="reb no">✗ Not eligible for the rebate</div>
-        <button class="pbtn sec">Start the $1 promo</button>
+        <button class="pbtn sec" onclick="location.href='https://checkout.tradefundrr.com/checkout/purchase/b869efa9-c610-4192-ba6b-193b810f0bbb'">Start the $1 promo</button>
       </div>
       <div class="pcard pop">
         <div class="badge">Most popular</div>
@@ -687,14 +687,14 @@
         <div class="pprice" id="cm_gPrice">$199</div><div class="psub" id="cm_gSub"></div>
         <ul class="pfeat" id="cm_gFeat"></ul>
         <div class="reb no">✗ Not eligible for the rebate</div>
-        <button class="pbtn pri">Choose Growth <span id="cm_gSize2">50K</span></button>
+        <button class="pbtn pri" id="cm_gBtn">Choose Growth <span id="cm_gSize2">50K</span></button>
       </div>
       <div class="pcard">
         <div class="ptier">Express <span id="cm_eSize">50K</span></div><div class="psub-tier">Skip the eval</div>
         <div class="pprice" id="cm_ePrice">$999</div><div class="psub" id="cm_eSub"></div>
         <ul class="pfeat" id="cm_eFeat"></ul>
         <div class="reb yes">✓ Rebate eligible · see terms below</div>
-        <button class="pbtn sec">Get Express <span id="cm_eSize2">50K</span></button>
+        <button class="pbtn sec" id="cm_eBtn">Get Express <span id="cm_eSize2">50K</span></button>
       </div>
     </div>
     <div class="terms" id="cm_terms"></div>
@@ -1002,10 +1002,10 @@
     ],
     promoFeatures:['$5,000 simulated buying power','Profit target to pass: $300','Trailing max drawdown: $250','Keep 80%, paid weekly'],
     commonTerms:['80/20 split','Weekly payouts','No daily loss limit','>15s min hold','News allowed','Up to 5 accounts + 1 promo'],
-    growth:{'50K':{price:'$199',sub:'50K eval · $129 activation on pass · no monthly fee',features:['$50,000 simulated buying power','Profit target to pass: $4,000','Trailing max drawdown: $3,000','Max risk / trade: 0.5% funded','Up to $20K total payout']},
-            '100K':{price:'$499',sub:'100K eval · $129 activation on pass · no monthly fee',features:['$100,000 simulated buying power','Profit target to pass: $6,000','Trailing max drawdown: $6,000','Max risk / trade: 0.5% funded','Up to $20K total payout']}},
-    express:{'50K':{price:'$999',sub:'Funded from day one · no eval, no activation fee',features:['$50,000 buying power, no eval phase','Trailing max drawdown: $3,000','Max risk / trade: 0.5% funded','Up to $25K total payout','Funded from day one']},
-             '100K':{price:'$1,999',sub:'Funded from day one · no eval, no activation fee',features:['$100,000 buying power, no eval phase','Trailing max drawdown: $6,000','Max risk / trade: 0.5% funded','Up to $25K total payout','Funded from day one']}},
+    growth:{'50K':{price:'$199',buy:'https://checkout.tradefundrr.com/checkout/purchase/cryp-retail-growth-50k-net',sub:'50K eval · $129 activation on pass · no monthly fee',features:['$50,000 simulated buying power','Profit target to pass: $4,000','Trailing max drawdown: $3,000','Max risk / trade: 0.5% funded','Up to $20K total payout']},
+            '100K':{price:'$499',buy:'https://checkout.tradefundrr.com/checkout/purchase/cryp-retail-growth-100k-net',sub:'100K eval · $129 activation on pass · no monthly fee',features:['$100,000 simulated buying power','Profit target to pass: $6,000','Trailing max drawdown: $6,000','Max risk / trade: 0.5% funded','Up to $20K total payout']}},
+    express:{'50K':{price:'$999',buy:'https://checkout.tradefundrr.com/checkout/purchase/cryp-retail-express-50k-net',sub:'Funded from day one · no eval, no activation fee',features:['$50,000 buying power, no eval phase','Trailing max drawdown: $3,000','Max risk / trade: 0.5% funded','Up to $25K total payout','Funded from day one']},
+             '100K':{price:'$1,999',buy:'https://checkout.tradefundrr.com/checkout/purchase/cryp-retail-express-100k-net',sub:'Funded from day one · no eval, no activation fee',features:['$100,000 buying power, no eval phase','Trailing max drawdown: $6,000','Max risk / trade: 0.5% funded','Up to $25K total payout','Funded from day one']}},
     tableCols:['Promo 5K','Growth 50K','Growth 100K','Express 50K','Express 100K'],
     tableRows:[
       ['Path to funded','Eval first','Eval first','Eval first','Instant','Instant'],
@@ -1082,6 +1082,8 @@
     Q('cm_gPrice').textContent=g.price;Q('cm_gSub').textContent=g.sub;Q('cm_gFeat').innerHTML=g.features.map(function(f){return '<li>'+f+'</li>';}).join('');
     Q('cm_ePrice').textContent=e.price;Q('cm_eSub').textContent=e.sub;Q('cm_eFeat').innerHTML=e.features.map(function(f){return '<li>'+f+'</li>';}).join('');
     Q('cm_t50').classList.toggle('on',size==='50K');Q('cm_t100').classList.toggle('on',size==='100K');
+    Q('cm_gBtn').onclick=function(){location.href=g.buy;};
+    Q('cm_eBtn').onclick=function(){location.href=e.buy;};
   }
   window.cmidSetSize=function(s){size=s;renderPricing();};
   window.cmidToggleTable=function(){var b=Q('cm_tableBox');var open=b.style.display==='none';b.style.display=open?'block':'none';Q('cm_tableLabel').textContent=open?'Hide full rules':'See every rule · all 5 plans';Q('cm_tableCar').style.transform=open?'rotate(180deg)':'rotate(0deg)';};

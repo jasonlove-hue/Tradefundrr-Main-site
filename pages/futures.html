@@ -1389,7 +1389,7 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
             <li>Reset to restart after a breach: $49</li>
             <li><b>One per person</b>, separate from your up-to-5 accounts</li>
           </ul>
-          <a href="#" class="pc-cta">Claim the $19 promo</a>
+          <a href="https://checkout.tradefundrr.com/checkout/purchase/445861bf-e57f-48c3-8632-6dea526d9075" class="pc-cta">Claim the $19 promo</a>
         </div>
 
         <!-- GROWTH -->
@@ -1408,7 +1408,7 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
             <li>Reset to restart after a breach: $<span data-50="49" data-100="79">49</span></li>
             <li>Lifetime payout cap: <b>$15,000</b> per account</li>
           </ul>
-          <a href="#" class="pc-cta">Choose Growth</a>
+          <a href="https://checkout.tradefundrr.com/checkout/purchase/fut-retail-growth-50k" class="pc-cta" data-href-50="https://checkout.tradefundrr.com/checkout/purchase/fut-retail-growth-50k" data-href-100="https://checkout.tradefundrr.com/checkout/purchase/fut-retail-growth-100k">Choose Growth</a>
         </div>
 
         <!-- EXPRESS -->
@@ -1426,7 +1426,7 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
             <li>Reset to restart after a breach: $<span data-50="399" data-100="599">399</span></li>
             <li>Higher lifetime payout cap: <b>$25,000</b> per account</li>
           </ul>
-          <a href="#" class="pc-cta">Choose Express</a>
+          <a href="https://checkout.tradefundrr.com/checkout/purchase/fut-retail-express-50k" class="pc-cta" data-href-50="https://checkout.tradefundrr.com/checkout/purchase/fut-retail-express-50k" data-href-100="https://checkout.tradefundrr.com/checkout/purchase/fut-retail-express-100k">Choose Express</a>
         </div>
       </div>
 
@@ -1497,6 +1497,7 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
     sec.querySelectorAll('[data-50]').forEach(function(el){ el.textContent=el.getAttribute('data-'+s); });
     sec.querySelectorAll('.size-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.size===s); });
     sec.classList.toggle('s50', s==='50'); sec.classList.toggle('s100', s==='100');
+    sec.querySelectorAll('.pc-cta[data-href-'+s+']').forEach(function(a){ a.href=a.getAttribute('data-href-'+s); });
   }
   sec.querySelectorAll('.size-btn').forEach(function(b){ b.addEventListener('click', function(){ setSize(b.dataset.size); }); });
   sec.querySelectorAll('.prog-tab').forEach(function(t){ t.addEventListener('click', function(){
