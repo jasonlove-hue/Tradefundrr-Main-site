@@ -467,7 +467,7 @@
 <body>
 <!-- TF_WELCOME_BAR_START -->
 <div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span>
+  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
   <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
   <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
 </div>
@@ -483,9 +483,12 @@
   #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
     color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
   #tf-welcome-bar .tf-wb-x:hover{color:#000}
+  #tf-welcome-bar .wb-sm{display:none}
   @media(max-width:620px){
-    #tf-welcome-bar{font-size:12px;padding:8px 38px 8px 14px;gap:10px}
+    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
     #tf-welcome-bar .tf-wb-cta{display:none}
+    #tf-welcome-bar .wb-lg{display:none}
+    #tf-welcome-bar .wb-sm{display:inline}
   }
 </style>
 <script>
