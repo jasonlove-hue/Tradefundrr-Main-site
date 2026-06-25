@@ -56,50 +56,24 @@
 <style>
   #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
     background:linear-gradient(90deg,#080b11,#0d141d 50%,#080b11);border-bottom:1px solid rgba(34,211,168,.40);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:500;color:#e9eef3;
-    line-height:1.35;text-align:center}
+    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:500;color:#e9eef3;line-height:1.35;text-align:center}
   #tf-welcome-bar .tf-wb-text b{color:#22d3a8;font-weight:700}
-  #tf-welcome-bar .tf-wb-cta{color:#22d3a8;font-weight:600;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
+  #tf-welcome-bar .tf-wb-cta{color:#22d3a8;font-weight:600;text-decoration:none;white-space:nowrap;font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
   #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(255,255,255,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
+  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:rgba(255,255,255,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
   #tf-welcome-bar .tf-wb-x:hover{color:#fff}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12px;padding:8px 38px 8px 14px;gap:10px}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-  }
+  @media(max-width:620px){#tf-welcome-bar{font-size:12px;padding:8px 38px 8px 14px;gap:10px}#tf-welcome-bar .tf-wb-cta{display:none}}
 </style>
 <script>
 (function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
+  var KEY='tfWelcomeDismissed_v1';var bar=document.getElementById('tf-welcome-bar');if(!bar)return;
+  var gone=false;try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
+  if(gone){if(bar.parentNode)bar.parentNode.removeChild(bar);return;}
+  var hd=document.querySelector('.site-header');var hdPos=hd?getComputedStyle(hd).position:'';var basePad=parseFloat(getComputedStyle(document.body).paddingTop)||0;
+  function apply(){var h=bar.offsetHeight||42;document.body.style.paddingTop=(basePad+h)+'px';if(hd){if(hdPos==='fixed')hd.style.marginTop=h+'px';else if(hdPos==='sticky')hd.style.top=h+'px';}}
+  function clear(){document.body.style.paddingTop=(basePad?basePad+'px':'');if(hd){if(hdPos==='fixed')hd.style.marginTop='';else if(hdPos==='sticky')hd.style.top='';}}
+  apply();window.addEventListener('resize',apply);
+  bar.querySelector('.tf-wb-x').addEventListener('click',function(){try{sessionStorage.setItem(KEY,'1');}catch(e){}window.removeEventListener('resize',apply);clear();if(bar.parentNode)bar.parentNode.removeChild(bar);});
 })();
 </script>
 <!-- TF_WELCOME_BAR_END -->
@@ -783,4 +757,31 @@
     <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
     <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
     <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
-    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual tradin
+    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+    <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+    <h3>Testimonial Disclosure</h3>
+    <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script>
+  (function(){
+    var filters=document.getElementById('blFilters');
+    if(!filters)return;
+    var cards=document.querySelectorAll('#blGrid .bl-card');
+    filters.addEventListener('click',function(e){
+      var btn=e.target.closest('.bl-chip');
+      if(!btn)return;
+      var f=btn.getAttribute('data-filter');
+      filters.querySelectorAll('.bl-chip').forEach(function(c){c.classList.toggle('active',c===btn);});
+      cards.forEach(function(card){
+        var show = (f==='all') || card.getAttribute('data-cat')===f;
+        card.classList.toggle('is-hidden',!show);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
