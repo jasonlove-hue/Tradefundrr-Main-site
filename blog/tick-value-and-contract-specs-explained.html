@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tick Value and Contract Specs Explained: Knowing What One Move Is Worth | TradeFundrr Blog</title>
+  <meta name="description" content="Tick size, tick value, and point value decide what one move is worth in dollars. Why these contract specs are the foundation of position sizing, not trivia.">
+  <link rel="canonical" href="https://tradefundrr.com/blog/tick-value-and-contract-specs-explained">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-25">
+  <meta property="article:section" content="Risk &amp; Reward">
+  <meta property="og:title" content="Tick Value and Contract Specs Explained: Knowing What One Move Is Worth">
+  <meta property="og:description" content="If you cannot say what one tick is worth, you cannot say what you are risking. A plain-English look at tick size, tick value, and why specs drive sizing.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260625_120546_34dd5452-ba9e-491b-991c-afd5225e4bd6.png">
+  <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <style>
+    .bp-wrap{max-width:760px;margin:0 auto;padding:0 24px}
+    .bp-article{padding:124px 0 30px}
+    .bp-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#22d3a8;display:block;margin-bottom:16px}
+    .bp-article h1{font-family:"Inter",system-ui,sans-serif;font-size:40px;letter-spacing:-.8px;line-height:1.12;margin-bottom:18px}
+    .bp-meta{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13.5px;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .bp-meta .av{width:34px;height:34px;border-radius:50%;background:#0d1326;border:1px solid hsla(160,60%,45%,.35);display:flex;align-items:center;justify-content:center;overflow:hidden}.bp-meta .av img{width:21px;height:21px;object-fit:contain;display:block}
+    .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
+    .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
+    .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-inline{width:100%;border-radius:14px;margin:30px 0;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
+    .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
+    .bp-body li{margin-bottom:10px}
+    .bp-body li strong,.bp-body p strong{color:#fff}
+    .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
+    .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
+    .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
+    .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
+    .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
+    .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
+    .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
+    #fcfig .anim{opacity:0}
+    #fcfig.play .row{animation:fcFade .5s ease forwards}
+    #fcfig.play .r2{animation-delay:.16s}#fcfig.play .r3{animation-delay:.32s}
+    @keyframes fcFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion: reduce){#fcfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
+    @media(max-width:560px){.bp-article h1{font-size:30px}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu">
+          <a href="/pages/stocks.html" data-cat="stocks"><span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/options.html" data-cat="options"><span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/futures/" data-cat="futures"><span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span></a>
+          <a href="/pages/crypto.html" data-cat="crypto"><span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span></a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding"><span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span></a>
+        </div>
+      </span>
+      <a href="/index.html#how-it-works">How It Works</a>
+      <a href="/pages/about.html">Why Us</a>
+      <a href="/blog" class="active">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="/index.html#markets" class="btn btn--primary navbar__cta">Get Funded <span class="arrow"><img src="/assets/images/btn-arrow.svg" alt=""></span></a>
+    </div>
+  </nav>
+</header>
+
+<main class="bp-article">
+  <div class="bp-wrap">
+    <article>
+      <span class="bp-eyebrow">Risk &amp; Reward</span>
+      <h1>Tick Value and Contract Specs Explained: Knowing What One Move Is Worth</h1>
+      <div class="bp-meta">
+        <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
+        <span class="bp-dot"></span><span>June 25, 2026</span>
+        <span class="bp-dot"></span><span>6 min read</span>
+      </div>
+
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260625_120546_34dd5452-ba9e-491b-991c-afd5225e4bd6.png" alt="Abstract financial render of a precise teal grid with fine tick marks on deep navy, suggesting measured units of price movement">
+
+      <div class="bp-body">
+        <p>Most traders can tell you their account went up or down. Far fewer can tell you, before they place a trade, exactly how many dollars one move is worth. That number is not a detail. It is the foundation everything else sits on, because you cannot manage a risk you have not measured. Contract specs are how you measure it.</p>
+        <p>This is one of the least glamorous topics in trading and one of the most decisive. Get it right and your position sizing becomes simple arithmetic. Get it wrong and you can put on a trade that is two or three times the size you thought, without ever changing a single setting on purpose.</p>
+
+        <h2>What contract specs actually are</h2>
+        <p>Contract specifications are the fixed rules of an instrument. They are set by the exchange that lists it, not by your broker or your funding program, and they describe how the instrument behaves. The ones that matter most for sizing are the smallest amount the price can move and how much money that smallest move represents.</p>
+        <p>You will see a handful of terms used over and over. They sound technical, but each one answers a plain question.</p>
+        <ul>
+          <li><strong>Tick size</strong>: the smallest increment the price is allowed to move. Prices do not move in a smooth line. They jump in fixed steps, and the tick size is the size of one step.</li>
+          <li><strong>Tick value</strong>: how many dollars you gain or lose, per contract, when the price moves one tick. This is the number that turns a chart into money.</li>
+          <li><strong>Point value</strong>: how much a full point is worth, which is just the tick value multiplied by the number of ticks in a point.</li>
+          <li><strong>Contract size</strong>: how much of the underlying one contract controls, which is why a micro contract and a full-size contract on the same market are worth very different amounts.</li>
+        </ul>
+
+        <h2>How one move turns into dollars</h2>
+        <p>The mechanics are simpler than the vocabulary. A price move is just a number of ticks. Multiply that number of ticks by the tick value, then by how many contracts you hold, and you have your dollars. That is the whole calculation, and it works the same for your profit, your loss, and your risk.</p>
+
+        <figure class="bp-figure" id="fcfig">
+          <span class="figtag">Illustrative example</span>
+          <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A three step chain showing how a price move becomes dollars. Step one, one tick is the smallest price move allowed. Step two, multiply by the tick value, a fixed dollar amount set by the contract. Step three, the result is your profit or loss for each tick the price moves.">
+            <text x="60" y="40" fill="#cbd5e1" font-size="16" font-weight="800">How one move becomes dollars</text>
+            <!-- step 1 -->
+            <g class="anim row">
+              <rect x="70" y="104" width="240" height="92" rx="8" fill="#22d3a8" opacity="0.16" stroke="#22d3a8" stroke-opacity="0.5"/>
+              <text x="190" y="148" fill="#eaf7f2" font-size="18" font-weight="800" text-anchor="middle">1 tick</text>
+              <text x="190" y="174" fill="#9fb0c3" font-size="12" text-anchor="middle">smallest price move allowed</text>
+            </g>
+            <!-- arrow 1 -->
+            <g class="anim row r2">
+              <line x1="322" y1="150" x2="366" y2="150" stroke="#7e8ba0" stroke-width="2"/>
+              <polygon points="366,144 378,150 366,156" fill="#7e8ba0"/>
+            </g>
+            <!-- step 2 -->
+            <g class="anim row r2">
+              <rect x="380" y="104" width="240" height="92" rx="8" fill="#22d3a8" opacity="0.16" stroke="#22d3a8" stroke-opacity="0.5"/>
+              <text x="500" y="148" fill="#eaf7f2" font-size="18" font-weight="800" text-anchor="middle">&#215; tick value</text>
+              <text x="500" y="174" fill="#9fb0c3" font-size="12" text-anchor="middle">fixed $ per tick (set by contract)</text>
+            </g>
+            <!-- arrow 2 -->
+            <g class="anim row r3">
+              <line x1="632" y1="150" x2="676" y2="150" stroke="#7e8ba0" stroke-width="2"/>
+              <polygon points="676,144 688,150 676,156" fill="#7e8ba0"/>
+            </g>
+            <!-- step 3 -->
+            <g class="anim row r3">
+              <rect x="690" y="104" width="240" height="92" rx="8" fill="#22d3a8" opacity="0.30" stroke="#22d3a8" stroke-opacity="0.7"/>
+              <text x="810" y="148" fill="#eaf7f2" font-size="18" font-weight="800" text-anchor="middle">= $ per tick</text>
+              <text x="810" y="174" fill="#9fb0c3" font-size="12" text-anchor="middle">your P&amp;L for each tick moved</text>
+            </g>
+            <!-- example caption -->
+            <text x="500" y="244" fill="#7e8ba0" font-size="13.5" text-anchor="middle">Illustrative: if one tick is worth $12.50, a 4-tick move = $50.00 per contract.</text>
+          </svg>
+          <figcaption>Illustrative only. The $12.50 tick value shown is a made-up figure used to explain the arithmetic, not the spec of any specific instrument. Tick sizes and tick values differ by market and contract and can be changed by the exchange, so always confirm the current specs for the exact instrument you trade.</figcaption>
+        </figure>
+
+        <p>To make it concrete, suppose an instrument has a tick value of $12.50 and there are four ticks in a point. A one-point move is worth $50 on a single contract. Hold two contracts and the same move is worth $100. Nothing about the chart changed. Your dollar exposure changed because your contract count did. Those numbers are hypothetical and used only to show the shape of the math.</p>
+
+        <h2>Why this is risk management, not trivia</h2>
+        <p>Here is the part that connects specs to survival. Your real risk on a trade is the distance to your stop, measured in ticks, multiplied by the tick value, multiplied by how many contracts you hold. If you do not know the tick value, you do not actually know what you are risking. You are guessing, and the guess is usually optimistic.</p>
+        <p>This is also how you work backwards into a sensible size. Decide the dollar amount you are willing to lose on the trade. Measure your stop distance in ticks. Divide your dollar risk by the per-contract risk, and you have the largest number of contracts that keeps you inside your limit. Specs are what make that calculation possible instead of a feeling.</p>
+
+        <h2>The same chart move, different dollars</h2>
+        <p>One trap deserves a direct warning. The same market often has more than one contract: a full-size version and a smaller micro version. They print nearly identical charts, so the move looks the same to your eyes, but the micro is worth a fraction of the full-size contract per tick. Traders who learn sizing on one and then switch to the other, without checking the spec, can end up with far more or far less exposure than they expect. Never assume the tick value carried over. Look it up for the exact symbol.</p>
+
+        <h2>Where this meets account rules</h2>
+        <p>In a structured, simulated environment you are trading inside defined limits, including a daily loss limit and position-size caps. Tick value is the translator between those rules and an actual trade. It lets you take a price-based stop and answer a concrete question before you click: if this trade hits my stop, does the dollar loss fit inside today's limit, or does it blow through it? That is a question you can only answer if you know what one tick is worth.</p>
+        <p>Because the environment is simulated, you can build this habit without your personal savings riding on each trade. The arithmetic you practice, though, is the same arithmetic that governs real size later. The discipline of knowing your numbers before you enter is exactly what transfers.</p>
+
+        <h2>The honest takeaway</h2>
+        <p>Contract specs are boring, and that is precisely why they are worth your attention. They do not move with sentiment or news. They sit underneath every trade, quietly setting the conversion rate between a move on the screen and a number in your account. Before you trade any instrument you have not traded before, look up its tick size and tick value and confirm them on your own platform, because they can differ from what you remember and they can change. Know what one move is worth, and the rest of your risk math finally has something solid to stand on.</p>
+
+        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is financial advice or a guarantee of any result, and the tick value and figures above are hypothetical, used only to illustrate the calculation. Actual tick sizes, tick values, point values, and contract sizes vary by market and instrument and are set by the relevant exchange, so always confirm the current specifications for the exact contract you trade. Account rules, loss limits, and position limits vary by firm and program, so always read and follow the written terms for your specific account. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+
+        <div class="bp-cta">
+          <h3>Trade with numbers you can defend</h3>
+          <p>Develop your sizing and risk process in a structured, simulated environment with clear rules and limits.</p>
+          <a class="btn" href="/index.html#markets">Get Funded →</a>
+        </div>
+
+        <a class="bp-back" href="/blog">← Back to all posts</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; margin: 0 0 22px 0; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) { .site-footer__grid { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="navbar__logo" aria-label="TradeFundrr"><img src="/assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pages/why-us.html">Why Us?</a></li>
+          <li><a href="/pages/about.html">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="/pages/stocks.html">Stocks Day Trader Funding</a></li>
+          <li><a href="/pages/options.html">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/">Futures Day Trader Funding</a></li>
+          <li><a href="/pages/crypto.html">Crypto Day Trader Funding</a></li>
+          <li><a href="/pages/pro-funding.html">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=8ae59468-1120-4330-8ca7-97112729076b" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/pages/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/pages/impressum.html">Impressum</a></li>
+          <li><a href="/pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/pages/refund-policy.html">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<section class="legal-disclosure" aria-label="Legal disclosures">
+  <style>
+    .legal-disclosure { background: #060914; padding: 60px 0 80px 0; border-top: 1px solid hsla(0,0%,100%,0.06); color: hsla(0,0%,100%,0.55); }
+    .legal-disclosure .ld-container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .legal-disclosure h3 { color: #fff; font-family: "Inter", system-ui, sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 18px 0; }
+    .legal-disclosure h3:not(:first-child) { margin-top: 36px; }
+    .legal-disclosure p { color: hsla(0,0%,100%,0.55); font-family: "Inter", system-ui, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0 0 14px 0; }
+    .legal-disclosure .cftc-block { text-transform: uppercase; font-size: 12.5px; letter-spacing: 0.3px; color: hsla(0,0%,100%,0.6); }
+    @media (max-width: 575px) { .legal-disclosure { padding: 40px 0 60px 0; } .legal-disclosure .ld-container { padding: 0 20px; } }
+  </style>
+  <div class="ld-container">
+    <h3>General Disclosure</h3>
+    <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+    <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+    <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+    <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+    <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+    <h3>Risk Disclosure</h3>
+    <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+    <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+    <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+    <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
+    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+    <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+    <h3>Testimonial Disclosure</h3>
+    <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script>
+  (function(){
+    var el=document.getElementById('fcfig');if(!el)return;
+    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){el.classList.add('play');io.unobserve(el);}});
+    },{threshold:.3});
+    io.observe(el);
+  })();
+</script>
+<style>
+  .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
+  .bp-lightbox.open{display:flex}
+  .bp-lightbox__content{max-width:1100px;width:100%;max-height:92vh;overflow:auto;display:flex;align-items:center;justify-content:center}
+  .bp-lightbox__content img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .bp-lightbox__content .bp-figure{width:100%;margin:0;cursor:default}
+  .bp-lightbox__close{position:absolute;top:16px;right:26px;color:#fff;font-size:34px;line-height:1;font-family:"Inter",sans-serif;cursor:pointer;opacity:.85;z-index:1}
+  .bp-hero,.bp-inline,.bp-figure{cursor:zoom-in}
+</style>
+<div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <span class="bp-lightbox__close" aria-label="Close">&times;</span>
+  <div class="bp-lightbox__content" id="bpLbContent"></div>
+</div>
+<script>
+  (function(){
+    var lb=document.getElementById('bpLightbox');if(!lb)return;
+    var content=document.getElementById('bpLbContent');
+    var movedFig=null,placeholder=null;
+    function restore(){if(movedFig&&placeholder){placeholder.parentNode.insertBefore(movedFig,placeholder);placeholder.remove();}movedFig=null;placeholder=null;}
+    function openImg(el){restore();content.innerHTML='';var im=document.createElement('img');im.src=el.currentSrc||el.src;im.alt=el.alt||'';content.appendChild(im);lb.classList.add('open');}
+    function openFig(fig){restore();content.innerHTML='';placeholder=document.createComment('lb');fig.parentNode.insertBefore(placeholder,fig);movedFig=fig;fig.classList.add('play');content.appendChild(fig);lb.classList.add('open');}
+    function close(){lb.classList.remove('open');restore();content.innerHTML='';}
+    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){el.addEventListener('click',function(){openImg(el);});});
+    document.querySelectorAll('.bp-figure').forEach(function(fig){fig.addEventListener('click',function(){if(lb.contains(fig))return;openFig(fig);});});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('bp-lightbox__close'))close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+</script>
+</body>
+</html>
