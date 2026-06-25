@@ -661,6 +661,8 @@ h1 .ph-hook::after{content:"";position:absolute;left:2px;right:2px;bottom:8px;he
 .plat .sub{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--w72);max-width:640px;margin-bottom:44px}
 .plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:760px){.plat-grid{grid-template-columns:1fr}}
+.plat-grid--3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:880px){.plat-grid--3{grid-template-columns:1fr}}
 .plat-card{background:var(--w06);border:1px solid var(--border);border-radius:18px;padding:30px;display:flex;flex-direction:column}
 .plat-card .ptag{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px}
 .plat-card .pname{font-size:21px;font-weight:800;letter-spacing:-0.01em;margin-bottom:14px}
@@ -2429,10 +2431,22 @@ h1,h2,h3,.cg-reframe .big,.rm-close,.wn-close,.tt-close .big,.cg-close .big,.wif
   <div class="plat-glow"></div>
   <div class="plat-inner">
     <span class="eyebrow rv">Platforms · trade your way</span>
-    <h2 class="rv">Two platforms. <span class="hl">One funded account.</span></h2>
-    <p class="sub rv">Pick the one that fits your style. Both connect to the same funded account.</p>
+    <h2 class="rv">Three platforms. <span class="hl">One funded account.</span></h2>
+    <p class="sub rv">Pick the one that fits your style. All three connect to the same funded account.</p>
 
-    <div class="plat-grid rv">
+    <div class="plat-grid plat-grid--3 rv">
+      <div class="plat-card">
+        <div class="ptag">Futures · execution stack</div>
+        <div class="pname">DXTrade</div>
+        <p class="pdesc">Built by the same development team behind <b>tastyworks and thinkorswim.</b> The pro-grade futures order ticket, with institutional routing instead of payment for order flow.</p>
+        <ul class="plat-feat">
+          <li>Real-time market data and quotes</li>
+          <li>Depth-of-market order ladder</li>
+          <li>Fast, keyboard-driven order entry</li>
+          <li>Professional charting tools</li>
+          <li>Multi-monitor support</li>
+        </ul>
+      </div>
       <div class="plat-card">
         <div class="ptag">Futures</div>
         <div class="pname">NinjaTrader</div>
