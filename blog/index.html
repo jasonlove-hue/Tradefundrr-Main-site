@@ -47,6 +47,63 @@
   </style>
 </head>
 <body>
+<!-- TF_WELCOME_BAR_START -->
+<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
+  <span class="tf-wb-text">Welcome to the <b>new TradeFundrr</b> &mdash; same account, same login, a brand-new experience.</span>
+  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
+  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
+</div>
+<style>
+  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
+    background:linear-gradient(90deg,#080b11,#0d141d 50%,#080b11);border-bottom:1px solid rgba(34,211,168,.40);
+    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:500;color:#e9eef3;
+    line-height:1.35;text-align:center}
+  #tf-welcome-bar .tf-wb-text b{color:#22d3a8;font-weight:700}
+  #tf-welcome-bar .tf-wb-cta{color:#22d3a8;font-weight:600;text-decoration:none;white-space:nowrap;
+    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
+  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
+  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
+    color:rgba(255,255,255,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
+  #tf-welcome-bar .tf-wb-x:hover{color:#fff}
+  @media(max-width:620px){
+    #tf-welcome-bar{font-size:12px;padding:8px 38px 8px 14px;gap:10px}
+    #tf-welcome-bar .tf-wb-cta{display:none}
+  }
+</style>
+<script>
+(function(){
+  var KEY='tfWelcomeDismissed_v1';
+  var bar=document.getElementById('tf-welcome-bar');
+  if(!bar)return;
+  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
+  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
+  var hd=document.querySelector('.site-header');
+  var hdPos = hd ? getComputedStyle(hd).position : '';
+  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
+  function apply(){
+    var h=bar.offsetHeight||42;
+    document.body.style.paddingTop=(basePad+h)+'px';
+    if(hd){
+      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
+      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
+    }
+  }
+  function clear(){
+    document.body.style.paddingTop=(basePad?basePad+'px':'');
+    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
+  }
+  apply();
+  window.addEventListener('resize',apply);
+  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
+    try{sessionStorage.setItem(KEY,'1');}catch(e){}
+    window.removeEventListener('resize',apply);
+    clear();
+    if(bar.parentNode) bar.parentNode.removeChild(bar);
+  });
+})();
+</script>
+<!-- TF_WELCOME_BAR_END -->
+
 
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
