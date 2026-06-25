@@ -848,5 +848,9 @@
 <!-- LEGAL_DISCLOSURE_END -->
 
 
+<!-- TF_NAVFIX -->
+<script>
+(function(){var t=document.querySelector(".nav-toggle"),n=document.querySelector(".navbar");if(!t||!n)return;t.addEventListener("click",function(e){e.stopPropagation();var o=!n.classList.contains("is-open");n.classList.toggle("is-open",o);t.classList.toggle("is-active",o);t.setAttribute("aria-expanded",o?"true":"false");});document.addEventListener("click",function(e){if(n.classList.contains("is-open")&&!n.contains(e.target)){n.classList.remove("is-open");t.classList.remove("is-active");t.setAttribute("aria-expanded","false");}});})();
+</script>
 </body>
 </html>
