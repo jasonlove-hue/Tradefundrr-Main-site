@@ -2286,17 +2286,26 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6
   var stage=document.querySelector('.tt-stage'); if(!stage) return;
   var v=stage.querySelector('video'); if(!v) return;
   v.muted=true;
-  var revealed=false, wd;
-  function reveal(){ if(revealed) return; revealed=true; clearTimeout(wd); stage.classList.add('reveal'); }
+  var revealed=false, wd, prog;
+  function reveal(){ if(revealed) return; revealed=true; clearTimeout(wd); clearInterval(prog); stage.classList.add('reveal'); }
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce){ reveal(); return; }
   function arm(){ clearTimeout(wd); var ms=((isFinite(v.duration)&&v.duration>0)?v.duration*1000:7000)+3000; wd=setTimeout(reveal, ms); }
   v.addEventListener('loadedmetadata', arm);
   v.addEventListener('ended', reveal);
   v.addEventListener('error', reveal);
-  v.addEventListener('stalled', function(){ setTimeout(function(){ if(!v.ended && v.readyState<3) reveal(); }, 1800); });
+  v.addEventListener('stalled', function(){ setTimeout(function(){ if(!v.ended && v.readyState<3) reveal(); }, 1500); });
+  function watchProgress(){
+    var last=-1, stuck=0;
+    clearInterval(prog);
+    prog=setInterval(function(){
+      if(revealed||v.ended){ clearInterval(prog); return; }
+      if(v.currentTime>last+0.05){ last=v.currentTime; stuck=0; }
+      else { stuck+=300; if(stuck>=1500){ reveal(); } }
+    },300);
+  }
   var played=false;
-  function go(){ if(played) return; played=true; arm(); var p=v.play(); if(p&&p.catch){ p.catch(reveal); } }
+  function go(){ if(played) return; played=true; arm(); watchProgress(); var p=v.play(); if(p&&p.catch){ p.catch(reveal); } }
   if(!('IntersectionObserver' in window)){ go(); return; }
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ go(); io.disconnect(); } }); },{threshold:0.35});
   io.observe(stage);

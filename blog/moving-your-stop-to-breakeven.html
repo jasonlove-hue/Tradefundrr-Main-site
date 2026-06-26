@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Where to Place Your Stop-Loss (and Why It Matters More Than Your Entry) | TradeFundrr Blog</title>
-  <meta name="description" content="Most traders obsess over the entry and guess at the stop. Why your stop placement decides your risk, how to set it from the chart instead of your account, and the R-multiple way to think about it.">
-  <link rel="canonical" href="https://tradefundrr.com/blog/where-to-place-your-stop-loss">
+  <title>Moving Your Stop to Break-Even: When It Helps and When It Hurts | TradeFundrr Blog</title>
+  <meta name="description" content="Trailing your stop to break-even feels like free protection, but moved too early it just gets you scratched out before the trade works. When break-even stops help, when they hurt, and a simple rule of thumb.">
+  <link rel="canonical" href="https://tradefundrr.com/blog/moving-your-stop-to-breakeven">
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2026-06-16">
+  <meta property="article:published_time" content="2026-06-26">
   <meta property="article:section" content="Risk &amp; Reward">
-  <meta property="og:title" content="Where to Place Your Stop-Loss (and Why It Matters More Than Your Entry)">
-  <meta property="og:description" content="The entry gets the attention. The stop decides the outcome. How to place it on purpose.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260616_123315_1c6f5773-4a60-4252-9ae8-a1e9f4279154.png">
+  <meta property="og:title" content="Moving Your Stop to Break-Even: When It Helps and When It Hurts">
+  <meta property="og:description" content="A break-even stop feels free. Moved too early, it just scratches you out before the trade has room to work.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260626_120602_1be4b038-dd63-459b-90ea-1fbd1ba5adcd.jpeg">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -44,16 +44,16 @@
     .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
     .bp-figure svg{width:100%;height:auto;display:block}
     .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #stopfig .anim{opacity:0}
-    #stopfig.play .lvl{animation:stopFade .5s ease forwards}
-    #stopfig.play .l2{animation-delay:.35s}#stopfig.play .l3{animation-delay:.7s}
-    #stopfig.play .band{animation:stopGrow .6s ease forwards;transform-origin:center}
-    #stopfig.play .riskband{animation-delay:1.05s}#stopfig.play .rewardband{animation-delay:1.4s}
-    #stopfig.play .lbl{animation:stopFade .45s ease forwards}
-    #stopfig.play .lb2{animation-delay:.5s}#stopfig.play .lb3{animation-delay:.85s}#stopfig.play .lb4{animation-delay:1.6s}
-    @keyframes stopFade{to{opacity:1}}
-    @keyframes stopGrow{from{opacity:0;transform:scaleY(.2)}to{opacity:1;transform:scaleY(1)}}
-    @media (prefers-reduced-motion: reduce){#stopfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
+    #befig .anim{opacity:0}
+    #befig.play .be{animation:beFade .5s ease forwards}
+    #befig.play .os{animation:beFade .5s ease forwards;animation-delay:.3s}
+    #befig.play .ppath{animation:beFade .7s ease forwards;animation-delay:.6s}
+    #befig.play .lbl{animation:beFade .5s ease forwards;animation-delay:1s}
+    #befig.play .dot{animation:beFade .4s ease forwards;animation-delay:1.3s}
+    #befig.play .dpath{animation:beFade .7s ease forwards;animation-delay:1.5s}
+    #befig.play .lb2{animation-delay:1.85s}
+    @keyframes beFade{to{opacity:1}}
+    @media (prefers-reduced-motion: reduce){#befig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
@@ -150,87 +150,85 @@
   <div class="bp-wrap">
     <article>
       <span class="bp-eyebrow">Risk &amp; Reward</span>
-      <h1>Where to Place Your Stop-Loss (and Why It Matters More Than Your Entry)</h1>
+      <h1>Moving Your Stop to Break-Even: When It Helps and When It Hurts</h1>
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
-        <span class="bp-dot"></span><span>June 16, 2026</span>
+        <span class="bp-dot"></span><span>June 26, 2026</span>
         <span class="bp-dot"></span><span>6 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260616_123315_1c6f5773-4a60-4252-9ae8-a1e9f4279154.png" alt="Abstract rising price line with a horizontal support level marked beneath it, in mint teal on navy">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260626_120602_1be4b038-dd63-459b-90ea-1fbd1ba5adcd.jpeg" alt="Branded 3D candlestick prisms in mint teal and navy rising in a row, one aligned level with a clean horizontal break-even plane">
 
       <div class="bp-body">
-        <p>Most traders spend the bulk of their attention on the entry. The setup, the trigger, the exact candle. The stop-loss gets decided in the last two seconds before they click, often as a round number that feels safe or a distance that keeps the loss small enough to ignore.</p>
-        <p>That order is backwards. The entry decides whether you are in the trade. The stop decides what the trade costs you when you are wrong, and you will be wrong often. In an account with hard rules, the stop is the part that keeps you in the game long enough for a decent entry to ever matter.</p>
+        <p>You get into a trade and it goes your way a little. Now you are sitting on a small open profit, and a familiar urge shows up. Slide the stop up to your entry price. Lock it in. From here the trade is "free," because the worst case is you scratch out at zero instead of taking a loss.</p>
+        <p>It feels like pure upside, and sometimes it is. But moving your stop to break-even is not a free action. It is a trade-off, and traders who reach for it on reflex tend to do it at exactly the wrong moment. Done well it protects a good position. Done too early it quietly turns winners into scratches and bleeds your results without ever showing up as a loss on the statement.</p>
 
-        <h2>Your stop is your risk, not your entry</h2>
-        <p>Here is the part that does not get said enough. When you place a trade, you do not control the profit. The market decides that. The one number you fully control at the moment of entry is how much you are willing to lose, and that number lives entirely in where you put the stop.</p>
-        <p>Move the stop closer and the loss is smaller but you get knocked out by normal noise. Move it further and you survive the noise but each loss is bigger. There is no free version. The stop is the price you pay to stay in the trade, and pretending it does not exist by trading without one does not remove the risk. It just hides it until it is large.</p>
+        <h2>What a break-even stop actually does</h2>
+        <p>Moving the stop to break-even does two things at once. It removes your downside on the trade, which is the part everyone notices. And it tightens your stop, which is the part most people ignore. You have taken a stop that was sitting at a sensible level, where the trade would be genuinely wrong, and dragged it up to a price that has no real meaning to the market: the spot where you happened to get in.</p>
+        <p>The market does not know or care where your entry was. Price wanders around. A stop parked at your entry sits right inside the zone of normal noise, which means it gets clipped by the ordinary back-and-forth that happens before most moves actually run.</p>
 
-        <h2>Place the stop where your idea is wrong, then size to it</h2>
-        <p>The common mistake is to start from the account. A trader decides they want to risk a fixed dollar amount, places the stop at whatever distance produces that number, and ends up with a stop sitting in a meaningless spot. The market does not know or care where your comfort level is.</p>
-        <p>The cleaner sequence is the reverse:</p>
+        <h2>When it helps</h2>
+        <p>A break-even stop earns its place when the trade has already done something to justify it. Good moments include:</p>
         <ul>
-          <li><strong>Find the level that invalidates the trade.</strong> The point on the chart where, if price reaches it, the reason you entered is no longer true. That is where the stop belongs.</li>
-          <li><strong>Measure the distance from entry to that level.</strong> This is your risk per share or per contract, set by the chart, not by your hopes.</li>
-          <li><strong>Size the position so that distance equals the risk you allow.</strong> If the stop is wider, you trade smaller. If it is tighter, you can trade a little larger. Position size flexes; the stop location does not.</li>
+          <li><strong>Price has cleared a real level.</strong> If the trade has broken past structure and that old level should now hold, moving your stop just below it, at or near break-even, is reading the chart, not your fear.</li>
+          <li><strong>You have already taken partial profit.</strong> If you scaled out of part of the position, trailing the rest to break-even is a reasonable way to protect a result you have partly banked.</li>
+          <li><strong>The reason you entered is no longer valid.</strong> If the setup has played out or broken down and you just want out at the best available price, break-even is a fine place to be.</li>
         </ul>
-        <p>This keeps the stop honest. It sits where the trade is actually wrong, and your size adjusts around it instead of the other way around.</p>
+        <p>In each case the move is driven by something on the chart. The trade has given you information, and you are responding to it.</p>
 
-        <h2>Think in R, not in dollars</h2>
-        <p>Once the stop sets your risk, it becomes a unit you can think in. Traders call it R. One R is the amount you stand to lose if the stop is hit. Everything else gets measured against it. A target two times your risk away is a 2R target. A trade that runs to three times your risk is a 3R winner.</p>
-        <p>This is useful because it strips the dollars out of the decision and leaves the structure. A 2R winner is a 2R winner whether you are on a small simulated account or a larger one. The diagram below shows the idea: the stop defines one unit of risk below the entry, and the reward is measured in the same unit above it.</p>
+        <h2>When it hurts</h2>
+        <p>The damage comes from moving to break-even out of nervousness, before the trade has earned anything. Price ticks a little in your favor, you get anxious about giving it back, and you yank the stop up to entry. Then normal noise pulls price back through your entry, you get scratched, and minutes later the trade runs exactly where you thought it would, without you on board.</p>
+        <p>That is the pattern in the diagram below. The trade was right. The stop, moved up too soon, was the problem.</p>
 
-        <figure class="bp-figure" id="stopfig">
+        <figure class="bp-figure" id="befig">
           <span class="figtag">Illustrative example</span>
-          <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A diagram showing entry, a stop one R below, and a target two R above, with the risk band and reward band labeled">
+          <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A price line that rises from entry, pulls back to touch the break-even stop and scratches out, then continues higher without the trader">
+            <text class="anim lbl" x="130" y="52" fill="#fff" font-size="18" font-weight="700">One trade, stop trailed up to break-even too early</text>
             <!-- vertical price axis -->
-            <line x1="120" y1="20" x2="120" y2="330" stroke="hsla(0,0%,100%,.18)" stroke-width="1.5"/>
-            <!-- reward band (entry up to target) -->
-            <rect class="anim band rewardband" x="124" y="60" width="620" height="120" fill="#22d3a8" fill-opacity=".12"/>
-            <!-- risk band (entry down to stop) -->
-            <rect class="anim band riskband" x="124" y="180" width="620" height="60" fill="#f0556b" fill-opacity=".14"/>
-            <!-- target line (2R) -->
-            <g class="anim lvl l3">
-              <line x1="124" y1="60" x2="744" y2="60" stroke="#22d3a8" stroke-width="2" stroke-dasharray="7 6"/>
-              <text x="760" y="65" fill="#22d3a8" font-size="17" font-weight="700">Target</text>
+            <line x1="110" y1="40" x2="110" y2="320" stroke="hsla(0,0%,100%,.18)" stroke-width="1.5"/>
+            <!-- original stop line -->
+            <g class="anim os">
+              <line x1="130" y1="275" x2="760" y2="275" stroke="#f0556b" stroke-width="2" stroke-dasharray="7 6"/>
+              <text x="770" y="280" fill="#f08294" font-size="15" font-weight="700">Original stop</text>
             </g>
-            <!-- entry line -->
-            <g class="anim lvl">
-              <line x1="124" y1="180" x2="744" y2="180" stroke="#fff" stroke-width="2.5"/>
-              <text x="760" y="185" fill="#fff" font-size="17" font-weight="700">Entry</text>
+            <!-- break-even line -->
+            <g class="anim be">
+              <line x1="130" y1="190" x2="760" y2="190" stroke="#fff" stroke-width="2"/>
+              <text x="770" y="195" fill="#fff" font-size="15" font-weight="700">Break-even (entry)</text>
             </g>
-            <!-- stop line (1R) -->
-            <g class="anim lvl l2">
-              <line x1="124" y1="240" x2="744" y2="240" stroke="#f0556b" stroke-width="2" stroke-dasharray="7 6"/>
-              <text x="760" y="245" fill="#f08294" font-size="17" font-weight="700">Stop</text>
+            <!-- solid price path: entry, peak, back to break-even stop-out -->
+            <polyline class="anim ppath" points="130,190 360,95 600,190" fill="none" stroke="#22d3a8" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- dotted continuation: where it ran -->
+            <polyline class="anim dpath" points="600,190 760,105" fill="none" stroke="#22d3a8" stroke-width="2.5" stroke-dasharray="3 7" stroke-linecap="round"/>
+            <text class="anim lb2" x="770" y="110" fill="#22d3a8" font-size="15" font-weight="700">Where it ran without you</text>
+            <!-- stop moved arrow -->
+            <g class="anim lbl">
+              <line x1="170" y1="272" x2="170" y2="200" stroke="#9fb0c3" stroke-width="1.5"/>
+              <path d="M164 208 L176 208 L170 196 Z" fill="#9fb0c3"/>
+              <text x="186" y="248" fill="#9fb0c3" font-size="14" font-weight="600">Stop trailed to break-even</text>
             </g>
-            <!-- R brackets -->
-            <g class="anim lbl lb2">
-              <line x1="180" y1="180" x2="180" y2="240" stroke="#f0556b" stroke-width="1.5"/>
-              <text x="196" y="216" fill="#f08294" font-size="15" font-weight="700">1R risk</text>
-            </g>
-            <g class="anim lbl lb3">
-              <line x1="300" y1="60" x2="300" y2="180" stroke="#22d3a8" stroke-width="1.5"/>
-              <text x="316" y="126" fill="#22d3a8" font-size="15" font-weight="700">2R reward</text>
-            </g>
-            <text class="anim lbl lb4" x="124" y="300" fill="#9fb0c3" font-size="14">The stop sets one unit of risk. Reward is measured in the same unit.</text>
+            <!-- stop-out dot and label -->
+            <circle class="anim dot" cx="600" cy="190" r="7" fill="#f0556b" stroke="#0d1326" stroke-width="2"/>
+            <text class="anim lb2" x="600" y="224" fill="#f08294" font-size="15" font-weight="700" text-anchor="middle">Scratched out at break-even</text>
           </svg>
-          <figcaption>Illustrative example only. Distances are simplified to show the concept of measuring reward against the risk your stop defines. Not a prediction, not a recommendation, and not based on any actual trade.</figcaption>
+          <figcaption>Illustrative example only. A simplified single trade to show the concept of a too-early break-even stop. Not a prediction, not a recommendation, and not based on any actual trade.</figcaption>
         </figure>
 
+        <h2>A simple rule of thumb</h2>
+        <p>The cleanest filter is to ask one question before you touch the stop: am I moving this because of something on the chart, or because of something in my stomach? If price has cleared a level or you have taken partial profit, the move is justified by the trade. If you are reaching for the stop purely because you feel anxious about an open gain, that is your emotions trading the position, and a scratch is the usual price.</p>
+        <p>Give the trade room to be right. A stop belongs where the idea is actually wrong, not at the arbitrary price where you got in. Trail it as the structure of the move gives you new places to hide it, not on the first flicker of fear.</p>
+
         <h2>Why this matters more inside a funded account</h2>
-        <p>On a personal account, a sloppy stop mostly costs you money and patience. Inside a structured program, it costs you the account. Funded accounts carry a daily loss limit and an overall drawdown, and both are hit faster by positions sized off feel rather than off the stop. A trader who sizes to the stop knows their worst case before they enter. A trader who does not is leaving that number up to the market.</p>
-        <p>This is also why a tight, well-placed stop is not the same as a small one. A stop jammed two ticks under the entry to keep the loss tiny usually just guarantees you get stopped out before the trade has a chance to work, then you re-enter, get stopped again, and bleed out through a hundred small cuts. Placement first, size second, and the loss takes care of itself.</p>
+        <p>Inside a structured program, a habit of scratching out winners is more expensive than it looks. Your edge, if you have one, lives in letting the good trades pay for the losing ones. Cut the winners short with premature break-even stops and you keep the full size of your losers while shrinking your winners toward zero. The math quietly tips against you even though every individual scratch felt safe. In a funded account, where you need steady net results to reach and keep a payout, that slow leak is the difference between progress and treading water.</p>
 
         <h2>One honest caveat</h2>
-        <p>A good stop does not make a bad trade good. If the entry has no edge, placing the stop perfectly only means you lose at a slower, more orderly pace. Risk management keeps you in the game; it does not supply the edge you play with. The point of getting the stop right is not to win more often. It is to make sure that when you are wrong, the cost is one you chose on purpose, in a simulated environment built to let you practice exactly that.</p>
+        <p>None of this means break-even stops are bad, and it does not mean you should sit through every pullback hoping. There are real trades where moving to break-even is exactly right, and there are real trades you should just close. The skill is telling the difference, and that comes from reps and an honest journal, not from a single rule. A structured, simulated environment is built precisely for getting those reps, so you can learn when to protect a trade and when to give it room, without your own capital riding on every lesson.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit or trading results, and none of the figures above represent actual trades. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit or trading results, and the trade shown above is illustrative only and does not represent an actual trade. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
 
         <div class="bp-cta">
-          <h3>Practice risk on purpose</h3>
-          <p>Develop your stop discipline in a structured, simulated environment, without risking your own capital.</p>
+          <h3>Practice trade management</h3>
+          <p>Learn when to protect a trade and when to give it room, in a structured, simulated environment, without risking your own capital.</p>
           <a class="btn" href="/index.html#markets">Get Funded →</a>
         </div>
 
@@ -342,7 +340,7 @@
 <script src="/js/main.js"></script>
 <script>
   (function(){
-    var el=document.getElementById('stopfig');
+    var el=document.getElementById('befig');
     if(!el)return;
     if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
     var io=new IntersectionObserver(function(entries){
