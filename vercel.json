@@ -6,17 +6,42 @@
   "redirects": [
     {
       "source": "/futures-session-times",
-      "destination": "/pages/futures",
+      "destination": "/blog/futures-session-times",
       "permanent": true
     },
     {
       "source": "/mnq-point-value",
-      "destination": "/blog/tick-value-and-contract-specs-explained",
+      "destination": "/blog/mnq-point-value",
       "permanent": true
     },
     {
       "source": "/comex-hours",
-      "destination": "/blog/trading-hours-and-session-rules-explained",
+      "destination": "/blog/comex-hours",
+      "permanent": true
+    },
+    {
+      "source": "/pros-and-cons-of-funded-accounts",
+      "destination": "/blog/pros-and-cons-of-funded-accounts",
+      "permanent": true
+    },
+    {
+      "source": "/best-futures-to-trade-at-night",
+      "destination": "/blog/best-futures-to-trade-at-night",
+      "permanent": true
+    },
+    {
+      "source": "/what-time-do-futures-open-sunday",
+      "destination": "/blog/what-time-do-futures-open-sunday",
+      "permanent": true
+    },
+    {
+      "source": "/options-trader-funding-programs",
+      "destination": "/blog/options-trader-funding-programs",
+      "permanent": true
+    },
+    {
+      "source": "/optionsdaytrader-profunding",
+      "destination": "/blog/options-trader-funding-programs",
       "permanent": true
     },
     {
@@ -25,22 +50,7 @@
       "permanent": true
     },
     {
-      "source": "/pros-and-cons-of-funded-accounts",
-      "destination": "/blog/funded-account-vs-your-own-account",
-      "permanent": true
-    },
-    {
       "source": "/top-performing-traders-to-copy",
-      "destination": "/pages/pro-funding",
-      "permanent": true
-    },
-    {
-      "source": "/best-futures-to-trade-at-night",
-      "destination": "/pages/futures",
-      "permanent": true
-    },
-    {
-      "source": "/optionsdaytrader-profunding",
       "destination": "/pages/pro-funding",
       "permanent": true
     },
