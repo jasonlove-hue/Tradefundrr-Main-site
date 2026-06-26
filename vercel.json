@@ -46,17 +46,17 @@
     },
     {
       "source": "/how-to-make-50k-overnight",
-      "destination": "/pages/futures",
+      "destination": "/blog/how-to-make-50k-overnight",
       "permanent": true
     },
     {
       "source": "/top-performing-traders-to-copy",
-      "destination": "/pages/pro-funding",
+      "destination": "/blog/top-performing-traders-to-copy",
       "permanent": true
     },
     {
       "source": "/best-multi-monitor-setups-for-traders",
-      "destination": "/blog",
+      "destination": "/blog/best-multi-monitor-setups-for-traders",
       "permanent": true
     }
   ],
