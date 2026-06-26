@@ -3,17 +3,70 @@
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/futures-session-times",
+      "destination": "/pages/futures",
+      "permanent": true
+    },
+    {
+      "source": "/mnq-point-value",
+      "destination": "/blog/tick-value-and-contract-specs-explained",
+      "permanent": true
+    },
+    {
+      "source": "/comex-hours",
+      "destination": "/blog/trading-hours-and-session-rules-explained",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-make-50k-overnight",
+      "destination": "/pages/futures",
+      "permanent": true
+    },
+    {
+      "source": "/pros-and-cons-of-funded-accounts",
+      "destination": "/blog/funded-account-vs-your-own-account",
+      "permanent": true
+    },
+    {
+      "source": "/top-performing-traders-to-copy",
+      "destination": "/pages/pro-funding",
+      "permanent": true
+    },
+    {
+      "source": "/best-futures-to-trade-at-night",
+      "destination": "/pages/futures",
+      "permanent": true
+    },
+    {
+      "source": "/optionsdaytrader-profunding",
+      "destination": "/pages/pro-funding",
+      "permanent": true
+    },
+    {
+      "source": "/best-multi-monitor-setups-for-traders",
+      "destination": "/blog",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/js/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
