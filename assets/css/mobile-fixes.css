@@ -2822,22 +2822,80 @@ section.faq::before {
   .nav-toggle {
     cursor: pointer !important;
     z-index: 1000 !important;
+    position: relative !important;
   }
+
   .navbar.is-open .navbar__nav {
     display: flex !important;
     flex-direction: column !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #060914 !important;
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    z-index: 999 !important;
+    padding: 16px !important;
+    gap: 12px !important;
   }
-  /* Make sure dropdown trigger is clickable */
+
+  /* Make sure dropdown trigger is fully clickable */
   .navbar .has-sub {
     cursor: pointer !important;
     user-select: none !important;
     -webkit-user-select: none !important;
+    display: block !important;
+    padding: 12px 0 !important;
+    font-weight: 500 !important;
+    color: #fff !important;
   }
-  /* Ensure dropdown menu is visible when opened */
+
+  /* Ensure dropdown menu is visible and positioned correctly when opened */
   .navbar .has-sub.is-open .dropdown {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: static !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 12px 0 !important;
+    gap: 0 !important;
   }
+
+  .navbar .has-sub.is-open .dropdown a {
+    padding: 12px 16px !important;
+    display: flex !important;
+    gap: 12px !important;
+    align-items: center !important;
+    border-radius: 8px !important;
+    background: rgba(255,255,255,0.05) !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Hide Get Funded button on mobile for non-homepage pages */
+  .navbar__cta {
+    display: none !important;
+  }
+
+  /* Show Login in mobile menu */
+  .navbar__login {
+    display: block !important;
+    padding: 12px 0 !important;
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .navbar__right {
+    display: none !important;
+  }
+}
+
+/* Show Get Funded only on homepage mobile */
+body.homepage .navbar__cta {
+  display: inline-flex !important;
+}
+
+body.homepage .navbar__right {
+  display: flex !important;
 }
 /* === END MOBILE PILLS/TROPHIES AND NAV FIXES === */

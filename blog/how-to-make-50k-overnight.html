@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
-  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202605311230" id="mobile-fixes-css">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202606272100" id="mobile-fixes-css">
   <style>
     .bp-wrap{max-width:760px;margin:0 auto;padding:0 24px}
     .bp-article{padding:124px 0 30px}
@@ -353,23 +353,4 @@
   .bp-hero,.bp-inline,.bp-figure{cursor:zoom-in}
 </style>
 <div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <span class="bp-lightbox__close" aria-label="Close">&times;</span>
-  <div class="bp-lightbox__content" id="bpLbContent"></div>
-</div>
-<script>
-  (function(){
-    var lb=document.getElementById('bpLightbox');if(!lb)return;
-    var content=document.getElementById('bpLbContent');
-    var movedFig=null,placeholder=null;
-    function restore(){if(movedFig&&placeholder){placeholder.parentNode.insertBefore(movedFig,placeholder);placeholder.remove();}movedFig=null;placeholder=null;}
-    function openImg(el){restore();content.innerHTML='';var im=document.createElement('img');im.src=el.currentSrc||el.src;im.alt=el.alt||'';content.appendChild(im);lb.classList.add('open');}
-    function openFig(fig){restore();content.innerHTML='';placeholder=document.createComment('lb');fig.parentNode.insertBefore(placeholder,fig);movedFig=fig;fig.classList.add('play');content.appendChild(fig);lb.classList.add('open');}
-    function close(){lb.classList.remove('open');restore();content.innerHTML='';}
-    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){el.addEventListener('click',function(){openImg(el);});});
-    document.querySelectorAll('.bp-figure').forEach(function(fig){fig.addEventListener('click',function(){if(lb.contains(fig))return;openFig(fig);});});
-    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('bp-lightbox__close'))close();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-  })();
-</script>
-</body>
-</html>
+  <span class="bp-lightbox__close" aria-label="Close">&times;</
