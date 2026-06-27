@@ -2863,6 +2863,7 @@ section.faq::before {
   }
 
   /* Ensure dropdown menu is visible and positioned correctly when opened */
+  /* DO NOT force display: flex or display: block — let jQuery's slideUp/slideDown control visibility */
   .navbar .has-sub .dropdown {
     position: static !important;
     border: none !important;
@@ -2871,18 +2872,14 @@ section.faq::before {
     gap: 0 !important;
     width: 100% !important;
     margin: 0 !important;
-  }
-
-  .navbar .dropdown {
-    display: flex !important;
     flex-direction: column !important;
   }
 
+  /* Style dropdown links without controlling display property */
   .navbar .dropdown a {
     padding: 10px 12px !important;
-    display: flex !important;
+    display: block !important;
     gap: 12px !important;
-    align-items: center !important;
     border-radius: 6px !important;
     background: rgba(255,255,255,0.04) !important;
     margin-bottom: 6px !important;
