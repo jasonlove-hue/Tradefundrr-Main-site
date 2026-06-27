@@ -2925,19 +2925,19 @@ section.faq::before {
 }
 
 /* === GET FUNDED BUTTON CONTROL === */
-/* Hide Get Funded button on ALL pages on desktop */
+/* Show Get Funded button on DESKTOP (all pages) */
 .navbar__cta {
-  display: none !important;
+  display: inline-flex !important;
 }
 
-/* Show Get Funded button ONLY on homepage mobile */
+/* Hide Get Funded button on MOBILE (all pages) */
 @media (max-width: 768px) {
-  body.homepage .navbar__cta {
-    display: inline-flex !important;
+  .navbar__cta {
+    display: none !important;
   }
 
-  body.homepage .navbar__right {
-    display: flex !important;
+  .navbar__right {
+    display: none !important;
   }
 }
 /* === END MOBILE PILLS/TROPHIES AND NAV FIXES === */
