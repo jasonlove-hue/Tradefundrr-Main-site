@@ -2937,10 +2937,25 @@ section.faq::before {
 @media (max-width: 768px) {
   .navbar__cta {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
   }
 
   .navbar__right {
     display: none !important;
+  }
+}
+
+/* EXTRA SAFETY: Absolutely hide Get Funded on mobile with multiple fallbacks */
+@media (max-width: 768px) {
+  .navbar__nav .navbar__cta,
+  .navbar__cta.btn--primary {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
   }
 }
 /* === END MOBILE PILLS/TROPHIES AND NAV FIXES === */
