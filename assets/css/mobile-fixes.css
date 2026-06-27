@@ -2975,21 +2975,38 @@ body.crypto-page .navbar__cta.btn--primary {
   box-shadow: 0 0 10px rgba(166, 108, 255, 0.6) !important;
 }
 
-/* === MARKET CARD BORDERS & GLOWS BY PAGE === */
-/* Futures page: Blue border and glow */
-body.futures-page .markets__card {
+/* === MARKET CARD BORDERS & GLOWS BY TYPE === */
+/* Futures card: Blue border and glow */
+.markets__card--futures {
   border-color: rgba(0, 170, 255, 0.5) !important;
   transition: all 0.3s ease !important;
+}
+.markets__card--futures:hover {
+  border-color: rgba(0, 170, 255, 0.8) !important;
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.5), 0 0 60px rgba(0, 170, 255, 0.25) !important;
+}
+
+/* Crypto card: Purple border and glow */
+.markets__card--crypto {
+  border-color: rgba(166, 108, 255, 0.5) !important;
+  transition: all 0.3s ease !important;
+}
+.markets__card--crypto:hover {
+  border-color: rgba(166, 108, 255, 0.8) !important;
+  box-shadow: 0 0 30px rgba(166, 108, 255, 0.5), 0 0 60px rgba(166, 108, 255, 0.25) !important;
+}
+
+/* Keep page-specific styling for product pages */
+body.futures-page .markets__card {
+  border-color: rgba(0, 170, 255, 0.5) !important;
 }
 body.futures-page .markets__card:hover {
   border-color: rgba(0, 170, 255, 0.8) !important;
   box-shadow: 0 0 30px rgba(0, 170, 255, 0.5), 0 0 60px rgba(0, 170, 255, 0.25) !important;
 }
 
-/* Crypto page: Purple border and glow */
 body.crypto-page .markets__card {
   border-color: rgba(166, 108, 255, 0.5) !important;
-  transition: all 0.3s ease !important;
 }
 body.crypto-page .markets__card:hover {
   border-color: rgba(166, 108, 255, 0.8) !important;
