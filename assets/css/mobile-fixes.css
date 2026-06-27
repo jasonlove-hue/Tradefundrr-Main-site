@@ -2974,3 +2974,20 @@ body.crypto-page .navbar__cta.btn--primary {
   background: linear-gradient(180deg, #A66CFF 0%, #7C4DFF 100%) !important;
   box-shadow: 0 0 10px rgba(166, 108, 255, 0.6) !important;
 }
+
+/* === MARKET CARD HOVER GLOWS BY PAGE === */
+/* Futures page: Blue glow on hover */
+body.futures-page .market-card {
+  transition: box-shadow 0.3s ease !important;
+}
+body.futures-page .market-card:hover {
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.4), 0 0 60px rgba(0, 170, 255, 0.2) !important;
+}
+
+/* Crypto page: Purple glow on hover */
+body.crypto-page .market-card {
+  transition: box-shadow 0.3s ease !important;
+}
+body.crypto-page .market-card:hover {
+  box-shadow: 0 0 30px rgba(166, 108, 255, 0.4), 0 0 60px rgba(166, 108, 255, 0.2) !important;
+}
