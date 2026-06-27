@@ -2827,8 +2827,20 @@ section.faq::before {
 }
 
 /* === MOBILE NAV MENU FIX === */
-/* Ensure nav toggle button is always clickable on mobile and that the
-   Products dropdown opens correctly on Stocks, Options, Futures pages. */
+/* CRITICAL: The main.css sets opacity:1 on mobile dropdowns unconditionally.
+   This breaks jQuery's slideUp/slideDown animations. We must override with
+   display:none so jQuery can animate the dropdown properly. */
+@media (max-width: 1140px) {
+  /* OVERRIDE main.css opacity:1 with display:none for JS animation */
+  .navbar .has-sub .dropdown {
+    display: none !important;  /* hidden by default, JS animates with slideDown/slideUp */
+  }
+
+  .navbar .has-sub.is-open .dropdown {
+    display: block !important;  /* shown when JS adds .is-open class */
+  }
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     cursor: pointer !important;
@@ -2862,8 +2874,7 @@ section.faq::before {
     width: 100% !important;
   }
 
-  /* Ensure dropdown menu is visible and positioned correctly when opened */
-  /* DO NOT force display: flex or display: block — let jQuery's slideUp/slideDown control visibility */
+  /* Style dropdown container for mobile */
   .navbar .has-sub .dropdown {
     position: static !important;
     border: none !important;
@@ -2873,9 +2884,12 @@ section.faq::before {
     width: 100% !important;
     margin: 0 !important;
     flex-direction: column !important;
+    opacity: 1 !important;  /* override main.css */
+    visibility: visible !important;  /* override main.css */
+    pointer-events: auto !important;  /* override main.css */
   }
 
-  /* Style dropdown links without controlling display property */
+  /* Style dropdown links */
   .navbar .dropdown a {
     padding: 10px 12px !important;
     display: block !important;
