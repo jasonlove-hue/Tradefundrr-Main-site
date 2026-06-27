@@ -2911,16 +2911,19 @@ section.faq::before {
     display: none !important;
   }
 
-  /* Show Login in mobile menu */
+  /* Show navbar__right on mobile to display Login button */
+  .navbar__right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  /* Style Login button on mobile */
   .navbar__login {
     display: block !important;
     padding: 12px 0 !important;
     color: #fff !important;
     text-decoration: none !important;
-  }
-
-  .navbar__right {
-    display: none !important;
   }
 }
 
