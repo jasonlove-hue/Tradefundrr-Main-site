@@ -2815,13 +2815,24 @@ section.faq::before {
   }
 }
 
+/* Push hero content down on subpages so text isn't hidden behind nav */
+@media (max-width: 768px) {
+  body:not(.homepage) .hero {
+    padding-top: 100px !important;
+    margin-top: 40px !important;
+  }
+  body:not(.homepage) .hero__inner {
+    padding-top: 40px !important;
+  }
+}
+
 /* === MOBILE NAV MENU FIX === */
 /* Ensure nav toggle button is always clickable on mobile and that the
    Products dropdown opens correctly on Stocks, Options, Futures pages. */
 @media (max-width: 768px) {
   .nav-toggle {
     cursor: pointer !important;
-    z-index: 1000 !important;
+    z-index: 1001 !important;
     position: relative !important;
   }
 
@@ -2848,28 +2859,39 @@ section.faq::before {
     padding: 12px 0 !important;
     font-weight: 500 !important;
     color: #fff !important;
+    width: 100% !important;
   }
 
   /* Ensure dropdown menu is visible and positioned correctly when opened */
-  .navbar .has-sub.is-open .dropdown {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+  .navbar .has-sub .dropdown {
+    display: none !important;
+    flex-direction: column !important;
     position: static !important;
     border: none !important;
     background: transparent !important;
-    padding: 12px 0 !important;
+    padding: 12px 0 0 12px !important;
     gap: 0 !important;
+    width: 100% !important;
   }
 
-  .navbar .has-sub.is-open .dropdown a {
-    padding: 12px 16px !important;
+  .navbar .has-sub.is-open .dropdown {
+    display: flex !important;
+  }
+
+  .navbar .dropdown a {
+    padding: 10px 12px !important;
     display: flex !important;
     gap: 12px !important;
     align-items: center !important;
-    border-radius: 8px !important;
-    background: rgba(255,255,255,0.05) !important;
-    margin-bottom: 8px !important;
+    border-radius: 6px !important;
+    background: rgba(255,255,255,0.04) !important;
+    margin-bottom: 6px !important;
+    color: rgba(255,255,255,0.85) !important;
+  }
+
+  .navbar .dropdown a:hover {
+    background: rgba(255,255,255,0.08) !important;
+    color: #fff !important;
   }
 
   /* Hide Get Funded button on mobile for non-homepage pages */
@@ -2888,6 +2910,11 @@ section.faq::before {
   .navbar__right {
     display: none !important;
   }
+}
+
+/* Remove Get Funded button from ALL non-homepage pages (all screen sizes) */
+body:not(.homepage) .navbar__cta {
+  display: none !important;
 }
 
 /* Show Get Funded only on homepage mobile */
