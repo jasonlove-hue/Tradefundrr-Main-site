@@ -2787,3 +2787,57 @@ section.faq::before {
   box-shadow: 0 0 18px rgba(34, 211, 168, 0.55), 0 0 4px rgba(34, 211, 168, 0.9);
 }
 /* === END FAQ SECTION DIVIDER + LIFT === */
+
+/* === MOBILE PILLS/TROPHIES FIX (added 2026-06-27) === */
+/* On mobile, the hero trophy pills (.htrophies) need to stack properly.
+   Tablet and up: 3 pills in a row (or as many as fit).
+   Mobile: 2 pills per row to fit the viewport width.
+   Extra small (< 375px): Stack to single column if needed. */
+
+/* Default: let flex wrap naturally */
+@media (max-width: 768px) {
+  .htrophies {
+    flex-wrap: wrap !important;
+    gap: 12px 10px !important;
+    justify-content: center !important;
+  }
+  .htrophy {
+    flex: 0 1 calc(50% - 6px) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Extra small phones: single column */
+@media (max-width: 374px) {
+  .htrophy {
+    flex: 0 1 100% !important;
+  }
+}
+
+/* === MOBILE NAV MENU FIX === */
+/* Ensure nav toggle button is always clickable on mobile and that the
+   Products dropdown opens correctly on Stocks, Options, Futures pages. */
+@media (max-width: 768px) {
+  .nav-toggle {
+    cursor: pointer !important;
+    z-index: 1000 !important;
+  }
+  .navbar.is-open .navbar__nav {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  /* Make sure dropdown trigger is clickable */
+  .navbar .has-sub {
+    cursor: pointer !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+  /* Ensure dropdown menu is visible when opened */
+  .navbar .has-sub.is-open .dropdown {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+/* === END MOBILE PILLS/TROPHIES AND NAV FIXES === */
