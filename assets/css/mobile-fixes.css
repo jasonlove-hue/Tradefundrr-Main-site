@@ -3014,30 +3014,38 @@ body.crypto-page .markets__card:hover {
 }
 
 /* === DROPDOWN MENU ITEM STYLING === */
-/* Futures dropdown item: Blue border and text */
-.dropdown a[data-cat="futures"] {
+/* Futures dropdown item: Blue border and text (all contexts) */
+.dropdown a[data-cat="futures"],
+.navbar .has-sub .dropdown a[data-cat="futures"] {
   border: 1px solid rgba(0, 170, 255, 0.4) !important;
   border-radius: 12px !important;
 }
-.dropdown a[data-cat="futures"]:hover {
+.dropdown a[data-cat="futures"]:hover,
+.navbar .has-sub .dropdown a[data-cat="futures"]:hover {
   border-color: rgba(0, 170, 255, 0.8) !important;
   box-shadow: 0 0 20px rgba(0, 170, 255, 0.3) !important;
 }
 .dropdown a[data-cat="futures"]:hover .title,
-.dropdown a[data-cat="futures"]:hover .desc {
+.dropdown a[data-cat="futures"]:hover .desc,
+.navbar .has-sub .dropdown a[data-cat="futures"]:hover .title,
+.navbar .has-sub .dropdown a[data-cat="futures"]:hover .desc {
   color: #00AAFF !important;
 }
 
-/* Crypto dropdown item: Purple border and text */
-.dropdown a[data-cat="crypto"] {
+/* Crypto dropdown item: Purple border and text (all contexts) */
+.dropdown a[data-cat="crypto"],
+.navbar .has-sub .dropdown a[data-cat="crypto"] {
   border: 1px solid rgba(166, 108, 255, 0.4) !important;
   border-radius: 12px !important;
 }
-.dropdown a[data-cat="crypto"]:hover {
+.dropdown a[data-cat="crypto"]:hover,
+.navbar .has-sub .dropdown a[data-cat="crypto"]:hover {
   border-color: rgba(166, 108, 255, 0.8) !important;
   box-shadow: 0 0 20px rgba(166, 108, 255, 0.3) !important;
 }
 .dropdown a[data-cat="crypto"]:hover .title,
-.dropdown a[data-cat="crypto"]:hover .desc {
+.dropdown a[data-cat="crypto"]:hover .desc,
+.navbar .has-sub .dropdown a[data-cat="crypto"]:hover .title,
+.navbar .has-sub .dropdown a[data-cat="crypto"]:hover .desc {
   color: #A66CFF !important;
 }

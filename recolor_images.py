@@ -29,17 +29,31 @@ def recolor_image(input_path, output_path, target_hue):
     img.save(output_path, 'WEBP', quality=90)
     print(f"✓ Recolored: {output_path}")
 
-# Recolor crypto (purple)
+# Recolor crypto full-size (purple)
 recolor_image(
     'assets/images/market-crypto.webp',
     'assets/images/market-crypto.webp',
     0.75  # Purple hue
 )
 
-# Recolor futures (blue)
+# Recolor crypto thumbnail (purple)
+recolor_image(
+    'assets/images/market-crypto-thumb.webp',
+    'assets/images/market-crypto-thumb.webp',
+    0.75  # Purple hue
+)
+
+# Recolor futures full-size (blue)
 recolor_image(
     'assets/images/market-futures.webp',
     'assets/images/market-futures.webp',
+    0.6   # Blue hue
+)
+
+# Recolor futures thumbnail (blue)
+recolor_image(
+    'assets/images/market-futures-thumb.webp',
+    'assets/images/market-futures-thumb.webp',
     0.6   # Blue hue
 )
 

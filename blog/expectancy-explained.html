@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.userway.org/widget.js" data-account="AvGf5QexzU" data-position="3" data-color="#22d3a8"></script>
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/ce7405b4d5c97a7b8f8abb353b738137/script.js"></script>
+  <!-- End cookieyes banner -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expectancy: The One Number That Tells You If a System Works | TradeFundrr Blog</title>
+  <meta name="description" content="Win rate alone tells you almost nothing. Expectancy combines how often you win with how much you win and lose into a single number that says whether a trading approach can survive over time. Here is how it works, in plain English.">
+  <link rel="canonical" href="https://tradefundrr.com/blog/expectancy-explained">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-06-28">
+  <meta property="article:section" content="Risk & Reward">
+  <meta property="og:title" content="Expectancy: The One Number That Tells You If a System Works">
+  <meta property="og:description" content="Win rate is only half the story. Expectancy is the number that says whether an approach holds up.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_120552_7fc1aa61-2b5b-499e-940c-c26d4c6158e0.png">
+  <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=202606111300">
+  <link rel="stylesheet" href="/assets/css/mobile-fixes.css?v=202606272100" id="mobile-fixes-css">
+  <style>
+    .bp-wrap{max-width:760px;margin:0 auto;padding:0 24px}
+    .bp-article{padding:124px 0 30px}
+    .bp-eyebrow{font-family:"Geist Mono","IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:#22d3a8;display:block;margin-bottom:16px}
+    .bp-article h1{font-family:"Inter",system-ui,sans-serif;font-size:40px;letter-spacing:-.8px;line-height:1.12;margin-bottom:18px}
+    .bp-meta{display:flex;gap:12px;align-items:center;color:hsla(0,0%,100%,.45);font-size:13.5px;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .bp-meta .av{width:34px;height:34px;border-radius:50%;background:#0d1326;border:1px solid hsla(160,60%,45%,.35);display:flex;align-items:center;justify-content:center;overflow:hidden}.bp-meta .av img{width:21px;height:21px;object-fit:contain;display:block}
+    .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
+    .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
+    .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
+    .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
+    .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
+    .bp-body li{margin-bottom:10px}
+    .bp-body li strong,.bp-body p strong{color:#fff}
+    .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
+    .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
+    .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
+    .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
+    .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
+    .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
+    /* embedded diagram */
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
+    .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
+    #expfig .anim{opacity:0}
+    #expfig.play .bar{animation:expRise .7s ease forwards}
+    #expfig.play .b2{animation-delay:.3s}
+    #expfig.play .lbl{animation:expFade .6s ease forwards}
+    #expfig.play .l2{animation-delay:.4s}
+    @keyframes expFade{to{opacity:1}}
+    @keyframes expRise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+    @media (prefers-reduced-motion: reduce){#expfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
+    @media(max-width:560px){.bp-article h1{font-size:30px}}
+  </style>
+</head>
+<body>
+<!-- TF_WELCOME_BAR_START -->
+<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
+  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
+  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
+  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
+</div>
+<style>
+  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
+    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
+    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
+    line-height:1.35;text-align:center}
+  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
+  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
+    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
+  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
+  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
+    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
+  #tf-welcome-bar .tf-wb-x:hover{color:#000}
+  #tf-welcome-bar .wb-sm{display:none}
+  @media(max-width:620px){
+    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
+    #tf-welcome-bar .tf-wb-cta{display:none}
+    #tf-welcome-bar .wb-lg{display:none}
+    #tf-welcome-bar .wb-sm{display:inline}
+  }
+</style>
+<script>
+(function(){
+  var KEY='tfWelcomeDismissed_v1';
+  var bar=document.getElementById('tf-welcome-bar');
+  if(!bar)return;
+  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
+  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
+  var hd=document.querySelector('.site-header');
+  var hdPos = hd ? getComputedStyle(hd).position : '';
+  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
+  function apply(){
+    var h=bar.offsetHeight||42;
+    document.body.style.paddingTop=(basePad+h)+'px';
+    if(hd){
+      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
+      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
+    }
+  }
+  function clear(){
+    document.body.style.paddingTop=(basePad?basePad+'px':'');
+    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
+  }
+  apply();
+  window.addEventListener('resize',apply);
+  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
+    try{sessionStorage.setItem(KEY,'1');}catch(e){}
+    window.removeEventListener('resize',apply);
+    clear();
+    if(bar.parentNode) bar.parentNode.removeChild(bar);
+  });
+})();
+</script>
+<!-- TF_WELCOME_BAR_END -->
+
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Primary">
+    <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="navbar__nav">
+      <span class="has-sub" tabindex="0" aria-haspopup="true">
+        Products
+        <span class="arrow"><img src="/assets/images/down-arrow.svg" alt="down-arrow"></span>
+        <div class="dropdown" role="menu">
+          <a href="/pages/stocks.html" data-cat="stocks"><span class="thumb"><img src="/assets/images/market-stocks-thumb.webp?v=202605260101" alt="Stocks" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Stocks</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade stocks with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/options.html" data-cat="options"><span class="thumb"><img src="/assets/images/market-options-thumb.webp?v=202605260101" alt="Options" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Options</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade options with up to $25K in simulated funding capital</span></span></a>
+          <a href="/pages/futures/" data-cat="futures"><span class="thumb"><img src="/assets/images/market-futures-thumb.webp?v=202605260101" alt="Futures" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Futures</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade futures with up to $100K in simulated funding capital</span></span></a>
+          <a href="/pages/crypto.html" data-cat="crypto"><span class="thumb"><img src="/assets/images/market-crypto-thumb.webp?v=202605260101" alt="Crypto" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Crypto</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Trade crypto with up to $100K in simulated funding capital, competitive splits</span></span></a>
+          <a href="/pages/pro-funding.html" data-cat="pro-funding"><span class="thumb"><img src="/assets/images/t3-pro-funding-thumb.webp?v=202605260101" alt="Pro Funding" width="120" height="105" decoding="async"></span><span class="body"><span class="row"><span class="title">Pro Funding</span><span class="arrow-right"><img src="/assets/images/dropdown-arrow-right.svg" alt=""></span></span><span class="desc">Up to $5M in real-money buying power for proven traders, no evaluations</span></span></a>
+        </div>
+      </span>
+      <a href="/index.html#how-it-works">How It Works</a>
+      <a href="/pages/about.html">Why Us</a>
+      <a href="/blog" class="active">Blog</a>
+    </div>
+    <div class="navbar__right">
+      <a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" class="navbar__login" target="_blank" rel="noopener">Login</a>
+      <a href="/index.html#markets" class="btn btn--primary navbar__cta">Get Funded <span class="arrow"><img src="/assets/images/btn-arrow.svg" alt=""></span></a>
+    </div>
+  </nav>
+</header>
+
+<main class="bp-article">
+  <div class="bp-wrap">
+    <article>
+      <span class="bp-eyebrow">Risk &amp; Reward</span>
+      <h1>Expectancy: The One Number That Tells You If a System Works</h1>
+      <div class="bp-meta">
+        <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
+        <span class="bp-dot"></span><span>June 28, 2026</span>
+        <span class="bp-dot"></span><span>7 min read</span>
+      </div>
+
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_120552_7fc1aa61-2b5b-499e-940c-c26d4c6158e0.png" alt="Abstract mint teal candlestick bars and a faint upward line on a deep navy background, suggesting averages and probability">
+
+      <div class="bp-body">
+        <p>Ask most traders how good their approach is and they will tell you their win rate. "I win about 60% of my trades." It sounds like an answer. It is only half of one.</p>
+        <p>Win rate tells you how often you are right. It says nothing about how much you make when you are right or how much you lose when you are wrong. A trader who wins 60% of the time can still go broke, and a trader who wins 40% of the time can grind steadily upward. The number that settles the question is expectancy.</p>
+
+        <h2>What expectancy actually is</h2>
+        <p>Expectancy is the average result you can expect from a single trade, taken over many trades. It folds three things into one figure: how often you win, how much you win when you do, and how much you lose when you do not.</p>
+        <p>The plain-English version of the formula is this:</p>
+        <p><strong>Expectancy = (Win rate × Average win) − (Loss rate × Average loss)</strong></p>
+        <p>That is it. You weight your average win by how often you win, weight your average loss by how often you lose, and subtract the second from the first. If the answer is positive, the approach makes money on average. If it is negative, it loses money on average, no matter how good a single screenshot looks.</p>
+        <p>The cleanest way to measure the wins and losses is in <strong>R</strong>, where 1R is the amount you risk on a trade. Measuring in R strips out account size and position size so you can compare one approach to another fairly. A trade that makes twice what you risked is +2R. A trade that hits your stop is −1R.</p>
+
+        <h2>Why win rate on its own is misleading</h2>
+        <p>Here is the trap. A high win rate feels good because being right often is satisfying. But if your few losses are much larger than your many wins, a high win rate can still produce a negative expectancy. This is the classic shape of an account that looks great for weeks and then gives it all back in two trades.</p>
+        <p>The reverse is also true and far less intuitive. A trader can be wrong more often than right and still come out ahead, as long as the wins are big enough relative to the losses. Low win rate does not mean a bad approach. It means the math has to be carried by the size of the wins instead of their frequency.</p>
+        <p>The illustrative comparison below shows two hypothetical approaches. One wins more often. The other wins less often but lets its winners run further. Expectancy is what tells them apart.</p>
+
+        <figure class="bp-figure" id="expfig">
+          <span class="figtag">Illustrative example</span>
+          <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="Two columns comparing the per-trade expectancy of two hypothetical approaches. The higher win rate approach has a smaller expectancy than the lower win rate approach with bigger winners.">
+            <!-- title -->
+            <text x="40" y="40" fill="#ffffff" font-size="17" font-weight="700">Two hypothetical approaches, same risk per trade</text>
+            <!-- baseline (zero) -->
+            <line x1="120" y1="282" x2="900" y2="282" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
+            <text x="40" y="287" fill="#9fb0c3" font-size="12">0R</text>
+            <!-- Column A: 60% win, 1:1 -> +0.2R -> 60px tall, top at 222 -->
+            <rect class="anim bar" x="290" y="222" width="120" height="60" rx="5" fill="#22d3a8" fill-opacity=".55"/>
+            <text class="anim lbl" x="350" y="206" fill="#22d3a8" font-size="20" font-weight="700" text-anchor="middle">+0.2R</text>
+            <text class="anim lbl" x="350" y="308" fill="#cbd5e3" font-size="14" font-weight="600" text-anchor="middle">Approach A</text>
+            <text class="anim lbl" x="350" y="330" fill="#9fb0c3" font-size="12.5" text-anchor="middle">Wins 60%, wins = losses</text>
+            <!-- Column B: 40% win, wins 3x losses -> +0.6R -> 180px tall, top at 102 -->
+            <rect class="anim bar b2" x="610" y="102" width="120" height="180" rx="5" fill="#22d3a8" fill-opacity=".9"/>
+            <text class="anim lbl l2" x="670" y="86" fill="#22d3a8" font-size="20" font-weight="700" text-anchor="middle">+0.6R</text>
+            <text class="anim lbl l2" x="670" y="308" fill="#cbd5e3" font-size="14" font-weight="600" text-anchor="middle">Approach B</text>
+            <text class="anim lbl l2" x="670" y="330" fill="#9fb0c3" font-size="12.5" text-anchor="middle">Wins 40%, wins 3x losses</text>
+          </svg>
+          <figcaption>Illustrative example only. Bars show hypothetical expectancy per trade in R. Approach A wins more often but earns less per trade than Approach B. These figures are simplified to make the point and are not data, a forecast, or based on any actual trader results.</figcaption>
+        </figure>
+
+        <h2>A worked example in plain numbers</h2>
+        <p>Take Approach B above. It wins 40% of the time, and a win is worth three times what a loss costs. Risking 1R per trade, the average win is +3R and the average loss is −1R. Run the formula:</p>
+        <p><strong>(0.40 × 3R) − (0.60 × 1R) = 1.2R − 0.6R = +0.6R per trade.</strong></p>
+        <p>So even though this approach is wrong more often than it is right, it earns about six-tenths of one unit of risk every time you trade it, on average. Compare that to Approach A, which wins 60% of the time but only makes what it risks: (0.60 × 1R) − (0.40 × 1R) = +0.2R. Both are positive. One is three times stronger. Win rate alone would have ranked them the other way around.</p>
+        <p>These are hypothetical figures chosen to illustrate the math, not numbers you should expect to produce. The point is the method, not the values.</p>
+
+        <h2>Why this matters more than it sounds</h2>
+        <p>Expectancy is the bridge between a single trade and a long run of them. One trade is mostly noise. You can do everything right and lose, or everything wrong and win. Over a hundred trades, expectancy is what actually shows up in the account. It is the difference between an approach that survives a bad week and one that does not.</p>
+        <p>It also changes how you read a losing stretch. If your expectancy is genuinely positive and you keep following the same process, a run of losses is uncomfortable but expected. It is variance doing what variance does. The mistake is concluding the approach is broken and abandoning a positive-expectancy method right before it would have paid off. Expectancy gives you a reason to keep your hands steady.</p>
+
+        <h2>How to find your own number</h2>
+        <p>You cannot calculate expectancy without a record, which is the quiet reason a trading journal matters so much. Log every trade in R: what you risked, what you made or lost, whether it was a win or a loss. After a meaningful sample, calculate your real win rate, your real average win, and your real average loss, then run the formula.</p>
+        <p>A few honest cautions. A small sample lies. Twenty trades is not enough to trust a number, because one outlier swings the average. Expectancy also drifts as conditions change, so it is something you recheck, not something you measure once and frame on the wall. And a positive expectancy on paper still has to survive contact with slippage, fees, and your own discipline in the moment.</p>
+
+        <h2>The honest version</h2>
+        <p>Expectancy does not predict your next trade and it does not promise a result. It is a way of asking whether the thing you are doing makes sense over time, instead of judging it by the last outcome you happened to get. A positive number is a reason to keep going. A negative one is a reason to change the approach before the account does it for you.</p>
+        <p>The useful place to learn this is where a bad sample costs you nothing. In a simulated environment you can build a real record, calculate your real expectancy, and find out whether your approach holds up, all before any of it touches your own capital.</p>
+
+        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit or trading results, and all figures and shapes above are hypothetical illustrations, not actual trades or payouts. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+
+        <div class="bp-cta">
+          <h3>Build a record worth measuring</h3>
+          <p>Develop a positive, repeatable approach in a structured, simulated environment, without risking your own capital.</p>
+          <a class="btn" href="/index.html#markets">Get Funded →</a>
+        </div>
+
+        <a class="bp-back" href="/blog">← Back to all posts</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <style>
+    .site-footer { background: #060914; color: hsla(0,0%,100%,0.7); padding: 60px 0 30px 0; }
+    .site-footer .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .site-footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1.1fr 1fr; gap: 48px; align-items: start; }
+    .site-footer__brand .navbar__logo img { height: 32px; width: auto; }
+    .site-footer__addr { color: hsla(0,0%,100%,0.65) !important; font-size: 13px !important; line-height: 1.6 !important; letter-spacing: 1px !important; text-transform: uppercase !important; margin: 16px 0 18px 0 !important; }
+    .site-footer__heading { color: #fff !important; font-weight: 700 !important; font-size: 13.5px !important; margin: 0 0 4px 0 !important; }
+    .site-footer__hours { color: hsla(0,0%,100%,0.65) !important; font-size: 13.5px !important; margin: 0 0 16px 0 !important; }
+    .site-footer__email { display: block !important; color: #fff !important; font-size: 13.5px !important; text-decoration: underline !important; margin: 0 0 4px 0 !important; }
+    .site-footer__email:hover { color: #22d3a8; }
+    .site-footer__col h4 { color: #fff; font-size: 15px; font-weight: 700; margin: 0 0 22px 0; }
+    .site-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .site-footer__col ul li { margin: 0 0 12px 0; }
+    .site-footer__col ul li a { color: hsla(0,0%,100%,0.7); font-size: 14px; transition: color .15s ease; }
+    .site-footer__col ul li a:hover { color: #fff; }
+    .site-footer__separator { border-top: 1px solid hsla(0,0%,100%,0.1); margin: 50px 0 22px 0; }
+    .site-footer__copyright { text-align: center; color: hsla(0,0%,100%,0.45); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+    @media (max-width: 991px) { .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; } }
+    @media (max-width: 575px) { .site-footer__grid { grid-template-columns: 1fr; gap: 32px; } }
+  </style>
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="navbar__logo" aria-label="TradeFundrr"><img src="/assets/images/logo.svg" alt="TradeFundrr"></a>
+        <p class="site-footer__addr">88 Pine St, 23rd Floor<br>New York, NY 10005</p>
+        <p class="site-footer__heading">For Customer Service</p>
+        <p class="site-footer__hours">Mon - Fri, 9AM-5PM EST</p>
+        <p class="site-footer__heading">Email:</p>
+        <a class="site-footer__email" href="mailto:support@tradefundrr.com">support@tradefundrr.com</a>
+        <p class="site-footer__heading">Phone:</p>
+        <a class="site-footer__email" href="tel:+18777998198">(877) 799-8198</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/pages/why-us.html">Why Us?</a></li>
+          <li><a href="/pages/about.html">Contact Us</a></li>
+          <li><a href="https://tradefundrr.freshdesk.com/support/home" target="_blank" rel="noopener">Funding FAQs</a></li>
+          <li><a href="https://dashboard.tradefundrr.com/Identity/Account/Login?ReturnUrl=%2FClient" target="_blank" rel="noopener">Funding Dashboard Login</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>What We Offer</h4>
+        <ul>
+          <li><a href="/pages/stocks.html">Stocks Day Trader Funding</a></li>
+          <li><a href="/pages/options.html">Options Day Trader Funding</a></li>
+          <li><a href="/pages/futures/">Futures Day Trader Funding</a></li>
+          <li><a href="/pages/crypto.html">Crypto Day Trader Funding</a></li>
+          <li><a href="/pages/pro-funding.html">Pro Funding</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=8ae59468-1120-4330-8ca7-97112729076b" target="_blank" rel="noopener">Terms and Conditions</a></li>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=d13bf3ef-f49a-4f0e-8043-8334f7d7b440" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=286f631a-b01d-401a-8eec-883de78aa898" target="_blank" rel="noopener">Cookie Policy</a></li>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=58e1396f-9a08-43c5-a944-f27272e2d1dd" target="_blank" rel="noopener">Impressum</a></li>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=9974cb47-232b-4795-9117-eb57ea621c9e" target="_blank" rel="noopener">Disclaimer</a></li>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=bc35bbfc-528e-45e1-9613-54ef39a10705" target="_blank" rel="noopener">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__separator"></div>
+    <div class="site-footer__copyright">Copyright 2026 TradeFundrr, all rights reserved.</div>
+  </div>
+</footer>
+
+<section class="legal-disclosure" aria-label="Legal disclosures">
+  <style>
+    .legal-disclosure { background: #060914; padding: 60px 0 80px 0; border-top: 1px solid hsla(0,0%,100%,0.06); color: hsla(0,0%,100%,0.55); }
+    .legal-disclosure .ld-container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .legal-disclosure h3 { color: #fff; font-family: "Inter", system-ui, sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 18px 0; }
+    .legal-disclosure h3:not(:first-child) { margin-top: 36px; }
+    .legal-disclosure p { color: hsla(0,0%,100%,0.55); font-family: "Inter", system-ui, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0 0 14px 0; }
+    .legal-disclosure .cftc-block { text-transform: uppercase; font-size: 12.5px; letter-spacing: 0.3px; color: hsla(0,0%,100%,0.6); }
+    @media (max-width: 575px) { .legal-disclosure { padding: 40px 0 60px 0; } .legal-disclosure .ld-container { padding: 0 20px; } }
+  </style>
+  <div class="ld-container">
+    <h3>General Disclosure</h3>
+    <p>TradeFundrr (&ldquo;the Platform&rdquo;) is a provider of capital funding, trading technology, and educational resources for qualified retail and professional traders. TradeFundrr is not a broker-dealer, investment adviser, or financial planner, and does not provide personalized investment advice, recommendations, or portfolio management services. The Platform does not solicit or accept investments from the public, nor does it hold customer funds or securities.</p>
+    <p>All programs, content, and services offered by TradeFundrr, including but not limited to live trading rooms, chat forums, webinars, and educational materials, are for informational and educational purposes only. None of the information or commentary provided through TradeFundrr should be construed as an offer to buy or sell any security or other financial instrument, nor as a recommendation or endorsement of any trading strategy, security, or investment. Any trading decisions made by users are solely their own responsibility and must be based on their independent evaluation of their financial circumstances, trading objectives, risk tolerance, and other relevant factors.</p>
+    <p>TradeFundrr operates in partnership with regulated financial institutions, including T3 Trading Group, LLC (a registered SEC broker-dealer and FINRA/SIPC member), to facilitate funded trading opportunities. However, participation in TradeFundrr&rsquo;s programs does not constitute a client relationship with these partners unless and until a separate agreement is executed.</p>
+    <p>Statements made by TradeFundrr staff, community members, or guest presenters reflect only their personal opinions and do not necessarily represent the views of TradeFundrr or its partners. Individuals providing information or opinions may hold positions in securities discussed or have other financial interests that could conflict with the information provided. Users should consider these factors when evaluating any information or opinions shared through the Platform.</p>
+    <p>TradeFundrr strives to ensure the accuracy and reliability of its content and services, but makes no guarantees as to the completeness, timeliness, or correctness of any information provided. No guarantee or promise of profit or loss avoidance is made or implied. Past performance is not indicative of future results, and no representation is made that any user or account will achieve results similar to those discussed or demonstrated on the Platform.</p>
+    <h3>Risk Disclosure</h3>
+    <p>Trading in financial markets, including equities, options, futures, and forex, involves significant risk of loss and is not suitable for all investors. The use of leverage, as is common in funded trading programs, can amplify both gains and losses and may result in losses exceeding your initial capital allocation.</p>
+    <p>Before participating in TradeFundrr programs or utilizing funded trading accounts, users should carefully consider their financial situation, trading experience, and risk tolerance. All trading involves risk, and there is no guarantee of profit. Users are solely responsible for understanding and adhering to all risk management protocols and compliance requirements established by TradeFundrr and its partners.</p>
+    <p>TradeFundrr enforces strict risk management parameters, including daily loss limits, maximum position sizes, and mandatory stop-loss requirements. Violation of these parameters may result in suspension or termination of funded trading privileges. Users are encouraged to consult with independent financial, legal, or tax advisors before making any trading or business decisions.</p>
+    <h3>Hypothetical Performance Disclaimer (CFTC Requirement)</h3>
+    <p class="cftc-block">Hypothetical or simulated performance results have certain limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+    <p>If hypothetical or simulated performance results are presented, all material assumptions used in preparing such results (including initial investment, reinvestment of profits, commissions, fees, and pricing methods) will be disclosed. Hypothetical results are for illustrative purposes only and do not reflect actual trading.</p>
+    <h3>Testimonial Disclosure</h3>
+    <p>Testimonials appearing on TradeFundrr&rsquo;s website, marketing materials, or community forums reflect the personal experiences of individual users and may not be representative of the experience of all participants. Testimonials are not a guarantee of future performance or success. No compensation is provided for testimonials unless explicitly stated. Where testimonials are provided by individuals with a material connection to TradeFundrr (such as employees, affiliates, or partners), this relationship will be disclosed.</p>
+  </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script>
+  (function(){
+    var el=document.getElementById('expfig');
+    if(!el)return;
+    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
+    },{threshold:.35});
+    io.observe(el);
+  })();
+</script>
+<style>
+  .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
+  .bp-lightbox.open{display:flex}
+  .bp-lightbox__content{max-width:1100px;width:100%;max-height:92vh;overflow:auto;display:flex;align-items:center;justify-content:center}
+  .bp-lightbox__content img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+  .bp-lightbox__content .bp-figure{width:100%;margin:0;cursor:default}
+  .bp-lightbox__close{position:absolute;top:16px;right:26px;color:#fff;font-size:34px;line-height:1;font-family:"Inter",sans-serif;cursor:pointer;opacity:.85;z-index:1}
+  .bp-hero,.bp-inline,.bp-figure{cursor:zoom-in}
+</style>
+<div class="bp-lightbox" id="bpLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <span class="bp-lightbox__close" aria-label="Close">&times;</span>
+  <div class="bp-lightbox__content" id="bpLbContent"></div>
+</div>
+<script>
+  (function(){
+    var lb=document.getElementById('bpLightbox');if(!lb)return;
+    var content=document.getElementById('bpLbContent');
+    var movedFig=null,placeholder=null;
+    function restore(){if(movedFig&&placeholder){placeholder.parentNode.insertBefore(movedFig,placeholder);placeholder.remove();}movedFig=null;placeholder=null;}
+    function openImg(el){restore();content.innerHTML='';var im=document.createElement('img');im.src=el.currentSrc||el.src;im.alt=el.alt||'';content.appendChild(im);lb.classList.add('open');}
+    function openFig(fig){restore();content.innerHTML='';placeholder=document.createComment('lb');fig.parentNode.insertBefore(placeholder,fig);movedFig=fig;fig.classList.add('play');content.appendChild(fig);lb.classList.add('open');}
+    function close(){lb.classList.remove('open');restore();content.innerHTML='';}
+    document.querySelectorAll('.bp-hero,.bp-inline').forEach(function(el){el.addEventListener('click',function(){openImg(el);});});
+    document.querySelectorAll('.bp-figure').forEach(function(fig){fig.addEventListener('click',function(){if(lb.contains(fig))return;openFig(fig);});});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('bp-lightbox__close'))close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+</script>
+</body>
+</html>
