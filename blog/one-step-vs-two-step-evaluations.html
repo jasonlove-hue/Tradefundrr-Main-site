@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One-Step vs Two-Step Evaluations: What Each Phase Tests | TradeFundrr Blog</title>
-  <meta name="description" content="One phase or two? The real difference is not the number of steps, it is what each phase is built to check. A plain-English look at what evaluations actually test and which fits how you trade.">
+  <meta name="description" content="One phase or two? The real difference is not the number of steps, it is what each phase is built to check. A plain-English look at what evaluations test and which fits how you trade.">
   <link rel="canonical" href="https://tradefundrr.com/blog/one-step-vs-two-step-evaluations">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-19">
   <meta property="article:section" content="Funding">
-  <meta property="og:title" content="One-Step vs Two-Step Evaluations: What Each Phase Actually Tests">
-  <meta property="og:description" content="The real difference is not the number of steps, it is what each phase is built to check. Which evaluation fits how you trade.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260619_120439_488446d4-df60-49a4-a475-22406f9be0a8.png">
+  <meta property="og:title" content="One-Step vs Two-Step Evaluations: What Each Phase Tests">
+  <meta property="og:description" content="The real difference is not the step count, it is what each phase checks. Which evaluation fits how you trade.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_225141_18865a57-3239-48fe-9918-d7c1e0100052.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,92 +33,37 @@
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #evfig .anim{opacity:0}
-    #evfig.play .box{animation:evFade .55s ease forwards}
-    #evfig.play .b2{animation-delay:.3s}#evfig.play .b3{animation-delay:.6s}
-    #evfig.play .fund{animation:evFade .55s ease forwards;animation-delay:.85s}
-    #evfig.play .arr{animation:evFade .5s ease forwards;animation-delay:.7s}
-    @keyframes evFade{to{opacity:1}}
-    @media (prefers-reduced-motion: reduce){#evfig .anim{opacity:1 !important;animation:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -150,100 +95,134 @@
   <div class="bp-wrap">
     <article>
       <span class="bp-eyebrow">Funding</span>
-      <h1>One-Step vs Two-Step Evaluations: What Each Phase Actually Tests</h1>
+      <h1>One-Step vs Two-Step Evaluations: What Each Phase Tests</h1>
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 19, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>8 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260619_120439_488446d4-df60-49a4-a475-22406f9be0a8.png" alt="A trader at a tidy desk in soft natural light, comparing two printed evaluation checklists side by side">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_225141_18865a57-3239-48fe-9918-d7c1e0100052.png" alt="A trader comparing two side-by-side monitors each showing a different chart and path, representing the choice between a one-step and a two-step evaluation">
 
       <div class="bp-body">
-        <p>When you start comparing evaluations, the first thing you notice is the count. One step or two. It looks like a simple question of how much work stands between you and a funded account, and most people pick the one that sounds like less effort.</p>
-        <p>That is the wrong way to read it. The number of phases is not the point. What matters is what each phase is built to check, and whether that lines up with how you actually trade. A one-step is not just a two-step with a phase deleted. They are testing slightly different things, and the better fit depends more on your habits than on your patience.</p>
-        <p>Here is the plain-English version of what each structure is doing under the hood, so you can choose on purpose instead of by gut.</p>
 
-        <h2>What an evaluation is for in the first place</h2>
-        <p>Every evaluation exists to answer one question for the firm: can this person reach a profit target without breaking the risk rules along the way. That is it. The profit target proves you can find an edge. The rules, the daily loss limit, the maximum drawdown, the position caps, prove you can do it without blowing up.</p>
-        <p>Both halves matter equally. A trader who hits the target by risking everything on one position has not passed anything worth funding. A trader who never breaks a rule but never reaches the target has not shown an edge. An evaluation is just a structured way to watch both at once, in a simulated environment, before any funded capital is involved.</p>
-        <p>Once you see it that way, the one-step versus two-step question gets clearer.</p>
+<p>One step or two? It is the question traders ask first when choosing an evaluation, usually framed as "which is easier." That is the wrong frame. The number of steps is not really the difference. The difference is what each format is built to check, and once you see that, the choice stops being about difficulty and starts being about fit. The right evaluation is the one that tests the thing you are actually good at.</p>
+<p>A one-step evaluation and a two-step evaluation can have the same profit target, the same loss limit, and the same drawdown cap. On paper they look like the same test split differently. But they are quietly measuring different qualities, and a trader who shines in one can struggle in the other for reasons that have nothing to do with skill and everything to do with how the test is shaped.</p>
+<p>Here is what each format actually tests, why the step count matters less than it seems, and how to tell which one fits the way you trade. In this guide we will cover the real difference, what a one-step checks, what a two-step checks, and how to choose without fooling yourself about difficulty.</p>
 
-        <figure class="bp-figure" id="evfig">
-          <span class="figtag">How the phases compare</span>
-          <svg viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="Diagram comparing a one-step evaluation with a single phase against a two-step evaluation with two phases, both leading to a funded account">
-            <line x1="500" y1="70" x2="500" y2="322" stroke="hsla(0,0%,100%,.14)" stroke-width="1" stroke-dasharray="5 6"></line>
-            <text x="250" y="46" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">One-Step</text>
-            <text x="750" y="46" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Two-Step</text>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>The difference is not difficulty, it is design.</strong> Each format tests a different quality, not a harder or easier version of the same thing.</li>
+<li><strong>One-step tests skill under pressure.</strong> A single target rewards traders who can perform in a concentrated push.</li>
+<li><strong>Two-step tests repeatability.</strong> Splitting the target across phases checks whether you can do it twice, not just once.</li>
+<li><strong>The rules matter more than the format.</strong> Loss limits, drawdown, and consistency requirements shape the test more than the step count does.</li>
+<li><strong>Choose for fit, not for ease.</strong> The right evaluation matches how you actually trade, which makes it the one you are most likely to pass cleanly.</li>
+</ul>
 
-            <g class="box anim">
-              <rect x="70" y="80" width="360" height="180" rx="12" fill="#0a1f1a" stroke="hsla(160,60%,45%,.4)" stroke-width="1.5"></rect>
-              <text x="250" y="120" text-anchor="middle" fill="#22d3a8" font-size="13" font-weight="700" letter-spacing="1">PHASE 1</text>
-              <text x="250" y="158" text-anchor="middle" fill="#fff" font-size="17" font-weight="600">Reach the profit target</text>
-              <text x="250" y="184" text-anchor="middle" fill="#d7dbe6" font-size="15">while following every rule</text>
-              <text x="250" y="220" text-anchor="middle" fill="hsla(0,0%,100%,.55)" font-size="13.5">One window. No margin for</text>
-              <text x="250" y="240" text-anchor="middle" fill="hsla(0,0%,100%,.55)" font-size="13.5">a careless day.</text>
-            </g>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">The Real Difference Is Not the Step Count</a></li>
+<li><a href="#s2">What a One-Step Evaluation Tests</a></li>
+<li><a href="#s3">What a Two-Step Evaluation Tests</a></li>
+<li><a href="#s4">Which One Fits How You Trade</a></li>
+<li><a href="#s5">The TradeFundrr Standard: The Rules Matter Most</a></li>
+</ul>
 
-            <g class="box b2 anim">
-              <rect x="570" y="80" width="360" height="95" rx="12" fill="#0c1a2e" stroke="hsla(200,60%,50%,.35)" stroke-width="1.5"></rect>
-              <text x="750" y="112" text-anchor="middle" fill="#22d3a8" font-size="13" font-weight="700" letter-spacing="1">PHASE 1</text>
-              <text x="750" y="144" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">Reach the first target</text>
-            </g>
-            <g class="box b3 anim">
-              <rect x="570" y="205" width="360" height="95" rx="12" fill="#0a1f1a" stroke="hsla(160,60%,45%,.4)" stroke-width="1.5"></rect>
-              <text x="750" y="237" text-anchor="middle" fill="#22d3a8" font-size="13" font-weight="700" letter-spacing="1">PHASE 2</text>
-              <text x="750" y="269" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">Repeat it, smaller target</text>
-            </g>
-            <path class="arr anim" d="M750 175 L750 205" stroke="hsla(0,0%,100%,.4)" stroke-width="2" marker-end="url(#ah)"></path>
+<h2 id="s1">The Real Difference Is Not the Step Count</h2>
+<p>It is tempting to read "one step" as easier and "two step" as harder, simply because two sounds like more work. That instinct misleads. A two-step evaluation often has a gentler target in each phase precisely because there are two of them, while a one-step concentrates the whole task into a single push. More steps does not mean more difficulty; it means the difficulty is distributed differently.</p>
+<p>What actually separates the formats is the quality each one is designed to surface. A single phase puts a premium on performing when it counts. Two phases put a premium on doing it again. Both are legitimate things to test, and neither is inherently softer. Once you stop asking which is easier and start asking which measures your strength, the comparison becomes useful.</p>
+<h3>Same Rules, Different Shape</h3>
+<p>Two evaluations can share an identical rulebook, the same loss limit, the same drawdown cap, the same consistency requirement, and still feel completely different to trade because the target is shaped differently. The shape is the variable. A one-step shape asks for a concentrated result; a two-step shape asks for a sustained one. The rules underneath are doing the same protective job in both.</p>
+<h3>Why Step Count Is the Wrong First Question</h3>
+<p>Leading with "how many steps" anchors you on the wrong axis. The better first question is "what does this format reward," because that is what determines whether you pass comfortably or fight the structure the whole way. A trader optimizing for fewer steps can easily pick the format that tests the exact quality they are weakest at.</p>
 
-            <g class="fund anim">
-              <rect x="350" y="340" width="300" height="56" rx="28" fill="#22d3a8"></rect>
-              <text x="500" y="375" text-anchor="middle" fill="#04130f" font-size="17" font-weight="700">Funded account</text>
-            </g>
-            <path class="arr anim" d="M250 260 L250 312 L470 312 L470 340" fill="none" stroke="hsla(0,0%,100%,.3)" stroke-width="2"></path>
-            <path class="arr anim" d="M750 300 L750 312 L530 312 L530 340" fill="none" stroke="hsla(0,0%,100%,.3)" stroke-width="2"></path>
-            <defs>
-              <marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="hsla(0,0%,100%,.4)"></path></marker>
-            </defs>
-          </svg>
-          <figcaption>Illustrative example. Both routes end at the same funded account. The difference is how the proving is split.</figcaption>
-        </figure>
+<h2 id="s2">What a One-Step Evaluation Tests</h2>
+<p>A one-step evaluation gives you a single profit target to reach while staying inside the rules. There is no second phase, so the whole thing is a single concentrated effort. What this format really tests is your ability to perform under pressure in one focused push, and to do it without letting the urgency push you into a rule breach.</p>
+<p>That makes it a strong fit for traders who trade actively and decisively, who are comfortable putting up a result in a defined window, and who do not need a long runway to demonstrate what they do. The flip side is that a single phase leaves less margin for a bad start; there is no second phase to settle into if the first stretch goes sideways.</p>
 
-        <h2>The one-step: prove it once, cleanly</h2>
-        <p>A one-step evaluation gives you a single phase. Reach the profit target while staying inside the rules, and you move to a funded account. There is no second round.</p>
-        <p>The appeal is obvious. It is faster, there are fewer rules to track across phases, and there is only one finish line to think about. For a trader with a settled process, that simplicity is a real advantage. You are not managing your psychology across two separate gauntlets.</p>
-        <p>The trade-off is that one phase usually carries tighter guardrails to compensate. With only one window to watch you, the firm tends to lean on stricter risk limits, and sometimes a higher target relative to the drawdown allowed. There is less room to recover from a sloppy session, because there is no second phase to even it out. A one-step rewards traders who are already consistent and punishes the ones who need a few days to settle in.</p>
+<figure class="bp-figure">
+  <span class="figtag">One-step vs two-step</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_225159_52bdc44b-0b13-4db7-af8a-e6b4ee21e475.png" alt="Infographic comparing a one-step evaluation, which has a single profit target and tests skill under pressure, against a two-step evaluation, where phase one checks whether you can hit a target and phase two checks whether you can repeat it, with a note that the same rules apply either way." loading="lazy">
+</figure>
 
-        <h2>The two-step: prove it, then prove it again</h2>
-        <p>A two-step splits the work. Phase one is typically the bigger profit target, the proof that you can actually grow an account. Phase two is usually a smaller target, and its real job is to show that phase one was not a fluke. Anyone can have one good run. The second phase is asking whether you can do it on purpose.</p>
-        <p>This structure tends to come with slightly more breathing room on each individual phase, because the consistency is being checked by the existence of a second round rather than by squeezing one phase to the bone. The cost is time and stamina. You have to hold your discipline together across two separate stretches, and many traders pass phase one, relax, and then give back phase two by trading like the pressure is off.</p>
-        <p>If a one-step asks <em>can you do this once without breaking</em>, a two-step asks <em>can you do this twice</em>. That second question is harder for exactly the traders who most need to hear the answer.</p>
+<h3>Skill in a Single Push</h3>
+<p>The defining quality a one-step rewards is the ability to produce a clean result in one concentrated effort. There is something honest about it: you trade well, inside the rules, until you reach the target, and you are done. For a trader who performs best when the task is clear and contained, the one-step format gets out of the way and lets them show it.</p>
+<h3>Less Margin for a Bad Start</h3>
+<p>The trade-off is exposure to a rough opening. Because everything rides on one phase, a poor start carries more weight than it would when split across two. That does not make the format harder in the abstract; it makes it less forgiving of early mistakes, which rewards traders who manage risk tightly from the first trade.</p>
 
-        <h2>Which one actually fits you</h2>
-        <p>Forget which sounds easier. Ask which one matches your real behavior.</p>
-        <ul>
-          <li><strong>You trade the same way every day and rarely tilt.</strong> A one-step suits you. You do not need a second phase to prove consistency you already have, and you will appreciate not dragging the process out.</li>
-          <li><strong>You start slow and find your rhythm over a week or two.</strong> A two-step gives you more total room to settle, as long as you can hold focus through the second round instead of coasting.</li>
-          <li><strong>Your blowups come from a single bad session, not a bad week.</strong> Read the risk rules more carefully than the phase count. A one-step with a tight daily loss limit can end you in an afternoon. The number of steps will not save you from one reckless hour.</li>
-          <li><strong>You tend to relax the moment you are ahead.</strong> Be honest that a two-step is built to catch exactly that, and a one-step removes the temptation entirely.</li>
-        </ul>
-        <p>Notice that none of this is about which is generous and which is strict. It is about which structure tests the thing you are actually good at, and which one tests the thing you tend to get wrong.</p>
+<div class="bp-midcta"><strong>Want to see how each evaluation is structured?</strong> <a href="https://tradefundrr.com/#markets">Compare the funding programs</a>.</div>
 
-        <h2>The part people skip</h2>
-        <p>Whatever the phase count, the rules inside each phase decide the difficulty far more than the number on the label. A one-step and a two-step can be miles apart in how forgiving they are, depending on the daily loss limit, the drawdown type, and how the target compares to the room you are given. Two evaluations with the same number of steps can feel like completely different challenges.</p>
-        <p>So read the rulebook before the phase count. Find the daily loss limit, the maximum drawdown and whether it trails, the position caps, and any consistency or minimum-day requirements. Those numbers tell you how the phase will actually feel. The step count tells you how many times you will feel it.</p>
-        <p>An evaluation is not an obstacle the firm puts in your way. It is a simulated rehearsal of the exact discipline a funded account will require every day, which is why the right question is never which is easier. It is which one trains the habits you will need after you pass.</p>
+<h2 id="s3">What a Two-Step Evaluation Tests</h2>
+<p>A two-step evaluation splits the task into two phases, often with a smaller target in each. Phase one asks a simple question: can you hit a target inside the rules? Phase two asks the harder one: can you do it again? That second phase is the whole point of the format, because repeating a result is much harder to fake than producing it once.</p>
+<p>This makes two-step a strong fit for traders whose edge is steadiness rather than a single burst, who would rather demonstrate a repeatable process than a one-time push. The cost is time and patience: two phases take longer, and you have to stay disciplined across both rather than relaxing after a strong first stretch.</p>
+<h3>Can You Do It Twice?</h3>
+<p>The quality two-step is built to surface is repeatability. One good phase can come from a favorable stretch of market; two good phases are far harder to attribute to luck. For the firm, that second phase is a filter for genuine consistency. For the trader whose strength is exactly that consistency, it is a format that plays to type.</p>
+<h3>Patience Across Both Phases</h3>
+<p>The discipline a two-step demands is sustained rather than concentrated. The danger is the let-down after phase one, where traders clear the first target and then loosen, treating phase two as a formality. It is not. The same rules apply throughout, and many two-step evaluations are lost in the second phase by traders who already felt finished.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit, payout, or trading results, and this is general education rather than the specific terms of any account or evaluation. Any examples are hypothetical and illustrative. Always read the rules that apply to your own program. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<h2 id="s4">Which One Fits How You Trade</h2>
+<p>Choosing well comes down to an honest read of your own trading. The format is not a difficulty setting, it is a mirror. Pick the one that reflects how you actually produce results, concentrated or repeatable, and the evaluation works with you instead of against you.</p>
+<div class="bp-checklist">
+<strong>To choose the format that fits you:</strong>
+<ul>
+<li><strong>Match the test to your strength.</strong> Concentrated performer leans one-step; steady repeater leans two-step.</li>
+<li><strong>Read the rules, not just the step count.</strong> Loss limit, drawdown, and consistency shape the test more than the number of phases.</li>
+<li><strong>Be honest about your start.</strong> If rough openings are a pattern, the single-phase format is less forgiving of them.</li>
+<li><strong>Plan for phase two.</strong> In a two-step, the second phase is where discipline tends to slip. Treat it as seriously as the first.</li>
+<li><strong>Confirm the exact terms in writing.</strong> Targets, limits, and phase rules vary by firm and account.</li>
+</ul>
+</div>
+<h3>Why Two Phases Filter for Consistency</h3>
+<p>From the firm's side, the second phase is simply better evidence. It is risk management on talent: putting more behind a trader who has shown the result is repeatable, not a single fortunate run. For you, that filter is a feature when consistency is your strength, because it is precisely the quality the format is built to reward.</p>
+
+<div class="bp-midcta"><strong>Test your fit in a low-stakes setting.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: The Rules Matter Most</h2>
+<p>The cleanest way to choose is to stop ranking the formats by difficulty and start matching them to how you actually trade. A one-step rewards a concentrated, decisive performer. A two-step rewards a steady, repeatable one. Pick the format that tests your strength and you have picked the evaluation you are most likely to pass cleanly, because you are being measured on the thing you do well.</p>
+<p>And whichever format you choose, remember that the rules matter more than the structure around them. The loss limit, the drawdown cap, and the consistency requirement are what genuinely shape the test, and they apply the same way in one phase or two. The step count decides the rhythm; the rules decide the substance. A trader who respects the rules will trade either format well, and a trader who ignores them will breach either one.</p>
+<p>One-step versus two-step is not a question of easy versus hard. It is a question of which quality you would rather be tested on, performance in a single push or repeatability across two. TradeFundrr structures its evaluations around clear, visible rules, so whichever format you trade, the line is always in plain sight and the only thing that ends the evaluation is whether you stay inside it. Match the format to your strength, respect the rules from the first trade, and confirm the exact targets, limits, and phase terms for your specific account in writing.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>Is a one-step or two-step evaluation easier?</summary>
+<div class="ans">Neither is inherently easier; they test different qualities. A two-step often has a gentler target in each phase because there are two of them, while a one-step concentrates the task into a single push. The better question is which format rewards your strength, not which has fewer steps.</div>
+</details>
+<details>
+<summary>What does a one-step evaluation test?</summary>
+<div class="ans">It tests your ability to perform in a single concentrated effort, reaching one profit target while staying inside the rules. It suits decisive, active traders who can put up a result in a defined window. The trade-off is less margin for a bad start, since everything rides on one phase.</div>
+</details>
+<details>
+<summary>What does a two-step evaluation test?</summary>
+<div class="ans">It tests repeatability. Phase one asks whether you can hit a target inside the rules; phase two asks whether you can do it again. Repeating a result is much harder to attribute to luck, which is why the format filters for genuine consistency. It suits steady traders over concentrated performers.</div>
+</details>
+<details>
+<summary>Which evaluation format should I choose?</summary>
+<div class="ans">Match it to your strength. If you perform best in a clear, contained push, lean one-step. If your edge is steadiness and a repeatable process, lean two-step. The format you pass most comfortably is usually the one that tests the quality you already do well, not the one with fewer phases.</div>
+</details>
+<details>
+<summary>Do the rules differ between one-step and two-step?</summary>
+<div class="ans">The core rules, the loss limit, drawdown cap, and consistency requirement, do the same protective job in both, though the exact targets and figures vary by program. The step count changes the rhythm of the test, not its substance. Read the full rulebook for either format rather than judging by phase count.</div>
+</details>
+<details>
+<summary>Where do traders usually fail a two-step evaluation?</summary>
+<div class="ans">Often in the second phase, after clearing the first. Traders relax once phase one is done and treat phase two as a formality, but the same rules apply throughout. The let-down after a strong first phase is a common way a two-step is lost, so treat the second phase as seriously as the first.</div>
+</details>
+<details>
+<summary>Are these evaluations real money?</summary>
+<div class="ans">No. Both formats run in a structured, simulated environment governed by defined rules. The simulation lets you demonstrate either concentrated performance or repeatability without risking your savings on each trade. Confirm the exact targets, limits, and phase terms for your specific evaluation in writing.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. Evaluation formats, profit targets, loss limits, drawdown rules, and phase requirements vary by firm and account, so always read and follow the written terms for your specific account. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Pick the path that fits how you trade</h3>
-          <p>Develop your discipline in a structured, simulated environment with clear, written rules, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Pick the format that fits how you trade</h3>
+          <p>Develop your trading in a structured, simulated environment with clear, visible rules in every format.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -349,17 +328,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('evfig');
-    if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
-    },{threshold:.35});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}

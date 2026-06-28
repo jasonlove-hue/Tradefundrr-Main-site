@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Happens When You Fail an Evaluation: Resets and Retries | TradeFundrr Blog</title>
-  <meta name="description" content="Failing a funded evaluation is not the end of the road, but it is not free either. What a breach actually means, how resets and retries work, and how to come back without repeating the same mistake.">
+  <meta name="description" content="Failing a funded evaluation is a rule breach, not a verdict. What a breach actually means, how resets and retries work, and how to come back without repeating the same mistake.">
   <link rel="canonical" href="https://tradefundrr.com/blog/failing-an-evaluation-what-happens-next">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-22">
   <meta property="article:section" content="Funding">
   <meta property="og:title" content="What Happens When You Fail an Evaluation: Resets and Retries">
-  <meta property="og:description" content="A failed evaluation is a setback, not a verdict. Here is what actually happens next, and how to come back smarter.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260622_120604_e9628874-50df-4222-a19c-d7b3c937a8c5.png">
+  <meta property="og:description" content="A breach is a rule, not a judgment. How resets and retries work, and how to come back stronger.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_225132_186ebeec-e99f-49a5-a4bb-9b40596cefb2.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,88 +31,39 @@
     .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
     .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
-    .bp-inline{width:100%;border-radius:14px;margin:30px 0;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -148,54 +99,131 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 22, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>8 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260622_120604_e9628874-50df-4222-a19c-d7b3c937a8c5.png" alt="A composed trader at a quiet desk reviewing a single chart after a setback and taking notes, soft natural light, reflective and determined mood">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_225132_186ebeec-e99f-49a5-a4bb-9b40596cefb2.png" alt="A focused trader at a multi-monitor desk reviewing a chart that pulled back, calm and determined to restart after failing an evaluation">
 
       <div class="bp-body">
-        <p>Most traders who try a funded evaluation will not pass on the first attempt. That is the honest starting point for this article. The model is designed to filter for discipline, and discipline is something most people are still building. So if you have just hit a limit and watched an account close, you are not an outlier. You are in the majority.</p>
-        <p>What matters more than the failure itself is what you understand about it, and what you do next. A lot of traders treat a failed evaluation as a verdict on whether they can trade. It is not. It is feedback on one specific run, under one specific set of rules, on one specific stretch of market. Let us walk through what actually happens, in plain terms.</p>
 
-        <h2>First, what "failing" actually means</h2>
-        <p>An evaluation ends in one of two ways. You reach the profit target while staying inside every rule, and you pass. Or you break a rule before you get there, and the evaluation stops. That second outcome is usually called a breach.</p>
-        <p>The two most common breaches are hitting the daily loss limit and hitting the overall drawdown. There are others, like holding through a restricted window or trading an instrument that was not allowed, but loss limits are what catch most people. The key thing to sit with is this: you did not fail because you lost money. You failed because you lost more than the rules allowed in a single day or overall. That distinction is the whole lesson.</p>
+<p>Failing a funded evaluation feels like a verdict. It is not one. When you fail, what actually happened is narrow and specific: you crossed a line the rules drew before you started. A daily loss limit, a drawdown cap, a consistency requirement. The account stops because a written rule said it would, not because anyone decided you cannot trade. That distinction is the whole point of this guide, because it changes what you do next.</p>
+<p>Most traders treat a failed evaluation as proof they are not good enough. Some treat it as bad luck. Both readings miss the useful information sitting right there in the breach. A breach tells you exactly which rule your trading does not yet respect, which is the most actionable feedback a trader can get.</p>
+<p>Here is what failing an evaluation really means, what your options are afterward, and why the same traders tend to fail the same way twice. In this guide we will cover what a breach actually is, the two ways an evaluation ends, how resets and retries work, and how to come back without handing back the same mistake.</p>
 
-        <h2>It is a setback, not a permanent mark</h2>
-        <p>A failed evaluation does not follow you around. It does not lower some hidden score or close a door. In a simulated environment like TradeFundrr, the evaluation is a repeatable test. You are allowed to take it again. The account that closed was a simulated account, which is the entire point of the model: you found the edge of your discipline without putting your own trading capital at risk in a live brokerage account.</p>
-        <p>That is worth saying clearly because the emotional weight of a breach can be heavy. Traders describe it as embarrassing or deflating. But the structure exists precisely so that the cost of learning this lesson is a fee and some bruised pride, rather than a blown personal account.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>A breach is a rule, not a judgment.</strong> Failing means you crossed a defined limit, not that a person decided against you.</li>
+<li><strong>An evaluation ends one of two ways.</strong> You hit the profit target within the rules, or you breach a rule. There is no third, discretionary path.</li>
+<li><strong>Resets and retries exist for a reason.</strong> Most firms let you start again, often for a smaller reset fee, because the evaluation is meant to be repeatable.</li>
+<li><strong>The same mistake repeats the same result.</strong> Coming back without changing what caused the breach just buys the same outcome again.</li>
+<li><strong>It all happens in a simulated environment.</strong> A failed evaluation costs the fee and your time, not your savings on each trade.</li>
+</ul>
 
-        <img class="bp-inline" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260622_120606_cef8e67f-62aa-4f4b-a80a-828eb2b3ba32.png" alt="Close-up of a trader's hands writing a trading plan in a paper notebook beside a keyboard, calm and methodical">
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">What Failing an Evaluation Actually Means</a></li>
+<li><a href="#s2">The Two Ways an Evaluation Ends</a></li>
+<li><a href="#s3">Resets and Retries: Your Options</a></li>
+<li><a href="#s4">Why Traders Fail the Same Way Twice</a></li>
+<li><a href="#s5">The TradeFundrr Standard: A Breach Is Information</a></li>
+</ul>
 
-        <h2>Resets and retries: the practical options</h2>
-        <p>After a breach, traders generally have two paths back in. The exact terms vary by firm and by account, so always read the written rules of your specific account rather than assuming. In broad strokes:</p>
-        <ul>
-          <li><strong>A reset.</strong> Some firms let you reset an existing evaluation, which clears the account back to its starting balance so you can attempt the target again. This is often offered at a reduced cost compared to buying fresh.</li>
-          <li><strong>A new evaluation.</strong> You can also simply start a new evaluation from scratch. Some traders prefer this because it feels like a clean slate rather than a continuation of a run that went wrong.</li>
-        </ul>
-        <p>Neither path is free, and that is the part worth being honest about. A retry means another fee. If you find yourself resetting again and again, the cost adds up, and that pattern is itself a signal. It usually means the problem is not the market. It is a habit that keeps showing up under pressure.</p>
+<h2 id="s1">What Failing an Evaluation Actually Means</h2>
+<p>An evaluation is a set of rules with a target at the end. You fail it by breaking one of the rules before you reach the target. That is the entire mechanism. There is no panel weighing your character and no quiet decision being made about whether you deserve it. A limit was set, your account touched it, and the account stopped exactly as the terms said it would.</p>
+<p>This matters because it tells you what failure is not. It is not a statement that you cannot trade. It is not the firm holding something back from you. It is the rule doing the one thing it was written to do, on a number you can usually see coming.</p>
+<h3>A Rule You Crossed, Not a Verdict You Received</h3>
+<p>The cleanest way to hold a failed evaluation is as a tripped wire, not a closed door. The wire is in a known place. You either stayed inside it or you did not. When you read the breach that way, the next question stops being "am I good enough" and becomes "which rule do I need to trade inside next time," which is a question you can actually answer.</p>
+<h3>The Firm Did Not Decide Against You</h3>
+<p>It is worth being blunt here, because traders carry a lot of suspicion into this. An honest firm does not sit on your account or fail you at its discretion. The rules decide. The only thing that ends an evaluation is whether you traded inside the lines that were published before you ever placed a trade. The opacity people fear belongs to bad-faith operators, not to a clear, rules-based program.</p>
 
-        <h2>Before you retry, do the boring work</h2>
-        <p>The worst thing a trader can do after a breach is immediately buy another evaluation and start trading the same way within the hour. The market did not change. You did not change. So the result tends not to change either.</p>
-        <p>A better sequence looks like this. Pull up the trades from the failed run and find the exact moment things went wrong. It is almost never the whole account. It is usually one or two trades where size crept up, a stop got moved, or a loss got chased. Name the specific behavior. Then decide, in writing, what rule you will follow next time to stop it from happening again.</p>
-        <p>This is unglamorous and most people skip it, which is exactly why most people repeat the breach. The traders who eventually pass are usually the ones who treated the first failure as data rather than a defeat.</p>
+<h2 id="s2">The Two Ways an Evaluation Ends</h2>
+<p>Strip away the noise and an evaluation has exactly two endings. You reach the profit target while staying inside every rule, and you pass. Or you breach a rule, most often the daily loss limit or the maximum drawdown, and the evaluation stops. Everything else, the day-to-day of it, is just the path between those two outcomes.</p>
+<p>Knowing there are only two endings is oddly freeing. It means there is nothing hidden to game and no one to persuade. Your entire job is to reach one ending without triggering the other, and the rules tell you precisely where the other one lives.</p>
 
-        <h2>A hypothetical, for illustration only</h2>
-        <p>Imagine a trader on a simulated evaluation who is up steadily through the week, then has one red morning where a single position is allowed to run well past the planned stop. That one trade pushes the account through its daily loss limit, and the evaluation ends. The frustrating part is that the account was green overall. The breach was not a losing strategy. It was a single failure of risk control. If that trader resets and changes nothing, the same morning will eventually repeat. If they reset and add a hard rule about position size and stops, they have actually fixed the leak. This is an illustration, not a guarantee of any particular outcome, but the pattern behind it is very real.</p>
+<figure class="bp-figure">
+  <span class="figtag">When an evaluation ends</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_225145_37d536e2-6d0e-42b0-beed-065da2e84a1e.png" alt="Infographic: failing an evaluation is a four-stage flow from a rule breach being detected, to the evaluation stopping, to a reset or retry, to restarting with a fixed plan, with a note that a breach is a rule not a verdict and that the same mistake repeats the same result." loading="lazy">
+</figure>
 
-        <h2>The honest version</h2>
-        <p>Failing an evaluation is common, recoverable, and often more useful than scraping a pass you did not really earn. The danger is not the failure. The danger is retrying on autopilot, paying fee after fee while repeating the same mistake and calling it bad luck.</p>
-        <p>Because TradeFundrr is a structured, simulated environment, it is a place to make these mistakes where the cost is contained and the lesson is clear. A reset is only worth buying once you can say, specifically, what you are going to do differently. Get that part right, and a failed evaluation becomes the most valuable thing that happened on the way to a funded one.</p>
+<h3>Hitting the Target Inside the Rules</h3>
+<p>Passing is not just reaching a number. It is reaching it the way the rules require: within the loss limit, inside the drawdown cap, and across whatever minimum days or consistency requirement applies. A profit target hit by breaking a rule along the way is not a pass, which is exactly why consistency requirements exist.</p>
+<h3>Breaching a Rule Along the Way</h3>
+<p>The far more common ending is a breach. Usually it is the daily loss limit on a single bad session, or the trailing drawdown after a string of smaller losses chips the account down. The breach is mechanical: equity touches the threshold, the account stops. There is no negotiation, which is also why there is nothing to appeal. You confirm the number, understand what put you there, and decide whether to go again.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit, passing, or trading results, and the examples above are hypothetical illustrations only. Reset and retry terms vary by account, so always confirm the exact rules in writing for your specific evaluation. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<div class="bp-midcta"><strong>Want rules you can see clearly before you start?</strong> <a href="https://tradefundrr.com/#markets">See how the evaluations are structured</a>.</div>
+
+<h2 id="s3">Resets and Retries: Your Options</h2>
+<p>A failed evaluation is rarely the end of the road, because the evaluation is designed to be repeatable. Most programs give you a way to start again, and the terms vary, so read your own. Broadly, you will run into two ideas: a reset and a fresh retry.</p>
+<p>A reset restarts your current evaluation, often for a smaller reset fee than the original cost, putting your balance and rules back to the beginning. A retry is simply buying a new evaluation outright. Which one is available, and at what price, depends entirely on the firm and the plan you chose, so treat the specifics as something to confirm in writing rather than assume.</p>
+<h3>What a Reset Usually Costs</h3>
+<p>The reason a reset often costs less than the first purchase is that you are restarting the same evaluation, not buying a new package around it. Some lower-cost plans are built with a reset fee baked into the structure precisely so that starting over is straightforward. Higher-cost plans sometimes skip resets entirely in favor of more flexibility elsewhere. Neither is better; they are different trade-offs, and the right one depends on how you expect to use it.</p>
+<h3>When to Go Again, and When to Wait</h3>
+<p>The temptation after a breach is to reset immediately, while the frustration is still hot. That is usually the worst moment to do it. A reset only changes the outcome if something about your trading changed first. If you go again with the same plan that just breached, you are most likely buying the same ending. The traders who come back well are the ones who treat the gap between attempts as the actual work.</p>
+
+<h2 id="s4">Why Traders Fail the Same Way Twice</h2>
+<p>Here is the uncomfortable pattern. Most traders who fail an evaluation do not fail randomly the next time. They fail the same way. The same oversized position on the same kind of setup, the same revenge trade after the same kind of loss, the same loosening of risk on the same day of the week. The breach was a symptom; the habit underneath it came back untouched.</p>
+<p>This is why a reset is not a strategy. A fresh balance does nothing about the behavior that drained the last one. The only thing that breaks the loop is identifying the specific decision that caused the breach and changing that one decision before you trade again.</p>
+<div class="bp-checklist">
+<strong>Before you reset or retry, get specific:</strong>
+<ul>
+<li><strong>Name the exact rule you breached.</strong> Daily loss limit, drawdown, consistency. Vague lessons produce vague changes.</li>
+<li><strong>Find the single decision that triggered it.</strong> Usually one trade, one size, or one moment of chasing, not a whole day.</li>
+<li><strong>Write the rule that would have stopped it.</strong> A concrete limit you can follow, not a feeling you hope to have.</li>
+<li><strong>Wait until you are calm to go again.</strong> A reset bought in frustration tends to repeat the frustration.</li>
+<li><strong>Confirm your reset and retry terms in writing.</strong> Know the cost and what restarts before you commit.</li>
+</ul>
+</div>
+<h3>The Breach Was a Symptom</h3>
+<p>Treat the number that ended your evaluation as the last link in a chain, not the cause. The cause is upstream: a setup you take too big, a loss you cannot sit with, a rule you respect on good days and ignore on bad ones. Fix the upstream decision and the breach takes care of itself. Reset around it and the breach is waiting for you again.</p>
+
+<div class="bp-midcta"><strong>Build the habit before you go again.</strong> <a href="https://tradefundrr.com/#markets">Practice in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: A Breach Is Information</h2>
+<p>The most useful reframe is to stop reading a failed evaluation as a sentence and start reading it as information. It told you, with no ambiguity, which rule your trading does not yet respect. That is not a small thing. Most traders never get feedback that clean, because most of their losses come without a label attached. An evaluation labels the failure for you.</p>
+<p>It also helps to remember the environment. The evaluation runs in a structured, simulated setting, so a breach costs you the fee and the time, not your savings on every trade. That is the entire reason evaluations exist: to let you find out which rule you break, in a place where breaking it is recoverable. The cost of a reset is real and worth respecting, but it is not the cost of blowing up a live account.</p>
+<p>Failing an evaluation is not the firm deciding against you and it is not proof you cannot trade. It is a rule doing its job on a number you crossed, in a process built to be tried again. TradeFundrr is built around clear rules in both directions, so the line is always visible and the only thing that ends an evaluation is whether you stayed inside it. Read the breach, change the one decision behind it, and the next attempt is a genuinely different attempt. Confirm the exact reset, retry, and rule terms for your specific account in writing before you begin.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What does it mean to fail a funded evaluation?</summary>
+<div class="ans">It means you crossed a defined rule before reaching the profit target, most often the daily loss limit or the maximum drawdown. The account stops automatically because the terms said it would. It is a mechanical rule breach, not a discretionary decision about whether you deserve to trade.</div>
+</details>
+<details>
+<summary>Can I try the evaluation again after failing?</summary>
+<div class="ans">Almost always, yes. Most firms offer a reset, which restarts your current evaluation often for a smaller reset fee, or a retry, which is buying a new evaluation. The exact options and prices vary by firm and plan, so confirm them in your written terms before you commit.</div>
+</details>
+<details>
+<summary>How much does a reset cost?</summary>
+<div class="ans">It depends on the plan. Some lower-cost evaluations include a reset fee that is smaller than the original purchase, while some higher-cost plans skip resets in favor of other flexibility. There is no universal figure, so check the reset terms for your specific account rather than assume.</div>
+</details>
+<details>
+<summary>Does failing an evaluation cost me real money on each trade?</summary>
+<div class="ans">No. Evaluations run in a structured, simulated environment, so a failure costs you the evaluation fee and your time, not your personal savings on the trades themselves. That is the point of the format: to find out which rule you break in a place where it is recoverable.</div>
+</details>
+<details>
+<summary>Why do I keep failing the same way?</summary>
+<div class="ans">Because a reset gives you a fresh balance but not a fresh habit. Most repeat failures come from the same underlying decision, an oversized position, a revenge trade, a loosened rule on a bad day. Until you identify and change that specific decision, a new attempt tends to reach the same ending.</div>
+</details>
+<details>
+<summary>Should I reset immediately after a breach?</summary>
+<div class="ans">Usually not. The moment right after a breach, while frustration is high, is when traders repeat the mistake that caused it. A reset only changes the result if something about your trading changed first. Wait until you are calm, name the exact rule you broke, and write the rule that would have stopped it.</div>
+</details>
+<details>
+<summary>Does the firm decide whether I pass or fail?</summary>
+<div class="ans">No. At an honest, rules-based firm the outcome is decided by the written rules, not by discretion. You pass by reaching the target inside the limits, or the evaluation stops because you crossed one. There is nothing hidden to appeal and no one sitting on the decision.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. Reset and retry availability, fees, profit targets, loss limits, and drawdown rules vary by firm and account, so always read and follow the written terms for your specific account. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>A setback is not the end of the road</h3>
-          <p>Develop your discipline in a structured, simulated environment, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Read the breach, then come back stronger</h3>
+          <p>Develop your trading in a structured, simulated environment with clear, visible rules in both directions.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
