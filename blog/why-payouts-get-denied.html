@@ -8,13 +8,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why Payouts Get Denied (and How to Avoid It) | TradeFundrr Blog</title>
-  <meta name="description" content="Most denied payouts are not the firm being shady. They trace back to a handful of avoidable rule breaks. The real reasons a payout gets held, and how to make yours boring and clean.">
+  <meta name="description" content="A held payout has two very different causes: a bad-faith firm withholding on purpose, or a rule the trader broke. How to tell them apart and keep yours clean.">
   <link rel="canonical" href="https://tradefundrr.com/blog/why-payouts-get-denied">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-17">
   <meta property="article:section" content="Payouts">
   <meta property="og:title" content="Why Payouts Get Denied (and How to Avoid It)">
-  <meta property="og:description" content="Most held payouts trace back to a few avoidable rule breaks, not a shady firm. How to keep yours clean.">
+  <meta property="og:description" content="A bad-faith firm withholds payouts on purpose. An honest firm does not. The difference, and how to keep yours clean.">
   <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260617_120526_bed7e06f-e72b-4f4e-ada9-926ca52113eb.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
@@ -43,7 +43,50 @@
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
+  
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
+    .bp-body .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-body .bp-checklist strong{color:#fff}
+    .bp-body .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-body .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-body .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
+/* infographic base + COMPARISON type */
+    .tf-ig{margin:34px 0;border:1px solid hsla(0,0%,100%,.12);border-radius:18px;overflow:hidden;background:#070b16;font-family:"Inter",system-ui,sans-serif}
+    .tf-ig *{box-sizing:border-box}
+    .tf-ig svg{width:100%;height:auto;display:block;margin:4px 0 2px}
+    .tf-ig .ig-pad{padding:34px}
+    .tf-ig .ig-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;border-bottom:1px solid hsla(0,0%,100%,.1);padding-bottom:22px;margin-bottom:26px}
+    .tf-ig .ig-head h3{font-size:28px;line-height:1.1;letter-spacing:-.6px;color:#fff;margin:0;font-family:"Inter"}
+    .tf-ig .ig-head p{color:#22d3a8;font-size:15px;margin:8px 0 0}
+    .tf-ig .ig-brand{font-family:"Geist Mono",ui-monospace,monospace;color:hsla(0,0%,100%,.55);font-size:12px;letter-spacing:1px;white-space:nowrap;padding-top:6px}
+    .tf-ig .ig-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .tf-ig .ig-col{border-radius:14px;padding:20px}
+    .tf-ig .ig-col.warn{border:1px solid hsla(40,90%,60%,.28);background:linear-gradient(180deg,hsla(40,80%,40%,.06),transparent)}
+    .tf-ig .ig-col.good{border:1px solid hsla(160,60%,45%,.3);background:linear-gradient(180deg,hsla(160,60%,40%,.08),transparent)}
+    .tf-ig .ig-col h5{text-align:center;font-size:16px;margin:0 0 14px}
+    .tf-ig .ig-col.warn h5{color:#f0b23c}.tf-ig .ig-col.good h5{color:#22d3a8}
+    .tf-ig .ig-item{background:hsla(0,0%,100%,.03);border:1px solid hsla(0,0%,100%,.07);border-radius:10px;padding:13px 14px;margin-bottom:10px}
+    .tf-ig .ig-item b{color:#fff;font-size:14.5px;display:block;margin-bottom:3px}
+    .tf-ig .ig-item p{color:hsla(0,0%,100%,.58);font-size:13px;line-height:1.55;margin:0}
+    .tf-ig .ig-cta{margin-top:14px;padding:26px;text-align:center;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border-top:1px solid hsla(160,60%,45%,.25)}
+    .tf-ig .ig-cta h4{color:#fff;font-size:20px;margin:0 0 8px;letter-spacing:-.3px}
+    .tf-ig .ig-cta p{color:hsla(0,0%,100%,.62);font-size:14px;margin:0 0 16px;max-width:520px;margin-left:auto;margin-right:auto}
+    .tf-ig .ig-cta a{display:inline-flex;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:11px 22px;border-radius:9px;text-decoration:none}
+    .tf-ig .ig-note{padding:14px 20px;background:#05080f;color:hsla(0,0%,100%,.42);font-size:11.5px;line-height:1.55;border-top:1px solid hsla(0,0%,100%,.07)}
+    @media(max-width:600px){.tf-ig .ig-cols{grid-template-columns:1fr}.tf-ig .ig-head{flex-direction:column}}
   </style>
 </head>
 <body>
@@ -143,56 +186,136 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 17, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>7 min read</span>
       </div>
 
       <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260617_120526_bed7e06f-e72b-4f4e-ada9-926ca52113eb.png" alt="A focused trader at a tidy desk in soft natural light, carefully reviewing a checklist beside a dim monitor">
 
       <div class="bp-body">
-        <p>Few things sting more in this space than reaching a payout, requesting it, and watching it get held or denied. It is the moment skeptics point to, the screenshot that goes viral, the story that confirms every fear a burned trader carries into the next firm.</p>
-        <p>So here is the honest version, from a company that runs payouts. Some denials are firms behaving badly, and those firms deserve the bad reputation. But a large share of denied payouts are not that. They trace back to a small set of avoidable mistakes, made by traders who did not read the rules closely or assumed a rule would not be enforced. The fix is not luck. It is knowing what trips people up before you request.</p>
+<p>You have seen the screenshots: a trader hits a payout, requests it, and it gets held or denied. It is the story that confirms every fear a burned trader carries into the next firm. But that screenshot lumps together two completely different things, and understanding why payouts get denied means telling them apart.</p>
+<p>One cause is a bad-faith firm withholding a payout on purpose. The other is a trader who broke a rule at an honest firm and is left looking for someone to blame. Those are not the same problem, and they do not have the same fix.</p>
+<p>Here is the honest version from a company that runs payouts. We do not hold payouts. At a transparent firm, a payout that does not go through traces back to a rule that was broken, and the rules are written down before you ever trade. This guide separates the two causes, names the red flags of a firm that withholds in bad faith, and shows how to keep your own payout clean.</p>
 
-        <h2>First, the part we will not soften</h2>
-        <p>There are firms whose entire model depends on payouts being rare. They write rules vague enough to interpret either way, then lean on the vague version when a payout request lands. If you cannot get a straight answer on how payouts work before you pay, treat that as the answer. A firm that is genuinely planning to pay you has no reason to be cagey about how.</p>
-        <p>We have written before about the warning signs to look for before you ever choose a firm. This post is about the other category: the denials that are, uncomfortably, on the trader. Those are the ones you can actually control.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>There are two causes, not one.</strong> A bad-faith firm withholding on purpose is a different problem from a rule you broke at an honest firm.</li>
+<li><strong>A serious firm does not withhold.</strong> The payout is decided by written rules, not by someone's mood on the day you ask.</li>
+<li><strong>The breach voids it, not the firm.</strong> Profit made after a rule was broken sits on an account that already violated its terms.</li>
+<li><strong>Bad firms have tells.</strong> Vague rules, moving goalposts, endless "review," and no straight answer are screenable before you ever join.</li>
+<li><strong>You control your half.</strong> Read the rules before you trade, stay inside them, and verify your identity early.</li>
+</ul>
 
-        <h2>The avoidable reasons a payout gets held</h2>
-        <p>Across the industry, the same handful of issues show up again and again. None of them are exotic.</p>
-        <ul>
-          <li><strong>A rule was broken earlier in the cycle.</strong> The most common one. A trader breaches a daily loss limit, exceeds a position cap, or trips a trailing drawdown mid-week, keeps trading anyway, and then requests a payout on the profit that followed. The profit may be real, but the account already violated its terms. The breach, not the payout request, is what voids it.</li>
-          <li><strong>A prohibited strategy.</strong> Many programs restrict specific behaviors: certain news straddles, holding through events that are off-limits, gaming a simulated feed, or copy-trading the same positions across many funded accounts to hedge risk. These are usually spelled out. Using them and hoping nobody checks is a slow way to lose an account.</li>
-          <li><strong>Consistency or minimum-day requirements not met.</strong> If a program asks for a minimum number of trading days, or limits how much of your profit can come from a single day, a payout requested before those conditions are satisfied gets held until they are. Not a denial so much as a not yet, but it feels the same in the moment.</li>
-          <li><strong>Identity and verification gaps.</strong> Payouts to a verified person are standard. A name that does not match, skipped verification, or an attempt to run multiple accounts under different identities will stop a payout cold. This is compliance, not cruelty.</li>
-          <li><strong>Requesting at the wrong time.</strong> Some traders request inside a window the rules do not allow, or before a cycle closes, then read the delay as a denial. It is often just a calendar problem.</li>
-        </ul>
-        <p>The uncomfortable thread through all of these is that the rule existed, in writing, before the trade. The denial is downstream of a decision made earlier, usually one the trader hoped would not matter.</p>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">Two Very Different Causes</a></li>
+<li><a href="#s2">The Bad-Faith Firm: Withholding on Purpose</a></li>
+<li><a href="#s3">The Honest Firm: Only a Rule You Broke</a></li>
+<li><a href="#s4">How to Keep Your Payout Clean</a></li>
+<li><a href="#s5">The TradeFundrr Standard: We Do Not Hold Payouts</a></li>
+</ul>
 
-        <h2>How to make your payout boring</h2>
-        <p>A clean payout is a boring payout. Nothing to interpret, nothing to flag, nothing to argue about. You get there on purpose.</p>
-        <ul>
-          <li><strong>Read the payout rules before you trade, not before you request.</strong> Know the minimum days, the consistency rule, the prohibited strategies, and the request windows on day one. By the time you have profit to withdraw, it is too late to discover them.</li>
-          <li><strong>Treat a breached rule as a closed account, even if the platform lets you keep clicking.</strong> If you trip a limit, the profit you make afterward is not safe profit. Do not build a payout on top of a violation and hope it gets missed.</li>
-          <li><strong>Verify your identity early.</strong> Get the paperwork done long before your first request so it is never the thing standing between you and a payout.</li>
-          <li><strong>Keep your own record.</strong> A simple log of your days traded, your daily results, and the rules you are working under means you can see your payout is clean before you ask. If you can audit yourself, the firm's audit holds no surprises.</li>
-          <li><strong>Ask support when you are unsure.</strong> A short question before you act is free. A denial after the fact is not.</li>
-        </ul>
+<h2 id="s1">Two Very Different Causes</h2>
+<p>A viral "denied payout" post almost never tells you which of two very different things happened. That ambiguity is exactly why the stories are so confusing, and why they scare people away from the whole category. Before you trust or blame anyone, it is worth separating the two.</p>
+<p>The first cause is a firm acting in bad faith: it never really intended to pay, and it engineered its rules so it would not have to. The second is far more common and far less dramatic: a trader broke a clear, written rule at an honest firm, and the profit that followed was never valid. One is the firm's fault. The other is the trader's. Knowing which is which is the whole point.</p>
+<h3>A Bad-Faith Firm Withholding</h3>
+<p>Some firms' entire model depends on payouts being rare. They write rules vague enough to read either way, then lean on the vague reading when a request lands. No amount of careful trading protects you from a firm that simply does not want to pay. The only real defense is not joining one in the first place, which is why the red flags below matter so much.</p>
+<h3>A Rule You Broke at an Honest Firm</h3>
+<p>At a transparent firm, a payout is not something that gets "held" at someone's discretion. It clears when the rules are met. The only thing that stops yours is a rule you broke, and those rules were written down and available before you placed a single trade. That is a problem you can actually control, which is the good news hiding inside the scary screenshots.</p>
 
-        <h2>Why this is built the way it is</h2>
-        <p>It is fair to ask why the rules are strict enough to trip people at all. The short answer is that a funded program is sharing capital and risk, and the rules are the terms of that arrangement. The same daily loss limit that can void a payout when ignored is the thing that keeps the program solvent enough to pay everyone else. Loose rules do not mean more payouts. They mean a program that cannot last long enough to make any.</p>
-        <p>Read that way, a clear, enforced rulebook is a feature for the trader who follows it. It means the payout is decided by the terms, not by someone's mood. Predictable rules cut both ways, and the trader who reads them is the one they protect.</p>
+<figure class="bp-figure">
+  <span class="figtag">Why a payout does not arrive</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_213153_2c958d66-b5cc-45f6-894d-fd1702451097.png" alt="Infographic contrasting two causes of a denied payout: a bad-faith firm withholding on purpose (vague rules, moving goalposts, endless review, no straight answer) versus an honest firm where only a rule you broke stops a payout (daily loss limit breached, position cap exceeded, prohibited strategy used, requirements not met). Choose a transparent firm, read the rules, follow them." loading="lazy">
+</figure>
 
-        <h2>One honest caveat</h2>
-        <p>Understanding why payouts get denied does not make you profitable. You still have to trade well enough to have a payout to request in the first place, and most of the work is in getting there, not in the withdrawal screen. What this does is make sure that when you do earn it, nothing you did along the way quietly disqualifies it. In a simulated environment, that is exactly the discipline worth practicing: trade as if every rule will be checked, because the day it counts, it will be.</p>
+<h2 id="s2">The Bad-Faith Firm: Withholding on Purpose</h2>
+<p>This is the category that deserves the bad reputation, and we will not soften it. There are firms whose economics only work if most traders never get paid. They are not running a funding program so much as a fee machine, and the payout screen is where the truth comes out.</p>
+<p>You cannot out-trade bad faith. If a firm has decided not to pay, a perfect track record will not change that. So the entire game with this category is detection, not performance. The tells are usually visible long before you ever reach a payout.</p>
+<h3>The Tells</h3>
+<p>Watch for rules vague enough to be reinterpreted after the fact, goalposts that move once you are close, an "under review" status that never resolves, and support that will not give you a straight answer about how payouts work. The single most reliable signal is this: if you cannot get a clear, written answer on the payout process before you pay, treat that as the answer.</p>
+<h3>Screen Before You Join</h3>
+<p>Because you cannot fix bad faith from the inside, the work happens up front. Read the payout terms before you buy. Ask support a direct question and see whether you get a direct answer. A firm that genuinely plans to pay you has no reason to be cagey about how, so clarity itself is a green flag.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit, payout, or trading results, and this is general education rather than the specific terms of any account. Always read the rules that apply to your own program. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<div class="bp-midcta"><strong>Want rules you can read before you risk anything?</strong> <a href="https://tradefundrr.com/#markets">See the programs</a> and how payouts are laid out up front.</div>
+
+<h2 id="s3">The Honest Firm: Only a Rule You Broke</h2>
+<p>Now the other side, and the part that is genuinely on the trader. At an honest firm nothing is withheld at a whim. If your payout does not go through, it is because the account broke one of its written rules during the period the profit was earned. The firm is not the obstacle. The breach is.</p>
+<p>The usual culprits are familiar and, importantly, all knowable in advance: a daily loss limit breached, a position cap exceeded, a trailing drawdown tripped, a prohibited strategy used, a consistency or minimum-day requirement not yet met, or an identity that was never verified. None of these are surprises sprung at the payout screen. They were in the rulebook on day one.</p>
+<h3>The Breach Voids It, Not the Request</h3>
+<p>This is the part traders most often miss. If you trip a limit mid-cycle and keep trading, the profit you make afterward is built on an account that already violated its terms. The platform letting you keep clicking is not the same as the account still being valid. The breach is what voids the payout, not the act of requesting it.</p>
+<h3>All Knowable in Advance</h3>
+<p>Every one of these reasons existed, in writing, before the trade. That is what separates an honest firm from a bad one: the outcome is decided by terms you could read up front, not by anyone's mood. A trader who reads the rules and trades inside them removes this entire category of problem.</p>
+
+<h2 id="s4">How to Keep Your Payout Clean</h2>
+<p>A clean payout is a boring payout: nothing to interpret, nothing to flag, nothing to argue about. You get there on purpose, by deciding the outcome long before you click request.</p>
+<div class="bp-checklist">
+<strong>To keep your payout clean:</strong>
+<ul>
+<li><strong>Choose a transparent firm first.</strong> Read the payout terms and get a straight answer on the process before you pay.</li>
+<li><strong>Read the rules before you trade,</strong> not before you request. Know the limits, the consistency rule, the prohibited strategies, and the windows on day one.</li>
+<li><strong>Treat a breached rule as a closed account,</strong> even if the platform lets you keep clicking. Do not build a payout on top of a violation.</li>
+<li><strong>Verify your identity early,</strong> long before your first request, so it is never the thing in the way.</li>
+<li><strong>Keep your own record</strong> of days traded, results, and the rules you are under, so you can audit yourself before anyone else does.</li>
+</ul>
+</div>
+<h3>Audit Yourself First</h3>
+<p>If you can look at your own log and confirm the account is clean against rules you understood up front, an honest firm's review holds no surprises. That is the whole game: make the answer obvious before you ask the question, and choose a firm that decides by the terms rather than by discretion.</p>
+
+<div class="bp-midcta"><strong>Practice trading as if every rule will be checked.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: We Do Not Hold Payouts</h2>
+<p>To be direct about where we stand: TradeFundrr does not withhold payouts. There is no discretionary "hold," no moving goalposts, and no vague clause waiting to be reinterpreted. The rules are written and available before you trade, and they are applied the same way every time. If a payout does not go through, it is because a written rule was broken, not because we decided not to pay.</p>
+<p>That honesty cuts both ways, though. Understanding all of this does not make you profitable. You still have to trade well enough to have a payout to request in the first place, and most of the real work is in getting there, not in the withdrawal screen. A structured, simulated environment is where you build that, with clear rules and reps that teach the discipline a clean payout rewards, without your own capital on the line.</p>
+<p>A note on the structure behind it. TradeFundrr's programs run on the foundation of T3 Trading Group's infrastructure. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer. We provide clear, written rules and a simulated path. We do not promise a payout. What we can offer is a process where the outcome is decided by terms you can read in advance.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+
+<details>
+<summary>Does TradeFundrr hold or withhold payouts?</summary>
+<div class="ans">No. We do not hold payouts at our discretion. A payout that does not go through traces to a written rule that was broken, and those rules are available before you trade. The outcome is decided by the terms, not by anyone's mood on the day you request.</div>
+</details>
+
+<details>
+<summary>Then why do people say their payout got "denied"?</summary>
+<div class="ans">Because two very different things get described the same way. Sometimes it is a bad-faith firm withholding on purpose, which is a real problem in this industry. Far more often it is a trader who broke a clear rule at an honest firm and is looking for someone to blame. The fix for the first is choosing a better firm; the fix for the second is reading and following the rules.</div>
+</details>
+
+<details>
+<summary>If I broke a rule but kept trading, is that profit still payable?</summary>
+<div class="ans">Usually not. The breach voids the account at the point it happened, even if the platform let you keep clicking. Profit earned after a violation is built on an account that already broke its terms, so the breach, not the request, is what stops it.</div>
+</details>
+
+<details>
+<summary>How do I spot a firm that withholds in bad faith?</summary>
+<div class="ans">Look before you join. Vague or shifting rules, goalposts that move once you are close, an "under review" status that never resolves, and support that will not explain the payout process plainly are all red flags. If you cannot get a clear, written answer on how payouts work before you pay, treat that as the answer.</div>
+</details>
+
+<details>
+<summary>What actually stops a payout at an honest firm?</summary>
+<div class="ans">A rule you broke: a daily loss limit breached, a position cap exceeded, a trailing drawdown tripped, a prohibited strategy used, a consistency or minimum-day requirement not met, or an unverified identity. Every one of these is written down in advance, which is what makes them avoidable.</div>
+</details>
+
+<details>
+<summary>How do I keep my payout clean?</summary>
+<div class="ans">Choose a transparent firm, read the rules before you trade, treat any breached rule as a closed account, verify your identity early, and keep your own record so you can audit yourself. The goal is a boring payout with nothing to interpret or argue about.</div>
+</details>
+
+<details>
+<summary>Does understanding this guarantee I get paid?</summary>
+<div class="ans">No. You still have to trade well enough to earn a payout, and that is where most of the work is. What this guarantees is that when you do earn one at an honest firm, nothing you did along the way quietly disqualifies it. Always confirm the exact rules for your specific account in writing.</div>
+</details>
+
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment and does not withhold payouts at its discretion; a payout depends on following the written rules of your program. This article is general education, not the specific terms of any account, and is not a recommendation or a guarantee of profit or payout. Always read the rules that apply to your own program. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
           <h3>Know the rules before you trade</h3>
           <p>Develop your discipline in a structured, simulated environment with clear, written rules, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
