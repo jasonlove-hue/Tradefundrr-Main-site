@@ -7,15 +7,15 @@
   <!-- End cookieyes banner -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Prop Firm Funding Actually Works Behind the Scenes | TradeFundrr Blog</title>
-  <meta name="description" content="A plain-English walk through the funded trading model: where the capital sits, how the firm makes money, what funded really means, and why the rules exist at every step.">
+  <title>How Prop Firm Funding Actually Works | TradeFundrr Blog</title>
+  <meta name="description" content="Where the capital sits, how the evaluation-to-funded path runs, and how the firm and trader both win. A plain-English look at how prop firm funding actually works.">
   <link rel="canonical" href="https://tradefundrr.com/blog/how-prop-firm-funding-works">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-18">
   <meta property="article:section" content="Funding">
-  <meta property="og:title" content="How Prop Firm Funding Actually Works Behind the Scenes">
-  <meta property="og:description" content="Where the capital sits, how the firm makes money, and what funded really means. The honest mechanics, in plain English.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260618_120536_338b2333-5147-44c1-89da-131bb1948436.png">
+  <meta property="og:title" content="How Prop Firm Funding Actually Works">
+  <meta property="og:description" content="Where the capital sits, how you get funded, and how the split works. The mechanics, in plain English.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_230834_597e31aa-83fd-499b-8d7d-4a007e146e9d.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,10 +33,27 @@
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
@@ -44,82 +61,9 @@
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
-    .bp-figure{margin:30px 0 14px;padding:24px 20px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:14px}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:12.5px;line-height:1.6;margin-top:14px;text-align:center}
-    .bp-flow .fnode{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
-    .bp-flow .farrow{opacity:0;transition:opacity .55s ease}
-    .bp-figure.play .bp-flow .fnode{opacity:1;transform:translateY(0)}
-    .bp-figure.play .bp-flow .farrow{opacity:1}
-    .bp-flow .fnode:nth-of-type(1){transition-delay:.05s}
-    .bp-flow .fnode:nth-of-type(2){transition-delay:.25s}
-    .bp-flow .fnode:nth-of-type(3){transition-delay:.45s}
-    .bp-flow .fnode:nth-of-type(4){transition-delay:.65s}
-    .bp-flow .farrow{transition-delay:.5s}
-    @media(prefers-reduced-motion:reduce){.bp-flow .fnode,.bp-flow .farrow{opacity:1;transform:none;transition:none}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -151,93 +95,134 @@
   <div class="bp-wrap">
     <article>
       <span class="bp-eyebrow">Funding</span>
-      <h1>How Prop Firm Funding Actually Works Behind the Scenes</h1>
+      <h1>How Prop Firm Funding Actually Works</h1>
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 18, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>8 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260618_120536_338b2333-5147-44c1-89da-131bb1948436.png" alt="Abstract financial visualization of softly glowing candlestick bars and grid lines on a deep navy background, suggesting capital moving through a structured system">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_230834_597e31aa-83fd-499b-8d7d-4a007e146e9d.png" alt="A cinematic render of a glowing teal capital stream flowing into a dark trading terminal with charts, representing how prop firm funding allocates capital">
 
       <div class="bp-body">
-        <p>If you have spent any time around funded trading, you have heard the pitch. Trade our capital, keep most of the profit, never risk your own money. It is a real model, and it works for the right kind of trader. But the marketing version skips the mechanics, and the mechanics are where most of the confusion and most of the skepticism live.</p>
-        <p>So here is the plain version, from a company that runs one of these programs. No pitch, just how the machine actually works behind the scenes, where the money sits, and how a firm like this stays in business.</p>
 
-        <h2>The model in one line</h2>
-        <p>You demonstrate that you can trade within a set of rules in a simulated environment. Once you do, you get access to a funded account, you trade it under those same rules, and when you produce profit you receive a share of it. That is the whole loop. Everything else is detail on top of those four steps.</p>
+<p>Prop firm funding sounds more mysterious than it is. Strip away the marketing and it is a simple arrangement: a firm gives you access to trade a defined amount of capital under a clear set of rules, and in return you share a portion of what you produce. The parts that confuse people, where the capital sits, how the firm makes money, what funded really means, all have straightforward answers once you look at the mechanics instead of the pitch.</p>
+<p>Understanding how funding actually works is not just academic. It tells you what the firm is really selling, what you are really agreeing to, and which firms are structured honestly versus which are hoping you never read the rules. A trader who understands the mechanism makes far better decisions about who to trade with.</p>
+<p>Here is how prop firm funding works, end to end, in plain terms. In this guide we will cover what funded actually means, how the path from evaluation to funded account runs, how the firm and the trader both win, and what to check before you trust a firm with your time.</p>
 
-        <figure class="bp-figure">
-          <svg class="bp-flow" viewBox="0 0 720 170" width="100%" role="img" aria-label="Four step funding flow: choose a program, trade in simulation, meet the rules, request a payout">
-            <defs>
-              <marker id="fhead" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#22d3a8"></path></marker>
-            </defs>
-            <line class="farrow" x1="154" y1="85" x2="184" y2="85" stroke="#22d3a8" stroke-width="2" marker-end="url(#fhead)"></line>
-            <line class="farrow" x1="344" y1="85" x2="374" y2="85" stroke="#22d3a8" stroke-width="2" marker-end="url(#fhead)"></line>
-            <line class="farrow" x1="534" y1="85" x2="564" y2="85" stroke="#22d3a8" stroke-width="2" marker-end="url(#fhead)"></line>
-            <g class="fnode">
-              <rect x="0" y="35" width="150" height="100" rx="12" fill="#0d1326" stroke="hsla(160,70%,55%,.35)"></rect>
-              <circle cx="75" cy="62" r="15" fill="#22d3a8"></circle>
-              <text x="75" y="67" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#04130f">1</text>
-              <text x="75" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="13.5" font-weight="700" fill="#fff">Choose</text>
-              <text x="75" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#d7dbe6">a program</text>
-            </g>
-            <g class="fnode">
-              <rect x="190" y="35" width="150" height="100" rx="12" fill="#0d1326" stroke="hsla(160,70%,55%,.35)"></rect>
-              <circle cx="265" cy="62" r="15" fill="#22d3a8"></circle>
-              <text x="265" y="67" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#04130f">2</text>
-              <text x="265" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="13.5" font-weight="700" fill="#fff">Trade in</text>
-              <text x="265" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#d7dbe6">simulation</text>
-            </g>
-            <g class="fnode">
-              <rect x="380" y="35" width="150" height="100" rx="12" fill="#0d1326" stroke="hsla(160,70%,55%,.35)"></rect>
-              <circle cx="455" cy="62" r="15" fill="#22d3a8"></circle>
-              <text x="455" y="67" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#04130f">3</text>
-              <text x="455" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="13.5" font-weight="700" fill="#fff">Meet the</text>
-              <text x="455" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#d7dbe6">rules</text>
-            </g>
-            <g class="fnode">
-              <rect x="570" y="35" width="150" height="100" rx="12" fill="#0d1326" stroke="hsla(160,70%,55%,.35)"></rect>
-              <circle cx="645" cy="62" r="15" fill="#22d3a8"></circle>
-              <text x="645" y="67" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#04130f">4</text>
-              <text x="645" y="100" text-anchor="middle" font-family="Inter,sans-serif" font-size="13.5" font-weight="700" fill="#fff">Request</text>
-              <text x="645" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#d7dbe6">a payout</text>
-            </g>
-          </svg>
-          <figcaption>The funding loop, simplified. Illustrative example of a typical path, not the specific terms of any one program.</figcaption>
-        </figure>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Funding is access to capital under rules.</strong> You trade a defined allocation inside clear limits and share the results, rather than borrowing money into your own account.</li>
+<li><strong>The path is evaluation then funded.</strong> You prove you can trade inside the rules, then you trade a funded account under the same kind of rules.</li>
+<li><strong>The firm makes money two honest ways.</strong> Evaluation fees and a share of the profits produced by consistent traders. It does not need you to lose.</li>
+<li><strong>An honest firm does not withhold payouts.</strong> The written rules decide everything; the only thing that stops a payout is a rule the trader broke.</li>
+<li><strong>It runs in a simulated environment.</strong> You develop a real, transferable skill against defined rules without risking your savings on each trade.</li>
+</ul>
 
-        <h2>Where the capital actually sits</h2>
-        <p>This is the part that trips up the most people, so it is worth being direct. At TradeFundrr, the trading you do to qualify, and a large part of the funded trading that follows, happens in a simulated environment. Your orders, your fills, your profit and loss are tracked against live market data, but you are not placing your own money into the market on those accounts.</p>
-        <p>That sounds like a catch until you think about what it is actually for. The simulated environment is what lets a firm hand structured capital to thousands of traders without each one needing to wire in a deposit and take on personal market risk. It is the mechanism that makes the no-personal-capital promise true. The discipline you build, the rules you follow, and the consistency you prove are all real. The thing that is simulated is the exposure, not the skill.</p>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">What "Funded" Actually Means</a></li>
+<li><a href="#s2">The Evaluation-to-Funded Path</a></li>
+<li><a href="#s3">How the Firm and Trader Both Win</a></li>
+<li><a href="#s4">What to Check Before You Trust a Firm</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Structure You Can See</a></li>
+</ul>
 
-        <h2>How a firm like this makes money</h2>
-        <p>Here is where most explanations go quiet, so we will not. A funded trading program has two main ways it can earn.</p>
-        <ul>
-          <li><strong>Program fees.</strong> Traders pay to enter an evaluation or to start an instant-funded account. This is the honest, visible part of the business. It is also why the next point matters so much.</li>
-          <li><strong>The performance side.</strong> When funded traders produce profit, the firm keeps its share of the split. A program that is built to last wants traders who do well, because a healthy book of consistent traders is worth more than a churn of people who pay a fee and wash out in a week.</li>
-        </ul>
-        <p>The uncomfortable truth the whole industry shares is this: most people who start an evaluation do not pass it, and a meaningful share of funded traders give back their gains by breaking a rule. That is not a secret lever a firm pulls. It is just what happens when discipline is hard and most traders have not built it yet. A firm makes its money cleaner by helping more traders get to the disciplined side, not by hoping they fail. If you ever sense a firm is rooting against you, that tells you something about that firm, not about the model.</p>
+<h2 id="s1">What "Funded" Actually Means</h2>
+<p>Being funded does not mean a firm wires money into your personal brokerage account. It means you are given access to trade a defined amount of capital, the allocation, inside an account the firm controls and according to rules you agree to up front. You are operating a position, not borrowing a balance. The distinction matters, because it shapes everything about how the rules and the payouts work.</p>
+<p>At a modern firm this happens in a structured, simulated environment. That word trips people up, so here is the plain version: you are trading against real market data with defined rules, caps, and targets, and your results are measured precisely, but the per-trade risk is not coming out of your personal savings. What you are building is the skill and the track record, which are entirely real and entirely transferable.</p>
+<h3>Access to Capital, Not a Loan</h3>
+<p>Think of funding as a job interview that pays, not a line of credit. You are demonstrating that you can produce results inside constraints, and the firm is providing the environment and the capital base to do it. You never owe the allocation back, because you were never handed it as money; you were given the ability to trade it under rules.</p>
+<h3>Why the Simulated Framing Is a Feature</h3>
+<p>The simulated structure is what lets the whole model exist at the scale it does. It means a firm can give thousands of traders a fair, identical, rules-based shot without the cost and risk of routing untested traders straight into live markets. For you, it means the cost of finding out whether you can trade inside the rules is the fee and your time, not your account.</p>
 
-        <h2>Why there is a rule at every step</h2>
-        <p>Once you see where the capital sits and how the money moves, the rules stop looking arbitrary. A daily loss limit, a position cap, a trailing drawdown, a minimum number of trading days, a consistency requirement: each one exists to keep the arrangement solvent for everyone in it. The same limit that feels restrictive on a bad afternoon is the reason the program can keep paying the traders who follow it.</p>
-        <p>Read that way, the rulebook is less a set of traps and more the terms of a shared deal. The trader who reads it on day one is the one it protects. The trader who discovers it at the payout screen is the one who feels ambushed by something that was written down the whole time.</p>
+<h2 id="s2">The Evaluation-to-Funded Path</h2>
+<p>The path to a funded account is almost always the same shape, whatever the marketing calls it. You pay a fee to start an evaluation, you trade to a profit target while staying inside the rules, and if you succeed you move to a funded account that runs under the same kind of rules. From there, consistent trading makes you eligible for payouts on a defined schedule.</p>
+<p>None of those steps is hidden or discretionary at an honest firm. The target is published, the rules are published, and the payout structure is published. Your job is mechanical in the best sense: reach the target without crossing a limit, then keep trading the same way.</p>
 
-        <h2>What funded really means</h2>
-        <p>So when someone says they are funded, what they have actually earned is access. Access to a structured account, a defined set of rules, and a share of the profit they can produce inside those rules. It is not a salary, it is not a loan, and it is not a guarantee. It is a framework that lets a capable trader operate at a size they could not reach alone, without putting their own savings on the line to do it.</p>
+<figure class="bp-figure">
+  <span class="figtag">The funding mechanism</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_230848_8afe9433-ee9f-418e-8e83-49d5c344fefc.png" alt="Infographic: how prop firm funding works as a four-stage flow, from paying an evaluation fee, to passing the evaluation inside the rules, to receiving a funded simulated account, to earning payouts on a profit split, with the firm providing the structure and the trader providing the discipline." loading="lazy">
+</figure>
 
-        <h2>One honest caveat</h2>
-        <p>Understanding the model does not make you profitable. You still have to trade well enough, consistently enough, to produce a payout in the first place, and that is the hard part that no diagram can shortcut. What this understanding does is remove the mystery. When you know where the capital sits, how the firm earns, and why each rule is there, you stop fighting the structure and start using it. In a simulated environment, that is exactly the point: build the discipline where the only thing at risk is a program fee, not your own account.</p>
+<h3>Evaluation: Proving You Can Trade Inside Rules</h3>
+<p>The evaluation exists to answer one question: can you produce a result without breaking the risk rules? That is the entire skill the model cares about, because it is the skill that makes a trader safe to back. The target proves you can produce; the loss limit and drawdown cap prove you can do it without taking risks the firm will not allow.</p>
+<h3>Funded: The Same Job at Higher Stakes</h3>
+<p>Passing does not change the job, only the stakes. The funded account runs under the same kind of rules, and now your consistency has somewhere to go: the payout structure. The traders who do well treat the funded account as the same disciplined task they just demonstrated, not as a finish line they get to relax past.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit, payout, or trading results, and this is general education rather than the specific terms of any account. Program structures and rules vary, so always read the terms that apply to your own program. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<div class="bp-midcta"><strong>Want to see the whole path laid out?</strong> <a href="https://tradefundrr.com/#markets">See how the funding programs work</a>.</div>
+
+<h2 id="s3">How the Firm and the Trader Both Win</h2>
+<p>The question every smart trader asks is "how does the firm make money, and does it need me to fail?" At an honest firm the answer is no. The firm makes money two ways, and both are aligned with you succeeding: evaluation fees, and a share of the profits that consistent funded traders produce. A firm built this way wants funded traders who last, because a trader who keeps producing is the more valuable outcome.</p>
+<p>This is also where the payout question lives, and it is worth being blunt. An honest firm does not sit on, delay, or discretionarily deny payouts. The written rules decide. The only thing that stops a payout is a rule the trader broke. Firms that withhold payouts for vague reasons are doing something the model does not require, and that behavior is the warning sign, not the norm.</p>
+<h3>Fees and a Profit Split, Not Your Losses</h3>
+<p>The revenue model is deliberately simple. Evaluation fees cover the cost and risk of running the program, and the profit split rewards the firm for backing traders who produce. Notice what is absent: the firm does not profit from your personal losses, because you are not losing personal capital on each trade. Its incentive is to find and keep traders who can produce inside the rules.</p>
+<h3>Why Honest Firms Want You to Last</h3>
+<p>A funded trader who trades well for a long time is the most valuable thing the model creates, because the profit split compounds with consistency. That is why a well-built firm invests in clear rules, fair evaluations, and a defined payout structure. The interests line up: you want to keep producing, and the firm wants you to keep producing.</p>
+
+<h2 id="s4">What to Check Before You Trust a Firm</h2>
+<p>Because the mechanics are simple, the differences between firms show up in the details, and a few checks separate the structured from the sketchy. None of this requires inside knowledge; it just requires reading before you pay.</p>
+<div class="bp-checklist">
+<strong>Before you trust a firm with your time and fee:</strong>
+<ul>
+<li><strong>Read the payout rules in writing.</strong> Know exactly what makes you eligible and what could stop a payout. Vague answers are a red flag.</li>
+<li><strong>Confirm the rules are mechanical, not discretionary.</strong> An honest firm decides by published limits, not by mood.</li>
+<li><strong>Check the loss limit and drawdown definitions.</strong> Know precisely how a breach is calculated before you trade.</li>
+<li><strong>Understand the fee structure fully.</strong> Evaluation fee, any reset or activation fees, and what each one buys.</li>
+<li><strong>Look for a real regulated foundation.</strong> Know which registered entities sit behind the program.</li>
+</ul>
+</div>
+<h3>The Difference Is in the Rules</h3>
+<p>Two firms can advertise the same allocation and the same split and be completely different to trade with, because the rules underneath differ. The firm worth your time is the one whose rules are clear enough that you always know where the line is. Clarity is not a nice-to-have; it is the product.</p>
+
+<div class="bp-midcta"><strong>Prefer a firm whose rules you can see?</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Structure You Can See</h2>
+<p>Once you understand the mechanism, the whole thing stops feeling mysterious and starts feeling like what it is: a structured way to get access to capital by proving you can trade inside rules, with a revenue model that rewards your success rather than your failure. The firms worth trading with are simply the ones that make every part of that structure visible.</p>
+<p>It is worth repeating that this all runs in a structured, simulated environment, where the skill you build and the track record you create are real even though the per-trade risk is not your savings. That is the feature, not the catch. It lets you develop and prove a transferable trading skill against defined rules at a scale that would otherwise be impossible.</p>
+<p>Prop firm funding works by giving you capital access under clear rules, funding you when you prove consistency, and sharing in the results, with an honest firm making money from fees and a profit split rather than from your losses. TradeFundrr is built around exactly this kind of visible structure: clear rules, a defined payout schedule, and a real regulated foundation. Read the written terms for your specific account, understand precisely where the lines are, and you will know exactly what funded means for you.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What does it mean to be a funded trader?</summary>
+<div class="ans">It means you are given access to trade a defined amount of capital inside an account the firm controls, under rules you agree to up front, and you share a portion of the results. You are operating a position under rules, not borrowing money into your own brokerage account, and at a modern firm it happens in a structured, simulated environment.</div>
+</details>
+<details>
+<summary>How do prop firms make money?</summary>
+<div class="ans">Two honest ways: evaluation fees and a share of the profits that consistent funded traders produce. An honest firm does not profit from your personal losses, because you are not risking personal capital on each trade. Its incentive is to find and keep traders who can produce inside the rules.</div>
+</details>
+<details>
+<summary>Is funded trading real money?</summary>
+<div class="ans">It runs in a structured, simulated environment measured against real market data with defined rules, caps, and targets. The per-trade risk is not your personal savings, but the skill and track record you build are real and transferable. The simulated framing is what lets the model give many traders a fair, identical, rules-based shot.</div>
+</details>
+<details>
+<summary>Can a prop firm just refuse to pay me?</summary>
+<div class="ans">At an honest, rules-based firm, no. The written rules decide everything, and the only thing that stops a payout is a rule the trader broke. Firms that withhold payouts for vague or discretionary reasons are doing something the model does not require, and that behavior is a warning sign, not the norm.</div>
+</details>
+<details>
+<summary>What is the difference between the evaluation and the funded account?</summary>
+<div class="ans">The evaluation proves you can reach a profit target without breaking the risk rules. The funded account is the same kind of job at higher stakes, where your consistency makes you eligible for payouts on a defined schedule. Passing changes the stakes, not the task, so the discipline should carry over unchanged.</div>
+</details>
+<details>
+<summary>How do I know if a funding firm is trustworthy?</summary>
+<div class="ans">Read the rules before you pay. Confirm the payout rules in writing, check that decisions are mechanical rather than discretionary, understand the loss limit and drawdown definitions, know the full fee structure, and look for a real regulated foundation behind the program. The firm worth your time is the one whose rules are clear enough that you always know where the line is.</div>
+</details>
+<details>
+<summary>Do I owe the capital back if I lose?</summary>
+<div class="ans">No. You were never handed the allocation as money, so there is nothing to repay. You were given the ability to trade a defined amount under rules. If you breach a rule, the account stops according to the terms; you do not end up owing the firm the allocation.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. Program structures, fees, profit splits, loss limits, drawdown rules, and payout schedules vary by firm and account, so always read and follow the written terms for your specific account. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>See the model from the inside</h3>
-          <p>Develop your trading in a structured, simulated environment with clear, written rules and a defined path to funding, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Trade with a firm whose structure you can see</h3>
+          <p>Develop your trading in a structured, simulated environment with clear rules and a defined payout structure.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -369,17 +354,6 @@
     document.querySelectorAll('.bp-figure').forEach(function(fig){fig.addEventListener('click',function(){if(lb.contains(fig))return;openFig(fig);});});
     lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('bp-lightbox__close'))close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-  })();
-</script>
-<script>
-  (function(){
-    var figs=document.querySelectorAll('.bp-figure');
-    if(!figs.length)return;
-    if(!('IntersectionObserver' in window)){figs.forEach(function(f){f.classList.add('play');});return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('play');io.unobserve(en.target);}});
-    },{threshold:.3});
-    figs.forEach(function(f){io.observe(f);});
   })();
 </script>
 </body>
