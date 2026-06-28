@@ -46,6 +46,7 @@
     .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
     .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
     .bp-figure svg{width:100%;height:auto;display:block}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   
     .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
@@ -251,39 +252,9 @@
 <p>Real support is not a call center reading from a binder. It is people who understand the platform, the rules, and the mechanics of a funded account evaluation. They can talk about execution and order types without reaching for a generic article, because they have spent time around real trading. That is the baseline a serious trader should expect, not a premium add-on.</p>
 <p>Technical fluency is the starting point. If a support contact does not know what a FIX API is, or how execution routing can affect what you see on your screen, they will struggle to help when something goes wrong. This matters more as your account scales, because the questions get more specific. Automation can handle the routine. People handle the complex. Good prop firm human support means reaching someone who understands platform behavior and the rules of your specific program as well as you understand your own strategy.</p>
 
-<figure class="tf-ig" aria-label="A bot loops without resolving while a human expert moves to a real answer">
-<div class="ig-pad">
-  <div class="ig-head"><div><h3>Where the Conversation Ends</h3><p>A bot loops. A person resolves.</p></div><div class="ig-brand">TradeFundrr</div></div>
-  <svg viewBox="0 0 1000 372" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif" role="img" aria-label="Bot loop versus human resolution">
-    <defs>
-      <marker id="pfT" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#22d3a8"/></marker>
-      <marker id="pfA" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#f0b23c"/></marker>
-    </defs>
-    <line x1="500" y1="34" x2="500" y2="350" stroke="hsla(0,0%,100%,.1)" stroke-width="1"/>
-    <text x="250" y="34" text-anchor="middle" fill="#f0b23c" font-size="14" font-weight="700" letter-spacing="1">AUTOMATED BOT</text>
-    <circle cx="250" cy="178" r="84" fill="none" stroke="#f0b23c" stroke-opacity=".5" stroke-width="3" stroke-dasharray="5 9"/>
-    <path d="M250 94 A84 84 0 0 1 330 150" fill="none" stroke="#f0b23c" stroke-width="3" marker-end="url(#pfA)"/>
-    <text x="250" y="170" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">"Check your</text>
-    <text x="250" y="192" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">internet"</text>
-    <text x="250" y="218" text-anchor="middle" fill="#9fb0c3" font-size="12.5">the same canned reply</text>
-    <rect x="146" y="298" width="208" height="46" rx="10" fill="hsla(40,80%,40%,.14)" stroke="hsla(40,90%,60%,.3)"/>
-    <text x="250" y="326" text-anchor="middle" fill="#f0b23c" font-size="14" font-weight="700">Loops, never resolved</text>
-    <text x="750" y="34" text-anchor="middle" fill="#22d3a8" font-size="14" font-weight="700" letter-spacing="1">HUMAN EXPERT</text>
-    <rect x="560" y="70" width="380" height="46" rx="10" fill="hsla(160,60%,40%,.08)" stroke="hsla(160,60%,45%,.3)"/>
-    <text x="580" y="98" fill="#fff" font-size="14.5">Reads the actual problem</text>
-    <line x1="750" y1="116" x2="750" y2="136" stroke="#22d3a8" stroke-width="2.5" marker-end="url(#pfT)"/>
-    <rect x="560" y="138" width="380" height="46" rx="10" fill="hsla(160,60%,40%,.08)" stroke="hsla(160,60%,45%,.3)"/>
-    <text x="580" y="166" fill="#fff" font-size="14.5">Checks execution and routing</text>
-    <line x1="750" y1="184" x2="750" y2="204" stroke="#22d3a8" stroke-width="2.5" marker-end="url(#pfT)"/>
-    <rect x="560" y="206" width="380" height="46" rx="10" fill="hsla(160,60%,40%,.08)" stroke="hsla(160,60%,45%,.3)"/>
-    <text x="580" y="234" fill="#fff" font-size="14.5">Explains what actually happened</text>
-    <line x1="750" y1="252" x2="750" y2="272" stroke="#22d3a8" stroke-width="2.5" marker-end="url(#pfT)"/>
-    <rect x="640" y="298" width="220" height="46" rx="10" fill="hsla(160,60%,40%,.16)" stroke="hsla(160,60%,45%,.45)"/>
-    <text x="750" y="326" text-anchor="middle" fill="#22d3a8" font-size="14" font-weight="700">Resolved</text>
-  </svg>
-</div>
-<div class="ig-cta"><h4>Talk to people, not scripts.</h4><p>You provide the discipline. We provide real human support and a structured, simulated environment to develop it.</p><a href="https://tradefundrr.com/#markets">Get funded &rarr;</a></div>
-<div class="ig-note">TradeFundrr is a structured, simulated trading environment. Figures refer to simulated funding and are not a guarantee of profit or income. T3 Trading Group is the registered entity (SEC, FINRA, SIPC). T3 Global is a separate business unit and is not itself a broker-dealer.</div>
+<figure class="bp-figure">
+  <span class="figtag">Bot support vs human expertise</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_215905_bbb63880-46ee-4b9e-a182-4264a13fb35e.png" alt="Infographic contrasting an automated bot that loops on a canned 'check your internet' reply and never resolves, with a human expert who reads the actual problem, checks execution and routing, and resolves it." loading="lazy">
 </figure>
 
 <h3>Expertise Beyond the FAQ</h3>
