@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>R-Multiples: Why Smart Traders Measure Trades in Risk, Not Dollars | TradeFundrr Blog</title>
-  <meta name="description" content="An R-multiple measures every trade against the amount you risked, not the dollars you made. Here is what R means, a worked example, and why it is a cleaner way to judge your trading.">
+  <meta name="description" content="Dollars swing with your size. R measures every trade against what you risked, so you can see your trading clearly. What an R-multiple is, why it beats dollar P&L, and how to use it.">
   <link rel="canonical" href="https://tradefundrr.com/blog/r-multiples-measuring-trades-in-risk">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-24">
   <meta property="article:section" content="Risk &amp; Reward">
   <meta property="og:title" content="R-Multiples: Why Smart Traders Measure Trades in Risk, Not Dollars">
-  <meta property="og:description" content="What an R-multiple is, a clear worked example, and why measuring trades in units of risk beats judging them by dollar swings.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260624_120455_ebf98e72-5595-4ce6-93db-d26e2ced0426.png">
+  <meta property="og:description" content="Dollars swing with your size. R measures every trade against what you risked, so you see yourself clearly.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_005142_62b37d0c-8cfd-4155-99a4-645305bae2f9.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,93 +31,39 @@
     .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
     .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
-    .bp-inline{width:100%;border-radius:14px;margin:30px 0;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #fcfig .anim{opacity:0}
-    #fcfig.play .row{animation:fcFade .5s ease forwards}
-    #fcfig.play .r2{animation-delay:.1s}#fcfig.play .r3{animation-delay:.2s}#fcfig.play .r4{animation-delay:.3s}#fcfig.play .r5{animation-delay:.4s}#fcfig.play .r6{animation-delay:.5s}
-    @keyframes fcFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    @media (prefers-reduced-motion: reduce){#fcfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -153,96 +99,163 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 24, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>7 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260624_120455_ebf98e72-5595-4ce6-93db-d26e2ced0426.png" alt="An abstract financial visual of uniform measured teal blocks of varying heights on a deep navy grid, representing standardized units of risk">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_005142_62b37d0c-8cfd-4155-99a4-645305bae2f9.png" alt="A cinematic render of a glowing teal measuring ruler across a candlestick chart, representing measuring trades in R-multiples of risk">
 
       <div class="bp-body">
-        <p>Ask most traders how a trade went and they will tell you a dollar figure. Made a few hundred, lost a couple hundred. It feels like the natural way to keep score, but it quietly hides the one thing that actually tells you whether you are improving. Dollars depend on how big the position was, and position size changes all the time. A bigger winner can come from a worse trade taken at a larger size, and a small loss can hide a reckless bet that simply got lucky.</p>
-        <p>There is a cleaner unit, and serious traders tend to drift toward it on their own. It is called the R-multiple, and once you start thinking in R, a lot of fuzzy questions about your trading get sharp answers.</p>
 
-        <h2>What an R-multiple actually is</h2>
-        <p>R stands for risk. Specifically, it is the amount you planned to lose on a trade if it went against you, decided before you entered. That is your stop distance multiplied by your position size, expressed as a single number. If you set things up so a trade would cost you a defined amount when your stop is hit, that amount is your 1R for that trade.</p>
-        <p>From there, every outcome is measured in multiples of that risk. If you make twice what you were risking, that is a +2R trade. If you lose exactly what you planned, that is a -1R trade. If you bail early and lose half of your planned risk, that is -0.5R. The dollars can be anything. What R captures is the result relative to what you put on the line, which is the part that reflects your skill rather than your account size.</p>
+<p>Most traders judge a trade by the dollars it made or lost. It feels natural, but it is a surprisingly poor way to measure your trading, because dollar amounts swing with your position size and your account balance, not just with the quality of your decisions. A two-hundred-dollar win and a two-hundred-dollar loss tell you almost nothing on their own. R-multiples fix this by measuring every trade against a single, stable yardstick: the amount you risked. Once you think in R, your results become comparable, your mistakes become visible, and you start to see your trading clearly for the first time.</p>
+<p>The idea is simple. One R is the amount you put at risk on a trade, the distance from your entry to your stop, in dollars. Every outcome is then expressed as a multiple of that risk. A trade that makes twice what you risked is a plus-two-R trade. A trade that loses exactly what you planned to risk is a minus-one-R trade. The dollar figures vary; the R framework stays constant, which is exactly what makes it useful.</p>
+<p>Here is why R beats dollars and how to use it. In this guide we will cover what an R-multiple is, why dollar P&L misleads, what R reveals that dollars hide, and how to put it to work.</p>
 
-        <h2>A quick worked example</h2>
-        <p>Say you decide, before entering, that a particular trade will cost you a set amount if your stop is hit. Call that 1R. The trade works and you exit for three times that amount. In dollars that might be a big number or a small one depending on your size, but in R it is simply +3R. The next day you take a similar setup, it fails, and you are stopped out for your planned risk. That is -1R. Two trades, plus 3R and minus 1R, leaves you net +2R, and you learned something clean: your winners on this setup are running larger than your losers. No dollar figure was needed to see it.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>One R is what you risked.</strong> The dollar distance from your entry to your stop is your unit of measurement.</li>
+<li><strong>Dollars mislead.</strong> Dollar P&L swings with size and balance, obscuring the quality of your decisions.</li>
+<li><strong>R makes trades comparable.</strong> Every result is a multiple of risk, so trades of different sizes line up on one scale.</li>
+<li><strong>It exposes oversized losses.</strong> A loss bigger than 1R means you broke your own risk rule, whatever the dollar figure.</li>
+<li><strong>It clarifies your edge.</strong> Average R per trade tells you whether your trading actually works, independent of size.</li>
+</ul>
 
-        <figure class="bp-figure" id="fcfig">
-          <span class="figtag">Illustrative example</span>
-          <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A bar chart of six trades measured in R. Trade 1 is plus 2R, trade 2 is minus 1R, trade 3 is plus 1R, trade 4 is minus 1R, trade 5 is plus 3R, trade 6 is minus 1R. The net result is plus 3R.">
-            <text x="60" y="34" fill="#cbd5e1" font-size="15" font-weight="800">One trade sequence, measured in R</text>
-            <text x="60" y="56" fill="#7e8ba0" font-size="13">1R = the amount you planned to risk before entering</text>
-            <text x="855" y="92" fill="#22d3a8" font-size="15" font-weight="800" text-anchor="middle">Net: +3R</text>
-            <!-- zero baseline -->
-            <line x1="70" y1="210" x2="920" y2="210" stroke="hsla(0,0%,100%,.22)" stroke-width="1.4"/>
-            <text x="52" y="215" fill="#7e8ba0" font-size="12.5" text-anchor="end">0</text>
-            <!-- T1 +2R -->
-            <g class="anim row">
-              <rect x="120" y="142" width="60" height="68" rx="3" fill="#22d3a8" opacity="0.85"/>
-              <text x="150" y="130" fill="#9fc8bb" font-size="13.5" font-weight="700" text-anchor="middle">+2R</text>
-              <text x="150" y="300" fill="#7e8ba0" font-size="13" text-anchor="middle">T1</text>
-            </g>
-            <!-- T2 -1R -->
-            <g class="anim row r2">
-              <rect x="250" y="210" width="60" height="34" rx="3" fill="#c47b85" opacity="0.8"/>
-              <text x="280" y="266" fill="#c9a3a9" font-size="13.5" font-weight="700" text-anchor="middle">-1R</text>
-              <text x="280" y="300" fill="#7e8ba0" font-size="13" text-anchor="middle">T2</text>
-            </g>
-            <!-- T3 +1R -->
-            <g class="anim row r3">
-              <rect x="380" y="176" width="60" height="34" rx="3" fill="#22d3a8" opacity="0.85"/>
-              <text x="410" y="164" fill="#9fc8bb" font-size="13.5" font-weight="700" text-anchor="middle">+1R</text>
-              <text x="410" y="300" fill="#7e8ba0" font-size="13" text-anchor="middle">T3</text>
-            </g>
-            <!-- T4 -1R -->
-            <g class="anim row r4">
-              <rect x="510" y="210" width="60" height="34" rx="3" fill="#c47b85" opacity="0.8"/>
-              <text x="540" y="266" fill="#c9a3a9" font-size="13.5" font-weight="700" text-anchor="middle">-1R</text>
-              <text x="540" y="300" fill="#7e8ba0" font-size="13" text-anchor="middle">T4</text>
-            </g>
-            <!-- T5 +3R -->
-            <g class="anim row r5">
-              <rect x="640" y="108" width="60" height="102" rx="3" fill="#22d3a8" opacity="0.9"/>
-              <text x="670" y="96" fill="#9fc8bb" font-size="13.5" font-weight="700" text-anchor="middle">+3R</text>
-              <text x="670" y="300" fill="#7e8ba0" font-size="13" text-anchor="middle">T5</text>
-            </g>
-            <!-- T6 -1R -->
-            <g class="anim row r6">
-              <rect x="770" y="210" width="60" height="34" rx="3" fill="#c47b85" opacity="0.8"/>
-              <text x="800" y="266" fill="#c9a3a9" font-size="13.5" font-weight="700" text-anchor="middle">-1R</text>
-              <text x="800" y="300" fill="#7e8ba0" font-size="13" text-anchor="middle">T6</text>
-            </g>
-          </svg>
-          <figcaption>Illustrative only. Made-up trades to show how R-multiples read at a glance, not real results. Three winners and three losers, yet the sequence nets positive because the winners are larger than the losers in R. Outcomes vary and nothing here predicts any result.</figcaption>
-        </figure>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">What an R-Multiple Actually Is</a></li>
+<li><a href="#s2">Why Dollar P&L Misleads</a></li>
+<li><a href="#s3">What R Reveals That Dollars Hide</a></li>
+<li><a href="#s4">How to Put R to Work</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Think in R</a></li>
+</ul>
 
-        <h2>Why measuring in R beats measuring in dollars</h2>
-        <p>The first reason is that R lets you compare trades that have nothing else in common. A futures trade and a stock trade, a small position and a large one, today and six months from now, all become comparable the moment you express them in R. Dollars cannot do that, because the size keeps changing underneath you.</p>
-        <p>The second reason is that R exposes the shape of your edge. Line up your trades in R and a pattern appears fast. Are your average winners bigger than your average losers? Do a couple of outsized losses undo a string of small wins? These are the questions that decide whether an account survives, and they are almost invisible in a raw dollar log but obvious in R.</p>
-        <p>The third reason is discipline. When you think in R, you set your risk before you enter, because you cannot calculate R without a planned stop. That single habit, deciding what 1R is in advance, quietly rules out the trades that do the most damage, the ones taken with no defined exit and an open-ended downside.</p>
+<h2 id="s1">What an R-Multiple Actually Is</h2>
+<p>R stands for risk, and one R is simply the amount of money you put at risk on a given trade. If you enter a trade and your stop is placed such that being stopped out would cost you a hundred dollars, then one R for that trade is a hundred dollars. Every outcome of that trade is then measured in those units: lose the full hundred and you are down one R; make three hundred and you are up three R; make fifty and you are up half an R. The dollar amounts are converted into a unit that means the same thing on every trade.</p>
+<p>That last point is the whole power of it. Because one R is defined by what you risked on each specific trade, an R-multiple automatically adjusts for differences in position size. A plus-two-R trade is a plus-two-R trade whether you risked ten dollars or ten thousand. This lets you compare trades, days, and strategies on a single consistent scale, which dollar figures can never do because they are entangled with how much you happened to be trading.</p>
+<h3>Risk as the Unit of Measurement</h3>
+<p>The mental shift is to stop asking how much money a trade made and start asking how many multiples of your risk it returned. That reframing strips away the noise of position size and account balance and leaves only the thing you actually control and care about: how well the trade performed relative to what you put on the line. Risk becomes the currency in which you evaluate everything.</p>
+<h3>Every Result Is a Multiple of R</h3>
+<p>Once you adopt the unit, your entire trading history can be re-expressed in R, and patterns that were invisible in dollars jump out. A string of small dollar losses might actually be a string of full-1R losses, or it might be a series of controlled half-R losses; in dollars they look similar, in R they are completely different stories. The unit reveals the structure of your results.</p>
 
-        <h2>How R connects to funded account rules</h2>
-        <p>Thinking in R fits a funded account neatly. Most programs cap how much you can lose in a day and overall, and those limits are far easier to respect when you already size every trade as a fixed fraction of your risk budget. If you know your daily loss limit is worth a certain number of R, you know exactly how many losing trades in a row you can take before you must stop, and you can decide that in calm advance rather than in the heat of a bad session. R turns an abstract rule into a simple count you can actually feel.</p>
+<h2 id="s2">Why Dollar P&L Misleads</h2>
+<p>Judging trades by dollars feels objective, but it quietly distorts your view in two ways. First, dollar outcomes scale with your position size, so a great decision on a small position can show a smaller dollar result than a poor decision on a large one. The dollar figure rewards size, not skill, which means it can make your worst, oversized trades look like your best ones simply because they involved more money.</p>
+<p>Second, dollar P&L scales with your account, so the same trade means different things at different times, and comparing across periods becomes meaningless. A trader trying to assess whether they are improving cannot tell from dollars alone, because the figures are moving for reasons that have nothing to do with decision quality. R removes both distortions by anchoring everything to the risk you chose, which is the variable that actually reflects your judgment.</p>
 
-        <h2>The honest limitations</h2>
-        <p>R-multiples are a measurement tool, not a strategy, and it is worth being clear about what they will not do. They will not fix an approach that has no edge. If your method loses over time, expressing those losses in tidy R units just gives you a cleaner record of a losing system. R also depends entirely on an honest stop. If you move your stop when a trade goes against you, your 1R was never real, and the whole measure quietly breaks. And R says nothing about probability on its own. A high average R per trade still has to be paired with enough winning trades to add up. The number is only as good as the discipline behind it.</p>
-        <p>None of that is a reason to skip it. It is a reason to use it for what it is: a clear, size-independent way to see whether your trading is actually working, and a habit that forces you to define risk before you act.</p>
+<div class="ig-rmult bp-figure">
+<style>
+.ig-rmult{margin:34px 0;border:1px solid hsla(0,0%,100%,.12);border-radius:18px;background:#070b16;padding:28px;font-family:"Inter",system-ui,sans-serif}
+.ig-rmult h3{color:#fff;font-size:22px;margin:0 0 4px;letter-spacing:-.3px}
+.ig-rmult .ig-sub{color:#22d3a8;font-size:14px;margin:0 0 26px}
+.ig-rmult-line{position:relative;height:70px;margin:0 8px 16px}
+.ig-rmult-axis{position:absolute;top:34px;left:0;right:0;height:2px;background:hsla(0,0%,100%,.15)}
+.ig-rmult-tick{position:absolute;top:24px;width:2px;height:22px;background:hsla(0,0%,100%,.3)}
+.ig-rmult-tick span{position:absolute;top:26px;left:50%;transform:translateX(-50%);font-size:12px;color:hsla(0,0%,100%,.55);font-family:"Geist Mono",ui-monospace,monospace;white-space:nowrap}
+.ig-rmult-loss{position:absolute;top:28px;height:14px;border-radius:4px;background:hsla(40,90%,55%,.35);left:0;width:20%}
+.ig-rmult-bar{position:absolute;top:28px;height:14px;border-radius:4px;background:#22d3a8;left:20%;width:0;transition:width 1.6s cubic-bezier(.4,0,.2,1) .3s;box-shadow:0 0 10px rgba(34,211,168,.5)}
+.ig-rmult.in .ig-rmult-bar{width:40%}
+.ig-rmult-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.ig-rmult-card{background:hsla(0,0%,100%,.03);border:1px solid hsla(0,0%,100%,.08);border-radius:12px;padding:14px 16px;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+.ig-rmult.in .ig-rmult-card{opacity:1;transform:none}
+.ig-rmult.in .ig-rmult-card:nth-child(1){transition-delay:1.3s}
+.ig-rmult.in .ig-rmult-card:nth-child(2){transition-delay:1.5s}
+.ig-rmult-card b{color:#fff;display:block;font-size:14px;margin-bottom:4px}
+.ig-rmult-card p{margin:0;color:#d7dbe6;font-size:13px;line-height:1.5}
+</style>
+<h3>Measure Trades in R, Not Dollars</h3>
+<p class="ig-sub">One R is the amount you risked. Every result is just a multiple of it</p>
+<div class="ig-rmult-line">
+<div class="ig-rmult-axis"></div>
+<div class="ig-rmult-loss"></div>
+<div class="ig-rmult-bar"></div>
+<div class="ig-rmult-tick" style="left:0"><span>-1R</span></div>
+<div class="ig-rmult-tick" style="left:20%"><span>0</span></div>
+<div class="ig-rmult-tick" style="left:40%"><span>+1R</span></div>
+<div class="ig-rmult-tick" style="left:60%"><span>+2R</span></div>
+<div class="ig-rmult-tick" style="left:80%"><span>+3R</span></div>
+</div>
+<div class="ig-rmult-cards">
+<div class="ig-rmult-card"><b>Risk is the unit</b><p>Lose more than 1R on a trade and you broke your own rule, whatever the dollar figure.</p></div>
+<div class="ig-rmult-card"><b>Size drops out</b><p>A +2R win is a +2R win whether you risked a little or a lot. You see yourself clearly.</p></div>
+</div>
+</div><script>(function(){var el=document.currentScript.previousElementSibling;if(!el)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){el.classList.add("in");io.disconnect();}});},{threshold:.25});io.observe(el);})();</script>
 
-        <h2>The takeaway</h2>
-        <p>Dollars tell you how your account felt today. R tells you how you actually traded. One is noise that swings with your size, the other is signal that stays steady so you can see yourself clearly. Start writing your trades down in R, even alongside the dollars, and within a few weeks you will know things about your trading that the dollar figures were hiding the whole time.</p>
-        <p>TradeFundrr is a structured, simulated environment where habits like this are exactly the point. Defining your risk before every trade and judging yourself in clean units is the kind of discipline the model is built to develop. It is not for everyone, and it guarantees nothing. The aim is a clear process, practiced where it is safe to practice.</p>
+<h3>Size and Balance Pollute the Number</h3>
+<p>The core problem is that a dollar amount is a product of two things, your decision and your size, blended together so you cannot separate them. When you see a large loss in dollars, you cannot immediately tell whether you made a normal decision at large size or a reckless decision at normal size. R separates them: it holds the decision quality and exposes whether the size was within your rules, because a loss should never exceed 1R if you sized correctly.</p>
+<h3>You Cannot Compare Across Time in Dollars</h3>
+<p>Improvement is invisible in raw dollars because the account and the sizing keep changing underneath the numbers. Measured in R, a trader can see whether their average result per trade is climbing, which is the real signal of progress. R gives you a stable baseline across months and account sizes, turning a noisy dollar curve into a clean read on whether your trading is actually getting better.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is financial advice or a guarantee of any result, and the trade sequence above is a hypothetical illustration only, not real performance. R-multiples are a way of measuring trades and do not predict or guarantee outcomes. Trading involves risk, and results vary. Always read and follow the written terms and risk limits for your specific account.</div>
+<div class="bp-midcta"><strong>Want to measure your trading clearly?</strong> <a href="https://tradefundrr.com/#markets">Develop a process in a simulated environment</a>.</div>
+
+<h2 id="s3">What R Reveals That Dollars Hide</h2>
+<p>The most valuable thing R exposes is risk-rule violations. If you decided to risk one R on a trade, then any loss larger than one R means something went wrong: you moved your stop, you sized up mid-trade, or you let a loss run. In dollars, an oversized loss just looks like a bigger loss. In R, it looks like exactly what it is, a broken rule, because it shows up as a minus-1.5R or minus-2R when it should have been minus-1R. R makes discipline measurable.</p>
+<p>R also clarifies your edge in a way dollars cannot. Your average R-multiple per trade, across a meaningful sample, tells you whether your trading actually makes money relative to the risk you take, independent of how large you were trading. A positive average R means your process works; a negative one means it does not, and no amount of size adjustment fixes a negative-R process. This is the cleanest single read on whether your trading is sound.</p>
+<h3>Oversized Losses Have Nowhere to Hide</h3>
+<p>This is R's most protective feature. Because every loss is measured against the 1R you intended to risk, any loss that exceeds it is immediately flagged. A trader reviewing their results in R cannot miss the trades where their risk control failed, which is precisely where the real damage in most accounts comes from. Dollars let those trades blend in; R drags them into the light.</p>
+<h3>Your True Edge in One Number</h3>
+<p>Average R per trade is close to the single most honest number in trading. It answers, across everything you have done, did your decisions return more risk than they cost, and by how much. That number is unaffected by how big you traded or how your account grew, so it reflects skill rather than circumstance. Tracking it is how you know, objectively, whether your trading is worth continuing or needs to change.</p>
+
+<h2 id="s4">How to Put R to Work</h2>
+<p>Adopting R is mostly a matter of recording and reviewing your trades in those units. The checklist below makes it practical.</p>
+<div class="bp-checklist">
+<strong>To start thinking in R:</strong>
+<ul>
+<li><strong>Define 1R before every trade.</strong> It is the dollar distance from your entry to your stop.</li>
+<li><strong>Record each result in R, not just dollars.</strong> Convert every closed trade into its R-multiple.</li>
+<li><strong>Flag any loss beyond minus-1R.</strong> Treat it as a risk-rule violation to investigate, not just a bad trade.</li>
+<li><strong>Track your average R per trade.</strong> Across a real sample, this is your clearest read on your edge.</li>
+<li><strong>Compare strategies in R.</strong> It lets you judge approaches fairly regardless of the size you traded them at.</li>
+</ul>
+</div>
+<h3>Record, Review, Improve in R</h3>
+<p>The habit is simple: every trade gets an R-multiple in your journal, and you review your trading in those units. Within a few weeks you will have a picture of your trading that dollars could never give you, your real distribution of results, your discipline record, and your average edge, all on one stable scale. From there, improvement becomes targeted, because you can see exactly which part of your R distribution to work on.</p>
+
+<div class="bp-midcta"><strong>Build a process you can measure in R.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Think in R</h2>
+<p>Measuring trades in dollars feels natural but blends your decision quality with your position size and account balance, leaving you unable to see your trading clearly. R-multiples fix this by anchoring every result to the one thing you chose, the risk you took, so trades of any size line up on a single honest scale. Once you think in R, oversized losses have nowhere to hide and your true edge shows up in a single number.</p>
+<p>A structured, simulated environment is an ideal place to build the R habit, because you can define your risk, record every result in R, and watch your average R per trade across a real sample, all without your savings on the line while the framework becomes second nature. The R discipline you build is entirely transferable, since R is just a way of seeing, and it sees the same whether the account is simulated or real.</p>
+<p>Smart traders measure in risk, not dollars, because risk is the unit that reflects their judgment rather than their size. TradeFundrr gives you a structured, simulated environment with clear rules to develop and measure a positive-R process. Define 1R before each trade, record your results in R, flag every loss beyond minus-1R, and track your average, because that number tells you the truth about your trading that dollars never will.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What is an R-multiple in trading?</summary>
+<div class="ans">One R is the amount you risked on a trade, the dollar distance from your entry to your stop. Every outcome is then expressed as a multiple of that risk: lose the full amount and you are down 1R, make twice it and you are up 2R. It converts dollar results into a unit that means the same thing on every trade.</div>
+</details>
+<details>
+<summary>Why measure trades in R instead of dollars?</summary>
+<div class="ans">Because dollar P&L swings with your position size and account balance, blending your decision quality with how much you happened to be trading. R anchors every result to the risk you chose, so trades of any size line up on one consistent scale. It reflects your judgment rather than your size, which dollars cannot do.</div>
+</details>
+<details>
+<summary>How do I calculate the R-multiple of a trade?</summary>
+<div class="ans">First define 1R as the dollar amount you risked, the distance from entry to stop. Then divide the trade's dollar result by that 1R. A trade that made three times what you risked is plus-3R; a trade that lost exactly your planned risk is minus-1R. Convert every closed trade this way to see your results in R.</div>
+</details>
+<details>
+<summary>What does R reveal that dollars hide?</summary>
+<div class="ans">Two things. First, risk-rule violations: any loss bigger than 1R means you broke your plan, and in R it shows up clearly as minus-1.5R or worse, where in dollars it just blends in. Second, your true edge: your average R per trade across a real sample tells you whether your process makes money relative to the risk you take, independent of size.</div>
+</details>
+<details>
+<summary>What is a good average R per trade?</summary>
+<div class="ans">Any positive average R means your process makes money relative to the risk you take, which is the threshold that matters; higher is better. There is no universal target, since it depends on your strategy and how many trades you take. The key signal is direction and trend: a positive and ideally rising average R indicates a sound, improving process.</div>
+</details>
+<details>
+<summary>Why is a loss bigger than 1R a problem?</summary>
+<div class="ans">Because if you decided to risk 1R, any larger loss means something went wrong: you moved your stop, sized up mid-trade, or let the loss run. It is a risk-rule violation, not just a bad trade. Measuring in R flags these immediately, since they appear as losses beyond minus-1R, which is exactly where most account damage comes from.</div>
+</details>
+<details>
+<summary>Can I track R in a simulated account?</summary>
+<div class="ans">Yes, and it is an ideal place to build the habit. A structured, simulated environment lets you define your risk, record every result in R, and watch your average R across a real sample, without your savings on the line while the framework becomes second nature. R is a way of seeing, and it sees the same whether the account is simulated or real.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. No measurement method guarantees profits, and past results do not predict future performance. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Measure your trading in what matters</h3>
-          <p>Develop your risk discipline in a structured, simulated environment with clear rules and a clear path forward.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>See your trading clearly, in R</h3>
+          <p>Develop and measure a positive-R process in a structured, simulated environment with clear rules.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -348,16 +361,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('fcfig');if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){el.classList.add('play');io.unobserve(el);}});
-    },{threshold:.3});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}

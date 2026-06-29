@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tick Value and Contract Specs Explained: Knowing What One Move Is Worth | TradeFundrr Blog</title>
-  <meta name="description" content="Tick size, tick value, and point value decide what one move is worth in dollars. Why these contract specs are the foundation of position sizing, not trivia.">
+  <meta name="description" content="If you cannot say what one tick is worth, you cannot say what you are risking. How tick value and contract specs turn a price move into dollars, and why it is the basis of all risk control.">
   <link rel="canonical" href="https://tradefundrr.com/blog/tick-value-and-contract-specs-explained">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-25">
   <meta property="article:section" content="Risk &amp; Reward">
-  <meta property="og:title" content="Tick Value and Contract Specs Explained: Knowing What One Move Is Worth">
-  <meta property="og:description" content="If you cannot say what one tick is worth, you cannot say what you are risking. A plain-English look at tick size, tick value, and why specs drive sizing.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260625_120546_34dd5452-ba9e-491b-991c-afd5225e4bd6.png">
+  <meta property="og:title" content="Tick Value and Contract Specs Explained">
+  <meta property="og:description" content="If you cannot say what one tick is worth, you cannot say what you are risking. Specs turn moves into dollars.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_005137_dba9165d-7495-4c26-b2d9-905c029f256e.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,93 +31,39 @@
     .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
     .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
-    .bp-inline{width:100%;border-radius:14px;margin:30px 0;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #fcfig .anim{opacity:0}
-    #fcfig.play .row{animation:fcFade .5s ease forwards}
-    #fcfig.play .r2{animation-delay:.16s}#fcfig.play .r3{animation-delay:.32s}
-    @keyframes fcFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    @media (prefers-reduced-motion: reduce){#fcfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -153,91 +99,155 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 25, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>7 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260625_120546_34dd5452-ba9e-491b-991c-afd5225e4bd6.png" alt="Abstract financial render of a precise teal grid with fine tick marks on deep navy, suggesting measured units of price movement">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_005137_dba9165d-7495-4c26-b2d9-905c029f256e.png" alt="A cinematic render of a glowing teal technical spec panel with fine increments, representing tick value and contract specifications">
 
       <div class="bp-body">
-        <p>Most traders can tell you their account went up or down. Far fewer can tell you, before they place a trade, exactly how many dollars one move is worth. That number is not a detail. It is the foundation everything else sits on, because you cannot manage a risk you have not measured. Contract specs are how you measure it.</p>
-        <p>This is one of the least glamorous topics in trading and one of the most decisive. Get it right and your position sizing becomes simple arithmetic. Get it wrong and you can put on a trade that is two or three times the size you thought, without ever changing a single setting on purpose.</p>
 
-        <h2>What contract specs actually are</h2>
-        <p>Contract specifications are the fixed rules of an instrument. They are set by the exchange that lists it, not by your broker or your funding program, and they describe how the instrument behaves. The ones that matter most for sizing are the smallest amount the price can move and how much money that smallest move represents.</p>
-        <p>You will see a handful of terms used over and over. They sound technical, but each one answers a plain question.</p>
-        <ul>
-          <li><strong>Tick size</strong>: the smallest increment the price is allowed to move. Prices do not move in a smooth line. They jump in fixed steps, and the tick size is the size of one step.</li>
-          <li><strong>Tick value</strong>: how many dollars you gain or lose, per contract, when the price moves one tick. This is the number that turns a chart into money.</li>
-          <li><strong>Point value</strong>: how much a full point is worth, which is just the tick value multiplied by the number of ticks in a point.</li>
-          <li><strong>Contract size</strong>: how much of the underlying one contract controls, which is why a micro contract and a full-size contract on the same market are worth very different amounts.</li>
-        </ul>
+<p>Here is a question that quietly separates prepared traders from unprepared ones: what is one tick worth on the instrument you trade? If you cannot answer it instantly, you cannot actually say what you are risking on a trade, because risk is measured in money and a price move only becomes money once you run it through the contract's specifications. Tick value and contract specs are not trivia for the manual. They are the conversion rate between price and dollars, and without them your risk management is guesswork.</p>
+<p>This matters most in instruments like futures, where the relationship between a price move and your profit or loss is defined by the contract rather than being obvious. A move that looks small on the chart can be a large dollar swing, or a tiny one, depending entirely on the spec. Knowing the spec is what lets you size correctly, set stops that mean something, and avoid the nasty surprise of a position that was far bigger in dollars than it felt.</p>
+<p>Here is what tick value and contract specs actually are and why they underpin everything. In this guide we will cover what these terms mean, how they turn a move into dollars, why getting them wrong is dangerous, and how to use them as the foundation of your risk.</p>
 
-        <h2>How one move turns into dollars</h2>
-        <p>The mechanics are simpler than the vocabulary. A price move is just a number of ticks. Multiply that number of ticks by the tick value, then by how many contracts you hold, and you have your dollars. That is the whole calculation, and it works the same for your profit, your loss, and your risk.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>A tick is the smallest move; tick value is what it is worth.</strong> Together they convert price into dollars.</li>
+<li><strong>Specs define your real risk.</strong> The same chart move means different dollars on different contracts.</li>
+<li><strong>You cannot size without them.</strong> Position sizing and stops depend on knowing what a move is worth.</li>
+<li><strong>Getting it wrong is costly.</strong> Misjudging tick value can make a position far larger in dollars than it felt.</li>
+<li><strong>Confirm the specs for your instrument.</strong> Tick size and value vary by contract, so always check before you trade.</li>
+</ul>
 
-        <figure class="bp-figure" id="fcfig">
-          <span class="figtag">Illustrative example</span>
-          <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A three step chain showing how a price move becomes dollars. Step one, one tick is the smallest price move allowed. Step two, multiply by the tick value, a fixed dollar amount set by the contract. Step three, the result is your profit or loss for each tick the price moves.">
-            <text x="60" y="40" fill="#cbd5e1" font-size="16" font-weight="800">How one move becomes dollars</text>
-            <!-- step 1 -->
-            <g class="anim row">
-              <rect x="70" y="104" width="240" height="92" rx="8" fill="#22d3a8" opacity="0.16" stroke="#22d3a8" stroke-opacity="0.5"/>
-              <text x="190" y="148" fill="#eaf7f2" font-size="18" font-weight="800" text-anchor="middle">1 tick</text>
-              <text x="190" y="174" fill="#9fb0c3" font-size="12" text-anchor="middle">smallest price move allowed</text>
-            </g>
-            <!-- arrow 1 -->
-            <g class="anim row r2">
-              <line x1="322" y1="150" x2="366" y2="150" stroke="#7e8ba0" stroke-width="2"/>
-              <polygon points="366,144 378,150 366,156" fill="#7e8ba0"/>
-            </g>
-            <!-- step 2 -->
-            <g class="anim row r2">
-              <rect x="380" y="104" width="240" height="92" rx="8" fill="#22d3a8" opacity="0.16" stroke="#22d3a8" stroke-opacity="0.5"/>
-              <text x="500" y="148" fill="#eaf7f2" font-size="18" font-weight="800" text-anchor="middle">&#215; tick value</text>
-              <text x="500" y="174" fill="#9fb0c3" font-size="12" text-anchor="middle">fixed $ per tick (set by contract)</text>
-            </g>
-            <!-- arrow 2 -->
-            <g class="anim row r3">
-              <line x1="632" y1="150" x2="676" y2="150" stroke="#7e8ba0" stroke-width="2"/>
-              <polygon points="676,144 688,150 676,156" fill="#7e8ba0"/>
-            </g>
-            <!-- step 3 -->
-            <g class="anim row r3">
-              <rect x="690" y="104" width="240" height="92" rx="8" fill="#22d3a8" opacity="0.30" stroke="#22d3a8" stroke-opacity="0.7"/>
-              <text x="810" y="148" fill="#eaf7f2" font-size="18" font-weight="800" text-anchor="middle">= $ per tick</text>
-              <text x="810" y="174" fill="#9fb0c3" font-size="12" text-anchor="middle">your P&amp;L for each tick moved</text>
-            </g>
-            <!-- example caption -->
-            <text x="500" y="244" fill="#7e8ba0" font-size="13.5" text-anchor="middle">Illustrative: if one tick is worth $12.50, a 4-tick move = $50.00 per contract.</text>
-          </svg>
-          <figcaption>Illustrative only. The $12.50 tick value shown is a made-up figure used to explain the arithmetic, not the spec of any specific instrument. Tick sizes and tick values differ by market and contract and can be changed by the exchange, so always confirm the current specs for the exact instrument you trade.</figcaption>
-        </figure>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">What a Tick and Tick Value Are</a></li>
+<li><a href="#s2">How Specs Turn a Move Into Dollars</a></li>
+<li><a href="#s3">Why Getting It Wrong Is Dangerous</a></li>
+<li><a href="#s4">Using Specs as the Base of Your Risk</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Know the Number</a></li>
+</ul>
 
-        <p>To make it concrete, suppose an instrument has a tick value of $12.50 and there are four ticks in a point. A one-point move is worth $50 on a single contract. Hold two contracts and the same move is worth $100. Nothing about the chart changed. Your dollar exposure changed because your contract count did. Those numbers are hypothetical and used only to show the shape of the math.</p>
+<h2 id="s1">What a Tick and Tick Value Are</h2>
+<p>A tick is the smallest amount a contract's price can move. Prices do not move continuously; they move in defined increments, and that increment is the tick. Tick value is the dollar amount that one tick of movement is worth on a single contract. Put them together and you have the basic unit of profit and loss: every tick the price moves in your favor or against you changes your position by exactly the tick value, multiplied by the number of contracts you hold.</p>
+<p>Contract specs are simply the full set of these defining details for an instrument: the tick size, the tick value, the contract size, and related parameters. They are published and fixed for each contract, which is what makes them reliable. The job of the trader is not to derive them but to know them, because they are the rules that translate what you see on the chart into what happens to your account.</p>
+<h3>The Smallest Move, and What It Costs</h3>
+<p>The cleanest way to hold it is: the tick is how far price jumps in one step, and the tick value is what that step does to your money. A contract might move in ticks worth a few dollars each, or many dollars each. Until you know which, a move on the chart tells you nothing about your risk, because the same visual move can be trivial or serious depending purely on the tick value.</p>
+<h3>Specs Are Fixed and Published</h3>
+<p>The reassuring part is that none of this is hidden or variable. Each contract's specs are published and constant, so this is knowable information you simply need to look up once for the instrument you trade. The danger is never that the specs are unclear; it is that traders skip learning them and trade on the visual size of a move instead of its dollar size.</p>
 
-        <h2>Why this is risk management, not trivia</h2>
-        <p>Here is the part that connects specs to survival. Your real risk on a trade is the distance to your stop, measured in ticks, multiplied by the tick value, multiplied by how many contracts you hold. If you do not know the tick value, you do not actually know what you are risking. You are guessing, and the guess is usually optimistic.</p>
-        <p>This is also how you work backwards into a sensible size. Decide the dollar amount you are willing to lose on the trade. Measure your stop distance in ticks. Divide your dollar risk by the per-contract risk, and you have the largest number of contracts that keeps you inside your limit. Specs are what make that calculation possible instead of a feeling.</p>
+<h2 id="s2">How Specs Turn a Move Into Dollars</h2>
+<p>The conversion is straightforward arithmetic once you know the spec. The dollars you make or lose equals the number of ticks the price moved, times the tick value, times the number of contracts. That single relationship is the engine of all your risk math. It is how you know that a stop placed a certain distance away represents a specific dollar risk, and how you know what a target is actually worth.</p>
+<p>This is also where the same-looking move becomes different money. A ten-tick move on a contract with a small tick value is a modest result; the same ten-tick move on a contract with a large tick value is a serious one. The chart cannot tell you which; only the spec can. That is why two traders looking at the identical price move can be risking wildly different amounts, and why the one who knows the spec is the one in control.</p>
 
-        <h2>The same chart move, different dollars</h2>
-        <p>One trap deserves a direct warning. The same market often has more than one contract: a full-size version and a smaller micro version. They print nearly identical charts, so the move looks the same to your eyes, but the micro is worth a fraction of the full-size contract per tick. Traders who learn sizing on one and then switch to the other, without checking the spec, can end up with far more or far less exposure than they expect. Never assume the tick value carried over. Look it up for the exact symbol.</p>
+<div class="ig-tick bp-figure">
+<style>
+.ig-tick{margin:34px 0;border:1px solid hsla(0,0%,100%,.12);border-radius:18px;background:#070b16;padding:28px;font-family:"Inter",system-ui,sans-serif}
+.ig-tick h3{color:#fff;font-size:22px;margin:0 0 4px;letter-spacing:-.3px}
+.ig-tick .ig-sub{color:#22d3a8;font-size:14px;margin:0 0 22px}
+.ig-tick-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:18px}
+.ig-tick-tile{background:hsla(0,0%,100%,.03);border:1px solid hsla(0,0%,100%,.08);border-radius:12px;padding:16px 14px;text-align:center}
+.ig-tick-tile .lab{font-size:12px;color:hsla(0,0%,100%,.55);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.ig-tick-tile .val{font-size:24px;font-weight:700;color:#fff;font-family:"Geist Mono",ui-monospace,monospace}
+.ig-tick-big{background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;padding:20px;text-align:center;margin-bottom:14px}
+.ig-tick-big .lab{font-size:13px;color:hsla(0,0%,100%,.62);margin-bottom:6px}
+.ig-tick-big .val{font-size:40px;font-weight:800;color:#22d3a8;font-family:"Geist Mono",ui-monospace,monospace;letter-spacing:-1px}
+.ig-tick-meter{height:8px;border-radius:6px;background:hsla(0,0%,100%,.08);overflow:hidden;margin-top:12px}
+.ig-tick-meter i{display:block;height:100%;width:0;background:#22d3a8;border-radius:6px}
+.ig-tick.in .ig-tick-meter i{width:100%;transition:width 1.4s ease}
+.ig-tick-note{color:hsla(0,0%,100%,.5);font-size:12.5px;margin:14px 0 0;text-align:center}
+@media(max-width:560px){.ig-tick-grid{grid-template-columns:1fr}}
+</style>
+<h3>What One Move Is Actually Worth</h3>
+<p class="ig-sub">Specs turn a price move into dollars (example figures, your contract differs)</p>
+<div class="ig-tick-grid">
+<div class="ig-tick-tile"><div class="lab">Tick size</div><div class="val">smallest</div></div>
+<div class="ig-tick-tile"><div class="lab">Value per tick</div><div class="val">$12.50</div></div>
+<div class="ig-tick-tile"><div class="lab">Ticks moved</div><div class="val"><span class="ig-tick-ticks">0</span></div></div>
+</div>
+<div class="ig-tick-big"><div class="lab">Your profit or loss on the move</div><div class="val ig-tick-dollars">$0</div><div class="ig-tick-meter"><i></i></div></div>
+<p class="ig-tick-note">If you cannot say what one tick is worth, you cannot say what you are risking.</p>
+</div>
+<script>(function(){var el=document.currentScript.previousElementSibling;if(!el)return;function go(){el.classList.add("in");var t=el.querySelector(".ig-tick-ticks"),d=el.querySelector(".ig-tick-dollars");var t0=Date.now();function step(){var p=Math.min(1,(Date.now()-t0)/1400);var e=1-Math.pow(1-p,3);t.textContent=Math.round(e*20);d.textContent="$"+Math.round(e*250);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go();io.disconnect();}});},{threshold:.25});io.observe(el);})();</script>
 
-        <h2>Where this meets account rules</h2>
-        <p>In a structured, simulated environment you are trading inside defined limits, including a daily loss limit and position-size caps. Tick value is the translator between those rules and an actual trade. It lets you take a price-based stop and answer a concrete question before you click: if this trade hits my stop, does the dollar loss fit inside today's limit, or does it blow through it? That is a question you can only answer if you know what one tick is worth.</p>
-        <p>Because the environment is simulated, you can build this habit without your personal savings riding on each trade. The arithmetic you practice, though, is the same arithmetic that governs real size later. The discipline of knowing your numbers before you enter is exactly what transfers.</p>
+<h3>Ticks, Times Value, Times Contracts</h3>
+<p>Internalize the formula and a lot of trading becomes clearer. Your dollar risk on a trade is just the distance to your stop in ticks, times the tick value, times your size. Run that calculation before every trade and you always know exactly what you are risking. Skip it, and you are trading on how the move feels, which is precisely how traders end up in positions far larger than they intended.</p>
+<h3>Why the Same Move Is Different Money</h3>
+<p>The practical upshot is that you cannot compare risk across instruments by looking at the charts. A position that looks identical on two different contracts can carry very different dollar risk. The spec is the only thing that normalizes them into the same unit, money, which is the unit that actually matters for your account. Always reason in dollars, and let the spec do the conversion.</p>
 
-        <h2>The honest takeaway</h2>
-        <p>Contract specs are boring, and that is precisely why they are worth your attention. They do not move with sentiment or news. They sit underneath every trade, quietly setting the conversion rate between a move on the screen and a number in your account. Before you trade any instrument you have not traded before, look up its tick size and tick value and confirm them on your own platform, because they can differ from what you remember and they can change. Know what one move is worth, and the rest of your risk math finally has something solid to stand on.</p>
+<div class="bp-midcta"><strong>Want to know your instrument's specs before you trade it?</strong> <a href="https://tradefundrr.com/#markets">See how the markets are structured</a>.</div>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is financial advice or a guarantee of any result, and the tick value and figures above are hypothetical, used only to illustrate the calculation. Actual tick sizes, tick values, point values, and contract sizes vary by market and instrument and are set by the relevant exchange, so always confirm the current specifications for the exact contract you trade. Account rules, loss limits, and position limits vary by firm and program, so always read and follow the written terms for your specific account. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<h2 id="s3">Why Getting It Wrong Is Dangerous</h2>
+<p>Misjudging tick value is one of the more dangerous beginner mistakes, because it does not announce itself until the loss arrives. A trader who assumes a contract's tick value is smaller than it is will size their position as if the risk were modest, when in fact each tick against them costs far more than they think. The position feels normal right up until a routine move produces an abnormal loss. The error was baked in at sizing, invisible until the market revealed it.</p>
+<p>The reverse mistake wastes opportunity rather than causing harm, but it still hurts: a trader who overestimates the dollar impact sizes too small and leaves their strategy operating below its intended scale. Either way, not knowing the spec means your actual risk is decoupled from your intended risk, which is the opposite of risk management. You cannot control what you have not measured, and you cannot measure a move without its spec.</p>
+<h3>The Loss That Was Bigger Than It Felt</h3>
+<p>The signature of this error is a loss that feels disproportionate to the move. The price did something ordinary, yet the account took an outsized hit, and the trader is left confused. The confusion is the tell: they were trading the visual move, not the dollar move, and the gap between the two was the unmeasured tick value. Knowing the spec closes that gap before it can hurt you.</p>
+<h3>Decoupled Risk Is Not Risk Management</h3>
+<p>The deeper point is that risk management is meaningless if your sizing is based on a wrong conversion. You can have perfect discipline about risking a fixed amount per trade and still blow through it repeatedly if your tick-value assumption is off, because every trade is secretly larger than your rule allows. The spec is upstream of all your risk rules; get it wrong and every rule downstream inherits the error.</p>
+
+<h2 id="s4">Using Specs as the Base of Your Risk</h2>
+<p>The fix is simple and one-time per instrument: learn the specs, then build your risk on top of them. The checklist below makes it routine.</p>
+<div class="bp-checklist">
+<strong>Before you trade an instrument:</strong>
+<ul>
+<li><strong>Look up the tick size and tick value.</strong> Know the smallest move and what it is worth, in writing.</li>
+<li><strong>Compute your dollar risk per trade.</strong> Stop distance in ticks, times tick value, times contracts.</li>
+<li><strong>Size from the spec, not the chart.</strong> Let the dollar math set your size, not how the move looks.</li>
+<li><strong>Re-check when you switch instruments.</strong> Specs differ by contract, so never assume they carry over.</li>
+<li><strong>Confirm the specs for your specific account.</strong> Instruments and their parameters can vary, so verify before trading.</li>
+</ul>
+</div>
+<h3>Learn It Once, Use It Every Trade</h3>
+<p>The good news is that this is not ongoing work. Once you know the specs for the instrument you trade, the conversion becomes second nature and every risk decision rests on solid ground. The traders who get burned are almost always the ones who never did this once. A few minutes confirming the specs is the cheapest risk management available, and it is the foundation everything else sits on.</p>
+
+<div class="bp-midcta"><strong>Build your risk on real numbers.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Know the Number</h2>
+<p>Tick value and contract specs are the unglamorous foundation of every risk decision, because they are the conversion between what you see on the chart and what happens to your account. Until you know what one tick is worth, you cannot honestly say what you are risking, and every risk rule you layer on top inherits whatever error sits underneath. Knowing the number is the precondition for controlling the risk.</p>
+<p>A structured, simulated environment is a good place to internalize this, because you can learn an instrument's specs and practice sizing from them, watching how the dollar math behaves, without your savings on the line while it becomes second nature. The conversion skill you build is entirely real and transfers directly to any account, since the specs are the same regardless of where you trade the contract.</p>
+<p>Knowing what one move is worth is not advanced trading; it is the entry ticket to measuring risk at all. TradeFundrr gives you a structured, simulated environment with clear rules to build your risk on the real numbers rather than the visual size of a move. Look up the tick size and value for your instrument, size from the dollar math, re-check whenever you switch contracts, and confirm the specs for your specific account before you trade.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What is a tick in trading?</summary>
+<div class="ans">A tick is the smallest amount a contract's price can move. Prices move in defined increments rather than continuously, and that increment is the tick. Knowing the tick is the first half of converting a price move into dollars; the second half is the tick value, which tells you what one tick of movement is worth on a single contract.</div>
+</details>
+<details>
+<summary>What is tick value?</summary>
+<div class="ans">Tick value is the dollar amount that one tick of price movement is worth on a single contract. Multiply the number of ticks a price moves by the tick value and by the number of contracts you hold, and you get your profit or loss. It is the core conversion that turns a chart move into a real effect on your account.</div>
+</details>
+<details>
+<summary>Why do contract specs matter for risk?</summary>
+<div class="ans">Because risk is measured in dollars, and a price move only becomes dollars once you run it through the spec. Without knowing the tick value, you cannot size a position correctly or set a stop that represents a known dollar risk. The same chart move means different money on different contracts, and only the spec tells you which.</div>
+</details>
+<details>
+<summary>How do I calculate my risk on a trade?</summary>
+<div class="ans">Take the distance from your entry to your stop in ticks, multiply by the tick value, and multiply by the number of contracts. That gives your dollar risk for the trade. Doing this before every trade means you always know exactly what you are risking, rather than guessing from how large the move looks on the chart.</div>
+</details>
+<details>
+<summary>What happens if I get the tick value wrong?</summary>
+<div class="ans">Your actual risk decouples from your intended risk. If you assume a smaller tick value than the real one, you size too large and a routine move produces an outsized loss that feels disproportionate. Assume too large and you size too small, leaving your strategy below scale. Either way, your risk rules inherit the error baked in at sizing.</div>
+</details>
+<details>
+<summary>Do tick values change?</summary>
+<div class="ans">The tick size and tick value for a given contract are published and fixed, so they do not change trade to trade. What changes is the contract: different instruments have different specs, so you must look them up for each one and never assume they carry over. Confirm the specs for your specific instrument and account before trading.</div>
+</details>
+<details>
+<summary>Can I practice sizing from specs in a simulated account?</summary>
+<div class="ans">Yes. A structured, simulated environment lets you learn an instrument's specs and practice sizing from the dollar math, watching how it behaves, without your savings on the line while it becomes second nature. The conversion skill is identical to a real account, since the contract specs are the same wherever you trade it.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. The tick figures used are illustrative examples only; tick sizes, tick values, and contract specifications vary by instrument, so always confirm the specs for your specific contract and account. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Trade with numbers you can defend</h3>
-          <p>Develop your sizing and risk process in a structured, simulated environment with clear rules and limits.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Build your risk on real numbers</h3>
+          <p>Learn your instrument's specs and size from the dollar math in a structured, simulated environment.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -343,16 +353,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('fcfig');if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){el.classList.add('play');io.unobserve(el);}});
-    },{threshold:.3});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}

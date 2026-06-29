@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Volatility and Position Sizing: Adjusting Risk When the Market Speeds Up | TradeFundrr Blog</title>
-  <meta name="description" content="The same trade can be sensible on a calm day and reckless on a fast one. What changes is volatility. Here is how position size is the dial you turn to keep your risk steady when the market speeds up.">
+  <meta name="description" content="When the market speeds up, your risk changes even if your size does not. Why position size is the dial you turn to keep risk steady as volatility rises, and how to adjust it.">
   <link rel="canonical" href="https://tradefundrr.com/blog/volatility-and-position-sizing">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-23">
-  <meta property="article:section" content="Risk & Reward">
+  <meta property="article:section" content="Risk &amp; Reward">
   <meta property="og:title" content="Volatility and Position Sizing: Adjusting Risk When the Market Speeds Up">
-  <meta property="og:description" content="When the market gets faster, your risk changes even if your lot size does not. Here is how to use position size to keep risk steady.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260623_120535_0fcafaaa-ddce-4063-a0ef-de617b1bac73.png">
+  <meta property="og:description" content="When the market speeds up, your risk changes even if your size does not. Size is the dial you turn down.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_005146_4be181b8-1c1f-4d8e-befc-26f86bf4e6e0.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,94 +31,39 @@
     .bp-meta .who{display:flex;align-items:center;gap:10px;color:hsla(0,0%,100%,.8)}
     .bp-dot{width:3px;height:3px;border-radius:50%;background:hsla(0,0%,100%,.4)}
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
-    .bp-inline{width:100%;border-radius:14px;margin:30px 0;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #volfig .anim{opacity:0}
-    #volfig.play .bar{animation:volFade .6s ease forwards}
-    #volfig.play .b2{animation-delay:.18s}#volfig.play .b3{animation-delay:.36s}
-    #volfig.play .lbl{animation:volFade .5s ease forwards;animation-delay:.5s}
-    @keyframes volFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-    @media (prefers-reduced-motion: reduce){#volfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -154,81 +99,153 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 23, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>7 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260623_120535_0fcafaaa-ddce-4063-a0ef-de617b1bac73.png" alt="An abstract mint-green line on a dark navy background that starts smooth on the left and becomes jagged and volatile on the right, representing rising market volatility">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_005146_4be181b8-1c1f-4d8e-befc-26f86bf4e6e0.png" alt="A cinematic render of a glowing teal waveform turbulent on one side and calm on the other, representing volatility and position sizing">
 
       <div class="bp-body">
-        <p>The same trade can be sensible on one day and reckless on another, with nothing changing except the market itself. You take your usual setup, your usual size, your usual stop. On a quiet morning it works out fine. On a fast morning the same position gets knocked out almost instantly, or runs against you far harder than you expected. People often blame the setup. Usually the real culprit is volatility, and the fact that their position size never moved to account for it.</p>
-        <p>Volatility is one of the few variables you can read in advance and respond to. Position size is the dial you turn in response. Getting that relationship right is one of the quieter skills that separates traders who last from traders who keep getting surprised.</p>
 
-        <h2>Volatility is just how much price moves</h2>
-        <p>Strip away the jargon and volatility is a simple idea: how far and how fast price tends to move over a given period. A calm market drifts. A volatile market lurches. The same instrument can be both within the same week, depending on the news, the session, and what the rest of the market is doing.</p>
-        <p>This matters because your stop-loss lives in that movement. In a calm market, price might need to travel only a short distance before your trade is clearly wrong. In a fast market, normal noise can be several times wider, so a stop placed at the same close distance gets hit by ordinary wiggle rather than by a real change in the idea.</p>
+<p>Most traders pick a position size and keep it roughly constant, adjusting only their entries and stops. That works until volatility changes, and then it quietly breaks, because the same position size carries very different risk in a calm market versus a fast one. When the market speeds up, the distance prices travel in a given time grows, so a position that risked a comfortable amount yesterday can risk far more today without you changing a thing. Volatility is the hidden variable that turns a fixed size into a moving risk, and position size is the dial you turn to keep that risk steady.</p>
+<p>This is one of the more important and least practiced ideas in risk management. Keeping your risk per trade constant, which is the goal of good sizing, actually requires changing your position size as conditions change. A constant size is not constant risk; it only feels that way. Understanding the relationship between volatility and size is what lets you trade calm and fast markets with the same discipline instead of being blindsided when the pace picks up.</p>
+<p>Here is how volatility and position sizing interact and what to do about it. In this guide we will cover why fixed size is not fixed risk, how volatility changes your exposure, why size is the right dial to turn, and how to adjust it.</p>
 
-        <h2>Why a fixed lot size quietly changes your risk</h2>
-        <p>Here is the trap. Most traders fix their position size out of habit. They always trade the same number of shares, contracts, or lots, because that is what they are used to. The problem is that risk is not your position size on its own. Risk is your position size multiplied by how far price can move against you before you are out.</p>
-        <p>So when volatility doubles and your size stays the same, your real risk roughly doubles too, even though nothing on your order ticket looks different. You feel like you are trading the same way. The market is quietly handing you a much bigger bet. This is one of the most common reasons a strategy that felt safe for weeks suddenly produces a loss that feels out of proportion.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Fixed size is not fixed risk.</strong> The same position carries more risk when volatility is high than when it is low.</li>
+<li><strong>Volatility moves your exposure.</strong> Faster markets travel further, so your stop is hit by larger dollar swings.</li>
+<li><strong>Size is the dial.</strong> To hold risk steady, reduce size as volatility rises and increase it as volatility falls.</li>
+<li><strong>Risk per trade is the constant.</strong> Keep the dollars you risk fixed, and let size flex to the conditions.</li>
+<li><strong>Ignoring this blindsides traders.</strong> Unchanged size into rising volatility is how a normal trade becomes an outsized loss.</li>
+</ul>
 
-        <figure class="bp-figure" id="volfig">
-          <span class="figtag">Illustrative example</span>
-          <svg viewBox="0 0 1000 320" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A bar chart showing position size getting smaller as market volatility rises, so that the dollar risk stays constant across calm, normal, and fast markets">
-            <!-- y axis label -->
-            <text x="34" y="170" fill="#9fb0c3" font-size="14" font-weight="600" text-anchor="middle" transform="rotate(-90 34 170)">Position size</text>
-            <!-- baseline -->
-            <line x1="80" y1="272" x2="960" y2="272" stroke="hsla(0,0%,100%,.18)" stroke-width="1.5"/>
-            <!-- constant risk note (open top-right space) -->
-            <text x="952" y="58" fill="#22d3a8" font-size="14" font-weight="700" text-anchor="end">Dollar risk per trade held constant</text>
-            <!-- Bar 1 calm -->
-            <g class="anim bar">
-              <rect x="150" y="92" width="130" height="180" rx="6" fill="#22d3a8" opacity="0.92"/>
-              <text x="215" y="64" fill="#9fb0c3" font-size="13" font-weight="600" text-anchor="middle">Low volatility</text>
-            </g>
-            <!-- Bar 2 normal -->
-            <g class="anim bar b2">
-              <rect x="440" y="152" width="130" height="120" rx="6" fill="#1aa886" opacity="0.92"/>
-              <text x="505" y="124" fill="#9fb0c3" font-size="13" font-weight="600" text-anchor="middle">Higher volatility</text>
-            </g>
-            <!-- Bar 3 fast -->
-            <g class="anim bar b3">
-              <rect x="730" y="206" width="130" height="66" rx="6" fill="#127a61" opacity="0.92"/>
-              <text x="795" y="178" fill="#9fb0c3" font-size="13" font-weight="600" text-anchor="middle">High volatility</text>
-            </g>
-            <!-- bottom labels -->
-            <text x="215" y="298" class="anim lbl" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">Calm market</text>
-            <text x="505" y="298" class="anim lbl" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">Normal market</text>
-            <text x="795" y="298" class="anim lbl" fill="#fff" font-size="14" font-weight="700" text-anchor="middle">Fast market</text>
-          </svg>
-          <figcaption>Illustrative only. As volatility rises, the position size shrinks so the dollar amount at risk stays the same. The numbers and proportions here are a teaching example, not a guarantee or a specific rule for any account.</figcaption>
-        </figure>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">Why Fixed Size Is Not Fixed Risk</a></li>
+<li><a href="#s2">How Volatility Changes Your Exposure</a></li>
+<li><a href="#s3">Why Size Is the Dial to Turn</a></li>
+<li><a href="#s4">How to Adjust Size to Volatility</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Hold Risk Steady</a></li>
+</ul>
 
-        <h2>Hold the risk steady, not the size</h2>
-        <p>The fix is to flip what you keep constant. Instead of fixing your position size and letting your risk float around with the market, fix the amount you are willing to lose on the trade and let your position size move to fit it. When volatility is low and your stop can sit close, you can carry a larger position for the same risk. When volatility is high and your stop needs more room, you carry a smaller position so that the wider stop still costs you the same amount.</p>
-        <p>That is the whole idea in one sentence: as the market speeds up, your size comes down, so your risk does not. The chart above is just that thought drawn out.</p>
+<h2 id="s1">Why Fixed Size Is Not Fixed Risk</h2>
+<p>The intuition that a constant position size means constant risk is wrong, and the gap is volatility. Risk on a trade is roughly the size of your position multiplied by how far the price is likely to move against you before your idea is invalidated. When volatility rises, that likely move grows, so even with the same position size and the same kind of setup, the amount you stand to lose increases. Your size did not change, but your risk did, because the market underneath it sped up.</p>
+<p>This is why traders who keep a rigid size get blindsided in volatile conditions. They are running the same playbook they always do, but the playbook was calibrated for calmer markets, and now each trade is quietly carrying more risk than they intend. The danger is invisible until a fast move produces a loss far larger than their normal one, at which point they discover that constant size was never constant risk.</p>
+<h3>Risk Is Size Times Movement</h3>
+<p>Holding the relationship in mind makes the whole topic click: your risk is your size multiplied by the distance price travels against you. If movement doubles and size stays the same, your risk roughly doubles. To keep risk where you want it, the two have to move in opposite directions, which means size must come down when movement goes up. A fixed size only holds risk constant if volatility never changes, and it always changes.</p>
+<h3>The Hidden Variable That Blindsides Traders</h3>
+<p>Volatility is dangerous precisely because it is easy to ignore. It does not appear in your order ticket; you set a size and a stop and feel in control. But the conditions that determine how far price will swing are doing half the work of setting your real risk, silently. A trader who watches only their size and stop, and not the volatility around them, is managing only part of their risk and leaving the rest to chance.</p>
 
-        <h2>A simple way to think about the math</h2>
-        <p>You do not need a complicated formula. You need two numbers before you enter: how much you are willing to risk on this trade, and how far away your stop is. Divide the first by the second and you get the position size that keeps your risk where you want it.</p>
-        <p>Many traders use a volatility measure, such as the average range a market has been moving recently, to decide where a sensible stop sits in current conditions. If that range is wide today, the stop goes wider, and the position comes down to match. If the range is tight, the stop can be closer and the position can be a little larger. The exact tool matters less than the habit of letting today's conditions set the size rather than yesterday's routine.</p>
-        <p><em>As a hypothetical, for illustration only:</em> imagine a trader who risks the same fixed amount on every trade. On a calm day the natural stop is narrow, so that fixed risk allows a fairly large position. A week later the same instrument is moving twice as fast, the sensible stop is twice as wide, and so the position that keeps the risk identical is about half the size. Same risk, very different size, decided entirely by the conditions on the day. This is an illustration of the relationship, not a claim about any real result.</p>
+<h2 id="s2">How Volatility Changes Your Exposure</h2>
+<p>When a market becomes more volatile, prices cover more ground in the same amount of time. Swings that would have been unusual in a calm market become routine. For your trades, this means two related things: a stop placed at a sensible technical level is now further away in dollar terms because the levels themselves are spread wider, and price is more likely to reach a given distance quickly. Both effects increase the dollars at risk on a position of unchanged size.</p>
+<p>The practical consequence is that the same strategy, traded the same way, exposes you to more risk in a fast market. If you do not account for this, your worst days will cluster in volatile periods, not because your decisions got worse but because your risk silently scaled up with the conditions. Recognizing that your exposure is partly set by the market's pace, not just by your choices, is the key shift.</p>
 
-        <h2>What this looks like inside the rules</h2>
-        <p>In a structured, simulated funded account, this habit does more than smooth out your results. It keeps you on the right side of the account rules. Daily loss limits and drawdown limits do not care whether a bad day came from one oversized trade in a fast market or from a string of small ones. They only see the damage. Sizing to volatility is one of the most reliable ways to keep a single fast session from pushing you into a limit you did not mean to test.</p>
-        <p>It also makes your performance easier to read. When your risk per trade is steady, your results reflect the quality of your decisions rather than the accident of how wild the market happened to be that day. That is exactly the kind of consistency a funded program is built to reward.</p>
+<div class="ig-vol bp-figure">
+<style>
+.ig-vol{margin:34px 0;border:1px solid hsla(0,0%,100%,.12);border-radius:18px;background:#070b16;padding:28px;font-family:"Inter",system-ui,sans-serif}
+.ig-vol h3{color:#fff;font-size:22px;margin:0 0 4px;letter-spacing:-.3px}
+.ig-vol .ig-sub{color:#22d3a8;font-size:14px;margin:0 0 24px}
+.ig-vol-stage{display:flex;align-items:flex-end;justify-content:center;gap:40px;height:200px;margin-bottom:8px}
+.ig-vol-col{width:90px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.ig-vol-bar{width:64px;border-radius:10px 10px 0 0;transition:height 1.6s cubic-bezier(.4,0,.2,1) .2s}
+.ig-vol-col.v .ig-vol-bar{background:#f0b23c;height:24%}
+.ig-vol-col.s .ig-vol-bar{background:#22d3a8;height:88%}
+.ig-vol.in .ig-vol-col.v .ig-vol-bar{height:90%}
+.ig-vol.in .ig-vol-col.s .ig-vol-bar{height:30%}
+.ig-vol-cap{margin-top:10px;font-size:13px;font-weight:600;text-align:center}
+.ig-vol-col.v .ig-vol-cap{color:#f0b23c}.ig-vol-col.s .ig-vol-cap{color:#22d3a8}
+.ig-vol-arrow{align-self:center;color:hsla(0,0%,100%,.4);font-size:24px;padding-bottom:60px}
+.ig-vol-foot{margin-top:14px;text-align:center;color:#d7dbe6;font-size:14px;line-height:1.5}
+.ig-vol-foot b{color:#fff}
+</style>
+<h3>When Volatility Rises, Size Comes Down</h3>
+<p class="ig-sub">To keep the risk on each trade steady, the size has to move opposite the volatility</p>
+<div class="ig-vol-stage">
+<div class="ig-vol-col v"><div class="ig-vol-bar"></div><div class="ig-vol-cap">Volatility</div></div>
+<div class="ig-vol-arrow">&rarr;</div>
+<div class="ig-vol-col s"><div class="ig-vol-bar"></div><div class="ig-vol-cap">Position size</div></div>
+</div>
+<p class="ig-vol-foot"><b>Same risk, every trade.</b> Size is the dial you turn down when the market speeds up.</p>
+</div><script>(function(){var el=document.currentScript.previousElementSibling;if(!el)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){el.classList.add("in");io.disconnect();}});},{threshold:.25});io.observe(el);})();</script>
 
-        <h2>The honest version</h2>
-        <p>Sizing to volatility is not exciting, and it will sometimes feel like you are leaving money on the table by trading smaller on the fastest days. That is the point. The fast days are precisely when a fixed size does the most damage. Most traders do not blow up because they were wrong more often. They blow up because the one time they were wrong, they were far too big for the conditions.</p>
-        <p>None of this guarantees a winning trade or a winning week. TradeFundrr is a structured, simulated environment for developing exactly these habits, not a shortcut to a result. But of all the dials you can turn, position size is the one most directly under your control, and matching it to volatility is one of the simplest ways to make your risk behave the way you intended. Always confirm the specific limits and sizing rules for your own account in writing, since these differ from firm to firm.</p>
+<h3>Faster Markets Travel Further</h3>
+<p>The core effect is simple: in a volatile market, price moves more, so any stop is more likely to be reached and the moves against you are bigger. A stop distance that represented a modest risk in calm conditions can represent a large one when the market is fast, even though nothing about your position size changed. The market did the changing, and your risk came along for the ride.</p>
+<h3>Same Strategy, Different Risk</h3>
+<p>This is why a strategy can feel reliable for weeks and then suddenly produce a string of painful losses when volatility spikes. The strategy did not break; its risk profile changed with the conditions while the trader kept sizing as before. Without adjusting for volatility, you are effectively running a different, riskier strategy every time the market speeds up, without having chosen to.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is financial advice or a guarantee of any result, and the examples above are hypothetical illustrations only. Volatility measures, position sizing methods, stop placement, and account limits vary by market, firm, and account, so always follow the written rules and terms for your specific account. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<div class="bp-midcta"><strong>Want to size correctly in any conditions?</strong> <a href="https://tradefundrr.com/#markets">Practice in a simulated environment</a>.</div>
+
+<h2 id="s3">Why Size Is the Dial to Turn</h2>
+<p>Given that volatility moves your risk, you need a lever to bring it back, and position size is the cleanest one. You cannot control the market's volatility, and you generally should not move your stop to an illogical level just to control risk, because the stop should sit where your trade idea is invalidated. That leaves size as the variable you can freely adjust to hold your risk per trade constant. When volatility rises and each unit of position carries more risk, you simply trade fewer units; when volatility falls, you can trade more.</p>
+<p>The principle to anchor everything is that risk per trade is the constant, and size is what flexes to maintain it. Most traders have this backwards: they fix their size and let their risk float with the market. Flipping it, fixing your risk and letting your size float, is what produces consistent risk across all conditions, which is the actual goal. Size is not the thing you protect; it is the dial you turn to protect the thing that matters, your risk.</p>
+<h3>Keep Risk Constant, Let Size Flex</h3>
+<p>The mental model is a thermostat. You set the temperature you want, your fixed risk per trade, and the system adjusts to maintain it as conditions change. In trading, that adjustment is position size. A volatile market is like a cold day: to keep the same temperature you have to work the dial harder, which here means sizing down. The target never changes; only the size you use to hit it does.</p>
+<h3>Why Not Move the Stop Instead</h3>
+<p>It is worth being clear why size, not the stop, is the right dial. Your stop should mark where your trade is wrong, a level dictated by the chart, not by how much you want to risk. Tightening a stop to an illogical place just to reduce dollar risk gets you stopped out on noise. Adjusting size leaves your stop where it belongs while still controlling your risk, which is why size is the correct lever and the stop is not.</p>
+
+<h2 id="s4">How to Adjust Size to Volatility</h2>
+<p>Putting this into practice means making volatility an explicit input to your sizing rather than an afterthought. The checklist below shows how.</p>
+<div class="bp-checklist">
+<strong>To size for volatility:</strong>
+<ul>
+<li><strong>Fix your risk per trade first.</strong> Decide the dollar or R amount you will risk, and treat it as constant.</li>
+<li><strong>Read the current volatility.</strong> Notice whether the market is moving more or less than usual before sizing.</li>
+<li><strong>Size down when volatility rises.</strong> Wider expected moves mean fewer units to keep the same risk.</li>
+<li><strong>Size up when volatility falls.</strong> Calmer conditions let you trade more units at the same risk.</li>
+<li><strong>Let the stop sit where the trade is wrong.</strong> Adjust size, not the stop, to control your dollar risk.</li>
+</ul>
+</div>
+<h3>Make Volatility an Input to Sizing</h3>
+<p>The habit that ties it together is to check the market's pace as a deliberate step before sizing any trade, the same way you check your setup and your stop. Once volatility is a standard input, sizing down in fast markets and up in calm ones becomes automatic, and your risk stays where you set it regardless of conditions. The traders who get hurt are the ones for whom volatility never enters the sizing decision at all.</p>
+
+<div class="bp-midcta"><strong>Build volatility-aware sizing as a habit.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Hold Risk Steady</h2>
+<p>Volatility is the hidden variable that turns a fixed position size into a moving risk, because risk is size times how far price travels and a faster market travels further. The fix is to flip the usual habit: instead of fixing your size and letting your risk float, fix your risk per trade and let your size flex with the conditions. Size is the dial you turn down when the market speeds up and up when it calms, and your stop stays where the trade is actually wrong.</p>
+<p>A structured, simulated environment is a good place to build this, because you can practice reading volatility and adjusting your size to hold risk constant across calm and fast markets without your savings on the line while the habit forms. Volatility-aware sizing is a skill like any other, and the version you build in a simulated account is identical to the one you need anywhere, because the relationship between size, movement, and risk does not change with the account.</p>
+<p>Adjusting risk when the market speeds up comes down to treating position size as a dial rather than a fixed setting, so that your risk per trade stays steady no matter what volatility does. TradeFundrr gives you a structured, simulated environment with clear rules to develop volatility-aware sizing. Fix your risk, read the conditions, size down as volatility rises and up as it falls, and leave your stop where the chart puts it, because the goal is constant risk, not constant size.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>Why is a fixed position size not the same as fixed risk?</summary>
+<div class="ans">Because risk is roughly your position size multiplied by how far price moves against you, and volatility changes that movement. When the market speeds up, the likely move grows, so the same position size carries more risk than before. Your size did not change, but your risk did, which is why constant size only means constant risk if volatility never changes.</div>
+</details>
+<details>
+<summary>How does volatility change my risk on a trade?</summary>
+<div class="ans">In a more volatile market, prices cover more ground in the same time, so a sensible stop sits further away in dollar terms and price is more likely to reach a given distance quickly. Both effects increase the dollars at risk on a position of unchanged size, meaning the same strategy exposes you to more risk when the market is fast.</div>
+</details>
+<details>
+<summary>Should I change my position size based on volatility?</summary>
+<div class="ans">Yes. To keep your risk per trade constant, reduce your size when volatility rises and increase it when volatility falls. Size is the dial you can freely adjust, since you cannot control the market's volatility and should not move your stop to an illogical level. Fixing risk and flexing size is what produces consistent risk across all conditions.</div>
+</details>
+<details>
+<summary>Why adjust size instead of the stop?</summary>
+<div class="ans">Because your stop should mark where your trade idea is wrong, a level dictated by the chart, not by how much you want to risk. Tightening a stop to an illogical place just to cut dollar risk gets you stopped out on noise. Adjusting size leaves the stop where it belongs while still controlling your risk, which makes size the correct lever.</div>
+</details>
+<details>
+<summary>What should stay constant, size or risk?</summary>
+<div class="ans">Risk per trade should be the constant, and size should flex to maintain it. Most traders have this backwards, fixing their size and letting their risk float with the market. Flipping it, holding your risk steady and letting your size move with conditions, is what keeps your exposure consistent, which is the actual goal of position sizing.</div>
+</details>
+<details>
+<summary>What happens if I ignore volatility when sizing?</summary>
+<div class="ans">Your worst days cluster in volatile periods, not because your decisions got worse but because your risk silently scaled up with the conditions. Keeping an unchanged size into rising volatility is how a normal-looking trade produces an outsized loss. Without adjusting, you are effectively running a riskier strategy every time the market speeds up, without choosing to.</div>
+</details>
+<details>
+<summary>Can I practice volatility-based sizing in a simulated account?</summary>
+<div class="ans">Yes. A structured, simulated environment lets you practice reading volatility and adjusting size to hold risk constant across calm and fast markets, without your savings on the line while the habit forms. The relationship between size, movement, and risk is identical in a simulated account, so the skill transfers directly to any account.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. Position sizing does not guarantee against losses, particularly in fast or illiquid markets. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Build the habit in a structured environment</h3>
-          <p>Develop your risk discipline in a structured, simulated environment, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Keep your risk steady in any market</h3>
+          <p>Develop volatility-aware position sizing in a structured, simulated environment with clear rules.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -334,16 +351,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('volfig');if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){el.classList.add('play');io.unobserve(el);}});
-    },{threshold:.35});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}
