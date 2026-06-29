@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Correlation Risk: Why Two Trades Can Secretly Be One Bet | TradeFundrr Blog</title>
-  <meta name="description" content="You think you have two positions. The market sees one. A plain-English look at correlation risk, how it doubles your exposure without you noticing, and how to size for what you are really holding.">
+  <meta name="description" content="Two highly correlated trades are not two trades. They are one bet at double size. What correlation risk is, why it quietly concentrates your exposure, and how to size for what you really hold.">
   <link rel="canonical" href="https://tradefundrr.com/blog/correlation-risk-explained">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-20">
   <meta property="article:section" content="Risk &amp; Reward">
   <meta property="og:title" content="Correlation Risk: Why Two Trades Can Secretly Be One Bet">
-  <meta property="og:description" content="You think you have two positions. The market sees one. How correlation quietly doubles your risk.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260620_121844_1d1c0908-2af3-4534-827f-b26a3c728120.png">
+  <meta property="og:description" content="Two highly correlated trades are not two trades. They are one bet at double size. How to size for it.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_011253_edbd0f83-d9ca-436f-b686-ae6241ab7840.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,91 +33,37 @@
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #cfig .anim{opacity:0}
-    #cfig.play .lineA{animation:cFade .7s ease forwards}
-    #cfig.play .lineB{animation:cFade .7s ease forwards;animation-delay:.35s}
-    #cfig.play .note{animation:cFade .6s ease forwards;animation-delay:.8s}
-    @keyframes cFade{to{opacity:1}}
-    @media (prefers-reduced-motion: reduce){#cfig .anim{opacity:1 !important;animation:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -153,73 +99,157 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 20, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>7 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260620_121844_1d1c0908-2af3-4534-827f-b26a3c728120.png" alt="A 3D render of two groups of mint-teal candlestick prisms quietly connected by a faint shared tether on a dark navy background">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_011253_edbd0f83-d9ca-436f-b686-ae6241ab7840.png" alt="A cinematic render of several glowing teal chart lines moving in sync and merging into one path, representing correlation risk">
 
       <div class="bp-body">
-        <p>You open two positions. They feel like two separate decisions, so you tell yourself you are diversified and your risk is spread out. The screen agrees. There are two tickers, two entries, two stops. Everything looks like two trades.</p>
-        <p>The market does not see it that way. If those two instruments move together, you are not holding two trades. You are holding one bet in two costumes. This is correlation risk, and it is one of the quietest ways traders double their exposure without ever feeling like they took on more.</p>
 
-        <h2>What correlation actually means here</h2>
-        <p>Correlation is just how closely two things tend to move in the same direction. When two instruments are highly correlated, they rise and fall together most of the time. When they are uncorrelated, one tells you almost nothing about the other.</p>
-        <p>Plenty of pairs traders touch every day are tightly correlated, sometimes without it being obvious. Two large tech names. A stock index future and a leading mega-cap inside it. Two currencies tied to the same economy. Crude oil and an energy producer. On the surface they are different products. Underneath, they often respond to the same forces at the same time.</p>
-        <p>The trap is that your platform shows you positions, not exposure. It counts how many trades you have open. It does not tell you how many of them are really the same idea.</p>
+<p>You can feel diversified and be heavily concentrated at the same time. That is the trap of correlation risk. When you hold several positions that tend to move together, you have not spread your risk across several bets; you have made the same bet several times. Two highly correlated trades are not two trades, they are one bet at roughly double the size, and a portfolio of correlated positions can quietly carry far more risk than the trader believes, because the diversification is an illusion. The danger is that it feels safe right up until everything moves against you at once.</p>
+<p>This matters enormously for risk management, because the whole point of holding multiple positions is usually to avoid putting all your risk in one place. Correlation defeats that silently. You think you are running five modest trades; you are actually running one large one wearing five costumes. When the underlying driver turns, all five lose together, and the combined loss can dwarf what you thought any single position could cost you.</p>
+<p>Here is what correlation risk is and how to manage it. In this guide we will cover what correlation actually means for your positions, why it concentrates risk you cannot see, where it hides, and how to size for the bet you are really making.</p>
 
-        <figure class="bp-figure" id="cfig">
-          <span class="figtag">Two positions, one risk</span>
-          <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A line chart showing two correlated positions whose equity lines rise and fall almost in lockstep, illustrating that they behave as a single combined bet">
-            <rect x="300" y="20" width="22" height="10" rx="2" fill="#22d3a8"></rect>
-            <text x="330" y="29" fill="#d7dbe6" font-size="14" font-weight="600">Position A</text>
-            <rect x="470" y="20" width="22" height="10" rx="2" fill="#5fe3c4"></rect>
-            <text x="500" y="29" fill="#d7dbe6" font-size="14" font-weight="600">Position B</text>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Correlated trades are one bet repeated.</strong> Positions that move together do not diversify; they stack the same risk.</li>
+<li><strong>The diversification can be an illusion.</strong> Several positions can carry the risk of one large concentrated bet.</li>
+<li><strong>They lose together.</strong> When the shared driver turns, every correlated position moves against you at once.</li>
+<li><strong>Correlation hides in plain sight.</strong> Different tickers can share the same underlying driver, sector, or theme.</li>
+<li><strong>Size for the real bet.</strong> Treat correlated positions as a single position when setting your total risk.</li>
+</ul>
 
-            <line x1="90" y1="290" x2="930" y2="290" stroke="hsla(0,0%,100%,.18)" stroke-width="1"></line>
-            <line x1="90" y1="120" x2="930" y2="120" stroke="hsla(0,0%,100%,.07)" stroke-width="1"></line>
-            <line x1="90" y1="180" x2="930" y2="180" stroke="hsla(0,0%,100%,.07)" stroke-width="1"></line>
-            <line x1="90" y1="240" x2="930" y2="240" stroke="hsla(0,0%,100%,.07)" stroke-width="1"></line>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">What Correlation Means for Your Positions</a></li>
+<li><a href="#s2">Why It Concentrates Hidden Risk</a></li>
+<li><a href="#s3">Where Correlation Hides</a></li>
+<li><a href="#s4">How to Size for the Real Bet</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Count the Bet, Not the Tickers</a></li>
+</ul>
 
-            <text class="note anim" x="110" y="118" fill="#e2e6f0" font-size="15" font-weight="600">They move together, so the risk adds up</text>
+<h2 id="s1">What Correlation Means for Your Positions</h2>
+<p>Correlation describes how much two things move together. Two positions are highly correlated when they tend to rise and fall in step, which means knowing what one does tells you a lot about what the other will do. For a trader, the practical consequence is blunt: if your positions are highly correlated, they are not independent bets. They are, to a large degree, the same bet, because the same forces drive them and they share the same fate when those forces move.</p>
+<p>This reframes what it means to hold several positions. Diversification, the genuine spreading of risk, requires positions that do not move together, so that a loss in one can be offset by another. Correlated positions offer none of that protection, because there is nothing to offset; they all go the same way. Holding five correlated trades gives you the position size of five but the risk concentration of one, which is the worst of both worlds: large exposure with the false comfort of apparent diversity.</p>
+<h3>Moving Together Means Betting Together</h3>
+<p>The cleanest way to hold it is that correlation collapses separate positions into one effective bet. If two trades move together ninety percent of the time, holding both is very close to holding twice as much of one. The market does not care that they have different names; it drives them with the same hand, so they win together and lose together. Your real exposure is to the shared driver, not to the individual tickers.</p>
+<h3>Apparent Diversity, Actual Concentration</h3>
+<p>The insidious part is the appearance. A screen full of different positions looks diversified, and that look provides a false sense of safety. But appearance is not exposure. What matters is whether the positions move independently, and if they do not, the diversity is cosmetic. A trader can be far more concentrated than their position list suggests, which is exactly the gap correlation risk exploits.</p>
 
-            <polyline class="lineA anim" points="90,250 195,225 300,238 405,190 510,205 615,150 720,168 825,120 930,108" fill="none" stroke="#22d3a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></polyline>
-            <polyline class="lineB anim" points="90,264 195,240 300,252 405,204 510,220 615,164 720,182 825,134 930,122" fill="none" stroke="#5fe3c4" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"></polyline>
-          </svg>
-          <figcaption>Illustrative example. When two positions are highly correlated, their equity curves track each other, so holding both is closer to one trade at double size than two independent trades.</figcaption>
-        </figure>
+<h2 id="s2">Why It Concentrates Hidden Risk</h2>
+<p>The risk correlation creates is hidden precisely because each individual position looks reasonable. You sized each trade to a comfortable risk, so no single one alarms you. But because they move together, their risks add up rather than offsetting, and the total exposure to the shared driver can be several times what you would ever knowingly put on a single idea. The danger is invisible at the level of each trade and only appears when you sum the correlated group as the one bet it really is.</p>
+<p>When the shared driver does turn, the concentration reveals itself all at once. Every correlated position moves against you in the same session, and the combined loss arrives together, often far larger than the trader anticipated because they were mentally accounting for the positions separately. In a funded account with a hard drawdown limit, this is especially dangerous: a cluster of correlated trades can breach the limit in a single move that the trader thought was spread across several independent bets.</p>
 
-        <h2>Why it matters more on a funded account</h2>
-        <p>On a personal account, correlation risk is dangerous. On a funded account with a daily loss limit and a maximum drawdown, it is specifically the kind of mistake that ends accounts in a single session.</p>
-        <p>Picture it without real numbers. You decide your rule is to risk a set amount per trade, and you take two trades you think are separate. If they are tightly correlated and the market turns against the shared idea, both losers hit at the same moment. You did not risk one unit. You risked two on the same move. Your carefully chosen per-trade risk quietly became double, and a normal-looking loss on each can push you through the daily loss limit you thought you were respecting.</p>
-        <p>This is the cruel part. You followed your sizing rule on each individual trade and still blew your risk budget, because the rule measured trades and the danger lived in their correlation. We have written before about how much to risk per trade, and correlation is the asterisk on all of it. Per-trade risk only protects you if your trades are actually independent.</p>
+<div class="ig-corr bp-figure">
+<style>
+.ig-corr{margin:34px 0;border:1px solid hsla(0,0%,100%,.12);border-radius:18px;background:#070b16;padding:28px;font-family:"Inter",system-ui,sans-serif}
+.ig-corr h3{color:#fff;font-size:22px;margin:0 0 4px;letter-spacing:-.3px}
+.ig-corr .ig-sub{color:#22d3a8;font-size:14px;margin:0 0 20px}
+.ig-corr-chart{position:relative;height:170px;border-radius:12px;background:#0b1020;border:1px solid hsla(0,0%,100%,.08);overflow:hidden;margin-bottom:16px}
+.ig-corr-chart svg{position:absolute;inset:0;width:100%;height:100%}
+.ig-corr-thin{fill:none;stroke:#22d3a8;stroke-width:2;opacity:.35}
+.ig-corr-thick{fill:none;stroke:#22d3a8;stroke-width:5;stroke-linecap:round;stroke-dasharray:760;stroke-dashoffset:760;filter:drop-shadow(0 0 7px rgba(34,211,168,.6))}
+.ig-corr.in .ig-corr-thick{stroke-dashoffset:0;transition:stroke-dashoffset 1.6s ease .3s}
+.ig-corr-tag{position:absolute;right:12px;top:12px;font-size:12px;color:#22d3a8;font-weight:700;opacity:0;transition:opacity .5s 1.6s}
+.ig-corr.in .ig-corr-tag{opacity:1}
+.ig-corr-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ig-corr-card{border-radius:12px;padding:14px 16px}
+.ig-corr-card b{display:block;font-size:14px;margin-bottom:4px}
+.ig-corr-card p{margin:0;color:#d7dbe6;font-size:13px;line-height:1.5}
+.ig-corr-card.look{background:hsla(0,0%,100%,.03);border:1px solid hsla(0,0%,100%,.08)}.ig-corr-card.look b{color:#fff}
+.ig-corr-card.real{background:hsla(40,85%,50%,.1);border:1px solid hsla(40,90%,60%,.3)}.ig-corr-card.real b{color:#f0b23c}
+@media(max-width:560px){.ig-corr-cards{grid-template-columns:1fr}}
+</style>
+<h3>Two Trades, One Bet</h3>
+<p class="ig-sub">Highly correlated positions do not diversify. They stack into a single bigger bet</p>
+<div class="ig-corr-chart">
+<svg viewBox="0 0 600 170" preserveAspectRatio="none"><polyline class="ig-corr-thin" points="0,120 150,108 300,80 450,52 600,30"/><polyline class="ig-corr-thin" points="0,128 150,116 300,86 450,58 600,36"/><polyline class="ig-corr-thin" points="0,134 150,122 300,92 450,64 600,42"/><polyline class="ig-corr-thick" points="0,128 150,116 300,86 450,58 600,36"/></svg>
+<div class="ig-corr-tag">= one position, 3x size</div>
+</div>
+<div class="ig-corr-cards">
+<div class="ig-corr-card look"><b>Looks like</b><p>Three separate trades, each at a comfortable, normal size.</p></div>
+<div class="ig-corr-card real"><b>Acts like</b><p>One trade at triple the size, with triple the risk if it turns.</p></div>
+</div>
+</div><script>(function(){var el=document.currentScript.previousElementSibling;if(!el)return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){el.classList.add("in");io.disconnect();}});},{threshold:.25});io.observe(el);})();</script>
 
-        <h2>The other direction is just as real</h2>
-        <p>Correlation does not only stack losses. It stacks everything, including the wins, which is exactly why it fools people.</p>
-        <p>When two correlated trades both go your way, it feels like brilliant analysis and confirmation that you were right twice. You were not. You were right once, with double size. The good day flatters you into thinking the approach is sound, so you keep doing it. Then the day the shared idea is wrong, the same structure that doubled the upside doubles the downside, and it does it on a loss instead of a win.</p>
-        <p>A streak of correlated wins is not proof of skill. It is a larger bet that happened to land. Treating it as skill is how traders walk confidently into the loss that takes the account.</p>
+<h3>Risks Add Up Instead of Offsetting</h3>
+<p>The mechanism is that correlation removes the offsetting that real diversification provides. In a genuinely diversified set, a loss in one position is often cushioned by a gain in another. In a correlated set, there is no cushion; the losses pile on top of each other. So the same number of positions that would be relatively safe if independent becomes a concentrated risk when correlated, because nothing is working in the other direction.</p>
+<h3>They All Lose on the Same Day</h3>
+<p>The moment correlation bites is when the shared driver moves against the group, and it does so to all of them at once. There is no staggering, no diversification benefit, just a simultaneous loss across every correlated position. Because traders tend to account for positions one at a time, the size of that combined hit is usually a surprise, which is exactly why correlation risk ends accounts that felt diversified right up until the bad day.</p>
 
-        <h2>How to manage it without a math degree</h2>
-        <p>You do not need to calculate correlation coefficients in your head. You need a few simple habits that keep you honest about what you are really holding.</p>
-        <ul>
-          <li><strong>Ask one question before the second trade.</strong> If this new position and the one I already have usually move together, am I happy holding this as a single trade at combined size. If not, do not take it.</li>
-          <li><strong>Count exposure, not tickers.</strong> Two correlated longs are one long for risk purposes. Size the pair as if it were one position, not two.</li>
-          <li><strong>Watch your themes.</strong> If every open trade is the same direction on the same sector, index, or driver, you have one concentrated bet. The number of tickers is hiding it.</li>
-          <li><strong>Respect the daily loss limit as a portfolio number.</strong> It does not care how many trades caused the loss. Correlated positions can spend your whole daily budget at once, so plan for that before you click.</li>
-        </ul>
+<div class="bp-midcta"><strong>Want to manage total exposure clearly?</strong> <a href="https://tradefundrr.com/#markets">See how the risk rules work</a>.</div>
 
-        <h2>The honest summary</h2>
-        <p>Diversification is about independent risks, not a count of open positions. Two highly correlated trades are not two trades, they are one bet at double size, and a funded account with hard loss limits is the least forgiving place to learn that the hard way. The wins make it feel smart right up until the loss makes it expensive.</p>
-        <p>The whole reason to develop this in a structured, simulated environment is to build the habit of sizing for real exposure before any funded capital is on the line. Count the bet, not the tickers, and a lot of surprise drawdowns simply stop happening.</p>
+<h2 id="s3">Where Correlation Hides</h2>
+<p>Correlation is dangerous partly because it is not always obvious. The clearest case is holding several positions in the same instrument or sector, where the link is plain. But correlation also hides in less visible places: different tickers driven by the same macro factor, instruments tied to the same commodity or interest-rate move, or a basket of trades that all express the same underlying theme. On the surface they look like different bets; underneath, they share a single driver.</p>
+<p>This is why you cannot judge diversification by counting tickers. Two positions with completely different names can be nearly identical bets if the same force moves them both. A trader who spreads across several names but unknowingly picks names that all rise and fall with the same driver has achieved no diversification at all, just the appearance of it. Spotting the hidden shared driver, rather than trusting that different names mean different bets, is the real skill.</p>
+<h3>Same Driver, Different Names</h3>
+<p>The trap to watch for is positions that are nominally different but functionally the same. A handful of stocks in the same sector, several instruments sensitive to the same economic release, or multiple trades expressing one directional view on the market are all, in risk terms, close to a single bet. The names differ; the exposure does not. Always ask what actually drives each position, not just what it is called.</p>
+<h3>Why Counting Tickers Misleads</h3>
+<p>Counting how many different positions you hold tells you nothing about your real diversification, because it ignores how they move together. The meaningful question is how many genuinely independent bets you have, which is often far fewer than your position count. A list of five names that all move with one driver is, for risk purposes, one bet, and treating it as five is the error correlation risk punishes.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit, payout, or trading results, and this is general education rather than personalized trading or investment advice. Any examples are hypothetical and illustrative, and do not reflect actual trades. Always read the rules that apply to your own account. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<h2 id="s4">How to Size for the Real Bet</h2>
+<p>Managing correlation risk comes down to sizing for the bet you are actually making rather than the number of positions you happen to hold. The checklist below puts that into practice.</p>
+<div class="bp-checklist">
+<strong>To manage correlation risk:</strong>
+<ul>
+<li><strong>Identify the shared driver.</strong> Ask what actually moves each position, not just what it is called.</li>
+<li><strong>Treat correlated positions as one.</strong> Size the whole correlated group as a single bet for total risk.</li>
+<li><strong>Cap your exposure to any one driver.</strong> Limit how much total risk rides on a single underlying force.</li>
+<li><strong>Seek genuinely independent bets.</strong> Real diversification needs positions that do not move together.</li>
+<li><strong>Count independent bets, not tickers.</strong> Judge your concentration by drivers, not by the length of your position list.</li>
+</ul>
+</div>
+<h3>Treat the Correlated Group as One Position</h3>
+<p>The single most useful habit is to mentally collapse correlated positions into one and size the group to the risk you would allow for a single bet. If three trades move together, their combined risk should fit within your normal risk for one position, not three. This keeps your true exposure to any one driver within your limits, which is exactly what correlation risk otherwise sneaks past. Size the bet, not the tickers.</p>
+
+<div class="bp-midcta"><strong>Practice sizing for true exposure.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Count the Bet, Not the Tickers</h2>
+<p>Correlation risk is the quiet way a trader who feels diversified ends up concentrated, because positions that move together are not separate bets but one bet repeated. The risk hides at the level of each comfortable-looking position and reveals itself all at once when the shared driver turns, which in a funded account can mean a single move that breaches a limit the trader thought was spread across independent trades. The fix is to size for the real bet, not the ticker count.</p>
+<p>A structured, simulated environment is a good place to build this awareness, because you can practice identifying shared drivers and sizing correlated groups as one position without your savings on the line while the habit forms. Learning to count independent bets rather than positions, and to cap your exposure to any single driver, is a risk skill that transfers directly to any account and protects you from a concentration you would otherwise not see.</p>
+<p>Two trades can secretly be one bet, and a screen that looks diversified can be dangerously concentrated. TradeFundrr gives you a structured, simulated environment with clear risk rules to develop the habit of sizing for true exposure. Identify what actually drives each position, treat correlated positions as a single bet, cap your total risk on any one driver, and count independent bets rather than tickers, so the diversification you think you have is the diversification you actually hold.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What is correlation risk?</summary>
+<div class="ans">Correlation risk is the danger that positions you think are separate are actually moving together, so they concentrate rather than spread your risk. Two highly correlated trades are effectively one bet at roughly double the size. A portfolio of correlated positions can carry far more risk than the trader believes, because the diversification is an illusion.</div>
+</details>
+<details>
+<summary>Why are correlated trades really one bet?</summary>
+<div class="ans">Because the same forces drive them, so they win together and lose together. Knowing what one does tells you most of what the other will do, which means they are not independent. Holding several correlated positions gives you the size of several but the risk concentration of one, with no offsetting between them when the shared driver moves.</div>
+</details>
+<details>
+<summary>How does correlation hide my real risk?</summary>
+<div class="ans">Each individual position looks reasonably sized, so none alarms you. But because they move together, their risks add up instead of offsetting, and the total exposure to the shared driver can be several times what you would knowingly put on one idea. The danger is invisible per trade and only appears when you sum the correlated group as the one bet it is.</div>
+</details>
+<details>
+<summary>Where does correlation hide?</summary>
+<div class="ans">Often in plain sight: several positions in the same sector, different tickers driven by the same macro factor, instruments tied to the same commodity or rate move, or a basket of trades expressing one theme. On the surface they look like different bets, but underneath they share a single driver, so different names do not guarantee different risk.</div>
+</details>
+<details>
+<summary>How do I size for correlated positions?</summary>
+<div class="ans">Treat the correlated group as one position and size it to the risk you would allow for a single bet, not for several. If three trades move together, their combined risk should fit within your normal risk for one position. That keeps your true exposure to any single driver within your limits, which is what correlation otherwise sneaks past.</div>
+</details>
+<details>
+<summary>Does holding more positions mean I am diversified?</summary>
+<div class="ans">Not necessarily. Counting tickers tells you nothing about diversification, because it ignores how the positions move together. The meaningful question is how many genuinely independent bets you have, which is often far fewer than your position count. Five names that all move with one driver are, for risk purposes, a single bet.</div>
+</details>
+<details>
+<summary>Can I practice managing correlation risk in a simulated account?</summary>
+<div class="ans">Yes. A structured, simulated environment lets you practice identifying shared drivers and sizing correlated groups as one position without your savings on the line while the habit forms. Learning to count independent bets rather than tickers, and to cap exposure to any one driver, transfers directly to any account.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Size for the bet you are really making</h3>
-          <p>Develop your risk discipline in a structured, simulated environment with clear, written rules, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Count the bet, not the tickers</h3>
+          <p>Develop the habit of sizing for true exposure in a structured, simulated environment with clear rules.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -325,17 +355,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('cfig');
-    if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
-    },{threshold:.35});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}
