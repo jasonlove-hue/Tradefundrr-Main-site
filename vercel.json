@@ -5,6 +5,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/blog/prop-firm-human-support-why-scripts-and-bots-fail-professional-traders",
+      "destination": "/blog/prop-firm-human-support",
+      "permanent": true
+    },
+    {
       "source": "/futures-session-times",
       "destination": "/blog/futures-session-times",
       "permanent": true
