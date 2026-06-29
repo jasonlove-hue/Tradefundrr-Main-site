@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why Funded Accounts Have an Inactivity Rule | TradeFundrr Blog</title>
-  <meta name="description" content="If you stop placing trades, a funded or evaluation account can quietly switch off. What an inactivity rule is, why it exists, what resets the clock, and how to stay on the right side of it.">
+  <meta name="description" content="Stop trading for long enough and the account can switch off. Why funded accounts have an inactivity rule, what resets the clock, and how to stay clear of the limit without overtrading.">
   <link rel="canonical" href="https://tradefundrr.com/blog/inactivity-rules-explained">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-26">
   <meta property="article:section" content="Rules">
   <meta property="og:title" content="Why Funded Accounts Have an Inactivity Rule">
-  <meta property="og:description" content="Stop trading for long enough and the account can switch off. What the rule is, why it exists, and what resets the clock.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260626_120555_10e7c092-6561-45ad-81df-05dc4975502d.png">
+  <meta property="og:description" content="Stop trading long enough and the account can switch off. What an inactivity rule is, and how to stay clear.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_001304_261f6e0a-4fdf-44ca-86f1-be8e995d5b92.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,95 +33,37 @@
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    /* embedded diagram */
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #inactfig .anim{opacity:0}
-    #inactfig.play .day{animation:inFade .4s ease forwards}
-    #inactfig.play .d2{animation-delay:.09s}#inactfig.play .d3{animation-delay:.18s}#inactfig.play .d4{animation-delay:.27s}#inactfig.play .d5{animation-delay:.36s}#inactfig.play .d6{animation-delay:.45s}
-    #inactfig.play .gapcell{animation:inFade .5s ease forwards;animation-delay:.75s}
-    #inactfig.play .thresh{animation:inFade .5s ease forwards;animation-delay:1.15s}
-    #inactfig.play .lbl{animation:inFade .45s ease forwards;animation-delay:1.35s}
-    #inactfig.play .lb2{animation-delay:1.6s}
-    @keyframes inFade{to{opacity:1}}
-    @media (prefers-reduced-motion: reduce){#inactfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -157,94 +99,130 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 26, 2026</span>
-        <span class="bp-dot"></span><span>6 min read</span>
+        <span class="bp-dot"></span><span>7 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260626_120555_10e7c092-6561-45ad-81df-05dc4975502d.png" alt="Abstract row of mint candlestick bars on navy that fade into a long quiet empty gap before resuming">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_001304_261f6e0a-4fdf-44ca-86f1-be8e995d5b92.png" alt="A cinematic render of a dimming trading monitor beside a glowing teal countdown clock, representing a funded account inactivity rule">
 
       <div class="bp-body">
-        <p>You pass the evaluation. You get the account. Then life happens. A busy stretch at work, a holiday, a run of choppy markets where nothing looks worth trading, and a week or two slips by without a single order. You log back in expecting to pick up where you left off, and the account is gone. Not breached on a loss. Switched off for sitting still.</p>
-        <p>This catches people off guard, so it is worth saying plainly. Most funded and evaluation accounts carry an inactivity rule. If you go a set number of days without placing a trade, the account can be deactivated or treated as a breach. It feels like a strange thing to penalize, but there are sound reasons behind it, and the rule is easy to stay on the right side of once you understand it.</p>
 
-        <h2>What an inactivity rule actually is</h2>
-        <p>An inactivity rule sets a maximum gap between trades. Trade today, and the clock resets to zero. Do nothing tomorrow, and the counter ticks up by one day. Let enough days stack up in a row without any trading activity, and the account hits the limit and is closed or flagged.</p>
-        <p>The exact window varies a lot between firms and between account types, and it is one of those numbers you should never assume. Some programs measure it in calendar days, others in trading days. Some count any order, others want a filled position. The only place that matters is the written rules attached to your specific account, so read them and know your number before you need it.</p>
+<p>Most funded account rules are about how you trade: how much you can lose, how big you can size, how consistent you have to be. The inactivity rule is different. It is about whether you trade at all. Stop placing trades for long enough and the account can simply switch off, regardless of how well you were doing. It surprises traders precisely because it punishes doing nothing, which feels like the safest possible behavior. Understanding why it exists makes it easy to stay clear of.</p>
+<p>The inactivity rule is not a trap and not a way to bleed extra fees. It exists for sensible reasons that, once you see them, make the rule feel reasonable rather than arbitrary. And staying on the right side of it does not require overtrading; it just requires understanding what counts as activity and keeping a light, regular cadence.</p>
+<p>Here is what an inactivity rule is and how to live with it easily. In this guide we will cover what the rule actually is, why firms have it, what resets the clock, and how to stay clear of the limit without trading more than you should.</p>
 
-        <h2>Why the rule exists</h2>
-        <p>It is tempting to read any account rule as a trap designed to catch you out. This one is mostly housekeeping, and understanding the why makes it far less annoying.</p>
-        <ul>
-          <li><strong>A funded account is a working relationship, not a trophy.</strong> The point of getting funded is to trade. An account that never places a trade is not developing anything, and the firm is carrying it for no reason.</li>
-          <li><strong>It keeps the system clean.</strong> Programs cannot leave thousands of dormant accounts open forever. A reasonable inactivity window lets old, abandoned accounts close on their own instead of lingering.</li>
-          <li><strong>It discourages gaming the account.</strong> Without a rule, someone could pass, then sit untouched for months waiting to fire a single oversized bet on one news event. An inactivity rule nudges everyone toward steady participation rather than lying in wait.</li>
-          <li><strong>It rewards the habit the whole model is built on.</strong> Consistency is the thing funded trading is trying to develop. Showing up regularly, even in small size, is the behavior the program wants to see.</li>
-        </ul>
-        <p>None of that requires you to overtrade. It just asks you not to vanish.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Inactivity can close an account.</strong> Going too long without a qualifying trade can pause or end a funded account.</li>
+<li><strong>It is not about fees.</strong> The rule exists to keep accounts genuinely active and engaged, not to penalize you.</li>
+<li><strong>A real trade resets the clock.</strong> Activity usually means an actual executed trade within the allowed window.</li>
+<li><strong>It does not require overtrading.</strong> Staying active is a light, regular cadence, not forcing trades to satisfy a counter.</li>
+<li><strong>Read your specific window.</strong> The exact inactivity period and what qualifies vary by firm, so confirm it in writing.</li>
+</ul>
 
-        <h2>What resets the clock</h2>
-        <p>The clock resets every time you place a qualifying trade. The diagram below shows the idea: a few days of activity, then a stretch of nothing, and a limit waiting at the end of that quiet stretch.</p>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">What an Inactivity Rule Is</a></li>
+<li><a href="#s2">Why Firms Have Them</a></li>
+<li><a href="#s3">What Resets the Clock</a></li>
+<li><a href="#s4">How to Stay Clear of the Limit</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Engagement, Not Overtrading</a></li>
+</ul>
 
-        <figure class="bp-figure" id="inactfig">
-          <span class="figtag">Illustrative example</span>
-          <svg viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="A timeline of day cells showing four active trading days, then a long run of inactive days reaching an inactivity limit">
-            <text x="60" y="46" fill="#fff" font-size="20" font-weight="700">Each trade resets the inactivity clock</text>
-            <!-- last trade marker above day 4 -->
-            <g class="anim lbl lb2">
-              <line x1="230" y1="120" x2="230" y2="146" stroke="#22d3a8" stroke-width="1.5"/>
-              <text x="230" y="112" fill="#22d3a8" font-size="14" font-weight="700" text-anchor="middle">Last trade</text>
-            </g>
-            <!-- active day cells -->
-            <rect class="anim day"    x="60"  y="150" width="40" height="44" rx="6" fill="#22d3a8" fill-opacity=".85"/>
-            <rect class="anim day d2" x="110" y="150" width="40" height="44" rx="6" fill="#22d3a8" fill-opacity=".85"/>
-            <rect class="anim day d3" x="160" y="150" width="40" height="44" rx="6" fill="#22d3a8" fill-opacity=".85"/>
-            <rect class="anim day d4" x="210" y="150" width="40" height="44" rx="6" fill="#22d3a8" fill-opacity=".85"/>
-            <!-- inactive (gap) day cells -->
-            <rect class="anim gapcell" x="260" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="310" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="360" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="410" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="460" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="510" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="560" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="610" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="660" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <rect class="anim gapcell" x="710" y="150" width="40" height="44" rx="6" fill="none" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <!-- inactivity limit -->
-            <g class="anim thresh">
-              <line x1="762" y1="134" x2="762" y2="210" stroke="#f0556b" stroke-width="2" stroke-dasharray="6 5"/>
-              <text x="776" y="178" fill="#f08294" font-size="15" font-weight="700">Inactivity limit</text>
-            </g>
-            <!-- brackets / labels -->
-            <g class="anim lbl">
-              <text x="155" y="240" fill="#22d3a8" font-size="14" font-weight="700" text-anchor="middle">Days you traded</text>
-              <text x="505" y="240" fill="#9fb0c3" font-size="14" text-anchor="middle">Days with no trading activity</text>
-            </g>
-          </svg>
-          <figcaption>Illustrative example only. The number of days shown is simplified to explain the concept. Your account&rsquo;s real limit, and how it is counted, is set out in your written account rules.</figcaption>
-        </figure>
+<h2 id="s1">What an Inactivity Rule Is</h2>
+<p>An inactivity rule sets a maximum amount of time your funded account can go without a qualifying trade. Exceed that window, and the account is flagged, paused, or in some cases closed. The clock typically resets every time you place a qualifying trade, so as long as you trade with some regularity, you never come close to the limit. It is, in essence, a use-it-or-lose-it condition on the account.</p>
+<p>The rule catches traders off guard because it is the one funded-account rule that penalizes caution. Every other rule rewards you for not doing risky things; the inactivity rule is the only one that requires you to actually do something. A trader who steps away for a few weeks, thinking they are simply protecting the account by not trading, can return to find the account has lapsed. Knowing the rule exists is most of the battle.</p>
+<h3>A Time Limit on Doing Nothing</h3>
+<p>The simplest way to think about it is as a deadline that keeps moving forward each time you trade. Place a qualifying trade and the deadline resets to the full window ahead. Let it approach without trading and the account is at risk. There is nothing hidden in the mechanism; it is just a clock that your trading keeps winding back up.</p>
+<h3>Why It Surprises Traders</h3>
+<p>The surprise comes from the intuition that not trading is always safe. In risk terms it usually is, but the inactivity rule adds a separate condition that has nothing to do with risk and everything to do with keeping the account live. Traders who only think about loss limits and drawdown can miss it entirely, which is why it is worth knowing about before it ever becomes relevant.</p>
 
-        <p>The practical takeaway is simple. You do not need to trade every day to keep an account alive. You need to trade often enough that the gaps never reach the limit. For most traders who are actually using the account, this is a non-issue. It only bites people who get funded and then drift away.</p>
+<h2 id="s2">Why Firms Have Them</h2>
+<p>The inactivity rule exists for practical reasons that have nothing to do with squeezing traders. The main one is that a funded account is meant to be traded. The firm is providing a structured environment and a simulated allocation for the purpose of active trading, and an account sitting idle for months is not serving that purpose. The rule keeps the program populated with traders who are actually engaged.</p>
+<p>There are operational reasons too. Idle accounts consume administrative overhead, complicate the firm's view of who is genuinely active, and can accumulate stale positions or data. Clearing or pausing dormant accounts keeps the program clean and focused on traders who are using it as intended. None of this is punitive; it is housekeeping that keeps the whole structure functioning for the people actively trading.</p>
+<h3>Accounts Are Meant to Be Traded</h3>
+<p>At its heart, the rule simply reflects the deal. A funded account is access to a trading environment for the purpose of trading, not a permanent entitlement to hold idle. Asking that the account be used with some regularity is a reasonable condition for providing it. Seen this way, the inactivity rule is less a restriction and more a description of what the account is for.</p>
+<h3>Keeping the Program Active and Clean</h3>
+<p>From the firm's side, a program full of dormant accounts is harder to run and less healthy than one full of engaged traders. The inactivity rule is a simple mechanism for keeping the population active, which benefits everyone using the program seriously. It is the same logic as many memberships and services that expect ongoing use; idle resources get reclaimed so active ones are well served.</p>
 
-        <h2>How to stay on the right side of it</h2>
-        <p>You do not beat an inactivity rule by forcing trades you do not believe in. That trades one problem for a worse one. A few simpler habits keep you safe:</p>
-        <ul>
-          <li><strong>Know your exact window.</strong> Find the number in your account rules and write it somewhere you will see it. A rule you know about is rarely a rule that gets you.</li>
-          <li><strong>Plan around time away.</strong> If you know a holiday or a busy work stretch is coming, plan your trading around it the way you would plan any other commitment.</li>
-          <li><strong>Do not let a cold streak turn into silence.</strong> Stepping back after a rough run is healthy. Disappearing entirely for weeks is how a recoverable slump turns into a closed account.</li>
-          <li><strong>If you genuinely need a longer break, ask first.</strong> Some programs can note an account or pause the clock if you reach out before you go quiet. Support can only help you ahead of time, not after the limit is hit.</li>
-        </ul>
+<figure class="bp-figure">
+  <span class="figtag">How it works</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_001325_d99b21ef-f77f-49b9-bea3-cd5553c9f782.png" alt="Infographic showing how an inactivity rule works as a flow: place a qualifying trade, the inactivity clock resets, no activity for too long, and the account is paused or closed, with a note that activity usually means a real executed trade within the allowed window and means genuine engagement, not overtrading." loading="lazy">
+</figure>
 
-        <h2>One honest caveat</h2>
-        <p>Staying active is not the same as staying disciplined. Logging a trade purely to reset a counter, with no setup and no plan, is exactly the kind of bored, box-checking trade that does real damage over time. The inactivity rule asks for participation, not noise. If the only reason you can find to place a trade is the clock, the better move is usually to plan ahead so you are never trading against a deadline in the first place. As with anything touching account status, confirm the exact terms in the written rules of your account, and remember this all plays out in a structured, simulated environment built for practicing that kind of steadiness.</p>
+<h3>The Logic Once You See It</h3>
+<p>Once the reasons are laid out, the rule stops feeling arbitrary. It keeps accounts genuinely active, keeps the program clean, and reflects the basic purpose of a funded account. There is no hidden agenda to find; the rule is exactly what it appears to be, and the way to stay clear of it is simply to trade with some regularity, which an active trader does anyway.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of any outcome, and the day counts shown above are illustrative only. Account rules, including any inactivity window and how it is measured, are defined in the written terms of your specific account. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<h2 id="s3">What Resets the Clock</h2>
+<p>In most programs, the thing that resets the inactivity clock is a qualifying trade, meaning a real, executed trade within the account, not merely logging in or watching the markets. The specifics vary, so the important move is to read your own program's definition. Some firms count any executed trade; some have conditions about size or whether the position was held for a minimum time. What is universal is that genuine trading activity is what keeps the account live.</p>
+<p>Equally important is knowing the length of the window. Inactivity periods differ widely between firms, from a couple of weeks to a month or more, and the account behavior at the limit, a warning, a pause, or a closure, also varies. Treat both the window and the definition of a qualifying trade as things to confirm in writing for your specific account, rather than assuming a standard.</p>
+<h3>A Qualifying Trade, Not Just Logging In</h3>
+<p>The common misconception is that simply being present, logging in, watching charts, or having the platform open, keeps the account active. Usually it does not. The clock resets on action, an actual trade, not on attention. If you are going to be away, the thing that protects the account is having placed a qualifying trade within the window, not having checked in.</p>
+<h3>Know Your Program's Window</h3>
+<p>Because the window length and the exact qualifying conditions vary so much, the single most useful thing you can do is find the specific numbers for your account and note them. Knowing that your window is, say, a set number of calendar days, and what counts as resetting it, turns the inactivity rule from a lurking surprise into a simple item you can manage like any other.</p>
+
+<h2 id="s4">How to Stay Clear of the Limit</h2>
+<p>Staying on the right side of an inactivity rule is genuinely easy and, importantly, does not require trading more than your strategy calls for. The checklist below covers it.</p>
+<div class="bp-checklist">
+<strong>To stay clear of the inactivity limit:</strong>
+<ul>
+<li><strong>Know your exact window in writing.</strong> Confirm the inactivity period and what counts as a qualifying trade for your account.</li>
+<li><strong>Keep a light, regular cadence.</strong> An active trader rarely approaches the limit; a few trades within the window is plenty.</li>
+<li><strong>Plan around breaks.</strong> If you will be away, place a qualifying trade before you go, or note when the window expires.</li>
+<li><strong>Do not overtrade to satisfy it.</strong> The rule asks for engagement, not volume; never force a bad trade just to reset the clock.</li>
+<li><strong>Set a personal reminder.</strong> Track the window yourself rather than relying on a warning that may or may not come.</li>
+</ul>
+</div>
+<h3>Light Cadence Beats Forced Trades</h3>
+<p>The crucial balance is between staying active and not overtrading. The inactivity rule should never push you into a trade your strategy does not justify, because a forced trade to satisfy a counter is exactly the kind of undisciplined behavior every other rule is trying to prevent. For an actively trading trader the rule is a non-issue; the only real risk is to someone planning a long break, and that is solved by a single qualifying trade beforehand, not by trading more.</p>
+
+<div class="bp-midcta"><strong>Want rules that are clear from the start?</strong> <a href="https://tradefundrr.com/#markets">See how the accounts work</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Engagement, Not Overtrading</h2>
+<p>The inactivity rule comes down to a simple idea: a funded account is meant to be traded, so it asks for genuine engagement and reclaims accounts that sit idle. It is not a fee trap or a hidden penalty; it is housekeeping that keeps the program active and focused on traders who are actually using it. Once you understand the reasoning, the rule is one of the easiest to live with.</p>
+<p>The one thing to hold onto is that staying active never means overtrading. The rule asks for engagement, not volume, and forcing trades to satisfy it would violate the spirit of every other rule about discipline. In a structured, simulated environment, the right posture is a light, regular cadence that matches your actual strategy, with a qualifying trade placed before any planned break.</p>
+<p>Funded accounts have an inactivity rule because the account exists to be traded, and an idle one is not serving its purpose for you or the program. TradeFundrr keeps its rules clear, including the inactivity window, so you always know what keeps your account live. Confirm your specific window and qualifying conditions in writing, keep a light and regular cadence, and never let the rule push you into a trade your strategy does not justify.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What is an inactivity rule on a funded account?</summary>
+<div class="ans">It is a maximum amount of time your account can go without a qualifying trade. Exceed that window and the account can be flagged, paused, or closed. The clock typically resets each time you place a qualifying trade, so trading with some regularity keeps you well clear of it. It is essentially a use-it-or-lose-it condition.</div>
+</details>
+<details>
+<summary>Why do funded accounts have an inactivity rule?</summary>
+<div class="ans">Because a funded account exists to be traded. The firm provides a structured environment and a simulated allocation for active trading, and an account sitting idle is not serving that purpose. The rule keeps the program populated with engaged traders and keeps it operationally clean. It is housekeeping, not a penalty or a fee trap.</div>
+</details>
+<details>
+<summary>What counts as activity that resets the clock?</summary>
+<div class="ans">In most programs, a real, executed trade within the account, not merely logging in or watching the markets. Some firms count any executed trade; others have conditions about size or how long a position was held. The specifics vary, so read your program's definition. What is universal is that genuine trading activity, not just attention, resets it.</div>
+</details>
+<details>
+<summary>Does logging in count as activity?</summary>
+<div class="ans">Usually not. The common misconception is that being present, logging in, watching charts, or keeping the platform open, keeps the account active. The clock typically resets on action, an actual qualifying trade, rather than on attention. If you will be away, what protects the account is having placed a qualifying trade within the window.</div>
+</details>
+<details>
+<summary>How long is the inactivity window?</summary>
+<div class="ans">It varies widely by firm, from a couple of weeks to a month or more, and the behavior at the limit, a warning, a pause, or a closure, also differs. There is no universal length, so confirm both the window and what counts as a qualifying trade in writing for your specific account rather than assuming a standard.</div>
+</details>
+<details>
+<summary>Will the inactivity rule force me to overtrade?</summary>
+<div class="ans">No, and it should not. The rule asks for engagement, not volume. An actively trading trader rarely approaches the limit, and you should never force a bad trade just to reset the clock, since that contradicts every other rule about discipline. The only real risk is a long planned break, which is solved by a single qualifying trade beforehand.</div>
+</details>
+<details>
+<summary>How do I avoid losing my account to inactivity?</summary>
+<div class="ans">Know your exact window in writing, keep a light and regular trading cadence, and plan around breaks by placing a qualifying trade before you step away. Set your own reminder for the window rather than relying on a warning that may not come. For an active trader it is a non-issue; for someone taking time off, a little planning solves it.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. Inactivity windows, qualifying-trade definitions, and account consequences vary by firm and account, so always read and follow the written terms for your specific account. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Show up, stay funded</h3>
-          <p>Build the habit of steady, rule-aware trading in a structured, simulated environment, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Keep your account live without overtrading</h3>
+          <p>Trade in a structured, simulated environment with clear rules you always know in advance.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -350,17 +328,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('inactfig');
-    if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
-    },{threshold:.35});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}

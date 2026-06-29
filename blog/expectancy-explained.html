@@ -8,14 +8,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expectancy: The One Number That Tells You If a System Works | TradeFundrr Blog</title>
-  <meta name="description" content="Win rate alone tells you almost nothing. Expectancy combines how often you win with how much you win and lose into a single number that says whether a trading approach can survive over time. Here is how it works, in plain English.">
+  <meta name="description" content="A trader can win 60 percent of the time and still lose money. Expectancy folds win rate and the size of wins and losses into one number that says whether an approach actually works.">
   <link rel="canonical" href="https://tradefundrr.com/blog/expectancy-explained">
   <meta property="og:type" content="article">
   <meta property="article:published_time" content="2026-06-28">
-  <meta property="article:section" content="Risk & Reward">
+  <meta property="article:section" content="Risk &amp; Reward">
   <meta property="og:title" content="Expectancy: The One Number That Tells You If a System Works">
-  <meta property="og:description" content="Win rate is only half the story. Expectancy is the number that says whether an approach holds up.">
-  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_120552_7fc1aa61-2b5b-499e-940c-c26d4c6158e0.png">
+  <meta property="og:description" content="Win rate is only half the story. Expectancy is the single number that says whether a system actually works.">
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_001254_4107bb84-de88-4179-b8f6-ce2408a59380.png">
   <link rel="icon" type="image/png" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link rel="apple-touch-icon" href="/assets/images/tf-icon-dark.png?v=202605241720">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -33,94 +33,37 @@
     .bp-hero{width:100%;border-radius:14px;margin:6px 0 34px;border:1px solid hsla(0,0%,100%,.1)}
     .bp-body p{color:#d7dbe6;font-size:17px;line-height:1.75;margin-bottom:22px}
     .bp-body h2{font-family:"Inter",system-ui,sans-serif;font-size:25px;letter-spacing:-.4px;margin:38px 0 14px;color:#fff}
+    .bp-body h3{font-family:"Inter",system-ui,sans-serif;font-size:19px;letter-spacing:-.2px;margin:26px 0 10px;color:#fff}
     .bp-body ul{margin:0 0 22px 20px;color:#d7dbe6;font-size:17px;line-height:1.7}
     .bp-body li{margin-bottom:10px}
     .bp-body li strong,.bp-body p strong{color:#fff}
     .bp-body em{color:hsla(0,0%,100%,.62)}
+    .bp-body .table-of-contents a,.bp-body a{color:#22d3a8}
+    .bp-checklist{margin:26px 0;padding:18px 22px;background:#0b1020;border:1px solid hsla(160,60%,45%,.2);border-radius:12px}
+    .bp-checklist strong{color:#fff}
+    .bp-checklist ul{margin:12px 0 0 18px}
+    .bp-midcta{margin:26px 0;padding:16px 20px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:12px;color:#d7dbe6;font-size:16px}
+    .bp-midcta a{color:#22d3a8;font-weight:700;text-decoration:none}
+    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
+    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:14px;font-family:"Inter"}
+    .bp-figure img{width:100%;height:auto;display:block;border-radius:8px}
+    .faq{margin-top:8px}
+    .faq details{border-bottom:1px solid hsla(0,0%,100%,.1)}
+    .faq summary{list-style:none;cursor:pointer;padding:18px 4px;font-family:"Inter",system-ui,sans-serif;font-size:18px;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:14px}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";color:#22d3a8;font-size:26px;font-weight:400;line-height:1}
+    .faq details[open] summary::after{content:"\2212"}
+    .faq .ans{padding:0 4px 18px;color:#d7dbe6;font-size:16.5px;line-height:1.7}
     .bp-disclaimer{margin-top:40px;padding:18px 20px;background:#0b1020;border:1px solid hsla(0,0%,100%,.1);border-radius:12px;color:hsla(0,0%,100%,.5);font-size:13px;line-height:1.6}
     .bp-cta{margin:46px 0 0;padding:34px;background:linear-gradient(120deg,#0c1a2e,#0a1f1a);border:1px solid hsla(160,60%,45%,.25);border-radius:16px;text-align:center}
     .bp-cta h3{font-family:"Inter";font-size:22px;margin-bottom:10px;color:#fff}
     .bp-cta p{color:hsla(0,0%,100%,.62);margin-bottom:18px}
     .bp-cta .btn{display:inline-flex;align-items:center;gap:8px;background:#22d3a8;color:#04130f;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px}
     .bp-back{color:#22d3a8;font-weight:600;font-size:14.5px;display:inline-flex;gap:8px;align-items:center;margin-top:36px}
-    /* embedded diagram */
-    .bp-figure{margin:30px 0;background:#0d1326;border:1px solid hsla(0,0%,100%,.1);border-radius:14px;padding:24px}
-    .bp-figure .figtag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:#04130f;background:#22d3a8;padding:3px 9px;border-radius:6px;margin-bottom:12px;font-family:"Inter"}
-    .bp-figure svg{width:100%;height:auto;display:block}
-    .bp-figure figcaption{color:hsla(0,0%,100%,.5);font-size:13px;margin-top:12px}
-    #expfig .anim{opacity:0}
-    #expfig.play .bar{animation:expRise .7s ease forwards}
-    #expfig.play .b2{animation-delay:.3s}
-    #expfig.play .lbl{animation:expFade .6s ease forwards}
-    #expfig.play .l2{animation-delay:.4s}
-    @keyframes expFade{to{opacity:1}}
-    @keyframes expRise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-    @media (prefers-reduced-motion: reduce){#expfig .anim{opacity:1 !important;animation:none !important;transform:none !important}}
     @media(max-width:560px){.bp-article h1{font-size:30px}}
   </style>
 </head>
 <body>
-<!-- TF_WELCOME_BAR_START -->
-<div id="tf-welcome-bar" role="region" aria-label="Welcome announcement">
-  <span class="tf-wb-text"><span class="wb-lg">More markets. Bigger accounts. Funded crypto. Welcome to the new <b>TradeFundrr</b>.</span><span class="wb-sm">Funded crypto &amp; bigger accounts &mdash; now live.</span></span>
-  <a class="tf-wb-cta" href="/#markets">Explore funding &rarr;</a>
-  <button type="button" class="tf-wb-x" aria-label="Dismiss welcome message">&times;</button>
-</div>
-<style>
-  #tf-welcome-bar{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:center;gap:16px;
-    background:#22d3a8;border-bottom:1px solid rgba(0,0,0,.18);
-    padding:9px 46px;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:600;color:#0a0e12;
-    line-height:1.35;text-align:center}
-  #tf-welcome-bar .tf-wb-text b{color:#0a0e12;font-weight:800}
-  #tf-welcome-bar .tf-wb-cta{color:#0a0e12;font-weight:700;text-decoration:none;white-space:nowrap;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase}
-  #tf-welcome-bar .tf-wb-cta:hover{text-decoration:underline}
-  #tf-welcome-bar .tf-wb-x{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:transparent;border:0;
-    color:rgba(0,0,0,.55);cursor:pointer;font-size:22px;line-height:1;padding:0 4px}
-  #tf-welcome-bar .tf-wb-x:hover{color:#000}
-  #tf-welcome-bar .wb-sm{display:none}
-  @media(max-width:620px){
-    #tf-welcome-bar{font-size:12.5px;padding:7px 34px 7px 14px;gap:8px;line-height:1.3}
-    #tf-welcome-bar .tf-wb-cta{display:none}
-    #tf-welcome-bar .wb-lg{display:none}
-    #tf-welcome-bar .wb-sm{display:inline}
-  }
-</style>
-<script>
-(function(){
-  var KEY='tfWelcomeDismissed_v1';
-  var bar=document.getElementById('tf-welcome-bar');
-  if(!bar)return;
-  var gone=false; try{gone=sessionStorage.getItem(KEY)==='1';}catch(e){}
-  if(gone){ if(bar.parentNode) bar.parentNode.removeChild(bar); return; }
-  var hd=document.querySelector('.site-header');
-  var hdPos = hd ? getComputedStyle(hd).position : '';
-  var basePad = parseFloat(getComputedStyle(document.body).paddingTop)||0;
-  function apply(){
-    var h=bar.offsetHeight||42;
-    document.body.style.paddingTop=(basePad+h)+'px';
-    if(hd){
-      if(hdPos==='fixed'){ hd.style.marginTop=h+'px'; }
-      else if(hdPos==='sticky'){ hd.style.top=h+'px'; }
-    }
-  }
-  function clear(){
-    document.body.style.paddingTop=(basePad?basePad+'px':'');
-    if(hd){ if(hdPos==='fixed') hd.style.marginTop=''; else if(hdPos==='sticky') hd.style.top=''; }
-  }
-  apply();
-  window.addEventListener('resize',apply);
-  bar.querySelector('.tf-wb-x').addEventListener('click',function(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    window.removeEventListener('resize',apply);
-    clear();
-    if(bar.parentNode) bar.parentNode.removeChild(bar);
-  });
-})();
-</script>
-<!-- TF_WELCOME_BAR_END -->
-
-
 <header class="site-header">
   <nav class="navbar" aria-label="Primary">
     <a href="/" class="navbar__logo" aria-label="TradeFundrr home"><img src="/assets/images/logo.svg" alt="logo"></a>
@@ -156,76 +99,130 @@
       <div class="bp-meta">
         <span class="who"><span class="av"><img src="/assets/images/tf-icon-dark.png?v=202605241720" alt="TradeFundrr"></span> TradeFundrr</span>
         <span class="bp-dot"></span><span>June 28, 2026</span>
-        <span class="bp-dot"></span><span>7 min read</span>
+        <span class="bp-dot"></span><span>8 min read</span>
       </div>
 
-      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260628_120552_7fc1aa61-2b5b-499e-940c-c26d4c6158e0.png" alt="Abstract mint teal candlestick bars and a faint upward line on a deep navy background, suggesting averages and probability">
+      <img class="bp-hero" src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_001254_4107bb84-de88-4179-b8f6-ce2408a59380.png" alt="A cinematic render of a glowing teal bell curve and data points resolving into a single value, representing trading expectancy">
 
       <div class="bp-body">
-        <p>Ask most traders how good their approach is and they will tell you their win rate. "I win about 60% of my trades." It sounds like an answer. It is only half of one.</p>
-        <p>Win rate tells you how often you are right. It says nothing about how much you make when you are right or how much you lose when you are wrong. A trader who wins 60% of the time can still go broke, and a trader who wins 40% of the time can grind steadily upward. The number that settles the question is expectancy.</p>
 
-        <h2>What expectancy actually is</h2>
-        <p>Expectancy is the average result you can expect from a single trade, taken over many trades. It folds three things into one figure: how often you win, how much you win when you do, and how much you lose when you do not.</p>
-        <p>The plain-English version of the formula is this:</p>
-        <p><strong>Expectancy = (Win rate × Average win) − (Loss rate × Average loss)</strong></p>
-        <p>That is it. You weight your average win by how often you win, weight your average loss by how often you lose, and subtract the second from the first. If the answer is positive, the approach makes money on average. If it is negative, it loses money on average, no matter how good a single screenshot looks.</p>
-        <p>The cleanest way to measure the wins and losses is in <strong>R</strong>, where 1R is the amount you risk on a trade. Measuring in R strips out account size and position size so you can compare one approach to another fairly. A trade that makes twice what you risked is +2R. A trade that hits your stop is −1R.</p>
+<p>A trader can win sixty percent of their trades and still go broke. That sentence sounds wrong until you understand expectancy, and once you do, it reorganizes how you judge every system you will ever trade. Win rate, the number most traders obsess over, is only half the story. Expectancy is the other half folded in: it combines how often you win with how much you win and lose into a single figure that tells you whether an approach can actually make money over time.</p>
+<p>This is the number professional traders quietly care about and amateurs often ignore, because win rate feels good and expectancy requires arithmetic. But the arithmetic is simple, and the payoff is enormous: expectancy is the closest thing trading has to a verdict on whether a system is worth running at all.</p>
+<p>Here is what expectancy actually measures and how to use it. In this guide we will cover why win rate lies on its own, what expectancy really captures, how to calculate your own, and how to use it to improve instead of just admire it.</p>
 
-        <h2>Why win rate on its own is misleading</h2>
-        <p>Here is the trap. A high win rate feels good because being right often is satisfying. But if your few losses are much larger than your many wins, a high win rate can still produce a negative expectancy. This is the classic shape of an account that looks great for weeks and then gives it all back in two trades.</p>
-        <p>The reverse is also true and far less intuitive. A trader can be wrong more often than right and still come out ahead, as long as the wins are big enough relative to the losses. Low win rate does not mean a bad approach. It means the math has to be carried by the size of the wins instead of their frequency.</p>
-        <p>The illustrative comparison below shows two hypothetical approaches. One wins more often. The other wins less often but lets its winners run further. Expectancy is what tells them apart.</p>
+<h2>Key Takeaways</h2>
+<ul>
+<li><strong>Win rate alone is misleading.</strong> A high win rate can still lose money if the losses are bigger than the wins.</li>
+<li><strong>Expectancy is the real verdict.</strong> It blends win rate with the average size of wins and losses into one number.</li>
+<li><strong>Positive expectancy is the goal.</strong> A system with positive expectancy makes money over enough trades; negative expectancy bleeds it.</li>
+<li><strong>The formula is simple.</strong> Win rate times average win, minus loss rate times average loss.</li>
+<li><strong>It guides improvement.</strong> You raise expectancy by improving win rate, cutting losses, or letting winners run, not by chasing win rate alone.</li>
+</ul>
 
-        <figure class="bp-figure" id="expfig">
-          <span class="figtag">Illustrative example</span>
-          <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif" role="img" aria-label="Two columns comparing the per-trade expectancy of two hypothetical approaches. The higher win rate approach has a smaller expectancy than the lower win rate approach with bigger winners.">
-            <!-- title -->
-            <text x="40" y="40" fill="#ffffff" font-size="17" font-weight="700">Two hypothetical approaches, same risk per trade</text>
-            <!-- baseline (zero) -->
-            <line x1="120" y1="282" x2="900" y2="282" stroke="hsla(0,0%,100%,.22)" stroke-width="1.5"/>
-            <text x="40" y="287" fill="#9fb0c3" font-size="12">0R</text>
-            <!-- Column A: 60% win, 1:1 -> +0.2R -> 60px tall, top at 222 -->
-            <rect class="anim bar" x="290" y="222" width="120" height="60" rx="5" fill="#22d3a8" fill-opacity=".55"/>
-            <text class="anim lbl" x="350" y="206" fill="#22d3a8" font-size="20" font-weight="700" text-anchor="middle">+0.2R</text>
-            <text class="anim lbl" x="350" y="308" fill="#cbd5e3" font-size="14" font-weight="600" text-anchor="middle">Approach A</text>
-            <text class="anim lbl" x="350" y="330" fill="#9fb0c3" font-size="12.5" text-anchor="middle">Wins 60%, wins = losses</text>
-            <!-- Column B: 40% win, wins 3x losses -> +0.6R -> 180px tall, top at 102 -->
-            <rect class="anim bar b2" x="610" y="102" width="120" height="180" rx="5" fill="#22d3a8" fill-opacity=".9"/>
-            <text class="anim lbl l2" x="670" y="86" fill="#22d3a8" font-size="20" font-weight="700" text-anchor="middle">+0.6R</text>
-            <text class="anim lbl l2" x="670" y="308" fill="#cbd5e3" font-size="14" font-weight="600" text-anchor="middle">Approach B</text>
-            <text class="anim lbl l2" x="670" y="330" fill="#9fb0c3" font-size="12.5" text-anchor="middle">Wins 40%, wins 3x losses</text>
-          </svg>
-          <figcaption>Illustrative example only. Bars show hypothetical expectancy per trade in R. Approach A wins more often but earns less per trade than Approach B. These figures are simplified to make the point and are not data, a forecast, or based on any actual trader results.</figcaption>
-        </figure>
+<h2>Table of Contents</h2>
+<ul class="table-of-contents">
+<li><a href="#s1">Why Win Rate Lies on Its Own</a></li>
+<li><a href="#s2">What Expectancy Actually Measures</a></li>
+<li><a href="#s3">How to Calculate Your Own Expectancy</a></li>
+<li><a href="#s4">How to Use Expectancy to Improve</a></li>
+<li><a href="#s5">The TradeFundrr Standard: Trade the Math</a></li>
+</ul>
 
-        <h2>A worked example in plain numbers</h2>
-        <p>Take Approach B above. It wins 40% of the time, and a win is worth three times what a loss costs. Risking 1R per trade, the average win is +3R and the average loss is −1R. Run the formula:</p>
-        <p><strong>(0.40 × 3R) − (0.60 × 1R) = 1.2R − 0.6R = +0.6R per trade.</strong></p>
-        <p>So even though this approach is wrong more often than it is right, it earns about six-tenths of one unit of risk every time you trade it, on average. Compare that to Approach A, which wins 60% of the time but only makes what it risks: (0.60 × 1R) − (0.40 × 1R) = +0.2R. Both are positive. One is three times stronger. Win rate alone would have ranked them the other way around.</p>
-        <p>These are hypothetical figures chosen to illustrate the math, not numbers you should expect to produce. The point is the method, not the values.</p>
+<h2 id="s1">Why Win Rate Lies on Its Own</h2>
+<p>Win rate is seductive because it is easy to understand and feels like a report card. Win seven out of ten trades and you feel like a good trader. But win rate says nothing about the size of those wins and losses, and size is where accounts are made or lost. A trader who wins often but loses big on the few losers can easily have a losing system, while a trader who wins rarely but wins large can be highly profitable.</p>
+<p>This is why win rate on its own lies. It answers "how often am I right" when the question that determines your account balance is "how much do I make when right versus how much do I lose when wrong." A system is not good because it wins frequently; it is good because the math across all its trades comes out positive. Win rate is one input to that math, not the answer.</p>
+<h3>Winning Often and Losing Anyway</h3>
+<p>Picture a strategy that wins seventy percent of the time but where each loss is four times the size of each win. It feels like a winner because most trades are green, but the few large losses quietly swamp the many small wins. Traders running systems like this are often baffled by their shrinking accounts, because the win rate keeps telling them they are doing fine. The win rate is not lying on purpose; it is simply answering a different question than the one that matters.</p>
+<h3>The Question That Actually Matters</h3>
+<p>The question that determines whether you make money is not how often you win but whether your wins, in aggregate, outweigh your losses. That requires accounting for both frequency and size at once, which is exactly what win rate refuses to do alone. To answer it, you need a number that holds both halves together, and that number is expectancy.</p>
 
-        <h2>Why this matters more than it sounds</h2>
-        <p>Expectancy is the bridge between a single trade and a long run of them. One trade is mostly noise. You can do everything right and lose, or everything wrong and win. Over a hundred trades, expectancy is what actually shows up in the account. It is the difference between an approach that survives a bad week and one that does not.</p>
-        <p>It also changes how you read a losing stretch. If your expectancy is genuinely positive and you keep following the same process, a run of losses is uncomfortable but expected. It is variance doing what variance does. The mistake is concluding the approach is broken and abandoning a positive-expectancy method right before it would have paid off. Expectancy gives you a reason to keep your hands steady.</p>
+<h2 id="s2">What Expectancy Actually Measures</h2>
+<p>Expectancy tells you the average amount you can expect to win or lose per trade, across many trades, given your system's win rate and the typical size of your wins and losses. It is, in plain terms, the average outcome of a single trade in your system once you account for everything. A positive expectancy means each trade, on average, adds to your account. A negative one means each trade, on average, subtracts from it.</p>
+<p>That framing is powerful because it collapses a complicated system into one honest number. It does not care how a trade feels or how clever the setup looked. It only asks: over a large sample, does this approach put money in or take money out, on average, per trade? That is the question a trading business actually runs on.</p>
 
-        <h2>How to find your own number</h2>
-        <p>You cannot calculate expectancy without a record, which is the quiet reason a trading journal matters so much. Log every trade in R: what you risked, what you made or lost, whether it was a win or a loss. After a meaningful sample, calculate your real win rate, your real average win, and your real average loss, then run the formula.</p>
-        <p>A few honest cautions. A small sample lies. Twenty trades is not enough to trust a number, because one outlier swings the average. Expectancy also drifts as conditions change, so it is something you recheck, not something you measure once and frame on the wall. And a positive expectancy on paper still has to survive contact with slippage, fees, and your own discipline in the moment.</p>
+<figure class="bp-figure">
+  <span class="figtag">What it measures</span>
+  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3BfcbxrFRt8H454aOmXCBJN069K/hf_20260629_001309_865c2164-e4d3-4ea2-ad74-ccf670435011.png" alt="Infographic showing the expectancy formula: expectancy equals win rate times average win minus loss rate times average loss, with notes that positive expectancy makes money over time and that a 60 percent win rate can still lose if losses are too big, and that win rate is only half the story." loading="lazy">
+</figure>
 
-        <h2>The honest version</h2>
-        <p>Expectancy does not predict your next trade and it does not promise a result. It is a way of asking whether the thing you are doing makes sense over time, instead of judging it by the last outcome you happened to get. A positive number is a reason to keep going. A negative one is a reason to change the approach before the account does it for you.</p>
-        <p>The useful place to learn this is where a bad sample costs you nothing. In a simulated environment you can build a real record, calculate your real expectancy, and find out whether your approach holds up, all before any of it touches your own capital.</p>
+<h3>Frequency and Size, Held Together</h3>
+<p>The whole value of expectancy is that it refuses to let you look at frequency or size in isolation. A great win rate with terrible loss control nets out to a number you can finally see. A modest win rate with excellent reward-to-risk does too. By holding both together, expectancy stops you from being fooled by the half of the picture that happens to look flattering.</p>
+<h3>Positive, Negative, and Why It Decides Everything</h3>
+<p>Once you have an expectancy number, the verdict is binary in direction. Positive expectancy means the system is worth trading, because more trades mean more expected profit. Negative expectancy means the opposite, and no amount of position sizing or discipline can rescue a system that loses money on average per trade. Expectancy is the line between a system worth running and one worth abandoning.</p>
 
-        <div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. Nothing here is a guarantee of profit or trading results, and all figures and shapes above are hypothetical illustrations, not actual trades or payouts. The focus is development, discipline, and a clear path to funding for traders who follow the rules.</div>
+<div class="bp-midcta"><strong>Want to develop a system you can measure?</strong> <a href="https://tradefundrr.com/#markets">Trade it in a simulated environment first</a>.</div>
+
+<h2 id="s3">How to Calculate Your Own Expectancy</h2>
+<p>The formula is simple enough to do on a notepad. Expectancy equals your win rate times your average win, minus your loss rate times your average loss. Your win rate is the fraction of trades that are profitable; your loss rate is one minus that. Your average win and average loss are exactly what they sound like, drawn from your own trade history. The result is the average amount you can expect each trade to contribute.</p>
+<p>The only real requirement is honest data. Expectancy calculated from a handful of trades or from a flattering selection of them tells you nothing reliable. You need a meaningful sample of your actual trades, wins and losses alike, recorded faithfully. This is one of the strongest arguments for keeping a trading journal: without recorded results, you cannot compute the one number that tells you whether your system works.</p>
+<h3>The Formula in Plain Terms</h3>
+<p>Read the formula as a sentence: on average, I win this often and make this much when I do, and I lose the rest of the time and give back this much when I do, so the net per trade is this. If that net is positive, the system is an engine that produces money as you feed it trades. If it is negative, it is a machine that consumes your account the more you use it.</p>
+<h3>Why Honest Data Is Non-Negotiable</h3>
+<p>Expectancy is only as truthful as the trades you feed it. Cherry-picking your best stretch, forgetting the losses, or working from memory all produce a number that lies. The discipline of recording every trade, exactly as it happened, is what makes the calculation worth doing. Garbage in, comforting nonsense out; honest data in, a real verdict out.</p>
+
+<h2 id="s4">How to Use Expectancy to Improve</h2>
+<p>Knowing your expectancy is only useful if you act on it, and the formula itself shows you the levers. There are exactly three ways to raise expectancy: win more often, lose less when you lose, or win more when you win. Most traders fixate only on the first, chasing a higher win rate, when the other two are often easier and more powerful.</p>
+<div class="bp-checklist">
+<strong>To raise your expectancy:</strong>
+<ul>
+<li><strong>Cut your losses smaller.</strong> Reducing your average loss lifts expectancy without touching your win rate at all.</li>
+<li><strong>Let winners run further.</strong> Increasing your average win can turn a mediocre system positive.</li>
+<li><strong>Improve win rate only without wrecking the rest.</strong> A higher win rate helps, but not if it shrinks your wins or grows your losses.</li>
+<li><strong>Track expectancy over a real sample.</strong> Judge changes across many trades, not a few lucky ones.</li>
+<li><strong>Drop negative-expectancy setups.</strong> If a setup nets negative across a real sample, stop trading it.</li>
+</ul>
+</div>
+<h3>The Three Levers You Actually Control</h3>
+<p>Seeing the three levers clearly is liberating, because it shifts the focus from the one thing traders obsess over, being right, to the things that often matter more, managing losses and capturing wins. A trader who simply cuts their average loss can flip a losing system to a winning one without ever improving their entries. Expectancy points you straight at the highest-leverage change.</p>
+
+<div class="bp-midcta"><strong>Refine the levers without risking your savings.</strong> <a href="https://tradefundrr.com/#markets">Start in a simulated environment</a>.</div>
+
+<h2 id="s5">The TradeFundrr Standard: Trade the Math</h2>
+<p>The most professional shift a trader can make is to stop judging a system by how it feels and start judging it by its expectancy. Win rate flatters and misleads; expectancy tells the truth, because it accounts for the size of your wins and losses, not just their frequency. A system with positive expectancy is a business worth running, and one with negative expectancy is a leak no discipline can plug.</p>
+<p>This is exactly the kind of thinking a structured, simulated environment is built to support. You can compute and refine your expectancy against real market data, across a meaningful sample of trades, without your savings riding on each one. The number you build is real and transferable, and the discipline of trading by the math rather than the feeling is the habit that carries to any account.</p>
+<p>Expectancy is the one number that tells you whether a system works, because it answers the only question that matters: across many trades, does this approach add to your account on average or subtract from it? TradeFundrr gives you a structured, simulated environment to develop, measure, and improve a positive-expectancy system with clear rules. Track honest data, work the three levers, and let the math, not the win rate, decide what you trade.</p>
+
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<details>
+<summary>What is expectancy in trading?</summary>
+<div class="ans">Expectancy is the average amount you can expect to win or lose per trade across many trades, given your win rate and the typical size of your wins and losses. A positive expectancy means each trade adds to your account on average; a negative one means each trade subtracts. It is the single number that says whether a system actually works.</div>
+</details>
+<details>
+<summary>How is expectancy calculated?</summary>
+<div class="ans">Expectancy equals your win rate times your average win, minus your loss rate times your average loss. Your win rate is the fraction of profitable trades and your loss rate is one minus that. The result is the average contribution of a single trade. It only works with honest data drawn from a meaningful sample of your real trades.</div>
+</details>
+<details>
+<summary>Can I have a high win rate and still lose money?</summary>
+<div class="ans">Yes, and it is common. If your losses are much larger than your wins, even a seventy percent win rate can net out negative, because the few large losses swamp the many small wins. That is exactly why win rate alone is misleading, and why expectancy, which accounts for size as well as frequency, is the number that matters.</div>
+</details>
+<details>
+<summary>What is a good expectancy?</summary>
+<div class="ans">Any positive expectancy means the system makes money on average per trade, which is the threshold that matters; higher is better. There is no universal target number, because it depends on your strategy and how many trades you take. The key distinction is direction: positive is worth trading, negative is not, regardless of how good the win rate looks.</div>
+</details>
+<details>
+<summary>How do I improve my expectancy?</summary>
+<div class="ans">There are three levers: win more often, lose less when you lose, or win more when you win. Most traders fixate on win rate, but cutting your average loss or letting winners run is often easier and more powerful. A trader can flip a losing system positive simply by reducing the average loss, without improving entries at all.</div>
+</details>
+<details>
+<summary>Why do I need a journal to use expectancy?</summary>
+<div class="ans">Because expectancy is only as truthful as the data you feed it. Calculating it from memory, a few trades, or a flattering selection produces a number that lies. You need a faithful record of every trade, wins and losses alike, across a meaningful sample. That is one of the strongest practical reasons to keep a trading journal.</div>
+</details>
+<details>
+<summary>Does expectancy work in a simulated account?</summary>
+<div class="ans">Yes. A structured, simulated environment lets you compute and refine your expectancy against real market data across a real sample of trades, without your savings on each one. The expectancy you build there is a genuine measure of your system, and trading by the math rather than the feeling is a habit that transfers to any account.</div>
+</details>
+</div>
+
+<div class="bp-disclaimer">TradeFundrr provides a structured, simulated trading environment. This article is educational and is not financial advice or a guarantee of any result. No trading method guarantees profits, and past results do not predict future performance. T3 Trading Group is the registered entity (SEC, FINRA, SIPC); T3 Global is a separate business unit and is not itself a broker-dealer.</div>
 
         <div class="bp-cta">
-          <h3>Build a record worth measuring</h3>
-          <p>Develop a positive, repeatable approach in a structured, simulated environment, without risking your own capital.</p>
-          <a class="btn" href="/index.html#markets">Get Funded →</a>
+          <h3>Trade a system you can actually measure</h3>
+          <p>Develop a positive-expectancy approach in a structured, simulated environment with clear rules.</p>
+          <a class="btn" href="https://tradefundrr.com/#markets">Get Funded &rarr;</a>
         </div>
 
-        <a class="bp-back" href="/blog">← Back to all posts</a>
+        <a class="bp-back" href="/blog">&larr; Back to all posts</a>
       </div>
     </article>
   </div>
@@ -331,17 +328,6 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
-<script>
-  (function(){
-    var el=document.getElementById('expfig');
-    if(!el)return;
-    if(!('IntersectionObserver' in window)){el.classList.add('play');return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ el.classList.add('play'); io.disconnect(); } });
-    },{threshold:.35});
-    io.observe(el);
-  })();
-</script>
 <style>
   .bp-lightbox{position:fixed;inset:0;background:rgba(3,5,11,.94);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
   .bp-lightbox.open{display:flex}
