@@ -2310,7 +2310,7 @@ document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=((i%6
   var played=false;
   function go(){ if(played) return; played=true; arm(); watchProgress(); var p=v.play(); if(p&&p.catch){ p.catch(reveal); } }
   if(!('IntersectionObserver' in window)){ go(); return; }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ go(); io.disconnect(); } }); },{threshold:0.35});
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ go(); io.disconnect(); } }); },{threshold:0.6});
   io.observe(stage);
 })();
 </script>
